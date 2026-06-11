@@ -1,0 +1,2615 @@
+[
+    {
+        "italian": "annoiarsi",
+        "alternatives": [
+            "to be bored",
+            "to feel bored"
+        ],
+        "english": "to get bored",
+        "id": "1251",
+        "level": "A2",
+        "frequencyRank": 1251,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "divertirsi",
+        "alternatives": [
+            "enjoy oneself",
+            "to amuse oneself"
+        ],
+        "english": "to have fun",
+        "id": "1252",
+        "level": "A2",
+        "frequencyRank": 1252,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "svegliarsi",
+        "alternatives": [
+            "to awaken",
+            "to rouse"
+        ],
+        "english": "to wake up",
+        "id": "1253",
+        "level": "A2",
+        "frequencyRank": 1253,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "alzarsi",
+        "alternatives": [
+            "to stand up",
+            "to rise"
+        ],
+        "english": "to get up",
+        "id": "1254",
+        "level": "A2",
+        "frequencyRank": 1254,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "lavarsi",
+        "alternatives": [
+            "to wash (intransitive)",
+            "have a wash",
+            "wash",
+            "to get washed",
+            "to clean oneself"
+        ],
+        "english": "to wash oneself",
+        "id": "1255",
+        "level": "A2",
+        "frequencyRank": 1255,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "vestirsi",
+        "alternatives": [
+            "dress",
+            "to put on clothes"
+        ],
+        "english": "to get dressed",
+        "id": "1256",
+        "level": "A2",
+        "frequencyRank": 1256,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "addormentarsi",
+        "alternatives": [
+            "to go to sleep",
+            "to drop off"
+        ],
+        "english": "to fall asleep",
+        "id": "1257",
+        "level": "A2",
+        "frequencyRank": 1257,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "sedersi",
+        "alternatives": [
+            "take a seat",
+            "to sit"
+        ],
+        "english": "to sit down",
+        "id": "1258",
+        "level": "A2",
+        "frequencyRank": 1258,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "alzarsi in piedi",
+        "alternatives": [
+            "to get up",
+            "to get to one's feet",
+            "to rise"
+        ],
+        "english": "to stand up",
+        "id": "1259",
+        "level": "A2",
+        "frequencyRank": 1259,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "innamorarsi",
+        "alternatives": [],
+        "english": "to fall in love",
+        "id": "1260",
+        "level": "A2",
+        "frequencyRank": 1260,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "fidanzato",
+        "alternatives": [
+            "fiancé",
+            "significant other",
+            "partner"
+        ],
+        "english": "boyfriend",
+        "id": "1261",
+        "level": "A2",
+        "frequencyRank": 1261,
+        "inflections": "Noun: il fidanzato, i fidanzati",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "fidanzata",
+        "alternatives": [
+            "fiancée",
+            "significant other",
+            "partner"
+        ],
+        "english": "girlfriend",
+        "id": "1262",
+        "level": "A2",
+        "frequencyRank": 1262,
+        "inflections": "Noun: la fidanzata, le fidanzate",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "fidanzarsi",
+        "alternatives": [
+            "to become engaged"
+        ],
+        "english": "to get engaged",
+        "id": "1263",
+        "level": "A2",
+        "frequencyRank": 1263,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "divorziare",
+        "alternatives": [
+            "to get divorced",
+            "to separate (legally)"
+        ],
+        "english": "to divorce",
+        "id": "1264",
+        "level": "A2",
+        "frequencyRank": 1264,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "divorzio",
+        "alternatives": [
+            "legal separation"
+        ],
+        "english": "divorce",
+        "id": "1265",
+        "level": "A2",
+        "frequencyRank": 1265,
+        "inflections": "Noun: il divorzio, i divorzi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "convivente",
+        "alternatives": [
+            "live-in partner"
+        ],
+        "english": "partner",
+        "id": "1266",
+        "level": "A2",
+        "frequencyRank": 1266,
+        "inflections": "Noun: il convivente, i conviventi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "suocero",
+        "alternatives": [],
+        "english": "father-in-law",
+        "id": "1268",
+        "level": "A2",
+        "frequencyRank": 1268,
+        "inflections": "Noun: il suocero, i suoceri",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "suocera",
+        "alternatives": [],
+        "english": "mother-in-law",
+        "id": "1269",
+        "level": "A2",
+        "frequencyRank": 1269,
+        "inflections": "Noun: la suocera, le suocere",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "cognato",
+        "alternatives": [],
+        "english": "brother-in-law",
+        "id": "1270",
+        "level": "A2",
+        "frequencyRank": 1270,
+        "inflections": "Noun: il cognato, i cognati",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "cognata",
+        "alternatives": [],
+        "english": "sister-in-law",
+        "id": "1271",
+        "level": "A2",
+        "frequencyRank": 1271,
+        "inflections": "Noun: la cognata, le cognate",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "genero",
+        "alternatives": [],
+        "english": "son-in-law",
+        "id": "1272",
+        "level": "A2",
+        "frequencyRank": 1272,
+        "inflections": "Noun: il genero, i generi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "nuora",
+        "alternatives": [],
+        "english": "daughter-in-law",
+        "id": "1273",
+        "level": "A2",
+        "frequencyRank": 1273,
+        "inflections": "Noun: la nuora, le nuore",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "gemello",
+        "alternatives": [
+            "twin brother"
+        ],
+        "english": "twin",
+        "id": "1274",
+        "level": "A2",
+        "frequencyRank": 1274,
+        "inflections": "Noun: il gemello, i gemelli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "adottare",
+        "alternatives": [
+            "to take in (a child)"
+        ],
+        "english": "to adopt",
+        "id": "1275",
+        "level": "A2",
+        "frequencyRank": 1275,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "geografía",
+        "alternatives": [],
+        "english": "geography",
+        "id": "1276",
+        "level": "A2",
+        "frequencyRank": 1276,
+        "inflections": "Noun: la geografia, le geografie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "scienze",
+        "alternatives": [
+            "sciences"
+        ],
+        "english": "science",
+        "id": "1279",
+        "level": "A2",
+        "frequencyRank": 1279,
+        "inflections": "Noun: la scienza, le scienze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "informatica",
+        "alternatives": [
+            "computing",
+            "it"
+        ],
+        "english": "computer science",
+        "id": "1280",
+        "level": "A2",
+        "frequencyRank": 1280,
+        "inflections": "Noun: l'informatica, le informatiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "educazione fisica",
+        "alternatives": [
+            "gym class",
+            "pe"
+        ],
+        "english": "physical education",
+        "id": "1281",
+        "level": "A2",
+        "frequencyRank": 1281,
+        "inflections": "Noun: l'educazione fisica, le educazioni fisiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "arte",
+        "alternatives": [
+            "fine arts"
+        ],
+        "english": "art",
+        "id": "1282",
+        "level": "A2",
+        "frequencyRank": 1282,
+        "inflections": "Noun: l'arte, le arti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "filosofia",
+        "alternatives": [],
+        "english": "philosophy",
+        "id": "1283",
+        "level": "A2",
+        "frequencyRank": 1283,
+        "inflections": "Noun: la filosofia, le filosofie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "compiti",
+        "alternatives": [
+            "schoolwork",
+            "assignments"
+        ],
+        "english": "homework",
+        "id": "1284",
+        "level": "A2",
+        "frequencyRank": 1284,
+        "inflections": "Noun: il compito, i compiti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "pagella",
+        "alternatives": [
+            "report card"
+        ],
+        "english": "school report",
+        "id": "1285",
+        "level": "A2",
+        "frequencyRank": 1285,
+        "inflections": "Noun: la pagella, le pagelle",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "interrogazione",
+        "alternatives": [
+            "oral test"
+        ],
+        "english": "oral exam",
+        "id": "1286",
+        "level": "A2",
+        "frequencyRank": 1286,
+        "inflections": "Noun: l'interrogazione, le interrogazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "bocciare",
+        "alternatives": [
+            "to fail (a student)",
+            "to fail (an exam)",
+            "flunk"
+        ],
+        "english": "to fail",
+        "id": "1287",
+        "level": "A2",
+        "frequencyRank": 1287,
+        "partOfSpeech": "verb"
+    },
+    {
+        "id": "1288",
+        "italian": "promuovere",
+        "english": "to pass",
+        "alternatives": [
+            "to advance (a student)"
+        ],
+        "level": "A2",
+        "frequencyRank": 1288,
+        "partOfSpeech": "verb"
+    },
+    {
+        "id": "1289",
+        "italian": "pallavolo",
+        "english": "volleyball",
+        "alternatives": [],
+        "level": "A2",
+        "frequencyRank": 1289,
+        "inflections": "Noun: la pallavolo, le pallavolo",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1290",
+        "italian": "basket",
+        "english": "basketball",
+        "alternatives": [],
+        "level": "A2",
+        "frequencyRank": 1290,
+        "inflections": "Noun: il basket, i basket",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1291",
+        "italian": "nuotare",
+        "english": "to swim",
+        "alternatives": [
+            "go swimming"
+        ],
+        "level": "A2",
+        "frequencyRank": 1291,
+        "partOfSpeech": "verb"
+    },
+    {
+        "id": "1292",
+        "italian": "sciare",
+        "english": "to ski",
+        "alternatives": [
+            "go skiing"
+        ],
+        "level": "A2",
+        "frequencyRank": 1292,
+        "partOfSpeech": "verb"
+    },
+    {
+        "id": "1294",
+        "italian": "allenarsi",
+        "english": "to train",
+        "alternatives": [
+            "work out",
+            "to practice"
+        ],
+        "level": "A2",
+        "frequencyRank": 1294,
+        "partOfSpeech": "verb"
+    },
+    {
+        "id": "1295",
+        "italian": "vincitore",
+        "english": "winner",
+        "alternatives": [
+            "victor",
+            "champion"
+        ],
+        "level": "A2",
+        "frequencyRank": 1295,
+        "inflections": "Noun: il vincitore, i vincitori",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1296",
+        "italian": "perdente",
+        "english": "loser",
+        "alternatives": [
+            "losing",
+            "loser (as an adjective)",
+            "defeated one"
+        ],
+        "level": "A2",
+        "frequencyRank": 1296,
+        "inflections": "Noun: il perdente, i perdenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1297",
+        "italian": "campione",
+        "english": "champion",
+        "alternatives": [
+            "titleholder",
+            "winner"
+        ],
+        "level": "A2",
+        "frequencyRank": 1297,
+        "inflections": "Noun: il campione, i campioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1298",
+        "italian": "tifoso",
+        "english": "fan",
+        "alternatives": [
+            "supporter",
+            "enthusiast"
+        ],
+        "level": "A2",
+        "frequencyRank": 1298,
+        "inflections": "Noun: il tifoso, i tifosi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1299",
+        "italian": "polmone",
+        "english": "lung",
+        "alternatives": [],
+        "level": "A2",
+        "frequencyRank": 1299,
+        "inflections": "Noun: il polmone, i polmoni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1300",
+        "italian": "rene",
+        "english": "kidney",
+        "alternatives": [],
+        "level": "A2",
+        "frequencyRank": 1300,
+        "inflections": "Noun: il rene, i reni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1301",
+        "italian": "fegato",
+        "english": "liver",
+        "alternatives": [],
+        "level": "B1",
+        "frequencyRank": 1301,
+        "inflections": "Noun: il fegato, i fegati",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1302",
+        "italian": "muscolo",
+        "english": "muscle",
+        "alternatives": [],
+        "level": "B1",
+        "frequencyRank": 1302,
+        "inflections": "Noun: il muscolo, i muscoli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1303",
+        "italian": "osso",
+        "english": "bone",
+        "alternatives": [],
+        "level": "B1",
+        "frequencyRank": 1303,
+        "inflections": "Noun: l'osso, le ossa",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1304",
+        "italian": "pelle",
+        "english": "skin",
+        "alternatives": [
+            "hide",
+            "complexion"
+        ],
+        "level": "B1",
+        "frequencyRank": 1304,
+        "inflections": "Noun: la pelle, le pelli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1306",
+        "italian": "arteria",
+        "english": "artery",
+        "alternatives": [
+            "blood vessel"
+        ],
+        "level": "B1",
+        "frequencyRank": 1306,
+        "inflections": "Noun: l'arteria, le arterie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1307",
+        "italian": "nervo",
+        "english": "nerve",
+        "alternatives": [],
+        "level": "B1",
+        "frequencyRank": 1307,
+        "inflections": "Noun: il nervo, i nervi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1308",
+        "italian": "sangue",
+        "english": "blood",
+        "alternatives": [
+            "lifeblood"
+        ],
+        "level": "B1",
+        "frequencyRank": 1308,
+        "inflections": "Noun: il sangue, i sanguini",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1309",
+        "italian": "pressione sanguigna",
+        "english": "blood pressure",
+        "alternatives": [
+            "arterial pressure"
+        ],
+        "level": "B1",
+        "frequencyRank": 1309,
+        "inflections": "Noun: la pressione sanguigna, le pressioni sanguigne",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1310",
+        "italian": "polso",
+        "english": "wrist",
+        "alternatives": [
+            "pulse"
+        ],
+        "level": "B1",
+        "frequencyRank": 1310,
+        "inflections": "Noun: il polso, i polsi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1311",
+        "italian": "caviglia",
+        "english": "ankle",
+        "alternatives": [],
+        "level": "B1",
+        "frequencyRank": 1311,
+        "inflections": "Noun: la caviglia, le caviglie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1312",
+        "italian": "ginocchio",
+        "english": "knee",
+        "alternatives": [],
+        "level": "B1",
+        "frequencyRank": 1312,
+        "inflections": "Noun: il ginocchio, le ginocchia",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1314",
+        "italian": "spalla",
+        "english": "shoulder",
+        "alternatives": [],
+        "level": "B1",
+        "frequencyRank": 1314,
+        "inflections": "Noun: la spalla, le spalle",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1315",
+        "italian": "petto",
+        "english": "chest",
+        "alternatives": [
+            "breast"
+        ],
+        "level": "B1",
+        "frequencyRank": 1315,
+        "inflections": "Noun: il petto, i petti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1316",
+        "italian": "collo",
+        "english": "neck",
+        "alternatives": [
+            "throat"
+        ],
+        "level": "B1",
+        "frequencyRank": 1316,
+        "inflections": "Noun: il collo, i colli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1317",
+        "italian": "mento",
+        "english": "chin",
+        "alternatives": [
+            "jawline"
+        ],
+        "level": "B1",
+        "frequencyRank": 1317,
+        "inflections": "Noun: il mento, i menti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1318",
+        "italian": "guancia",
+        "english": "cheek",
+        "alternatives": [
+            "side of face"
+        ],
+        "level": "B1",
+        "frequencyRank": 1318,
+        "inflections": "Noun: la guancia, le guance",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1319",
+        "italian": "sopracciglio",
+        "english": "eyebrow",
+        "alternatives": [
+            "brow"
+        ],
+        "level": "B1",
+        "frequencyRank": 1319,
+        "inflections": "Noun: il sopracciglio, le sopracciglia",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1320",
+        "italian": "ciglio",
+        "english": "eyelash",
+        "alternatives": [
+            "lash"
+        ],
+        "level": "B1",
+        "frequencyRank": 1320,
+        "inflections": "Noun: il ciglio, le ciglia",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1321",
+        "italian": "leone",
+        "english": "lion",
+        "alternatives": [
+            "big cat"
+        ],
+        "level": "B1",
+        "frequencyRank": 1321,
+        "inflections": "Noun: il leone, i leoni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1322",
+        "italian": "tigre",
+        "english": "tiger",
+        "alternatives": [
+            "big cat"
+        ],
+        "level": "B1",
+        "frequencyRank": 1322,
+        "inflections": "Noun: la tigre, le tigri",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1323",
+        "italian": "elefante",
+        "english": "elephant",
+        "alternatives": [],
+        "level": "B1",
+        "frequencyRank": 1323,
+        "inflections": "Noun: l'elefante, gli elefanti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1324",
+        "italian": "giraffa",
+        "english": "giraffe",
+        "alternatives": [],
+        "level": "B1",
+        "frequencyRank": 1324,
+        "inflections": "Noun: la giraffa, le giraffe",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1325",
+        "italian": "scimmia",
+        "english": "monkey",
+        "alternatives": [
+            "primate",
+            "ape"
+        ],
+        "level": "B1",
+        "frequencyRank": 1325,
+        "inflections": "Noun: la scimmia, le scimmie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1326",
+        "italian": "orso",
+        "english": "bear",
+        "alternatives": [],
+        "level": "B1",
+        "frequencyRank": 1326,
+        "inflections": "Noun: l'orso, gli orsi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "wolf",
+        "frequencyRank": 1327,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1327",
+        "italian": "lupo",
+        "inflections": "Noun: il lupo, i lupi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "fox",
+        "frequencyRank": 1328,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1328",
+        "italian": "volpe",
+        "inflections": "Noun: la volpe, le volpi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "deer",
+        "frequencyRank": 1329,
+        "alternatives": [
+            "stag"
+        ],
+        "level": "B1",
+        "id": "1329",
+        "italian": "cervo",
+        "inflections": "Noun: il cervo, i cervi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "eagle",
+        "frequencyRank": 1330,
+        "alternatives": [
+            "raptor",
+            "bird of prey"
+        ],
+        "level": "B1",
+        "id": "1330",
+        "italian": "aquila",
+        "inflections": "Noun: l'aquila, le aquile",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "owl",
+        "frequencyRank": 1331,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1331",
+        "italian": "gufo",
+        "inflections": "Noun: il gufo, i gufi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "parrot",
+        "frequencyRank": 1332,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1332",
+        "italian": "pappagallo",
+        "inflections": "Noun: il pappagallo, i pappagalli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "snake",
+        "frequencyRank": 1333,
+        "alternatives": [
+            "serpent"
+        ],
+        "level": "B1",
+        "id": "1333",
+        "italian": "serpente",
+        "inflections": "Noun: il serpente, i serpenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "turtle",
+        "frequencyRank": 1334,
+        "alternatives": [
+            "tortoise"
+        ],
+        "level": "B1",
+        "id": "1334",
+        "italian": "tartaruga",
+        "inflections": "Noun: la tartaruga, le tartarughe",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "frog",
+        "frequencyRank": 1335,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1335",
+        "italian": "rana",
+        "inflections": "Noun: la rana, le rane",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "butterfly",
+        "frequencyRank": 1336,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1336",
+        "italian": "farfalla",
+        "inflections": "Noun: la farfalla, le farfalle",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "bee",
+        "frequencyRank": 1337,
+        "alternatives": [
+            "honeybee"
+        ],
+        "level": "B1",
+        "id": "1337",
+        "italian": "ape",
+        "inflections": "Noun: l'ape, le api",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "mosquito",
+        "frequencyRank": 1338,
+        "alternatives": [
+            "gnat",
+            "pest"
+        ],
+        "level": "B1",
+        "id": "1338",
+        "italian": "zanzara",
+        "inflections": "Noun: la zanzara, le zanzare",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "spider",
+        "frequencyRank": 1339,
+        "alternatives": [
+            "arachnid"
+        ],
+        "level": "B1",
+        "id": "1339",
+        "italian": "ragno",
+        "inflections": "Noun: il ragno, i ragni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "dolphin",
+        "frequencyRank": 1340,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1340",
+        "italian": "delfino",
+        "inflections": "Noun: il delfino, i delfini",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "whale",
+        "frequencyRank": 1341,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1341",
+        "italian": "balena",
+        "inflections": "Noun: la balena, le balene",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "shark",
+        "frequencyRank": 1342,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1342",
+        "italian": "squalo",
+        "inflections": "Noun: lo squalo, gli squali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "octopus",
+        "frequencyRank": 1343,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1343",
+        "italian": "polpo",
+        "inflections": "Noun: il polpo, i polpi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "crab",
+        "frequencyRank": 1344,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1344",
+        "italian": "granchio",
+        "inflections": "Noun: il granchio, i granchi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "horse",
+        "frequencyRank": 1345,
+        "alternatives": [
+            "steed"
+        ],
+        "level": "B1",
+        "id": "1345",
+        "italian": "cavallo",
+        "inflections": "Noun: il cavallo, i cavalli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "cow",
+        "frequencyRank": 1346,
+        "alternatives": [
+            "cattle",
+            "bovine"
+        ],
+        "level": "B1",
+        "id": "1346",
+        "italian": "mucca",
+        "inflections": "Noun: la mucca, le mucche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "sheep",
+        "frequencyRank": 1347,
+        "alternatives": [
+            "ram",
+            "lamb",
+            "ewe"
+        ],
+        "level": "B1",
+        "id": "1347",
+        "italian": "pecora",
+        "inflections": "Noun: la pecora, le pecore",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "goat",
+        "frequencyRank": 1348,
+        "alternatives": [
+            "kid"
+        ],
+        "level": "B1",
+        "id": "1348",
+        "italian": "capra",
+        "inflections": "Noun: la capra, le capre",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "hen",
+        "frequencyRank": 1350,
+        "alternatives": [
+            "chicken",
+            "fowl"
+        ],
+        "level": "B1",
+        "id": "1350",
+        "italian": "gallina",
+        "inflections": "Noun: la gallina, le galline",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "meadow",
+        "frequencyRank": 1351,
+        "alternatives": [
+            "pasture",
+            "grassland",
+            "lawn",
+            "field"
+        ],
+        "level": "B1",
+        "id": "1351",
+        "italian": "prato",
+        "inflections": "Noun: il prato, i prati",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "wood",
+        "frequencyRank": 1352,
+        "alternatives": [
+            "woodland",
+            "grove",
+            "forest"
+        ],
+        "level": "B1",
+        "id": "1352",
+        "italian": "bosco",
+        "inflections": "Noun: il bosco, i boschi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "wave",
+        "frequencyRank": 1353,
+        "alternatives": [
+            "swell",
+            "billow"
+        ],
+        "level": "B1",
+        "id": "1353",
+        "italian": "onda",
+        "inflections": "Noun: l'onda, le onde",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "sand",
+        "frequencyRank": 1354,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1354",
+        "italian": "sabbia",
+        "inflections": "Noun: la sabbia, le sabbie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "rock",
+        "frequencyRank": 1355,
+        "alternatives": [
+            "stone",
+            "boulder"
+        ],
+        "level": "B1",
+        "id": "1355",
+        "italian": "roccia",
+        "inflections": "Noun: la roccia, le rocce",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "cave",
+        "frequencyRank": 1356,
+        "alternatives": [
+            "cavern",
+            "grotto"
+        ],
+        "level": "B1",
+        "id": "1356",
+        "italian": "grotta",
+        "inflections": "Noun: la grotta, le grotte",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "volcano",
+        "frequencyRank": 1357,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1357",
+        "italian": "vulcano",
+        "inflections": "Noun: il vulcano, i vulcani",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "earthquake",
+        "frequencyRank": 1358,
+        "alternatives": [
+            "quake",
+            "tremor"
+        ],
+        "level": "B1",
+        "id": "1358",
+        "italian": "terremoto",
+        "inflections": "Noun: il terremoto, i terremoti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "flood",
+        "frequencyRank": 1359,
+        "alternatives": [
+            "deluge"
+        ],
+        "level": "B1",
+        "id": "1359",
+        "italian": "alluvione",
+        "inflections": "Noun: l'alluvione, le alluvioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "drought",
+        "frequencyRank": 1360,
+        "alternatives": [
+            "dry spell"
+        ],
+        "level": "B1",
+        "id": "1360",
+        "italian": "siccità",
+        "inflections": "Noun: la siccità, le siccità",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "river",
+        "frequencyRank": 1361,
+        "alternatives": [
+            "stream",
+            "waterway"
+        ],
+        "level": "B1",
+        "id": "1361",
+        "italian": "fiume",
+        "inflections": "Noun: il fiume, i fiumi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "lake",
+        "frequencyRank": 1362,
+        "alternatives": [],
+        "level": "B1",
+        "id": "1362",
+        "italian": "lago",
+        "inflections": "Noun: il lago, i laghi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "peninsula",
+        "alternatives": [
+            "promontory",
+            "headland"
+        ],
+        "level": "B1",
+        "id": "1364",
+        "italian": "penisola",
+        "frequencyRank": 1364,
+        "inflections": "Noun: la penisola, le penisole",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "plain",
+        "alternatives": [
+            "flatland",
+            "grassland"
+        ],
+        "level": "B1",
+        "id": "1366",
+        "italian": "pianura",
+        "frequencyRank": 1366,
+        "inflections": "Noun: la pianura, le pianure",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "desert",
+        "alternatives": [
+            "wasteland"
+        ],
+        "level": "B1",
+        "id": "1367",
+        "italian": "deserto",
+        "frequencyRank": 1367,
+        "inflections": "Noun: il deserto, i deserti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "hill",
+        "alternatives": [
+            "mound",
+            "knoll",
+            "rise"
+        ],
+        "level": "B1",
+        "id": "1368",
+        "italian": "collina",
+        "frequencyRank": 1368,
+        "inflections": "Noun: la collina, le colline",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "forest",
+        "alternatives": [
+            "wood",
+            "jungle",
+            "woods",
+            "woodland"
+        ],
+        "level": "B1",
+        "id": "1370",
+        "italian": "foresta",
+        "frequencyRank": 1370,
+        "inflections": "Noun: la foresta, le foreste",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "basil",
+        "alternatives": [
+            "herb"
+        ],
+        "level": "B1",
+        "id": "1371",
+        "italian": "basilico",
+        "frequencyRank": 1371,
+        "inflections": "Noun: il basilico, i basilici",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "rosemary",
+        "alternatives": [],
+        "level": "B1",
+        "id": "1372",
+        "italian": "rosmarino",
+        "frequencyRank": 1372,
+        "inflections": "Noun: il rosmarino, i rosmarini",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "oregano",
+        "alternatives": [
+            "herb",
+            "wild marjoram"
+        ],
+        "level": "B1",
+        "id": "1373",
+        "italian": "origano",
+        "frequencyRank": 1373,
+        "inflections": "Noun: l'origano, gli origani",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "chilli",
+        "alternatives": [
+            "chili pepper",
+            "chili",
+            "hot pepper"
+        ],
+        "level": "B1",
+        "id": "1374",
+        "italian": "peperoncino",
+        "frequencyRank": 1374,
+        "inflections": "Noun: il peperoncino, i peperoncini",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "oil",
+        "alternatives": [
+            "cooking oil",
+            "olive oil"
+        ],
+        "level": "B1",
+        "id": "1376",
+        "italian": "olio",
+        "frequencyRank": 1376,
+        "inflections": "Noun: l'olio, gli oli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "flour",
+        "alternatives": [
+            "meal"
+        ],
+        "level": "B1",
+        "id": "1377",
+        "italian": "farina",
+        "frequencyRank": 1377,
+        "inflections": "Noun: la farina, le farine",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "honey",
+        "alternatives": [
+            "sweetener"
+        ],
+        "level": "B1",
+        "id": "1379",
+        "italian": "miele",
+        "frequencyRank": 1379,
+        "inflections": "Noun: il miele, i mieli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "jam",
+        "alternatives": [
+            "jelly",
+            "marmalade",
+            "fruit spread",
+            "preserve"
+        ],
+        "level": "B1",
+        "id": "1380",
+        "italian": "marmellata",
+        "frequencyRank": 1380,
+        "inflections": "Noun: la marmellata, le marmellate",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "ham",
+        "alternatives": [
+            "prosciutto",
+            "cured ham"
+        ],
+        "level": "B1",
+        "id": "1381",
+        "italian": "prosciutto",
+        "frequencyRank": 1381,
+        "inflections": "Noun: il prosciutto, i prosciutti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "salami",
+        "alternatives": [
+            "cured sausage",
+            "dried sausage"
+        ],
+        "level": "B1",
+        "id": "1382",
+        "italian": "salame",
+        "frequencyRank": 1382,
+        "inflections": "Noun: il salame, i salami",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "parmesan",
+        "alternatives": [
+            "parmesan cheese"
+        ],
+        "level": "B1",
+        "id": "1385",
+        "italian": "parmigiano",
+        "frequencyRank": 1385,
+        "inflections": "Noun: il parmigiano, i parmigiani",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "soup",
+        "alternatives": [
+            "stew",
+            "broth"
+        ],
+        "level": "B1",
+        "id": "1389",
+        "italian": "minestra",
+        "frequencyRank": 1389,
+        "inflections": "Noun: la minestra, le minestre",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "broth",
+        "alternatives": [
+            "stock"
+        ],
+        "level": "B1",
+        "id": "1390",
+        "italian": "brodo",
+        "frequencyRank": 1390,
+        "inflections": "Noun: il brodo, i brodi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "tiramisu",
+        "alternatives": [
+            "coffee dessert",
+            "italian dessert"
+        ],
+        "level": "B1",
+        "id": "1391",
+        "italian": "tiramisù",
+        "frequencyRank": 1391,
+        "inflections": "Noun: il tiramisù, i tiramisù",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "professor",
+        "alternatives": [
+            "teacher",
+            "scholar",
+            "academic",
+            "lecturer"
+        ],
+        "level": "B1",
+        "id": "1398",
+        "italian": "professore",
+        "frequencyRank": 1398,
+        "inflections": "Noun: il professore, i professori",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "doctor",
+        "alternatives": [
+            "dr",
+            "physician",
+            "medic",
+            "gp"
+        ],
+        "level": "B1",
+        "id": "1399",
+        "italian": "dottore",
+        "frequencyRank": 1399,
+        "inflections": "Noun: il dottore, i dottori",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "engineer",
+        "alternatives": [],
+        "level": "B1",
+        "id": "1400",
+        "italian": "ingegnere",
+        "frequencyRank": 1400,
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "architect",
+        "alternatives": [
+            "planner"
+        ],
+        "level": "B1",
+        "id": "1401",
+        "italian": "architetto",
+        "frequencyRank": 1401,
+        "inflections": "Noun: l'architetto, gli architetti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "accountant",
+        "alternatives": [
+            "tax accountant",
+            "auditor",
+            "bookkeeper",
+            "chartered accountant",
+            "financial advisor"
+        ],
+        "level": "B1",
+        "id": "1402",
+        "italian": "commercialista",
+        "frequencyRank": 1402,
+        "inflections": "Noun: il commercialista, i commercialisti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "notary",
+        "alternatives": [
+            "notary public"
+        ],
+        "level": "B1",
+        "id": "1403",
+        "italian": "notaio",
+        "frequencyRank": 1403,
+        "inflections": "Noun: il notaio, i notai",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "police officer",
+        "alternatives": [
+            "law enforcement officer",
+            "policeman",
+            "peace officer",
+            "cop"
+        ],
+        "level": "B1",
+        "id": "1404",
+        "italian": "poliziotto",
+        "frequencyRank": 1404,
+        "inflections": "Noun: il poliziotto, i poliziotti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "firefighter",
+        "alternatives": [
+            "fireman"
+        ],
+        "level": "B1",
+        "id": "1405",
+        "italian": "pompiere",
+        "frequencyRank": 1405,
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "soldier",
+        "alternatives": [
+            "military",
+            "trooper",
+            "serviceman"
+        ],
+        "level": "B1",
+        "id": "1406",
+        "italian": "militare",
+        "frequencyRank": 1406,
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1407,
+        "id": "1407",
+        "italian": "sacerdote",
+        "english": "priest",
+        "alternatives": [
+            "clergyman",
+            "minister",
+            "cleric"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il sacerdote, i sacerdoti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1408,
+        "id": "1408",
+        "italian": "parroco",
+        "english": "parish priest",
+        "alternatives": [
+            "rector",
+            "pastor",
+            "vicar"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il parroco, i parroci",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1409,
+        "id": "1409",
+        "italian": "giornalista",
+        "english": "journalist",
+        "alternatives": [
+            "news writer",
+            "reporter",
+            "correspondent"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il giornalista, i giornalisti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1410,
+        "id": "1410",
+        "italian": "scrittore",
+        "english": "writer",
+        "alternatives": [
+            "author"
+        ],
+        "level": "B1",
+        "inflections": "Noun: lo scrittore, gli scrittori",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1411,
+        "id": "1411",
+        "italian": "artista",
+        "english": "artist",
+        "alternatives": [],
+        "level": "B1",
+        "inflections": "Noun: l'artista, gli artisti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1412,
+        "id": "1412",
+        "italian": "musicista",
+        "english": "musician",
+        "alternatives": [
+            "instrumentalist",
+            "performer"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il musicista, i musicisti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1413,
+        "id": "1413",
+        "italian": "cantante",
+        "english": "singer",
+        "alternatives": [
+            "performer",
+            "vocalist"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il cantante, i cantanti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1414,
+        "id": "1414",
+        "italian": "pianista",
+        "english": "pianist",
+        "alternatives": [
+            "piano player",
+            "keyboardist"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il pianista, i pianisti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1415,
+        "id": "1415",
+        "italian": "cuoco",
+        "english": "cook",
+        "alternatives": [
+            "chef"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il cuoco, i cuochi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1416,
+        "id": "1416",
+        "italian": "cameriere",
+        "english": "waiter",
+        "alternatives": [
+            "server"
+        ],
+        "level": "B1",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1418,
+        "id": "1418",
+        "italian": "cassiere",
+        "english": "cashier",
+        "alternatives": [
+            "check-out clerk",
+            "teller"
+        ],
+        "level": "B1",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1419,
+        "id": "1419",
+        "italian": "autista",
+        "english": "driver",
+        "alternatives": [
+            "chauffeur"
+        ],
+        "level": "B1",
+        "inflections": "Noun: l'autista, gli autisti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1420,
+        "id": "1420",
+        "italian": "pilota",
+        "english": "pilot",
+        "alternatives": [
+            "aviator",
+            "flier",
+            "airman"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il pilota, i piloti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1421,
+        "id": "1421",
+        "italian": "elettricista",
+        "english": "electrician",
+        "alternatives": [
+            "electrical worker"
+        ],
+        "level": "B1",
+        "inflections": "Noun: l'elettricista, gli elettricisti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1422,
+        "id": "1422",
+        "italian": "idraulico",
+        "english": "plumber",
+        "alternatives": [
+            "pipefitter",
+            "plumbing technician"
+        ],
+        "level": "B1",
+        "inflections": "Noun: l'idraulico, gli idraulici",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1423,
+        "id": "1423",
+        "italian": "falegname",
+        "english": "carpenter",
+        "alternatives": [
+            "joiner",
+            "woodworker"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il falegname, i falegnami",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1424,
+        "id": "1424",
+        "italian": "muratore",
+        "english": "bricklayer",
+        "alternatives": [
+            "builder",
+            "mason"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il muratore, i muratori",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1425,
+        "id": "1425",
+        "italian": "parrucchiere",
+        "english": "hairdresser",
+        "alternatives": [
+            "stylist",
+            "hairstylist",
+            "barber"
+        ],
+        "level": "B1",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1426,
+        "id": "1426",
+        "italian": "farmacista",
+        "english": "pharmacist",
+        "alternatives": [
+            "chemist",
+            "druggist"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il farmacista, i farmacisti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1427,
+        "id": "1427",
+        "italian": "veterinario",
+        "english": "vet",
+        "alternatives": [
+            "veterinarian",
+            "veterinary surgeon",
+            "animal doctor"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il veterinario, i veterinari",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1428,
+        "id": "1428",
+        "italian": "traduttore",
+        "english": "translator",
+        "alternatives": [
+            "linguist"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il traduttore, i traduttori",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1429,
+        "id": "1429",
+        "italian": "interprete",
+        "english": "interpreter",
+        "alternatives": [
+            "communicator"
+        ],
+        "level": "B1",
+        "inflections": "Noun: l'interprete, gli interpreti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1430,
+        "id": "1430",
+        "italian": "guida turistica",
+        "english": "tour guide",
+        "alternatives": [
+            "tourist guide",
+            "travel guide",
+            "guide"
+        ],
+        "level": "B1",
+        "inflections": "Noun: la guida turistica, le guide turistiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1432,
+        "id": "1432",
+        "italian": "segretario",
+        "english": "secretary",
+        "alternatives": [
+            "admin assistant",
+            "assistant"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il segretario, i segretari",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1433,
+        "id": "1433",
+        "italian": "contabile",
+        "english": "bookkeeper",
+        "alternatives": [
+            "accountant",
+            "clerk"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il contabile, i contabili",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1434,
+        "id": "1434",
+        "italian": "analista",
+        "english": "analyst",
+        "alternatives": [
+            "expert",
+            "examiner"
+        ],
+        "level": "B1",
+        "inflections": "Noun: l'analista, gli analisti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1435,
+        "id": "1435",
+        "italian": "consulente",
+        "english": "consultant",
+        "alternatives": [
+            "advisor",
+            "specialist"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il consulente, i consulenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1436,
+        "id": "1436",
+        "italian": "programmatore",
+        "english": "programmer",
+        "alternatives": [
+            "developer",
+            "coder",
+            "software engineer"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il programmatore, i programmatori",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1437,
+        "id": "1437",
+        "italian": "sviluppatore",
+        "english": "developer",
+        "alternatives": [
+            "programmer"
+        ],
+        "level": "B1",
+        "inflections": "Noun: lo sviluppatore, gli sviluppatori",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1439,
+        "id": "1439",
+        "italian": "fotografo",
+        "english": "photographer",
+        "alternatives": [
+            "cameraman"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il fotografo, i fotografi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1440,
+        "id": "1440",
+        "italian": "regione",
+        "english": "region",
+        "alternatives": [
+            "district",
+            "zone",
+            "area"
+        ],
+        "level": "B1",
+        "inflections": "Noun: la regione, le regioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1441,
+        "id": "1441",
+        "italian": "provincia",
+        "english": "province",
+        "alternatives": [
+            "territory"
+        ],
+        "level": "B1",
+        "inflections": "Noun: la provincia, le province",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1442,
+        "id": "1442",
+        "italian": "comune",
+        "english": "municipality",
+        "alternatives": [
+            "commune",
+            "town",
+            "town hall",
+            "local council"
+        ],
+        "level": "B1",
+        "inflections": "Noun: il comune, i comuni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1443,
+        "id": "1443",
+        "italian": "via",
+        "english": "street",
+        "alternatives": [
+            "way",
+            "road",
+            "path"
+        ],
+        "level": "B1",
+        "inflections": "Noun: la via, le vie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "viale",
+        "level": "B1",
+        "id": "1444",
+        "english": "avenue",
+        "alternatives": [
+            "boulevard",
+            "wide street"
+        ],
+        "frequencyRank": 1444,
+        "inflections": "Noun: il viale, i viali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "piazza",
+        "level": "B1",
+        "id": "1445",
+        "english": "square",
+        "alternatives": [
+            "public square",
+            "plaza"
+        ],
+        "frequencyRank": 1445,
+        "inflections": "Noun: la piazza, le piazze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "vicolo",
+        "level": "B1",
+        "id": "1446",
+        "english": "alley",
+        "alternatives": [
+            "lane",
+            "alleyway",
+            "narrow street"
+        ],
+        "frequencyRank": 1446,
+        "inflections": "Noun: il vicolo, i vicoli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "corso",
+        "level": "B1",
+        "id": "1447",
+        "english": "main street",
+        "alternatives": [
+            "boulevard",
+            "thoroughfare"
+        ],
+        "frequencyRank": 1447,
+        "inflections": "Noun: il corso, i corsi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "ponte",
+        "level": "B1",
+        "id": "1448",
+        "english": "bridge",
+        "alternatives": [
+            "viaduct",
+            "overpass"
+        ],
+        "frequencyRank": 1448,
+        "inflections": "Noun: il ponte, i ponti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "autostrada",
+        "level": "B1",
+        "id": "1449",
+        "english": "motorway",
+        "alternatives": [
+            "freeway",
+            "expressway",
+            "highway"
+        ],
+        "frequencyRank": 1449,
+        "inflections": "Noun: l'autostrada, le autostrade",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "semaforo",
+        "level": "B1",
+        "id": "1450",
+        "english": "traffic light",
+        "alternatives": [
+            "stoplight",
+            "traffic lights"
+        ],
+        "frequencyRank": 1450,
+        "inflections": "Noun: il semaforo, i semafori",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "incrocio",
+        "level": "B1",
+        "id": "1451",
+        "english": "crossroads",
+        "alternatives": [
+            "intersection",
+            "junction"
+        ],
+        "frequencyRank": 1451,
+        "inflections": "Noun: l'incrocio, gli incroci",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "senso unico",
+        "level": "B1",
+        "id": "1452",
+        "english": "one-way street",
+        "alternatives": [
+            "one-way road",
+            "one way",
+            "unidirectional street"
+        ],
+        "frequencyRank": 1452,
+        "inflections": "Noun: il senso unico, i sensi unici",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "parcheggio",
+        "level": "B1",
+        "id": "1454",
+        "english": "car park",
+        "alternatives": [
+            "parking lot",
+            "parking"
+        ],
+        "frequencyRank": 1454,
+        "inflections": "Noun: il parcheggio, i parcheggi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "biglietteria",
+        "level": "B1",
+        "id": "1455",
+        "english": "ticket office",
+        "alternatives": [
+            "box office",
+            "ticket booth"
+        ],
+        "frequencyRank": 1455,
+        "inflections": "Noun: la biglietteria, le biglietterie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "banchina",
+        "level": "B1",
+        "id": "1456",
+        "english": "platform",
+        "alternatives": [
+            "quay",
+            "dock",
+            "platform (train)",
+            "shoulder (road)"
+        ],
+        "frequencyRank": 1456,
+        "inflections": "Noun: la banchina, le banchine",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "binario",
+        "level": "B1",
+        "id": "1457",
+        "english": "track",
+        "alternatives": [
+            "rail",
+            "railway track"
+        ],
+        "frequencyRank": 1457,
+        "inflections": "Noun: il binario, i binari",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "coincidenza",
+        "level": "B1",
+        "id": "1458",
+        "english": "connection",
+        "alternatives": [
+            "connecting train",
+            "transfer"
+        ],
+        "frequencyRank": 1458,
+        "inflections": "Noun: la coincidenza, le coincidenze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "elicottero",
+        "level": "B1",
+        "id": "1463",
+        "english": "helicopter",
+        "alternatives": [
+            "chopper"
+        ],
+        "frequencyRank": 1463,
+        "inflections": "Noun: l'elicottero, gli elicotteri",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "camion",
+        "level": "B1",
+        "id": "1464",
+        "english": "truck",
+        "alternatives": [
+            "lorry"
+        ],
+        "frequencyRank": 1464,
+        "inflections": "Noun: il camion, i camion",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "furgone",
+        "level": "B1",
+        "id": "1465",
+        "english": "van",
+        "alternatives": [
+            "panel van",
+            "delivery van"
+        ],
+        "frequencyRank": 1465,
+        "inflections": "Noun: il furgone, i furgoni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "patente",
+        "level": "B1",
+        "id": "1466",
+        "english": "driving licence",
+        "alternatives": [
+            "licence",
+            "driver's license"
+        ],
+        "frequencyRank": 1466,
+        "inflections": "Noun: la patente, le patenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "assicurazione",
+        "level": "B1",
+        "id": "1467",
+        "english": "insurance",
+        "alternatives": [
+            "policy",
+            "coverage"
+        ],
+        "frequencyRank": 1467,
+        "inflections": "Noun: l'assicurazione, le assicurazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "incidente",
+        "level": "B1",
+        "id": "1469",
+        "english": "accident",
+        "alternatives": [
+            "crash",
+            "incident",
+            "mishap"
+        ],
+        "frequencyRank": 1469,
+        "inflections": "Noun: l'incidente, gli incidenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "ambulanza",
+        "level": "B1",
+        "id": "1471",
+        "english": "ambulance",
+        "alternatives": [
+            "emergency vehicle"
+        ],
+        "frequencyRank": 1471,
+        "inflections": "Noun: l'ambulanza, le ambulanze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "pompa di benzina",
+        "level": "B1",
+        "id": "1472",
+        "english": "petrol station",
+        "alternatives": [
+            "gas station",
+            "filling station"
+        ],
+        "frequencyRank": 1472,
+        "inflections": "Noun: la pompa di benzina, le pompe di benzina",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "officina",
+        "level": "B1",
+        "id": "1473",
+        "english": "garage",
+        "alternatives": [
+            "workshop",
+            "repair shop"
+        ],
+        "frequencyRank": 1473,
+        "inflections": "Noun: l'officina, le officine",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "tassa",
+        "level": "B1",
+        "id": "1474",
+        "english": "tax",
+        "alternatives": [
+            "charge",
+            "fee",
+            "duty",
+            "levy"
+        ],
+        "frequencyRank": 1474,
+        "inflections": "Noun: la tassa, le tasse",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "bolletta",
+        "level": "B1",
+        "id": "1475",
+        "english": "bill",
+        "alternatives": [
+            "utility bill",
+            "statement",
+            "invoice"
+        ],
+        "frequencyRank": 1475,
+        "inflections": "Noun: la bolletta, le bollette",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "estratto conto",
+        "level": "B1",
+        "id": "1477",
+        "english": "bank statement",
+        "alternatives": [
+            "statement",
+            "account statement"
+        ],
+        "frequencyRank": 1477,
+        "inflections": "Noun: l'estratto conto, gli estratti conto",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "prelievo",
+        "level": "B1",
+        "id": "1478",
+        "english": "withdrawal",
+        "alternatives": [
+            "cash withdrawal",
+            "debit"
+        ],
+        "frequencyRank": 1478,
+        "inflections": "Noun: il prelievo, i prelievi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "versamento",
+        "level": "B1",
+        "id": "1479",
+        "english": "deposit",
+        "alternatives": [
+            "payment",
+            "contribution"
+        ],
+        "frequencyRank": 1479,
+        "inflections": "Noun: il versamento, i versamenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "bonifico",
+        "level": "B1",
+        "id": "1480",
+        "english": "bank transfer",
+        "alternatives": [
+            "wire transfer",
+            "transfer"
+        ],
+        "frequencyRank": 1480,
+        "inflections": "Noun: il bonifico, i bonifici",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "assegno",
+        "level": "B1",
+        "id": "1481",
+        "english": "cheque",
+        "alternatives": [
+            "check"
+        ],
+        "frequencyRank": 1481,
+        "inflections": "Noun: l'assegno, gli assegni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "rata",
+        "level": "B1",
+        "id": "1483",
+        "english": "instalment",
+        "alternatives": [
+            "payment",
+            "portion",
+            "installment"
+        ],
+        "frequencyRank": 1483,
+        "inflections": "Noun: la rata, le rate",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "preventivo",
+        "level": "B1",
+        "id": "1484",
+        "english": "quote",
+        "alternatives": [
+            "quotation",
+            "estimate"
+        ],
+        "frequencyRank": 1484,
+        "inflections": "Noun: il preventivo, i preventivi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "fattura",
+        "level": "B1",
+        "id": "1485",
+        "english": "invoice",
+        "alternatives": [
+            "statement",
+            "bill"
+        ],
+        "frequencyRank": 1485,
+        "inflections": "Noun: la fattura, le fatture",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B1",
+        "english": "vat",
+        "id": "1486",
+        "alternatives": [
+            "sales tax",
+            "value-added tax"
+        ],
+        "italian": "IVA",
+        "frequencyRank": 1486,
+        "inflections": "Noun: l'IVA, le IVA",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B1",
+        "english": "tax code",
+        "id": "1487",
+        "alternatives": [
+            "national insurance number",
+            "tax identification number",
+            "fiscal code",
+            "tin"
+        ],
+        "italian": "codice fiscale",
+        "frequencyRank": 1487,
+        "inflections": "Noun: il codice fiscale, i codici fiscali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B1",
+        "english": "vat number",
+        "id": "1488",
+        "alternatives": [
+            "sales tax id",
+            "business tax number",
+            "vat registration number"
+        ],
+        "italian": "partita IVA",
+        "frequencyRank": 1488,
+        "inflections": "Noun: la partita IVA, le partite IVA",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B1",
+        "english": "registration",
+        "id": "1489",
+        "alternatives": [
+            "enrolment",
+            "subscription",
+            "enrollment",
+            "entry"
+        ],
+        "italian": "iscrizione",
+        "frequencyRank": 1489,
+        "inflections": "Noun: l'iscrizione, le iscrizioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B1",
+        "english": "form",
+        "id": "1490",
+        "alternatives": [
+            "module",
+            "application"
+        ],
+        "italian": "modulo",
+        "frequencyRank": 1490,
+        "inflections": "Noun: il modulo, i moduli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B1",
+        "english": "document",
+        "id": "1491",
+        "alternatives": [
+            "paper",
+            "record",
+            "file"
+        ],
+        "italian": "documento",
+        "frequencyRank": 1491,
+        "inflections": "Noun: il documento, i documenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B1",
+        "english": "identity card",
+        "id": "1492",
+        "alternatives": [
+            "personal id",
+            "identification",
+            "id card"
+        ],
+        "italian": "carta d'identità",
+        "frequencyRank": 1492,
+        "inflections": "Noun: la carta d'identità, le carte d'identità",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B1",
+        "english": "shipment",
+        "id": "1496",
+        "alternatives": [
+            "dispatch",
+            "delivery",
+            "expedition"
+        ],
+        "italian": "spedizione",
+        "frequencyRank": 1496,
+        "inflections": "Noun: la spedizione, le spedizioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B1",
+        "english": "parcel",
+        "id": "1497",
+        "alternatives": [
+            "bundle",
+            "box",
+            "package"
+        ],
+        "italian": "pacco",
+        "frequencyRank": 1497,
+        "inflections": "Noun: il pacco, i pacchi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B1",
+        "english": "address",
+        "id": "1498",
+        "alternatives": [],
+        "italian": "indirizzo",
+        "frequencyRank": 1498,
+        "inflections": "Noun: l'indirizzo, gli indirizzi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B1",
+        "english": "postcode",
+        "id": "1499",
+        "alternatives": [
+            "zip code",
+            "postal code"
+        ],
+        "italian": "codice postale",
+        "frequencyRank": 1499,
+        "inflections": "Noun: il codice postale, i codici postali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B1",
+        "english": "neighbourhood",
+        "id": "1500",
+        "alternatives": [
+            "district",
+            "area",
+            "quarter",
+            "neighborhood"
+        ],
+        "italian": "quartiere",
+        "frequencyRank": 1500,
+        "partOfSpeech": "noun"
+    }
+]

@@ -1,0 +1,2638 @@
+[
+    {
+        "id": "1827",
+        "italian": "difesa",
+        "english": "defence",
+        "alternatives": [
+            "defense",
+            "protection"
+        ],
+        "level": "C1",
+        "frequencyRank": 1827,
+        "inflections": "Noun: la difesa, le difese",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1947,
+        "id": "1947",
+        "italian": "convincere",
+        "english": "to convince",
+        "alternatives": [
+            "to persuade"
+        ],
+        "level": "C1",
+        "partOfSpeech": "verb"
+    },
+    {
+        "english": "irony",
+        "frequencyRank": 1794,
+        "alternatives": [
+            "wit",
+            "humor"
+        ],
+        "level": "C1",
+        "id": "1794",
+        "italian": "ironia",
+        "inflections": "Noun: l'ironia, le ironie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "dialetto",
+        "alternatives": [
+            "vernacular",
+            "local language"
+        ],
+        "english": "dialect",
+        "id": "1784",
+        "level": "C1",
+        "frequencyRank": 1784,
+        "inflections": "Noun: il dialetto, i dialetti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "esemplare",
+        "level": "C1",
+        "id": "1932",
+        "english": "exemplary",
+        "alternatives": [
+            "copy",
+            "specimen",
+            "model",
+            "example"
+        ],
+        "frequencyRank": 1932,
+        "partOfSpeech": "adjective"
+    },
+    {
+        "frequencyRank": 1971,
+        "id": "1971",
+        "italian": "implicare",
+        "english": "to imply",
+        "alternatives": [
+            "to involve",
+            "to entail"
+        ],
+        "level": "C1",
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "C1",
+        "english": "doctrine",
+        "id": "1990",
+        "alternatives": [
+            "creed",
+            "theory",
+            "teaching"
+        ],
+        "italian": "dottrina",
+        "frequencyRank": 1990,
+        "inflections": "Noun: la dottrina, le dottrine",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1942,
+        "id": "1942",
+        "italian": "narrativo",
+        "english": "narrative",
+        "alternatives": [
+            "storytelling"
+        ],
+        "level": "C1",
+        "inflections": "Adj: narrativo, narrativa, narrativi, narrative",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "metaphor",
+        "frequencyRank": 1790,
+        "alternatives": [
+            "analogy",
+            "figure of speech"
+        ],
+        "level": "C1",
+        "id": "1790",
+        "italian": "metafora",
+        "inflections": "Noun: la metafora, le metafore",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1968,
+        "id": "1968",
+        "italian": "specificare",
+        "english": "to specify",
+        "alternatives": [
+            "to define",
+            "to detail"
+        ],
+        "level": "C1",
+        "partOfSpeech": "verb"
+    },
+    {
+        "english": "sarcasm",
+        "frequencyRank": 1795,
+        "alternatives": [
+            "mockery",
+            "satire"
+        ],
+        "level": "C1",
+        "id": "1795",
+        "italian": "sarcasmo",
+        "inflections": "Noun: il sarcasmo, i sarcasmi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "realismo",
+        "alternatives": [
+            "pragmatism"
+        ],
+        "english": "realism",
+        "id": "1765",
+        "level": "C1",
+        "frequencyRank": 1765,
+        "inflections": "Noun: il realismo, i realismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1949,
+        "id": "1949",
+        "italian": "manipolare",
+        "english": "to manipulate",
+        "alternatives": [
+            "to handle",
+            "to influence"
+        ],
+        "level": "C1",
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "gergo",
+        "alternatives": [
+            "slang",
+            "lingo"
+        ],
+        "english": "jargon",
+        "id": "1787",
+        "level": "C1",
+        "frequencyRank": 1787,
+        "inflections": "Noun: il gergo, i gerghi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1972,
+        "id": "1972",
+        "italian": "presupporre",
+        "english": "to presuppose",
+        "alternatives": [
+            "to assume"
+        ],
+        "level": "C1",
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "C1",
+        "english": "to hypothesise",
+        "id": "1976",
+        "alternatives": [
+            "hypothesize",
+            "to speculate",
+            "to assume",
+            "to suppose"
+        ],
+        "italian": "ipotizzare",
+        "frequencyRank": 1976,
+        "partOfSpeech": "verb"
+    },
+    {
+        "id": "1830",
+        "italian": "dolo",
+        "english": "fraud",
+        "alternatives": [
+            "deceit",
+            "malice"
+        ],
+        "level": "C1",
+        "frequencyRank": 1830,
+        "inflections": "Noun: il dolo, i doli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "nullity",
+        "frequencyRank": 1817,
+        "alternatives": [
+            "voidness",
+            "invalidity"
+        ],
+        "level": "C1",
+        "id": "1817",
+        "italian": "nullità",
+        "inflections": "Noun: la nullità, le nullità",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "euphemism",
+        "frequencyRank": 1788,
+        "alternatives": [
+            "indirect term"
+        ],
+        "level": "C1",
+        "id": "1788",
+        "italian": "eufemismo",
+        "inflections": "Noun: l'eufemismo, gli eufemismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1959,
+        "id": "1959",
+        "italian": "articolare",
+        "english": "to articulate",
+        "alternatives": [
+            "to connect",
+            "to express"
+        ],
+        "level": "C1",
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "C1",
+        "english": "heresy",
+        "id": "1994",
+        "alternatives": [
+            "dissent",
+            "unorthodoxy"
+        ],
+        "italian": "eresia",
+        "frequencyRank": 1994,
+        "inflections": "Noun: l'eresia, le eresie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "imprescindibile",
+        "level": "C1",
+        "id": "1922",
+        "english": "essential",
+        "alternatives": [
+            "unavoidable",
+            "indispensable",
+            "vital"
+        ],
+        "frequencyRank": 1922,
+        "inflections": "Adj: imprescindibile, imprescindibile, imprescindibili, imprescindibili",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "level": "C1",
+        "english": "secularity",
+        "id": "1998",
+        "alternatives": [
+            "secularism"
+        ],
+        "italian": "laicità",
+        "frequencyRank": 1998,
+        "inflections": "Noun: la laicità, le laicità",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "materialismo",
+        "alternatives": [
+            "worldliness",
+            "consumerism"
+        ],
+        "english": "materialism",
+        "id": "1759",
+        "level": "C1",
+        "frequencyRank": 1759,
+        "inflections": "Noun: il materialismo, i materialismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1967,
+        "id": "1967",
+        "italian": "generalizzare",
+        "english": "to generalise",
+        "alternatives": [
+            "to simplify",
+            "to generalize",
+            "to overgeneralise"
+        ],
+        "level": "C1",
+        "partOfSpeech": "verb"
+    },
+    {
+        "frequencyRank": 1945,
+        "id": "1945",
+        "italian": "persuadere",
+        "english": "to persuade",
+        "alternatives": [
+            "to convince",
+            "to sway"
+        ],
+        "level": "C1",
+        "partOfSpeech": "verb"
+    },
+    {
+        "frequencyRank": 1957,
+        "id": "1957",
+        "italian": "mediare",
+        "english": "to mediate",
+        "alternatives": [
+            "to negotiate",
+            "to intervene"
+        ],
+        "level": "C1",
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "C1",
+        "english": "schism",
+        "id": "1995",
+        "alternatives": [
+            "division",
+            "split"
+        ],
+        "italian": "scisma",
+        "frequencyRank": 1995,
+        "inflections": "Noun: lo scisma, gli scismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "C1",
+        "english": "orthodoxy",
+        "id": "1992",
+        "alternatives": [
+            "standard",
+            "conventionality"
+        ],
+        "italian": "ortodossia",
+        "frequencyRank": 1992,
+        "inflections": "Noun: l'ortodossia, le ortodossie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "rivelatore",
+        "level": "C1",
+        "id": "1935",
+        "english": "revealing",
+        "alternatives": [
+            "telling",
+            "illuminating",
+            "indicative"
+        ],
+        "frequencyRank": 1935,
+        "inflections": "Adj: rivelatore, rivelatrice, rivelatori, rivelatrici",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "archetype",
+        "alternatives": [
+            "standard",
+            "model",
+            "prototype"
+        ],
+        "level": "C1",
+        "id": "1876",
+        "italian": "archetipo",
+        "frequencyRank": 1876,
+        "inflections": "Noun: l'archetipo, gli archetipi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "C1",
+        "english": "to refute",
+        "id": "1979",
+        "alternatives": [
+            "disprove",
+            "to rebut",
+            "to debunk"
+        ],
+        "italian": "confutare",
+        "frequencyRank": 1979,
+        "partOfSpeech": "verb"
+    },
+    {
+        "frequencyRank": 1955,
+        "id": "1955",
+        "italian": "trascendere",
+        "english": "to transcend",
+        "alternatives": [
+            "go beyond",
+            "to surpass",
+            "to exceed"
+        ],
+        "level": "C1",
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "C1",
+        "english": "fundamentalism",
+        "id": "1999",
+        "alternatives": [
+            "dogmatism",
+            "strict adherence"
+        ],
+        "italian": "fondamentalismo",
+        "frequencyRank": 1999,
+        "inflections": "Noun: il fondamentalismo, i fondamentalismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "relativismo",
+        "alternatives": [
+            "relativity",
+            "subjective perspective"
+        ],
+        "english": "relativism",
+        "id": "1762",
+        "level": "C1",
+        "frequencyRank": 1762,
+        "inflections": "Noun: il relativismo, i relativismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "C1",
+        "english": "to falsify",
+        "id": "1977",
+        "alternatives": [
+            "refute",
+            "to fake",
+            "to forge",
+            "to counterfeit"
+        ],
+        "italian": "falsificare",
+        "frequencyRank": 1977,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "nichilismo",
+        "alternatives": [
+            "disbelief"
+        ],
+        "english": "nihilism",
+        "id": "1751",
+        "level": "C1",
+        "frequencyRank": 1751,
+        "inflections": "Noun: il nichilismo, i nichilismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "challenge",
+        "frequencyRank": 1819,
+        "alternatives": [
+            "objection",
+            "dispute",
+            "appeal"
+        ],
+        "level": "C1",
+        "id": "1819",
+        "italian": "impugnazione",
+        "inflections": "Noun: l'impugnazione, le impugnazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "razionalismo",
+        "alternatives": [
+            "rationality",
+            "intellectualism"
+        ],
+        "english": "rationalism",
+        "id": "1757",
+        "level": "C1",
+        "frequencyRank": 1757,
+        "inflections": "Noun: il razionalismo, i razionalismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "sintomatico",
+        "level": "C1",
+        "id": "1934",
+        "english": "symptomatic",
+        "alternatives": [
+            "characteristic",
+            "indicative"
+        ],
+        "frequencyRank": 1934,
+        "inflections": "Adj: sintomatico, sintomatica, sintomatici, sintomatiche",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "frequencyRank": 1946,
+        "id": "1946",
+        "italian": "dissuadere",
+        "english": "to dissuade",
+        "alternatives": [
+            "deter",
+            "to discourage"
+        ],
+        "level": "C1",
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "idealismo",
+        "alternatives": [
+            "impracticality",
+            "visionary thinking"
+        ],
+        "english": "idealism",
+        "id": "1758",
+        "level": "C1",
+        "frequencyRank": 1758,
+        "inflections": "Noun: l'idealismo, gli idealismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 1950,
+        "id": "1950",
+        "italian": "strumentalizzare",
+        "english": "to instrumentalise",
+        "alternatives": [
+            "to exploit",
+            "to manipulate",
+            "instrumentalize"
+        ],
+        "level": "C1",
+        "partOfSpeech": "verb"
+    },
+    {
+        "id": "1854",
+        "italian": "conformismo",
+        "english": "conformism",
+        "alternatives": [
+            "conventionality",
+            "conformity",
+            "compliance"
+        ],
+        "level": "C1",
+        "frequencyRank": 1854,
+        "inflections": "Noun: il conformismo, i conformismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "oxymoron",
+        "frequencyRank": 1797,
+        "alternatives": [
+            "contradiction",
+            "paradox"
+        ],
+        "level": "C1",
+        "id": "1797",
+        "italian": "ossimoro",
+        "inflections": "Noun: l'ossimoro, gli ossimori",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "significante",
+        "level": "C1",
+        "id": "1936",
+        "english": "signifier",
+        "alternatives": [],
+        "frequencyRank": 1936,
+        "inflections": "Noun: il significante, i significanti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "hyperbole",
+        "frequencyRank": 1793,
+        "alternatives": [
+            "overstatement",
+            "exaggeration"
+        ],
+        "level": "C1",
+        "id": "1793",
+        "italian": "iperbole",
+        "inflections": "Noun: l'iperbole, le iperboli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "bilinguismo",
+        "alternatives": [
+            "fluency in two languages"
+        ],
+        "english": "bilingualism",
+        "id": "1779",
+        "level": "C1",
+        "frequencyRank": 1779,
+        "inflections": "Noun: il bilinguismo, i bilinguismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "insindacabile",
+        "level": "C1",
+        "id": "1928",
+        "english": "unchallengeable",
+        "alternatives": [
+            "unappealable",
+            "final",
+            "indisputable",
+            "unquestionable"
+        ],
+        "frequencyRank": 1928,
+        "inflections": "Adj: insindacabile, insindacabile, insindacabili, insindacabili",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "negazionismo",
+        "level": "C1",
+        "id": "1900",
+        "english": "negationism",
+        "alternatives": [
+            "denialism",
+            "denial"
+        ],
+        "frequencyRank": 1900,
+        "inflections": "Noun: il negazionismo, i negazionismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "esistenzialismo",
+        "alternatives": [
+            "existential philosophy"
+        ],
+        "english": "existentialism",
+        "id": "1752",
+        "level": "C1",
+        "frequencyRank": 1752,
+        "inflections": "Noun: l'esistenzialismo, gli esistenzialismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "stoicismo",
+        "alternatives": [
+            "impassivity",
+            "emotional restraint"
+        ],
+        "english": "stoicism",
+        "id": "1753",
+        "level": "C1",
+        "frequencyRank": 1753,
+        "inflections": "Noun: lo stoicismo, gli stoicismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "utilitarismo",
+        "alternatives": [
+            "practicality",
+            "pragmatism"
+        ],
+        "english": "utilitarianism",
+        "id": "1754",
+        "level": "C1",
+        "frequencyRank": 1754,
+        "inflections": "Noun: l'utilitarismo, gli utilitarismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "kantismo",
+        "alternatives": [
+            "kantian philosophy"
+        ],
+        "english": "kantianism",
+        "id": "1755",
+        "level": "C1",
+        "frequencyRank": 1755,
+        "inflections": "Noun: il kantismo, i kantismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "empirismo",
+        "alternatives": [
+            "experimentalism",
+            "observationalism"
+        ],
+        "english": "empiricism",
+        "id": "1756",
+        "level": "C1",
+        "frequencyRank": 1756,
+        "inflections": "Noun: l'empirismo, gli empirismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "determinismo",
+        "alternatives": [
+            "causality",
+            "fatalism"
+        ],
+        "english": "determinism",
+        "id": "1760",
+        "level": "C1",
+        "frequencyRank": 1760,
+        "inflections": "Noun: il determinismo, i determinismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "indeterminismo",
+        "alternatives": [
+            "uncertainty",
+            "randomness"
+        ],
+        "english": "indeterminism",
+        "id": "1761",
+        "level": "C1",
+        "frequencyRank": 1761,
+        "inflections": "Noun: l'indeterminismo, gli indeterminismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "oggettivismo",
+        "alternatives": [
+            "impartiality",
+            "realism"
+        ],
+        "english": "objectivism",
+        "id": "1763",
+        "level": "C1",
+        "frequencyRank": 1763,
+        "inflections": "Noun: l'oggettivismo, gli oggettivismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "soggettivismo",
+        "alternatives": [
+            "personal perspective",
+            "relativism"
+        ],
+        "english": "subjectivism",
+        "id": "1764",
+        "level": "C1",
+        "frequencyRank": 1764,
+        "inflections": "Noun: il soggettivismo, i soggettivismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "nominalismo",
+        "alternatives": [],
+        "english": "nominalism",
+        "id": "1766",
+        "level": "C1",
+        "frequencyRank": 1766,
+        "inflections": "Noun: il nominalismo, i nominalismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "essenzialismo",
+        "alternatives": [
+            "core nature"
+        ],
+        "english": "essentialism",
+        "id": "1767",
+        "level": "C1",
+        "frequencyRank": 1767,
+        "inflections": "Noun: l'essenzialismo, gli essenzialismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "antiesenzialismo",
+        "alternatives": [
+            "constructionism"
+        ],
+        "english": "anti-essentialism",
+        "id": "1768",
+        "level": "C1",
+        "frequencyRank": 1768,
+        "inflections": "Noun: l'antiesenzialismo, gli antiesenzialismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "fondazionalismo",
+        "alternatives": [],
+        "english": "foundationalism",
+        "id": "1769",
+        "level": "C1",
+        "frequencyRank": 1769,
+        "inflections": "Noun: il fondazionalismo, i fondazionalismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "coerenzialismo",
+        "alternatives": [
+            "logical consistency"
+        ],
+        "english": "coherentism",
+        "id": "1770",
+        "level": "C1",
+        "frequencyRank": 1770,
+        "inflections": "Noun: il coerenzialismo, i coerenzialismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "morfema",
+        "alternatives": [
+            "linguistic unit"
+        ],
+        "english": "morpheme",
+        "id": "1771",
+        "level": "C1",
+        "frequencyRank": 1771,
+        "inflections": "Noun: il morfema, i morfemi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "fonema",
+        "alternatives": [
+            "sound unit"
+        ],
+        "english": "phoneme",
+        "id": "1772",
+        "level": "C1",
+        "frequencyRank": 1772,
+        "inflections": "Noun: il fonema, i fonemi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "sintagma",
+        "alternatives": [
+            "syntagm",
+            "phrase"
+        ],
+        "english": "syntagma",
+        "id": "1773",
+        "level": "C1",
+        "frequencyRank": 1773,
+        "inflections": "Noun: il sintagma, i sintagmi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "glottologia",
+        "alternatives": [
+            "historical linguistics",
+            "linguistics",
+            "philology"
+        ],
+        "english": "glottology",
+        "id": "1775",
+        "level": "C1",
+        "frequencyRank": 1775,
+        "inflections": "Noun: la glottologia, le glottologie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "sociolinguistica",
+        "alternatives": [
+            "social linguistics"
+        ],
+        "english": "sociolinguistics",
+        "id": "1776",
+        "level": "C1",
+        "frequencyRank": 1776,
+        "inflections": "Noun: la sociolinguistica, le sociolinguistiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "acquisizione linguistica",
+        "alternatives": [
+            "language learning"
+        ],
+        "english": "language acquisition",
+        "id": "1778",
+        "level": "C1",
+        "frequencyRank": 1778,
+        "inflections": "Noun: l'acquisizione linguistica, le acquisizioni linguistiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "plurilinguismo",
+        "alternatives": [
+            "polyglottism"
+        ],
+        "english": "multilingualism",
+        "id": "1780",
+        "level": "C1",
+        "frequencyRank": 1780,
+        "inflections": "Noun: il plurilinguismo, i plurilinguismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "interferenza linguistica",
+        "alternatives": [
+            "cross-linguistic effect",
+            "language influence"
+        ],
+        "english": "linguistic interference",
+        "id": "1781",
+        "level": "C1",
+        "frequencyRank": 1781,
+        "inflections": "Noun: l'interferenza linguistica, le interferenze linguistiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "code-switching",
+        "alternatives": [],
+        "english": "code switching",
+        "id": "1782",
+        "level": "C1",
+        "frequencyRank": 1782,
+        "inflections": "Noun: il code-switching, i code-switching",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "idioletto",
+        "alternatives": [],
+        "english": "idiolect",
+        "id": "1785",
+        "level": "C1",
+        "frequencyRank": 1785,
+        "inflections": "Noun: l'idioletto, gli idioletti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "registro linguistico",
+        "alternatives": [
+            "register",
+            "linguistic register"
+        ],
+        "english": "language register",
+        "id": "1786",
+        "level": "C1",
+        "frequencyRank": 1786,
+        "inflections": "Noun: il registro linguistico, i registri linguistici",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "dysphemism",
+        "frequencyRank": 1789,
+        "alternatives": [],
+        "level": "C1",
+        "id": "1789",
+        "italian": "disfemismo",
+        "inflections": "Noun: il disfemismo, i disfemismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "metonymy",
+        "frequencyRank": 1791,
+        "alternatives": [],
+        "level": "C1",
+        "id": "1791",
+        "italian": "metonimia",
+        "inflections": "Noun: la metonimia, le metonimie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "synecdoche",
+        "frequencyRank": 1792,
+        "alternatives": [],
+        "level": "C1",
+        "id": "1792",
+        "italian": "sineddoche",
+        "inflections": "Noun: la sineddoche, le sineddochi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "litotes",
+        "frequencyRank": 1796,
+        "alternatives": [
+            "understatement"
+        ],
+        "level": "C1",
+        "id": "1796",
+        "italian": "litote",
+        "inflections": "Noun: la litote, le litoti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "anaphora",
+        "frequencyRank": 1798,
+        "alternatives": [],
+        "level": "C1",
+        "id": "1798",
+        "italian": "anafora",
+        "inflections": "Noun: l'anafora, le anafore",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "alliteration",
+        "frequencyRank": 1799,
+        "alternatives": [],
+        "level": "C1",
+        "id": "1799",
+        "italian": "allitterazione",
+        "inflections": "Noun: l'allitterazione, le allitterazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "assonance",
+        "frequencyRank": 1800,
+        "alternatives": [],
+        "level": "C1",
+        "id": "1800",
+        "italian": "assonanza",
+        "inflections": "Noun: l'assonanza, le assonanze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "derivative",
+        "frequencyRank": 1801,
+        "alternatives": [
+            "financial derivative"
+        ],
+        "level": "C1",
+        "id": "1801",
+        "italian": "strumento derivato",
+        "inflections": "Noun: lo strumento derivato, gli strumenti derivati",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "call option",
+        "frequencyRank": 1802,
+        "alternatives": [],
+        "level": "C1",
+        "id": "1802",
+        "italian": "opzione call",
+        "inflections": "Noun: l'opzione call, le opzioni call",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "put option",
+        "frequencyRank": 1803,
+        "alternatives": [],
+        "level": "C1",
+        "id": "1803",
+        "italian": "opzione put",
+        "inflections": "Noun: l'opzione put, le opzioni put",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "arbitrage",
+        "frequencyRank": 1806,
+        "alternatives": [],
+        "level": "C1",
+        "id": "1806",
+        "italian": "arbitraggio",
+        "inflections": "Noun: l'arbitraggio, gli arbitraggi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "systemic risk",
+        "frequencyRank": 1808,
+        "alternatives": [],
+        "level": "C1",
+        "id": "1808",
+        "italian": "rischio sistemico",
+        "inflections": "Noun: il rischio sistemico, i rischi sistemici",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "financial contagion",
+        "frequencyRank": 1809,
+        "alternatives": [],
+        "level": "C1",
+        "id": "1809",
+        "italian": "contagio finanziario",
+        "inflections": "Noun: il contagio finanziario, i contagi finanziari",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "speculative bubble",
+        "frequencyRank": 1810,
+        "alternatives": [
+            "market bubble",
+            "bubble"
+        ],
+        "level": "C1",
+        "id": "1810",
+        "italian": "bolla speculativa",
+        "inflections": "Noun: la bolla speculativa, le bolle speculative",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "expected return",
+        "frequencyRank": 1811,
+        "alternatives": [],
+        "level": "C1",
+        "id": "1811",
+        "italian": "rendimento atteso",
+        "inflections": "Noun: il rendimento atteso, i rendimenti attesi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "standard deviation",
+        "frequencyRank": 1812,
+        "alternatives": [
+            "statistical dispersion",
+            "volatility"
+        ],
+        "level": "C1",
+        "id": "1812",
+        "italian": "deviazione standard",
+        "inflections": "Noun: la deviazione standard, le deviazioni standard",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "beta coefficient",
+        "frequencyRank": 1813,
+        "alternatives": [
+            "market risk",
+            "beta"
+        ],
+        "level": "C1",
+        "id": "1813",
+        "italian": "coefficiente beta",
+        "inflections": "Noun: il coefficiente beta, i coefficienti beta",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "sharpe ratio",
+        "frequencyRank": 1814,
+        "alternatives": [
+            "sharpe index"
+        ],
+        "level": "C1",
+        "id": "1814",
+        "italian": "indice di Sharpe",
+        "inflections": "Noun: l'indice di Sharpe, gli indici di Sharpe",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "procedural defect",
+        "frequencyRank": 1818,
+        "alternatives": [
+            "technicality",
+            "formal defect"
+        ],
+        "level": "C1",
+        "id": "1818",
+        "italian": "vizio di forma",
+        "inflections": "Noun: il vizio di forma, i vizi di forma",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "supreme court",
+        "frequencyRank": 1820,
+        "alternatives": [
+            "high court"
+        ],
+        "level": "C1",
+        "id": "1820",
+        "italian": "corte suprema",
+        "inflections": "Noun: la corte suprema, le corti supreme",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "constitutional court",
+        "frequencyRank": 1821,
+        "alternatives": [
+            "constitutional tribunal"
+        ],
+        "level": "C1",
+        "id": "1821",
+        "italian": "corte costituzionale",
+        "inflections": "Noun: la corte costituzionale, le corti costituzionali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "court of cassation",
+        "frequencyRank": 1822,
+        "alternatives": [
+            "supreme court of appeal",
+            "court of last resort"
+        ],
+        "level": "C1",
+        "id": "1822",
+        "italian": "corte di cassazione",
+        "inflections": "Noun: la corte di cassazione, le corti di cassazione",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "court of appeal",
+        "frequencyRank": 1823,
+        "alternatives": [
+            "appeals court",
+            "appellate court"
+        ],
+        "level": "C1",
+        "id": "1823",
+        "italian": "corte d'appello",
+        "inflections": "Noun: la corte d'appello, le corti d'appello",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "administrative court",
+        "frequencyRank": 1824,
+        "alternatives": [
+            "administrative tribunal"
+        ],
+        "level": "C1",
+        "id": "1824",
+        "italian": "tribunale amministrativo",
+        "inflections": "Noun: il tribunale amministrativo, i tribunali amministrativi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1825",
+        "italian": "consiglio di stato",
+        "english": "council of state",
+        "alternatives": [
+            "state council"
+        ],
+        "level": "C1",
+        "frequencyRank": 1825,
+        "inflections": "Noun: il consiglio di stato, i consigli di stato",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1826",
+        "italian": "pubblica accusa",
+        "english": "prosecution",
+        "alternatives": [
+            "public prosecutor",
+            "prosecuting attorney"
+        ],
+        "level": "C1",
+        "frequencyRank": 1826,
+        "inflections": "Noun: la pubblica accusa, le pubbliche accuse",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1828",
+        "italian": "obbligazione contrattuale",
+        "english": "contractual obligation",
+        "alternatives": [
+            "contractual duty",
+            "contractual commitment"
+        ],
+        "level": "C1",
+        "frequencyRank": 1828,
+        "inflections": "Noun: l'obbligazione contrattuale, le obbligazioni contrattuali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1829",
+        "italian": "inadempienza",
+        "english": "default",
+        "alternatives": [
+            "breach",
+            "breach of contract",
+            "non-fulfillment",
+            "non-performance"
+        ],
+        "level": "C1",
+        "frequencyRank": 1829,
+        "inflections": "Noun: l'inadempienza, le inadempienze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1831",
+        "italian": "colpa grave",
+        "english": "gross negligence",
+        "alternatives": [
+            "severe negligence",
+            "serious fault"
+        ],
+        "level": "C1",
+        "frequencyRank": 1831,
+        "inflections": "Noun: la colpa grave, le colpe gravi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1832",
+        "italian": "responsabilità civile",
+        "english": "civil liability",
+        "alternatives": [
+            "civil responsibility",
+            "civil accountability"
+        ],
+        "level": "C1",
+        "frequencyRank": 1832,
+        "inflections": "Noun: la responsabilità civile, le responsabilità civili",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1833",
+        "italian": "responsabilità penale",
+        "english": "criminal liability",
+        "alternatives": [
+            "criminal responsibility",
+            "criminal accountability"
+        ],
+        "level": "C1",
+        "frequencyRank": 1833,
+        "inflections": "Noun: la responsabilità penale, le responsabilità penali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1834",
+        "italian": "immunità parlamentare",
+        "english": "parliamentary immunity",
+        "alternatives": [
+            "parliamentary privilege"
+        ],
+        "level": "C1",
+        "frequencyRank": 1834,
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1835",
+        "italian": "conflitto di competenze",
+        "english": "conflict of jurisdiction",
+        "alternatives": [
+            "jurisdictional conflict"
+        ],
+        "level": "C1",
+        "frequencyRank": 1835,
+        "inflections": "Noun: il conflitto di competenze, i conflitti di competenze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1836",
+        "italian": "apodittico",
+        "english": "apodictic",
+        "alternatives": [
+            "self-evident",
+            "demonstrable",
+            "indisputable",
+            "irrefutable"
+        ],
+        "level": "C1",
+        "frequencyRank": 1836,
+        "inflections": "Adj: apodittico, apodittica, apodittici, apodittiche",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "id": "1837",
+        "italian": "tautologico",
+        "english": "tautological",
+        "alternatives": [
+            "repetitive",
+            "redundant"
+        ],
+        "level": "C1",
+        "frequencyRank": 1837,
+        "inflections": "Adj: tautologico, tautologica, tautologici, tautologiche",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "id": "1839",
+        "italian": "sillogismo",
+        "english": "syllogism",
+        "alternatives": [
+            "deductive reasoning",
+            "logical argument"
+        ],
+        "level": "C1",
+        "frequencyRank": 1839,
+        "inflections": "Noun: il sillogismo, i sillogismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1840",
+        "italian": "petitio principii",
+        "english": "circular reasoning",
+        "alternatives": [
+            "begging the question"
+        ],
+        "level": "C1",
+        "frequencyRank": 1840,
+        "inflections": "Noun: la petitio principii, le petitio principii",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1841",
+        "italian": "argumentum ad hominem",
+        "english": "ad hominem argument",
+        "alternatives": [
+            "personal attack"
+        ],
+        "level": "C1",
+        "frequencyRank": 1841,
+        "inflections": "Noun: l'argumentum ad hominem, gli argumentum ad hominem",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1842",
+        "italian": "falsa dicotomia",
+        "english": "false dichotomy",
+        "alternatives": [
+            "false dilemma",
+            "either-or fallacy"
+        ],
+        "level": "C1",
+        "frequencyRank": 1842,
+        "inflections": "Noun: la falsa dicotomia, le false dicotomie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1844",
+        "italian": "paglia di uomini",
+        "english": "straw man",
+        "alternatives": [
+            "straw man argument"
+        ],
+        "level": "C1",
+        "frequencyRank": 1844,
+        "inflections": "Noun: la paglia di uomini, le paglie di uomini",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1845",
+        "italian": "pensiero dicotomico",
+        "english": "black-and-white thinking",
+        "alternatives": [
+            "all-or-nothing thinking",
+            "dichotomous thinking",
+            "binary thinking"
+        ],
+        "level": "C1",
+        "frequencyRank": 1845,
+        "inflections": "Noun: il pensiero dicotomico, i pensieri dicotomici",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1846",
+        "italian": "bias cognitivo",
+        "english": "cognitive bias",
+        "alternatives": [
+            "cognitive error"
+        ],
+        "level": "C1",
+        "frequencyRank": 1846,
+        "inflections": "Noun: il bias cognitivo, i bias cognitivi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1847",
+        "italian": "bias di conferma",
+        "english": "confirmation bias",
+        "alternatives": [
+            "confirmatory bias"
+        ],
+        "level": "C1",
+        "frequencyRank": 1847,
+        "inflections": "Noun: il bias di conferma, i bias di conferma",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1848",
+        "italian": "euristica",
+        "english": "heuristic",
+        "alternatives": [
+            "rule of thumb",
+            "mental shortcut"
+        ],
+        "level": "C1",
+        "frequencyRank": 1848,
+        "inflections": "Noun: l'euristica, le euristiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1849",
+        "italian": "illusione cognitiva",
+        "english": "cognitive illusion",
+        "alternatives": [
+            "perceptual error",
+            "mental illusion"
+        ],
+        "level": "C1",
+        "frequencyRank": 1849,
+        "inflections": "Noun: l'illusione cognitiva, le illusioni cognitive",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1850",
+        "italian": "dissonanza cognitiva",
+        "english": "cognitive dissonance",
+        "alternatives": [
+            "mental conflict",
+            "psychological inconsistency"
+        ],
+        "level": "C1",
+        "frequencyRank": 1850,
+        "inflections": "Noun: la dissonanza cognitiva, le dissonanze cognitive",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1851",
+        "italian": "ancoraggio cognitivo",
+        "english": "cognitive anchoring",
+        "alternatives": [
+            "mental anchoring",
+            "anchoring bias"
+        ],
+        "level": "C1",
+        "frequencyRank": 1851,
+        "inflections": "Noun: l'ancoraggio cognitivo, gli ancoraggi cognitivi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1852",
+        "italian": "effetto alone",
+        "english": "halo effect",
+        "alternatives": [
+            "halo bias"
+        ],
+        "level": "C1",
+        "frequencyRank": 1852,
+        "inflections": "Noun: l'effetto alone, gli effetti alone",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1853",
+        "italian": "pensiero di gruppo",
+        "english": "groupthink",
+        "alternatives": [
+            "herd behavior",
+            "mob mentality"
+        ],
+        "level": "C1",
+        "frequencyRank": 1853,
+        "inflections": "Noun: il pensiero di gruppo, i pensieri di gruppo",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1857",
+        "italian": "ontologico",
+        "english": "ontological",
+        "alternatives": [
+            "existential"
+        ],
+        "level": "C1",
+        "frequencyRank": 1857,
+        "inflections": "Adj: ontologico, ontologica, ontologici, ontologiche",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "id": "1858",
+        "italian": "teleologico",
+        "english": "teleological",
+        "alternatives": [
+            "goal-oriented",
+            "purpose-driven"
+        ],
+        "level": "C1",
+        "frequencyRank": 1858,
+        "inflections": "Adj: teleologico, teleologica, teleologici, teleologiche",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "id": "1859",
+        "italian": "deontologico",
+        "english": "deontological",
+        "alternatives": [
+            "duty-based"
+        ],
+        "level": "C1",
+        "frequencyRank": 1859,
+        "inflections": "Adj: deontologico, deontologica, deontologici, deontologiche",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "id": "1860",
+        "italian": "consequenzialismo",
+        "english": "consequentialism",
+        "alternatives": [
+            "result-oriented ethics",
+            "outcome-based ethics"
+        ],
+        "level": "C1",
+        "frequencyRank": 1860,
+        "inflections": "Noun: il consequenzialismo, i consequenzialismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1861",
+        "italian": "ermeneutica",
+        "english": "hermeneutics",
+        "alternatives": [
+            "interpretation theory",
+            "interpretation"
+        ],
+        "level": "C1",
+        "frequencyRank": 1861,
+        "inflections": "Noun: l'ermeneutica, le ermeneutiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1862",
+        "italian": "critica ideologica",
+        "english": "ideological critique",
+        "alternatives": [
+            "critique of ideology",
+            "ideological analysis"
+        ],
+        "level": "C1",
+        "frequencyRank": 1862,
+        "inflections": "Noun: la critica ideologica, le critiche ideologiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "1863",
+        "italian": "teoria critica",
+        "english": "critical theory",
+        "alternatives": [
+            "social theory"
+        ],
+        "level": "C1",
+        "frequencyRank": 1863,
+        "inflections": "Noun: la teoria critica, le teorie critiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "deconstructionism",
+        "alternatives": [
+            "post-structuralist analysis",
+            "deconstruction"
+        ],
+        "level": "C1",
+        "id": "1864",
+        "italian": "decostruzionismo",
+        "frequencyRank": 1864,
+        "inflections": "Noun: il decostruzionismo, i decostruzionismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "postcolonialism",
+        "alternatives": [
+            "post-colonial studies"
+        ],
+        "level": "C1",
+        "id": "1865",
+        "italian": "postcolonialismo",
+        "frequencyRank": 1865,
+        "inflections": "Noun: il postcolonialismo, i postcolonialismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "intersectionality",
+        "alternatives": [],
+        "level": "C1",
+        "id": "1866",
+        "italian": "intersezionalità",
+        "frequencyRank": 1866,
+        "inflections": "Noun: l'intersezionalità, le intersezionalità",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "subalternity",
+        "alternatives": [
+            "subordination",
+            "inferiority"
+        ],
+        "level": "C1",
+        "id": "1867",
+        "italian": "subalternità",
+        "frequencyRank": 1867,
+        "inflections": "Noun: la subalternità, le subalternità",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "agency",
+        "alternatives": [
+            "capacity for action",
+            "agentivity",
+            "autonomy"
+        ],
+        "level": "C1",
+        "id": "1868",
+        "italian": "agentività",
+        "frequencyRank": 1868,
+        "inflections": "Noun: l'agentività, le agentività",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "action structure",
+        "alternatives": [
+            "action framework"
+        ],
+        "level": "C1",
+        "id": "1869",
+        "italian": "struttura d'azione",
+        "frequencyRank": 1869,
+        "inflections": "Noun: la struttura d'azione, le strutture d'azione",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "discourse order",
+        "alternatives": [
+            "rules of discourse"
+        ],
+        "level": "C1",
+        "id": "1870",
+        "italian": "ordine del discorso",
+        "frequencyRank": 1870,
+        "inflections": "Noun: l'ordine del discorso, gli ordini del discorso",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "semantic field",
+        "alternatives": [
+            "semantic domain"
+        ],
+        "level": "C1",
+        "id": "1871",
+        "italian": "campo semantico",
+        "frequencyRank": 1871,
+        "inflections": "Noun: il campo semantico, i campi semantici",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "conceptual frame",
+        "alternatives": [
+            "mental model",
+            "conceptual framework",
+            "frame of reference"
+        ],
+        "level": "C1",
+        "id": "1872",
+        "italian": "cornice concettuale",
+        "frequencyRank": 1872,
+        "inflections": "Noun: la cornice concettuale, le cornici concettuali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "cognitive map",
+        "alternatives": [
+            "mental map"
+        ],
+        "level": "C1",
+        "id": "1873",
+        "italian": "mappa cognitiva",
+        "frequencyRank": 1873,
+        "inflections": "Noun: la mappa cognitiva, le mappe cognitive",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "cognitive script",
+        "alternatives": [
+            "schema",
+            "behavioral pattern"
+        ],
+        "level": "C1",
+        "id": "1874",
+        "italian": "script cognitivo",
+        "frequencyRank": 1874,
+        "inflections": "Noun: lo script cognitivo, gli script cognitivi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "prototypical",
+        "alternatives": [
+            "archetypal"
+        ],
+        "level": "C1",
+        "id": "1875",
+        "italian": "proto-tipico",
+        "frequencyRank": 1875,
+        "inflections": "Adj: proto-tipico, proto-tipica, proto-tipici, proto-tipiche",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "gender stereotype",
+        "alternatives": [
+            "gender bias"
+        ],
+        "level": "C1",
+        "id": "1877",
+        "italian": "stereotipo di genere",
+        "frequencyRank": 1877,
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "social construction",
+        "alternatives": [
+            "social construct"
+        ],
+        "level": "C1",
+        "id": "1878",
+        "italian": "costruzione sociale",
+        "frequencyRank": 1878,
+        "inflections": "Noun: la costruzione sociale, le costruzioni sociali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "performativity",
+        "alternatives": [],
+        "level": "C1",
+        "id": "1879",
+        "italian": "performatività",
+        "frequencyRank": 1879,
+        "inflections": "Noun: la performatività, le performatività",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "social ritual",
+        "alternatives": [
+            "conventional practice",
+            "social custom"
+        ],
+        "level": "C1",
+        "id": "1880",
+        "italian": "rituale sociale",
+        "frequencyRank": 1880,
+        "inflections": "Noun: il rituale sociale, i rituali sociali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "implicit norm",
+        "alternatives": [
+            "unspoken rule",
+            "tacit rule"
+        ],
+        "level": "C1",
+        "id": "1881",
+        "italian": "norma implicita",
+        "frequencyRank": 1881,
+        "inflections": "Noun: la norma implicita, le norme implicite",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "social field",
+        "alternatives": [
+            "social sphere",
+            "social environment"
+        ],
+        "level": "C1",
+        "id": "1883",
+        "italian": "campo sociale",
+        "frequencyRank": 1883,
+        "inflections": "Noun: il campo sociale, i campi sociali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "cultural capital",
+        "alternatives": [
+            "cultural assets"
+        ],
+        "level": "C1",
+        "id": "1884",
+        "italian": "capitale culturale",
+        "frequencyRank": 1884,
+        "inflections": "Noun: il capitale culturale, i capitali culturali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "symbolic capital",
+        "alternatives": [],
+        "level": "C1",
+        "id": "1885",
+        "italian": "capitale simbolico",
+        "frequencyRank": 1885,
+        "inflections": "Noun: il capitale simbolico, i capitali simbolici"
+    },
+    {
+        "english": "symbolic violence",
+        "alternatives": [],
+        "level": "C1",
+        "id": "1886",
+        "italian": "violenza simbolica",
+        "frequencyRank": 1886,
+        "inflections": "Noun: la violenza simbolica, le violenze simboliche"
+    },
+    {
+        "english": "cultural hegemony",
+        "alternatives": [],
+        "level": "C1",
+        "id": "1887",
+        "italian": "egemonia culturale",
+        "frequencyRank": 1887,
+        "inflections": "Noun: l'egemonia culturale, le egemonie culturali"
+    },
+    {
+        "english": "counterculture",
+        "alternatives": [],
+        "level": "C1",
+        "id": "1888",
+        "italian": "contro-cultura",
+        "frequencyRank": 1888,
+        "inflections": "Noun: la contro-cultura, le contro-culture"
+    },
+    {
+        "english": "subculture",
+        "alternatives": [],
+        "level": "C1",
+        "id": "1889",
+        "italian": "subcultura",
+        "frequencyRank": 1889,
+        "inflections": "Noun: la subcultura, le subculture"
+    },
+    {
+        "english": "culture industry",
+        "alternatives": [],
+        "level": "C1",
+        "id": "1890",
+        "italian": "industria culturale",
+        "frequencyRank": 1890,
+        "inflections": "Noun: l'industria culturale, le industrie culturali"
+    },
+    {
+        "english": "mass culture",
+        "alternatives": [
+            "popular culture"
+        ],
+        "level": "C1",
+        "id": "1891",
+        "italian": "cultura di massa",
+        "frequencyRank": 1891,
+        "inflections": "Noun: la cultura di massa, le culture di massa"
+    },
+    {
+        "english": "cultural homogenisation",
+        "alternatives": [
+            "cultural homogenization"
+        ],
+        "level": "C1",
+        "id": "1892",
+        "italian": "omologazione culturale",
+        "frequencyRank": 1892,
+        "inflections": "Noun: l'omologazione culturale, le omologazioni culturali"
+    },
+    {
+        "english": "cultural mixing",
+        "alternatives": [
+            "hybridity",
+            "cultural hybridity"
+        ],
+        "level": "C1",
+        "id": "1893",
+        "italian": "meticciato culturale",
+        "frequencyRank": 1893,
+        "inflections": "Noun: il meticciato culturale, i meticciati culturali"
+    },
+    {
+        "english": "syncretism",
+        "alternatives": [],
+        "level": "C1",
+        "id": "1894",
+        "italian": "sincretismo",
+        "frequencyRank": 1894,
+        "inflections": "Noun: il sincretismo, i sincretismi"
+    },
+    {
+        "english": "hybridisation",
+        "alternatives": [
+            "hybridization"
+        ],
+        "level": "C1",
+        "id": "1895",
+        "italian": "ibridazione",
+        "frequencyRank": 1895,
+        "inflections": "Noun: l'ibridazione, le ibridazioni"
+    },
+    {
+        "english": "invented tradition",
+        "alternatives": [],
+        "level": "C1",
+        "id": "1896",
+        "italian": "tradizione inventata",
+        "frequencyRank": 1896,
+        "inflections": "Noun: la tradizione inventata, le tradizioni inventate"
+    },
+    {
+        "english": "collective memory",
+        "alternatives": [],
+        "level": "C1",
+        "id": "1897",
+        "italian": "memoria collettiva",
+        "frequencyRank": 1897,
+        "inflections": "Noun: la memoria collettiva, le memorie collettive"
+    },
+    {
+        "english": "historical amnesia",
+        "alternatives": [],
+        "level": "C1",
+        "id": "1898",
+        "italian": "amnesia storica",
+        "frequencyRank": 1898,
+        "inflections": "Noun: l'amnesia storica, le amnesie storiche"
+    },
+    {
+        "english": "historical revisionism",
+        "alternatives": [],
+        "level": "C1",
+        "id": "1899",
+        "italian": "revisionismo storico",
+        "frequencyRank": 1899,
+        "inflections": "Noun: il revisionismo storico, i revisionismi storici"
+    },
+    {
+        "italian": "anacronismo",
+        "level": "C1",
+        "id": "1901",
+        "english": "anachronism",
+        "alternatives": [],
+        "frequencyRank": 1901,
+        "inflections": "Noun: l'anacronismo, gli anacronismi"
+    },
+    {
+        "italian": "presentismo",
+        "level": "C1",
+        "id": "1902",
+        "english": "presentism",
+        "alternatives": [],
+        "frequencyRank": 1902,
+        "inflections": "Noun: il presentismo, i presentismi"
+    },
+    {
+        "italian": "teleologia della storia",
+        "level": "C1",
+        "id": "1903",
+        "english": "teleology of history",
+        "alternatives": [],
+        "frequencyRank": 1903,
+        "inflections": "Noun: la teleologia della storia, le teleologie della storia"
+    },
+    {
+        "italian": "ciclo storico",
+        "level": "C1",
+        "id": "1904",
+        "english": "historical cycle",
+        "alternatives": [],
+        "frequencyRank": 1904,
+        "inflections": "Noun: il ciclo storico, i cicli storici"
+    },
+    {
+        "italian": "rottura epistemica",
+        "level": "C1",
+        "id": "1905",
+        "english": "epistemic rupture",
+        "alternatives": [
+            "epistemological break"
+        ],
+        "frequencyRank": 1905,
+        "inflections": "Noun: la rottura epistemica, le rotture epistemiche"
+    },
+    {
+        "italian": "rivoluzione scientifica",
+        "level": "C1",
+        "id": "1907",
+        "english": "scientific revolution",
+        "alternatives": [],
+        "frequencyRank": 1907,
+        "inflections": "Noun: la rivoluzione scientifica, le rivoluzioni scientifiche"
+    },
+    {
+        "italian": "teoria della complessità",
+        "level": "C1",
+        "id": "1908",
+        "english": "complexity theory",
+        "alternatives": [],
+        "frequencyRank": 1908,
+        "inflections": "Noun: la teoria della complessità, le teorie della complessità"
+    },
+    {
+        "italian": "teoria del caos",
+        "level": "C1",
+        "id": "1909",
+        "english": "chaos theory",
+        "alternatives": [],
+        "frequencyRank": 1909,
+        "inflections": "Noun: la teoria del caos, le teorie del caos"
+    },
+    {
+        "italian": "effetto farfalla",
+        "level": "C1",
+        "id": "1910",
+        "english": "butterfly effect",
+        "alternatives": [],
+        "frequencyRank": 1910,
+        "inflections": "Noun: l'effetto farfalla, gli effetti farfalla"
+    },
+    {
+        "italian": "sistemi adattativi complessi",
+        "level": "C1",
+        "id": "1911",
+        "english": "complex adaptive systems",
+        "alternatives": [
+            "CAS"
+        ],
+        "frequencyRank": 1911,
+        "inflections": "Noun: il sistema adattativo complesso, i sistemi adattativi complessi"
+    },
+    {
+        "italian": "proprietà emergente",
+        "level": "C1",
+        "id": "1912",
+        "english": "emergent property",
+        "alternatives": [
+            "emergence"
+        ],
+        "frequencyRank": 1912,
+        "inflections": "Noun: la proprietà emergente, le proprietà emergenti"
+    },
+    {
+        "italian": "autopoiesi",
+        "level": "C1",
+        "id": "1913",
+        "english": "autopoiesis",
+        "alternatives": [],
+        "frequencyRank": 1913,
+        "inflections": "Noun: l'autopoiesi, le autopoiesi"
+    },
+    {
+        "italian": "omeostasi",
+        "level": "C1",
+        "id": "1914",
+        "english": "homeostasis",
+        "alternatives": [],
+        "frequencyRank": 1914,
+        "inflections": "Noun: l'omeostasi, le omeostasi"
+    },
+    {
+        "italian": "feedback positivo",
+        "level": "C1",
+        "id": "1915",
+        "english": "positive feedback",
+        "alternatives": [],
+        "frequencyRank": 1915,
+        "inflections": "Noun: il feedback positivo, i feedback positivi"
+    },
+    {
+        "italian": "feedback negativo",
+        "level": "C1",
+        "id": "1916",
+        "english": "negative feedback",
+        "alternatives": [],
+        "frequencyRank": 1916,
+        "inflections": "Noun: il feedback negativo, i feedback negativi"
+    },
+    {
+        "italian": "punto di svolta",
+        "level": "C1",
+        "id": "1917",
+        "english": "tipping point",
+        "alternatives": [
+            "turning point"
+        ],
+        "frequencyRank": 1917,
+        "inflections": "Noun: il punto di svolta, i punti di svolta"
+    },
+    {
+        "italian": "interdipendenza sistemica",
+        "level": "C1",
+        "id": "1919",
+        "english": "systemic interdependence",
+        "alternatives": [],
+        "frequencyRank": 1919,
+        "inflections": "Noun: l'interdipendenza sistemica, le interdipendenze sistemiche"
+    },
+    {
+        "italian": "reticolo di attori",
+        "level": "C1",
+        "id": "1920",
+        "english": "actor network",
+        "alternatives": [],
+        "frequencyRank": 1920,
+        "inflections": "Noun: il reticolo di attori, i reticoli di attori"
+    },
+    {
+        "italian": "ineluttabile",
+        "level": "C1",
+        "id": "1921",
+        "english": "ineluctable",
+        "alternatives": [
+            "unavoidable",
+            "inevitable"
+        ],
+        "frequencyRank": 1921,
+        "inflections": "Adj: ineluttabile, ineluttabile, ineluttabili, ineluttabili"
+    },
+    {
+        "italian": "ineludibile",
+        "level": "C1",
+        "id": "1923",
+        "english": "unavoidable",
+        "alternatives": [
+            "inescapable",
+            "inevitable"
+        ],
+        "frequencyRank": 1923,
+        "inflections": "Adj: ineludibile, ineludibile, ineludibili, ineludibili"
+    },
+    {
+        "italian": "inderogabile",
+        "level": "C1",
+        "id": "1924",
+        "english": "non-derogable",
+        "alternatives": [
+            "mandatory",
+            "compulsory"
+        ],
+        "frequencyRank": 1924,
+        "inflections": "Adj: inderogabile, inderogabile, inderogabili, inderogabili"
+    },
+    {
+        "italian": "improcrastinabile",
+        "level": "C1",
+        "id": "1925",
+        "english": "urgent",
+        "alternatives": [
+            "cannot be postponed",
+            "pressing"
+        ],
+        "frequencyRank": 1925,
+        "inflections": "Adj: improcrastinabile, improcrastinabile, improcrastinabili, improcrastinabili"
+    },
+    {
+        "italian": "improrogabile",
+        "level": "C1",
+        "id": "1926",
+        "english": "that cannot be extended",
+        "alternatives": [
+            "final"
+        ],
+        "frequencyRank": 1926,
+        "inflections": "Adj: improrogabile, improrogabile, improrogabili, improrogabili"
+    },
+    {
+        "italian": "inoppugnabile",
+        "level": "C1",
+        "id": "1927",
+        "english": "unassailable",
+        "alternatives": [
+            "irrefutable",
+            "undeniable"
+        ],
+        "frequencyRank": 1927,
+        "inflections": "Adj: inoppugnabile, inoppugnabile, inoppugnabili, inoppugnabili"
+    },
+    {
+        "italian": "incontrovertibile",
+        "level": "C1",
+        "id": "1929",
+        "english": "incontrovertible",
+        "alternatives": [
+            "unquestionable",
+            "undeniable"
+        ],
+        "frequencyRank": 1929,
+        "inflections": "Adj: incontrovertibile, incontrovertibile, incontrovertibili, incontrovertibili"
+    },
+    {
+        "italian": "irrefragabile",
+        "level": "C1",
+        "id": "1930",
+        "english": "irrefragable",
+        "alternatives": [
+            "irrefutable",
+            "indisputable"
+        ],
+        "frequencyRank": 1930,
+        "inflections": "Adj: irrefragabile, irrefragabile, irrefragabili, irrefragabili"
+    },
+    {
+        "italian": "polisemico",
+        "level": "C1",
+        "id": "1937",
+        "english": "polysemic",
+        "alternatives": [
+            "polysemous"
+        ],
+        "frequencyRank": 1937,
+        "inflections": "Adj: polisemico, polisemica, polisemici, polisemiche"
+    },
+    {
+        "italian": "monosemico",
+        "level": "C1",
+        "id": "1938",
+        "english": "monosemic",
+        "alternatives": [
+            "monosemous"
+        ],
+        "frequencyRank": 1938,
+        "inflections": "Adj: monosemico, monosemica, monosemici, monosemiche"
+    },
+    {
+        "italian": "denotativo",
+        "level": "C1",
+        "id": "1939",
+        "english": "denotative",
+        "alternatives": [],
+        "frequencyRank": 1939,
+        "inflections": "Adj: denotativo, denotativa, denotativi, denotative"
+    },
+    {
+        "frequencyRank": 1940,
+        "id": "1940",
+        "italian": "connotativo",
+        "english": "connotative",
+        "alternatives": [],
+        "level": "C1",
+        "inflections": "Adj: connotativo, connotativa, connotativi, connotative"
+    },
+    {
+        "frequencyRank": 1941,
+        "id": "1941",
+        "italian": "discorsivo",
+        "english": "discursive",
+        "alternatives": [],
+        "level": "C1",
+        "inflections": "Adj: discorsivo, discorsiva, discorsivi, discorsive"
+    },
+    {
+        "frequencyRank": 1943,
+        "id": "1943",
+        "italian": "argomentativo",
+        "english": "argumentative",
+        "alternatives": [],
+        "level": "C1",
+        "inflections": "Adj: argomentativo, argomentativa, argomentativi, argomentative"
+    },
+    {
+        "frequencyRank": 1944,
+        "id": "1944",
+        "italian": "persuasivo",
+        "english": "persuasive",
+        "alternatives": [
+            "convincing"
+        ],
+        "level": "C1",
+        "inflections": "Adj: persuasivo, persuasiva, persuasivi, persuasive"
+    },
+    {
+        "frequencyRank": 1948,
+        "id": "1948",
+        "italian": "coercere",
+        "english": "to coerce",
+        "alternatives": [],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1951,
+        "id": "1951",
+        "italian": "reificare",
+        "english": "to reify",
+        "alternatives": [],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1952,
+        "id": "1952",
+        "italian": "feticizzare",
+        "english": "to fetishise",
+        "alternatives": [
+            "fetishize"
+        ],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1953,
+        "id": "1953",
+        "italian": "oggettivare",
+        "english": "to objectify",
+        "alternatives": [],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1954,
+        "id": "1954",
+        "italian": "soggettivare",
+        "english": "to subjectify",
+        "alternatives": [
+            "subjectivize"
+        ],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1956,
+        "id": "1956",
+        "italian": "immanere",
+        "english": "to be immanent",
+        "alternatives": [],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1958,
+        "id": "1958",
+        "italian": "sussumere",
+        "english": "to subsume",
+        "alternatives": [],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1960,
+        "id": "1960",
+        "italian": "problematizzare",
+        "english": "to problematise",
+        "alternatives": [
+            "problematize"
+        ],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1961,
+        "id": "1961",
+        "italian": "tematizzare",
+        "english": "to thematise",
+        "alternatives": [
+            "thematize"
+        ],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1962,
+        "id": "1962",
+        "italian": "concettualizzare",
+        "english": "to conceptualise",
+        "alternatives": [
+            "conceptualize"
+        ],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1963,
+        "id": "1963",
+        "italian": "operazionalizzare",
+        "english": "to operationalise",
+        "alternatives": [
+            "operationalize"
+        ],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1964,
+        "id": "1964",
+        "italian": "sistematizzare",
+        "english": "to systematise",
+        "alternatives": [
+            "systematize"
+        ],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1965,
+        "id": "1965",
+        "italian": "formalizzare",
+        "english": "to formalise",
+        "alternatives": [
+            "formalize"
+        ],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1966,
+        "id": "1966",
+        "italian": "astrarsi",
+        "english": "to abstract oneself",
+        "alternatives": [
+            "detach oneself"
+        ],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1969,
+        "id": "1969",
+        "italian": "esemplificare",
+        "english": "to exemplify",
+        "alternatives": [
+            "to illustrate"
+        ],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1970,
+        "id": "1970",
+        "italian": "esplicitare",
+        "english": "to make explicit",
+        "alternatives": [
+            "spell out"
+        ],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1973,
+        "id": "1973",
+        "italian": "postulare",
+        "english": "to postulate",
+        "alternatives": [],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1974,
+        "id": "1974",
+        "italian": "assiomatizzare",
+        "english": "to axiomatise",
+        "alternatives": [
+            "axiomatize"
+        ],
+        "level": "C1"
+    },
+    {
+        "frequencyRank": 1975,
+        "id": "1975",
+        "italian": "teorizzare",
+        "english": "to theorise",
+        "alternatives": [
+            "theorize"
+        ],
+        "level": "C1"
+    },
+    {
+        "level": "C1",
+        "english": "to corroborate",
+        "id": "1978",
+        "alternatives": [
+            "to support"
+        ],
+        "italian": "corroborare",
+        "frequencyRank": 1978
+    },
+    {
+        "level": "C1",
+        "english": "to controvert",
+        "id": "1980",
+        "alternatives": [
+            "dispute",
+            "contest"
+        ],
+        "italian": "controvertere",
+        "frequencyRank": 1980
+    },
+    {
+        "level": "C1",
+        "english": "peremptoriness",
+        "id": "1981",
+        "alternatives": [
+            "categorical nature",
+            "finality"
+        ],
+        "italian": "perentorietà",
+        "frequencyRank": 1981,
+        "inflections": "Noun: la perentorietà, le perentorietà"
+    },
+    {
+        "level": "C1",
+        "english": "apodixis",
+        "id": "1982",
+        "alternatives": [
+            "demonstrative proof"
+        ],
+        "italian": "apodissi",
+        "frequencyRank": 1982,
+        "inflections": "Noun: l'apodissi, le apodissi"
+    },
+    {
+        "level": "C1",
+        "english": "antinomy",
+        "id": "1983",
+        "alternatives": [
+            "contradiction"
+        ],
+        "italian": "antinomia",
+        "frequencyRank": 1983,
+        "inflections": "Noun: l'antinomia, le antinomie"
+    },
+    {
+        "level": "C1",
+        "english": "maieutic",
+        "id": "1986",
+        "alternatives": [
+            "Socratic"
+        ],
+        "italian": "maieutico",
+        "frequencyRank": 1986,
+        "inflections": "Adj: maieutico, maieutica, maieutici, maieutiche"
+    },
+    {
+        "level": "C1",
+        "english": "socratic",
+        "id": "1987",
+        "alternatives": [],
+        "italian": "socratico",
+        "frequencyRank": 1987,
+        "inflections": "Adj: socratico, socratica, socratici, socratiche"
+    },
+    {
+        "level": "C1",
+        "english": "platonic dialogue",
+        "id": "1989",
+        "alternatives": [],
+        "italian": "dialogo platonico",
+        "frequencyRank": 1989,
+        "inflections": "Noun: il dialogo platonico, i dialoghi platonici"
+    },
+    {
+        "level": "C1",
+        "english": "heterodoxy",
+        "id": "1993",
+        "alternatives": [],
+        "italian": "eterodossia",
+        "frequencyRank": 1993,
+        "inflections": "Noun: l'eterodossia, le eterodossie"
+    },
+    {
+        "level": "C1",
+        "english": "religious syncretism",
+        "id": "1996",
+        "alternatives": [],
+        "italian": "sincretismo religioso",
+        "frequencyRank": 1996,
+        "inflections": "Noun: il sincretismo religioso, i sincretismi religiosi"
+    },
+    {
+        "level": "C1",
+        "english": "secularism",
+        "id": "1997",
+        "alternatives": [
+            "laicism"
+        ],
+        "italian": "laicismo",
+        "frequencyRank": 1997,
+        "inflections": "Noun: il laicismo, i laicismi"
+    },
+    {
+        "level": "C1",
+        "english": "integrism",
+        "id": "2000",
+        "alternatives": [
+            "integralism"
+        ],
+        "italian": "integrismo",
+        "frequencyRank": 2000,
+        "inflections": "Noun: l'integrismo, gli integrismi"
+    }
+]

@@ -1,0 +1,1348 @@
+[
+    {
+        "italian": "non",
+        "level": "A1",
+        "english": "not",
+        "frequencyRank": 2031,
+        "alternatives": [
+            "no",
+            "non-"
+        ],
+        "id": "2031",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "nono",
+        "level": "A1",
+        "english": "ninth",
+        "frequencyRank": 2008,
+        "alternatives": [
+            "9th"
+        ],
+        "id": "2008",
+        "inflections": "Adj: nono, nona, noni, none",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "come",
+        "level": "A1",
+        "english": "how",
+        "frequencyRank": 2024,
+        "alternatives": [
+            "as",
+            "what ... like",
+            "like"
+        ],
+        "id": "2024",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "anche",
+        "level": "A1",
+        "english": "also",
+        "frequencyRank": 2032,
+        "alternatives": [
+            "too",
+            "even",
+            "as well"
+        ],
+        "id": "2032",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "quando",
+        "level": "A1",
+        "english": "when",
+        "frequencyRank": 2026,
+        "alternatives": [
+            "at the time that"
+        ],
+        "id": "2026",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "english": "everything",
+        "alternatives": [
+            "whole",
+            "all",
+            "every"
+        ],
+        "level": "A1",
+        "id": "2096",
+        "italian": "tutto",
+        "frequencyRank": 2096,
+        "inflections": "Adj: tutto, tutta, tutti, tutte",
+        "partOfSpeech": "pronoun"
+    },
+    {
+        "italian": "cosa",
+        "level": "A1",
+        "english": "what",
+        "frequencyRank": 2023,
+        "alternatives": [
+            "thing"
+        ],
+        "id": "2023",
+        "inflections": "Noun: la cosa, le cose",
+        "partOfSpeech": "pronoun"
+    },
+    {
+        "italian": "così",
+        "level": "A1",
+        "english": "so",
+        "frequencyRank": 2037,
+        "alternatives": [
+            "this way",
+            "in this way",
+            "so much",
+            "like this",
+            "thus"
+        ],
+        "id": "2037",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "poi",
+        "level": "A1",
+        "english": "then",
+        "frequencyRank": 2036,
+        "alternatives": [
+            "after",
+            "afterwards",
+            "later"
+        ],
+        "id": "2036",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "english": "every",
+        "alternatives": [
+            "all",
+            "each"
+        ],
+        "level": "A1",
+        "id": "2097",
+        "italian": "ogni",
+        "frequencyRank": 2097,
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "other",
+        "alternatives": [
+            "more",
+            "different",
+            "else",
+            "another"
+        ],
+        "level": "A1",
+        "id": "2102",
+        "italian": "altro",
+        "frequencyRank": 2102,
+        "inflections": "Adj: altro, altra, altri, altre",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "quanto",
+        "level": "A1",
+        "english": "how much",
+        "frequencyRank": 2027,
+        "alternatives": [
+            "as much",
+            "how long",
+            "how many"
+        ],
+        "id": "2027",
+        "inflections": "Adj: quanto, quanta, quanti, quante",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "dove",
+        "level": "A1",
+        "english": "where",
+        "frequencyRank": 2025,
+        "alternatives": [
+            "in which place"
+        ],
+        "id": "2025",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "english": "life",
+        "alternatives": [
+            "living",
+            "existence"
+        ],
+        "level": "A1",
+        "id": "2106",
+        "italian": "vita",
+        "frequencyRank": 2106,
+        "inflections": "Noun: la vita, le vite",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "quindi",
+        "level": "A1",
+        "english": "so",
+        "frequencyRank": 2035,
+        "alternatives": [
+            "therefore",
+            "hence",
+            "thus"
+        ],
+        "id": "2035",
+        "partOfSpeech": "conjunction"
+    },
+    {
+        "italian": "secondo",
+        "level": "A1",
+        "english": "second",
+        "frequencyRank": 2001,
+        "alternatives": [
+            "according to",
+            "following",
+            "2nd"
+        ],
+        "id": "2001",
+        "inflections": "Adj: secondo, seconda, secondi, seconde",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "qui",
+        "level": "A1",
+        "id": "2048",
+        "english": "here",
+        "alternatives": [
+            "in this place"
+        ],
+        "frequencyRank": 2048,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "english": "time",
+        "alternatives": [
+            "turn",
+            "time (as in 'one time')",
+            "instance",
+            "occasion"
+        ],
+        "level": "A1",
+        "id": "2109",
+        "italian": "volta",
+        "frequencyRank": 2109,
+        "inflections": "Noun: la volta, le volte",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "same",
+        "alternatives": [
+            "identical",
+            "very",
+            "own",
+            "self"
+        ],
+        "level": "A1",
+        "id": "2101",
+        "italian": "stesso",
+        "frequencyRank": 2101,
+        "inflections": "Adj: stesso, stessa, stessi, stesse",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "so much",
+        "alternatives": [
+            "so many",
+            "a lot",
+            "many",
+            "very much"
+        ],
+        "level": "A1",
+        "id": "2100",
+        "italian": "tanto",
+        "frequencyRank": 2100,
+        "inflections": "Adj: tanto, tanta, tanti, tante",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "english": "some",
+        "alternatives": [
+            "a few"
+        ],
+        "level": "A1",
+        "id": "2103",
+        "italian": "qualche",
+        "frequencyRank": 2103,
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "quale",
+        "level": "A1",
+        "english": "which",
+        "frequencyRank": 2028,
+        "alternatives": [
+            "what"
+        ],
+        "id": "2028",
+        "partOfSpeech": "pronoun"
+    },
+    {
+        "italian": "forse",
+        "level": "A1",
+        "id": "2038",
+        "english": "maybe",
+        "alternatives": [
+            "perhaps",
+            "possibly"
+        ],
+        "frequencyRank": 2038,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "english": "to seem",
+        "alternatives": [
+            "appear",
+            "to look like"
+        ],
+        "level": "A1",
+        "id": "2093",
+        "italian": "sembrare",
+        "frequencyRank": 2093,
+        "partOfSpeech": "verb"
+    },
+    {
+        "english": "too much",
+        "alternatives": [
+            "excessively",
+            "too many",
+            "too",
+            "too often"
+        ],
+        "level": "A1",
+        "id": "2099",
+        "italian": "troppo",
+        "frequencyRank": 2099,
+        "inflections": "Adj: troppo, troppa, troppi, troppe",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "english": "people",
+        "alternatives": [
+            "crowd",
+            "folks"
+        ],
+        "level": "A1",
+        "id": "2110",
+        "italian": "gente",
+        "frequencyRank": 2110,
+        "inflections": "Noun: la gente, le genti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "place",
+        "alternatives": [
+            "location",
+            "spot",
+            "seat"
+        ],
+        "level": "A1",
+        "id": "2108",
+        "italian": "posto",
+        "frequencyRank": 2108,
+        "inflections": "Noun: il posto, i posti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "posta",
+        "level": "A1",
+        "id": "2069",
+        "english": "post office",
+        "alternatives": [
+            "post",
+            "mail"
+        ],
+        "frequencyRank": 2069,
+        "inflections": "Noun: la posta, le poste",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "fuori",
+        "level": "A1",
+        "id": "2053",
+        "english": "outside",
+        "alternatives": [
+            "outdoors",
+            "out"
+        ],
+        "frequencyRank": 2053,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "davvero",
+        "level": "A1",
+        "id": "2046",
+        "english": "really",
+        "alternatives": [
+            "seriously",
+            "truly",
+            "actually",
+            "indeed"
+        ],
+        "frequencyRank": 2046,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "comunque",
+        "level": "A1",
+        "id": "2044",
+        "english": "anyway",
+        "alternatives": [
+            "in any case",
+            "anyhow",
+            "however",
+            "regardless"
+        ],
+        "frequencyRank": 2044,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "centro",
+        "level": "A1",
+        "id": "2071",
+        "english": "centre",
+        "alternatives": [
+            "city centre",
+            "downtown",
+            "center"
+        ],
+        "frequencyRank": 2071,
+        "inflections": "Noun: il centro, i centri",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "to like",
+        "alternatives": [
+            "pleasure",
+            "to please"
+        ],
+        "level": "A1",
+        "id": "2092",
+        "italian": "piacere",
+        "frequencyRank": 2092,
+        "partOfSpeech": "verb"
+    },
+    {
+        "english": "boy",
+        "alternatives": [
+            "guy",
+            "boyfriend",
+            "kid",
+            "young man"
+        ],
+        "level": "A1",
+        "id": "2081",
+        "italian": "ragazzo",
+        "frequencyRank": 2081,
+        "inflections": "Noun: il ragazzo, i ragazzi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "girl",
+        "alternatives": [
+            "young woman",
+            "girlfriend"
+        ],
+        "level": "A1",
+        "id": "2082",
+        "italian": "ragazza",
+        "frequencyRank": 2082,
+        "inflections": "Noun: la ragazza, le ragazze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "to pass",
+        "alternatives": [
+            "to go past",
+            "to spend (time)",
+            "spend",
+            "to go by"
+        ],
+        "level": "A1",
+        "id": "2095",
+        "italian": "passare",
+        "frequencyRank": 2095,
+        "partOfSpeech": "verb"
+    },
+    {
+        "english": "enough",
+        "alternatives": [
+            "sufficiently",
+            "quite",
+            "fairly",
+            "rather"
+        ],
+        "level": "A1",
+        "id": "2104",
+        "italian": "abbastanza",
+        "frequencyRank": 2104,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "magari",
+        "level": "A1",
+        "id": "2047",
+        "english": "maybe",
+        "alternatives": [
+            "perhaps",
+            "if only",
+            "i wish"
+        ],
+        "frequencyRank": 2047,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "ultimo",
+        "level": "A1",
+        "english": "last",
+        "frequencyRank": 2010,
+        "alternatives": [
+            "final",
+            "latest"
+        ],
+        "id": "2010",
+        "inflections": "Adj: ultimo, ultima, ultimi, ultime",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "dentro",
+        "level": "A1",
+        "id": "2052",
+        "english": "inside",
+        "alternatives": [
+            "in",
+            "within",
+            "indoors"
+        ],
+        "frequencyRank": 2052,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "english": "light",
+        "alternatives": [
+            "illumination"
+        ],
+        "level": "A1",
+        "id": "2080",
+        "italian": "luce",
+        "frequencyRank": 2080,
+        "inflections": "Noun: la luce, le luci",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "presto",
+        "level": "A1",
+        "id": "2056",
+        "english": "early",
+        "alternatives": [
+            "quickly",
+            "soon"
+        ],
+        "frequencyRank": 2056,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "terzo",
+        "level": "A1",
+        "english": "third",
+        "frequencyRank": 2002,
+        "alternatives": [
+            "3rd"
+        ],
+        "id": "2002",
+        "inflections": "Adj: terzo, terza, terzi, terze",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "ovviamente",
+        "level": "A1",
+        "id": "2045",
+        "english": "obviously",
+        "alternatives": [
+            "clearly",
+            "evidently",
+            "of course",
+            "naturally"
+        ],
+        "frequencyRank": 2045,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "english": "party",
+        "alternatives": [
+            "holiday",
+            "celebration",
+            "feast"
+        ],
+        "level": "A1",
+        "id": "2112",
+        "italian": "festa",
+        "frequencyRank": 2112,
+        "inflections": "Noun: la festa, le feste",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "prossimo",
+        "level": "A1",
+        "english": "next",
+        "frequencyRank": 2011,
+        "alternatives": [
+            "following",
+            "upcoming"
+        ],
+        "id": "2011",
+        "inflections": "Adj: prossimo, prossima, prossimi, prossime",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "là",
+        "level": "A1",
+        "id": "2049",
+        "english": "there",
+        "alternatives": [
+            "over there"
+        ],
+        "frequencyRank": 2049,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "english": "last",
+        "alternatives": [
+            "past",
+            "previous"
+        ],
+        "level": "A1",
+        "id": "2105",
+        "italian": "scorso",
+        "frequencyRank": 2105,
+        "inflections": "Adj: scorso, scorsa, scorsi, scorse",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "purtroppo",
+        "level": "A1",
+        "id": "2042",
+        "english": "unfortunately",
+        "alternatives": [
+            "sadly",
+            "regrettably"
+        ],
+        "frequencyRank": 2042,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "english": "christmas",
+        "alternatives": [],
+        "level": "A1",
+        "id": "2114",
+        "italian": "Natale",
+        "frequencyRank": 2114,
+        "inflections": "Noun: il Natale, i Natali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "stasera",
+        "level": "A1",
+        "id": "2061",
+        "english": "this evening",
+        "alternatives": [
+            "tonight"
+        ],
+        "frequencyRank": 2061,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "parco",
+        "level": "A1",
+        "id": "2065",
+        "english": "park",
+        "alternatives": [],
+        "frequencyRank": 2065,
+        "inflections": "Noun: il parco, i parchi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "salt",
+        "alternatives": [
+            "table salt"
+        ],
+        "level": "A1",
+        "id": "2084",
+        "italian": "sale",
+        "frequencyRank": 2084,
+        "inflections": "Noun: la sale, le sali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "banca",
+        "level": "A1",
+        "id": "2068",
+        "english": "bank",
+        "alternatives": [],
+        "frequencyRank": 2068,
+        "inflections": "Noun: la banca, le banche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "bar",
+        "level": "A1",
+        "id": "2064",
+        "english": "café",
+        "alternatives": [
+            "bar",
+            "cafe",
+            "coffee shop"
+        ],
+        "frequencyRank": 2064,
+        "inflections": "Noun: il bar, i bar",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "giù",
+        "level": "A1",
+        "id": "2051",
+        "english": "down",
+        "alternatives": [
+            "downstairs",
+            "below"
+        ],
+        "frequencyRank": 2051,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "english": "room",
+        "alternatives": [],
+        "level": "A1",
+        "id": "2079",
+        "italian": "stanza",
+        "frequencyRank": 2079,
+        "inflections": "Noun: la stanza, le stanze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "quarto",
+        "level": "A1",
+        "english": "fourth",
+        "frequencyRank": 2003,
+        "alternatives": [
+            "4th"
+        ],
+        "id": "2003",
+        "inflections": "Adj: quarto, quarta, quarti, quarte",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "topo",
+        "level": "A1",
+        "id": "2076",
+        "english": "mouse",
+        "alternatives": [
+            "rodent",
+            "rat"
+        ],
+        "frequencyRank": 2076,
+        "inflections": "Noun: il topo, i topi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "biblioteca",
+        "level": "A1",
+        "id": "2066",
+        "english": "library",
+        "alternatives": [],
+        "frequencyRank": 2066,
+        "inflections": "Noun: la biblioteca, le biblioteche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "spiaggia",
+        "level": "A1",
+        "id": "2070",
+        "english": "beach",
+        "alternatives": [
+            "shore",
+            "seaside"
+        ],
+        "frequencyRank": 2070,
+        "inflections": "Noun: la spiaggia, le spiagge",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "pesce",
+        "level": "A1",
+        "id": "2075",
+        "english": "fish",
+        "alternatives": [],
+        "frequencyRank": 2075,
+        "inflections": "Noun: il pesce, i pesci",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "birthday",
+        "alternatives": [],
+        "level": "A1",
+        "id": "2111",
+        "italian": "compleanno",
+        "frequencyRank": 2111,
+        "inflections": "Noun: il compleanno, i compleanni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "stamattina",
+        "level": "A1",
+        "id": "2060",
+        "english": "this morning",
+        "alternatives": [],
+        "frequencyRank": 2060,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "quinto",
+        "level": "A1",
+        "english": "fifth",
+        "frequencyRank": 2004,
+        "alternatives": [
+            "5th"
+        ],
+        "id": "2004",
+        "inflections": "Adj: quinto, quinta, quinti, quinte",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "sheet",
+        "alternatives": [
+            "sheet of paper",
+            "paper",
+            "page"
+        ],
+        "level": "A1",
+        "id": "2091",
+        "italian": "foglio",
+        "frequencyRank": 2091,
+        "inflections": "Noun: il foglio, i fogli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "sofa",
+        "alternatives": [
+            "settee",
+            "couch"
+        ],
+        "level": "A1",
+        "id": "2083",
+        "italian": "divano",
+        "frequencyRank": 2083,
+        "inflections": "Noun: il divano, i divani",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "stanotte",
+        "level": "A1",
+        "id": "2062",
+        "english": "tonight",
+        "alternatives": [
+            "last night"
+        ],
+        "frequencyRank": 2062,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "uccello",
+        "level": "A1",
+        "id": "2073",
+        "english": "bird",
+        "alternatives": [
+            "fowl"
+        ],
+        "frequencyRank": 2073,
+        "inflections": "Noun: l'uccello, gli uccelli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "cinquanta",
+        "level": "A1",
+        "english": "fifty",
+        "frequencyRank": 2017,
+        "alternatives": [
+            "50"
+        ],
+        "id": "2017",
+        "partOfSpeech": "noun/adjective"
+    },
+    {
+        "english": "tea",
+        "alternatives": [
+            "brew"
+        ],
+        "level": "A1",
+        "id": "2087",
+        "italian": "tè",
+        "frequencyRank": 2087,
+        "inflections": "Noun: il tè, i tè",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "mezzanotte",
+        "level": "A1",
+        "id": "2059",
+        "english": "midnight",
+        "alternatives": [
+            "12 am"
+        ],
+        "frequencyRank": 2059,
+        "inflections": "Noun: la mezzanotte, le mezzanotti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "mezzogiorno",
+        "level": "A1",
+        "id": "2058",
+        "english": "midday",
+        "alternatives": [
+            "12 pm",
+            "noon"
+        ],
+        "frequencyRank": 2058,
+        "inflections": "Noun: il mezzogiorno, i mezzogiorni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "pen",
+        "alternatives": [
+            "ballpoint"
+        ],
+        "level": "A1",
+        "id": "2090",
+        "italian": "penna",
+        "frequencyRank": 2090,
+        "inflections": "Noun: la penna, le penne",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 2115,
+        "alternatives": [
+            "new year's",
+            "new year"
+        ],
+        "italian": "Capodanno",
+        "level": "A1",
+        "english": "new year's day",
+        "id": "2115",
+        "inflections": "Noun: il Capodanno, i Capodanni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "quaranta",
+        "level": "A1",
+        "english": "forty",
+        "frequencyRank": 2016,
+        "alternatives": [
+            "40"
+        ],
+        "id": "2016",
+        "partOfSpeech": "noun/adjective"
+    },
+    {
+        "italian": "settimo",
+        "level": "A1",
+        "english": "seventh",
+        "frequencyRank": 2006,
+        "alternatives": [
+            "7th"
+        ],
+        "id": "2006",
+        "inflections": "Adj: settimo, settima, settimi, settime",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "pepper",
+        "alternatives": [
+            "black pepper",
+            "peppercorn"
+        ],
+        "level": "A1",
+        "id": "2085",
+        "italian": "pepe",
+        "frequencyRank": 2085,
+        "inflections": "Noun: il pepe, i pepi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "sessanta",
+        "level": "A1",
+        "english": "sixty",
+        "frequencyRank": 2018,
+        "alternatives": [
+            "60"
+        ],
+        "id": "2018",
+        "partOfSpeech": "noun/adjective"
+    },
+    {
+        "italian": "sedici",
+        "level": "A1",
+        "english": "sixteen",
+        "frequencyRank": 2012,
+        "alternatives": [
+            "16"
+        ],
+        "id": "2012",
+        "partOfSpeech": "noun/adjective"
+    },
+    {
+        "italian": "coniglio",
+        "level": "A1",
+        "id": "2074",
+        "english": "rabbit",
+        "alternatives": [
+            "bunny"
+        ],
+        "frequencyRank": 2074,
+        "inflections": "Noun: il coniglio, i conigli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "decimo",
+        "level": "A1",
+        "english": "tenth",
+        "frequencyRank": 2009,
+        "alternatives": [
+            "10th"
+        ],
+        "id": "2009",
+        "inflections": "Adj: decimo, decima, decimi, decime",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "novanta",
+        "level": "A1",
+        "english": "ninety",
+        "frequencyRank": 2021,
+        "alternatives": [
+            "90"
+        ],
+        "id": "2021",
+        "partOfSpeech": "noun/adjective"
+    },
+    {
+        "italian": "ottanta",
+        "level": "A1",
+        "english": "eighty",
+        "frequencyRank": 2020,
+        "alternatives": [
+            "80"
+        ],
+        "id": "2020",
+        "partOfSpeech": "noun/adjective"
+    },
+    {
+        "italian": "diciotto",
+        "level": "A1",
+        "english": "eighteen",
+        "frequencyRank": 2014,
+        "alternatives": [
+            "18"
+        ],
+        "id": "2014",
+        "partOfSpeech": "noun/adjective"
+    },
+    {
+        "frequencyRank": 2117,
+        "alternatives": [
+            "cleanser"
+        ],
+        "italian": "sapone",
+        "level": "A1",
+        "english": "soap",
+        "id": "2117",
+        "inflections": "Noun: il sapone, i saponi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "settanta",
+        "level": "A1",
+        "english": "seventy",
+        "frequencyRank": 2019,
+        "alternatives": [
+            "70"
+        ],
+        "id": "2019",
+        "partOfSpeech": "noun/adjective"
+    },
+    {
+        "english": "pencil",
+        "alternatives": [
+            "lead pencil"
+        ],
+        "level": "A1",
+        "id": "2089",
+        "italian": "matita",
+        "frequencyRank": 2089,
+        "inflections": "Noun: la matita, le matite",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "ottavo",
+        "level": "A1",
+        "english": "eighth",
+        "frequencyRank": 2007,
+        "alternatives": [
+            "8th"
+        ],
+        "id": "2007",
+        "inflections": "Adj: ottavo, ottava, ottavi, ottave",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "notebook",
+        "alternatives": [
+            "exercise book",
+            "pad"
+        ],
+        "level": "A1",
+        "id": "2088",
+        "italian": "quaderno",
+        "frequencyRank": 2088,
+        "inflections": "Noun: il quaderno, i quaderni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "diciassette",
+        "level": "A1",
+        "english": "seventeen",
+        "frequencyRank": 2013,
+        "alternatives": [
+            "17"
+        ],
+        "id": "2013",
+        "partOfSpeech": "numeral"
+    },
+    {
+        "english": "goose",
+        "alternatives": [],
+        "level": "A1",
+        "id": "2078",
+        "italian": "oca",
+        "frequencyRank": 2078,
+        "inflections": "Noun: l'oca, le oche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "diciannove",
+        "level": "A1",
+        "english": "nineteen",
+        "frequencyRank": 2015,
+        "alternatives": [
+            "19"
+        ],
+        "id": "2015",
+        "partOfSpeech": "numeral"
+    },
+    {
+        "english": "to be called",
+        "alternatives": [
+            "to be named",
+            "to call oneself"
+        ],
+        "level": "A1",
+        "id": "2094",
+        "italian": "chiamarsi",
+        "frequencyRank": 2094,
+        "partOfSpeech": "verb"
+    },
+    {
+        "frequencyRank": 2118,
+        "alternatives": [],
+        "italian": "asciugamano",
+        "level": "A1",
+        "english": "towel",
+        "id": "2118",
+        "inflections": "Noun: l'asciugamano, gli asciugamani",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "duck",
+        "alternatives": [],
+        "level": "A1",
+        "id": "2077",
+        "italian": "anatra",
+        "frequencyRank": 2077,
+        "inflections": "Noun: l'anatra, le anatre",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "dopodomani",
+        "level": "A1",
+        "id": "2063",
+        "english": "the day after tomorrow",
+        "alternatives": [],
+        "frequencyRank": 2063,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "frequencyRank": 2120,
+        "alternatives": [],
+        "italian": "dentifricio",
+        "level": "A1",
+        "english": "toothpaste",
+        "id": "2120",
+        "inflections": "Noun: il dentifricio, i dentifrici",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "chi",
+        "level": "A1",
+        "english": "who",
+        "frequencyRank": 2022,
+        "alternatives": [
+            "whom"
+        ],
+        "id": "2022",
+        "partOfSpeech": "pronoun"
+    },
+    {
+        "italian": "perché",
+        "level": "A1",
+        "english": "why",
+        "frequencyRank": 2029,
+        "alternatives": [
+            "because"
+        ],
+        "id": "2029",
+        "partOfSpeech": "conjunction"
+    },
+    {
+        "italian": "ma",
+        "level": "A1",
+        "english": "but",
+        "frequencyRank": 2033,
+        "alternatives": [
+            "yet",
+            "however"
+        ],
+        "id": "2033",
+        "partOfSpeech": "conjunction"
+    },
+    {
+        "italian": "però",
+        "level": "A1",
+        "english": "however",
+        "frequencyRank": 2034,
+        "alternatives": [
+            "yet",
+            "but",
+            "though"
+        ],
+        "id": "2034",
+        "partOfSpeech": "conjunction"
+    },
+    {
+        "italian": "mentre",
+        "level": "A1",
+        "id": "2039",
+        "english": "while",
+        "alternatives": [
+            "as",
+            "whereas"
+        ],
+        "frequencyRank": 2039,
+        "partOfSpeech": "conjunction"
+    },
+    {
+        "italian": "anzi",
+        "level": "A1",
+        "id": "2040",
+        "english": "on the contrary",
+        "alternatives": [
+            "in fact",
+            "rather",
+            "actually"
+        ],
+        "frequencyRank": 2040,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "italian": "cioè",
+        "level": "A1",
+        "id": "2041",
+        "english": "that is",
+        "alternatives": [
+            "namely",
+            "in other words",
+            "i.e."
+        ],
+        "frequencyRank": 2041,
+        "partOfSpeech": "conjunction"
+    },
+    {
+        "italian": "dunque",
+        "level": "A1",
+        "id": "2043",
+        "english": "therefore",
+        "alternatives": [
+            "then",
+            "well then",
+            "thus",
+            "so"
+        ],
+        "frequencyRank": 2043,
+        "partOfSpeech": "conjunction"
+    },
+    {
+        "italian": "su",
+        "level": "A1",
+        "id": "2050",
+        "english": "up",
+        "alternatives": [
+            "on",
+            "above",
+            "upstairs"
+        ],
+        "frequencyRank": 2050,
+        "partOfSpeech": "preposition"
+    },
+    {
+        "english": "nobody",
+        "alternatives": [
+            "no one",
+            "none"
+        ],
+        "level": "A1",
+        "id": "2098",
+        "italian": "nessuno",
+        "frequencyRank": 2098,
+        "inflections": "Adj: nessuno, nessuna, nessuno, nessuna",
+        "partOfSpeech": "pronoun"
+    },
+    {
+        "english": "best wishes",
+        "alternatives": [
+            "greetings",
+            "congratulations",
+            "all the best"
+        ],
+        "level": "A1",
+        "id": "2113",
+        "italian": "auguri",
+        "frequencyRank": 2113,
+        "inflections": "Noun: l'augurio, gli auguri",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 2116,
+        "alternatives": [],
+        "italian": "Pasqua",
+        "level": "A1",
+        "english": "easter",
+        "id": "2116",
+        "inflections": "Noun: la Pasqua, le Pasque",
+        "partOfSpeech": "noun"
+    }
+]

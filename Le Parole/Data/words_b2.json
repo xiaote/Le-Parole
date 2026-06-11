@@ -1,0 +1,2777 @@
+[
+    {
+        "italian": "legge",
+        "level": "B2",
+        "id": "907",
+        "english": "law",
+        "alternatives": [
+            "legislation",
+            "statute",
+            "act"
+        ],
+        "frequencyRank": 907,
+        "inflections": "Noun: la legge, le leggi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "method",
+            "framework"
+        ],
+        "italian": "sistema",
+        "frequencyRank": 990,
+        "english": "system",
+        "level": "B2",
+        "id": "990",
+        "inflections": "Noun: il sistema, i sistemi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "general",
+        "alternatives": [
+            "common",
+            "broad"
+        ],
+        "level": "B2",
+        "id": "855",
+        "italian": "generale",
+        "frequencyRank": 855,
+        "inflections": "Adj: generale, generale, generali, generali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "politics",
+        "alternatives": [
+            "policy"
+        ],
+        "level": "B2",
+        "id": "871",
+        "italian": "politica",
+        "frequencyRank": 871,
+        "inflections": "Noun: la politica, le politiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "politico",
+        "id": "836",
+        "english": "political",
+        "alternatives": [],
+        "level": "B2",
+        "frequencyRank": 836,
+        "inflections": "Adj: politico, politica, politici, politiche",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "president",
+        "alternatives": [
+            "chairperson"
+        ],
+        "level": "B2",
+        "id": "876",
+        "italian": "presidente",
+        "frequencyRank": 876,
+        "inflections": "Noun: il presidente, i presidenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "floor",
+            "level",
+            "flat",
+            "design"
+        ],
+        "italian": "piano",
+        "frequencyRank": 979,
+        "english": "plan",
+        "level": "B2",
+        "id": "979",
+        "inflections": "Noun: il piano, i piani",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "tier",
+            "standard"
+        ],
+        "italian": "livello",
+        "frequencyRank": 984,
+        "english": "level",
+        "level": "B2",
+        "id": "984",
+        "inflections": "Noun: il livello, i livelli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "agreement",
+        "id": "1005",
+        "alternatives": [
+            "accord",
+            "settlement",
+            "deal"
+        ],
+        "italian": "accordo",
+        "frequencyRank": 1005,
+        "inflections": "Noun: l'accordo, gli accordi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "trattare",
+        "id": "834",
+        "english": "to treat",
+        "alternatives": [
+            "to deal with",
+            "to handle",
+            "to negotiate"
+        ],
+        "level": "B2",
+        "frequencyRank": 834,
+        "partOfSpeech": "verb"
+    },
+    {
+        "english": "present",
+        "alternatives": [
+            "current",
+            "here"
+        ],
+        "level": "B2",
+        "id": "864",
+        "italian": "presente",
+        "frequencyRank": 864,
+        "inflections": "Adj: presente, presente, presenti, presenti",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "social",
+        "alternatives": [
+            "societal"
+        ],
+        "level": "B2",
+        "id": "838",
+        "italian": "sociale",
+        "frequencyRank": 838,
+        "inflections": "Adj: sociale, sociale, sociali, sociali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "future",
+        "alternatives": [],
+        "level": "B2",
+        "id": "862",
+        "italian": "futuro",
+        "frequencyRank": 862,
+        "inflections": "Noun: il futuro, i futuri",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "care",
+            "notice"
+        ],
+        "italian": "attenzione",
+        "frequencyRank": 966,
+        "english": "attention",
+        "level": "B2",
+        "id": "966",
+        "inflections": "Noun: l'attenzione, le attenzioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "practice",
+            "background"
+        ],
+        "italian": "esperienza",
+        "frequencyRank": 957,
+        "english": "experience",
+        "level": "B2",
+        "id": "957",
+        "inflections": "Noun: l'esperienza, le esperienze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "processo",
+        "level": "B2",
+        "id": "914",
+        "english": "trial",
+        "alternatives": [
+            "proceeding",
+            "process"
+        ],
+        "frequencyRank": 914,
+        "inflections": "Noun: il processo, i processi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "produzione",
+        "level": "B2",
+        "id": "889",
+        "english": "production",
+        "alternatives": [
+            "manufacturing",
+            "output"
+        ],
+        "frequencyRank": 889,
+        "inflections": "Noun: la produzione, le produzioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "sinistra",
+        "level": "B2",
+        "id": "884",
+        "english": "left wing",
+        "alternatives": [
+            "left",
+            "the left"
+        ],
+        "frequencyRank": 884,
+        "inflections": "Adj: sinistro, sinistra, sinistri, sinistre",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "official",
+        "alternatives": [
+            "formal",
+            "authorized"
+        ],
+        "level": "B2",
+        "id": "847",
+        "italian": "ufficiale",
+        "frequencyRank": 847,
+        "inflections": "Adj: ufficiale, ufficiale, ufficiali, ufficiali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "minister",
+        "alternatives": [
+            "cabinet member",
+            "secretary"
+        ],
+        "level": "B2",
+        "id": "875",
+        "italian": "ministro",
+        "frequencyRank": 875,
+        "inflections": "Noun: il ministro, i ministri",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "destra",
+        "level": "B2",
+        "id": "883",
+        "english": "right wing",
+        "alternatives": [
+            "right",
+            "the right"
+        ],
+        "frequencyRank": 883,
+        "inflections": "Adj: destro, destra, destri, destre",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "appearance",
+            "feature",
+            "facet"
+        ],
+        "italian": "aspetto",
+        "frequencyRank": 982,
+        "english": "aspect",
+        "level": "B2",
+        "id": "982",
+        "inflections": "Noun: l'aspetto, gli aspetti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "pena",
+        "level": "B2",
+        "id": "919",
+        "english": "penalty",
+        "alternatives": [
+            "sorrow",
+            "punishment",
+            "sentence",
+            "pain"
+        ],
+        "frequencyRank": 919,
+        "inflections": "Noun: la pena, le pene",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "azione",
+        "level": "B2",
+        "id": "900",
+        "english": "share",
+        "alternatives": [
+            "action",
+            "stock",
+            "share (stock)",
+            "act"
+        ],
+        "frequencyRank": 900,
+        "inflections": "Noun: l'azione, le azioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "capitale",
+        "level": "B2",
+        "id": "892",
+        "english": "capital",
+        "alternatives": [
+            "money",
+            "assets"
+        ],
+        "frequencyRank": 892,
+        "inflections": "Noun: il capitale, i capitali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "previous",
+        "alternatives": [
+            "prior",
+            "former"
+        ],
+        "level": "B2",
+        "id": "859",
+        "italian": "precedente",
+        "frequencyRank": 859,
+        "inflections": "Adj: precedente, precedente, precedenti, precedenti",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "alternatives": [
+            "pattern",
+            "prototype"
+        ],
+        "italian": "modello",
+        "frequencyRank": 992,
+        "english": "model",
+        "level": "B2",
+        "id": "992",
+        "inflections": "Noun: il modello, i modelli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "organization",
+            "framework"
+        ],
+        "italian": "struttura",
+        "frequencyRank": 991,
+        "english": "structure",
+        "level": "B2",
+        "id": "991",
+        "inflections": "Noun: la struttura, le strutture",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 947,
+        "id": "947",
+        "italian": "comunicazione",
+        "english": "communication",
+        "alternatives": [
+            "messaging"
+        ],
+        "level": "B2",
+        "inflections": "Noun: la comunicazione, le comunicazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "current",
+        "alternatives": [
+            "current",
+            "present"
+        ],
+        "level": "B2",
+        "id": "858",
+        "italian": "attuale",
+        "frequencyRank": 858,
+        "inflections": "Adj: attuale, attuale, attuali, attuali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "election",
+        "alternatives": [
+            "vote",
+            "poll"
+        ],
+        "level": "B2",
+        "id": "873",
+        "italian": "elezione",
+        "frequencyRank": 873,
+        "inflections": "Noun: l'elezione, le elezioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "remembrance",
+            "recollection"
+        ],
+        "italian": "memoria",
+        "frequencyRank": 965,
+        "english": "memory",
+        "level": "B2",
+        "id": "965",
+        "inflections": "Noun: la memoria, le memorie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "analysis",
+        "id": "998",
+        "alternatives": [
+            "examination",
+            "study"
+        ],
+        "italian": "analisi",
+        "frequencyRank": 998,
+        "inflections": "Noun: l'analisi, le analisi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 955,
+        "id": "955",
+        "italian": "conoscenza",
+        "english": "knowledge",
+        "alternatives": [
+            "awareness",
+            "understanding"
+        ],
+        "level": "B2",
+        "inflections": "Noun: la conoscenza, le conoscenze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "economia",
+        "level": "B2",
+        "id": "885",
+        "english": "economy",
+        "alternatives": [
+            "finances",
+            "economics"
+        ],
+        "frequencyRank": 885,
+        "inflections": "Noun: l'economia, le economie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "cultural",
+        "alternatives": [],
+        "level": "B2",
+        "id": "839",
+        "italian": "culturale",
+        "frequencyRank": 839,
+        "inflections": "Adj: culturale, culturale, culturali, culturali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "parliament",
+        "alternatives": [
+            "legislature"
+        ],
+        "level": "B2",
+        "id": "872",
+        "italian": "parlamento",
+        "frequencyRank": 872,
+        "inflections": "Noun: il parlamento, i parlamenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "costituzione",
+        "level": "B2",
+        "id": "880",
+        "english": "constitution",
+        "alternatives": [
+            "charter"
+        ],
+        "frequencyRank": 880,
+        "inflections": "Noun: la costituzione, le costituzioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "considerare",
+        "id": "831",
+        "english": "to consider",
+        "alternatives": [
+            "contemplate",
+            "think about"
+        ],
+        "level": "B2",
+        "frequencyRank": 831,
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "B2",
+        "english": "discussion",
+        "id": "1003",
+        "alternatives": [
+            "debate",
+            "conversation"
+        ],
+        "italian": "discussione",
+        "frequencyRank": 1003,
+        "inflections": "Noun: la discussione, le discussioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "sindaco",
+        "level": "B2",
+        "id": "877",
+        "english": "mayor",
+        "alternatives": [
+            "town leader"
+        ],
+        "frequencyRank": 877,
+        "inflections": "Noun: il sindaco, i sindaci",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "tribunale",
+        "level": "B2",
+        "id": "908",
+        "english": "court",
+        "alternatives": [
+            "courthouse",
+            "tribunal"
+        ],
+        "frequencyRank": 908,
+        "inflections": "Noun: il tribunale, i tribunali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 922,
+        "id": "922",
+        "italian": "fisica",
+        "english": "physics",
+        "alternatives": [
+            "physical science"
+        ],
+        "level": "B2",
+        "inflections": "Adj: fisico, fisica, fisici, fisiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 930,
+        "id": "930",
+        "italian": "teoria",
+        "english": "theory",
+        "alternatives": [
+            "concept",
+            "hypothesis"
+        ],
+        "level": "B2",
+        "inflections": "Noun: la teoria, le teorie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "situation",
+            "background"
+        ],
+        "italian": "contesto",
+        "frequencyRank": 981,
+        "english": "context",
+        "level": "B2",
+        "id": "981",
+        "inflections": "Noun: il contesto, i contesti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "legal",
+        "alternatives": [
+            "judicial",
+            "lawful"
+        ],
+        "level": "B2",
+        "id": "843",
+        "italian": "legale",
+        "frequencyRank": 843,
+        "inflections": "Adj: legale, legale, legali, legali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "alternatives": [
+            "technique",
+            "way",
+            "approach"
+        ],
+        "italian": "metodo",
+        "frequencyRank": 976,
+        "english": "method",
+        "level": "B2",
+        "id": "976",
+        "inflections": "Noun: il metodo, i metodi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "recent",
+        "alternatives": [
+            "new"
+        ],
+        "level": "B2",
+        "id": "861",
+        "italian": "recente",
+        "frequencyRank": 861,
+        "inflections": "Adj: recente, recente, recenti, recenti",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "level": "B2",
+        "english": "argument",
+        "id": "1001",
+        "alternatives": [
+            "subject",
+            "topic"
+        ],
+        "italian": "argomento",
+        "frequencyRank": 1001,
+        "inflections": "Noun: l'argomento, gli argomenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "event",
+            "occurrence"
+        ],
+        "italian": "fenomeno",
+        "frequencyRank": 987,
+        "english": "phenomenon",
+        "level": "B2",
+        "id": "987",
+        "inflections": "Noun: il fenomeno, i fenomeni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "fundamental",
+        "alternatives": [
+            "essential",
+            "basic"
+        ],
+        "level": "B2",
+        "id": "850",
+        "italian": "fondamentale",
+        "frequencyRank": 850,
+        "inflections": "Adj: fondamentale, fondamentale, fondamentali, fondamentali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "affrontare",
+        "id": "822",
+        "english": "to face",
+        "alternatives": [
+            "to deal with",
+            "tackle",
+            "to confront"
+        ],
+        "level": "B2",
+        "frequencyRank": 822,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "perdita",
+        "level": "B2",
+        "id": "894",
+        "english": "loss",
+        "alternatives": [
+            "loss",
+            "leak"
+        ],
+        "frequencyRank": 894,
+        "inflections": "Noun: la perdita, le perdite",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "sentenza",
+        "level": "B2",
+        "id": "911",
+        "english": "verdict",
+        "alternatives": [
+            "ruling",
+            "sentence",
+            "judgment"
+        ],
+        "frequencyRank": 911,
+        "inflections": "Noun: la sentenza, le sentenze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "giudice",
+        "level": "B2",
+        "id": "909",
+        "english": "judge",
+        "alternatives": [
+            "magistrate",
+            "justice"
+        ],
+        "frequencyRank": 909,
+        "inflections": "Noun: il giudice, i giudici",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "enthusiasm",
+            "zeal"
+        ],
+        "italian": "passione",
+        "frequencyRank": 972,
+        "english": "passion",
+        "level": "B2",
+        "id": "972",
+        "inflections": "Noun: la passione, le passioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "commercio",
+        "level": "B2",
+        "id": "887",
+        "english": "trade",
+        "alternatives": [
+            "commerce",
+            "business"
+        ],
+        "frequencyRank": 887,
+        "inflections": "Noun: il commercio, i commerci",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1037,
+        "italian": "comportamento",
+        "id": "1037",
+        "english": "behaviour",
+        "alternatives": [
+            "behavior",
+            "manner",
+            "conduct"
+        ],
+        "inflections": "Noun: il comportamento, i comportamenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "size",
+            "aspect"
+        ],
+        "italian": "dimensione",
+        "frequencyRank": 983,
+        "english": "dimension",
+        "level": "B2",
+        "id": "983",
+        "inflections": "Noun: la dimensione, le dimensioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "effort",
+            "dedication",
+            "engagement"
+        ],
+        "italian": "impegno",
+        "frequencyRank": 974,
+        "english": "commitment",
+        "level": "B2",
+        "id": "974",
+        "inflections": "Noun: l'impegno, gli impegni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "debito",
+        "level": "B2",
+        "id": "904",
+        "english": "debt",
+        "alternatives": [
+            "liability",
+            "obligation"
+        ],
+        "frequencyRank": 904,
+        "inflections": "Noun: il debito, i debiti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 931,
+        "id": "931",
+        "italian": "principio",
+        "english": "principle",
+        "alternatives": [
+            "rule",
+            "beginning"
+        ],
+        "level": "B2",
+        "inflections": "Noun: il principio, i principi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "bilancio",
+        "level": "B2",
+        "id": "895",
+        "english": "balance",
+        "alternatives": [
+            "balance sheet",
+            "budget"
+        ],
+        "frequencyRank": 895,
+        "inflections": "Noun: il bilancio, i bilanci",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "avvocato",
+        "level": "B2",
+        "id": "910",
+        "english": "lawyer",
+        "alternatives": [
+            "attorney",
+            "solicitor"
+        ],
+        "frequencyRank": 910,
+        "inflections": "Noun: l'avvocato, gli avvocati",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "definition",
+        "id": "995",
+        "alternatives": [
+            "clarification",
+            "explanation"
+        ],
+        "italian": "definizione",
+        "frequencyRank": 995,
+        "inflections": "Noun: la definizione, le definizioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1039,
+        "italian": "identità",
+        "id": "1039",
+        "english": "identity",
+        "alternatives": [
+            "identification"
+        ],
+        "inflections": "Noun: l'identità, le identità",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "credito",
+        "level": "B2",
+        "id": "905",
+        "english": "credit",
+        "alternatives": [
+            "trust"
+        ],
+        "frequencyRank": 905,
+        "inflections": "Noun: il credito, i crediti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "subsequent",
+        "alternatives": [
+            "following",
+            "next"
+        ],
+        "level": "B2",
+        "id": "860",
+        "italian": "successivo",
+        "frequencyRank": 860,
+        "inflections": "Adj: successivo, successiva, successivi, successive",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "frequencyRank": 929,
+        "id": "929",
+        "italian": "ipotesi",
+        "english": "hypothesis",
+        "alternatives": [
+            "assumption",
+            "theory"
+        ],
+        "level": "B2",
+        "inflections": "Noun: l'ipotesi, le ipotesi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "prevedere",
+        "id": "823",
+        "english": "to foresee",
+        "alternatives": [
+            "to anticipate",
+            "predict",
+            "envisage"
+        ],
+        "level": "B2",
+        "frequencyRank": 823,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "reato",
+        "level": "B2",
+        "id": "918",
+        "english": "offence",
+        "alternatives": [
+            "offense",
+            "crime",
+            "felony"
+        ],
+        "frequencyRank": 918,
+        "inflections": "Noun: il reato, i reati",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "inclination",
+            "trend"
+        ],
+        "italian": "tendenza",
+        "frequencyRank": 986,
+        "english": "tendency",
+        "level": "B2",
+        "id": "986",
+        "inflections": "Noun: la tendenza, le tendenze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "relative",
+        "alternatives": [
+            "related",
+            "respective",
+            "relevant"
+        ],
+        "level": "B2",
+        "id": "853",
+        "italian": "relativo",
+        "frequencyRank": 853,
+        "inflections": "Adj: relativo, relativa, relativi, relative",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "specific",
+        "alternatives": [
+            "particular",
+            "precise"
+        ],
+        "level": "B2",
+        "id": "854",
+        "italian": "specifico",
+        "frequencyRank": 854,
+        "inflections": "Adj: specifico, specifica, specifici, specifiche",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "carcere",
+        "level": "B2",
+        "id": "920",
+        "english": "prison",
+        "alternatives": [
+            "jail",
+            "penitentiary"
+        ],
+        "frequencyRank": 920,
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "garantire",
+        "id": "824",
+        "english": "to guarantee",
+        "alternatives": [
+            "ensure",
+            "to secure"
+        ],
+        "level": "B2",
+        "frequencyRank": 824,
+        "partOfSpeech": "verb"
+    },
+    {
+        "frequencyRank": 925,
+        "id": "925",
+        "italian": "matematica",
+        "english": "mathematics",
+        "alternatives": [
+            "maths",
+            "math"
+        ],
+        "level": "B2",
+        "inflections": "Noun: la matematica, le matematiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1038,
+        "italian": "personalità",
+        "id": "1038",
+        "english": "personality",
+        "alternatives": [
+            "character"
+        ],
+        "inflections": "Noun: la personalità, le personalità",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "scientific",
+        "alternatives": [
+            "scholarly"
+        ],
+        "level": "B2",
+        "id": "840",
+        "italian": "scientifico",
+        "frequencyRank": 840,
+        "inflections": "Adj: scientifico, scientifica, scientifici, scientifiche",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "level": "B2",
+        "english": "conclusion",
+        "id": "1000",
+        "alternatives": [
+            "outcome",
+            "end"
+        ],
+        "italian": "conclusione",
+        "frequencyRank": 1000,
+        "inflections": "Noun: la conclusione, le conclusioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "industria",
+        "level": "B2",
+        "id": "888",
+        "english": "industry",
+        "alternatives": [
+            "manufacturing"
+        ],
+        "frequencyRank": 888,
+        "inflections": "Noun: l'industria, le industrie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "evaluation",
+        "id": "997",
+        "alternatives": [
+            "assessment",
+            "appraisal"
+        ],
+        "italian": "valutazione",
+        "frequencyRank": 997,
+        "inflections": "Noun: la valutazione, le valutazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "condanna",
+        "level": "B2",
+        "id": "912",
+        "english": "conviction",
+        "alternatives": [
+            "condemnation",
+            "sentence"
+        ],
+        "frequencyRank": 912,
+        "inflections": "Noun: la condanna, le condanne",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "debate",
+        "id": "1002",
+        "alternatives": [
+            "argument",
+            "discussion"
+        ],
+        "italian": "dibattito",
+        "frequencyRank": 1002,
+        "inflections": "Noun: il dibattito, i dibattiti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "riconoscere",
+        "id": "833",
+        "english": "to recognise",
+        "alternatives": [
+            "to acknowledge",
+            "to admit",
+            "to recognize"
+        ],
+        "level": "B2",
+        "frequencyRank": 833,
+        "partOfSpeech": "verb"
+    },
+    {
+        "alternatives": [
+            "tactic",
+            "plan"
+        ],
+        "italian": "strategia",
+        "frequencyRank": 977,
+        "english": "strategy",
+        "level": "B2",
+        "id": "977",
+        "inflections": "Noun: la strategia, le strategie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "investimento",
+        "level": "B2",
+        "id": "891",
+        "english": "investment",
+        "alternatives": [
+            "funding"
+        ],
+        "frequencyRank": 891,
+        "inflections": "Noun: l'investimento, gli investimenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "method",
+            "strategy"
+        ],
+        "italian": "approccio",
+        "frequencyRank": 975,
+        "english": "approach",
+        "level": "B2",
+        "id": "975",
+        "inflections": "Noun: l'approccio, gli approcci",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "view",
+            "viewpoint",
+            "outlook"
+        ],
+        "italian": "prospettiva",
+        "frequencyRank": 980,
+        "english": "perspective",
+        "level": "B2",
+        "id": "980",
+        "inflections": "Noun: la prospettiva, le prospettive",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "racism",
+        "id": "1025",
+        "alternatives": [
+            "racial discrimination"
+        ],
+        "italian": "razzismo",
+        "frequencyRank": 1025,
+        "inflections": "Noun: il razzismo, i razzismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "global",
+        "alternatives": [
+            "worldwide",
+            "universal"
+        ],
+        "level": "B2",
+        "id": "856",
+        "italian": "globale",
+        "frequencyRank": 856,
+        "inflections": "Adj: globale, globale, globali, globali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "level": "B2",
+        "english": "integration",
+        "id": "1012",
+        "alternatives": [
+            "inclusion",
+            "incorporation"
+        ],
+        "italian": "integrazione",
+        "frequencyRank": 1012,
+        "inflections": "Noun: l'integrazione, le integrazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "interpretation",
+        "id": "996",
+        "alternatives": [
+            "meaning",
+            "explanation"
+        ],
+        "italian": "interpretazione",
+        "frequencyRank": 996,
+        "inflections": "Noun: l'interpretazione, le interpretazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "gift",
+            "aptitude"
+        ],
+        "italian": "talento",
+        "frequencyRank": 960,
+        "english": "talent",
+        "level": "B2",
+        "id": "960",
+        "inflections": "Noun: il talento, i talenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "environmental",
+        "alternatives": [
+            "ecological"
+        ],
+        "level": "B2",
+        "id": "842",
+        "italian": "ambientale",
+        "frequencyRank": 842,
+        "inflections": "Adj: ambientale, ambientale, ambientali, ambientali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "alternatives": [
+            "expertise",
+            "proficiency",
+            "skill"
+        ],
+        "italian": "competenza",
+        "frequencyRank": 958,
+        "english": "competence",
+        "level": "B2",
+        "id": "958",
+        "inflections": "Noun: la competenza, le competenze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 923,
+        "id": "923",
+        "italian": "chimica",
+        "english": "chemistry",
+        "alternatives": [],
+        "level": "B2",
+        "inflections": "Noun: la chimica, le chimiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "unemployment",
+        "id": "1020",
+        "alternatives": [
+            "joblessness"
+        ],
+        "italian": "disoccupazione",
+        "frequencyRank": 1020,
+        "inflections": "Noun: la disoccupazione, le disoccupazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "illegal",
+        "alternatives": [
+            "illicit",
+            "unlawful"
+        ],
+        "level": "B2",
+        "id": "844",
+        "italian": "illegale",
+        "frequencyRank": 844,
+        "inflections": "Adj: illegale, illegale, illegali, illegali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "stabilire",
+        "id": "829",
+        "english": "to establish",
+        "alternatives": [
+            "to set up",
+            "to settle",
+            "to fix",
+            "to set"
+        ],
+        "level": "B2",
+        "frequencyRank": 829,
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1050,
+        "italian": "consapevolezza",
+        "id": "1050",
+        "english": "awareness",
+        "alternatives": [
+            "realization",
+            "consciousness"
+        ],
+        "inflections": "Noun: la consapevolezza, le consapevolezze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "riprendere",
+        "id": "821",
+        "english": "to resume",
+        "alternatives": [
+            "to film",
+            "to recover",
+            "to take back",
+            "restart"
+        ],
+        "level": "B2",
+        "frequencyRank": 821,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "testimone",
+        "level": "B2",
+        "id": "916",
+        "english": "witness",
+        "alternatives": [
+            "eyewitness"
+        ],
+        "frequencyRank": 916,
+        "inflections": "Noun: il testimone, i testimoni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "capability",
+            "skill"
+        ],
+        "italian": "abilità",
+        "frequencyRank": 959,
+        "english": "ability",
+        "level": "B2",
+        "id": "959",
+        "inflections": "Noun: l'abilità, le abilità",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "poverty",
+        "id": "1016",
+        "alternatives": [
+            "destitution"
+        ],
+        "italian": "povertà",
+        "frequencyRank": 1016,
+        "inflections": "Noun: la povertà, le povertà",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "senatore",
+        "level": "B2",
+        "id": "879",
+        "english": "senator",
+        "alternatives": [],
+        "frequencyRank": 879,
+        "inflections": "Noun: il senatore, i senatori",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "intellect"
+        ],
+        "italian": "intelligenza",
+        "frequencyRank": 961,
+        "english": "intelligence",
+        "level": "B2",
+        "id": "961",
+        "inflections": "Noun: l'intelligenza, le intelligenze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 950,
+        "id": "950",
+        "italian": "redazione",
+        "english": "editorial office",
+        "alternatives": [
+            "editorial staff",
+            "editorial board",
+            "newsroom"
+        ],
+        "level": "B2",
+        "inflections": "Noun: la redazione, le redazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "synthesis",
+        "id": "999",
+        "alternatives": [
+            "overview",
+            "summary"
+        ],
+        "italian": "sintesi",
+        "frequencyRank": 999,
+        "inflections": "Noun: la sintesi, le sintesi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1043,
+        "italian": "disturbo",
+        "id": "1043",
+        "english": "disorder",
+        "alternatives": [
+            "disturbance",
+            "bother"
+        ],
+        "inflections": "Noun: il disturbo, i disturbi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "system",
+            "process"
+        ],
+        "italian": "meccanismo",
+        "frequencyRank": 989,
+        "english": "mechanism",
+        "level": "B2",
+        "id": "989",
+        "inflections": "Noun: il meccanismo, i meccanismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1046,
+        "italian": "dipendenza",
+        "id": "1046",
+        "english": "addiction",
+        "alternatives": [
+            "dependence",
+            "dependency",
+            "reliance"
+        ],
+        "inflections": "Noun: la dipendenza, le dipendenze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "scheme",
+        "id": "993",
+        "alternatives": [
+            "plan",
+            "diagram",
+            "pattern",
+            "outline"
+        ],
+        "italian": "schema",
+        "frequencyRank": 993,
+        "inflections": "Noun: lo schema, gli schemi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "alliance",
+        "id": "1010",
+        "alternatives": [
+            "coalition",
+            "partnership"
+        ],
+        "italian": "alleanza",
+        "frequencyRank": 1010,
+        "inflections": "Noun: l'alleanza, le alleanze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "incentive",
+            "drive"
+        ],
+        "italian": "motivazione",
+        "frequencyRank": 968,
+        "english": "motivation",
+        "level": "B2",
+        "id": "968",
+        "inflections": "Noun: la motivazione, le motivazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 951,
+        "id": "951",
+        "italian": "sondaggio",
+        "english": "survey",
+        "alternatives": [
+            "study",
+            "poll"
+        ],
+        "level": "B2",
+        "inflections": "Noun: il sondaggio, i sondaggi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "determinare",
+        "id": "832",
+        "english": "to determine",
+        "alternatives": [
+            "to cause",
+            "to decide",
+            "to define"
+        ],
+        "level": "B2",
+        "frequencyRank": 832,
+        "partOfSpeech": "verb"
+    },
+    {
+        "alternatives": [
+            "tenacity",
+            "resolve"
+        ],
+        "italian": "determinazione",
+        "frequencyRank": 969,
+        "english": "determination",
+        "level": "B2",
+        "id": "969",
+        "inflections": "Noun: la determinazione, le determinazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 949,
+        "id": "949",
+        "italian": "giornalismo",
+        "english": "journalism",
+        "alternatives": [
+            "press"
+        ],
+        "level": "B2",
+        "inflections": "Noun: il giornalismo, i giornalismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1036,
+        "italian": "psicologia",
+        "id": "1036",
+        "english": "psychology",
+        "alternatives": [],
+        "inflections": "Noun: la psicologia, le psicologie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "sospendere",
+        "id": "820",
+        "english": "to suspend",
+        "alternatives": [
+            "to pause",
+            "to interrupt",
+            "to stop"
+        ],
+        "level": "B2",
+        "frequencyRank": 820,
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "B2",
+        "english": "equality",
+        "id": "1029",
+        "alternatives": [
+            "parity"
+        ],
+        "italian": "parità",
+        "frequencyRank": 1029,
+        "inflections": "Noun: la parità, le parità",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "delegare",
+        "id": "807",
+        "english": "to delegate",
+        "alternatives": [
+            "to assign",
+            "to depute"
+        ],
+        "level": "B2",
+        "frequencyRank": 807,
+        "partOfSpeech": "verb"
+    },
+    {
+        "english": "significant",
+        "alternatives": [
+            "important",
+            "meaningful",
+            "substantial"
+        ],
+        "level": "B2",
+        "id": "848",
+        "italian": "significativo",
+        "frequencyRank": 848,
+        "inflections": "Adj: significativo, significativa, significativi, significative",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "investire",
+        "id": "811",
+        "english": "to invest",
+        "alternatives": [
+            "to fund",
+            "to run over (with a vehicle)",
+            "to put money into"
+        ],
+        "level": "B2",
+        "frequencyRank": 811,
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "B2",
+        "english": "cooperation",
+        "id": "1011",
+        "alternatives": [
+            "partnership",
+            "collaboration"
+        ],
+        "italian": "cooperazione",
+        "frequencyRank": 1011,
+        "inflections": "Noun: la cooperazione, le cooperazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 928,
+        "id": "928",
+        "italian": "esperimento",
+        "english": "experiment",
+        "alternatives": [
+            "trial",
+            "test"
+        ],
+        "level": "B2",
+        "inflections": "Noun: l'esperimento, gli esperimenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "formal",
+        "alternatives": [
+            "official",
+            "proper"
+        ],
+        "level": "B2",
+        "id": "845",
+        "italian": "formale",
+        "frequencyRank": 845,
+        "inflections": "Adj: formale, formale, formali, formali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "sustainable",
+        "alternatives": [
+            "viable",
+            "eco-friendly"
+        ],
+        "level": "B2",
+        "id": "868",
+        "italian": "sostenibile",
+        "frequencyRank": 868,
+        "inflections": "Adj: sostenibile, sostenibile, sostenibili, sostenibili",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "alternatives": [
+            "focus",
+            "attention"
+        ],
+        "italian": "concentrazione",
+        "frequencyRank": 967,
+        "english": "concentration",
+        "level": "B2",
+        "id": "967",
+        "inflections": "Noun: la concentrazione, le concentrazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 953,
+        "id": "953",
+        "italian": "censura",
+        "english": "censorship",
+        "alternatives": [
+            "suppression"
+        ],
+        "level": "B2",
+        "inflections": "Noun: la censura, le censure",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "distinguere",
+        "id": "828",
+        "english": "to distinguish",
+        "alternatives": [
+            "to tell apart",
+            "to differentiate"
+        ],
+        "level": "B2",
+        "frequencyRank": 828,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "mutuo",
+        "level": "B2",
+        "id": "906",
+        "english": "mortgage",
+        "alternatives": [
+            "loan",
+            "home loan"
+        ],
+        "frequencyRank": 906,
+        "inflections": "Adj: mutuo, mutua, mutui, mutue",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "inventiveness",
+            "originality"
+        ],
+        "italian": "creatività",
+        "frequencyRank": 962,
+        "english": "creativity",
+        "level": "B2",
+        "id": "962",
+        "inflections": "Noun: la creatività, le creatività",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "discrimination",
+        "id": "1024",
+        "alternatives": [
+            "bias",
+            "unfair treatment"
+        ],
+        "italian": "discriminazione",
+        "frequencyRank": 1024,
+        "inflections": "Noun: la discriminazione, le discriminazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "efficient",
+        "alternatives": [
+            "productive",
+            "effective"
+        ],
+        "level": "B2",
+        "id": "867",
+        "italian": "efficiente",
+        "frequencyRank": 867,
+        "inflections": "Adj: efficiente, efficiente, efficienti, efficienti",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "intraprendere",
+        "id": "826",
+        "english": "to undertake",
+        "alternatives": [
+            "to take on",
+            "to start",
+            "to embark on",
+            "to begin"
+        ],
+        "level": "B2",
+        "frequencyRank": 826,
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "B2",
+        "english": "prejudice",
+        "id": "1027",
+        "alternatives": [
+            "preconception",
+            "bias"
+        ],
+        "italian": "pregiudizio",
+        "frequencyRank": 1027,
+        "inflections": "Noun: il pregiudizio, i pregiudizi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 944,
+        "id": "944",
+        "italian": "emissione",
+        "english": "emission",
+        "alternatives": [
+            "issuance",
+            "release",
+            "output"
+        ],
+        "level": "B2",
+        "inflections": "Noun: l'emissione, le emissioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "controversy",
+        "id": "1004",
+        "alternatives": [
+            "argument",
+            "dispute"
+        ],
+        "italian": "controversia",
+        "frequencyRank": 1004,
+        "inflections": "Noun: la controversia, le controversie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "finanziare",
+        "id": "810",
+        "english": "to finance",
+        "alternatives": [
+            "to fund",
+            "to pay for"
+        ],
+        "level": "B2",
+        "frequencyRank": 810,
+        "partOfSpeech": "verb"
+    },
+    {
+        "alternatives": [
+            "vision"
+        ],
+        "italian": "immaginazione",
+        "frequencyRank": 964,
+        "english": "imagination",
+        "level": "B2",
+        "id": "964",
+        "inflections": "Noun: l'immaginazione, le immaginazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "attribuire",
+        "id": "830",
+        "english": "to attribute",
+        "alternatives": [
+            "to ascribe",
+            "assign"
+        ],
+        "level": "B2",
+        "frequencyRank": 830,
+        "partOfSpeech": "verb"
+    },
+    {
+        "english": "technological",
+        "alternatives": [
+            "tech",
+            "high-tech"
+        ],
+        "level": "B2",
+        "id": "841",
+        "italian": "tecnologico",
+        "frequencyRank": 841,
+        "inflections": "Adj: tecnologico, tecnologica, tecnologici, tecnologiche",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "proportional",
+        "alternatives": [
+            "proportionate"
+        ],
+        "level": "B2",
+        "id": "865",
+        "italian": "proporzionale",
+        "frequencyRank": 865,
+        "inflections": "Adj: proporzionale, proporzionale, proporzionali, proporzionali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "alternatives": [
+            "strategy",
+            "approach"
+        ],
+        "italian": "tattica",
+        "frequencyRank": 978,
+        "english": "tactic",
+        "level": "B2",
+        "id": "978",
+        "inflections": "Noun: la tattica, le tattiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 924,
+        "id": "924",
+        "italian": "biologia",
+        "english": "biology",
+        "alternatives": [
+            "life science"
+        ],
+        "level": "B2",
+        "inflections": "Noun: la biologia, le biologie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "welfare state",
+        "id": "1018",
+        "alternatives": [
+            "social security",
+            "social services",
+            "welfare",
+            "social welfare"
+        ],
+        "italian": "welfare",
+        "frequencyRank": 1018,
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "inflazione",
+        "level": "B2",
+        "id": "896",
+        "english": "inflation",
+        "alternatives": [
+            "price increase"
+        ],
+        "frequencyRank": 896,
+        "inflections": "Noun: l'inflazione, le inflazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "esaminare",
+        "id": "835",
+        "english": "to examine",
+        "alternatives": [
+            "to inspect",
+            "to analyze",
+            "to check"
+        ],
+        "level": "B2",
+        "frequencyRank": 835,
+        "partOfSpeech": "verb"
+    },
+    {
+        "english": "substantial",
+        "alternatives": [
+            "significant",
+            "considerable"
+        ],
+        "level": "B2",
+        "id": "849",
+        "italian": "sostanziale",
+        "frequencyRank": 849,
+        "inflections": "Adj: sostanziale, sostanziale, sostanziali, sostanziali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "english": "decisive",
+        "alternatives": [
+            "critical",
+            "crucial",
+            "determining"
+        ],
+        "level": "B2",
+        "id": "852",
+        "italian": "determinante",
+        "frequencyRank": 852,
+        "inflections": "Adj: determinante, determinante, determinanti, determinanti",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "level": "B2",
+        "english": "stereotype",
+        "id": "1026",
+        "alternatives": [
+            "preconception",
+            "cliché"
+        ],
+        "italian": "stereotipo",
+        "frequencyRank": 1026,
+        "inflections": "Noun: lo stereotipo, gli stereotipi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "elaborare",
+        "id": "801",
+        "english": "to elaborate",
+        "alternatives": [
+            "to develop",
+            "to process",
+            "to work out"
+        ],
+        "level": "B2",
+        "frequencyRank": 801,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "concepire",
+        "id": "827",
+        "english": "to conceive",
+        "alternatives": [
+            "to imagine",
+            "to invent",
+            "to design",
+            "to devise"
+        ],
+        "level": "B2",
+        "frequencyRank": 827,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "perseguire",
+        "id": "825",
+        "english": "to pursue",
+        "alternatives": [
+            "to seek",
+            "to chase",
+            "to strive for"
+        ],
+        "level": "B2",
+        "frequencyRank": 825,
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1040,
+        "italian": "autostima",
+        "id": "1040",
+        "english": "self-esteem",
+        "alternatives": [
+            "self-worth",
+            "self-confidence"
+        ],
+        "inflections": "Noun: l'autostima, le autostime",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "integrare",
+        "id": "814",
+        "english": "to integrate",
+        "alternatives": [
+            "to complete",
+            "to incorporate",
+            "to include"
+        ],
+        "level": "B2",
+        "frequencyRank": 814,
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "B2",
+        "english": "globalisation",
+        "id": "1013",
+        "alternatives": [
+            "globalization"
+        ],
+        "italian": "globalizzazione",
+        "frequencyRank": 1013,
+        "inflections": "Noun: la globalizzazione, le globalizzazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1049,
+        "italian": "meditazione",
+        "id": "1049",
+        "english": "meditation",
+        "alternatives": [
+            "contemplation",
+            "mindfulness"
+        ],
+        "inflections": "Noun: la meditazione, le meditazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "innovative",
+        "alternatives": [
+            "groundbreaking",
+            "inventive",
+            "original"
+        ],
+        "level": "B2",
+        "id": "869",
+        "italian": "innovativo",
+        "frequencyRank": 869,
+        "inflections": "Adj: innovativo, innovativa, innovativi, innovative",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "frequencyRank": 933,
+        "id": "933",
+        "italian": "equazione",
+        "english": "equation",
+        "alternatives": [
+            "formula"
+        ],
+        "level": "B2",
+        "inflections": "Noun: l'equazione, le equazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "migration",
+        "id": "1021",
+        "alternatives": [
+            "relocation",
+            "movement"
+        ],
+        "italian": "migrazione",
+        "frequencyRank": 1021,
+        "inflections": "Noun: la migrazione, le migrazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "crucial",
+        "alternatives": [
+            "pivotal",
+            "critical",
+            "vital"
+        ],
+        "level": "B2",
+        "id": "851",
+        "italian": "cruciale",
+        "frequencyRank": 851,
+        "inflections": "Adj: cruciale, cruciale, cruciali, cruciali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "level": "B2",
+        "english": "feminism",
+        "id": "1030",
+        "alternatives": [],
+        "italian": "femminismo",
+        "frequencyRank": 1030,
+        "inflections": "Noun: il femminismo, i femminismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "subsidy",
+        "id": "1019",
+        "alternatives": [
+            "grant",
+            "benefit",
+            "allowance",
+            "aid"
+        ],
+        "italian": "sussidio",
+        "frequencyRank": 1019,
+        "inflections": "Noun: il sussidio, i sussidi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "stimolare",
+        "id": "817",
+        "english": "to stimulate",
+        "alternatives": [
+            "boost",
+            "to trigger",
+            "to spur",
+            "to encourage"
+        ],
+        "level": "B2",
+        "frequencyRank": 817,
+        "partOfSpeech": "verb"
+    },
+    {
+        "frequencyRank": 934,
+        "id": "934",
+        "italian": "algoritmo",
+        "english": "algorithm",
+        "alternatives": [],
+        "level": "B2",
+        "inflections": "Noun: l'algoritmo, gli algoritmi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "disagreement",
+        "id": "1006",
+        "alternatives": [
+            "dissent",
+            "discord"
+        ],
+        "italian": "disaccordo",
+        "frequencyRank": 1006,
+        "inflections": "Noun: il disaccordo, i disaccordi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "devotion",
+            "commitment"
+        ],
+        "italian": "dedizione",
+        "frequencyRank": 973,
+        "english": "dedication",
+        "level": "B2",
+        "id": "973",
+        "inflections": "Noun: la dedizione, le dedizioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "aspiration",
+            "drive"
+        ],
+        "italian": "ambizione",
+        "frequencyRank": 971,
+        "english": "ambition",
+        "level": "B2",
+        "id": "971",
+        "inflections": "Noun: l'ambizione, le ambizioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "informal",
+        "alternatives": [
+            "casual",
+            "relaxed"
+        ],
+        "level": "B2",
+        "id": "846",
+        "italian": "informale",
+        "frequencyRank": 846,
+        "inflections": "Adj: informale, informale, informali, informali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "accelerare",
+        "id": "818",
+        "english": "to accelerate",
+        "alternatives": [
+            "to hasten",
+            "to speed up"
+        ],
+        "level": "B2",
+        "frequencyRank": 818,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "recessione",
+        "level": "B2",
+        "id": "898",
+        "english": "recession",
+        "alternatives": [
+            "downturn",
+            "slump"
+        ],
+        "frequencyRank": 898,
+        "inflections": "Noun: la recessione, le recessioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "english": "competitive",
+        "alternatives": [
+            "rival"
+        ],
+        "level": "B2",
+        "id": "870",
+        "italian": "competitivo",
+        "frequencyRank": 870,
+        "inflections": "Adj: competitivo, competitiva, competitivi, competitive",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "italian": "rallentare",
+        "id": "819",
+        "english": "to slow down",
+        "alternatives": [
+            "to delay",
+            "to decelerate"
+        ],
+        "level": "B2",
+        "frequencyRank": 819,
+        "partOfSpeech": "verb"
+    },
+    {
+        "frequencyRank": 942,
+        "id": "942",
+        "italian": "biodiversità",
+        "english": "biodiversity",
+        "alternatives": [
+            "biological diversity"
+        ],
+        "level": "B2",
+        "inflections": "Noun: la biodiversità, le biodiversità",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "instinct",
+            "insight",
+            "hunch"
+        ],
+        "italian": "intuizione",
+        "frequencyRank": 963,
+        "english": "intuition",
+        "level": "B2",
+        "id": "963",
+        "inflections": "Noun: l'intuizione, le intuizioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "incentivare",
+        "id": "808",
+        "english": "to incentivise",
+        "alternatives": [
+            "to motivate",
+            "to promote",
+            "to incentivize",
+            "encourage"
+        ],
+        "level": "B2",
+        "frequencyRank": 808,
+        "partOfSpeech": "verb"
+    },
+    {
+        "frequencyRank": 926,
+        "id": "926",
+        "italian": "astronomia",
+        "english": "astronomy",
+        "alternatives": [],
+        "level": "B2",
+        "inflections": "Noun: l'astronomia, le astronomie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 943,
+        "id": "943",
+        "italian": "ecosistema",
+        "english": "ecosystem",
+        "alternatives": [
+            "environment",
+            "habitat"
+        ],
+        "level": "B2",
+        "inflections": "Noun: l'ecosistema, gli ecosistemi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "emancipation",
+        "id": "1028",
+        "alternatives": [
+            "liberation",
+            "freedom"
+        ],
+        "italian": "emancipazione",
+        "frequencyRank": 1028,
+        "inflections": "Noun: l'emancipazione, le emancipazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "implementare",
+        "id": "802",
+        "english": "to implement",
+        "alternatives": [
+            "to carry out",
+            "to execute",
+            "to put into practice"
+        ],
+        "level": "B2",
+        "frequencyRank": 802,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "consolidare",
+        "id": "813",
+        "english": "to consolidate",
+        "alternatives": [
+            "to solidify",
+            "to strengthen",
+            "to reinforce"
+        ],
+        "level": "B2",
+        "frequencyRank": 813,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "assoluzione",
+        "level": "B2",
+        "id": "913",
+        "english": "acquittal",
+        "alternatives": [
+            "exoneration"
+        ],
+        "frequencyRank": 913,
+        "inflections": "Noun: l'assoluzione, le assoluzioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "regolamentare",
+        "id": "804",
+        "english": "to regulate",
+        "alternatives": [
+            "to govern",
+            "to control"
+        ],
+        "level": "B2",
+        "frequencyRank": 804,
+        "partOfSpeech": "verb"
+    },
+    {
+        "frequencyRank": 937,
+        "id": "937",
+        "italian": "automazione",
+        "english": "automation",
+        "alternatives": [
+            "mechanization"
+        ],
+        "level": "B2",
+        "inflections": "Noun: l'automazione, le automazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "amministrare",
+        "id": "805",
+        "english": "to administer",
+        "alternatives": [
+            "to run",
+            "manage",
+            "to govern"
+        ],
+        "level": "B2",
+        "frequencyRank": 805,
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "B2",
+        "english": "inequality",
+        "id": "1015",
+        "alternatives": [
+            "unfairness",
+            "disparity"
+        ],
+        "italian": "disuguaglianza",
+        "frequencyRank": 1015,
+        "inflections": "Noun: la disuguaglianza, le disuguaglianze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 927,
+        "id": "927",
+        "italian": "geologia",
+        "english": "geology",
+        "alternatives": [
+            "earth science"
+        ],
+        "level": "B2",
+        "inflections": "Noun: la geologia, le geologie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "persistence",
+            "determination"
+        ],
+        "italian": "perseveranza",
+        "frequencyRank": 970,
+        "english": "perseverance",
+        "level": "B2",
+        "id": "970",
+        "inflections": "Noun: la perseveranza, le perseveranze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 938,
+        "id": "938",
+        "italian": "digitalizzazione",
+        "english": "digitalisation",
+        "alternatives": [
+            "digitalization",
+            "digitization"
+        ],
+        "level": "B2",
+        "inflections": "Noun: la digitalizzazione, le digitalizzazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "ottimizzare",
+        "id": "803",
+        "english": "to optimise",
+        "alternatives": [
+            "to improve",
+            "optimize",
+            "to refine"
+        ],
+        "level": "B2",
+        "frequencyRank": 803,
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "B2",
+        "english": "protectionism",
+        "id": "1014",
+        "alternatives": [
+            "trade restriction"
+        ],
+        "italian": "protezionismo",
+        "frequencyRank": 1014,
+        "inflections": "Noun: il protezionismo, i protezionismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "sanzionare",
+        "id": "809",
+        "english": "to sanction",
+        "alternatives": [
+            "to punish",
+            "to penalize",
+            "penalise"
+        ],
+        "level": "B2",
+        "frequencyRank": 809,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "deflazione",
+        "level": "B2",
+        "id": "897",
+        "english": "deflation",
+        "alternatives": [
+            "falling prices",
+            "price drop"
+        ],
+        "frequencyRank": 897,
+        "inflections": "Noun: la deflazione, le deflazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "deforestation",
+        "id": "1032",
+        "alternatives": [
+            "clearing of forests"
+        ],
+        "italian": "deforestazione",
+        "frequencyRank": 1032,
+        "inflections": "Noun: la deforestazione, le deforestazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "diversificare",
+        "id": "812",
+        "english": "to diversify",
+        "alternatives": [
+            "to vary",
+            "to expand"
+        ],
+        "level": "B2",
+        "frequencyRank": 812,
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "B2",
+        "english": "multiculturalism",
+        "id": "1023",
+        "alternatives": [
+            "cultural diversity"
+        ],
+        "italian": "multiculturalismo",
+        "frequencyRank": 1023,
+        "inflections": "Noun: il multiculturalismo, i multiculturalismi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1041,
+        "italian": "resilienza",
+        "id": "1041",
+        "english": "resilience",
+        "alternatives": [
+            "toughness",
+            "adaptability"
+        ],
+        "inflections": "Noun: la resilienza, le resilienze",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "supervisionare",
+        "id": "806",
+        "english": "to supervise",
+        "alternatives": [
+            "to oversee",
+            "to manage",
+            "to monitor"
+        ],
+        "level": "B2",
+        "frequencyRank": 806,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "privatizzare",
+        "id": "815",
+        "english": "to privatise",
+        "alternatives": [
+            "privatize",
+            "to denationalize"
+        ],
+        "level": "B2",
+        "frequencyRank": 815,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "liberalizzare",
+        "id": "816",
+        "english": "to liberalise",
+        "alternatives": [
+            "liberalize",
+            "to deregulate"
+        ],
+        "level": "B2",
+        "frequencyRank": 816,
+        "partOfSpeech": "verb"
+    },
+    {
+        "italian": "campagna elettorale",
+        "level": "B2",
+        "id": "882",
+        "english": "election campaign",
+        "alternatives": [
+            "electioneering",
+            "campaign"
+        ],
+        "frequencyRank": 882,
+        "inflections": "Noun: la campagna elettorale, le campagne elettorali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "italian": "tasso di interesse",
+        "level": "B2",
+        "id": "899",
+        "english": "interest rate",
+        "alternatives": [
+            "cost of borrowing"
+        ],
+        "frequencyRank": 899,
+        "inflections": "Noun: il tasso di interesse, i tassi di interesse",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 935,
+        "id": "935",
+        "italian": "intelligenza artificiale",
+        "english": "artificial intelligence",
+        "alternatives": [
+            "ai"
+        ],
+        "level": "B2",
+        "inflections": "Noun: l'intelligenza artificiale, le intelligenze artificiali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 939,
+        "id": "939",
+        "italian": "sicurezza informatica",
+        "english": "cybersecurity",
+        "alternatives": [
+            "it security"
+        ],
+        "level": "B2",
+        "inflections": "Noun: la sicurezza informatica, le sicurezze informatiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 940,
+        "id": "940",
+        "italian": "cambiamento climatico",
+        "english": "climate change",
+        "alternatives": [
+            "global warming"
+        ],
+        "level": "B2",
+        "inflections": "Noun: il cambiamento climatico, i cambiamenti climatici",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 941,
+        "id": "941",
+        "italian": "riscaldamento globale",
+        "english": "global warming",
+        "alternatives": [],
+        "level": "B2",
+        "inflections": "Noun: il riscaldamento globale, i riscaldamenti globali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 945,
+        "id": "945",
+        "italian": "energia rinnovabile",
+        "english": "renewable energy",
+        "alternatives": [
+            "green energy"
+        ],
+        "level": "B2",
+        "inflections": "Noun: l'energia rinnovabile, le energie rinnovabili",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 946,
+        "id": "946",
+        "italian": "impronta ecologica",
+        "english": "ecological footprint",
+        "alternatives": [
+            "ecological impact",
+            "environmental impact"
+        ],
+        "level": "B2",
+        "inflections": "Noun: l'impronta ecologica, le impronte ecologiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "frequencyRank": 954,
+        "id": "954",
+        "italian": "libertà di stampa",
+        "english": "freedom of the press",
+        "alternatives": [
+            "press freedom"
+        ],
+        "level": "B2",
+        "inflections": "Noun: la libertà di stampa, le libertà di stampa",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "cultural integration",
+        "id": "1022",
+        "alternatives": [
+            "cultural assimilation",
+            "cultural inclusion"
+        ],
+        "italian": "integrazione culturale",
+        "frequencyRank": 1022,
+        "inflections": "Noun: l'integrazione culturale, le integrazioni culturali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "english": "environmental sustainability",
+        "id": "1031",
+        "alternatives": [
+            "eco-sustainability"
+        ],
+        "italian": "sostenibilità ambientale",
+        "frequencyRank": 1031,
+        "inflections": "Noun: la sostenibilità ambientale, le sostenibilità ambientali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1033,
+        "italian": "specie in via di estinzione",
+        "id": "1033",
+        "english": "endangered species",
+        "alternatives": [
+            "threatened species"
+        ],
+        "inflections": "Noun: la specie in via di estinzione, le specie in via di estinzione",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1034,
+        "italian": "impronta di carbonio",
+        "id": "1034",
+        "english": "carbon footprint",
+        "alternatives": [
+            "carbon emissions"
+        ],
+        "inflections": "Noun: l'impronta di carbonio, le impronte di carbonio",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1035,
+        "italian": "economia circolare",
+        "id": "1035",
+        "english": "circular economy",
+        "alternatives": [
+            "circular business model"
+        ],
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "B2",
+        "frequencyRank": 1044,
+        "italian": "terapia cognitiva",
+        "id": "1044",
+        "english": "cognitive therapy",
+        "alternatives": [],
+        "inflections": "Noun: la terapia cognitiva, le terapie cognitive",
+        "partOfSpeech": "noun"
+    }
+]

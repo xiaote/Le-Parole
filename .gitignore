@@ -1,0 +1,21 @@
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Environment files
+.env
+.env.*

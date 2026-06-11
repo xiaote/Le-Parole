@@ -1,0 +1,1 @@
+/Users/xiaote/Library/Application Support/le_parole.sqlite

@@ -1,0 +1,1781 @@
+[
+    {
+        "id": "2160",
+        "alternatives": [
+            "paste",
+            "adhesive",
+            "glue stick"
+        ],
+        "frequencyRank": 2160,
+        "english": "glue",
+        "level": "A2",
+        "italian": "colla",
+        "inflections": "Noun: la colla, le colle",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "2125",
+        "alternatives": [
+            "below",
+            "beneath",
+            "underneath"
+        ],
+        "frequencyRank": 2125,
+        "english": "under",
+        "level": "A2",
+        "italian": "sotto",
+        "partOfSpeech": "preposition"
+    },
+    {
+        "level": "A2",
+        "english": "almost",
+        "id": "2259",
+        "alternatives": [
+            "virtually",
+            "nearly"
+        ],
+        "italian": "quasi",
+        "frequencyRank": 2259,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "level": "A2",
+        "english": "at least",
+        "id": "2254",
+        "alternatives": [],
+        "italian": "almeno",
+        "frequencyRank": 2254,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "alternatives": [
+            "suffice"
+        ],
+        "italian": "bastare",
+        "frequencyRank": 2181,
+        "english": "to be enough",
+        "level": "A2",
+        "id": "2181",
+        "partOfSpeech": "verb"
+    },
+    {
+        "id": "2124",
+        "alternatives": [
+            "over",
+            "on top of",
+            "on top",
+            "on",
+            "upstairs"
+        ],
+        "frequencyRank": 2124,
+        "english": "above",
+        "level": "A2",
+        "italian": "sopra",
+        "partOfSpeech": "preposition"
+    },
+    {
+        "id": "2122",
+        "alternatives": [
+            "back",
+            "at the back"
+        ],
+        "frequencyRank": 2122,
+        "english": "behind",
+        "level": "A2",
+        "italian": "dietro",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "id": "2121",
+        "alternatives": [
+            "ahead",
+            "before",
+            "forward",
+            "in front of"
+        ],
+        "frequencyRank": 2121,
+        "english": "in front",
+        "level": "A2",
+        "italian": "davanti",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "alternatives": [
+            "attempt",
+            "to test",
+            "to taste",
+            "to feel"
+        ],
+        "italian": "provare",
+        "frequencyRank": 2188,
+        "english": "to try",
+        "level": "A2",
+        "id": "2188",
+        "partOfSpeech": "verb"
+    },
+    {
+        "alternatives": [
+            "to take place",
+            "to occur"
+        ],
+        "italian": "succedere",
+        "frequencyRank": 2184,
+        "english": "to happen",
+        "level": "A2",
+        "id": "2184",
+        "partOfSpeech": "verb"
+    },
+    {
+        "alternatives": [
+            "to miss",
+            "to lack",
+            "to be absent"
+        ],
+        "italian": "mancare",
+        "frequencyRank": 2183,
+        "english": "to be missing",
+        "level": "A2",
+        "id": "2183",
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2245,
+        "italian": "canale",
+        "id": "2245",
+        "english": "channel",
+        "alternatives": [
+            "station",
+            "canal",
+            "tv channel"
+        ],
+        "inflections": "Noun: il canale, i canali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "english": "in short",
+        "id": "2272",
+        "alternatives": [
+            "well",
+            "all in all",
+            "in conclusion",
+            "anyway"
+        ],
+        "italian": "insomma",
+        "frequencyRank": 2272,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "alternatives": [
+            "function",
+            "operate"
+        ],
+        "italian": "funzionare",
+        "frequencyRank": 2187,
+        "english": "to work",
+        "level": "A2",
+        "id": "2187",
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "A2",
+        "english": "at the beginning",
+        "id": "2274",
+        "alternatives": [
+            "at the start",
+            "initially",
+            "at first"
+        ],
+        "italian": "all'inizio",
+        "frequencyRank": 2274,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "alternatives": [
+            "side view",
+            "account",
+            "outline"
+        ],
+        "italian": "profilo",
+        "frequencyRank": 2169,
+        "english": "profile",
+        "level": "A2",
+        "id": "2169",
+        "inflections": "Noun: il profilo, i profili",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "2155",
+        "alternatives": [
+            "bench",
+            "counter",
+            "school desk"
+        ],
+        "frequencyRank": 2155,
+        "english": "desk",
+        "level": "A2",
+        "italian": "banco",
+        "inflections": "Noun: il banco, i banchi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "english": "even",
+        "id": "2261",
+        "alternatives": [
+            "indeed",
+            "in fact",
+            "really",
+            "actually"
+        ],
+        "italian": "addirittura",
+        "frequencyRank": 2261,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "alternatives": [
+            "continue",
+            "to endure"
+        ],
+        "italian": "durare",
+        "frequencyRank": 2182,
+        "english": "to last",
+        "level": "A2",
+        "id": "2182",
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2246,
+        "italian": "pubblicità",
+        "id": "2246",
+        "english": "advertisement",
+        "alternatives": [
+            "ad",
+            "advert",
+            "commercial",
+            "advertising"
+        ],
+        "inflections": "Noun: la pubblicità, le pubblicità",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "to care",
+            "to be important"
+        ],
+        "italian": "importare",
+        "frequencyRank": 2186,
+        "english": "to matter",
+        "level": "A2",
+        "id": "2186",
+        "partOfSpeech": "verb"
+    },
+    {
+        "id": "2123",
+        "alternatives": [
+            "alongside",
+            "adjacent",
+            "beside"
+        ],
+        "frequencyRank": 2123,
+        "english": "next to",
+        "level": "A2",
+        "italian": "accanto",
+        "partOfSpeech": "preposition"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2210,
+        "italian": "appuntamento",
+        "id": "2210",
+        "english": "appointment",
+        "alternatives": [
+            "date",
+            "meeting",
+            "arrangement"
+        ],
+        "inflections": "Noun: l'appuntamento, gli appuntamenti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "to rely on",
+            "to rely"
+        ],
+        "italian": "dipendere",
+        "frequencyRank": 2185,
+        "english": "to depend",
+        "level": "A2",
+        "id": "2185",
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2225,
+        "italian": "taglia",
+        "id": "2225",
+        "english": "size",
+        "alternatives": [
+            "reward (bounty)",
+            "size (clothing)",
+            "cut"
+        ],
+        "inflections": "Noun: la taglia, le taglie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "2144",
+        "alternatives": [
+            "quiet",
+            "peaceful",
+            "relaxed"
+        ],
+        "frequencyRank": 2144,
+        "english": "calm",
+        "level": "A2",
+        "italian": "tranquillo",
+        "inflections": "Adj: tranquillo, tranquilla, tranquilli, tranquille",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2217,
+        "italian": "firma",
+        "id": "2217",
+        "english": "signature",
+        "alternatives": [],
+        "inflections": "Noun: la firma, le firme",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2235,
+        "italian": "pensione",
+        "id": "2235",
+        "english": "guesthouse",
+        "alternatives": [
+            "boarding house",
+            "retirement",
+            "pension",
+            "bed and breakfast",
+            "b&b"
+        ],
+        "inflections": "Noun: la pensione, le pensioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "tolerant",
+            "sick person"
+        ],
+        "italian": "paziente",
+        "frequencyRank": 2201,
+        "english": "patient",
+        "level": "A2",
+        "id": "2201",
+        "inflections": "Noun: il paziente, i pazienti",
+        "partOfSpeech": "noun/adjective"
+    },
+    {
+        "id": "2145",
+        "alternatives": [
+            "pleased",
+            "content",
+            "satisfied",
+            "glad"
+        ],
+        "frequencyRank": 2145,
+        "english": "happy",
+        "level": "A2",
+        "italian": "contento",
+        "inflections": "Adj: contento, contenta, contenti, contente",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2222,
+        "italian": "cassa",
+        "id": "2222",
+        "english": "checkout",
+        "alternatives": [
+            "cash desk",
+            "cash register",
+            "till",
+            "cashier"
+        ],
+        "inflections": "Noun: la cassa, le casse",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2242,
+        "italian": "fumetto",
+        "id": "2242",
+        "english": "comic strip",
+        "alternatives": [
+            "comic book",
+            "comic"
+        ],
+        "inflections": "Noun: il fumetto, i fumetti",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "athletic",
+            "sports"
+        ],
+        "italian": "sportivo",
+        "frequencyRank": 2204,
+        "english": "sporty",
+        "level": "A2",
+        "id": "2204",
+        "inflections": "Adj: sportivo, sportiva, sportivi, sportive",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2230,
+        "italian": "tasca",
+        "id": "2230",
+        "english": "pocket",
+        "alternatives": [
+            "pouch"
+        ],
+        "inflections": "Noun: la tasca, le tasche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "2156",
+        "alternatives": [
+            "room",
+            "lecture hall"
+        ],
+        "frequencyRank": 2156,
+        "english": "classroom",
+        "level": "A2",
+        "italian": "aula",
+        "inflections": "Noun: l'aula, le aule",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2232,
+        "italian": "albergo",
+        "id": "2232",
+        "english": "hotel",
+        "alternatives": [
+            "lodging",
+            "inn"
+        ],
+        "inflections": "Noun: l'albergo, gli alberghi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2243,
+        "italian": "videogioco",
+        "id": "2243",
+        "english": "video game",
+        "alternatives": [
+            "computer game",
+            "game"
+        ],
+        "inflections": "Noun: il videogioco, i videogiochi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "nosy",
+            "inquisitive"
+        ],
+        "italian": "curioso",
+        "frequencyRank": 2206,
+        "english": "curious",
+        "level": "A2",
+        "id": "2206",
+        "inflections": "Adj: curioso, curiosa, curiosi, curiose",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "id": "2126",
+        "alternatives": [
+            "direct",
+            "straight ahead",
+            "upright"
+        ],
+        "frequencyRank": 2126,
+        "english": "straight",
+        "level": "A2",
+        "italian": "dritto",
+        "inflections": "Adj: dritto, dritta, dritti, dritte",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "id": "2136",
+        "alternatives": [
+            "stressed",
+            "anxious",
+            "jittery",
+            "irritable"
+        ],
+        "frequencyRank": 2136,
+        "english": "nervous",
+        "level": "A2",
+        "italian": "nervoso",
+        "inflections": "Adj: nervoso, nervosa, nervosi, nervose",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "id": "2153",
+        "alternatives": [
+            "rubber",
+            "tyre",
+            "gum",
+            "tire"
+        ],
+        "frequencyRank": 2153,
+        "english": "eraser",
+        "level": "A2",
+        "italian": "gomma",
+        "inflections": "Noun: la gomma, le gomme",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2216,
+        "italian": "busta",
+        "id": "2216",
+        "english": "envelope",
+        "alternatives": [
+            "bag",
+            "pouch"
+        ],
+        "inflections": "Noun: la busta, le buste",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "english": "fortunately",
+        "id": "2262",
+        "alternatives": [
+            "happily",
+            "luckily",
+            "thankfully"
+        ],
+        "italian": "fortunatamente",
+        "frequencyRank": 2262,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2229,
+        "italian": "portafoglio",
+        "id": "2229",
+        "english": "wallet",
+        "alternatives": [
+            "billfold"
+        ],
+        "inflections": "Noun: il portafoglio, i portafogli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "2149",
+        "alternatives": [],
+        "frequencyRank": 2149,
+        "english": "proud",
+        "level": "A2",
+        "italian": "orgoglioso",
+        "inflections": "Adj: orgoglioso, orgogliosa, orgogliosi, orgogliose",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "alternatives": [
+            "to come near",
+            "to get closer",
+            "to come closer"
+        ],
+        "italian": "avvicinarsi",
+        "frequencyRank": 2195,
+        "english": "to approach",
+        "level": "A2",
+        "id": "2195",
+        "partOfSpeech": "verb"
+    },
+    {
+        "alternatives": [
+            "to take a break",
+            "to relax"
+        ],
+        "italian": "riposare",
+        "frequencyRank": 2189,
+        "english": "to rest",
+        "level": "A2",
+        "id": "2189",
+        "partOfSpeech": "verb"
+    },
+    {
+        "id": "2164",
+        "alternatives": [
+            "headset",
+            "earphones",
+            "earbuds"
+        ],
+        "frequencyRank": 2164,
+        "english": "headphones",
+        "level": "A2",
+        "italian": "cuffie",
+        "inflections": "Noun: la cuffia, le cuffie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2244,
+        "italian": "telefilm",
+        "id": "2244",
+        "english": "tv series",
+        "alternatives": [
+            "show",
+            "series",
+            "tv show",
+            "television show"
+        ],
+        "inflections": "Noun: il telefilm, i telefilm",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "to act",
+            "to conduct oneself"
+        ],
+        "italian": "comportarsi",
+        "frequencyRank": 2192,
+        "english": "to behave",
+        "level": "A2",
+        "id": "2192",
+        "partOfSpeech": "verb"
+    },
+    {
+        "alternatives": [
+            "accompaniment",
+            "side",
+            "garnish"
+        ],
+        "italian": "contorno",
+        "frequencyRank": 2178,
+        "english": "side dish",
+        "level": "A2",
+        "id": "2178",
+        "inflections": "Noun: il contorno, i contorni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "whipped cream"
+        ],
+        "italian": "panna",
+        "frequencyRank": 2174,
+        "english": "cream",
+        "level": "A2",
+        "id": "2174",
+        "inflections": "Noun: la panna, le panne",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2221,
+        "italian": "carrello",
+        "id": "2221",
+        "english": "shopping trolley",
+        "alternatives": [
+            "cart",
+            "shopping cart",
+            "trolley"
+        ],
+        "inflections": "Noun: il carrello, i carrelli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "2151",
+        "alternatives": [
+            "thrilling",
+            "moving"
+        ],
+        "frequencyRank": 2151,
+        "english": "exciting",
+        "level": "A2",
+        "italian": "emozionante",
+        "inflections": "Adj: emozionante, emozionante, emozionanti, emozionanti",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2214,
+        "italian": "candela",
+        "id": "2214",
+        "english": "candle",
+        "alternatives": [
+            "taper"
+        ],
+        "inflections": "Noun: la candela, le candele",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [],
+        "italian": "macedonia",
+        "frequencyRank": 2180,
+        "english": "fruit salad",
+        "level": "A2",
+        "id": "2180",
+        "inflections": "Noun: la macedonia, le macedonie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2249,
+        "italian": "intervallo",
+        "id": "2249",
+        "english": "interval",
+        "alternatives": [
+            "break",
+            "gap",
+            "intermission"
+        ],
+        "inflections": "Noun: l'intervallo, gli intervalli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "on time",
+            "prompt"
+        ],
+        "italian": "puntuale",
+        "frequencyRank": 2197,
+        "english": "punctual",
+        "level": "A2",
+        "id": "2197",
+        "inflections": "Adj: puntuale, puntuale, puntuali, puntuali",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "alternatives": [
+            "notice",
+            "alert"
+        ],
+        "italian": "notifica",
+        "frequencyRank": 2168,
+        "english": "notification",
+        "level": "A2",
+        "id": "2168",
+        "inflections": "Noun: la notifica, le notifiche",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2237,
+        "italian": "prenotazione",
+        "id": "2237",
+        "english": "booking",
+        "alternatives": [
+            "reservation"
+        ],
+        "inflections": "Noun: la prenotazione, le prenotazioni",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [],
+        "italian": "zuppa",
+        "frequencyRank": 2171,
+        "english": "soup",
+        "level": "A2",
+        "id": "2171",
+        "inflections": "Noun: la zuppa, le zuppe",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "aspiring",
+            "driven"
+        ],
+        "italian": "ambizioso",
+        "frequencyRank": 2203,
+        "english": "ambitious",
+        "level": "A2",
+        "id": "2203",
+        "inflections": "Adj: ambizioso, ambiziosa, ambiziosi, ambiziose",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "id": "2154",
+        "alternatives": [
+            "board",
+            "chalkboard",
+            "whiteboard"
+        ],
+        "frequencyRank": 2154,
+        "english": "blackboard",
+        "level": "A2",
+        "italian": "lavagna",
+        "inflections": "Noun: la lavagna, le lavagne",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2226,
+        "italian": "camerino",
+        "id": "2226",
+        "english": "changing room",
+        "alternatives": [
+            "fitting room",
+            "dressing room"
+        ],
+        "inflections": "Noun: il camerino, i camerini",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "get together",
+            "to meet",
+            "to gather"
+        ],
+        "italian": "incontrarsi",
+        "frequencyRank": 2196,
+        "english": "to meet up",
+        "level": "A2",
+        "id": "2196",
+        "partOfSpeech": "verb"
+    },
+    {
+        "alternatives": [
+            "sluggish",
+            "idle"
+        ],
+        "italian": "pigro",
+        "frequencyRank": 2200,
+        "english": "lazy",
+        "level": "A2",
+        "id": "2200",
+        "inflections": "Adj: pigro, pigra, pigri, pigre",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "id": "2148",
+        "alternatives": [
+            "sick of",
+            "tired of",
+            "tired",
+            "bored with"
+        ],
+        "frequencyRank": 2148,
+        "english": "fed up",
+        "level": "A2",
+        "italian": "stufo",
+        "inflections": "Adj: stufo, stufa, stufi, stufe",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "alternatives": [
+            "restless",
+            "eager"
+        ],
+        "italian": "impaziente",
+        "frequencyRank": 2202,
+        "english": "impatient",
+        "level": "A2",
+        "id": "2202",
+        "inflections": "Adj: impaziente, impaziente, impazienti, impazienti",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "id": "2165",
+        "alternatives": [
+            "charging cable",
+            "power adapter"
+        ],
+        "frequencyRank": 2165,
+        "english": "charger",
+        "level": "A2",
+        "italian": "caricatore",
+        "inflections": "Noun: il caricatore, i caricatori",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "2137",
+        "alternatives": [
+            "uneasy",
+            "worried",
+            "eager",
+            "nervous"
+        ],
+        "frequencyRank": 2137,
+        "english": "anxious",
+        "level": "A2",
+        "italian": "ansioso",
+        "inflections": "Adj: ansioso, ansiosa, ansiosi, ansiose",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "alternatives": [
+            "drink",
+            "beverage",
+            "soda",
+            "fizzy drink"
+        ],
+        "italian": "bibita",
+        "frequencyRank": 2172,
+        "english": "soft drink",
+        "level": "A2",
+        "id": "2172",
+        "inflections": "Noun: la bibita, le bibite",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "to adjust",
+            "to adapt"
+        ],
+        "italian": "abituarsi",
+        "frequencyRank": 2193,
+        "english": "to get used to",
+        "level": "A2",
+        "id": "2193",
+        "partOfSpeech": "verb"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2209,
+        "italian": "socievole",
+        "id": "2209",
+        "english": "sociable",
+        "alternatives": [
+            "gregarious",
+            "outgoing",
+            "friendly"
+        ],
+        "inflections": "Adj: socievole, socievole, socievoli, socievoli",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2236,
+        "italian": "ostello",
+        "id": "2236",
+        "english": "hostel",
+        "alternatives": [
+            "youth hostel"
+        ],
+        "inflections": "Noun: l'ostello, gli ostelli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "id": "2157",
+        "alternatives": [
+            "pencil box",
+            "case"
+        ],
+        "frequencyRank": 2157,
+        "english": "pencil case",
+        "level": "A2",
+        "italian": "astuccio",
+        "inflections": "Noun: l'astuccio, gli astucci",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "hardworking",
+            "thorough",
+            "industrious",
+            "careful"
+        ],
+        "italian": "diligente",
+        "frequencyRank": 2205,
+        "english": "diligent",
+        "level": "A2",
+        "id": "2205",
+        "inflections": "Adj: diligente, diligente, diligenti, diligenti",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "alternatives": [
+            "shy",
+            "introverted",
+            "withdrawn",
+            "reserved"
+        ],
+        "italian": "introverso",
+        "frequencyRank": 2208,
+        "english": "introvert",
+        "level": "A2",
+        "id": "2208",
+        "inflections": "Adj: introverso, introversa, introversi, introverse",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "id": "2127",
+        "alternatives": [
+            "facing",
+            "across from",
+            "in front of"
+        ],
+        "frequencyRank": 2127,
+        "english": "opposite",
+        "level": "A2",
+        "italian": "di fronte",
+        "partOfSpeech": "preposition"
+    },
+    {
+        "id": "2128",
+        "alternatives": [
+            "in the centre",
+            "among",
+            "between"
+        ],
+        "frequencyRank": 2128,
+        "english": "in the middle",
+        "level": "A2",
+        "italian": "in mezzo",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "id": "2129",
+        "alternatives": [
+            "right",
+            "to the right"
+        ],
+        "frequencyRank": 2129,
+        "english": "on the right",
+        "level": "A2",
+        "italian": "a destra",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "id": "2130",
+        "alternatives": [
+            "to the left",
+            "left"
+        ],
+        "frequencyRank": 2130,
+        "english": "on the left",
+        "level": "A2",
+        "italian": "a sinistra",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "id": "2131",
+        "alternatives": [
+            "at the back",
+            "further down",
+            "at the bottom",
+            "deep down"
+        ],
+        "frequencyRank": 2131,
+        "english": "at the end",
+        "level": "A2",
+        "italian": "in fondo",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "id": "2132",
+        "alternatives": [
+            "above",
+            "upwards",
+            "upstairs",
+            "up there",
+            "high up"
+        ],
+        "frequencyRank": 2132,
+        "english": "at the top",
+        "level": "A2",
+        "italian": "in alto",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "id": "2133",
+        "alternatives": [
+            "down there",
+            "downstairs",
+            "below",
+            "downwards",
+            "low down"
+        ],
+        "frequencyRank": 2133,
+        "english": "at the bottom",
+        "level": "A2",
+        "italian": "in basso",
+        "partOfSpeech": "adverb"
+    },
+    {
+        "id": "2134",
+        "alternatives": [
+            "on the corner"
+        ],
+        "frequencyRank": 2134,
+        "english": "at the corner",
+        "level": "A2",
+        "italian": "all'angolo",
+        "partOfSpeech": "preposition"
+    },
+    {
+        "id": "2135",
+        "alternatives": [
+            "alongside",
+            "next to",
+            "at the side"
+        ],
+        "frequencyRank": 2135,
+        "english": "beside",
+        "level": "A2",
+        "italian": "di fianco",
+        "partOfSpeech": "preposition"
+    },
+    {
+        "id": "2158",
+        "alternatives": [
+            "straightedge"
+        ],
+        "frequencyRank": 2158,
+        "english": "ruler",
+        "level": "A2",
+        "italian": "righello",
+        "inflections": "Noun: il righello, i righelli",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "bottled water"
+        ],
+        "italian": "acqua minerale",
+        "frequencyRank": 2173,
+        "english": "mineral water",
+        "level": "A2",
+        "id": "2173",
+        "inflections": "Noun: l'acqua minerale, le acque minerali",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "hot cocoa",
+            "cocoa"
+        ],
+        "italian": "cioccolata calda",
+        "frequencyRank": 2179,
+        "english": "hot chocolate",
+        "level": "A2",
+        "id": "2179",
+        "inflections": "Noun: la cioccolata calda, le cioccolate calde",
+        "partOfSpeech": "noun"
+    },
+    {
+        "alternatives": [
+            "to stay",
+            "to pause",
+            "to halt"
+        ],
+        "italian": "fermarsi",
+        "frequencyRank": 2190,
+        "english": "to stop",
+        "level": "A2",
+        "id": "2190",
+        "partOfSpeech": "verb"
+    },
+    {
+        "alternatives": [
+            "rush",
+            "get a move on",
+            "hurry"
+        ],
+        "italian": "sbrigarsi",
+        "frequencyRank": 2191,
+        "english": "to hurry up",
+        "level": "A2",
+        "id": "2191",
+        "partOfSpeech": "verb"
+    },
+    {
+        "alternatives": [
+            "adjust",
+            "acclimatize"
+        ],
+        "italian": "adattarsi",
+        "frequencyRank": 2194,
+        "english": "to adapt",
+        "level": "A2",
+        "id": "2194",
+        "partOfSpeech": "verb"
+    },
+    {
+        "alternatives": [
+            "sociable",
+            "outgoing",
+            "extroverted"
+        ],
+        "italian": "estroverso",
+        "frequencyRank": 2207,
+        "english": "extrovert",
+        "level": "A2",
+        "id": "2207",
+        "inflections": "Adj: estroverso, estroversa, estroversi, estroverse",
+        "partOfSpeech": "adjective"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2215,
+        "italian": "biglietto di auguri",
+        "id": "2215",
+        "english": "greeting card",
+        "alternatives": [
+            "birthday card",
+            "card"
+        ],
+        "inflections": "Noun: il biglietto di auguri, i biglietti di auguri",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2219,
+        "italian": "numero di telefono",
+        "id": "2219",
+        "english": "phone number",
+        "alternatives": [
+            "telephone number"
+        ],
+        "inflections": "Noun: il numero di telefono, i numeri di telefono",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2223,
+        "italian": "lista della spesa",
+        "id": "2223",
+        "english": "shopping list",
+        "alternatives": [
+            "grocery list"
+        ],
+        "inflections": "Noun: la lista della spesa, le liste della spesa",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2224,
+        "italian": "saldi",
+        "id": "2224",
+        "english": "sales",
+        "alternatives": [
+            "seasonal sale",
+            "sale",
+            "discounts"
+        ],
+        "inflections": "Noun: il saldo, i saldi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2227,
+        "italian": "cassa bancomat",
+        "id": "2227",
+        "english": "atm",
+        "alternatives": [
+            "cash machine",
+            "cash point"
+        ],
+        "inflections": "Noun: la cassa bancomat, le casse bancomat",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2228,
+        "italian": "prelievo bancomat",
+        "id": "2228",
+        "english": "cash withdrawal",
+        "alternatives": [
+            "atm withdrawal",
+            "withdrawal"
+        ],
+        "inflections": "Noun: il prelievo bancomat, i prelievi bancomat",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2233,
+        "italian": "camera singola",
+        "id": "2233",
+        "english": "single room",
+        "alternatives": [],
+        "inflections": "Noun: la camera singola, le camere singole",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2234,
+        "italian": "camera doppia",
+        "id": "2234",
+        "english": "double room",
+        "alternatives": [],
+        "inflections": "Noun: la camera doppia, le camere doppie",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2240,
+        "italian": "colonna sonora",
+        "id": "2240",
+        "english": "soundtrack",
+        "alternatives": [],
+        "inflections": "Noun: la colonna sonora, le colonne sonore",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2241,
+        "italian": "personaggio famoso",
+        "id": "2241",
+        "english": "famous person",
+        "alternatives": [
+            "public figure",
+            "star",
+            "celebrity"
+        ],
+        "inflections": "Noun: il personaggio famoso, i personaggi famosi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2248,
+        "italian": "programma televisivo",
+        "id": "2248",
+        "english": "tv programme",
+        "alternatives": [
+            "programme",
+            "tv show",
+            "program",
+            "television program"
+        ],
+        "inflections": "Noun: il programma televisivo, i programmi televisivi",
+        "partOfSpeech": "noun"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2250,
+        "italian": "in anticipo",
+        "id": "2250",
+        "english": "early",
+        "alternatives": [
+            "beforehand",
+            "in advance",
+            "ahead of time"
+        ],
+        "partOfSpeech": "adverb"
+    },
+    {
+        "level": "A2",
+        "frequencyRank": 2251,
+        "italian": "in ritardo",
+        "id": "2251",
+        "english": "late",
+        "alternatives": [
+            "delayed",
+            "behind schedule"
+        ],
+        "partOfSpeech": "adverb"
+    },
+    {
+        "level": "A2",
+        "english": "again",
+        "id": "2252",
+        "alternatives": [
+            "once again",
+            "once more"
+        ],
+        "italian": "di nuovo",
+        "frequencyRank": 2252,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "level": "A2",
+        "english": "for the first time",
+        "id": "2253",
+        "alternatives": [
+            "first time"
+        ],
+        "italian": "per la prima volta",
+        "frequencyRank": 2253,
+        "partOfSpeech": "adverbial phrase"
+    },
+    {
+        "level": "A2",
+        "english": "at most",
+        "id": "2255",
+        "alternatives": [
+            "at the most",
+            "maximum"
+        ],
+        "italian": "al massimo",
+        "frequencyRank": 2255,
+        "partOfSpeech": "adverbial phrase"
+    },
+    {
+        "level": "A2",
+        "english": "usually",
+        "id": "2256",
+        "alternatives": [
+            "as a rule",
+            "normally",
+            "generally"
+        ],
+        "italian": "di solito",
+        "frequencyRank": 2256,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "level": "A2",
+        "english": "from time to time",
+        "id": "2257",
+        "alternatives": [
+            "now and then",
+            "occasionally",
+            "every so often"
+        ],
+        "italian": "di tanto in tanto",
+        "frequencyRank": 2257,
+        "partOfSpeech": "adverbial phrase"
+    },
+    {
+        "level": "A2",
+        "english": "sometimes",
+        "id": "2258",
+        "alternatives": [
+            "occasionally",
+            "every now and then"
+        ],
+        "italian": "ogni tanto",
+        "frequencyRank": 2258,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "level": "A2",
+        "english": "for example",
+        "id": "2263",
+        "alternatives": [
+            "for instance",
+            "e.g."
+        ],
+        "italian": "per esempio",
+        "frequencyRank": 2263,
+        "partOfSpeech": "adverbial phrase"
+    },
+    {
+        "level": "A2",
+        "english": "how come",
+        "id": "2264",
+        "alternatives": [
+            "why",
+            "how is it that"
+        ],
+        "italian": "come mai",
+        "frequencyRank": 2264,
+        "partOfSpeech": "interjection"
+    },
+    {
+        "level": "A2",
+        "english": "it doesn't matter",
+        "id": "2265",
+        "alternatives": [
+            "never mind",
+            "it makes no difference",
+            "no matter"
+        ],
+        "italian": "non importa",
+        "frequencyRank": 2265,
+        "partOfSpeech": "phrase"
+    },
+    {
+        "level": "A2",
+        "english": "i'm sorry",
+        "id": "2266",
+        "alternatives": [
+            "sorry",
+            "my apologies",
+            "i apologize"
+        ],
+        "italian": "mi dispiace",
+        "frequencyRank": 2266,
+        "partOfSpeech": "phrase"
+    },
+    {
+        "level": "A2",
+        "english": "enjoy your meal",
+        "id": "2267",
+        "alternatives": [
+            "bon appétit"
+        ],
+        "italian": "buon appetito",
+        "frequencyRank": 2267,
+        "partOfSpeech": "interjection"
+    },
+    {
+        "level": "A2",
+        "english": "good luck",
+        "id": "2268",
+        "alternatives": [
+            "break a leg",
+            "best of luck"
+        ],
+        "italian": "in bocca al lupo",
+        "frequencyRank": 2268,
+        "partOfSpeech": "interjection"
+    },
+    {
+        "level": "A2",
+        "english": "what a shame",
+        "id": "2269",
+        "alternatives": [
+            "that's a shame",
+            "what a pity",
+            "too bad"
+        ],
+        "italian": "che peccato",
+        "frequencyRank": 2269,
+        "partOfSpeech": "interjection"
+    },
+    {
+        "level": "A2",
+        "english": "not at all",
+        "id": "2271",
+        "alternatives": [
+            "absolutely not",
+            "no way",
+            "certainly not"
+        ],
+        "italian": "macché",
+        "frequencyRank": 2271,
+        "partOfSpeech": "interjection"
+    },
+    {
+        "level": "A2",
+        "english": "in the end",
+        "id": "2273",
+        "alternatives": [
+            "finally",
+            "at last",
+            "ultimately",
+            "eventually"
+        ],
+        "italian": "alla fine",
+        "frequencyRank": 2273,
+        "partOfSpeech": "adverbial phrase"
+    },
+    {
+        "level": "A2",
+        "english": "in the middle",
+        "id": "2275",
+        "alternatives": [
+            "amidst",
+            "centered",
+            "halfway through",
+            "in the midst"
+        ],
+        "italian": "nel mezzo",
+        "frequencyRank": 2275,
+        "partOfSpeech": "adverbial phrase"
+    },
+    {
+        "level": "A2",
+        "english": "sometimes",
+        "id": "2276",
+        "alternatives": [
+            "at times",
+            "now and then",
+            "occasionally",
+            "from time to time"
+        ],
+        "italian": "a volte",
+        "frequencyRank": 2276,
+        "partOfSpeech": "adverb"
+    },
+    {
+        "level": "A2",
+        "english": "luckily",
+        "id": "2277",
+        "alternatives": [
+            "fortunately",
+            "thank goodness",
+            "thankfully"
+        ],
+        "italian": "per fortuna",
+        "frequencyRank": 2277,
+        "partOfSpeech": "adverbial phrase"
+    },
+    {
+        "level": "A2",
+        "english": "how lovely",
+        "id": "2278",
+        "alternatives": [
+            "how nice",
+            "how wonderful",
+            "great",
+            "how beautiful",
+            "wonderful"
+        ],
+        "italian": "che bello",
+        "frequencyRank": 2278,
+        "partOfSpeech": "exclamation"
+    },
+    {
+        "level": "A2",
+        "english": "in my opinion",
+        "id": "2279",
+        "alternatives": [
+            "i think",
+            "in my view",
+            "as i see it",
+            "to me"
+        ],
+        "italian": "secondo me",
+        "frequencyRank": 2279,
+        "partOfSpeech": "adverbial phrase"
+    },
+    {
+        "level": "A2",
+        "english": "i don't understand",
+        "id": "2281",
+        "alternatives": [
+            "i didn't understand",
+            "i don't get it",
+            "i didn't get it",
+            "i didn't catch that"
+        ],
+        "italian": "non ho capito",
+        "frequencyRank": 2281,
+        "partOfSpeech": "verb phrase"
+    },
+    {
+        "level": "A2",
+        "english": "how do you say",
+        "id": "2283",
+        "alternatives": [
+            "what is it called",
+            "what's the word for",
+            "what do you call"
+        ],
+        "italian": "come si dice",
+        "frequencyRank": 2283,
+        "partOfSpeech": "interrogative phrase"
+    },
+    {
+        "level": "A2",
+        "english": "my name is",
+        "id": "2284",
+        "alternatives": [
+            "i'm called"
+        ],
+        "italian": "mi chiamo",
+        "frequencyRank": 2284,
+        "partOfSpeech": "verb phrase"
+    },
+    {
+        "level": "A2",
+        "english": "i work as",
+        "id": "2288",
+        "alternatives": [
+            "my job is",
+            "i am a"
+        ],
+        "italian": "lavoro come",
+        "frequencyRank": 2288,
+        "partOfSpeech": "verb phrase"
+    },
+    {
+        "level": "A2",
+        "english": "i like",
+        "id": "2289",
+        "alternatives": [
+            "i enjoy"
+        ],
+        "italian": "mi piace",
+        "frequencyRank": 2289,
+        "partOfSpeech": "verb phrase"
+    },
+    {
+        "level": "A2",
+        "english": "i don't like",
+        "id": "2290",
+        "alternatives": [
+            "i dislike"
+        ],
+        "italian": "non mi piace",
+        "frequencyRank": 2290,
+        "partOfSpeech": "verb phrase"
+    },
+    {
+        "level": "A2",
+        "english": "how much does it cost",
+        "id": "2294",
+        "alternatives": [
+            "how much is it",
+            "what's the price",
+            "what does it cost"
+        ],
+        "italian": "quanto costa",
+        "frequencyRank": 2294,
+        "partOfSpeech": "interrogative phrase"
+    },
+    {
+        "level": "A2",
+        "english": "where is",
+        "id": "2295",
+        "alternatives": [
+            "where's",
+            "where can i find"
+        ],
+        "italian": "dov'è",
+        "frequencyRank": 2295,
+        "partOfSpeech": "interrogative phrase"
+    },
+    {
+        "level": "A2",
+        "english": "at what time",
+        "id": "2296",
+        "alternatives": [
+            "when",
+            "what time"
+        ],
+        "italian": "a che ora",
+        "frequencyRank": 2296,
+        "partOfSpeech": "interrogative phrase"
+    },
+    {
+        "level": "A2",
+        "english": "how long",
+        "id": "2297",
+        "alternatives": [
+            "how much time"
+        ],
+        "italian": "quanto tempo",
+        "frequencyRank": 2297,
+        "partOfSpeech": "interrogative phrase"
+    },
+    {
+        "italian": "di che colore",
+        "id": "2298",
+        "alternatives": [
+            "what color is it",
+            "what color"
+        ],
+        "english": "what colour",
+        "level": "A2",
+        "frequencyRank": 2298,
+        "partOfSpeech": "interrogative phrase"
+    },
+    {
+        "italian": "di che taglia",
+        "id": "2299",
+        "alternatives": [
+            "what size is it"
+        ],
+        "english": "what size",
+        "level": "A2",
+        "frequencyRank": 2299,
+        "partOfSpeech": "interrogative phrase"
+    }
+]
