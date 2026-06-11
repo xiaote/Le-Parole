@@ -1,55 +1,82 @@
 # Le Parole
 
-Le Parole is a modern iOS/macOS application built with SwiftUI designed to help users learn Italian vocabulary and master verb conjugations. It leverages a spaced-repetition system (SM-2) for flashcards and uses on-device Apple Intelligence (or the Google Gemini API) to dynamically generate natural-language conjugation exercises!
+Le Parole is a SwiftUI app for learning Italian vocabulary and verb conjugations. It combines local word banks, SM-2 spaced repetition, native text-to-speech, and optional AI-generated conjugation prompts.
 
-## Features
+The app is offline-first for study data: vocabulary and progress are stored locally in SQLite through GRDB. AI features use either on-device Apple Intelligence when available or a user-provided Google Gemini API key saved through the app settings.
 
-- **Spaced Repetition System (SRS):** Employs the SM-2 algorithm to optimally schedule flashcard reviews for vocabulary retention.
-- **Dynamic Conjugation Exercises:** Rather than memorizing static tables, the app dynamically generates full, contextual Italian sentences with blanks for verbs, requiring you to understand the grammar and conjugate on the fly. 
-- **AI Integration:** Uses local, on-device Apple Intelligence or the Google Gemini API to generate challenging, varied, and grammatically precise conjugation exercises.
-- **Comprehensive Word Banks:** Comes pre-seeded with an extensive Italian vocabulary database categorized by CEFR levels (A1 to C1).
-- **Test Out Mechanism:** Quickly bypass words you already know by translating them correctly in one shot, instantly advancing them to the mastered stage.
-- **Adaptive Study Sessions:** Learn at your own pace with a daily goal, and use "Learn More" to optionally introduce extra words—automatically paced so new words aren't introduced if you have a backlog of struggling cards.
-- **Data Backup & Restore:** Manually export your entire database and progress to a file, and restore from backups at any time.
-- **Offline First:** Vocabulary data and your learning progress are stored entirely locally using an SQLite database (via [GRDB](https://github.com/groue/GRDB.swift)).
-- **Text-to-Speech:** Native iOS/macOS text-to-speech integration to hear the proper pronunciation of Italian sentences.
+## What It Does
 
-## Project Structure
+- Schedules vocabulary review with the SM-2 spaced-repetition algorithm.
+- Seeds the local database from CEFR-aligned Italian word lists from A1 through C1.
+- Lets users test out of words they already know.
+- Generates contextual conjugation exercises instead of static verb tables.
+- Tracks daily progress, mastered words, in-progress words, and conjugation stats.
+- Supports manual backup and restore of the local app database.
+- Uses native pronunciation playback for Italian study prompts.
 
-The codebase is organized into several key directories:
+## Repository Layout
 
-- `Models/`: Contains the core data structures (e.g., `Word`, `UserWord`, `UserSettings`, `ConjugationStats`) that represent the app's domain and map directly to SQLite tables.
-- `Services/`: Contains the business logic and external integrations:
-  - `DatabaseService.swift`: Manages the GRDB SQLite connection, schema migrations, and local persistence.
-  - `AppleIntelligenceService.swift` & `GeminiService.swift`: Handle the complex system prompts and network/on-device requests to generate conjugation flashcards.
-  - `WordLoader.swift`: Responsible for parsing the raw JSON word lists, cleaning formatting, and seeding the local database.
-  - `SM2.swift`: The spaced-repetition algorithm logic.
-- `ViewModels/`: Includes `StudySessionViewModel`, which orchestrates the complex logic of fetching due cards, pre-fetching AI-generated sentences, progressive ordering, and handling user answers.
-- `Views/`: All the SwiftUI user interface components, separated into logical views like `HomeView`, `SettingsView`, `WordBankView`, and the `StudySession/` interactive flashcard UI.
-- `Data/`: Contains the static JSON files used to seed the initial vocabulary database and manage word lists.
+- `Le Parole.xcodeproj/` - Xcode project and Swift Package Manager dependency metadata.
+- `Le Parole/` - SwiftUI app source.
+- `Le Parole/Models/` - GRDB-backed domain models such as `Word`, `UserWord`, `UserSettings`, and `ConjugationStats`.
+- `Le Parole/Services/` - Persistence, word loading, spaced repetition, speech, Apple Intelligence, and Gemini integration.
+- `Le Parole/ViewModels/` - App state and study-session orchestration.
+- `Le Parole/Views/` - SwiftUI screens and reusable UI components.
+- `Le Parole/Data/` - Static JSON vocabulary data used to seed the database.
+- `enrich_db.py` - Optional helper for enriching word data with Gemini.
+- `validate_translations.py` - Optional helper for validating generated translation alternatives.
+
+## Requirements
+
+- Xcode 16 or newer.
+- iOS 18 or newer, or macOS 15 or newer.
+- A simulator or device supported by the selected deployment target.
+- Optional: a Google Gemini API key for remote AI conjugation generation.
 
 ## Getting Started
 
-### Prerequisites
+1. Clone the repository.
+2. Open `Le Parole.xcodeproj` in Xcode.
+3. Let Xcode resolve Swift Package Manager dependencies.
+4. Select the `Le Parole` scheme and a simulator or device.
+5. Build and run with `Cmd+R`.
 
-- **Xcode 16.0** or newer (required for the latest Swift features and `PBXFileSystemSynchronizedRootGroup` structure).
-- **iOS 18.0+** or **macOS 15.0+** deployment target.
+## AI Setup
 
-### Installation
+The app can generate conjugation prompts in two ways:
 
-1. Clone this repository and open `Le Parole.xcodeproj` in Xcode.
-2. Xcode will automatically resolve the Swift Package Manager dependencies (e.g., `GRDB.swift`).
-3. Select your target simulator or device and build the project (`Cmd + R`).
+- Apple Intelligence: available on supported devices and OS versions.
+- Google Gemini: available when the user enters a Gemini API key in the app's Settings screen.
 
-### Enabling AI Conjugations
+Do not hardcode API keys into the repository. The app stores the Gemini key in the local app database after the user enters it in Settings. The Python helper scripts read `GEMINI_API_KEY` from the shell environment:
 
-By default, the app uses on-device Apple Intelligence to generate conjugation sentences (requires iOS 18.1+ / macOS 15.1+ on supported devices). 
+```bash
+GEMINI_API_KEY="your_key_here" python3 enrich_db.py
+GEMINI_API_KEY="your_key_here" python3 validate_translations.py
+```
 
-If you do not have an Apple Intelligence capable device, or if you prefer a faster and more capable model, you can use the Google Gemini API:
-1. Obtain a free API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
-2. Open the **Le Parole** app and navigate to the **Settings** tab.
-3. Paste your API key into the "Gemini API Key" field.
-4. The app will immediately start batch-generating high-quality conjugation flashcards using Gemini!
+## Sensitive Data
+
+This repository is intended to be safe for public GitHub hosting. Generated build output, virtual environments, environment files, local Xcode state, and common local secret/config files are ignored by `.gitignore`.
+
+Before pushing, run a quick check for accidental secrets:
+
+```bash
+rg -n -i "api[_ -]?key|token|secret|password|credential|bearer|authorization" .
+```
+
+Expected matches include code that refers to user-provided API keys, empty defaults, README instructions, and vocabulary data containing ordinary words such as "secret" or "token".
+
+## Data And Persistence
+
+The bundled JSON files in `Le Parole/Data/` are the source vocabulary lists. On first launch, the app seeds a local SQLite database and then stores user progress there. Backup and restore are handled from the Settings screen.
+
+## Notes For Contributors
+
+- Keep generated files out of commits, especially `build/`, `DerivedData/`, and `venv/`.
+- Keep user-specific Xcode files out of commits, especially `xcuserdata/`.
+- Keep secrets in environment variables, app settings, Keychain, or ignored local config files.
+- If you add a new dependency, commit the updated Swift Package resolution metadata when appropriate.
 
 ## License
 

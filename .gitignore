@@ -19,3 +19,16 @@ __pycache__/
 # Environment files
 .env
 .env.*
+
+# Local secrets and machine-specific config
+*.local
+*.local.*
+*.secret
+*.secrets
+*Secrets.swift
+Secrets.swift
+Config.local.swift
+Local.xcconfig
+Secrets.xcconfig
+*.local.xcconfig
+GoogleService-Info.plist
