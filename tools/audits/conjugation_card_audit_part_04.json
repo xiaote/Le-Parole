@@ -1,0 +1,447 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "scope": {
+    "generatedCards": 12,
+    "requestedCards": 12,
+    "tenses": [
+      "condizionale passato",
+      "condizionale presente",
+      "congiuntivo presente"
+    ],
+    "subjunctiveCards": 1
+  },
+  "summary": {
+    "failedCards": 1,
+    "failedBatches": 0,
+    "issueCategories": {
+      "congiuntivo": 1,
+      "grammar": 1,
+      "returned_tense_mismatch": 1
+    }
+  },
+  "failedBatches": [],
+  "failedCards": [
+    {
+      "request": {
+        "id": "case-048",
+        "verb": "essere",
+        "englishMeaning": "to be",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-048",
+        "scratchpad": "Conjugate 'essere' in congiuntivo presente for 'io'. Result: sia.",
+        "sentence": "Non credo che io _____ (essere) pronto per questo esame difficile.",
+        "answer": "sia",
+        "explanation": "The verb of doubt 'non credo che' triggers the congiuntivo presente for 'io', which is 'sia'.",
+        "tense": "congiuntivo",
+        "pronoun": "io",
+        "englishTranslation": "I don't think I am ready for this difficult exam."
+      },
+      "structuralIssues": [
+        "returned_tense_mismatch"
+      ],
+      "review": {
+        "id": "case-048",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "congiuntivo"
+        ],
+        "reason": "The trigger 'non credo che' correctly demands the subjunctive.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    }
+  ],
+  "allCards": [
+    {
+      "request": {
+        "id": "case-037",
+        "verb": "volere",
+        "englishMeaning": "to want",
+        "tense": "condizionale presente",
+        "pronoun": "tu",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-037",
+        "scratchpad": "Conjugate volere in condizionale presente for 'tu': vorresti.",
+        "sentence": "Se tu potessi scegliere, cosa _____ (volere) fare stasera?",
+        "answer": "vorresti",
+        "explanation": "The condizionale presente of volere for the second person singular is 'vorresti', used here to express a hypothetical desire.",
+        "tense": "condizionale presente",
+        "pronoun": "tu",
+        "englishTranslation": "If you could choose, what would you want to do tonight?"
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-037",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "naturalness"
+        ],
+        "reason": "The conjugation is correct and the sentence structure (periodo ipotetico del secondo tipo) correctly triggers the conditional mood.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-038",
+        "verb": "volere",
+        "englishMeaning": "to want",
+        "tense": "condizionale presente",
+        "pronoun": "lui/lei",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-038",
+        "scratchpad": "Conjugate volere in condizionale presente for 'lui/lei': vorrebbe.",
+        "sentence": "Lui _____ (volere) imparare a suonare il piano se avesse più tempo.",
+        "answer": "vorrebbe",
+        "explanation": "The condizionale presente of volere for the third person singular is 'vorrebbe', expressing a wish in a hypothetical context.",
+        "tense": "condizionale presente",
+        "pronoun": "lui/lei",
+        "englishTranslation": "He would want to learn how to play the piano if he had more time."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-038",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "naturalness"
+        ],
+        "reason": "The conjugation is correct and the sentence demonstrates a standard usage of the conditional in a hypothetical construct.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-039",
+        "verb": "volere",
+        "englishMeaning": "to want",
+        "tense": "condizionale presente",
+        "pronoun": "noi",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-039",
+        "scratchpad": "Conjugate volere in condizionale presente for 'noi': vorremmo.",
+        "sentence": "Al posto vostro, noi _____ (volere) cambiare lavoro subito.",
+        "answer": "vorremmo",
+        "explanation": "The condizionale presente of volere for the first person plural is 'vorremmo', used to give advice or express a preference.",
+        "tense": "condizionale presente",
+        "pronoun": "noi",
+        "englishTranslation": "In your place, we would want to change jobs immediately."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-039",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "naturalness"
+        ],
+        "reason": "The conjugation is correct and the sentence is idiomatic Italian.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-040",
+        "verb": "volere",
+        "englishMeaning": "to want",
+        "tense": "condizionale presente",
+        "pronoun": "voi",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-040",
+        "scratchpad": "Conjugate volere in condizionale presente for 'voi': vorreste.",
+        "sentence": "Voi _____ (volere) davvero trasferirvi in un'altra città?",
+        "answer": "vorreste",
+        "explanation": "The condizionale presente of volere for the second person plural is 'vorreste', used to inquire about a hypothetical wish.",
+        "tense": "condizionale presente",
+        "pronoun": "voi",
+        "englishTranslation": "Would you really want to move to another city?"
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-040",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "naturalness"
+        ],
+        "reason": "The conjugation is correct and the inquiry is phrased naturally.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-041",
+        "verb": "volere",
+        "englishMeaning": "to want",
+        "tense": "condizionale presente",
+        "pronoun": "loro",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-041",
+        "scratchpad": "Conjugate volere in condizionale presente for 'loro': vorrebbero.",
+        "sentence": "Loro _____ (volere) una casa più grande se potessero permettersela.",
+        "answer": "vorrebbero",
+        "explanation": "The condizionale presente of volere for the third person plural is 'vorrebbero', expressing a desire conditioned by a hypothetical event.",
+        "tense": "condizionale presente",
+        "pronoun": "loro",
+        "englishTranslation": "They would want a larger house if they could afford it."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-041",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "naturalness"
+        ],
+        "reason": "The conjugation is correct and fits the hypothetical context perfectly.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-042",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "condizionale passato",
+        "pronoun": "io",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-042",
+        "scratchpad": "Conjugate andare in condizionale passato for 'io'. Since it is a movement verb, use auxiliary 'essere' + past participle 'andato/andata'. Form: sarei andato/sarei andata.",
+        "sentence": "Se avessi avuto i biglietti, io _____ (andare) al concerto ieri sera.",
+        "answer": "sarei andato/sarei andata",
+        "explanation": "The condizionale passato of andare for the first person singular uses the auxiliary 'essere', requiring agreement with the subject's gender.",
+        "tense": "condizionale passato",
+        "pronoun": "io",
+        "englishTranslation": "If I had had the tickets, I would have gone to the concert last night."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-042",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "naturalness"
+        ],
+        "reason": "The conjugation and gender agreement handling are correct for a movement verb using the auxiliary 'essere'.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-043",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "condizionale passato",
+        "pronoun": "tu",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-043",
+        "scratchpad": "Conjugate 'andare' in condizionale passato for 'tu'. Aux: essere. Participle: andato/a. Result: saresti andato/a.",
+        "sentence": "Se avessi avuto tempo, tu _____ (andare) al concerto ieri.",
+        "answer": "saresti andato/saresti andata",
+        "explanation": "Condizionale passato with 'tu' requires the auxiliary 'essere' and the past participle 'andato/a' matching the subject's gender.",
+        "tense": "condizionale passato",
+        "pronoun": "tu",
+        "englishTranslation": "If you had had time, you would have gone to the concert yesterday."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-043",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "conjugation"
+        ],
+        "reason": "The sentence correctly uses the third-class conditional (periodo ipotetico dell'irrealtà) and the correct conjugation.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-044",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "condizionale passato",
+        "pronoun": "lui/lei",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-044",
+        "scratchpad": "Conjugate 'andare' in condizionale passato for 'lui/lei'. Aux: essere. Result: sarebbe andato/a.",
+        "sentence": "Lui ha detto che _____ (andare) a Roma se avesse avuto i soldi.",
+        "answer": "sarebbe andato",
+        "explanation": "Condizionale passato with 'lui' requires 'sarebbe' and the masculine participle 'andato'.",
+        "tense": "condizionale passato",
+        "pronoun": "lui/lei",
+        "englishTranslation": "He said that he would have gone to Rome if he had had the money."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-044",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "sequence of tenses"
+        ],
+        "reason": "The sentence correctly uses the sequence of tenses for indirect speech (condizionale passato in the main clause, congiuntivo trapassato in the subordinate).",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-045",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "condizionale passato",
+        "pronoun": "noi",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-045",
+        "scratchpad": "Conjugate 'andare' in condizionale passato for 'noi'. Aux: essere. Result: saremmo andati/e.",
+        "sentence": "Noi _____ (andare) in vacanza, ma abbiamo avuto troppo lavoro.",
+        "answer": "saremmo andati/saremmo andate",
+        "explanation": "Condizionale passato plural requires 'saremmo' and 'andati/e' for agreement.",
+        "tense": "condizionale passato",
+        "pronoun": "noi",
+        "englishTranslation": "We would have gone on vacation, but we had too much work."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-045",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "agreement"
+        ],
+        "reason": "The conjugation and the use of the slash for gender agreement are correct.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-046",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "condizionale passato",
+        "pronoun": "voi",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-046",
+        "scratchpad": "Conjugate 'andare' in condizionale passato for 'voi'. Aux: essere. Result: sareste andati/e.",
+        "sentence": "Voi _____ (andare) al ristorante, se aveste saputo che era aperto?",
+        "answer": "sareste andati/sareste andate",
+        "explanation": "Condizionale passato plural 'voi' requires 'sareste' and 'andati/e' for agreement.",
+        "tense": "condizionale passato",
+        "pronoun": "voi",
+        "englishTranslation": "Would you have gone to the restaurant if you had known it was open?"
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-046",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "conjugation"
+        ],
+        "reason": "The sentence correctly uses the third-class conditional and correct morphology.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-047",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "condizionale passato",
+        "pronoun": "loro",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-047",
+        "scratchpad": "Conjugate 'andare' in condizionale passato for 'loro'. Aux: essere. Result: sarebbero andati/e.",
+        "sentence": "Loro _____ (andare) alla festa se non fossero stati stanchi.",
+        "answer": "sarebbero andati",
+        "explanation": "Condizionale passato plural 'loro' requires 'sarebbero' and the masculine plural participle 'andati'.",
+        "tense": "condizionale passato",
+        "pronoun": "loro",
+        "englishTranslation": "They would have gone to the party if they hadn't been tired."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-047",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "conjugation"
+        ],
+        "reason": "The sentence is grammatically sound and correct.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-048",
+        "verb": "essere",
+        "englishMeaning": "to be",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-048",
+        "scratchpad": "Conjugate 'essere' in congiuntivo presente for 'io'. Result: sia.",
+        "sentence": "Non credo che io _____ (essere) pronto per questo esame difficile.",
+        "answer": "sia",
+        "explanation": "The verb of doubt 'non credo che' triggers the congiuntivo presente for 'io', which is 'sia'.",
+        "tense": "congiuntivo",
+        "pronoun": "io",
+        "englishTranslation": "I don't think I am ready for this difficult exam."
+      },
+      "structuralIssues": [
+        "returned_tense_mismatch"
+      ],
+      "review": {
+        "id": "case-048",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "congiuntivo"
+        ],
+        "reason": "The trigger 'non credo che' correctly demands the subjunctive.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    }
+  ]
+}

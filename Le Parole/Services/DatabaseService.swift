@@ -1,6 +1,5 @@
 import Foundation
 import GRDB
-import NaturalLanguage
 
 final class DatabaseService: @unchecked Sendable {
     nonisolated static let shared = DatabaseService()
@@ -56,42 +55,6 @@ final class DatabaseService: @unchecked Sendable {
         try? fileManager.removeItem(at: shmPath)
         
         try fileManager.copyItem(at: url, to: dbPath)
-    }
-
-    func cleanupConjugatedVerbsAsync() {
-        Task {
-            do {
-                try await db.write { db in
-                    let rows = try Row.fetchAll(db, sql: "SELECT wordId, italian FROM words")
-                    var toDelete = [String]()
-                    
-                    let tagger = NLTagger(tagSchemes: [.lemma])
-                    for row in rows {
-                        let wordId: String = row["wordId"]
-                        let italian: String = row["italian"]
-                        
-                        tagger.string = italian
-                        tagger.setLanguage(.italian, range: italian.startIndex..<italian.endIndex)
-                        let (tag, _) = tagger.tag(at: italian.startIndex, unit: .word, scheme: .lemma)
-                        
-                        if let lemma = tag?.rawValue {
-                            if (lemma.hasSuffix("are") || lemma.hasSuffix("ere") || lemma.hasSuffix("ire")) && lemma.lowercased() != italian.lowercased() {
-                                toDelete.append(wordId)
-                            }
-                        }
-                    }
-                    
-                    if !toDelete.isEmpty {
-                        for id in toDelete {
-                            try db.execute(sql: "DELETE FROM words WHERE wordId = ?", arguments: [id])
-                        }
-                        print("Async cleanup removed \(toDelete.count) conjugated verbs.")
-                    }
-                }
-            } catch {
-                print("Failed to cleanup conjugated verbs asynchronously: \(error)")
-            }
-        }
     }
 
     private func migrate() throws {
@@ -481,8 +444,138 @@ final class DatabaseService: @unchecked Sendable {
                 WHERE wordId NOT IN (SELECT wordId FROM userWords)
             """)
         }
-        
+
+        // Merge spelling and source-list duplicates before retiring their IDs so
+        // every review attempt remains attached to the canonical headword.
+        migrator.registerMigration("v21_redirect_catalogue_duplicates") { db in
+            let redirects = [
+                "comm_1670": "comm_6",       // piú → più
+                "1276": "comm_3313",         // geografía → geografia
+            ]
+            try Self.mergeCatalogueDuplicates(db, redirects: redirects)
+        }
+
+        // Consolidate spelling and formatting variants which represented the
+        // same learning card. Source data has already merged their accepted
+        // English answers; this preserves the user's review history as well.
+        migrator.registerMigration("v22_redirect_orthographic_variants") { db in
+            let redirects = [
+                "comm_406": "2037",           // cosi → così
+                "comm_10049": "comm_11857",   // equipe → équipe
+                "comm_10851": "comm_1040",    // modalita → modalità
+                "comm_384": "comm_1208",      // papa → papà
+                "comm_323": "comm_6",         // piu → più
+                "comm_13094": "comm_3866",    // pressochè → pressoché
+                "comm_16341": "comm_1999",    // priorita → priorità
+                "comm_16342": "comm_1816",    // probabilita → probabilità
+                "comm_5660": "393",           // qualita → qualità
+                "comm_13543": "comm_11827",   // rossoblu → rossoblù
+                "comm_4578": "465",           // venerdi → venerdì
+                "comm_13785": "comm_4596",    // dopodichè → dopodiché
+                "comm_9145": "comm_1333",     // fin'ora → finora
+                "comm_6403": "comm_2161",     // tutt'ora → tuttora
+            ]
+            try Self.mergeCatalogueDuplicates(db, redirects: redirects)
+        }
+
+        // These cards are mechanically derivable from the retained number
+        // curriculum. Keep existing rows and all review statistics, but do not
+        // schedule them again after the catalogue stops seeding them.
+        migrator.registerMigration("v23_retire_composite_number_cards") { db in
+            let retiredIds = [
+                "comm_9227", "comm_7994", "comm_6213", "comm_5973", "comm_10902",
+                "comm_10519", "comm_10132", "comm_14046", "comm_13890", "comm_11981",
+                "comm_15264", "comm_10259", "comm_12681", "comm_16383", "comm_16537",
+                "comm_14446", "comm_12343", "comm_13695", "comm_15727",
+            ]
+            let placeholders = retiredIds.map { _ in "?" }.joined(separator: ", ")
+            try db.execute(
+                sql: "UPDATE userWords SET stage = 'skipped' WHERE wordId IN (\(placeholders))",
+                arguments: StatementArguments(retiredIds)
+            )
+        }
+
         try migrator.migrate(db)
+    }
+
+    private static func mergeCatalogueDuplicates(_ db: Database, redirects: [String: String]) throws {
+        for (retiredId, canonicalId) in redirects {
+            guard
+                let retired = try Row.fetchOne(db, sql: "SELECT * FROM userWords WHERE wordId = ?", arguments: [retiredId]),
+                let canonical = try Row.fetchOne(db, sql: "SELECT * FROM userWords WHERE wordId = ?", arguments: [canonicalId])
+            else {
+                continue
+            }
+
+            let retiredStage: String = retired["stage"]
+            let canonicalStage: String = canonical["stage"]
+            let mergedStage: String
+            if retiredStage == "skipped" { mergedStage = canonicalStage }
+            else if canonicalStage == "skipped" { mergedStage = retiredStage }
+            else if retiredStage == "recognition" || canonicalStage == "recognition" { mergedStage = "recognition" }
+            else if retiredStage == "production" || canonicalStage == "production" { mergedStage = "production" }
+            else if retiredStage == "mastered" && canonicalStage == "mastered" { mergedStage = "mastered" }
+            else { mergedStage = "new" }
+
+            let retiredCorrect: Int = retired["totalCorrect"]
+            let canonicalCorrect: Int = canonical["totalCorrect"]
+            let retiredAttempts: Int = retired["totalAttempts"]
+            let canonicalAttempts: Int = canonical["totalAttempts"]
+            let retiredNextReview: Double = retired["nextReviewDate"]
+            let canonicalNextReview: Double = canonical["nextReviewDate"]
+            let retiredInterval: Int = retired["interval"]
+            let canonicalInterval: Int = canonical["interval"]
+            let retiredEase: Double = retired["easeFactor"]
+            let canonicalEase: Double = canonical["easeFactor"]
+            let retiredRepetitions: Int = retired["repetitions"]
+            let canonicalRepetitions: Int = canonical["repetitions"]
+            let retiredLastReview: Double? = retired["lastReviewDate"]
+            let canonicalLastReview: Double? = canonical["lastReviewDate"]
+            let retiredLearned: Double? = retired["learnedDate"]
+            let canonicalLearned: Double? = canonical["learnedDate"]
+            let retiredLastWrong: Double? = retired["lastWrongDate"]
+            let canonicalLastWrong: Double? = canonical["lastWrongDate"]
+
+            func later(_ first: Double?, _ second: Double?) -> Double? {
+                switch (first, second) {
+                case let (left?, right?): return max(left, right)
+                case let (left?, nil): return left
+                case let (nil, right?): return right
+                case (nil, nil): return nil
+                }
+            }
+
+            func earlier(_ first: Double?, _ second: Double?) -> Double? {
+                switch (first, second) {
+                case let (left?, right?): return min(left, right)
+                case let (left?, nil): return left
+                case let (nil, right?): return right
+                case (nil, nil): return nil
+                }
+            }
+
+            try db.execute(sql: """
+                UPDATE userWords
+                SET stage = ?, easeFactor = ?, interval = ?, repetitions = ?, nextReviewDate = ?,
+                    lastReviewDate = ?, learnedDate = ?, lastWrongDate = ?,
+                    totalCorrect = ?, totalAttempts = ?
+                WHERE wordId = ?
+                """, arguments: [
+                    mergedStage,
+                    min(retiredEase, canonicalEase),
+                    min(retiredInterval, canonicalInterval),
+                    min(retiredRepetitions, canonicalRepetitions),
+                    min(retiredNextReview, canonicalNextReview),
+                    later(retiredLastReview, canonicalLastReview),
+                    earlier(retiredLearned, canonicalLearned),
+                    later(retiredLastWrong, canonicalLastWrong),
+                    retiredCorrect + canonicalCorrect,
+                    retiredAttempts + canonicalAttempts,
+                    canonicalId,
+                ])
+            try db.execute(sql: "DELETE FROM userWords WHERE wordId = ?", arguments: [retiredId])
+            try db.execute(sql: "DELETE FROM words WHERE wordId = ?", arguments: [retiredId])
+        }
     }
 
     // MARK: - Fetch helpers (nonisolated so they can be called from any actor)

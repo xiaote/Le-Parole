@@ -8,16 +8,16 @@
         "level": "A2",
         "id": "319",
         "italian": "leggero",
-        "frequencyRank": 319,
+        "frequencyRank": 1893,
         "inflections": "Adj: leggero, leggera, leggeri, leggere"
     },
     {
-        "level": "A2",
+        "level": "B1",
         "english": "wind",
         "id": "402",
         "alternatives": [],
         "italian": "vento",
-        "frequencyRank": 402,
+        "frequencyRank": 960,
         "inflections": "Noun: il vento, i venti"
     },
     {
@@ -27,15 +27,15 @@
             "only",
             "just"
         ],
-        "level": "A2",
+        "level": "A1",
         "id": "330",
         "italian": "solo",
-        "frequencyRank": 330,
+        "frequencyRank": 7,
         "inflections": "Adj: solo, sola, soli, sole"
     },
     {
-        "level": "A2",
-        "frequencyRank": 495,
+        "level": "A1",
+        "frequencyRank": 66,
         "italian": "storia",
         "id": "495",
         "english": "story",
@@ -46,8 +46,8 @@
         "inflections": "Noun: la storia, le storie"
     },
     {
-        "level": "A2",
-        "frequencyRank": 483,
+        "level": "A1",
+        "frequencyRank": 24,
         "italian": "ancora",
         "id": "483",
         "english": "still",
@@ -57,8 +57,8 @@
         ]
     },
     {
-        "level": "A2",
-        "frequencyRank": 489,
+        "level": "A1",
+        "frequencyRank": 30,
         "italian": "tempo",
         "id": "489",
         "english": "time",
@@ -69,8 +69,8 @@
         "inflections": "Noun: il tempo, i tempi"
     },
     {
-        "level": "A2",
-        "frequencyRank": 487,
+        "level": "A1",
+        "frequencyRank": 42,
         "italian": "lavoro",
         "id": "487",
         "english": "work",
@@ -82,15 +82,15 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 485,
+        "frequencyRank": 96,
         "italian": "insieme",
         "id": "485",
         "english": "together",
         "alternatives": []
     },
     {
-        "level": "A2",
-        "frequencyRank": 486,
+        "level": "A1",
+        "frequencyRank": 115,
         "italian": "famiglia",
         "id": "486",
         "english": "family",
@@ -98,8 +98,8 @@
         "inflections": "Noun: la famiglia, le famiglie"
     },
     {
-        "level": "A2",
-        "frequencyRank": 490,
+        "level": "A1",
+        "frequencyRank": 118,
         "italian": "problema",
         "id": "490",
         "english": "problem",
@@ -116,12 +116,12 @@
         "alternatives": [
             "think"
         ],
-        "level": "A2",
-        "frequencyRank": 236
+        "level": "A1",
+        "frequencyRank": 577
     },
     {
-        "level": "A2",
-        "frequencyRank": 493,
+        "level": "A1",
+        "frequencyRank": 122,
         "italian": "esempio",
         "id": "493",
         "english": "example",
@@ -134,21 +134,21 @@
         "id": "281",
         "english": "italian",
         "alternatives": [],
-        "frequencyRank": 281,
+        "frequencyRank": 123,
         "inflections": "Adj: italiano, italiana, italiani, italiane"
     },
     {
         "italian": "nazionale",
-        "level": "A2",
+        "level": "A1",
         "id": "289",
         "english": "national",
         "alternatives": [],
-        "frequencyRank": 289,
+        "frequencyRank": 133,
         "inflections": "Adj: nazionale, nazionale, nazionali, nazionali"
     },
     {
         "level": "A2",
-        "frequencyRank": 482,
+        "frequencyRank": 140,
         "italian": "spesso",
         "id": "482",
         "english": "often",
@@ -157,8 +157,8 @@
         ]
     },
     {
-        "level": "A2",
-        "frequencyRank": 484,
+        "level": "A1",
+        "frequencyRank": 143,
         "italian": "subito",
         "id": "484",
         "english": "immediately",
@@ -170,33 +170,33 @@
     {
         "english": "important",
         "alternatives": [],
-        "level": "A2",
+        "level": "A1",
         "id": "296",
         "italian": "importante",
-        "frequencyRank": 296,
+        "frequencyRank": 153,
         "inflections": "Adj: importante, importante, importanti, importanti"
     },
     {
         "alternatives": [],
         "italian": "parola",
-        "frequencyRank": 459,
+        "frequencyRank": 244,
         "english": "word",
-        "level": "A2",
+        "level": "A1",
         "id": "459",
         "inflections": "Noun: la parola, le parole"
     },
     {
         "italian": "pubblico",
-        "level": "A2",
+        "level": "A1",
         "id": "291",
         "english": "public",
         "alternatives": [],
-        "frequencyRank": 291,
+        "frequencyRank": 167,
         "inflections": "Adj: pubblico, pubblica, pubblici, pubbliche"
     },
     {
-        "level": "A2",
-        "frequencyRank": 476,
+        "level": "A1",
+        "frequencyRank": 179,
         "italian": "settembre",
         "id": "476",
         "english": "september",
@@ -204,8 +204,8 @@
         "inflections": "Noun: il settembre, i settembre"
     },
     {
-        "level": "A2",
-        "frequencyRank": 470,
+        "level": "A1",
+        "frequencyRank": 180,
         "italian": "marzo",
         "id": "470",
         "english": "march",
@@ -217,9 +217,9 @@
             "plan"
         ],
         "italian": "progetto",
-        "frequencyRank": 449,
+        "frequencyRank": 195,
         "english": "project",
-        "level": "A2",
+        "level": "A1",
         "id": "449",
         "inflections": "Noun: il progetto, i progetti"
     },
@@ -230,14 +230,14 @@
             "manager"
         ],
         "italian": "capo",
-        "frequencyRank": 445,
+        "frequencyRank": 201,
         "english": "boss",
-        "level": "A2",
+        "level": "A1",
         "id": "445",
         "inflections": "Noun: il capo, i capi"
     },
     {
-        "level": "A2",
+        "level": "A1",
         "english": "bill",
         "id": "399",
         "alternatives": [
@@ -246,7 +246,7 @@
             "count"
         ],
         "italian": "conto",
-        "frequencyRank": 399,
+        "frequencyRank": 202,
         "inflections": "Noun: il conto, i conti"
     },
     {
@@ -259,7 +259,7 @@
         "level": "A2",
         "id": "324",
         "italian": "giusto",
-        "frequencyRank": 324,
+        "frequencyRank": 203,
         "inflections": "Adj: giusto, giusta, giusti, giuste"
     },
     {
@@ -271,12 +271,12 @@
         "level": "A2",
         "id": "316",
         "italian": "forte",
-        "frequencyRank": 316,
+        "frequencyRank": 212,
         "inflections": "Adj: forte, forte, forti, forti"
     },
     {
-        "level": "A2",
-        "frequencyRank": 472,
+        "level": "A1",
+        "frequencyRank": 214,
         "italian": "maggio",
         "id": "472",
         "english": "may",
@@ -284,8 +284,8 @@
         "inflections": "Noun: il maggio, i maggio"
     },
     {
-        "level": "A2",
-        "frequencyRank": 471,
+        "level": "A1",
+        "frequencyRank": 229,
         "italian": "aprile",
         "id": "471",
         "english": "april",
@@ -293,8 +293,8 @@
         "inflections": "Noun: l'aprile, gli aprile"
     },
     {
-        "level": "A2",
-        "frequencyRank": 492,
+        "level": "A1",
+        "frequencyRank": 232,
         "italian": "domanda",
         "id": "492",
         "english": "question",
@@ -302,8 +302,8 @@
         "inflections": "Noun: la domanda, le domande"
     },
     {
-        "level": "A2",
-        "frequencyRank": 473,
+        "level": "A1",
+        "frequencyRank": 233,
         "italian": "giugno",
         "id": "473",
         "english": "june",
@@ -311,8 +311,8 @@
         "inflections": "Noun: il giugno, i giugno"
     },
     {
-        "level": "A2",
-        "frequencyRank": 477,
+        "level": "A1",
+        "frequencyRank": 243,
         "italian": "ottobre",
         "id": "477",
         "english": "october",
@@ -320,8 +320,8 @@
         "inflections": "Noun: l'ottobre, gli ottobre"
     },
     {
-        "level": "A2",
-        "frequencyRank": 474,
+        "level": "A1",
+        "frequencyRank": 249,
         "italian": "luglio",
         "id": "474",
         "english": "july",
@@ -329,8 +329,8 @@
         "inflections": "Noun: il luglio, i luglio"
     },
     {
-        "level": "A2",
-        "frequencyRank": 497,
+        "level": "A1",
+        "frequencyRank": 250,
         "italian": "musica",
         "id": "497",
         "english": "music",
@@ -343,7 +343,7 @@
         "id": "282",
         "english": "english",
         "alternatives": [],
-        "frequencyRank": 282,
+        "frequencyRank": 258,
         "inflections": "Adj: inglese, inglese, inglesi, inglesi"
     },
     {
@@ -355,7 +355,7 @@
         "level": "A2",
         "id": "326",
         "italian": "vicino",
-        "frequencyRank": 326,
+        "frequencyRank": 264,
         "inflections": "Adj: vicino, vicina, vicini, vicine"
     },
     {
@@ -363,15 +363,15 @@
             "tongue"
         ],
         "italian": "lingua",
-        "frequencyRank": 456,
+        "frequencyRank": 268,
         "english": "language",
-        "level": "A2",
+        "level": "A1",
         "id": "456",
         "inflections": "Noun: la lingua, le lingue"
     },
     {
-        "level": "A2",
-        "frequencyRank": 469,
+        "level": "A1",
+        "frequencyRank": 279,
         "italian": "febbraio",
         "id": "469",
         "english": "february",
@@ -379,8 +379,8 @@
         "inflections": "Noun: il febbraio, i febbraio"
     },
     {
-        "level": "A2",
-        "frequencyRank": 479,
+        "level": "A1",
+        "frequencyRank": 289,
         "italian": "dicembre",
         "id": "479",
         "english": "december",
@@ -388,8 +388,8 @@
         "inflections": "Noun: il dicembre, i dicembre"
     },
     {
-        "level": "A2",
-        "frequencyRank": 478,
+        "level": "A1",
+        "frequencyRank": 292,
         "italian": "novembre",
         "id": "478",
         "english": "november",
@@ -397,8 +397,8 @@
         "inflections": "Noun: il novembre, i novembre"
     },
     {
-        "level": "A2",
-        "frequencyRank": 475,
+        "level": "A1",
+        "frequencyRank": 297,
         "italian": "agosto",
         "id": "475",
         "english": "august",
@@ -406,8 +406,8 @@
         "inflections": "Noun: l'agosto, gli agosto"
     },
     {
-        "level": "A2",
-        "frequencyRank": 468,
+        "level": "A1",
+        "frequencyRank": 308,
         "italian": "gennaio",
         "id": "468",
         "english": "january",
@@ -415,8 +415,8 @@
         "inflections": "Noun: il gennaio, i gennaio"
     },
     {
-        "level": "A2",
-        "frequencyRank": 491,
+        "level": "A1",
+        "frequencyRank": 309,
         "italian": "risposta",
         "id": "491",
         "english": "answer",
@@ -433,25 +433,29 @@
         "alternatives": [
             "keep going"
         ],
-        "level": "A2",
-        "frequencyRank": 226
+        "level": "A1",
+        "frequencyRank": 634
     },
     {
-        "level": "A2",
+        "level": "A1",
         "english": "quality",
         "id": "393",
-        "alternatives": [],
+        "alternatives": [
+            "characteristic",
+            "standard"
+        ],
         "italian": "qualità",
-        "frequencyRank": 393,
-        "inflections": "Noun: la qualità, le qualità"
+        "frequencyRank": 323,
+        "inflections": "Noun: la qualità, le qualità",
+        "partOfSpeech": "noun"
     },
     {
         "italian": "internazionale",
-        "level": "A2",
+        "level": "A1",
         "id": "288",
         "english": "international",
         "alternatives": [],
-        "frequencyRank": 288,
+        "frequencyRank": 330,
         "inflections": "Adj: internazionale, internazionale, internazionali, internazionali"
     },
     {
@@ -459,18 +463,18 @@
         "id": "234",
         "english": "to hope",
         "alternatives": [],
-        "level": "A2",
-        "frequencyRank": 234
+        "level": "A1",
+        "frequencyRank": 1826
     },
     {
         "italian": "servire",
-        "level": "A2",
+        "level": "A1",
         "id": "262",
         "english": "to serve",
         "alternatives": [
             "to be useful"
         ],
-        "frequencyRank": 262
+        "frequencyRank": 1685
     },
     {
         "italian": "viaggio",
@@ -480,8 +484,8 @@
             "travel"
         ],
         "english": "trip",
-        "level": "A2",
-        "frequencyRank": 342,
+        "level": "A1",
+        "frequencyRank": 348,
         "inflections": "Noun: il viaggio, i viaggi"
     },
     {
@@ -491,8 +495,8 @@
         "alternatives": [
             "to search"
         ],
-        "level": "A2",
-        "frequencyRank": 249
+        "level": "A1",
+        "frequencyRank": 424
     },
     {
         "english": "happy",
@@ -503,15 +507,15 @@
         "level": "A2",
         "id": "306",
         "italian": "felice",
-        "frequencyRank": 306,
+        "frequencyRank": 367,
         "inflections": "Adj: felice, felice, felici, felici"
     },
     {
         "alternatives": [],
         "italian": "notizia",
-        "frequencyRank": 451,
+        "frequencyRank": 460,
         "english": "news",
-        "level": "A2",
+        "level": "A1",
         "id": "451",
         "inflections": "Noun: la notizia, le notizie"
     },
@@ -522,27 +526,27 @@
         "alternatives": [
             "miss"
         ],
-        "level": "A2",
-        "frequencyRank": 250
+        "level": "A1",
+        "frequencyRank": 374
     },
     {
-        "level": "A2",
+        "level": "A1",
         "english": "price",
         "id": "391",
         "alternatives": [
             "cost"
         ],
         "italian": "prezzo",
-        "frequencyRank": 391,
+        "frequencyRank": 382,
         "inflections": "Noun: il prezzo, i prezzi"
     },
     {
-        "level": "A2",
+        "level": "A1",
         "english": "product",
         "id": "395",
         "alternatives": [],
         "italian": "prodotto",
-        "frequencyRank": 395,
+        "frequencyRank": 383,
         "inflections": "Noun: il prodotto, i prodotti"
     },
     {
@@ -551,7 +555,7 @@
         "id": "412",
         "alternatives": [],
         "italian": "stagione",
-        "frequencyRank": 412,
+        "frequencyRank": 387,
         "inflections": "Noun: la stagione, le stagioni"
     },
     {
@@ -559,8 +563,8 @@
         "id": "237",
         "english": "to change",
         "alternatives": [],
-        "level": "A2",
-        "frequencyRank": 237
+        "level": "A1",
+        "frequencyRank": 390
     },
     {
         "italian": "camera",
@@ -569,8 +573,8 @@
             "bedroom"
         ],
         "english": "room",
-        "level": "A2",
-        "frequencyRank": 352,
+        "level": "A1",
+        "frequencyRank": 391,
         "inflections": "Noun: la camera, le camere"
     },
     {
@@ -578,8 +582,8 @@
         "id": "232",
         "english": "to decide",
         "alternatives": [],
-        "level": "A2",
-        "frequencyRank": 232
+        "level": "A1",
+        "frequencyRank": 985
     },
     {
         "italian": "locale",
@@ -587,7 +591,7 @@
         "id": "290",
         "english": "local",
         "alternatives": [],
-        "frequencyRank": 290,
+        "frequencyRank": 395,
         "inflections": "Adj: locale, locale, locali, locali"
     },
     {
@@ -595,10 +599,10 @@
         "alternatives": [
             "needed"
         ],
-        "level": "A2",
+        "level": "A1",
         "id": "295",
         "italian": "necessario",
-        "frequencyRank": 295,
+        "frequencyRank": 397,
         "inflections": "Adj: necessario, necessaria, necessari, necessarie"
     },
     {
@@ -606,8 +610,8 @@
         "id": "238",
         "english": "to become",
         "alternatives": [],
-        "level": "A2",
-        "frequencyRank": 238
+        "level": "A1",
+        "frequencyRank": 408
     },
     {
         "italian": "partire",
@@ -616,16 +620,16 @@
         "alternatives": [
             "to depart"
         ],
-        "level": "A2",
-        "frequencyRank": 222
+        "level": "A1",
+        "frequencyRank": 416
     },
     {
         "italian": "arrivare",
         "id": "221",
         "english": "to arrive",
         "alternatives": [],
-        "level": "A2",
-        "frequencyRank": 221
+        "level": "A1",
+        "frequencyRank": 421
     },
     {
         "italian": "francese",
@@ -633,19 +637,19 @@
         "id": "283",
         "english": "french",
         "alternatives": [],
-        "frequencyRank": 283,
+        "frequencyRank": 428,
         "inflections": "Adj: francese, francese, francesi, francesi"
     },
     {
         "italian": "libero",
-        "level": "A2",
+        "level": "A1",
         "id": "293",
         "english": "free",
         "alternatives": [
             "available",
             "vacant"
         ],
-        "frequencyRank": 293,
+        "frequencyRank": 429,
         "inflections": "Adj: libero, libera, liberi, libere"
     },
     {
@@ -653,18 +657,18 @@
             "text"
         ],
         "italian": "messaggio",
-        "frequencyRank": 455,
+        "frequencyRank": 436,
         "english": "message",
-        "level": "A2",
+        "level": "A1",
         "id": "455",
         "inflections": "Noun: il messaggio, i messaggi"
     },
     {
         "alternatives": [],
         "italian": "contratto",
-        "frequencyRank": 447,
+        "frequencyRank": 450,
         "english": "contract",
-        "level": "A2",
+        "level": "A1",
         "id": "447",
         "inflections": "Noun: il contratto, i contratti"
     },
@@ -675,8 +679,8 @@
         "alternatives": [
             "pass away"
         ],
-        "level": "A2",
-        "frequencyRank": 241
+        "level": "A1",
+        "frequencyRank": 542
     },
     {
         "italian": "porto",
@@ -687,34 +691,34 @@
         ],
         "english": "port",
         "level": "A2",
-        "frequencyRank": 346,
+        "frequencyRank": 490,
         "inflections": "Noun: il porto, i porti"
     },
     {
         "alternatives": [],
         "italian": "ufficio",
-        "frequencyRank": 442,
+        "frequencyRank": 504,
         "english": "office",
-        "level": "A2",
+        "level": "A1",
         "id": "442",
         "inflections": "Noun: l'ufficio, gli uffici"
     },
     {
         "alternatives": [],
         "italian": "lettera",
-        "frequencyRank": 454,
+        "frequencyRank": 508,
         "english": "letter",
-        "level": "A2",
+        "level": "A1",
         "id": "454",
         "inflections": "Noun: la lettera, le lettere"
     },
     {
         "english": "full",
         "alternatives": [],
-        "level": "A2",
+        "level": "A1",
         "id": "322",
         "italian": "pieno",
-        "frequencyRank": 322,
+        "frequencyRank": 510,
         "inflections": "Adj: pieno, piena, pieni, piene"
     },
     {
@@ -724,8 +728,8 @@
         "alternatives": [
             "remain"
         ],
-        "level": "A2",
-        "frequencyRank": 239
+        "level": "A1",
+        "frequencyRank": 1037
     },
     {
         "alternatives": [
@@ -733,9 +737,9 @@
             "business"
         ],
         "italian": "azienda",
-        "frequencyRank": 443,
+        "frequencyRank": 515,
         "english": "company",
-        "level": "A2",
+        "level": "A1",
         "id": "443",
         "inflections": "Noun: l'azienda, le aziende"
     },
@@ -746,33 +750,33 @@
         "alternatives": [
             "end"
         ],
-        "level": "A2",
-        "frequencyRank": 224
+        "level": "A1",
+        "frequencyRank": 655
     },
     {
         "italian": "lasciare",
-        "level": "A2",
+        "level": "A1",
         "id": "273",
         "english": "to leave",
         "alternatives": [
             "let"
         ],
-        "frequencyRank": 273
+        "frequencyRank": 545
     },
     {
         "italian": "nascere",
         "id": "240",
         "english": "to be born",
         "alternatives": [],
-        "level": "A2",
-        "frequencyRank": 240
+        "level": "A1",
+        "frequencyRank": 2206
     },
     {
         "alternatives": [
             "physician"
         ],
         "italian": "medico",
-        "frequencyRank": 430,
+        "frequencyRank": 532,
         "english": "doctor",
         "level": "A2",
         "id": "430",
@@ -780,13 +784,13 @@
     },
     {
         "italian": "ricevere",
-        "level": "A2",
+        "level": "A1",
         "id": "274",
         "english": "to receive",
         "alternatives": [
             "get"
         ],
-        "frequencyRank": 274
+        "frequencyRank": 990
     },
     {
         "italian": "europeo",
@@ -794,16 +798,16 @@
         "id": "287",
         "english": "european",
         "alternatives": [],
-        "frequencyRank": 287,
+        "frequencyRank": 754,
         "inflections": "Adj: europeo, europea, europei, europee"
     },
     {
         "english": "interesting",
         "alternatives": [],
-        "level": "A2",
+        "level": "A1",
         "id": "297",
         "italian": "interessante",
-        "frequencyRank": 297,
+        "frequencyRank": 557,
         "inflections": "Adj: interessante, interessante, interessanti, interessanti"
     },
     {
@@ -811,12 +815,12 @@
         "id": "251",
         "english": "to win",
         "alternatives": [],
-        "level": "A2",
-        "frequencyRank": 251
+        "level": "A1",
+        "frequencyRank": 872
     },
     {
-        "level": "A2",
-        "frequencyRank": 467,
+        "level": "A1",
+        "frequencyRank": 571,
         "italian": "domenica",
         "id": "467",
         "english": "sunday",
@@ -830,16 +834,16 @@
         "alternatives": [
             "to present"
         ],
-        "level": "A2",
-        "frequencyRank": 247
+        "level": "A1",
+        "frequencyRank": 1366
     },
     {
         "italian": "ricordare",
-        "level": "A2",
+        "level": "A1",
         "id": "279",
         "english": "to remember",
         "alternatives": [],
-        "frequencyRank": 279
+        "frequencyRank": 779
     },
     {
         "italian": "scegliere",
@@ -848,11 +852,11 @@
         "alternatives": [
             "to select"
         ],
-        "level": "A2",
-        "frequencyRank": 231
+        "level": "A1",
+        "frequencyRank": 677
     },
     {
-        "frequencyRank": 499,
+        "frequencyRank": 583,
         "id": "499",
         "italian": "teatro",
         "english": "theatre",
@@ -869,10 +873,10 @@
             "affordable",
             "economic"
         ],
-        "level": "A2",
+        "level": "A1",
         "id": "312",
         "italian": "economico",
-        "frequencyRank": 312,
+        "frequencyRank": 585,
         "inflections": "Adj: economico, economica, economici, economiche"
     },
     {
@@ -880,7 +884,7 @@
             "ache"
         ],
         "italian": "dolore",
-        "frequencyRank": 437,
+        "frequencyRank": 620,
         "english": "pain",
         "level": "A2",
         "id": "437",
@@ -894,7 +898,7 @@
         "alternatives": [
             "be wrong"
         ],
-        "frequencyRank": 280
+        "frequencyRank": 3600
     },
     {
         "italian": "stazione",
@@ -904,13 +908,13 @@
         ],
         "english": "station",
         "level": "A2",
-        "frequencyRank": 344,
+        "frequencyRank": 678,
         "inflections": "Noun: la stazione, le stazioni",
         "partOfSpeech": "noun"
     },
     {
         "level": "A2",
-        "frequencyRank": 466,
+        "frequencyRank": 688,
         "italian": "sabato",
         "id": "466",
         "english": "saturday",
@@ -926,7 +930,7 @@
             "summertime"
         ],
         "italian": "estate",
-        "frequencyRank": 408,
+        "frequencyRank": 710,
         "inflections": "Noun: l'estate, le estati",
         "partOfSpeech": "noun"
     },
@@ -938,7 +942,7 @@
             "sugary"
         ],
         "italian": "dolce",
-        "frequencyRank": 418,
+        "frequencyRank": 721,
         "english": "sweet",
         "level": "A2",
         "id": "418",
@@ -950,7 +954,7 @@
             "paper"
         ],
         "italian": "giornale",
-        "frequencyRank": 452,
+        "frequencyRank": 736,
         "english": "newspaper",
         "level": "A2",
         "id": "452",
@@ -962,10 +966,10 @@
         "alternatives": [
             "air travel"
         ],
-        "level": "A2",
+        "level": "B1",
         "id": "332",
         "italian": "volo",
-        "frequencyRank": 332,
+        "frequencyRank": 747,
         "inflections": "Noun: il volo, i voli",
         "partOfSpeech": "noun"
     },
@@ -977,7 +981,7 @@
         ],
         "english": "key",
         "level": "A2",
-        "frequencyRank": 369,
+        "frequencyRank": 750,
         "inflections": "Noun: la chiave, le chiavi",
         "partOfSpeech": "noun"
     },
@@ -988,12 +992,12 @@
         "alternatives": [
             "to await"
         ],
-        "level": "A2",
-        "frequencyRank": 227,
+        "level": "A1",
+        "frequencyRank": 767,
         "partOfSpeech": "verb"
     },
     {
-        "level": "A2",
+        "level": "B1",
         "english": "dinner",
         "id": "415",
         "alternatives": [
@@ -1001,7 +1005,7 @@
             "supper"
         ],
         "italian": "cena",
-        "frequencyRank": 415,
+        "frequencyRank": 771,
         "inflections": "Noun: la cena, le cene",
         "partOfSpeech": "noun"
     },
@@ -1010,22 +1014,22 @@
             "version"
         ],
         "italian": "traduzione",
-        "frequencyRank": 457,
+        "frequencyRank": 782,
         "english": "translation",
-        "level": "A2",
+        "level": "B1",
         "id": "457",
         "inflections": "Noun: la traduzione, le traduzioni",
         "partOfSpeech": "noun"
     },
     {
         "italian": "americano",
-        "level": "A2",
+        "level": "A1",
         "id": "286",
         "english": "american",
         "alternatives": [
             "u.s."
         ],
-        "frequencyRank": 286,
+        "frequencyRank": 785,
         "inflections": "Adj: americano, americana, americani, americane",
         "partOfSpeech": "adjective"
     },
@@ -1037,23 +1041,25 @@
             "to describe",
             "to clarify"
         ],
-        "level": "A2",
-        "frequencyRank": 233,
+        "level": "A1",
+        "frequencyRank": 929,
         "partOfSpeech": "verb"
     },
     {
         "level": "A2",
-        "frequencyRank": 465,
+        "frequencyRank": 801,
         "italian": "venerdì",
         "id": "465",
         "english": "friday",
-        "alternatives": [],
+        "alternatives": [
+            "fri"
+        ],
         "inflections": "Noun: il venerdì, i venerdì",
         "partOfSpeech": "noun"
     },
     {
         "level": "A2",
-        "frequencyRank": 481,
+        "frequencyRank": 816,
         "italian": "pomeriggio",
         "id": "481",
         "english": "afternoon",
@@ -1071,19 +1077,19 @@
         "level": "A2",
         "id": "314",
         "italian": "veloce",
-        "frequencyRank": 314,
+        "frequencyRank": 821,
         "inflections": "Adj: veloce, veloce, veloci, veloci",
         "partOfSpeech": "adjective"
     },
     {
-        "level": "A2",
+        "level": "B2",
         "english": "lunch",
         "id": "414",
         "alternatives": [
             "midday meal"
         ],
         "italian": "pranzo",
-        "frequencyRank": 414,
+        "frequencyRank": 830,
         "inflections": "Noun: il pranzo, i pranzi",
         "partOfSpeech": "noun"
     },
@@ -1092,7 +1098,7 @@
             "journal"
         ],
         "italian": "rivista",
-        "frequencyRank": 453,
+        "frequencyRank": 834,
         "english": "magazine",
         "level": "A2",
         "id": "453",
@@ -1105,10 +1111,10 @@
             "boat",
             "vessel"
         ],
-        "level": "A2",
+        "level": "B1",
         "id": "333",
         "italian": "nave",
-        "frequencyRank": 333,
+        "frequencyRank": 847,
         "inflections": "Noun: la nave, le navi",
         "partOfSpeech": "noun"
     },
@@ -1118,10 +1124,10 @@
             "unhappy",
             "sorrowful"
         ],
-        "level": "A2",
+        "level": "B1",
         "id": "307",
         "italian": "triste",
-        "frequencyRank": 307,
+        "frequencyRank": 857,
         "inflections": "Adj: triste, triste, tristi, tristi",
         "partOfSpeech": "adjective"
     },
@@ -1132,8 +1138,8 @@
         "alternatives": [
             "to construct"
         ],
-        "level": "A2",
-        "frequencyRank": 256,
+        "level": "A1",
+        "frequencyRank": 875,
         "partOfSpeech": "verb"
     },
     {
@@ -1145,13 +1151,13 @@
         "level": "A2",
         "id": "311",
         "italian": "povero",
-        "frequencyRank": 311,
+        "frequencyRank": 1109,
         "inflections": "Adj: povero, povera, poveri, povere",
         "partOfSpeech": "adjective"
     },
     {
         "level": "A2",
-        "frequencyRank": 460,
+        "frequencyRank": 903,
         "italian": "frase",
         "id": "460",
         "english": "sentence",
@@ -1171,7 +1177,7 @@
         ],
         "english": "staircase",
         "level": "A2",
-        "frequencyRank": 357,
+        "frequencyRank": 914,
         "inflections": "Noun: la scala, le scale",
         "partOfSpeech": "noun"
     },
@@ -1181,7 +1187,7 @@
             "medication"
         ],
         "italian": "medicina",
-        "frequencyRank": 432,
+        "frequencyRank": 921,
         "english": "medicine",
         "level": "A2",
         "id": "432",
@@ -1189,14 +1195,14 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
+        "level": "B1",
         "english": "spring",
         "id": "410",
         "alternatives": [
             "springtime"
         ],
         "italian": "primavera",
-        "frequencyRank": 410,
+        "frequencyRank": 925,
         "inflections": "Noun: la primavera, le primavere",
         "partOfSpeech": "noun"
     },
@@ -1206,13 +1212,13 @@
         "id": "284",
         "english": "german",
         "alternatives": [],
-        "frequencyRank": 284,
+        "frequencyRank": 931,
         "inflections": "Adj: tedesco, tedesca, tedeschi, tedesche",
         "partOfSpeech": "adjective"
     },
     {
         "italian": "controllare",
-        "level": "A2",
+        "level": "A1",
         "id": "277",
         "english": "to check",
         "alternatives": [
@@ -1220,7 +1226,7 @@
             "to verify",
             "to inspect"
         ],
-        "frequencyRank": 277,
+        "frequencyRank": 966,
         "partOfSpeech": "verb"
     },
     {
@@ -1229,10 +1235,10 @@
             "bike",
             "motorcycle"
         ],
-        "level": "A2",
+        "level": "B1",
         "id": "336",
         "italian": "moto",
-        "frequencyRank": 336,
+        "frequencyRank": 972,
         "inflections": "Noun: la moto, le moto",
         "partOfSpeech": "noun"
     },
@@ -1242,10 +1248,10 @@
             "affluent",
             "wealthy"
         ],
-        "level": "A2",
+        "level": "A1",
         "id": "310",
         "italian": "ricco",
-        "frequencyRank": 310,
+        "frequencyRank": 976,
         "inflections": "Adj: ricco, ricca, ricchi, ricche",
         "partOfSpeech": "adjective"
     },
@@ -1257,20 +1263,20 @@
             "entertaining",
             "enjoyable"
         ],
-        "level": "A2",
+        "level": "B1",
         "id": "299",
         "italian": "divertente",
-        "frequencyRank": 299,
+        "frequencyRank": 998,
         "inflections": "Adj: divertente, divertente, divertenti, divertenti",
         "partOfSpeech": "adjective"
     },
     {
         "italian": "spagnolo",
-        "level": "A2",
+        "level": "B1",
         "id": "285",
         "english": "spanish",
         "alternatives": [],
-        "frequencyRank": 285,
+        "frequencyRank": 1013,
         "inflections": "Adj: spagnolo, spagnola, spagnoli, spagnole",
         "partOfSpeech": "adjective"
     },
@@ -1282,13 +1288,13 @@
             "start",
             "to commence"
         ],
-        "level": "A2",
-        "frequencyRank": 223,
+        "level": "A1",
+        "frequencyRank": 1269,
         "partOfSpeech": "verb"
     },
     {
         "level": "A2",
-        "frequencyRank": 461,
+        "frequencyRank": 1031,
         "italian": "lunedì",
         "id": "461",
         "english": "monday",
@@ -1304,7 +1310,7 @@
         ],
         "english": "delay",
         "level": "A2",
-        "frequencyRank": 349,
+        "frequencyRank": 1038,
         "inflections": "Noun: il ritardo, i ritardi",
         "partOfSpeech": "noun"
     },
@@ -1317,7 +1323,7 @@
         ],
         "english": "holiday",
         "level": "A2",
-        "frequencyRank": 343,
+        "frequencyRank": 1044,
         "inflections": "Noun: la vacanza, le vacanze",
         "partOfSpeech": "noun"
     },
@@ -1327,9 +1333,9 @@
             "influence"
         ],
         "italian": "influenza",
-        "frequencyRank": 439,
+        "frequencyRank": 1054,
         "english": "flu",
-        "level": "A2",
+        "level": "B1",
         "id": "439",
         "inflections": "Noun: l'influenza, le influenze",
         "partOfSpeech": "noun"
@@ -1339,10 +1345,10 @@
         "alternatives": [
             "note"
         ],
-        "level": "A2",
+        "level": "B1",
         "id": "331",
         "italian": "biglietto",
-        "frequencyRank": 331,
+        "frequencyRank": 1092,
         "inflections": "Noun: il biglietto, i biglietti",
         "partOfSpeech": "noun"
     },
@@ -1352,10 +1358,10 @@
             "nice",
             "polite"
         ],
-        "level": "A2",
+        "level": "B2",
         "id": "301",
         "italian": "gentile",
-        "frequencyRank": 301,
+        "frequencyRank": 1104,
         "inflections": "Adj: gentile, gentile, gentili, gentili",
         "partOfSpeech": "adjective"
     },
@@ -1367,20 +1373,20 @@
             "backyard"
         ],
         "english": "garden",
-        "level": "A2",
-        "frequencyRank": 355,
+        "level": "B1",
+        "frequencyRank": 1105,
         "inflections": "Noun: il giardino, i giardini",
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
+        "level": "B2",
         "english": "gift",
         "id": "396",
         "alternatives": [
             "present"
         ],
         "italian": "regalo",
-        "frequencyRank": 396,
+        "frequencyRank": 1111,
         "inflections": "Noun: il regalo, i regali",
         "partOfSpeech": "noun"
     },
@@ -1395,17 +1401,17 @@
             "stock market"
         ],
         "italian": "borsa",
-        "frequencyRank": 389,
+        "frequencyRank": 1116,
         "inflections": "Noun: la borsa, le borse",
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
+        "level": "B1",
         "english": "temperature",
         "id": "407",
         "alternatives": [],
         "italian": "temperatura",
-        "frequencyRank": 407,
+        "frequencyRank": 1143,
         "inflections": "Noun: la temperatura, le temperature",
         "partOfSpeech": "noun"
     },
@@ -1417,30 +1423,30 @@
             "to quit",
             "to finish"
         ],
-        "level": "A2",
-        "frequencyRank": 225,
+        "level": "B1",
+        "frequencyRank": 1163,
         "partOfSpeech": "verb"
     },
     {
-        "level": "A2",
+        "level": "C1",
         "english": "breakfast",
         "id": "413",
         "alternatives": [],
         "italian": "colazione",
-        "frequencyRank": 413,
+        "frequencyRank": 1166,
         "inflections": "Noun: la colazione, le colazioni",
         "partOfSpeech": "noun"
     },
     {
         "italian": "rompere",
-        "level": "A2",
+        "level": "B1",
         "id": "271",
         "english": "to break",
         "alternatives": [
             "to shatter",
             "to smash"
         ],
-        "frequencyRank": 271,
+        "frequencyRank": 1740,
         "partOfSpeech": "verb"
     },
     {
@@ -1450,20 +1456,20 @@
             "flat"
         ],
         "english": "apartment",
-        "level": "A2",
-        "frequencyRank": 351,
+        "level": "B2",
+        "frequencyRank": 1178,
         "inflections": "Noun: l'appartamento, gli appartamenti",
         "partOfSpeech": "noun"
     },
     {
         "italian": "dimenticare",
-        "level": "A2",
+        "level": "A1",
         "id": "278",
         "english": "to forget",
         "alternatives": [
             "to overlook"
         ],
-        "frequencyRank": 278,
+        "frequencyRank": 1254,
         "partOfSpeech": "verb"
     },
     {
@@ -1475,7 +1481,7 @@
             "to ship",
             "to forward"
         ],
-        "frequencyRank": 275,
+        "frequencyRank": 1218,
         "partOfSpeech": "verb"
     },
     {
@@ -1486,8 +1492,8 @@
             "to encounter",
             "to run into"
         ],
-        "level": "A2",
-        "frequencyRank": 244,
+        "level": "A1",
+        "frequencyRank": 1257,
         "partOfSpeech": "verb"
     },
     {
@@ -1498,35 +1504,35 @@
             "to dash",
             "to race"
         ],
-        "level": "A2",
-        "frequencyRank": 229,
+        "level": "A1",
+        "frequencyRank": 1271,
         "partOfSpeech": "verb"
     },
     {
-        "level": "A2",
+        "level": "B1",
         "english": "rain",
         "id": "400",
         "alternatives": [
             "rainfall"
         ],
         "italian": "pioggia",
-        "frequencyRank": 400,
+        "frequencyRank": 1280,
         "inflections": "Noun: la pioggia, le piogge",
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
+        "level": "B1",
         "english": "winter",
         "id": "409",
         "alternatives": [],
         "italian": "inverno",
-        "frequencyRank": 409,
+        "frequencyRank": 1318,
         "inflections": "Noun: l'inverno, gli inverni",
         "partOfSpeech": "noun"
     },
     {
         "level": "A2",
-        "frequencyRank": 464,
+        "frequencyRank": 1354,
         "italian": "giovedì",
         "id": "464",
         "english": "thursday",
@@ -1543,7 +1549,7 @@
         "level": "A2",
         "id": "318",
         "italian": "pesante",
-        "frequencyRank": 318,
+        "frequencyRank": 1365,
         "inflections": "Adj: pesante, pesante, pesanti, pesanti",
         "partOfSpeech": "adjective"
     },
@@ -1555,7 +1561,7 @@
             "to express gratitude"
         ],
         "level": "A2",
-        "frequencyRank": 246,
+        "frequencyRank": 2608,
         "partOfSpeech": "verb"
     },
     {
@@ -1568,7 +1574,7 @@
         "level": "A2",
         "id": "317",
         "italian": "debole",
-        "frequencyRank": 317,
+        "frequencyRank": 1407,
         "inflections": "Adj: debole, debole, deboli, deboli",
         "partOfSpeech": "adjective"
     },
@@ -1581,7 +1587,7 @@
             "to steer",
             "to guide"
         ],
-        "frequencyRank": 272,
+        "frequencyRank": 1459,
         "partOfSpeech": "verb"
     },
     {
@@ -1592,8 +1598,8 @@
             "to exhibit",
             "to display"
         ],
-        "level": "A2",
-        "frequencyRank": 248,
+        "level": "A1",
+        "frequencyRank": 1463,
         "partOfSpeech": "verb"
     },
     {
@@ -1607,7 +1613,7 @@
         ],
         "english": "timetable",
         "level": "A2",
-        "frequencyRank": 348,
+        "frequencyRank": 1465,
         "inflections": "Noun: l'orario, gli orari",
         "partOfSpeech": "noun"
     },
@@ -1616,26 +1622,26 @@
         "alternatives": [
             "coach"
         ],
-        "level": "A2",
+        "level": "B2",
         "id": "334",
         "italian": "autobus",
-        "frequencyRank": 334,
+        "frequencyRank": 1478,
         "inflections": "Noun: l'autobus, gli autobus",
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
+        "level": "B2",
         "english": "snow",
         "id": "401",
         "alternatives": [],
         "italian": "neve",
-        "frequencyRank": 401,
+        "frequencyRank": 1495,
         "inflections": "Noun: la neve, le nevi"
     },
     {
         "alternatives": [],
         "italian": "riunione",
-        "frequencyRank": 448,
+        "frequencyRank": 1500,
         "english": "meeting",
         "level": "A2",
         "id": "448",
@@ -1643,7 +1649,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 462,
+        "frequencyRank": 1548,
         "italian": "martedì",
         "id": "462",
         "english": "tuesday",
@@ -1652,11 +1658,11 @@
     },
     {
         "italian": "preparare",
-        "level": "A2",
+        "level": "A1",
         "id": "261",
         "english": "to prepare",
         "alternatives": [],
-        "frequencyRank": 261
+        "frequencyRank": 1581
     },
     {
         "italian": "promettere",
@@ -1664,15 +1670,15 @@
         "english": "to promise",
         "alternatives": [],
         "level": "A2",
-        "frequencyRank": 235
+        "frequencyRank": 6172
     },
     {
         "italian": "specchio",
         "id": "360",
         "alternatives": [],
         "english": "mirror",
-        "level": "A2",
-        "frequencyRank": 360,
+        "level": "B2",
+        "frequencyRank": 1587,
         "inflections": "Noun: lo specchio, gli specchi"
     },
     {
@@ -1685,20 +1691,20 @@
             "to ring",
             "to ring (a bell)"
         ],
-        "frequencyRank": 264
+        "frequencyRank": 1798
     },
     {
         "english": "tourist",
         "alternatives": [],
-        "level": "A2",
+        "level": "B2",
         "id": "341",
         "italian": "turista",
-        "frequencyRank": 341,
+        "frequencyRank": 4388,
         "inflections": "Noun: il turista, i turisti"
     },
     {
         "level": "A2",
-        "frequencyRank": 463,
+        "frequencyRank": 1608,
         "italian": "mercoledì",
         "id": "463",
         "english": "wednesday",
@@ -1706,12 +1712,12 @@
         "inflections": "Noun: il mercoledì, i mercoledì"
     },
     {
-        "level": "A2",
+        "level": "C1",
         "english": "ice",
         "id": "406",
         "alternatives": [],
         "italian": "ghiaccio",
-        "frequencyRank": 406,
+        "frequencyRank": 1631,
         "inflections": "Noun: il ghiaccio, i ghiacci"
     },
     {
@@ -1719,16 +1725,16 @@
         "id": "230",
         "english": "to travel",
         "alternatives": [],
-        "level": "A2",
-        "frequencyRank": 230
+        "level": "B1",
+        "frequencyRank": 1651
     },
     {
-        "level": "A2",
+        "level": "B2",
         "english": "ring",
         "id": "382",
         "alternatives": [],
         "italian": "anello",
-        "frequencyRank": 382,
+        "frequencyRank": 1653,
         "inflections": "Noun: l'anello, gli anelli"
     },
     {
@@ -1738,8 +1744,8 @@
         "alternatives": [
             "to gain"
         ],
-        "level": "A2",
-        "frequencyRank": 252
+        "level": "B1",
+        "frequencyRank": 1667
     },
     {
         "alternatives": [
@@ -1747,9 +1753,9 @@
             "wage"
         ],
         "italian": "stipendio",
-        "frequencyRank": 446,
+        "frequencyRank": 1686,
         "english": "salary",
-        "level": "A2",
+        "level": "B2",
         "id": "446",
         "inflections": "Noun: lo stipendio, gli stipendi"
     },
@@ -1758,11 +1764,11 @@
         "id": "228",
         "english": "to walk",
         "alternatives": [],
-        "level": "A2",
-        "frequencyRank": 228
+        "level": "B1",
+        "frequencyRank": 1772
     },
     {
-        "level": "A2",
+        "level": "C1",
         "english": "discount",
         "id": "392",
         "alternatives": [
@@ -1770,7 +1776,7 @@
             "reduction"
         ],
         "italian": "sconto",
-        "frequencyRank": 392,
+        "frequencyRank": 1794,
         "inflections": "Noun: lo sconto, gli sconti"
     },
     {
@@ -1779,17 +1785,17 @@
         "id": "265",
         "english": "to sing",
         "alternatives": [],
-        "frequencyRank": 265
+        "frequencyRank": 1830
     },
     {
-        "level": "A2",
+        "level": "C1",
         "english": "brand",
         "id": "394",
         "alternatives": [
             "make"
         ],
         "italian": "marca",
-        "frequencyRank": 394,
+        "frequencyRank": 2425,
         "inflections": "Noun: la marca, le marche"
     },
     {
@@ -1797,8 +1803,8 @@
         "id": "350",
         "alternatives": [],
         "english": "destination",
-        "level": "A2",
-        "frequencyRank": 350,
+        "level": "B1",
+        "frequencyRank": 1882,
         "inflections": "Noun: la destinazione, le destinazioni"
     },
     {
@@ -1806,8 +1812,8 @@
         "id": "243",
         "english": "to invite",
         "alternatives": [],
-        "level": "A2",
-        "frequencyRank": 243
+        "level": "A1",
+        "frequencyRank": 3587
     },
     {
         "italian": "tagliare",
@@ -1815,14 +1821,14 @@
         "id": "263",
         "english": "to cut",
         "alternatives": [],
-        "frequencyRank": 263
+        "frequencyRank": 1912
     },
     {
         "alternatives": [],
         "italian": "bottiglia",
-        "frequencyRank": 427,
+        "frequencyRank": 1919,
         "english": "bottle",
-        "level": "A2",
+        "level": "B2",
         "id": "427",
         "inflections": "Noun: la bottiglia, le bottiglie"
     },
@@ -1835,7 +1841,7 @@
             "spectacles"
         ],
         "italian": "occhiali",
-        "frequencyRank": 385,
+        "frequencyRank": 1927,
         "inflections": "Noun: l'occhiale, gli occhiali"
     },
     {
@@ -1845,8 +1851,8 @@
         "alternatives": [
             "get married"
         ],
-        "level": "A2",
-        "frequencyRank": 242
+        "level": "B1",
+        "frequencyRank": 2517
     },
     {
         "level": "A2",
@@ -1856,7 +1862,7 @@
             "thunderstorm"
         ],
         "italian": "temporale",
-        "frequencyRank": 404,
+        "frequencyRank": 1941,
         "inflections": "Noun: il temporale, i temporali"
     },
     {
@@ -1864,8 +1870,8 @@
         "id": "345",
         "alternatives": [],
         "english": "airport",
-        "level": "A2",
-        "frequencyRank": 345,
+        "level": "B2",
+        "frequencyRank": 1944,
         "inflections": "Noun: l'aeroporto, gli aeroporti"
     },
     {
@@ -1877,7 +1883,7 @@
         "level": "A2",
         "id": "335",
         "italian": "bici",
-        "frequencyRank": 335,
+        "frequencyRank": 1978,
         "inflections": "Noun: la bici, le bici"
     },
     {
@@ -1885,8 +1891,8 @@
         "id": "370",
         "alternatives": [],
         "english": "floor",
-        "level": "A2",
-        "frequencyRank": 370,
+        "level": "C1",
+        "frequencyRank": 1998,
         "inflections": "Noun: il pavimento, i pavimenti"
     },
     {
@@ -1895,10 +1901,10 @@
             "weary",
             "exhausted"
         ],
-        "level": "A2",
+        "level": "B1",
         "id": "303",
         "italian": "stanco",
-        "frequencyRank": 303,
+        "frequencyRank": 2007,
         "inflections": "Adj: stanco, stanca, stanchi, stanche"
     },
     {
@@ -1906,7 +1912,7 @@
             "temperature"
         ],
         "italian": "febbre",
-        "frequencyRank": 436,
+        "frequencyRank": 2024,
         "english": "fever",
         "level": "A2",
         "id": "436",
@@ -1918,18 +1924,18 @@
         "english": "to spend",
         "alternatives": [],
         "level": "A2",
-        "frequencyRank": 253,
+        "frequencyRank": 2120,
         "partOfSpeech": "verb"
     },
     {
-        "level": "A2",
+        "level": "B2",
         "english": "autumn",
         "id": "411",
         "alternatives": [
             "fall"
         ],
         "italian": "autunno",
-        "frequencyRank": 411,
+        "frequencyRank": 2128,
         "inflections": "Noun: l'autunno, gli autunni",
         "partOfSpeech": "noun"
     },
@@ -1938,9 +1944,9 @@
             "drinking glass"
         ],
         "italian": "bicchiere",
-        "frequencyRank": 426,
+        "frequencyRank": 2130,
         "english": "glass",
-        "level": "A2",
+        "level": "C1",
         "id": "426",
         "partOfSpeech": "noun"
     },
@@ -1949,21 +1955,21 @@
         "id": "366",
         "alternatives": [],
         "english": "oven",
-        "level": "A2",
-        "frequencyRank": 366,
+        "level": "C1",
+        "frequencyRank": 2138,
         "inflections": "Noun: il forno, i forni",
         "partOfSpeech": "noun"
     },
     {
         "italian": "pulire",
-        "level": "A2",
+        "level": "C1",
         "id": "258",
         "english": "to clean",
         "alternatives": [
             "wash",
             "tidy up"
         ],
-        "frequencyRank": 258,
+        "frequencyRank": 2605,
         "partOfSpeech": "verb"
     },
     {
@@ -1973,8 +1979,8 @@
             "cap"
         ],
         "english": "hat",
-        "level": "A2",
-        "frequencyRank": 379,
+        "level": "C2",
+        "frequencyRank": 2188,
         "inflections": "Noun: il cappello, i cappelli",
         "partOfSpeech": "noun"
     },
@@ -1985,10 +1991,10 @@
             "pleasant",
             "friendly"
         ],
-        "level": "A2",
+        "level": "B1",
         "id": "300",
         "italian": "simpatico",
-        "frequencyRank": 300,
+        "frequencyRank": 2180,
         "inflections": "Adj: simpatico, simpatica, simpatici, simpatiche",
         "partOfSpeech": "adjective"
     },
@@ -2000,18 +2006,18 @@
         "alternatives": [
             "prepare food"
         ],
-        "frequencyRank": 260,
+        "frequencyRank": 2238,
         "partOfSpeech": "verb"
     },
     {
-        "level": "A2",
+        "level": "C1",
         "english": "watch",
         "id": "384",
         "alternatives": [
             "clock"
         ],
         "italian": "orologio",
-        "frequencyRank": 384,
+        "frequencyRank": 2251,
         "inflections": "Noun: l'orologio, gli orologi",
         "partOfSpeech": "noun"
     },
@@ -2021,10 +2027,10 @@
             "sluggish",
             "leisurely"
         ],
-        "level": "A2",
+        "level": "B1",
         "id": "315",
         "italian": "lento",
-        "frequencyRank": 315,
+        "frequencyRank": 2278,
         "inflections": "Adj: lento, lenta, lenti, lente",
         "partOfSpeech": "adjective"
     },
@@ -2036,17 +2042,17 @@
             "economize",
             "put aside"
         ],
-        "level": "A2",
-        "frequencyRank": 254,
+        "level": "B1",
+        "frequencyRank": 2319,
         "partOfSpeech": "verb"
     },
     {
         "italian": "ballare",
-        "level": "A2",
+        "level": "C1",
         "id": "266",
         "english": "to dance",
         "alternatives": [],
-        "frequencyRank": 266,
+        "frequencyRank": 2332,
         "partOfSpeech": "verb"
     },
     {
@@ -2057,7 +2063,7 @@
         ],
         "english": "shirt",
         "level": "A2",
-        "frequencyRank": 373,
+        "frequencyRank": 2334,
         "inflections": "Noun: la camicia, le camicie",
         "partOfSpeech": "noun"
     },
@@ -2070,7 +2076,7 @@
         ],
         "english": "jacket",
         "level": "A2",
-        "frequencyRank": 374,
+        "frequencyRank": 2340,
         "inflections": "Noun: la giacca, le giacche",
         "partOfSpeech": "noun"
     },
@@ -2081,9 +2087,9 @@
             "holidays"
         ],
         "italian": "ferie",
-        "frequencyRank": 450,
+        "frequencyRank": 2414,
         "english": "annual leave",
-        "level": "A2",
+        "level": "C1",
         "id": "450",
         "inflections": "Noun: la feria, le ferie",
         "partOfSpeech": "noun"
@@ -2093,7 +2099,7 @@
             "lexicon"
         ],
         "italian": "dizionario",
-        "frequencyRank": 458,
+        "frequencyRank": 2458,
         "english": "dictionary",
         "level": "A2",
         "id": "458",
@@ -2103,7 +2109,7 @@
     {
         "alternatives": [],
         "italian": "coltello",
-        "frequencyRank": 424,
+        "frequencyRank": 2486,
         "english": "knife",
         "level": "A2",
         "id": "424",
@@ -2111,12 +2117,12 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
+        "level": "C1",
         "english": "necklace",
         "id": "383",
         "alternatives": [],
         "italian": "collana",
-        "frequencyRank": 383,
+        "frequencyRank": 2535,
         "inflections": "Noun: la collana, le collane",
         "partOfSpeech": "noun"
     },
@@ -2128,19 +2134,19 @@
             "say hello to",
             "to say hello"
         ],
-        "level": "A2",
-        "frequencyRank": 245,
+        "level": "B1",
+        "frequencyRank": 2677,
         "partOfSpeech": "verb"
     },
     {
-        "level": "A2",
+        "level": "C1",
         "english": "supermarket",
         "id": "390",
         "alternatives": [
             "grocery store"
         ],
         "italian": "supermercato",
-        "frequencyRank": 390,
+        "frequencyRank": 2764,
         "inflections": "Noun: il supermercato, i supermercati",
         "partOfSpeech": "noun"
     },
@@ -2152,7 +2158,7 @@
         ],
         "english": "balcony",
         "level": "A2",
-        "frequencyRank": 354,
+        "frequencyRank": 2856,
         "inflections": "Noun: il balcone, i balconi",
         "partOfSpeech": "noun"
     },
@@ -2164,7 +2170,7 @@
             "mist"
         ],
         "italian": "nebbia",
-        "frequencyRank": 405,
+        "frequencyRank": 2873,
         "inflections": "Noun: la nebbia, le nebbie",
         "partOfSpeech": "noun"
     },
@@ -2176,7 +2182,7 @@
         "level": "A2",
         "id": "338",
         "italian": "passaporto",
-        "frequencyRank": 338,
+        "frequencyRank": 2877,
         "inflections": "Noun: il passaporto, i passaporti",
         "partOfSpeech": "noun"
     },
@@ -2186,20 +2192,20 @@
             "filthy",
             "messy"
         ],
-        "level": "A2",
+        "level": "C1",
         "id": "321",
         "italian": "sporco",
-        "frequencyRank": 321,
+        "frequencyRank": 2890,
         "inflections": "Adj: sporco, sporca, sporchi, sporche",
         "partOfSpeech": "adjective"
     },
     {
-        "level": "A2",
+        "level": "B2",
         "english": "belt",
         "id": "388",
         "alternatives": [],
         "italian": "cintura",
-        "frequencyRank": 388,
+        "frequencyRank": 2998,
         "inflections": "Noun: la cintura, le cinture",
         "partOfSpeech": "noun"
     },
@@ -2210,47 +2216,47 @@
             "pricey",
             "costly"
         ],
-        "level": "A2",
+        "level": "B2",
         "id": "313",
         "italian": "costoso",
-        "frequencyRank": 313,
+        "frequencyRank": 3103,
         "inflections": "Adj: costoso, costosa, costosi, costose",
         "partOfSpeech": "adjective"
     },
     {
         "italian": "riparare",
-        "level": "A2",
+        "level": "C1",
         "id": "257",
         "english": "to repair",
         "alternatives": [
             "mend",
             "to fix"
         ],
-        "frequencyRank": 257,
+        "frequencyRank": 3131,
         "partOfSpeech": "verb"
     },
     {
-        "level": "A2",
+        "level": "B2",
         "english": "cash",
         "id": "397",
         "alternatives": [
             "currency"
         ],
         "italian": "contante",
-        "frequencyRank": 397,
+        "frequencyRank": 7012,
         "inflections": "Noun: il contante, i contanti",
         "partOfSpeech": "noun"
     },
     {
         "italian": "spegnere",
-        "level": "A2",
+        "level": "B2",
         "id": "270",
         "english": "to turn off",
         "alternatives": [
             "extinguish",
             "to switch off"
         ],
-        "frequencyRank": 270,
+        "frequencyRank": 3560,
         "partOfSpeech": "verb"
     },
     {
@@ -2259,7 +2265,7 @@
         "id": "403",
         "alternatives": [],
         "italian": "nuvola",
-        "frequencyRank": 403,
+        "frequencyRank": 4885,
         "inflections": "Noun: la nuvola, le nuvole",
         "partOfSpeech": "noun"
     },
@@ -2271,26 +2277,26 @@
         "level": "A2",
         "id": "340",
         "italian": "zaino",
-        "frequencyRank": 340,
+        "frequencyRank": 3236,
         "inflections": "Noun: lo zaino, gli zaini"
     },
     {
         "italian": "accendere",
-        "level": "A2",
+        "level": "B1",
         "id": "269",
         "english": "to turn on",
         "alternatives": [
             "light"
         ],
-        "frequencyRank": 269
+        "frequencyRank": 3237
     },
     {
         "italian": "disegnare",
-        "level": "A2",
+        "level": "B1",
         "id": "267",
         "english": "to draw",
         "alternatives": [],
-        "frequencyRank": 267
+        "frequencyRank": 3249
     },
     {
         "english": "suitcase",
@@ -2298,10 +2304,10 @@
             "luggage",
             "bag"
         ],
-        "level": "A2",
+        "level": "C1",
         "id": "339",
         "italian": "valigia",
-        "frequencyRank": 339,
+        "frequencyRank": 3289,
         "inflections": "Noun: la valigia, le valigie"
     },
     {
@@ -2310,7 +2316,7 @@
             "drugstore"
         ],
         "italian": "farmacia",
-        "frequencyRank": 440,
+        "frequencyRank": 3356,
         "english": "pharmacy",
         "level": "A2",
         "id": "440",
@@ -2325,7 +2331,7 @@
         ],
         "english": "living room",
         "level": "A2",
-        "frequencyRank": 353,
+        "frequencyRank": 3379,
         "inflections": "Noun: il salotto, i salotti"
     },
     {
@@ -2333,7 +2339,7 @@
             "mug"
         ],
         "italian": "tazza",
-        "frequencyRank": 428,
+        "frequencyRank": 3389,
         "english": "cup",
         "level": "A2",
         "id": "428",
@@ -2341,11 +2347,11 @@
     },
     {
         "italian": "lavare",
-        "level": "A2",
+        "level": "B2",
         "id": "259",
         "english": "to wash",
         "alternatives": [],
-        "frequencyRank": 259
+        "frequencyRank": 3485
     },
     {
         "italian": "ascensore",
@@ -2355,7 +2361,7 @@
         ],
         "english": "elevator",
         "level": "A2",
-        "frequencyRank": 358,
+        "frequencyRank": 3564,
         "inflections": "Noun: l'ascensore, gli ascensori"
     },
     {
@@ -2364,7 +2370,7 @@
         "id": "386",
         "alternatives": [],
         "italian": "gonna",
-        "frequencyRank": 386,
+        "frequencyRank": 3625,
         "inflections": "Noun: la gonna, le gonne"
     },
     {
@@ -2376,7 +2382,7 @@
         "level": "A2",
         "id": "298",
         "italian": "noioso",
-        "frequencyRank": 298,
+        "frequencyRank": 3636,
         "inflections": "Adj: noioso, noiosa, noiosi, noiose"
     },
     {
@@ -2384,7 +2390,7 @@
             "tablet"
         ],
         "italian": "pillola",
-        "frequencyRank": 433,
+        "frequencyRank": 3769,
         "english": "pill",
         "level": "A2",
         "id": "433",
@@ -2398,7 +2404,7 @@
         ],
         "english": "lamp",
         "level": "A2",
-        "frequencyRank": 359,
+        "frequencyRank": 3806,
         "inflections": "Noun: la lampada, le lampade"
     },
     {
@@ -2409,8 +2415,8 @@
             "closet"
         ],
         "english": "wardrobe",
-        "level": "A2",
-        "frequencyRank": 363,
+        "level": "C1",
+        "frequencyRank": 3841,
         "inflections": "Noun: l'armadio, gli armadi"
     },
     {
@@ -2421,7 +2427,7 @@
         ],
         "english": "pillow",
         "level": "A2",
-        "frequencyRank": 361,
+        "frequencyRank": 3898,
         "inflections": "Noun: il cuscino, i cuscini"
     },
     {
@@ -2430,26 +2436,26 @@
         "alternatives": [],
         "english": "gloves",
         "level": "A2",
-        "frequencyRank": 381,
+        "frequencyRank": 4059,
         "inflections": "Noun: il guanto, i guanti"
     },
     {
         "alternatives": [],
         "italian": "infermiere",
-        "frequencyRank": 431,
+        "frequencyRank": 4178,
         "english": "nurse",
-        "level": "A2",
+        "level": "C1",
         "id": "431"
     },
     {
         "italian": "prenotare",
-        "level": "A2",
+        "level": "C1",
         "id": "276",
         "english": "to book",
         "alternatives": [
             "reserve"
         ],
-        "frequencyRank": 276
+        "frequencyRank": 4245
     },
     {
         "italian": "calze",
@@ -2461,7 +2467,7 @@
         ],
         "english": "socks",
         "level": "A2",
-        "frequencyRank": 378,
+        "frequencyRank": 4336,
         "inflections": "Noun: la calza, le calze"
     },
     {
@@ -2470,24 +2476,24 @@
         "alternatives": [],
         "english": "washing machine",
         "level": "A2",
-        "frequencyRank": 367,
+        "frequencyRank": 4467,
         "inflections": "Noun: la lavatrice, le lavatrici"
     },
     {
         "italian": "fotografare",
-        "level": "A2",
+        "level": "C1",
         "id": "268",
         "english": "to photograph",
         "alternatives": [
             "take a photo",
             "to take photos"
         ],
-        "frequencyRank": 268
+        "frequencyRank": 4701
     },
     {
         "alternatives": [],
         "italian": "cucchiaio",
-        "frequencyRank": 425,
+        "frequencyRank": 4750,
         "english": "spoon",
         "level": "A2",
         "id": "425",
@@ -2501,7 +2507,7 @@
             "cash machine"
         ],
         "italian": "bancomat",
-        "frequencyRank": 398,
+        "frequencyRank": 4794,
         "inflections": "Noun: il bancomat, i bancomat"
     },
     {
@@ -2511,8 +2517,8 @@
             "refrigerator"
         ],
         "english": "fridge",
-        "level": "A2",
-        "frequencyRank": 365,
+        "level": "B2",
+        "frequencyRank": 4872,
         "inflections": "Noun: il frigorifero, i frigoriferi"
     },
     {
@@ -2521,7 +2527,7 @@
             "common cold"
         ],
         "italian": "raffreddore",
-        "frequencyRank": 435,
+        "frequencyRank": 5024,
         "english": "cold",
         "level": "A2",
         "id": "435",
@@ -2535,7 +2541,7 @@
         ],
         "english": "shelf",
         "level": "A2",
-        "frequencyRank": 364,
+        "frequencyRank": 6569,
         "inflections": "Noun: lo scaffale, gli scaffali"
     },
     {
@@ -2547,8 +2553,8 @@
             "television set"
         ],
         "english": "television",
-        "level": "A2",
-        "frequencyRank": 368,
+        "level": "C1",
+        "frequencyRank": 5319,
         "inflections": "Noun: il televisore, i televisori"
     },
     {
@@ -2560,7 +2566,7 @@
             "jumper"
         ],
         "italian": "maglione",
-        "frequencyRank": 387,
+        "frequencyRank": 5443,
         "inflections": "Noun: il maglione, i maglioni"
     },
     {
@@ -2571,13 +2577,13 @@
             "to hire",
             "to lease"
         ],
-        "level": "A2",
-        "frequencyRank": 255
+        "level": "C1",
+        "frequencyRank": 6047
     },
     {
         "alternatives": [],
         "italian": "forchetta",
-        "frequencyRank": 423,
+        "frequencyRank": 6284,
         "english": "fork",
         "level": "A2",
         "id": "423",
@@ -2591,7 +2597,7 @@
         ],
         "english": "scarf",
         "level": "A2",
-        "frequencyRank": 380,
+        "frequencyRank": 6572,
         "inflections": "Noun: la sciarpa, le sciarpe",
         "partOfSpeech": "noun"
     },
@@ -2601,7 +2607,7 @@
             "allergic reaction"
         ],
         "italian": "allergia",
-        "frequencyRank": 434,
+        "frequencyRank": 6586,
         "english": "allergy",
         "level": "A2",
         "id": "434",
@@ -2618,7 +2624,7 @@
             "hors d'oeuvre"
         ],
         "italian": "antipasto",
-        "frequencyRank": 416,
+        "frequencyRank": 7428,
         "inflections": "Noun: l'antipasto, gli antipasti",
         "partOfSpeech": "noun"
     },
@@ -2630,7 +2636,7 @@
         ],
         "english": "shoes",
         "level": "A2",
-        "frequencyRank": 376,
+        "frequencyRank": 1011,
         "inflections": "Noun: la scarpa, le scarpe",
         "partOfSpeech": "noun"
     },
@@ -2639,7 +2645,7 @@
             "migraine"
         ],
         "italian": "mal di testa",
-        "frequencyRank": 438,
+        "frequencyRank": 1278,
         "english": "headache",
         "level": "A2",
         "id": "438",
@@ -2654,7 +2660,7 @@
             "er"
         ],
         "italian": "pronto soccorso",
-        "frequencyRank": 441,
+        "frequencyRank": 1640,
         "english": "emergency room",
         "level": "A2",
         "id": "441",

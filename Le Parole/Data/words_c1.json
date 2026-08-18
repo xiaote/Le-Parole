@@ -8,7 +8,7 @@
             "to endorse",
             "to approve"
         ],
-        "frequencyRank": 1051,
+        "frequencyRank": 12112,
         "partOfSpeech": "verb"
     },
     {
@@ -20,13 +20,13 @@
             "to proclaim",
             "enact"
         ],
-        "frequencyRank": 1052,
+        "frequencyRank": 13261,
         "partOfSpeech": "verb"
     },
     {
         "italian": "abrogare",
         "id": "1053",
-        "level": "C1",
+        "level": "B2",
         "english": "to repeal",
         "alternatives": [
             "abolish",
@@ -34,7 +34,7 @@
             "to abrogate",
             "to annul"
         ],
-        "frequencyRank": 1053,
+        "frequencyRank": 11912,
         "partOfSpeech": "verb"
     },
     {
@@ -46,7 +46,7 @@
             "to correct",
             "to revise"
         ],
-        "frequencyRank": 1054,
+        "frequencyRank": 13118,
         "partOfSpeech": "verb"
     },
     {
@@ -58,19 +58,19 @@
             "to make laws",
             "to pass laws"
         ],
-        "frequencyRank": 1055,
+        "frequencyRank": 9932,
         "partOfSpeech": "verb"
     },
     {
         "italian": "deliberare",
         "id": "1056",
-        "level": "C1",
+        "level": "B2",
         "english": "to deliberate",
         "alternatives": [
             "to discuss",
             "to decide"
         ],
-        "frequencyRank": 1056,
+        "frequencyRank": 8865,
         "partOfSpeech": "verb"
     },
     {
@@ -84,43 +84,43 @@
             "to validate",
             "to ratify"
         ],
-        "frequencyRank": 1057,
+        "frequencyRank": 13211,
         "partOfSpeech": "verb"
     },
     {
         "italian": "emanare",
         "id": "1058",
-        "level": "C1",
+        "level": "A2",
         "english": "to enact",
         "alternatives": [
             "to issue",
             "to decree"
         ],
-        "frequencyRank": 1058,
+        "frequencyRank": 7823,
         "partOfSpeech": "verb"
     },
     {
         "italian": "contestare",
         "id": "1059",
-        "level": "C1",
+        "level": "B1",
         "english": "to contest",
         "alternatives": [
             "to challenge",
             "to dispute"
         ],
-        "frequencyRank": 1059,
+        "frequencyRank": 5650,
         "partOfSpeech": "verb"
     },
     {
         "italian": "ricorrere",
         "id": "1060",
-        "level": "C1",
+        "level": "A2",
         "english": "to appeal",
         "alternatives": [
             "to resort to",
             "to have recourse to"
         ],
-        "frequencyRank": 1060,
+        "frequencyRank": 2511,
         "partOfSpeech": "verb"
     },
     {
@@ -133,32 +133,32 @@
             "to pass judgment",
             "to judge"
         ],
-        "frequencyRank": 1061,
+        "frequencyRank": 13324,
         "partOfSpeech": "verb"
     },
     {
         "italian": "condannare",
         "id": "1062",
-        "level": "C1",
+        "level": "A2",
         "english": "to condemn",
         "alternatives": [
             "to sentence",
             "to convict"
         ],
-        "frequencyRank": 1062,
+        "frequencyRank": 4104,
         "partOfSpeech": "verb"
     },
     {
         "italian": "assolvere",
         "id": "1063",
-        "level": "C1",
+        "level": "B2",
         "english": "to acquit",
         "alternatives": [
             "to clear",
             "to fulfill",
             "to absolve"
         ],
-        "frequencyRank": 1063,
+        "frequencyRank": 7174,
         "partOfSpeech": "verb"
     },
     {
@@ -171,7 +171,7 @@
             "to charge",
             "to incriminate"
         ],
-        "frequencyRank": 1064,
+        "frequencyRank": 13035,
         "partOfSpeech": "verb"
     },
     {
@@ -184,7 +184,7 @@
             "to frisk",
             "to rummage"
         ],
-        "frequencyRank": 1065,
+        "frequencyRank": 13040,
         "partOfSpeech": "verb"
     },
     {
@@ -197,7 +197,7 @@
             "to impound",
             "to kidnap"
         ],
-        "frequencyRank": 1066,
+        "frequencyRank": 10964,
         "partOfSpeech": "verb"
     },
     {
@@ -209,7 +209,7 @@
             "to remove from office",
             "to depose"
         ],
-        "frequencyRank": 1067,
+        "frequencyRank": 13652,
         "partOfSpeech": "verb"
     },
     {
@@ -221,7 +221,7 @@
             "to ban",
             "to forbid"
         ],
-        "frequencyRank": 1068,
+        "frequencyRank": 13823,
         "partOfSpeech": "verb"
     },
     {
@@ -233,7 +233,7 @@
             "to confirm",
             "to ratify"
         ],
-        "frequencyRank": 1069,
+        "frequencyRank": 13053,
         "partOfSpeech": "verb"
     },
     {
@@ -246,7 +246,7 @@
             "to void",
             "to cancel"
         ],
-        "frequencyRank": 1070,
+        "frequencyRank": 13408,
         "partOfSpeech": "verb"
     },
     {
@@ -259,7 +259,7 @@
             "to file away",
             "to put on file"
         ],
-        "frequencyRank": 1071,
+        "frequencyRank": 7972,
         "partOfSpeech": "verb"
     },
     {
@@ -272,7 +272,7 @@
             "catalog",
             "to classify"
         ],
-        "frequencyRank": 1072,
+        "frequencyRank": 11808,
         "partOfSpeech": "verb"
     },
     {
@@ -284,43 +284,43 @@
             "to list",
             "to cross-reference"
         ],
-        "frequencyRank": 1073,
+        "frequencyRank": 13920,
         "partOfSpeech": "verb"
     },
     {
         "italian": "diffondere",
         "id": "1074",
-        "level": "C1",
+        "level": "A1",
         "english": "to spread",
         "alternatives": [
             "to disseminate",
             "to circulate"
         ],
-        "frequencyRank": 1074,
+        "frequencyRank": 2627,
         "partOfSpeech": "verb"
     },
     {
         "italian": "trasmettere",
         "id": "1075",
-        "level": "C1",
+        "level": "A1",
         "english": "to transmit",
         "alternatives": [
             "to broadcast",
             "to relay"
         ],
-        "frequencyRank": 1075,
+        "frequencyRank": 2435,
         "partOfSpeech": "verb"
     },
     {
         "italian": "segnalare",
         "id": "1076",
-        "level": "C1",
+        "level": "A1",
         "english": "to report",
         "alternatives": [
             "signal",
             "to point out"
         ],
-        "frequencyRank": 1076,
+        "frequencyRank": 2321,
         "partOfSpeech": "verb"
     },
     {
@@ -332,7 +332,7 @@
             "to notify",
             "to warn"
         ],
-        "frequencyRank": 1077,
+        "frequencyRank": 13346,
         "partOfSpeech": "verb"
     },
     {
@@ -344,7 +344,7 @@
             "to mobilize",
             "to rally"
         ],
-        "frequencyRank": 1078,
+        "frequencyRank": 11035,
         "partOfSpeech": "verb"
     },
     {
@@ -356,19 +356,19 @@
             "to clear out",
             "to move out"
         ],
-        "frequencyRank": 1079,
+        "frequencyRank": 6538,
         "partOfSpeech": "verb"
     },
     {
         "italian": "coordinare",
         "id": "1080",
-        "level": "C1",
+        "level": "A2",
         "english": "to coordinate",
         "alternatives": [
             "to direct",
             "to organize"
         ],
-        "frequencyRank": 1080,
+        "frequencyRank": 5575,
         "partOfSpeech": "verb"
     },
     {
@@ -380,7 +380,7 @@
             "expressive",
             "articulate"
         ],
-        "frequencyRank": 1081,
+        "frequencyRank": 8490,
         "inflections": "Adj: eloquente, eloquente, eloquenti, eloquenti",
         "partOfSpeech": "adjective"
     },
@@ -395,7 +395,7 @@
             "astute",
             "insightful"
         ],
-        "frequencyRank": 1082,
+        "frequencyRank": 11735,
         "inflections": "Adj: perspicace, perspicace, perspicaci, perspicaci",
         "partOfSpeech": "adjective"
     },
@@ -409,7 +409,7 @@
             "forward-thinking",
             "foresighted"
         ],
-        "frequencyRank": 1083,
+        "frequencyRank": 10042,
         "inflections": "Adj: lungimirante, lungimirante, lungimiranti, lungimiranti",
         "partOfSpeech": "adjective"
     },
@@ -424,7 +424,7 @@
             "incisive",
             "acute"
         ],
-        "frequencyRank": 1084,
+        "frequencyRank": 3838,
         "inflections": "Adj: acuto, acuta, acuti, acute",
         "partOfSpeech": "adjective"
     },
@@ -437,21 +437,21 @@
             "severe",
             "stern"
         ],
-        "frequencyRank": 1087,
+        "frequencyRank": 12905,
         "inflections": "Adj: austero, austera, austeri, austere",
         "partOfSpeech": "adjective"
     },
     {
         "italian": "rigoroso",
         "id": "1088",
-        "level": "C1",
+        "level": "B2",
         "english": "rigorous",
         "alternatives": [
             "strict",
             "thorough",
             "exact"
         ],
-        "frequencyRank": 1088,
+        "frequencyRank": 6306,
         "inflections": "Adj: rigoroso, rigorosa, rigorosi, rigorose",
         "partOfSpeech": "adjective"
     },
@@ -461,7 +461,7 @@
             "systematic"
         ],
         "italian": "metodico",
-        "frequencyRank": 1089,
+        "frequencyRank": 13321,
         "english": "methodical",
         "level": "C1",
         "id": "1089",
@@ -474,7 +474,7 @@
             "logical"
         ],
         "italian": "analitico",
-        "frequencyRank": 1090,
+        "frequencyRank": 7803,
         "english": "analytical",
         "level": "C1",
         "id": "1090",
@@ -487,9 +487,9 @@
             "judgmental"
         ],
         "italian": "critico",
-        "frequencyRank": 1091,
+        "frequencyRank": 1350,
         "english": "critical",
-        "level": "C1",
+        "level": "A2",
         "id": "1091",
         "inflections": "Adj: critico, critica, critici, critiche",
         "partOfSpeech": "adjective"
@@ -501,9 +501,9 @@
             "skeptical"
         ],
         "italian": "scettico",
-        "frequencyRank": 1092,
+        "frequencyRank": 5752,
         "english": "sceptical",
-        "level": "C1",
+        "level": "B2",
         "id": "1092",
         "inflections": "Adj: scettico, scettica, scettici, scettiche",
         "partOfSpeech": "adjective"
@@ -515,7 +515,7 @@
             "compassionate"
         ],
         "italian": "empatico",
-        "frequencyRank": 1093,
+        "frequencyRank": 13099,
         "english": "empathetic",
         "level": "C1",
         "id": "1093",
@@ -528,7 +528,7 @@
             "benevolent"
         ],
         "italian": "altruistico",
-        "frequencyRank": 1094,
+        "frequencyRank": 13822,
         "english": "altruistic",
         "level": "C1",
         "id": "1094",
@@ -542,7 +542,7 @@
             "self-centred"
         ],
         "italian": "egocentrico",
-        "frequencyRank": 1095,
+        "frequencyRank": 10313,
         "english": "egocentric",
         "level": "C1",
         "id": "1095",
@@ -555,7 +555,7 @@
             "calculating"
         ],
         "italian": "opportunista",
-        "frequencyRank": 1096,
+        "frequencyRank": 10153,
         "english": "opportunistic",
         "level": "C1",
         "id": "1096",
@@ -568,7 +568,7 @@
             "down-to-earth"
         ],
         "italian": "pragmatico",
-        "frequencyRank": 1097,
+        "frequencyRank": 8719,
         "english": "pragmatic",
         "level": "C1",
         "id": "1097",
@@ -580,7 +580,7 @@
             "opinionated"
         ],
         "italian": "dogmatico",
-        "frequencyRank": 1098,
+        "frequencyRank": 13432,
         "english": "dogmatic",
         "level": "C1",
         "id": "1098",
@@ -593,7 +593,7 @@
             "diverse"
         ],
         "italian": "eclettico",
-        "frequencyRank": 1099,
+        "frequencyRank": 9194,
         "english": "eclectic",
         "level": "C1",
         "id": "1099",
@@ -606,7 +606,7 @@
             "versatile"
         ],
         "italian": "poliedrico",
-        "frequencyRank": 1101,
+        "frequencyRank": 13462,
         "english": "multifaceted",
         "level": "C1",
         "id": "1101",
@@ -619,9 +619,9 @@
             "radical"
         ],
         "italian": "rivoluzionario",
-        "frequencyRank": 1103,
+        "frequencyRank": 2975,
         "english": "revolutionary",
-        "level": "C1",
+        "level": "B2",
         "id": "1103",
         "inflections": "Adj: rivoluzionario, rivoluzionaria, rivoluzionari, rivoluzionarie",
         "partOfSpeech": "adjective"
@@ -632,7 +632,7 @@
             "innovative"
         ],
         "italian": "pionieristico",
-        "frequencyRank": 1104,
+        "frequencyRank": 13700,
         "english": "pioneering",
         "level": "C1",
         "id": "1104",
@@ -646,7 +646,7 @@
             "typical"
         ],
         "italian": "emblematico",
-        "frequencyRank": 1105,
+        "frequencyRank": 7736,
         "english": "emblematic",
         "level": "C1",
         "id": "1105",
@@ -660,7 +660,7 @@
             "typical"
         ],
         "italian": "paradigmatico",
-        "frequencyRank": 1106,
+        "frequencyRank": 13761,
         "english": "paradigmatic",
         "level": "C1",
         "id": "1106",
@@ -674,7 +674,7 @@
             "disputed"
         ],
         "italian": "controverso",
-        "frequencyRank": 1107,
+        "frequencyRank": 4863,
         "english": "controversial",
         "level": "C1",
         "id": "1107",
@@ -688,9 +688,9 @@
             "vague"
         ],
         "italian": "ambiguo",
-        "frequencyRank": 1108,
+        "frequencyRank": 5984,
         "english": "ambiguous",
-        "level": "C1",
+        "level": "C2",
         "id": "1108",
         "inflections": "Adj: ambiguo, ambigua, ambigui, ambigue",
         "partOfSpeech": "adjective"
@@ -702,7 +702,7 @@
             "conflicted"
         ],
         "italian": "ambivalente",
-        "frequencyRank": 1109,
+        "frequencyRank": 13202,
         "english": "ambivalent",
         "level": "C1",
         "id": "1109",
@@ -717,7 +717,7 @@
             "dubious"
         ],
         "italian": "equivoco",
-        "frequencyRank": 1110,
+        "frequencyRank": 6535,
         "english": "equivocal",
         "level": "C1",
         "id": "1110",
@@ -731,7 +731,7 @@
             "example"
         ],
         "italian": "paradigma",
-        "frequencyRank": 1111,
+        "frequencyRank": 4958,
         "english": "paradigm",
         "level": "C1",
         "id": "1111",
@@ -745,9 +745,9 @@
             "method"
         ],
         "italian": "metodologia",
-        "frequencyRank": 1112,
+        "frequencyRank": 4473,
         "english": "methodology",
-        "level": "C1",
+        "level": "B1",
         "id": "1112",
         "inflections": "Noun: la metodologia, le metodologie",
         "partOfSpeech": "noun"
@@ -758,7 +758,7 @@
             "theory of knowledge"
         ],
         "italian": "epistemologia",
-        "frequencyRank": 1113,
+        "frequencyRank": 13293,
         "english": "epistemology",
         "level": "C1",
         "id": "1113",
@@ -771,7 +771,7 @@
             "philosophy of existence"
         ],
         "italian": "ontologia",
-        "frequencyRank": 1114,
+        "frequencyRank": 13229,
         "english": "ontology",
         "level": "C1",
         "id": "1114",
@@ -784,7 +784,7 @@
             "study of experience"
         ],
         "italian": "fenomenologia",
-        "frequencyRank": 1115,
+        "frequencyRank": 9096,
         "english": "phenomenology",
         "level": "C1",
         "id": "1115",
@@ -798,7 +798,7 @@
             "discussion"
         ],
         "italian": "dialettica",
-        "frequencyRank": 1116,
+        "frequencyRank": 5499,
         "english": "dialectic",
         "level": "C1",
         "id": "1116",
@@ -812,9 +812,9 @@
             "persuasive language"
         ],
         "italian": "retorica",
-        "frequencyRank": 1117,
+        "frequencyRank": 2254,
         "english": "rhetoric",
-        "level": "C1",
+        "level": "C2",
         "id": "1117",
         "inflections": "Noun: la retorica, le retoriche",
         "partOfSpeech": "noun"
@@ -825,7 +825,7 @@
             "meaning"
         ],
         "italian": "semantica",
-        "frequencyRank": 1118,
+        "frequencyRank": 7249,
         "english": "semantics",
         "level": "C1",
         "id": "1118",
@@ -837,7 +837,7 @@
             "study of language"
         ],
         "italian": "linguistica",
-        "frequencyRank": 1119,
+        "frequencyRank": 2591,
         "english": "linguistics",
         "level": "C1",
         "id": "1119",
@@ -852,7 +852,7 @@
             "artistic taste"
         ],
         "italian": "estetica",
-        "frequencyRank": 1120,
+        "frequencyRank": 2780,
         "english": "aesthetics",
         "level": "C1",
         "id": "1120",
@@ -867,7 +867,7 @@
             "moral philosophy"
         ],
         "italian": "etica",
-        "frequencyRank": 1121,
+        "frequencyRank": 2197,
         "english": "ethics",
         "level": "C1",
         "id": "1121",
@@ -879,7 +879,7 @@
             "philosophy of reality"
         ],
         "italian": "metafisica",
-        "frequencyRank": 1122,
+        "frequencyRank": 6634,
         "english": "metaphysics",
         "level": "C1",
         "id": "1122",
@@ -892,7 +892,7 @@
             "cognitive"
         ],
         "italian": "epistemico",
-        "frequencyRank": 1123,
+        "frequencyRank": 14054,
         "english": "epistemic",
         "level": "C1",
         "id": "1123",
@@ -906,7 +906,7 @@
             "self-evident truth"
         ],
         "italian": "assioma",
-        "frequencyRank": 1124,
+        "frequencyRank": 12038,
         "english": "axiom",
         "level": "C1",
         "id": "1124",
@@ -920,7 +920,7 @@
             "consequence"
         ],
         "italian": "corollario",
-        "frequencyRank": 1126,
+        "frequencyRank": 10111,
         "english": "corollary",
         "level": "C1",
         "id": "1126",
@@ -937,7 +937,7 @@
             "deduction"
         ],
         "italian": "inferenza",
-        "frequencyRank": 1127,
+        "frequencyRank": 13476,
         "inflections": "Noun: l'inferenza, le inferenze",
         "partOfSpeech": "noun"
     },
@@ -951,7 +951,7 @@
             "logical reasoning"
         ],
         "italian": "deduzione",
-        "frequencyRank": 1128,
+        "frequencyRank": 8480,
         "inflections": "Noun: la deduzione, le deduzioni",
         "partOfSpeech": "noun"
     },
@@ -964,7 +964,7 @@
             "generalization"
         ],
         "italian": "induzione",
-        "frequencyRank": 1129,
+        "frequencyRank": 6149,
         "inflections": "Noun: l'induzione, le induzioni",
         "partOfSpeech": "noun"
     },
@@ -977,7 +977,7 @@
             "hypothesis"
         ],
         "italian": "abduzione",
-        "frequencyRank": 1130,
+        "frequencyRank": 13850,
         "inflections": "Noun: l'abduzione, le abduzioni",
         "partOfSpeech": "noun"
     },
@@ -991,7 +991,7 @@
             "legal theory"
         ],
         "italian": "giurisprudenza",
-        "frequencyRank": 1131,
+        "frequencyRank": 2341,
         "inflections": "Noun: la giurisprudenza, le giurisprudenze",
         "partOfSpeech": "noun"
     },
@@ -1005,12 +1005,12 @@
             "legislation"
         ],
         "italian": "normativa",
-        "frequencyRank": 1132,
+        "frequencyRank": 1898,
         "inflections": "Noun: la normativa, le normative",
         "partOfSpeech": "noun"
     },
     {
-        "level": "C1",
+        "level": "A1",
         "english": "decree",
         "id": "1133",
         "alternatives": [
@@ -1019,12 +1019,12 @@
             "edict"
         ],
         "italian": "decreto",
-        "frequencyRank": 1133,
+        "frequencyRank": 696,
         "inflections": "Noun: il decreto, i decreti",
         "partOfSpeech": "noun"
     },
     {
-        "level": "C1",
+        "level": "B1",
         "english": "ordinance",
         "id": "1134",
         "alternatives": [
@@ -1033,12 +1033,12 @@
             "order"
         ],
         "italian": "ordinanza",
-        "frequencyRank": 1134,
+        "frequencyRank": 3022,
         "inflections": "Noun: l'ordinanza, le ordinanze",
         "partOfSpeech": "noun"
     },
     {
-        "level": "C1",
+        "level": "B1",
         "english": "circular",
         "id": "1135",
         "alternatives": [
@@ -1047,11 +1047,11 @@
             "bulletin"
         ],
         "italian": "circolare",
-        "frequencyRank": 1135,
+        "frequencyRank": 1452,
         "partOfSpeech": "noun"
     },
     {
-        "level": "C1",
+        "level": "A2",
         "english": "directive",
         "id": "1136",
         "alternatives": [
@@ -1060,12 +1060,12 @@
             "order"
         ],
         "italian": "direttiva",
-        "frequencyRank": 1136,
+        "frequencyRank": 2867,
         "inflections": "Noun: la direttiva, le direttive",
         "partOfSpeech": "noun"
     },
     {
-        "level": "C1",
+        "level": "A1",
         "english": "regulation",
         "id": "1137",
         "alternatives": [
@@ -1076,7 +1076,7 @@
             "rules"
         ],
         "italian": "regolamento",
-        "frequencyRank": 1137,
+        "frequencyRank": 1138,
         "inflections": "Noun: il regolamento, i regolamenti",
         "partOfSpeech": "noun"
     },
@@ -1090,7 +1090,7 @@
             "purview"
         ],
         "italian": "giurisdizione",
-        "frequencyRank": 1138,
+        "frequencyRank": 3209,
         "inflections": "Noun: la giurisdizione, le giurisdizioni",
         "partOfSpeech": "noun"
     },
@@ -1104,7 +1104,7 @@
             "precedent"
         ],
         "italian": "precedente legale",
-        "frequencyRank": 1139,
+        "frequencyRank": 1135,
         "inflections": "Noun: il precedente legale, i precedenti legali",
         "partOfSpeech": "noun"
     },
@@ -1119,11 +1119,11 @@
             "object"
         ],
         "italian": "impugnare",
-        "frequencyRank": 1141,
+        "frequencyRank": 9925,
         "partOfSpeech": "verb"
     },
     {
-        "level": "C1",
+        "level": "B1",
         "english": "prescription",
         "id": "1142",
         "alternatives": [
@@ -1131,12 +1131,12 @@
             "limitation period"
         ],
         "italian": "prescrizione",
-        "frequencyRank": 1142,
+        "frequencyRank": 2792,
         "inflections": "Noun: la prescrizione, le prescrizioni",
         "partOfSpeech": "noun"
     },
     {
-        "level": "C1",
+        "level": "B2",
         "english": "compensation",
         "id": "1143",
         "alternatives": [
@@ -1145,7 +1145,7 @@
             "indemnification"
         ],
         "italian": "risarcimento",
-        "frequencyRank": 1143,
+        "frequencyRank": 2472,
         "inflections": "Noun: il risarcimento, i risarcimenti",
         "partOfSpeech": "noun"
     },
@@ -1159,7 +1159,7 @@
             "compensation"
         ],
         "italian": "indennizzo",
-        "frequencyRank": 1144,
+        "frequencyRank": 7123,
         "inflections": "Noun: l'indennizzo, gli indennizzi",
         "partOfSpeech": "noun"
     },
@@ -1171,7 +1171,7 @@
             "macro economy"
         ],
         "italian": "macroeconomia",
-        "frequencyRank": 1146,
+        "frequencyRank": 13243,
         "inflections": "Noun: la macroeconomia, le macroeconomie",
         "partOfSpeech": "noun"
     },
@@ -1183,7 +1183,7 @@
             "micro economy"
         ],
         "italian": "microeconomia",
-        "frequencyRank": 1147,
+        "frequencyRank": 13516,
         "inflections": "Noun: la microeconomia, le microeconomie",
         "partOfSpeech": "noun"
     },
@@ -1196,7 +1196,7 @@
             "overall spending"
         ],
         "italian": "domanda aggregata",
-        "frequencyRank": 1149,
+        "frequencyRank": 9193,
         "inflections": "Noun: la domanda aggregata, le domande aggregate",
         "partOfSpeech": "noun"
     },
@@ -1209,12 +1209,12 @@
             "gdp"
         ],
         "italian": "prodotto interno lordo",
-        "frequencyRank": 1150,
+        "frequencyRank": 4894,
         "inflections": "Noun: il prodotto interno lordo, i prodotti interni lordi",
         "partOfSpeech": "noun"
     },
     {
-        "level": "C1",
+        "level": "A1",
         "english": "liquidity",
         "id": "1151",
         "alternatives": [
@@ -1222,7 +1222,7 @@
             "ready money"
         ],
         "italian": "liquidità",
-        "frequencyRank": 1151,
+        "frequencyRank": 6080,
         "inflections": "Noun: la liquidità, le liquidità",
         "partOfSpeech": "noun"
     },
@@ -1235,12 +1235,12 @@
             "financial stability"
         ],
         "italian": "solvibilità",
-        "frequencyRank": 1152,
+        "frequencyRank": 13425,
         "inflections": "Noun: la solvibilità, le solvibilità",
         "partOfSpeech": "noun"
     },
     {
-        "level": "C1",
+        "level": "B2",
         "english": "profitability",
         "id": "1153",
         "alternatives": [
@@ -1249,7 +1249,7 @@
             "gain"
         ],
         "italian": "redditività",
-        "frequencyRank": 1153,
+        "frequencyRank": 9733,
         "inflections": "Noun: la redditività, le redditività",
         "partOfSpeech": "noun"
     },
@@ -1263,7 +1263,7 @@
             "unpredictability"
         ],
         "italian": "volatilità",
-        "frequencyRank": 1154,
+        "frequencyRank": 10757,
         "inflections": "Noun: la volatilità, le volatilità",
         "partOfSpeech": "noun"
     },
@@ -1276,7 +1276,7 @@
             "hypothesis"
         ],
         "italian": "speculazione",
-        "frequencyRank": 1155,
+        "frequencyRank": 4144,
         "inflections": "Noun: la speculazione, le speculazioni",
         "partOfSpeech": "noun"
     },
@@ -1290,7 +1290,7 @@
             "capitalization"
         ],
         "italian": "capitalizzazione",
-        "frequencyRank": 1157,
+        "frequencyRank": 10408,
         "inflections": "Noun: la capitalizzazione, le capitalizzazioni",
         "partOfSpeech": "noun"
     },
@@ -1305,12 +1305,12 @@
             "debt repayment"
         ],
         "italian": "ammortamento",
-        "frequencyRank": 1158,
+        "frequencyRank": 9663,
         "inflections": "Noun: l'ammortamento, gli ammortamenti",
         "partOfSpeech": "noun"
     },
     {
-        "level": "C1",
+        "level": "A2",
         "english": "devaluation",
         "id": "1159",
         "alternatives": [
@@ -1319,12 +1319,12 @@
             "reduction in value"
         ],
         "italian": "svalutazione",
-        "frequencyRank": 1159,
+        "frequencyRank": 6110,
         "inflections": "Noun: la svalutazione, le svalutazioni",
         "partOfSpeech": "noun"
     },
     {
-        "level": "C1",
+        "level": "B1",
         "english": "revaluation",
         "id": "1160",
         "alternatives": [
@@ -1333,7 +1333,7 @@
             "reassessment"
         ],
         "italian": "rivalutazione",
-        "frequencyRank": 1160,
+        "frequencyRank": 7861,
         "inflections": "Noun: la rivalutazione, le rivalutazioni",
         "partOfSpeech": "noun"
     },
@@ -1342,8 +1342,8 @@
         "english": "neurolinguistics",
         "id": "1161",
         "alternatives": [],
-        "italian": "neurolingüística",
-        "frequencyRank": 1161,
+        "italian": "neurolinguistica",
+        "frequencyRank": 13980,
         "inflections": "Noun: la neurolinguistica, le neurolinguistiche",
         "partOfSpeech": "noun"
     },
@@ -1353,7 +1353,7 @@
         "id": "1162",
         "alternatives": [],
         "italian": "psicolinguistica",
-        "frequencyRank": 1162,
+        "frequencyRank": 14009,
         "inflections": "Noun: la psicolinguistica, le psicolinguistiche",
         "partOfSpeech": "noun"
     },
@@ -1365,7 +1365,7 @@
             "study of the nervous system"
         ],
         "italian": "neuroscienza",
-        "frequencyRank": 1163,
+        "frequencyRank": 13859,
         "inflections": "Noun: la neuroscienza, le neuroscienze",
         "partOfSpeech": "noun"
     },
@@ -1378,7 +1378,7 @@
             "cognitive approach"
         ],
         "italian": "cognitivismo",
-        "frequencyRank": 1164,
+        "frequencyRank": 14001,
         "inflections": "Noun: il cognitivismo, i cognitivismi",
         "partOfSpeech": "noun"
     },
@@ -1390,12 +1390,12 @@
             "constructivist theory"
         ],
         "italian": "costruttivismo",
-        "frequencyRank": 1165,
+        "frequencyRank": 13757,
         "inflections": "Noun: il costruttivismo, i costruttivismi",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1166,
+        "frequencyRank": 13702,
         "id": "1166",
         "italian": "strutturalismo",
         "english": "structuralism",
@@ -1407,7 +1407,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1167,
+        "frequencyRank": 13903,
         "id": "1167",
         "italian": "postmodernismo",
         "english": "postmodernism",
@@ -1419,7 +1419,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1168,
+        "frequencyRank": 13525,
         "id": "1168",
         "italian": "decostruzione",
         "english": "deconstruction",
@@ -1433,7 +1433,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1169,
+        "frequencyRank": 14025,
         "id": "1169",
         "italian": "intertestualità",
         "english": "intertextuality",
@@ -1445,7 +1445,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1170,
+        "frequencyRank": 14108,
         "id": "1170",
         "italian": "metanarrativa",
         "english": "metanarrative",
@@ -1457,7 +1457,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1171,
+        "frequencyRank": 13212,
         "id": "1171",
         "italian": "sovrastruttura",
         "english": "superstructure",
@@ -1470,7 +1470,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1172,
+        "frequencyRank": 5221,
         "id": "1172",
         "italian": "infrastruttura",
         "english": "infrastructure",
@@ -1479,12 +1479,12 @@
             "foundation",
             "basic structure"
         ],
-        "level": "C1",
+        "level": "A2",
         "inflections": "Noun: l'infrastruttura, le infrastrutture",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1173,
+        "frequencyRank": 2286,
         "id": "1173",
         "italian": "sovranità",
         "english": "sovereignty",
@@ -1498,7 +1498,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1174,
+        "frequencyRank": 13159,
         "id": "1174",
         "italian": "sussidiarietà",
         "english": "subsidiarity",
@@ -1510,7 +1510,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1181,
+        "frequencyRank": 3496,
         "id": "1181",
         "italian": "presupposto",
         "english": "premise",
@@ -1520,12 +1520,12 @@
             "presupposition",
             "assumption"
         ],
-        "level": "C1",
+        "level": "B1",
         "inflections": "Noun: il presupposto, i presupposti",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1182,
+        "frequencyRank": 6092,
         "id": "1182",
         "italian": "prerogativa",
         "english": "prerogative",
@@ -1539,7 +1539,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1183,
+        "frequencyRank": 14178,
         "id": "1183",
         "italian": "prerrogativa",
         "english": "privilege",
@@ -1554,7 +1554,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1184,
+        "frequencyRank": 5920,
         "id": "1184",
         "italian": "connotazione",
         "english": "connotation",
@@ -1568,7 +1568,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1185,
+        "frequencyRank": 14058,
         "id": "1185",
         "italian": "denotazione",
         "english": "denotation",
@@ -1582,7 +1582,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1186,
+        "frequencyRank": 10689,
         "id": "1186",
         "italian": "implicazione",
         "english": "implication",
@@ -1596,7 +1596,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1187,
+        "frequencyRank": 7332,
         "id": "1187",
         "italian": "sfumatura",
         "english": "nuance",
@@ -1611,7 +1611,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1189,
+        "frequencyRank": 3791,
         "id": "1189",
         "italian": "contraddizione",
         "english": "contradiction",
@@ -1620,12 +1620,12 @@
             "discrepancy",
             "inconsistency"
         ],
-        "level": "C1",
+        "level": "B1",
         "inflections": "Noun: la contraddizione, le contraddizioni",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1190,
+        "frequencyRank": 8867,
         "id": "1190",
         "italian": "dicotomia",
         "english": "dichotomy",
@@ -1639,7 +1639,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1191,
+        "frequencyRank": 8032,
         "id": "1191",
         "italian": "polarizzazione",
         "english": "polarisation",
@@ -1654,7 +1654,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1192,
+        "frequencyRank": 10487,
         "id": "1192",
         "italian": "radicalizzazione",
         "english": "radicalisation",
@@ -1669,7 +1669,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1193,
+        "frequencyRank": 8781,
         "id": "1193",
         "italian": "estremismo",
         "english": "extremism",
@@ -1682,7 +1682,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1194,
+        "frequencyRank": 6774,
         "id": "1194",
         "italian": "fanatismo",
         "english": "fanaticism",
@@ -1696,7 +1696,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1195,
+        "frequencyRank": 8481,
         "id": "1195",
         "italian": "demagogia",
         "english": "demagoguery",
@@ -1710,7 +1710,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1196,
+        "frequencyRank": 5459,
         "id": "1196",
         "italian": "populismo",
         "english": "populism",
@@ -1723,7 +1723,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1197,
+        "frequencyRank": 10345,
         "id": "1197",
         "italian": "oligarchia",
         "english": "oligarchy",
@@ -1735,7 +1735,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1198,
+        "frequencyRank": 14112,
         "id": "1198",
         "italian": "plutocrazie",
         "english": "plutocracy",
@@ -1748,7 +1748,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1199,
+        "frequencyRank": 13728,
         "id": "1199",
         "italian": "tecnocrazia",
         "english": "technocracy",
@@ -1760,7 +1760,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1200,
+        "frequencyRank": 3786,
         "id": "1200",
         "italian": "burocrazia",
         "english": "bureaucracy",
@@ -1774,7 +1774,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1202,
+        "frequencyRank": 4547,
         "id": "1202",
         "italian": "élite",
         "english": "elite",
@@ -1796,7 +1796,7 @@
             "competing interests",
             "divided loyalties"
         ],
-        "frequencyRank": 1204,
+        "frequencyRank": 1481,
         "inflections": "Noun: il conflitto di interessi, i conflitti di interessi",
         "partOfSpeech": "noun phrase"
     },
@@ -1810,7 +1810,7 @@
             "patronage",
             "favoritism"
         ],
-        "frequencyRank": 1205,
+        "frequencyRank": 11037,
         "inflections": "Noun: il nepotismo, i nepotismi",
         "partOfSpeech": "noun"
     },
@@ -1824,13 +1824,13 @@
             "cronyism",
             "favoritism"
         ],
-        "frequencyRank": 1206,
+        "frequencyRank": 10214,
         "inflections": "Noun: il clientelismo, i clientelismi",
         "partOfSpeech": "noun"
     },
     {
         "italian": "trasparenza",
-        "level": "C1",
+        "level": "B1",
         "id": "1207",
         "english": "transparency",
         "alternatives": [
@@ -1838,7 +1838,7 @@
             "clarity",
             "openness"
         ],
-        "frequencyRank": 1207,
+        "frequencyRank": 2051,
         "inflections": "Noun: la trasparenza, le trasparenze",
         "partOfSpeech": "noun"
     },
@@ -1852,7 +1852,7 @@
             "reporting",
             "responsibility"
         ],
-        "frequencyRank": 1208,
+        "frequencyRank": 13411,
         "inflections": "Noun: la rendicontazione, le rendicontazioni",
         "partOfSpeech": "noun"
     },
@@ -1865,7 +1865,7 @@
             "namelessness",
             "privacy"
         ],
-        "frequencyRank": 1210,
+        "frequencyRank": 6507,
         "inflections": "Noun: l'anonimato, gli anonimati",
         "partOfSpeech": "noun"
     },
@@ -1878,7 +1878,7 @@
             "crypto",
             "digital currency"
         ],
-        "frequencyRank": 1211,
+        "frequencyRank": 13471,
         "inflections": "Noun: la criptovaluta, le criptovalute",
         "partOfSpeech": "noun"
     },
@@ -1891,7 +1891,7 @@
             "digital realm",
             "virtual world"
         ],
-        "frequencyRank": 1213,
+        "frequencyRank": 14095,
         "inflections": "Noun: il metaverso, i metaversi",
         "partOfSpeech": "noun"
     },
@@ -1904,7 +1904,7 @@
             "forecasting algorithm",
             "prediction model"
         ],
-        "frequencyRank": 1217,
+        "frequencyRank": 13736,
         "inflections": "Noun: l'algoritmo predittivo, gli algoritmi predittivi",
         "partOfSpeech": "noun phrase"
     },
@@ -1917,7 +1917,7 @@
             "data bias",
             "algorithm prejudice"
         ],
-        "frequencyRank": 1218,
+        "frequencyRank": 14006,
         "inflections": "Noun: il bias algoritmico, i bias algoritmici",
         "partOfSpeech": "noun phrase"
     },
@@ -1930,7 +1930,7 @@
             "cyber surveillance",
             "online monitoring"
         ],
-        "frequencyRank": 1219,
+        "frequencyRank": 2516,
         "inflections": "Noun: la sorveglianza digitale, le sorveglianze digitali",
         "partOfSpeech": "noun phrase"
     },
@@ -1944,7 +1944,7 @@
             "privacy rights",
             "data protection right"
         ],
-        "frequencyRank": 1220,
+        "frequencyRank": 1569,
         "inflections": "Noun: il diritto alla privacy, i diritti alla privacy",
         "partOfSpeech": "noun phrase"
     },
@@ -1957,7 +1957,7 @@
             "equivocation",
             "vagueness"
         ],
-        "frequencyRank": 1221,
+        "frequencyRank": 6198,
         "inflections": "Noun: l'ambiguità, le ambiguità",
         "partOfSpeech": "noun"
     },
@@ -1971,7 +1971,7 @@
             "mistake",
             "error"
         ],
-        "frequencyRank": 1222,
+        "frequencyRank": 13697,
         "inflections": "Noun: l'inesattezza, le inesattezze",
         "partOfSpeech": "noun"
     },
@@ -1986,20 +1986,20 @@
             "credibility",
             "believability"
         ],
-        "frequencyRank": 1223,
+        "frequencyRank": 13371,
         "inflections": "Noun: la verosimiglianza, le verosimiglianze",
         "partOfSpeech": "noun"
     },
     {
         "italian": "coerenza",
-        "level": "C1",
+        "level": "B1",
         "id": "1224",
         "english": "coherence",
         "alternatives": [
             "congruity",
             "consistency"
         ],
-        "frequencyRank": 1224,
+        "frequencyRank": 2724,
         "inflections": "Noun: la coerenza, le coerenze",
         "partOfSpeech": "noun"
     },
@@ -2013,7 +2013,7 @@
             "mismatch",
             "inconsistency"
         ],
-        "frequencyRank": 1225,
+        "frequencyRank": 13299,
         "inflections": "Noun: l'incongruenza, le incongruenze",
         "partOfSpeech": "noun"
     },
@@ -2027,7 +2027,7 @@
             "likely",
             "credible"
         ],
-        "frequencyRank": 1226,
+        "frequencyRank": 4715,
         "inflections": "Adj: plausibile, plausibile, plausibili, plausibili",
         "partOfSpeech": "adjective"
     },
@@ -2041,7 +2041,7 @@
             "improbable",
             "unbelievable"
         ],
-        "frequencyRank": 1227,
+        "frequencyRank": 13996,
         "inflections": "Adj: implausibile, implausibile, implausibili, implausibili",
         "partOfSpeech": "adjective"
     },
@@ -2056,7 +2056,7 @@
             "undeniable",
             "clear-cut"
         ],
-        "frequencyRank": 1228,
+        "frequencyRank": 8107,
         "inflections": "Adj: inequivocabile, inequivocabile, inequivocabili, inequivocabili",
         "partOfSpeech": "adjective"
     },
@@ -2070,7 +2070,7 @@
             "indisputable",
             "undeniable"
         ],
-        "frequencyRank": 1229,
+        "frequencyRank": 11954,
         "inflections": "Adj: inconfutabile, inconfutabile, inconfutabili, inconfutabili",
         "partOfSpeech": "adjective"
     },
@@ -2085,7 +2085,7 @@
             "categorical",
             "commanding"
         ],
-        "frequencyRank": 1230,
+        "frequencyRank": 12249,
         "inflections": "Adj: perentorio, perentoria, perentori, perentorie",
         "partOfSpeech": "adjective"
     },
@@ -2102,7 +2102,7 @@
             "required",
             "categorical"
         ],
-        "frequencyRank": 1231,
+        "frequencyRank": 13307,
         "inflections": "Adj: tassativo, tassativa, tassativi, tassative",
         "partOfSpeech": "adjective"
     },
@@ -2116,7 +2116,7 @@
             "voluntary",
             "non-compulsory"
         ],
-        "frequencyRank": 1232,
+        "frequencyRank": 8875,
         "inflections": "Adj: facoltativo, facoltativa, facoltativi, facoltative",
         "partOfSpeech": "adjective"
     },
@@ -2130,7 +2130,7 @@
             "optional",
             "chosen"
         ],
-        "frequencyRank": 1233,
+        "frequencyRank": 12935,
         "inflections": "Adj: discrezionale, discrezionale, discrezionali, discrezionali",
         "partOfSpeech": "adjective"
     },
@@ -2144,7 +2144,7 @@
             "subjective",
             "random"
         ],
-        "frequencyRank": 1234,
+        "frequencyRank": 6922,
         "inflections": "Adj: arbitrario, arbitraria, arbitrari, arbitrarie",
         "partOfSpeech": "adjective"
     },
@@ -2158,7 +2158,7 @@
             "obligatory",
             "compulsory"
         ],
-        "frequencyRank": 1235,
+        "frequencyRank": 6322,
         "inflections": "Adj: vincolante, vincolante, vincolanti, vincolanti",
         "partOfSpeech": "adjective"
     },
@@ -2172,7 +2172,7 @@
             "final",
             "unalterable"
         ],
-        "frequencyRank": 1236,
+        "frequencyRank": 13057,
         "inflections": "Adj: irrevocabile, irrevocabile, irrevocabili, irrevocabili",
         "partOfSpeech": "adjective"
     },
@@ -2186,13 +2186,13 @@
             "irrevocable",
             "unalterable"
         ],
-        "frequencyRank": 1237,
+        "frequencyRank": 7223,
         "inflections": "Adj: irreversibile, irreversibile, irreversibili, irreversibili",
         "partOfSpeech": "adjective"
     },
     {
         "italian": "definitivo",
-        "level": "C1",
+        "level": "A2",
         "id": "1238",
         "english": "definitive",
         "alternatives": [
@@ -2200,13 +2200,13 @@
             "conclusive",
             "final"
         ],
-        "frequencyRank": 1238,
+        "frequencyRank": 2456,
         "inflections": "Adj: definitivo, definitiva, definitivi, definitive",
         "partOfSpeech": "adjective"
     },
     {
         "italian": "provvisorio",
-        "level": "C1",
+        "level": "B1",
         "id": "1239",
         "english": "provisional",
         "alternatives": [
@@ -2214,7 +2214,7 @@
             "interim",
             "temporary"
         ],
-        "frequencyRank": 1239,
+        "frequencyRank": 4073,
         "inflections": "Adj: provvisorio, provvisoria, provvisori, provvisorie",
         "partOfSpeech": "adjective"
     },
@@ -2226,10 +2226,10 @@
             "transitional",
             "temporary"
         ],
-        "level": "C1",
+        "level": "B2",
         "id": "1240",
         "italian": "transitorio",
-        "frequencyRank": 1240,
+        "frequencyRank": 8057,
         "inflections": "Adj: transitorio, transitoria, transitori, transitorie",
         "partOfSpeech": "adjective"
     },
@@ -2245,7 +2245,7 @@
         "level": "C1",
         "id": "1241",
         "italian": "perenne",
-        "frequencyRank": 1241,
+        "frequencyRank": 4135,
         "inflections": "Adj: perenne, perenne, perenni, perenni",
         "partOfSpeech": "adjective"
     },
@@ -2259,7 +2259,7 @@
         "level": "C1",
         "id": "1242",
         "italian": "efimero",
-        "frequencyRank": 1242,
+        "frequencyRank": 14153,
         "inflections": "Adj: efimero, efimera, efimeri, efimere",
         "partOfSpeech": "adjective"
     },
@@ -2273,7 +2273,7 @@
         "level": "C1",
         "id": "1243",
         "italian": "latente",
-        "frequencyRank": 1243,
+        "frequencyRank": 8312,
         "inflections": "Adj: latente, latente, latenti, latenti",
         "partOfSpeech": "adjective"
     },
@@ -2287,7 +2287,7 @@
         "level": "C1",
         "id": "1244",
         "italian": "manifesto",
-        "frequencyRank": 1244,
+        "frequencyRank": 1924,
         "inflections": "Adj: manifesto, manifesta, manifesti, manifeste",
         "partOfSpeech": "adjective"
     },
@@ -2301,7 +2301,7 @@
         "level": "C1",
         "id": "1245",
         "italian": "implicito",
-        "frequencyRank": 1245,
+        "frequencyRank": 7552,
         "inflections": "Adj: implicito, implicita, impliciti, implicite",
         "partOfSpeech": "adjective"
     },
@@ -2315,7 +2315,7 @@
         "level": "C1",
         "id": "1248",
         "italian": "consuetudinario",
-        "frequencyRank": 1248,
+        "frequencyRank": 13793,
         "inflections": "Adj: consuetudinario, consuetudinaria, consuetudinari, consuetudinarie",
         "partOfSpeech": "adjective"
     },
@@ -2329,7 +2329,7 @@
         "level": "C1",
         "id": "1249",
         "italian": "idiosincratico",
-        "frequencyRank": 1249,
+        "frequencyRank": 14087,
         "inflections": "Adj: idiosincratico, idiosincratica, idiosincratici, idiosincratiche",
         "partOfSpeech": "adjective"
     },
@@ -2344,7 +2344,7 @@
         "level": "C1",
         "id": "1250",
         "italian": "peculiare",
-        "frequencyRank": 1250,
+        "frequencyRank": 5736,
         "partOfSpeech": "adjective"
     }
 ]

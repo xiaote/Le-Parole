@@ -133,7 +133,10 @@ class StudySessionViewModel {
         let actualNewSlots = remainingNewSlots
 
         let newWordsPool = allUserWords.filter { $0.stage == .new }
-        let newWords = sortUserWords(newWordsPool).prefix(actualNewSlots)
+        // New vocabulary is introduced from the single, cleaned frequency
+        // ordering. CEFR remains a tie-breaker rather than a gate, so useful
+        // high-frequency words do not wait behind an arbitrary level backlog.
+        let newWords = sortNewWordsForUsefulness(newWordsPool).prefix(actualNewSlots)
 
         let recognitionDue = allUserWords.filter {
             $0.stage == .recognition && $0.nextReviewDate <= now
@@ -224,6 +227,38 @@ class StudySessionViewModel {
             if w0.word.frequencyRank != w1.word.frequencyRank {
                 return w0.word.frequencyRank < w1.word.frequencyRank
             }
+            return score0 > score1
+        }.map { $0.0 }
+    }
+
+    /// Orders only not-yet-introduced cards. Review and test selection keep the
+    /// established ordering, while new built-in vocabulary follows the global
+    /// Italian frequency rank. This rank is unique for every bundled word.
+    private func sortNewWordsForUsefulness(_ words: [UserWord]) -> [UserWord] {
+        let scored = words.map { userWord -> (UserWord, Double) in
+            (userWord, Self.cognateScore(userWord.word.italian, userWord.word.english))
+        }
+        return scored.sorted {
+            let (w0, score0) = $0
+            let (w1, score1) = $1
+
+            // Your own additions remain the quickest route into a study
+            // session. Their frequencyRank is intentionally zero, so they must
+            // be handled before the bundled ranking is compared.
+            if w0.word.isUserCreated != w1.word.isUserCreated {
+                return w0.word.isUserCreated
+            }
+
+            if w0.word.frequencyRank != w1.word.frequencyRank {
+                return w0.word.frequencyRank < w1.word.frequencyRank
+            }
+
+            // Frequency ranks are unique for bundled words. These fallbacks
+            // make user-created entries deterministic without treating CEFR as
+            // a hard prerequisite for useful vocabulary.
+            let l0 = Self.levelOrder[w0.word.level] ?? 99
+            let l1 = Self.levelOrder[w1.word.level] ?? 99
+            if l0 != l1 { return l0 < l1 }
             return score0 > score1
         }.map { $0.0 }
     }
@@ -334,12 +369,18 @@ class StudySessionViewModel {
                 let verb = card.userWord.word.italian
                 let isStative = stativeVerbs.contains(verb.lowercased())
                 let isImpersonal = impersonalVerbs.contains(verb.lowercased())
+                // Piacere is practised through its normal dative construction
+                // (mi/ti/gli piace), which has no useful direct imperative.
+                let isDativeConstruction = verb.caseInsensitiveCompare("piacere") == .orderedSame
                 
                 var cardTenses = baseTenses
                 if isStative {
                     cardTenses.removeAll { $0 == "presente progressivo" }
                 }
                 if isImpersonal {
+                    cardTenses.removeAll { $0 == "imperativo" }
+                }
+                if isDativeConstruction {
                     cardTenses.removeAll { $0 == "imperativo" }
                 }
                 

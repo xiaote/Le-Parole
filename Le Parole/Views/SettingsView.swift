@@ -28,7 +28,7 @@ struct SettingsView: View {
                 } header: {
                     Text("Daily Goal")
                 } footer: {
-                    Text("Sets how many new words are introduced each day. Review cards for words already in progress are always included.")
+                    Text("Sets how many new words are introduced each day. New bundled words are selected by Italian usage frequency; your own additions come first. Review cards for words already in progress are always included.")
                 }
 
                 Section {

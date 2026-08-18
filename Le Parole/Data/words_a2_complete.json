@@ -6,7 +6,7 @@
             "adhesive",
             "glue stick"
         ],
-        "frequencyRank": 2160,
+        "frequencyRank": 3298,
         "english": "glue",
         "level": "A2",
         "italian": "colla",
@@ -20,14 +20,14 @@
             "beneath",
             "underneath"
         ],
-        "frequencyRank": 2125,
+        "frequencyRank": 75,
         "english": "under",
-        "level": "A2",
+        "level": "A1",
         "italian": "sotto",
         "partOfSpeech": "preposition"
     },
     {
-        "level": "A2",
+        "level": "A1",
         "english": "almost",
         "id": "2259",
         "alternatives": [
@@ -35,16 +35,16 @@
             "nearly"
         ],
         "italian": "quasi",
-        "frequencyRank": 2259,
+        "frequencyRank": 107,
         "partOfSpeech": "adverb"
     },
     {
-        "level": "A2",
+        "level": "A1",
         "english": "at least",
         "id": "2254",
         "alternatives": [],
         "italian": "almeno",
-        "frequencyRank": 2254,
+        "frequencyRank": 131,
         "partOfSpeech": "adverb"
     },
     {
@@ -52,9 +52,9 @@
             "suffice"
         ],
         "italian": "bastare",
-        "frequencyRank": 2181,
+        "frequencyRank": 3950,
         "english": "to be enough",
-        "level": "A2",
+        "level": "A1",
         "id": "2181",
         "partOfSpeech": "verb"
     },
@@ -67,9 +67,9 @@
             "on",
             "upstairs"
         ],
-        "frequencyRank": 2124,
+        "frequencyRank": 255,
         "english": "above",
-        "level": "A2",
+        "level": "B1",
         "italian": "sopra",
         "partOfSpeech": "preposition"
     },
@@ -79,7 +79,7 @@
             "back",
             "at the back"
         ],
-        "frequencyRank": 2122,
+        "frequencyRank": 257,
         "english": "behind",
         "level": "A2",
         "italian": "dietro",
@@ -93,7 +93,7 @@
             "forward",
             "in front of"
         ],
-        "frequencyRank": 2121,
+        "frequencyRank": 288,
         "english": "in front",
         "level": "A2",
         "italian": "davanti",
@@ -107,9 +107,9 @@
             "to feel"
         ],
         "italian": "provare",
-        "frequencyRank": 2188,
+        "frequencyRank": 590,
         "english": "to try",
-        "level": "A2",
+        "level": "A1",
         "id": "2188",
         "partOfSpeech": "verb"
     },
@@ -119,9 +119,9 @@
             "to occur"
         ],
         "italian": "succedere",
-        "frequencyRank": 2184,
+        "frequencyRank": 2260,
         "english": "to happen",
-        "level": "A2",
+        "level": "A1",
         "id": "2184",
         "partOfSpeech": "verb"
     },
@@ -132,15 +132,15 @@
             "to be absent"
         ],
         "italian": "mancare",
-        "frequencyRank": 2183,
+        "frequencyRank": 2247,
         "english": "to be missing",
-        "level": "A2",
+        "level": "A1",
         "id": "2183",
         "partOfSpeech": "verb"
     },
     {
         "level": "A2",
-        "frequencyRank": 2245,
+        "frequencyRank": 595,
         "italian": "canale",
         "id": "2245",
         "english": "channel",
@@ -153,7 +153,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
+        "level": "A1",
         "english": "in short",
         "id": "2272",
         "alternatives": [
@@ -163,7 +163,7 @@
             "anyway"
         ],
         "italian": "insomma",
-        "frequencyRank": 2272,
+        "frequencyRank": 600,
         "partOfSpeech": "adverb"
     },
     {
@@ -172,7 +172,7 @@
             "operate"
         ],
         "italian": "funzionare",
-        "frequencyRank": 2187,
+        "frequencyRank": 1781,
         "english": "to work",
         "level": "A2",
         "id": "2187",
@@ -188,7 +188,7 @@
             "at first"
         ],
         "italian": "all'inizio",
-        "frequencyRank": 2274,
+        "frequencyRank": 648,
         "partOfSpeech": "adverb"
     },
     {
@@ -198,7 +198,7 @@
             "outline"
         ],
         "italian": "profilo",
-        "frequencyRank": 2169,
+        "frequencyRank": 661,
         "english": "profile",
         "level": "A2",
         "id": "2169",
@@ -212,9 +212,9 @@
             "counter",
             "school desk"
         ],
-        "frequencyRank": 2155,
+        "frequencyRank": 1872,
         "english": "desk",
-        "level": "A2",
+        "level": "B2",
         "italian": "banco",
         "inflections": "Noun: il banco, i banchi",
         "partOfSpeech": "noun"
@@ -230,7 +230,7 @@
             "actually"
         ],
         "italian": "addirittura",
-        "frequencyRank": 2261,
+        "frequencyRank": 729,
         "partOfSpeech": "adverb"
     },
     {
@@ -239,7 +239,7 @@
             "to endure"
         ],
         "italian": "durare",
-        "frequencyRank": 2182,
+        "frequencyRank": 3305,
         "english": "to last",
         "level": "A2",
         "id": "2182",
@@ -247,7 +247,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2246,
+        "frequencyRank": 798,
         "italian": "pubblicità",
         "id": "2246",
         "english": "advertisement",
@@ -266,7 +266,7 @@
             "to be important"
         ],
         "italian": "importare",
-        "frequencyRank": 2186,
+        "frequencyRank": 5281,
         "english": "to matter",
         "level": "A2",
         "id": "2186",
@@ -279,7 +279,7 @@
             "adjacent",
             "beside"
         ],
-        "frequencyRank": 2123,
+        "frequencyRank": 840,
         "english": "next to",
         "level": "A2",
         "italian": "accanto",
@@ -287,7 +287,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2210,
+        "frequencyRank": 983,
         "italian": "appuntamento",
         "id": "2210",
         "english": "appointment",
@@ -305,15 +305,15 @@
             "to rely"
         ],
         "italian": "dipendere",
-        "frequencyRank": 2185,
+        "frequencyRank": 4998,
         "english": "to depend",
         "level": "A2",
         "id": "2185",
         "partOfSpeech": "verb"
     },
     {
-        "level": "A2",
-        "frequencyRank": 2225,
+        "level": "C2",
+        "frequencyRank": 1743,
         "italian": "taglia",
         "id": "2225",
         "english": "size",
@@ -332,7 +332,7 @@
             "peaceful",
             "relaxed"
         ],
-        "frequencyRank": 2144,
+        "frequencyRank": 1144,
         "english": "calm",
         "level": "A2",
         "italian": "tranquillo",
@@ -341,7 +341,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2217,
+        "frequencyRank": 1153,
         "italian": "firma",
         "id": "2217",
         "english": "signature",
@@ -350,8 +350,8 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
-        "frequencyRank": 2235,
+        "level": "B1",
+        "frequencyRank": 1222,
         "italian": "pensione",
         "id": "2235",
         "english": "guesthouse",
@@ -371,7 +371,7 @@
             "sick person"
         ],
         "italian": "paziente",
-        "frequencyRank": 2201,
+        "frequencyRank": 1238,
         "english": "patient",
         "level": "A2",
         "id": "2201",
@@ -386,16 +386,16 @@
             "satisfied",
             "glad"
         ],
-        "frequencyRank": 2145,
+        "frequencyRank": 1289,
         "english": "happy",
-        "level": "A2",
+        "level": "B1",
         "italian": "contento",
         "inflections": "Adj: contento, contenta, contenti, contente",
         "partOfSpeech": "adjective"
     },
     {
         "level": "A2",
-        "frequencyRank": 2222,
+        "frequencyRank": 1406,
         "italian": "cassa",
         "id": "2222",
         "english": "checkout",
@@ -409,8 +409,8 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
-        "frequencyRank": 2242,
+        "level": "B2",
+        "frequencyRank": 2415,
         "italian": "fumetto",
         "id": "2242",
         "english": "comic strip",
@@ -427,7 +427,7 @@
             "sports"
         ],
         "italian": "sportivo",
-        "frequencyRank": 2204,
+        "frequencyRank": 1939,
         "english": "sporty",
         "level": "A2",
         "id": "2204",
@@ -435,8 +435,8 @@
         "partOfSpeech": "adjective"
     },
     {
-        "level": "A2",
-        "frequencyRank": 2230,
+        "level": "B2",
+        "frequencyRank": 2079,
         "italian": "tasca",
         "id": "2230",
         "english": "pocket",
@@ -452,7 +452,7 @@
             "room",
             "lecture hall"
         ],
-        "frequencyRank": 2156,
+        "frequencyRank": 2087,
         "english": "classroom",
         "level": "A2",
         "italian": "aula",
@@ -460,8 +460,8 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
-        "frequencyRank": 2232,
+        "level": "B1",
+        "frequencyRank": 2126,
         "italian": "albergo",
         "id": "2232",
         "english": "hotel",
@@ -474,7 +474,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2243,
+        "frequencyRank": 4037,
         "italian": "videogioco",
         "id": "2243",
         "english": "video game",
@@ -491,9 +491,9 @@
             "inquisitive"
         ],
         "italian": "curioso",
-        "frequencyRank": 2206,
+        "frequencyRank": 2193,
         "english": "curious",
-        "level": "A2",
+        "level": "B2",
         "id": "2206",
         "inflections": "Adj: curioso, curiosa, curiosi, curiose",
         "partOfSpeech": "adjective"
@@ -505,7 +505,7 @@
             "straight ahead",
             "upright"
         ],
-        "frequencyRank": 2126,
+        "frequencyRank": 2240,
         "english": "straight",
         "level": "A2",
         "italian": "dritto",
@@ -520,9 +520,9 @@
             "jittery",
             "irritable"
         ],
-        "frequencyRank": 2136,
+        "frequencyRank": 2279,
         "english": "nervous",
-        "level": "A2",
+        "level": "B2",
         "italian": "nervoso",
         "inflections": "Adj: nervoso, nervosa, nervosi, nervose",
         "partOfSpeech": "adjective"
@@ -535,16 +535,16 @@
             "gum",
             "tire"
         ],
-        "frequencyRank": 2153,
+        "frequencyRank": 2342,
         "english": "eraser",
-        "level": "A2",
+        "level": "C1",
         "italian": "gomma",
         "inflections": "Noun: la gomma, le gomme",
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
-        "frequencyRank": 2216,
+        "level": "B2",
+        "frequencyRank": 2448,
         "italian": "busta",
         "id": "2216",
         "english": "envelope",
@@ -556,7 +556,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
+        "level": "C1",
         "english": "fortunately",
         "id": "2262",
         "alternatives": [
@@ -565,12 +565,12 @@
             "thankfully"
         ],
         "italian": "fortunatamente",
-        "frequencyRank": 2262,
+        "frequencyRank": 2632,
         "partOfSpeech": "adverb"
     },
     {
-        "level": "A2",
-        "frequencyRank": 2229,
+        "level": "B1",
+        "frequencyRank": 2753,
         "italian": "portafoglio",
         "id": "2229",
         "english": "wallet",
@@ -583,9 +583,9 @@
     {
         "id": "2149",
         "alternatives": [],
-        "frequencyRank": 2149,
+        "frequencyRank": 2834,
         "english": "proud",
-        "level": "A2",
+        "level": "C1",
         "italian": "orgoglioso",
         "inflections": "Adj: orgoglioso, orgogliosa, orgogliosi, orgogliose",
         "partOfSpeech": "adjective"
@@ -597,7 +597,7 @@
             "to come closer"
         ],
         "italian": "avvicinarsi",
-        "frequencyRank": 2195,
+        "frequencyRank": 3093,
         "english": "to approach",
         "level": "A2",
         "id": "2195",
@@ -609,9 +609,9 @@
             "to relax"
         ],
         "italian": "riposare",
-        "frequencyRank": 2189,
+        "frequencyRank": 3554,
         "english": "to rest",
-        "level": "A2",
+        "level": "C1",
         "id": "2189",
         "partOfSpeech": "verb"
     },
@@ -622,7 +622,7 @@
             "earphones",
             "earbuds"
         ],
-        "frequencyRank": 2164,
+        "frequencyRank": 3619,
         "english": "headphones",
         "level": "A2",
         "italian": "cuffie",
@@ -631,7 +631,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2244,
+        "frequencyRank": 3648,
         "italian": "telefilm",
         "id": "2244",
         "english": "tv series",
@@ -650,7 +650,7 @@
             "to conduct oneself"
         ],
         "italian": "comportarsi",
-        "frequencyRank": 2192,
+        "frequencyRank": 3711,
         "english": "to behave",
         "level": "A2",
         "id": "2192",
@@ -663,9 +663,9 @@
             "garnish"
         ],
         "italian": "contorno",
-        "frequencyRank": 2178,
+        "frequencyRank": 3790,
         "english": "side dish",
-        "level": "A2",
+        "level": "C1",
         "id": "2178",
         "inflections": "Noun: il contorno, i contorni",
         "partOfSpeech": "noun"
@@ -675,7 +675,7 @@
             "whipped cream"
         ],
         "italian": "panna",
-        "frequencyRank": 2174,
+        "frequencyRank": 3815,
         "english": "cream",
         "level": "A2",
         "id": "2174",
@@ -684,7 +684,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2221,
+        "frequencyRank": 3847,
         "italian": "carrello",
         "id": "2221",
         "english": "shopping trolley",
@@ -702,7 +702,7 @@
             "thrilling",
             "moving"
         ],
-        "frequencyRank": 2151,
+        "frequencyRank": 3857,
         "english": "exciting",
         "level": "A2",
         "italian": "emozionante",
@@ -710,8 +710,8 @@
         "partOfSpeech": "adjective"
     },
     {
-        "level": "A2",
-        "frequencyRank": 2214,
+        "level": "C1",
+        "frequencyRank": 4047,
         "italian": "candela",
         "id": "2214",
         "english": "candle",
@@ -724,7 +724,7 @@
     {
         "alternatives": [],
         "italian": "macedonia",
-        "frequencyRank": 2180,
+        "frequencyRank": 3917,
         "english": "fruit salad",
         "level": "A2",
         "id": "2180",
@@ -732,8 +732,8 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
-        "frequencyRank": 2249,
+        "level": "C1",
+        "frequencyRank": 4234,
         "italian": "intervallo",
         "id": "2249",
         "english": "interval",
@@ -751,9 +751,9 @@
             "prompt"
         ],
         "italian": "puntuale",
-        "frequencyRank": 2197,
+        "frequencyRank": 4425,
         "english": "punctual",
-        "level": "A2",
+        "level": "B2",
         "id": "2197",
         "inflections": "Adj: puntuale, puntuale, puntuali, puntuali",
         "partOfSpeech": "adjective"
@@ -764,16 +764,16 @@
             "alert"
         ],
         "italian": "notifica",
-        "frequencyRank": 2168,
+        "frequencyRank": 2969,
         "english": "notification",
-        "level": "A2",
+        "level": "C1",
         "id": "2168",
         "inflections": "Noun: la notifica, le notifiche",
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
-        "frequencyRank": 2237,
+        "level": "B2",
+        "frequencyRank": 4717,
         "italian": "prenotazione",
         "id": "2237",
         "english": "booking",
@@ -786,7 +786,7 @@
     {
         "alternatives": [],
         "italian": "zuppa",
-        "frequencyRank": 2171,
+        "frequencyRank": 4734,
         "english": "soup",
         "level": "A2",
         "id": "2171",
@@ -799,9 +799,9 @@
             "driven"
         ],
         "italian": "ambizioso",
-        "frequencyRank": 2203,
+        "frequencyRank": 4849,
         "english": "ambitious",
-        "level": "A2",
+        "level": "C1",
         "id": "2203",
         "inflections": "Adj: ambizioso, ambiziosa, ambiziosi, ambiziose",
         "partOfSpeech": "adjective"
@@ -813,7 +813,7 @@
             "chalkboard",
             "whiteboard"
         ],
-        "frequencyRank": 2154,
+        "frequencyRank": 5009,
         "english": "blackboard",
         "level": "A2",
         "italian": "lavagna",
@@ -822,7 +822,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2226,
+        "frequencyRank": 5260,
         "italian": "camerino",
         "id": "2226",
         "english": "changing room",
@@ -840,7 +840,7 @@
             "to gather"
         ],
         "italian": "incontrarsi",
-        "frequencyRank": 2196,
+        "frequencyRank": 5353,
         "english": "to meet up",
         "level": "A2",
         "id": "2196",
@@ -852,7 +852,7 @@
             "idle"
         ],
         "italian": "pigro",
-        "frequencyRank": 2200,
+        "frequencyRank": 5673,
         "english": "lazy",
         "level": "A2",
         "id": "2200",
@@ -867,7 +867,7 @@
             "tired",
             "bored with"
         ],
-        "frequencyRank": 2148,
+        "frequencyRank": 5970,
         "english": "fed up",
         "level": "A2",
         "italian": "stufo",
@@ -880,7 +880,7 @@
             "eager"
         ],
         "italian": "impaziente",
-        "frequencyRank": 2202,
+        "frequencyRank": 6217,
         "english": "impatient",
         "level": "A2",
         "id": "2202",
@@ -893,7 +893,7 @@
             "charging cable",
             "power adapter"
         ],
-        "frequencyRank": 2165,
+        "frequencyRank": 6267,
         "english": "charger",
         "level": "A2",
         "italian": "caricatore",
@@ -908,7 +908,7 @@
             "eager",
             "nervous"
         ],
-        "frequencyRank": 2137,
+        "frequencyRank": 6752,
         "english": "anxious",
         "level": "A2",
         "italian": "ansioso",
@@ -923,7 +923,7 @@
             "fizzy drink"
         ],
         "italian": "bibita",
-        "frequencyRank": 2172,
+        "frequencyRank": 9777,
         "english": "soft drink",
         "level": "A2",
         "id": "2172",
@@ -936,7 +936,7 @@
             "to adapt"
         ],
         "italian": "abituarsi",
-        "frequencyRank": 2193,
+        "frequencyRank": 7710,
         "english": "to get used to",
         "level": "A2",
         "id": "2193",
@@ -944,7 +944,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2209,
+        "frequencyRank": 8443,
         "italian": "socievole",
         "id": "2209",
         "english": "sociable",
@@ -958,7 +958,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2236,
+        "frequencyRank": 8530,
         "italian": "ostello",
         "id": "2236",
         "english": "hostel",
@@ -974,7 +974,7 @@
             "pencil box",
             "case"
         ],
-        "frequencyRank": 2157,
+        "frequencyRank": 10882,
         "english": "pencil case",
         "level": "A2",
         "italian": "astuccio",
@@ -989,7 +989,7 @@
             "careful"
         ],
         "italian": "diligente",
-        "frequencyRank": 2205,
+        "frequencyRank": 11002,
         "english": "diligent",
         "level": "A2",
         "id": "2205",
@@ -1004,7 +1004,7 @@
             "reserved"
         ],
         "italian": "introverso",
-        "frequencyRank": 2208,
+        "frequencyRank": 12221,
         "english": "introvert",
         "level": "A2",
         "id": "2208",
@@ -1018,7 +1018,7 @@
             "across from",
             "in front of"
         ],
-        "frequencyRank": 2127,
+        "frequencyRank": 299,
         "english": "opposite",
         "level": "A2",
         "italian": "di fronte",
@@ -1031,7 +1031,7 @@
             "among",
             "between"
         ],
-        "frequencyRank": 2128,
+        "frequencyRank": 175,
         "english": "in the middle",
         "level": "A2",
         "italian": "in mezzo",
@@ -1043,7 +1043,7 @@
             "right",
             "to the right"
         ],
-        "frequencyRank": 2129,
+        "frequencyRank": 389,
         "english": "on the right",
         "level": "A2",
         "italian": "a destra",
@@ -1055,7 +1055,7 @@
             "to the left",
             "left"
         ],
-        "frequencyRank": 2130,
+        "frequencyRank": 326,
         "english": "on the left",
         "level": "A2",
         "italian": "a sinistra",
@@ -1069,7 +1069,7 @@
             "at the bottom",
             "deep down"
         ],
-        "frequencyRank": 2131,
+        "frequencyRank": 335,
         "english": "at the end",
         "level": "A2",
         "italian": "in fondo",
@@ -1084,7 +1084,7 @@
             "up there",
             "high up"
         ],
-        "frequencyRank": 2132,
+        "frequencyRank": 290,
         "english": "at the top",
         "level": "A2",
         "italian": "in alto",
@@ -1099,7 +1099,7 @@
             "downwards",
             "low down"
         ],
-        "frequencyRank": 2133,
+        "frequencyRank": 456,
         "english": "at the bottom",
         "level": "A2",
         "italian": "in basso",
@@ -1110,7 +1110,7 @@
         "alternatives": [
             "on the corner"
         ],
-        "frequencyRank": 2134,
+        "frequencyRank": 5046,
         "english": "at the corner",
         "level": "A2",
         "italian": "all'angolo",
@@ -1123,7 +1123,7 @@
             "next to",
             "at the side"
         ],
-        "frequencyRank": 2135,
+        "frequencyRank": 900,
         "english": "beside",
         "level": "A2",
         "italian": "di fianco",
@@ -1134,7 +1134,7 @@
         "alternatives": [
             "straightedge"
         ],
-        "frequencyRank": 2158,
+        "frequencyRank": 13273,
         "english": "ruler",
         "level": "A2",
         "italian": "righello",
@@ -1146,7 +1146,7 @@
             "bottled water"
         ],
         "italian": "acqua minerale",
-        "frequencyRank": 2173,
+        "frequencyRank": 4149,
         "english": "mineral water",
         "level": "A2",
         "id": "2173",
@@ -1159,7 +1159,7 @@
             "cocoa"
         ],
         "italian": "cioccolata calda",
-        "frequencyRank": 2179,
+        "frequencyRank": 4744,
         "english": "hot chocolate",
         "level": "A2",
         "id": "2179",
@@ -1173,7 +1173,7 @@
             "to halt"
         ],
         "italian": "fermarsi",
-        "frequencyRank": 2190,
+        "frequencyRank": 2910,
         "english": "to stop",
         "level": "A2",
         "id": "2190",
@@ -1186,7 +1186,7 @@
             "hurry"
         ],
         "italian": "sbrigarsi",
-        "frequencyRank": 2191,
+        "frequencyRank": 13441,
         "english": "to hurry up",
         "level": "A2",
         "id": "2191",
@@ -1198,7 +1198,7 @@
             "acclimatize"
         ],
         "italian": "adattarsi",
-        "frequencyRank": 2194,
+        "frequencyRank": 4504,
         "english": "to adapt",
         "level": "A2",
         "id": "2194",
@@ -1211,7 +1211,7 @@
             "extroverted"
         ],
         "italian": "estroverso",
-        "frequencyRank": 2207,
+        "frequencyRank": 13317,
         "english": "extrovert",
         "level": "A2",
         "id": "2207",
@@ -1220,7 +1220,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2215,
+        "frequencyRank": 2446,
         "italian": "biglietto di auguri",
         "id": "2215",
         "english": "greeting card",
@@ -1233,7 +1233,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2219,
+        "frequencyRank": 588,
         "italian": "numero di telefono",
         "id": "2219",
         "english": "phone number",
@@ -1245,7 +1245,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2223,
+        "frequencyRank": 1259,
         "italian": "lista della spesa",
         "id": "2223",
         "english": "shopping list",
@@ -1257,7 +1257,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2224,
+        "frequencyRank": 4723,
         "italian": "saldi",
         "id": "2224",
         "english": "sales",
@@ -1271,7 +1271,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2227,
+        "frequencyRank": 5263,
         "italian": "cassa bancomat",
         "id": "2227",
         "english": "atm",
@@ -1284,7 +1284,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2228,
+        "frequencyRank": 6971,
         "italian": "prelievo bancomat",
         "id": "2228",
         "english": "cash withdrawal",
@@ -1297,7 +1297,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2233,
+        "frequencyRank": 1805,
         "italian": "camera singola",
         "id": "2233",
         "english": "single room",
@@ -1307,7 +1307,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2234,
+        "frequencyRank": 1692,
         "italian": "camera doppia",
         "id": "2234",
         "english": "double room",
@@ -1317,7 +1317,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2240,
+        "frequencyRank": 3615,
         "italian": "colonna sonora",
         "id": "2240",
         "english": "soundtrack",
@@ -1327,7 +1327,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2241,
+        "frequencyRank": 1580,
         "italian": "personaggio famoso",
         "id": "2241",
         "english": "famous person",
@@ -1341,7 +1341,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2248,
+        "frequencyRank": 2253,
         "italian": "programma televisivo",
         "id": "2248",
         "english": "tv programme",
@@ -1356,7 +1356,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2250,
+        "frequencyRank": 1633,
         "italian": "in anticipo",
         "id": "2250",
         "english": "early",
@@ -1369,7 +1369,7 @@
     },
     {
         "level": "A2",
-        "frequencyRank": 2251,
+        "frequencyRank": 1029,
         "italian": "in ritardo",
         "id": "2251",
         "english": "late",
@@ -1388,7 +1388,7 @@
             "once more"
         ],
         "italian": "di nuovo",
-        "frequencyRank": 2252,
+        "frequencyRank": 61,
         "partOfSpeech": "adverb"
     },
     {
@@ -1399,7 +1399,7 @@
             "first time"
         ],
         "italian": "per la prima volta",
-        "frequencyRank": 2253,
+        "frequencyRank": 82,
         "partOfSpeech": "adverbial phrase"
     },
     {
@@ -1411,7 +1411,7 @@
             "maximum"
         ],
         "italian": "al massimo",
-        "frequencyRank": 2255,
+        "frequencyRank": 349,
         "partOfSpeech": "adverbial phrase"
     },
     {
@@ -1424,7 +1424,7 @@
             "generally"
         ],
         "italian": "di solito",
-        "frequencyRank": 2256,
+        "frequencyRank": 468,
         "partOfSpeech": "adverb"
     },
     {
@@ -1437,7 +1437,7 @@
             "every so often"
         ],
         "italian": "di tanto in tanto",
-        "frequencyRank": 2257,
+        "frequencyRank": 142,
         "partOfSpeech": "adverbial phrase"
     },
     {
@@ -1449,11 +1449,11 @@
             "every now and then"
         ],
         "italian": "ogni tanto",
-        "frequencyRank": 2258,
+        "frequencyRank": 104,
         "partOfSpeech": "adverb"
     },
     {
-        "level": "A2",
+        "level": "A1",
         "english": "for example",
         "id": "2263",
         "alternatives": [
@@ -1461,7 +1461,7 @@
             "e.g."
         ],
         "italian": "per esempio",
-        "frequencyRank": 2263,
+        "frequencyRank": 124,
         "partOfSpeech": "adverbial phrase"
     },
     {
@@ -1473,7 +1473,7 @@
             "how is it that"
         ],
         "italian": "come mai",
-        "frequencyRank": 2264,
+        "frequencyRank": 35,
         "partOfSpeech": "interjection"
     },
     {
@@ -1486,7 +1486,7 @@
             "no matter"
         ],
         "italian": "non importa",
-        "frequencyRank": 2265,
+        "frequencyRank": 827,
         "partOfSpeech": "phrase"
     },
     {
@@ -1499,7 +1499,7 @@
             "i apologize"
         ],
         "italian": "mi dispiace",
-        "frequencyRank": 2266,
+        "frequencyRank": 952,
         "partOfSpeech": "phrase"
     },
     {
@@ -1510,7 +1510,7 @@
             "bon appétit"
         ],
         "italian": "buon appetito",
-        "frequencyRank": 2267,
+        "frequencyRank": 4220,
         "partOfSpeech": "interjection"
     },
     {
@@ -1522,7 +1522,7 @@
             "best of luck"
         ],
         "italian": "in bocca al lupo",
-        "frequencyRank": 2268,
+        "frequencyRank": 1755,
         "partOfSpeech": "interjection"
     },
     {
@@ -1535,7 +1535,7 @@
             "too bad"
         ],
         "italian": "che peccato",
-        "frequencyRank": 2269,
+        "frequencyRank": 680,
         "partOfSpeech": "interjection"
     },
     {
@@ -1548,7 +1548,7 @@
             "certainly not"
         ],
         "italian": "macché",
-        "frequencyRank": 2271,
+        "frequencyRank": 9012,
         "partOfSpeech": "interjection"
     },
     {
@@ -1562,7 +1562,7 @@
             "eventually"
         ],
         "italian": "alla fine",
-        "frequencyRank": 2273,
+        "frequencyRank": 76,
         "partOfSpeech": "adverbial phrase"
     },
     {
@@ -1576,7 +1576,7 @@
             "in the midst"
         ],
         "italian": "nel mezzo",
-        "frequencyRank": 2275,
+        "frequencyRank": 188,
         "partOfSpeech": "adverbial phrase"
     },
     {
@@ -1590,7 +1590,7 @@
             "from time to time"
         ],
         "italian": "a volte",
-        "frequencyRank": 2276,
+        "frequencyRank": 102,
         "partOfSpeech": "adverb"
     },
     {
@@ -1603,7 +1603,7 @@
             "thankfully"
         ],
         "italian": "per fortuna",
-        "frequencyRank": 2277,
+        "frequencyRank": 463,
         "partOfSpeech": "adverbial phrase"
     },
     {
@@ -1618,7 +1618,7 @@
             "wonderful"
         ],
         "italian": "che bello",
-        "frequencyRank": 2278,
+        "frequencyRank": 238,
         "partOfSpeech": "exclamation"
     },
     {
@@ -1632,7 +1632,7 @@
             "to me"
         ],
         "italian": "secondo me",
-        "frequencyRank": 2279,
+        "frequencyRank": 72,
         "partOfSpeech": "adverbial phrase"
     },
     {
@@ -1646,7 +1646,7 @@
             "i didn't catch that"
         ],
         "italian": "non ho capito",
-        "frequencyRank": 2281,
+        "frequencyRank": 270,
         "partOfSpeech": "verb phrase"
     },
     {
@@ -1659,7 +1659,7 @@
             "what do you call"
         ],
         "italian": "come si dice",
-        "frequencyRank": 2283,
+        "frequencyRank": 114,
         "partOfSpeech": "interrogative phrase"
     },
     {
@@ -1670,7 +1670,7 @@
             "i'm called"
         ],
         "italian": "mi chiamo",
-        "frequencyRank": 2284,
+        "frequencyRank": 1729,
         "partOfSpeech": "verb phrase"
     },
     {
@@ -1682,7 +1682,7 @@
             "i am a"
         ],
         "italian": "lavoro come",
-        "frequencyRank": 2288,
+        "frequencyRank": 49,
         "partOfSpeech": "verb phrase"
     },
     {
@@ -1693,7 +1693,7 @@
             "i enjoy"
         ],
         "italian": "mi piace",
-        "frequencyRank": 2289,
+        "frequencyRank": 173,
         "partOfSpeech": "verb phrase"
     },
     {
@@ -1704,7 +1704,7 @@
             "i dislike"
         ],
         "italian": "non mi piace",
-        "frequencyRank": 2290,
+        "frequencyRank": 176,
         "partOfSpeech": "verb phrase"
     },
     {
@@ -1717,7 +1717,7 @@
             "what does it cost"
         ],
         "italian": "quanto costa",
-        "frequencyRank": 2294,
+        "frequencyRank": 522,
         "partOfSpeech": "interrogative phrase"
     },
     {
@@ -1729,7 +1729,7 @@
             "where can i find"
         ],
         "italian": "dov'è",
-        "frequencyRank": 2295,
+        "frequencyRank": 1751,
         "partOfSpeech": "interrogative phrase"
     },
     {
@@ -1741,7 +1741,7 @@
             "what time"
         ],
         "italian": "a che ora",
-        "frequencyRank": 2296,
+        "frequencyRank": 31,
         "partOfSpeech": "interrogative phrase"
     },
     {
@@ -1752,7 +1752,7 @@
             "how much time"
         ],
         "italian": "quanto tempo",
-        "frequencyRank": 2297,
+        "frequencyRank": 78,
         "partOfSpeech": "interrogative phrase"
     },
     {
@@ -1764,7 +1764,7 @@
         ],
         "english": "what colour",
         "level": "A2",
-        "frequencyRank": 2298,
+        "frequencyRank": 484,
         "partOfSpeech": "interrogative phrase"
     },
     {
@@ -1775,7 +1775,7 @@
         ],
         "english": "what size",
         "level": "A2",
-        "frequencyRank": 2299,
+        "frequencyRank": 1722,
         "partOfSpeech": "interrogative phrase"
     }
 ]

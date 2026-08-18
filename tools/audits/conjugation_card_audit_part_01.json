@@ -1,0 +1,405 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "scope": {
+    "generatedCards": 12,
+    "requestedCards": 12,
+    "tenses": [
+      "passato prossimo",
+      "presente"
+    ],
+    "subjunctiveCards": 0
+  },
+  "summary": {
+    "failedCards": 0,
+    "failedBatches": 0,
+    "issueCategories": {}
+  },
+  "failedBatches": [],
+  "failedCards": [],
+  "allCards": [
+    {
+      "request": {
+        "id": "case-001",
+        "verb": "mangiare",
+        "englishMeaning": "to eat",
+        "tense": "presente",
+        "pronoun": "io",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-001",
+        "scratchpad": "Conjugation of mangiare in the presente tense for 'io': io mangio.",
+        "sentence": "Di solito io _____ (mangiare) un frutto a colazione.",
+        "answer": "mangio",
+        "explanation": "The subject is 'io' in the present tense, so the verb is 'mangio'.",
+        "tense": "presente",
+        "pronoun": "io",
+        "englishTranslation": "Usually I eat a fruit for breakfast."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-001",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "naturalness"
+        ],
+        "reason": "Correct conjugation and natural usage.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-002",
+        "verb": "mangiare",
+        "englishMeaning": "to eat",
+        "tense": "presente",
+        "pronoun": "tu",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-002",
+        "scratchpad": "Conjugation of mangiare in the presente tense for 'tu': tu mangi.",
+        "sentence": "Ogni giorno tu _____ (mangiare) verdure fresche.",
+        "answer": "mangi",
+        "explanation": "The subject is 'tu' in the present tense, so the verb is 'mangi'.",
+        "tense": "presente",
+        "pronoun": "tu",
+        "englishTranslation": "Every day you eat fresh vegetables."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-002",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "naturalness"
+        ],
+        "reason": "Correct conjugation and natural usage.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-003",
+        "verb": "mangiare",
+        "englishMeaning": "to eat",
+        "tense": "presente",
+        "pronoun": "lui/lei",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-003",
+        "scratchpad": "Conjugation of mangiare in the presente tense for 'lui/lei': lui/lei mangia.",
+        "sentence": "Lei _____ (mangiare) spesso al ristorante italiano.",
+        "answer": "mangia",
+        "explanation": "The subject is 'lei' in the present tense, so the verb is 'mangia'.",
+        "tense": "presente",
+        "pronoun": "lui/lei",
+        "englishTranslation": "She often eats at the Italian restaurant."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-003",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "naturalness"
+        ],
+        "reason": "Correct conjugation and natural usage.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-004",
+        "verb": "mangiare",
+        "englishMeaning": "to eat",
+        "tense": "presente",
+        "pronoun": "noi",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-004",
+        "scratchpad": "Conjugation of mangiare in the presente tense for 'noi': noi mangiamo.",
+        "sentence": "Tutti i venerdì noi _____ (mangiare) la pizza insieme.",
+        "answer": "mangiamo",
+        "explanation": "The subject is 'noi' in the present tense, so the verb is 'mangiamo'.",
+        "tense": "presente",
+        "pronoun": "noi",
+        "englishTranslation": "Every Friday we eat pizza together."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-004",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "naturalness"
+        ],
+        "reason": "Correct conjugation and natural usage.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-005",
+        "verb": "mangiare",
+        "englishMeaning": "to eat",
+        "tense": "presente",
+        "pronoun": "voi",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-005",
+        "scratchpad": "Conjugation of mangiare in the presente tense for 'voi': voi mangiate.",
+        "sentence": "Voi _____ (mangiare) troppo velocemente durante la pausa pranzo.",
+        "answer": "mangiate",
+        "explanation": "The subject is 'voi' in the present tense, so the verb is 'mangiate'.",
+        "tense": "presente",
+        "pronoun": "voi",
+        "englishTranslation": "You all eat too quickly during the lunch break."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-005",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "naturalness"
+        ],
+        "reason": "Correct conjugation and natural usage.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-006",
+        "verb": "mangiare",
+        "englishMeaning": "to eat",
+        "tense": "presente",
+        "pronoun": "loro",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-006",
+        "scratchpad": "Conjugation of mangiare in the presente tense for 'loro': loro mangiano.",
+        "sentence": "Loro _____ (mangiare) molto sano ogni giorno.",
+        "answer": "mangiano",
+        "explanation": "The subject is 'loro' in the present tense, so the verb is 'mangiano'.",
+        "tense": "presente",
+        "pronoun": "loro",
+        "englishTranslation": "They eat very healthily every day."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-006",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "naturalness"
+        ],
+        "reason": "Correct conjugation and natural usage. Note: 'mangiare sano' is an accepted adverbial use of the adjective in idiomatic Italian.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-007",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "passato prossimo",
+        "pronoun": "io",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-007",
+        "scratchpad": "Andare is a motion verb, so it takes 'essere'. Past participle 'andato/a' agrees with subject 'io'. Time marker: 'ieri'.",
+        "sentence": "Ieri io _____ (andare) al supermercato.",
+        "answer": "sono andato/sono andata",
+        "explanation": "Andare requires the auxiliary 'essere' and past participle agreement with the subject 'io'.",
+        "tense": "passato prossimo",
+        "pronoun": "io",
+        "englishTranslation": "Yesterday I went to the supermarket."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-007",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "conjugation"
+        ],
+        "reason": "Correct usage of essere auxiliary and correct agreement for first-person singular.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-008",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "passato prossimo",
+        "pronoun": "tu",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-008",
+        "scratchpad": "Andare is a motion verb, takes 'essere'. Past participle 'andato/a' agrees with 'tu'. Time marker: 'stamattina'.",
+        "sentence": "Stamattina tu _____ (andare) in palestra.",
+        "answer": "sei andato/sei andata",
+        "explanation": "Andare uses 'essere' as an auxiliary; the past participle must agree with the gender of the subject 'tu'.",
+        "tense": "passato prossimo",
+        "pronoun": "tu",
+        "englishTranslation": "This morning you went to the gym."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-008",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "conjugation"
+        ],
+        "reason": "Correct usage of essere auxiliary and correct agreement for second-person singular.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-009",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "passato prossimo",
+        "pronoun": "lui/lei",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-009",
+        "scratchpad": "Motion verb 'andare' + 'essere'. Third person singular subject.",
+        "sentence": "La settimana scorsa lui _____ (andare) a Roma.",
+        "answer": "è andato",
+        "explanation": "Andare requires the auxiliary 'essere'. Since 'lui' is masculine, the participle ends in 'o'.",
+        "tense": "passato prossimo",
+        "pronoun": "lui/lei",
+        "englishTranslation": "Last week he went to Rome."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-009",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "conjugation"
+        ],
+        "reason": "Correct usage of essere auxiliary and correct agreement for third-person masculine singular.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-010",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "passato prossimo",
+        "pronoun": "noi",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-010",
+        "scratchpad": "Motion verb 'andare' + 'essere'. First person plural 'noi', participle plural.",
+        "sentence": "Ieri noi _____ (andare) a visitare un museo.",
+        "answer": "siamo andati/siamo andate",
+        "explanation": "With the auxiliary 'essere', the past participle agrees with the gender and number of the subject 'noi'.",
+        "tense": "passato prossimo",
+        "pronoun": "noi",
+        "englishTranslation": "Yesterday we went to visit a museum."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-010",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "conjugation"
+        ],
+        "reason": "Correct usage of essere auxiliary and gender-inclusive agreement for noi.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-011",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "passato prossimo",
+        "pronoun": "voi",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-011",
+        "scratchpad": "Motion verb 'andare' + 'essere'. Second person plural 'voi', participle plural.",
+        "sentence": "Stamattina voi _____ (andare) presto a scuola.",
+        "answer": "siete andati/siete andate",
+        "explanation": "Andare uses the auxiliary 'essere', requiring the past participle to agree in gender/number with 'voi'.",
+        "tense": "passato prossimo",
+        "pronoun": "voi",
+        "englishTranslation": "This morning you all went to school early."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-011",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "conjugation"
+        ],
+        "reason": "Correct usage of essere auxiliary and gender-inclusive agreement for voi.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-012",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "passato prossimo",
+        "pronoun": "loro",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-012",
+        "scratchpad": "Motion verb 'andare' + 'essere'. Third person plural 'loro' (masculine), participle plural.",
+        "sentence": "Poco fa loro _____ (andare) a casa.",
+        "answer": "sono andati",
+        "explanation": "Andare takes 'essere' and the past participle 'andati' agrees with the masculine plural subject 'loro'.",
+        "tense": "passato prossimo",
+        "pronoun": "loro",
+        "englishTranslation": "A little while ago they went home."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-012",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "conjugation"
+        ],
+        "reason": "Correct usage of essere auxiliary and correct agreement for third-person masculine plural.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    }
+  ]
+}

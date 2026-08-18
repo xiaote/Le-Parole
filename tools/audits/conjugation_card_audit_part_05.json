@@ -1,0 +1,405 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "scope": {
+    "generatedCards": 12,
+    "requestedCards": 12,
+    "tenses": [
+      "congiuntivo imperfetto",
+      "congiuntivo presente"
+    ],
+    "subjunctiveCards": 12
+  },
+  "summary": {
+    "failedCards": 0,
+    "failedBatches": 0,
+    "issueCategories": {}
+  },
+  "failedBatches": [],
+  "failedCards": [],
+  "allCards": [
+    {
+      "request": {
+        "id": "case-049",
+        "verb": "essere",
+        "englishMeaning": "to be",
+        "tense": "congiuntivo presente",
+        "pronoun": "tu",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-049",
+        "scratchpad": "Conjugation of 'essere' in congiuntivo presente for 'tu': 'tu sia'. Need a trigger verb like 'spero che'.",
+        "sentence": "Spero che tu _____ (essere) felice oggi.",
+        "answer": "sia",
+        "explanation": "The verb 'sperare che' acts as a trigger for the congiuntivo presente tense.",
+        "tense": "congiuntivo presente",
+        "pronoun": "tu",
+        "englishTranslation": "I hope that you are happy today."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-049",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "grammar"
+        ],
+        "reason": "Correct conjugation and grammatical structure.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-050",
+        "verb": "essere",
+        "englishMeaning": "to be",
+        "tense": "congiuntivo presente",
+        "pronoun": "lui/lei",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-050",
+        "scratchpad": "Conjugation of 'essere' in congiuntivo presente for 'lui/lei': 'lui/lei sia'.",
+        "sentence": "Penso che lui _____ (essere) molto preparato per l'esame.",
+        "answer": "sia",
+        "explanation": "Opinions expressed with 'pensare che' require the congiuntivo mood.",
+        "tense": "congiuntivo presente",
+        "pronoun": "lui/lei",
+        "englishTranslation": "I think that he is very prepared for the exam."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-050",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "grammar"
+        ],
+        "reason": "Correct conjugation and usage of 'pensare che' as a trigger.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-051",
+        "verb": "essere",
+        "englishMeaning": "to be",
+        "tense": "congiuntivo presente",
+        "pronoun": "noi",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-051",
+        "scratchpad": "Conjugation of 'essere' in congiuntivo presente for 'noi': 'noi siamo'.",
+        "sentence": "È importante che noi _____ (essere) puntuali alla riunione.",
+        "answer": "siamo",
+        "explanation": "Expressions of necessity or impersonality followed by 'che' trigger the congiuntivo.",
+        "tense": "congiuntivo presente",
+        "pronoun": "noi",
+        "englishTranslation": "It is important that we are on time for the meeting."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-051",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "grammar"
+        ],
+        "reason": "Correct impersonal construction with congiuntivo.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-052",
+        "verb": "essere",
+        "englishMeaning": "to be",
+        "tense": "congiuntivo presente",
+        "pronoun": "voi",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-052",
+        "scratchpad": "Conjugation of 'essere' in congiuntivo presente for 'voi': 'voi siate'.",
+        "sentence": "Dubito che voi _____ (essere) pronti a partire adesso.",
+        "answer": "siate",
+        "explanation": "The verb 'dubitare' expresses uncertainty, triggering the congiuntivo.",
+        "tense": "congiuntivo presente",
+        "pronoun": "voi",
+        "englishTranslation": "I doubt that you are ready to leave now."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-052",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "grammar"
+        ],
+        "reason": "Correct usage of 'dubitare che' as a trigger.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-053",
+        "verb": "essere",
+        "englishMeaning": "to be",
+        "tense": "congiuntivo presente",
+        "pronoun": "loro",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-053",
+        "scratchpad": "Conjugation of 'essere' in congiuntivo presente for 'loro': 'loro siano'.",
+        "sentence": "Voglio che loro _____ (essere) sinceri con me.",
+        "answer": "siano",
+        "explanation": "Volitional verbs like 'volere che' trigger the congiuntivo.",
+        "tense": "congiuntivo presente",
+        "pronoun": "loro",
+        "englishTranslation": "I want them to be sincere with me."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-053",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "grammar"
+        ],
+        "reason": "Correct usage of volitional verb as a trigger.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-054",
+        "verb": "fare",
+        "englishMeaning": "to do",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-054",
+        "scratchpad": "Conjugation of 'fare' in congiuntivo imperfetto for 'io': 'io facessi'.",
+        "sentence": "Speravo che io _____ (fare) la scelta giusta.",
+        "answer": "facessi",
+        "explanation": "Since the main verb 'speravo' is in the past, the subordinate clause requires the congiuntivo imperfetto.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "englishTranslation": "I was hoping that I was making the right choice."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-054",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo imperfetto",
+          "grammar"
+        ],
+        "reason": "Correct sequence of tenses and conjugation.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-055",
+        "verb": "fare",
+        "englishMeaning": "to do",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "tu",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-055",
+        "scratchpad": "Conjugation of 'fare' in congiuntivo imperfetto for 'tu' is 'facessi'. Trigger clause added for subjunctive.",
+        "sentence": "Speravo che tu _____ (fare) il tuo lavoro correttamente.",
+        "answer": "facessi",
+        "explanation": "The verb 'sperare' in the past triggers the congiuntivo imperfetto.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "tu",
+        "englishTranslation": "I was hoping that you did your work correctly."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-055",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo imperfetto",
+          "tu"
+        ],
+        "reason": "The conjugation is correct and the trigger sentence follows appropriate sequence of tenses.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-056",
+        "verb": "fare",
+        "englishMeaning": "to do",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "lui/lei",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-056",
+        "scratchpad": "Conjugation of 'fare' in congiuntivo imperfetto for 'lui/lei' is 'facesse'.",
+        "sentence": "Volevano che lei _____ (fare) una torta per la festa.",
+        "answer": "facesse",
+        "explanation": "The verb 'volere' in the past tense triggers the congiuntivo imperfetto.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "lui/lei",
+        "englishTranslation": "They wanted her to make a cake for the party."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-056",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo imperfetto",
+          "lui/lei"
+        ],
+        "reason": "The conjugation is correct and the trigger sentence follows appropriate sequence of tenses.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-057",
+        "verb": "fare",
+        "englishMeaning": "to do",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "noi",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-057",
+        "scratchpad": "Conjugation of 'fare' in congiuntivo imperfetto for 'noi' is 'facessimo'.",
+        "sentence": "Mi aspettavo che noi _____ (fare) più attenzione durante la lezione.",
+        "answer": "facessimo",
+        "explanation": "The verb 'aspettarsi' in the past triggers the congiuntivo imperfetto.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "noi",
+        "englishTranslation": "I expected us to pay more attention during the lesson."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-057",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo imperfetto",
+          "noi"
+        ],
+        "reason": "The conjugation is correct and the trigger sentence follows appropriate sequence of tenses.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-058",
+        "verb": "fare",
+        "englishMeaning": "to do",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "voi",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-058",
+        "scratchpad": "Conjugation of 'fare' in congiuntivo imperfetto for 'voi' is 'faceste'.",
+        "sentence": "Temevo che voi _____ (fare) un errore durante l'esame.",
+        "answer": "faceste",
+        "explanation": "The verb 'temere' (to fear) in the past tense triggers the congiuntivo imperfetto.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "voi",
+        "englishTranslation": "I was afraid that you might make a mistake during the exam."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-058",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo imperfetto",
+          "voi"
+        ],
+        "reason": "The conjugation is correct and the trigger sentence follows appropriate sequence of tenses.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-059",
+        "verb": "fare",
+        "englishMeaning": "to do",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "loro",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-059",
+        "scratchpad": "Conjugation of 'fare' in congiuntivo imperfetto for 'loro' is 'facessero'.",
+        "sentence": "Dubitavo che loro _____ (fare) la scelta giusta.",
+        "answer": "facessero",
+        "explanation": "The verb 'dubitare' (to doubt) in the past tense triggers the congiuntivo imperfetto.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "loro",
+        "englishTranslation": "I doubted that they were making the right choice."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-059",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo imperfetto",
+          "loro"
+        ],
+        "reason": "The conjugation is correct and the trigger sentence follows appropriate sequence of tenses.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-060",
+        "verb": "parlare",
+        "englishMeaning": "to speak",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-060",
+        "scratchpad": "Conjugation of 'parlare' in congiuntivo presente for 'io' is 'parli'.",
+        "sentence": "È importante che io _____ (parlare) con il professore oggi stesso.",
+        "answer": "parli",
+        "explanation": "The phrase 'è importante che' acts as a trigger for the congiuntivo presente.",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "englishTranslation": "It is important that I speak with the professor today."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-060",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "io"
+        ],
+        "reason": "The conjugation is correct and the trigger sentence follows appropriate sequence of tenses.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    }
+  ]
+}

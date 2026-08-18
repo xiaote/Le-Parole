@@ -1,0 +1,262 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "scope": {
+    "generatedCards": 6,
+    "requestedCards": 12,
+    "tenses": [
+      "congiuntivo imperfetto",
+      "congiuntivo presente"
+    ],
+    "subjunctiveCards": 12
+  },
+  "summary": {
+    "failedCards": 1,
+    "failedBatches": 1,
+    "issueCategories": {
+      "congiuntivo imperfetto": 1,
+      "piacere": 1
+    }
+  },
+  "failedBatches": [
+    {
+      "batch": 1,
+      "caseIds": [
+        "case-097",
+        "case-098",
+        "case-099",
+        "case-100",
+        "case-101",
+        "case-102"
+      ],
+      "error": "Gemini API returned HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    }
+  ],
+  "failedCards": [
+    {
+      "request": {
+        "id": "case-107",
+        "verb": "piacere",
+        "englishMeaning": "to like",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-107",
+        "scratchpad": "Verb: piacere. Tense: congiuntivo imperfetto. Pronoun: io (as subject). Conjugation: io piacessi.",
+        "sentence": "Speravo che io _____ (piacere) sempre agli ospiti durante le cene.",
+        "answer": "piacessi",
+        "explanation": "Used here as the subject of 'piacere' in the subjunctive, the form is 'piacessi', triggered by 'speravo'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "englishTranslation": "I hoped that I would always be liked by the guests during the dinners."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-107",
+        "verdict": "fail",
+        "categories": [
+          "congiuntivo imperfetto",
+          "piacere"
+        ],
+        "reason": "While grammatically possible, the sentence is unnatural and semantically awkward in Italian.",
+        "suggestedAnswer": "piacessi",
+        "suggestedSentence": "Speravo sinceramente che io piacessi agli ospiti durante la cena."
+      }
+    }
+  ],
+  "allCards": [
+    {
+      "request": {
+        "id": "case-103",
+        "verb": "svegliarsi",
+        "englishMeaning": "to wake up",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "voi",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-103",
+        "scratchpad": "Verb: svegliarsi. Tense: congiuntivo imperfetto. Pronoun: voi. Conjugation: vi svegliaste.",
+        "sentence": "Speravo che voi _____ (svegliarsi) presto per il viaggio.",
+        "answer": "vi svegliaste",
+        "explanation": "The congiuntivo imperfetto for 'voi' for the reflexive verb 'svegliarsi' is 'vi svegliaste', triggered by the past tense verb 'speravo'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "voi",
+        "englishTranslation": "I hoped that you (plural) would wake up early for the trip."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-103",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo imperfetto",
+          "reflexive"
+        ],
+        "reason": "The conjugation is correct and the sequence of tenses is natural.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-104",
+        "verb": "accorgersi",
+        "englishMeaning": "to notice",
+        "tense": "congiuntivo presente",
+        "pronoun": "loro",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-104",
+        "scratchpad": "Verb: accorgersi. Tense: congiuntivo presente. Pronoun: loro. Conjugation: si accorgano.",
+        "sentence": "È importante che loro _____ (accorgersi) del pericolo in tempo.",
+        "answer": "si accorgano",
+        "explanation": "The congiuntivo presente for 'loro' for the reflexive verb 'accorgersi' is 'si accorgano', triggered by the impersonal construction 'È importante che'.",
+        "tense": "congiuntivo presente",
+        "pronoun": "loro",
+        "englishTranslation": "It is important that they notice the danger in time."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-104",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "reflexive"
+        ],
+        "reason": "The conjugation is correct and the structure is natural.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-105",
+        "verb": "accorgersi",
+        "englishMeaning": "to notice",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "loro",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-105",
+        "scratchpad": "Verb: accorgersi. Tense: congiuntivo imperfetto. Pronoun: loro. Conjugation: si accorgessero.",
+        "sentence": "Pensavo che loro _____ (accorgersi) subito dell'errore.",
+        "answer": "si accorgessero",
+        "explanation": "The congiuntivo imperfetto for 'loro' for the reflexive verb 'accorgersi' is 'si accorgessero', triggered by the past tense opinion verb 'pensavo'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "loro",
+        "englishTranslation": "I thought they would notice the error immediately."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-105",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo imperfetto",
+          "reflexive"
+        ],
+        "reason": "The conjugation is correct and the structure is natural.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-106",
+        "verb": "piacere",
+        "englishMeaning": "to like",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-106",
+        "scratchpad": "Verb: piacere. Tense: congiuntivo presente. Pronoun: io (as the subject, meaning 'I am liked'). Conjugation: io piaccia.",
+        "sentence": "Non credo che io _____ (piacere) a tutti i professori.",
+        "answer": "piaccia",
+        "explanation": "In Italian, 'piacere' is inverted. To make 'io' the subject, the sentence reflects 'that I am liked by...'. The congiuntivo presente for 'io' is 'piaccia'.",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "englishTranslation": "I don't think that I am liked by all the professors."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-106",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "piacere"
+        ],
+        "reason": "The usage is grammatically correct and coherent.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-107",
+        "verb": "piacere",
+        "englishMeaning": "to like",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-107",
+        "scratchpad": "Verb: piacere. Tense: congiuntivo imperfetto. Pronoun: io (as subject). Conjugation: io piacessi.",
+        "sentence": "Speravo che io _____ (piacere) sempre agli ospiti durante le cene.",
+        "answer": "piacessi",
+        "explanation": "Used here as the subject of 'piacere' in the subjunctive, the form is 'piacessi', triggered by 'speravo'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "englishTranslation": "I hoped that I would always be liked by the guests during the dinners."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-107",
+        "verdict": "fail",
+        "categories": [
+          "congiuntivo imperfetto",
+          "piacere"
+        ],
+        "reason": "While grammatically possible, the sentence is unnatural and semantically awkward in Italian.",
+        "suggestedAnswer": "piacessi",
+        "suggestedSentence": "Speravo sinceramente che io piacessi agli ospiti durante la cena."
+      }
+    },
+    {
+      "request": {
+        "id": "case-108",
+        "verb": "mancare",
+        "englishMeaning": "to be missing",
+        "tense": "congiuntivo presente",
+        "pronoun": "tu",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-108",
+        "scratchpad": "Verb: mancare. Tense: congiuntivo presente. Pronoun: tu (as subject). Conjugation: tu manchi.",
+        "sentence": "Voglio che tu _____ (mancare) meno possibile alle lezioni.",
+        "answer": "manchi",
+        "explanation": "Here 'mancare' means 'to be absent/to miss an event'. As the subject 'tu', the congiuntivo presente is 'manchi', triggered by 'voglio che'.",
+        "tense": "congiuntivo presente",
+        "pronoun": "tu",
+        "englishTranslation": "I want you to miss as few classes as possible."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-108",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "mancare"
+        ],
+        "reason": "The use of 'mancare' as 'to be absent from' is correct and natural.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    }
+  ]
+}

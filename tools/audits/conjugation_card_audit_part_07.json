@@ -1,0 +1,441 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "scope": {
+    "generatedCards": 12,
+    "requestedCards": 12,
+    "tenses": [
+      "congiuntivo imperfetto",
+      "congiuntivo presente"
+    ],
+    "subjunctiveCards": 12
+  },
+  "summary": {
+    "failedCards": 1,
+    "failedBatches": 0,
+    "issueCategories": {
+      "grammar": 1,
+      "usage": 1
+    }
+  },
+  "failedBatches": [],
+  "failedCards": [
+    {
+      "request": {
+        "id": "case-083",
+        "verb": "sapere",
+        "englishMeaning": "to know",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-083",
+        "scratchpad": "Conjugation of 'sapere' (congiuntivo imperfetto) for 'io' is 'sapessi'. Trigger: 'Avrei voluto che'.",
+        "sentence": "Avrei voluto che io _____ (sapere) la risposta corretta ieri.",
+        "answer": "sapessi",
+        "explanation": "The imperfect subjunctive is required after the past conditional expression of desire 'avrei voluto che'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "englishTranslation": "I wish I had known the correct answer yesterday."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-083",
+        "verdict": "fail",
+        "categories": [
+          "grammar",
+          "usage"
+        ],
+        "reason": "The Italian sentence uses the wrong temporal sequence. To express a wish about the past that did not happen (yesterday), the pluperfect subjunctive (congiuntivo trapassato) is required ('avessi saputo'), not the imperfect subjunctive.",
+        "suggestedAnswer": "avessi saputo",
+        "suggestedSentence": "Avrei voluto che io avessi saputo la risposta corretta ieri."
+      }
+    }
+  ],
+  "allCards": [
+    {
+      "request": {
+        "id": "case-073",
+        "verb": "avere",
+        "englishMeaning": "to have",
+        "tense": "congiuntivo presente",
+        "pronoun": "tu",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-073",
+        "scratchpad": "Conjugate 'avere' in congiuntivo presente for 'tu'. Trigger: 'spero che'.",
+        "sentence": "Spero che tu _____ (avere) pazienza con me.",
+        "answer": "abbia",
+        "explanation": "The verb 'sperare che' requires the subjunctive mood. For 'tu' in the present tense, it is 'abbia'.",
+        "tense": "congiuntivo presente",
+        "pronoun": "tu",
+        "englishTranslation": "I hope that you have patience with me."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-073",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "grammar"
+        ],
+        "reason": "The conjugation and the trigger 'spero che' are grammatically correct and natural.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-074",
+        "verb": "avere",
+        "englishMeaning": "to have",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "tu",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-074",
+        "scratchpad": "Conjugate 'avere' in congiuntivo imperfetto for 'tu'. Trigger: 'volevo che'.",
+        "sentence": "Volevo che tu _____ (avere) più tempo a disposizione ieri.",
+        "answer": "avessi",
+        "explanation": "The verb 'volere che' in the past requires the imperfetto subjunctive. For 'tu', it is 'avessi'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "tu",
+        "englishTranslation": "I wanted you to have more time available yesterday."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-074",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo imperfetto",
+          "grammar"
+        ],
+        "reason": "The conjugation and the sequence of tenses ('volevo che' triggering imperfetto) are correct.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-075",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "congiuntivo presente",
+        "pronoun": "lui/lei",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-075",
+        "scratchpad": "Conjugate 'andare' in congiuntivo presente for 'lui/lei'. Trigger: 'penso che'.",
+        "sentence": "Penso che lui _____ (andare) a casa subito.",
+        "answer": "vada",
+        "explanation": "The verb 'pensare che' requires the subjunctive. For 'lui', the form is 'vada'.",
+        "tense": "congiuntivo presente",
+        "pronoun": "lui/lei",
+        "englishTranslation": "I think he is going home right away."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-075",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "grammar"
+        ],
+        "reason": "The usage of the subjunctive after 'penso che' is correct in this context.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-076",
+        "verb": "andare",
+        "englishMeaning": "to go",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "lui/lei",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-076",
+        "scratchpad": "Conjugate 'andare' in congiuntivo imperfetto for 'lui/lei'. Trigger: 'temevo che'.",
+        "sentence": "Temevo che lei _____ (andare) via prima di vedermi.",
+        "answer": "andasse",
+        "explanation": "After 'temere che' in the past, we use the imperfetto subjunctive. For 'lei', it is 'andasse'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "lui/lei",
+        "englishTranslation": "I was afraid she would go away before seeing me."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-076",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo imperfetto",
+          "grammar"
+        ],
+        "reason": "The sequence of tenses for 'temevo che' using the imperfetto subjunctive is correct.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-077",
+        "verb": "fare",
+        "englishMeaning": "to do",
+        "tense": "congiuntivo presente",
+        "pronoun": "noi",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-077",
+        "scratchpad": "Conjugate 'fare' in congiuntivo presente for 'noi'. Trigger: 'è necessario che'.",
+        "sentence": "È necessario che noi _____ (fare) del nostro meglio.",
+        "answer": "facciamo",
+        "explanation": "Expressions of necessity followed by 'che' require the subjunctive. For 'noi', it is 'facciamo'.",
+        "tense": "congiuntivo presente",
+        "pronoun": "noi",
+        "englishTranslation": "It is necessary that we do our best."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-077",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "grammar"
+        ],
+        "reason": "The impersonal expression 'è necessario che' correctly triggers the subjunctive.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-078",
+        "verb": "dare",
+        "englishMeaning": "to give",
+        "tense": "congiuntivo presente",
+        "pronoun": "voi",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-078",
+        "scratchpad": "Conjugate 'dare' in congiuntivo presente for 'voi'. Trigger: 'voglio che'.",
+        "sentence": "Voglio che voi mi _____ (dare) una risposta oggi.",
+        "answer": "diate",
+        "explanation": "The verb 'volere che' triggers the subjunctive. For 'voi', the form is 'diate'.",
+        "tense": "congiuntivo presente",
+        "pronoun": "voi",
+        "englishTranslation": "I want you to give me an answer today."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-078",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "grammar"
+        ],
+        "reason": "The irregular conjugation of 'dare' (voi) is correct.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-079",
+        "verb": "dare",
+        "englishMeaning": "to give",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "voi",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-079",
+        "scratchpad": "Conjugation of 'dare' (congiuntivo imperfetto) for 'voi' is 'deste'. Trigger: 'Speravo che'.",
+        "sentence": "Speravo che voi _____ (dare) il massimo durante la gara.",
+        "answer": "deste",
+        "explanation": "The imperfect subjunctive is required after the past tense verb of hope/desire 'speravo che'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "voi",
+        "englishTranslation": "I was hoping that you (pl.) gave your best during the race."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-079",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "subjunctive"
+        ],
+        "reason": "Correct conjugation and sequence of tenses.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-080",
+        "verb": "stare",
+        "englishMeaning": "to stay",
+        "tense": "congiuntivo presente",
+        "pronoun": "loro",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-080",
+        "scratchpad": "Conjugation of 'stare' (congiuntivo presente) for 'loro' is 'stiano'. Trigger: 'Voglio che'.",
+        "sentence": "Voglio che loro _____ (stare) tranquilli durante la riunione.",
+        "answer": "stiano",
+        "explanation": "The present subjunctive is required after the verb of will 'voglio che'.",
+        "tense": "congiuntivo presente",
+        "pronoun": "loro",
+        "englishTranslation": "I want them to stay calm during the meeting."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-080",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "subjunctive"
+        ],
+        "reason": "Correct conjugation and sequence of tenses.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-081",
+        "verb": "stare",
+        "englishMeaning": "to stay",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "loro",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-081",
+        "scratchpad": "Conjugation of 'stare' (congiuntivo imperfetto) for 'loro' is 'stessero'. Trigger: 'Dubitavo che'.",
+        "sentence": "Dubitavo che loro _____ (stare) bene dopo il lungo viaggio.",
+        "answer": "stessero",
+        "explanation": "The imperfect subjunctive is required after the past tense verb of doubt 'dubitavo che'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "loro",
+        "englishTranslation": "I doubted that they were doing well after the long trip."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-081",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "subjunctive"
+        ],
+        "reason": "Correct conjugation and sequence of tenses.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-082",
+        "verb": "sapere",
+        "englishMeaning": "to know",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-082",
+        "scratchpad": "Conjugation of 'sapere' (congiuntivo presente) for 'io' is 'sappia'. Trigger: 'Non penso che'.",
+        "sentence": "Non penso che io _____ (sapere) tutta la verità.",
+        "answer": "sappia",
+        "explanation": "The present subjunctive is required after the expression of doubt 'non penso che'.",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "englishTranslation": "I don't think that I know the whole truth."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-082",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "subjunctive"
+        ],
+        "reason": "Correct conjugation. While the subject pronoun 'io' in the subordinate clause is often omitted in Italian to sound more natural, it is grammatically acceptable.",
+        "suggestedAnswer": null,
+        "suggestedSentence": "Non penso che io sappia tutta la verità."
+      }
+    },
+    {
+      "request": {
+        "id": "case-083",
+        "verb": "sapere",
+        "englishMeaning": "to know",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-083",
+        "scratchpad": "Conjugation of 'sapere' (congiuntivo imperfetto) for 'io' is 'sapessi'. Trigger: 'Avrei voluto che'.",
+        "sentence": "Avrei voluto che io _____ (sapere) la risposta corretta ieri.",
+        "answer": "sapessi",
+        "explanation": "The imperfect subjunctive is required after the past conditional expression of desire 'avrei voluto che'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "englishTranslation": "I wish I had known the correct answer yesterday."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-083",
+        "verdict": "fail",
+        "categories": [
+          "grammar",
+          "usage"
+        ],
+        "reason": "The Italian sentence uses the wrong temporal sequence. To express a wish about the past that did not happen (yesterday), the pluperfect subjunctive (congiuntivo trapassato) is required ('avessi saputo'), not the imperfect subjunctive.",
+        "suggestedAnswer": "avessi saputo",
+        "suggestedSentence": "Avrei voluto che io avessi saputo la risposta corretta ieri."
+      }
+    },
+    {
+      "request": {
+        "id": "case-084",
+        "verb": "dire",
+        "englishMeaning": "to say",
+        "tense": "congiuntivo presente",
+        "pronoun": "tu",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-084",
+        "scratchpad": "Conjugation of 'dire' (congiuntivo presente) for 'tu' is 'dica'. Trigger: 'Voglio che'.",
+        "sentence": "Voglio che tu _____ (dire) la verità subito.",
+        "answer": "dica",
+        "explanation": "The present subjunctive is required after the verb of will 'voglio che'.",
+        "tense": "congiuntivo presente",
+        "pronoun": "tu",
+        "englishTranslation": "I want you to tell the truth immediately."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-084",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "subjunctive"
+        ],
+        "reason": "Correct conjugation and sequence of tenses.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    }
+  ]
+}

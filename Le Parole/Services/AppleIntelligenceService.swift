@@ -227,12 +227,12 @@ struct AppleIntelligenceService {
         
         var rulesText = """
         - Use EXACTLY the verb '\(verb)'.
-        - <answer> MUST be the exact conjugated verb only (no SUBJECT pronoun like io/tu/lui/noi/voi/loro, no infinitive). If the verb is reflexive (ends in -rsi), you MUST include the reflexive pronoun (mi, ti, si, ci, vi) in the <answer>.
+        - <answer> MUST be the exact conjugated verb only (no SUBJECT pronoun like io/tu/lui/noi/voi/loro, no infinitive), except for the special PIACERE construction below. If the verb is reflexive (ends in -rsi), you MUST include the reflexive pronoun (mi, ti, si, ci, vi) in the <answer>.
         - Pronoun '\(requestedPronoun)' must match the verb perfectly.
-        - INVERTED VERBS (piacere, mancare, bastare, servire, sembrare, importare): The requested pronoun MUST be the GRAMMATICAL SUBJECT of the verb, NOT the indirect object! If the requested pronoun is 'voi', the verb MUST be conjugated for 'voi' (e.g. 'Voi mi mancate', NOT 'Vi manca'). NEVER write a sentence where the requested pronoun is the indirect object.
-        - DUAL AUXILIARY VERBS: Some verbs change auxiliary based on meaning. For example, 'mancare' uses ESSERE when meaning 'to be missed by someone' (e.g. 'Lui mi è mancato') but uses AVERE when meaning 'to fail to attend / miss an event' (e.g. 'Lui ha mancato all'appuntamento'). Ensure you use the correct auxiliary for the context you create.
+        - PIACERE IS THE ONE EXCEPTION TO THE SUBJECT RULE: it normally means "to like", so the requested pronoun is the EXPERIENCER / indirect object. Include its clitic in the answer and use a singular thing liked: io→"mi", tu→"ti", lui/lei→"gli" or "le", noi→"ci", voi→"vi", loro→"gli". Examples: "Ti piacerà quel film", "Spero che vi piaccia il concerto", "Mi è piaciuto quel libro". For lui/lei, provide complete alternatives separated by a slash, for example "gli piacerà/le piacerà". Never use "piacere di".
+        - MANCARE: The requested pronoun MUST be the grammatical subject. Use a natural sense such as "Tu mancherai all'appuntamento" or "Tu mi mancherai". Do not force the requested pronoun into an indirect-object role.
         - REFLEXIVE PRONOUNS: If the verb is reflexive (e.g. 'svegliarsi'), the reflexive pronoun (mi, ti, si, ci, vi) MUST be inside the <answer>. DO NOT write the reflexive pronoun outside the blank in the <sentence>. The blank replaces the ENTIRE conjugated reflexive verb. Incorrect: 'lui si _____ (svegliarsi)'. Correct: 'lui _____ (svegliarsi)'.
-        - UNNECESSARY PRONOUNS: DO NOT add unnecessary direct or indirect object pronouns (lo, la, li, le, mi, ti, gli, ci, vi) to the sentence unless the verb strictly requires them (e.g. reflexives). The requested pronoun is the SUBJECT of the sentence.
+        - UNNECESSARY PRONOUNS: Do not add object pronouns unless the verb or the intended meaning requires them (for example, reflexives and "Tu mi mancherai"). The requested pronoun remains the SUBJECT of the sentence.
         - GERUNDIO / STARE + GERUNDIO: NEVER combine stare with a simple present or infinitive. The gerundio ALWAYS ends in -ando or -endo (irregular: facendo, dicendo, bevendo).
         - SUBJECT PRONOUNS: 'loro' means 'they'. NEVER write 'I loro'.
         - SPELLING & ACCENTS: Pay strict attention to spelling! Verbs like 'bere', 'volere', 'venire', 'tenere', 'rimanere' have irregular future/conditional stems (e.g. berrò, vorrò, verrò, terrò, rimarrò). Verify spelling in the <scratchpad> step-by-step.
@@ -253,11 +253,11 @@ struct AppleIntelligenceService {
         case "condizionale presente":
             tenseContextRule = "Use a hypothetical or polite context: 'vorrei', 'potrei', 'se potessi...', 'al posto tuo'."
         case "condizionale passato":
-            tenseContextRule = "Express a past hypothetical: 'Se avessi saputo...', 'Avrei voluto...', 'Sarebbe stato meglio'."
+            tenseContextRule = "Use either a genuine past counterfactual ('Se avessi saputo, avrei chiamato') or a future-in-the-past context ('Il meteo aveva previsto che sarebbe piovuto'). Do NOT combine 'al posto tuo' with an unexplained past fact such as 'ieri sera'."
         case "congiuntivo presente":
-            tenseContextRule = "Use a trigger clause: 'penso che', 'spero che', 'è importante che', 'voglio che'."
+            tenseContextRule = "Use a present or future trigger clause: 'penso che', 'spero che', 'è importante che', 'voglio che'. For target 'io', the main clause MUST name another person (for example, 'Mia madre spera che io...'). NEVER use an io or subjectless main clause such as 'Spero che io...' or 'Voglio che io...'."
         case "congiuntivo imperfetto":
-            tenseContextRule = "Use a past trigger clause: 'pensavo che', 'volevo che', 'sembrava che', 'sarei felice se'."
+            tenseContextRule = "Use a past or hypothetical trigger clause with an action simultaneous with or later than that trigger: 'Volevo che tu venissi', 'Mia madre sperava che io capissi', 'Se fossi ricco, non verrei...'. NEVER use completed-past markers such as 'ieri', 'la settimana scorsa', 'già', or an action completed before the trigger: those require congiuntivo trapassato instead. When using a se-clause, pair it with condizionale presente, NEVER condizionale passato. For target 'io', the main clause MUST name another person; NEVER use an io or subjectless main clause such as 'Volevo che io...'."
         case "presente progressivo":
             tenseContextRule = "Express an action happening RIGHT NOW: include 'in questo momento', 'adesso', or 'proprio ora'. Answer MUST be TWO words: stare conjugated + gerundio. Stare: sto/stai/sta/stiamo/state/stanno. Gerundio: -are→-ando, -ere/-ire→-endo (irregular: fare→facendo, dire→dicendo, bere→bevendo). Example answer for 'io': 'sto mangiando'. The blank replaces both words."
         default:
@@ -631,8 +631,8 @@ final class GeminiService: Sendable {
         var sentence: String
         let answer: String
         let explanation: String?
-        let tense: String?
-        let pronoun: String?
+        var tense: String?
+        var pronoun: String?
         let englishTranslation: String?
     }
     
@@ -658,13 +658,13 @@ final class GeminiService: Sendable {
         
         var rulesText = """
         - Use EXACTLY the verb '\(verb)'.
-        - 'answer' MUST be the exact conjugated verb only (no SUBJECT pronoun like io/tu/lui/noi/voi/loro, no infinitive). If the verb is reflexive (ends in -rsi), you MUST include the reflexive pronoun (mi, ti, si, ci, vi) in the 'answer'.
+        - 'answer' MUST be the exact conjugated verb only (no SUBJECT pronoun like io/tu/lui/noi/voi/loro, no infinitive), except for the special PIACERE construction below. If the verb is reflexive (ends in -rsi), you MUST include the reflexive pronoun (mi, ti, si, ci, vi) in the 'answer'.
         - Pronoun '\(requestedPronoun)' must match the verb perfectly.
         - CONGIUNTIVO TRIGGERS: NEVER use phrases like 'sperare che', 'pensare che', 'credere che', 'aspettarsi che', 'volere che' UNLESS the requested tense is explicitly 'congiuntivo'. If the requested tense is 'imperfetto', 'passato prossimo', or 'presente', you MUST NOT use verbs of opinion or expectation + 'che' because they grammatically require the subjunctive, which makes the sentence incorrect.
-        - INVERTED VERBS (piacere, mancare, bastare, servire, sembrare, importare): The requested pronoun MUST be the GRAMMATICAL SUBJECT of the verb, NOT the indirect object! If the requested pronoun is 'voi', the verb MUST be conjugated for 'voi' (e.g. 'Voi mi mancate', NOT 'Vi manca'). NEVER write a sentence where the requested pronoun is the indirect object.
-        - DUAL AUXILIARY VERBS: Some verbs change auxiliary based on meaning. For example, 'mancare' uses ESSERE when meaning 'to be missed by someone' (e.g. 'Lui mi è mancato') but uses AVERE when meaning 'to fail to attend / miss an event' (e.g. 'Lui ha mancato all'appuntamento'). Ensure you use the correct auxiliary for the context you create.
+        - PIACERE IS THE ONE EXCEPTION TO THE SUBJECT RULE: it normally means "to like", so the requested pronoun is the EXPERIENCER / indirect object. Include its clitic in the answer and use a singular thing liked: io→"mi", tu→"ti", lui/lei→"gli" or "le", noi→"ci", voi→"vi", loro→"gli". Examples: "Ti piacerà quel film", "Spero che vi piaccia il concerto", "Mi è piaciuto quel libro". For lui/lei, provide complete alternatives separated by a slash, for example "gli piacerà/le piacerà". Never use "piacere di".
+        - MANCARE: The requested pronoun MUST be the grammatical subject. Use a natural sense such as "Tu mancherai all'appuntamento" or "Tu mi mancherai". Do not force the requested pronoun into an indirect-object role.
         - REFLEXIVE PRONOUNS: If the verb is reflexive (e.g. 'svegliarsi'), the reflexive pronoun (mi, ti, si, ci, vi) MUST be inside the 'answer'. DO NOT write the reflexive pronoun outside the blank in the 'sentence'. The blank replaces the ENTIRE conjugated reflexive verb. Incorrect: 'lui si _____ (svegliarsi)'. Correct: 'lui _____ (svegliarsi)'.
-        - UNNECESSARY PRONOUNS: DO NOT add unnecessary direct or indirect object pronouns (lo, la, li, le, mi, ti, gli, ci, vi) to the sentence unless the verb strictly requires them (e.g. reflexives). The requested pronoun is the SUBJECT of the sentence.
+        - UNNECESSARY PRONOUNS: Do not add object pronouns unless the verb or the intended meaning requires them (for example, reflexives and "Tu mi mancherai"). The requested pronoun remains the SUBJECT of the sentence.
         - GERUNDIO / STARE + GERUNDIO: NEVER combine stare with a simple present or infinitive. The gerundio ALWAYS ends in -ando or -endo (irregular: facendo, dicendo, bevendo).
         - SUBJECT PRONOUNS: 'loro' means 'they'. NEVER write 'I loro'.
         - AUXILIARY VERBS & PARTICIPLES: For compound tenses, use ESSERE for motion/state verbs (andare, venire, uscire, arrivare, partire, tornare, stare, rimanere, essere, diventare), intransitive verbs of happening (succedere, capitare), and all reflexive verbs. Use AVERE for all others. With ESSERE, the past participle MUST agree in gender and number with the subject. For 'succedere', the past participle is 'successo' (e.g. è successo).
@@ -673,7 +673,7 @@ final class GeminiService: Sendable {
         """
         
         let simpleTenses = ["presente", "imperfetto", "futuro semplice", "condizionale presente", "congiuntivo presente", "congiuntivo imperfetto", "imperativo"]
-        if simpleTenses.contains(requestedTense.lowercased()) {
+        if simpleTenses.contains(requestedTense.lowercased()) && verb.lowercased() != "piacere" {
             rulesText += "\n- CRITICAL TENSE RULE: '\(requestedTense)' is a SIMPLE tense. The conjugated answer MUST be exactly ONE word (plus reflexive pronoun if applicable). NEVER use auxiliary verbs (essere/avere + past participle) for this tense, otherwise you will accidentally create a compound tense (like passato prossimo or trapassato) which is grammatically incorrect for this prompt."
         }
         
@@ -692,11 +692,11 @@ final class GeminiService: Sendable {
         case "condizionale presente":
             tenseContextRule = "Use a hypothetical or polite context: 'vorrei', 'potrei', 'se potessi...', 'al posto tuo'."
         case "condizionale passato":
-            tenseContextRule = "Express a past hypothetical: 'Se avessi saputo...', 'Avrei voluto...', 'Sarebbe stato meglio'."
+            tenseContextRule = "Use either a genuine past counterfactual ('Se avessi saputo, avrei chiamato') or a future-in-the-past context ('Il meteo aveva previsto che sarebbe piovuto'). Do NOT combine 'al posto tuo' with an unexplained past fact such as 'ieri sera'."
         case "congiuntivo presente":
-            tenseContextRule = "Use a trigger clause: 'penso che', 'spero che', 'è importante che', 'voglio che'."
+            tenseContextRule = "Use a present or future trigger clause: 'penso che', 'spero che', 'è importante che', 'voglio che'. For target 'io', the main clause MUST name another person (for example, 'Mia madre spera che io...'). NEVER use an io or subjectless main clause such as 'Spero che io...' or 'Voglio che io...'."
         case "congiuntivo imperfetto":
-            tenseContextRule = "Use a past trigger clause: 'pensavo che', 'volevo che', 'sembrava che', 'sarei felice se'."
+            tenseContextRule = "Use a past or hypothetical trigger clause with an action simultaneous with or later than that trigger: 'Volevo che tu venissi', 'Mia madre sperava che io capissi', 'Se fossi ricco, non verrei...'. NEVER use completed-past markers such as 'ieri', 'la settimana scorsa', 'già', or an action completed before the trigger: those require congiuntivo trapassato instead. When using a se-clause, pair it with condizionale presente, NEVER condizionale passato. For target 'io', the main clause MUST name another person; NEVER use an io or subjectless main clause such as 'Volevo che io...'."
         case "presente progressivo":
             tenseContextRule = "Express an action happening RIGHT NOW: include 'in questo momento', 'adesso', or 'proprio ora'. Answer MUST be TWO words: stare conjugated + gerundio. Stare: sto/stai/sta/stiamo/state/stanno. Gerundio: -are→-ando, -ere/-ire→-endo (irregular: fare→facendo, dire→dicendo, bere→bevendo). Example answer for 'io': 'sto mangiando'. The blank replaces both words."
         default:
@@ -849,9 +849,19 @@ final class GeminiService: Sendable {
     private static func processBatchResponses(_ responses: [BatchChallengeResponse], requests: [BatchChallengeRequest]) -> [BatchChallengeResponse] {
         return responses.map { response in
             var processed = response
+            let request = requests.first { $0.id == response.id }
+
+            // IDs originate in the app, so the requested tense and pronoun are
+            // authoritative. Gemini occasionally returns a broad label such as
+            // "congiuntivo" instead of "congiuntivo presente"; persisting that
+            // value would show the wrong hint and corrupt tense-level stats.
+            if let request {
+                processed.tense = request.tense
+                processed.pronoun = request.pronoun
+            }
+
             if !processed.sentence.contains("_____") {
-                let req = requests.first { $0.id == response.id }
-                let verb = req?.verb ?? "verbo"
+                let verb = request?.verb ?? "verbo"
                 
                 // Try to find the exact answer in the sentence (case-insensitive word match)
                 let pattern = "(?i)\\b\\Q\(response.answer)\\E\\b"
@@ -896,17 +906,17 @@ final class GeminiService: Sendable {
         - "id": the exact string ID provided
         - "scratchpad": step-by-step reasoning
         - "sentence": one natural Italian sentence using the conjugated form. Replace the conjugated verb in the sentence with '_____' (5 underscores) immediately followed by the infinitive in parentheses. e.g. "_____ (mangiare)". CRITICAL: If you use the verb reflexively (e.g. 'mi sveglio'), you MUST use the reflexive infinitive in the parentheses (e.g. '_____ (svegliarsi)', NOT '_____ (svegliare)').
-        - "answer": the exact conjugated verb only (no subject pronouns unless reflexive)
+        - "answer": the exact conjugated verb only (no subject pronouns unless reflexive), except for the special PIACERE construction below, which includes the requested dative clitic
         - "explanation": brief explanation of why this form is used
-        - "tense": the exact tense requested
-        - "pronoun": the exact pronoun requested
+        - "tense": echo the exact requested tense character-for-character; never shorten it (for example, "congiuntivo presente", not "congiuntivo")
+        - "pronoun": echo the exact requested pronoun character-for-character
         - "englishTranslation": an accurate English translation of the full 'sentence'
         
         RULES:
-        - INVERTED VERBS (piacere, mancare, bastare, servire, sembrare, importare): The requested pronoun MUST be the GRAMMATICAL SUBJECT of the verb, NOT the indirect object! If the requested pronoun is 'voi', the verb MUST be conjugated for 'voi' (e.g. 'Voi mi mancate'). NEVER write a sentence where the requested pronoun is the indirect object.
-        - DUAL AUXILIARY VERBS: Some verbs change auxiliary based on meaning. For example, 'mancare' uses ESSERE when meaning 'to be missed by someone' (e.g. 'Lui mi è mancato') but uses AVERE when meaning 'to fail to attend / miss an event' (e.g. 'Lui ha mancato all'appuntamento'). Ensure you use the correct auxiliary for the context you create.
+        - PIACERE IS THE ONE EXCEPTION TO THE SUBJECT RULE: it normally means "to like", so the requested pronoun is the EXPERIENCER / indirect object. Include its clitic in the answer and use a singular thing liked: io→"mi", tu→"ti", lui/lei→"gli" or "le", noi→"ci", voi→"vi", loro→"gli". Examples: "Ti piacerà quel film", "Spero che vi piaccia il concerto", "Mi è piaciuto quel libro". For lui/lei, provide complete alternatives separated by a slash, for example "gli piacerà/le piacerà". Never use "piacere di".
+        - MANCARE: The requested pronoun MUST be the grammatical subject. Use a natural sense such as "Tu mancherai all'appuntamento" or "Tu mi mancherai". Do not force the requested pronoun into an indirect-object role.
         - REFLEXIVE PRONOUNS: If the verb is reflexive (e.g. 'svegliarsi'), the reflexive pronoun (mi, ti, si, ci, vi) MUST be inside the 'answer'. DO NOT write the reflexive pronoun outside the blank in the 'sentence'. The blank replaces the ENTIRE conjugated reflexive verb. Incorrect: 'lui si _____ (svegliarsi)'. Correct: 'lui _____ (svegliarsi)'.
-        - UNNECESSARY PRONOUNS: DO NOT add unnecessary direct or indirect object pronouns (lo, la, li, le, mi, ti, gli, ci, vi) to the sentence unless the verb strictly requires them (e.g. reflexives). The requested pronoun is the SUBJECT of the sentence.
+        - UNNECESSARY PRONOUNS: Do not add object pronouns unless the verb or the intended meaning requires them (for example, reflexives and "Tu mi mancherai"). The requested pronoun remains the SUBJECT of the sentence.
         - MULTI-WORD VERBS (e.g. 'alzarsi in piedi', 'andare d'accordo'): Put the extra words (e.g. 'in piedi') OUTSIDE the blank in the sentence. The blank and parentheses MUST only contain the root verb. Example sentence: "_____ (alzarsi) in piedi." The answer MUST be only the conjugated root verb (e.g., "ti alzi").
         - CONGIUNTIVO TRIGGERS: NEVER use phrases like 'sperare che', 'pensare che', 'credere che', 'aspettarsi che', 'volere che' UNLESS the requested tense is explicitly 'congiuntivo'. If the requested tense is 'imperfetto', 'passato prossimo', or 'presente', you MUST NOT use verbs of opinion or expectation + 'che'.
         - AUXILIARY VERBS & PARTICIPLES: For compound tenses, use ESSERE for motion/state verbs (andare, venire, uscire, arrivare, partire, tornare, stare, rimanere, essere, diventare), intransitive verbs of happening (succedere, capitare), and all reflexive verbs. Use AVERE for all others. With ESSERE, the past participle MUST agree in gender and number with the subject. For 'succedere', the past participle is 'successo' (e.g. è successo).
@@ -917,8 +927,10 @@ final class GeminiService: Sendable {
           * imperfetto: Signal habitual/ongoing past: use 'da bambino', 'una volta', 'mentre', or describe a past state. Do NOT use 'ieri' (implies passato prossimo).
           * futuro semplice: Include a future time marker: 'domani', 'tra una settimana', 'l'anno prossimo'.
           * imperativo: Make it a direct order or suggestion. Use present subjunctive for lui/lei/loro.
-          * condizionale: Use hypothetical context (vorrei, potrei, se potessi, al posto tuo).
-          * congiuntivo: Use trigger clauses (spero che, penso che, volevo che).
+          * condizionale presente: Use a present hypothetical or polite context (vorrei, potrei, se potessi, al posto tuo).
+          * condizionale passato: Use a genuine completed counterfactual (Se avessi saputo, avrei chiamato) or future-in-the-past context (Il meteo aveva previsto che sarebbe piovuto). Do NOT combine al posto tuo with an unexplained past fact such as ieri sera.
+          * congiuntivo presente: Use a present or future trigger clause (spero che, penso che, voglio che). For target io, the main clause MUST name another person (Mia madre spera che io...). NEVER use an io or subjectless main clause such as Spero che io... or Voglio che io....
+          * congiuntivo imperfetto: Use a past or hypothetical trigger with an action simultaneous with or later than it (Volevo che tu venissi; Mia madre sperava che io capissi; Se fossi ricco, non verrei...). NEVER use completed-past markers such as ieri, la settimana scorsa, già, or an action completed before the trigger: those require congiuntivo trapassato. When using a se-clause, pair it with condizionale presente, NEVER condizionale passato. For target io, the main clause MUST name another person; NEVER use an io or subjectless main clause such as Volevo che io....
           * presente progressivo: Express an action happening RIGHT NOW (in questo momento, adesso).
         
         FORMAT EXAMPLE:

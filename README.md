@@ -7,6 +7,8 @@ The app is offline-first for study data: vocabulary and progress are stored loca
 ## What It Does
 
 - Schedules vocabulary review with the SM-2 spaced-repetition algorithm.
+- Introduces new bundled vocabulary by Italian usage frequency while keeping
+  reviews and user-added words prioritized appropriately.
 - Seeds the local database from CEFR-aligned Italian word lists from A1 through C1.
 - Lets users test out of words they already know.
 - Generates contextual conjugation exercises instead of static verb tables.
@@ -70,6 +72,32 @@ Expected matches include code that refers to user-provided API keys, empty defau
 ## Data And Persistence
 
 The bundled JSON files in `Le Parole/Data/` are the source vocabulary lists. On first launch, the app seeds a local SQLite database and then stores user progress there. Backup and restore are handled from the Settings screen.
+
+Bundled words have a single collision-free `frequencyRank`, regenerated with the
+pinned Italian `wordfreq` data in `tools/requirements-vocabulary.txt`. It is a
+relative frequency ordering for this catalogue, not a CEFR classification. The
+KELLY Italian word list provides source-backed CEFR assignments where an exact
+headword and compatible part of speech are available; unresolved senses remain
+unchanged instead of being guessed. To intentionally refresh this metadata:
+
+```bash
+python3 -m pip install -r tools/requirements-vocabulary.txt
+curl -L --fail --silent --show-error \
+  https://ssharoff.github.io/kelly/it_m3.xls -o /tmp/it_m3.xls
+python3 tools/consolidate_catalogue_duplicates.py --write
+python3 tools/retire_composite_number_cards.py --write
+python3 tools/rebuild_frequency_ranks.py --write
+python3 tools/apply_kelly_cefr.py --source /tmp/it_m3.xls --write
+python3 tools/validate_vocabulary_data.py
+```
+
+The generated reports in `tools/audits/` record the source and coverage:
+`frequency_audit.json` covers ranks, while `cefr_audit.json` covers the KELLY
+assignments and any cases deliberately left for manual review.
+
+Catalogue refreshes update existing words in place and must not delete an entry
+with a `userWords` record. User learning history is preserved even when a word's
+translation, CEFR label, or frequency metadata is corrected.
 
 ## Notes For Contributors
 

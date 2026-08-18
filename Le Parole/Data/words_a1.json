@@ -1,6 +1,6 @@
 [
     {
-        "frequencyRank": 1,
+        "frequencyRank": 8,
         "level": "A1",
         "italian": "essere",
         "id": "1",
@@ -15,7 +15,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 2,
+        "frequencyRank": 68,
         "level": "A1",
         "italian": "avere",
         "id": "2",
@@ -29,7 +29,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 3,
+        "frequencyRank": 17,
         "level": "A1",
         "italian": "fare",
         "id": "3",
@@ -42,7 +42,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 4,
+        "frequencyRank": 47,
         "level": "A1",
         "italian": "dire",
         "id": "4",
@@ -55,7 +55,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 5,
+        "frequencyRank": 95,
         "level": "A1",
         "italian": "andare",
         "id": "5",
@@ -68,7 +68,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 6,
+        "frequencyRank": 514,
         "level": "A1",
         "italian": "venire",
         "id": "6",
@@ -81,7 +81,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 7,
+        "frequencyRank": 79,
         "level": "A1",
         "italian": "vedere",
         "id": "7",
@@ -94,7 +94,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 8,
+        "frequencyRank": 190,
         "level": "A1",
         "italian": "sapere",
         "id": "8",
@@ -107,7 +107,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 9,
+        "frequencyRank": 1563,
         "level": "A1",
         "italian": "volere",
         "id": "9",
@@ -120,7 +120,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 10,
+        "frequencyRank": 274,
         "level": "A1",
         "italian": "potere",
         "id": "10",
@@ -134,7 +134,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 11,
+        "frequencyRank": 1098,
         "level": "A1",
         "italian": "dovere",
         "id": "11",
@@ -148,7 +148,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 12,
+        "frequencyRank": 256,
         "level": "A1",
         "italian": "stare",
         "id": "12",
@@ -161,7 +161,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 13,
+        "frequencyRank": 160,
         "level": "A1",
         "italian": "dare",
         "id": "13",
@@ -174,7 +174,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 14,
+        "frequencyRank": 194,
         "level": "A1",
         "italian": "prendere",
         "id": "14",
@@ -187,7 +187,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 15,
+        "frequencyRank": 147,
         "level": "A1",
         "italian": "parlare",
         "id": "15",
@@ -200,7 +200,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 16,
+        "frequencyRank": 217,
         "level": "A1",
         "italian": "capire",
         "id": "16",
@@ -213,8 +213,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 17,
-        "level": "A1",
+        "frequencyRank": 509,
+        "level": "A2",
         "italian": "mangiare",
         "id": "17",
         "english": "to eat",
@@ -225,8 +225,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 18,
-        "level": "A1",
+        "frequencyRank": 1091,
+        "level": "B1",
         "italian": "bere",
         "id": "18",
         "english": "to drink",
@@ -237,8 +237,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 19,
-        "level": "A1",
+        "frequencyRank": 823,
+        "level": "B1",
         "italian": "dormire",
         "id": "19",
         "english": "to sleep",
@@ -250,7 +250,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 20,
+        "frequencyRank": 358,
         "level": "A1",
         "italian": "lavorare",
         "id": "20",
@@ -263,7 +263,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 21,
+        "frequencyRank": 336,
         "level": "A1",
         "italian": "leggere",
         "id": "21",
@@ -276,7 +276,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 22,
+        "frequencyRank": 432,
         "level": "A1",
         "italian": "scrivere",
         "id": "22",
@@ -289,7 +289,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 23,
+        "frequencyRank": 1016,
         "level": "A1",
         "italian": "ascoltare",
         "id": "23",
@@ -302,7 +302,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 24,
+        "frequencyRank": 499,
         "level": "A1",
         "italian": "guardare",
         "id": "24",
@@ -316,7 +316,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 25,
+        "frequencyRank": 1021,
         "level": "A1",
         "italian": "chiamare",
         "id": "25",
@@ -329,7 +329,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 26,
+        "frequencyRank": 841,
         "level": "A1",
         "italian": "aprire",
         "id": "26",
@@ -342,7 +342,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 27,
+        "frequencyRank": 997,
         "level": "A1",
         "italian": "chiudere",
         "id": "27",
@@ -355,7 +355,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 28,
+        "frequencyRank": 163,
         "level": "A1",
         "italian": "trovare",
         "id": "28",
@@ -368,7 +368,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 29,
+        "frequencyRank": 269,
         "level": "A1",
         "italian": "mettere",
         "id": "29",
@@ -381,7 +381,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 30,
+        "frequencyRank": 252,
         "level": "A1",
         "italian": "pensare",
         "id": "30",
@@ -394,7 +394,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 31,
+        "frequencyRank": 517,
         "level": "A1",
         "italian": "conoscere",
         "id": "31",
@@ -407,7 +407,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 32,
+        "frequencyRank": 568,
         "level": "A1",
         "italian": "tenere",
         "id": "32",
@@ -420,7 +420,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 33,
+        "frequencyRank": 370,
         "level": "A1",
         "italian": "sentire",
         "id": "33",
@@ -433,7 +433,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 34,
+        "frequencyRank": 418,
         "level": "A1",
         "italian": "portare",
         "id": "34",
@@ -446,7 +446,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 35,
+        "frequencyRank": 581,
         "level": "A1",
         "italian": "pagare",
         "id": "35",
@@ -457,7 +457,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 36,
+        "frequencyRank": 505,
         "level": "A1",
         "italian": "uscire",
         "id": "36",
@@ -479,7 +479,7 @@
             "come in"
         ],
         "italian": "entrare",
-        "frequencyRank": 37,
+        "frequencyRank": 453,
         "partOfSpeech": "verb"
     },
     {
@@ -492,7 +492,7 @@
             "come back"
         ],
         "italian": "tornare",
-        "frequencyRank": 38,
+        "frequencyRank": 434,
         "partOfSpeech": "verb"
     },
     {
@@ -505,7 +505,7 @@
             "inquire"
         ],
         "italian": "chiedere",
-        "frequencyRank": 39,
+        "frequencyRank": 465,
         "partOfSpeech": "verb"
     },
     {
@@ -518,7 +518,7 @@
             "reply"
         ],
         "italian": "rispondere",
-        "frequencyRank": 40,
+        "frequencyRank": 663,
         "partOfSpeech": "verb"
     },
     {
@@ -531,11 +531,11 @@
             "aid"
         ],
         "italian": "aiutare",
-        "frequencyRank": 41,
+        "frequencyRank": 591,
         "partOfSpeech": "verb"
     },
     {
-        "level": "A1",
+        "level": "A2",
         "english": "to buy",
         "id": "42",
         "alternatives": [
@@ -543,22 +543,22 @@
             "acquire"
         ],
         "italian": "comprare",
-        "frequencyRank": 42,
+        "frequencyRank": 752,
         "partOfSpeech": "verb"
     },
     {
-        "level": "A1",
+        "level": "A2",
         "english": "to sell",
         "id": "43",
         "alternatives": [
             "trade"
         ],
         "italian": "vendere",
-        "frequencyRank": 43,
+        "frequencyRank": 1228,
         "partOfSpeech": "verb"
     },
     {
-        "level": "A1",
+        "level": "B1",
         "english": "to live",
         "id": "44",
         "alternatives": [
@@ -567,7 +567,7 @@
             "inhabit"
         ],
         "italian": "abitare",
-        "frequencyRank": 44,
+        "frequencyRank": 4390,
         "partOfSpeech": "verb"
     },
     {
@@ -580,7 +580,7 @@
             "exist"
         ],
         "italian": "vivere",
-        "frequencyRank": 45,
+        "frequencyRank": 265,
         "partOfSpeech": "verb"
     },
     {
@@ -593,7 +593,7 @@
             "employ"
         ],
         "italian": "usare",
-        "frequencyRank": 46,
+        "frequencyRank": 435,
         "partOfSpeech": "verb"
     },
     {
@@ -602,11 +602,11 @@
         "id": "47",
         "alternatives": [],
         "italian": "giocare",
-        "frequencyRank": 47,
+        "frequencyRank": 556,
         "partOfSpeech": "verb"
     },
     {
-        "level": "A1",
+        "level": "A2",
         "english": "to study",
         "id": "48",
         "alternatives": [
@@ -615,11 +615,11 @@
             "examine"
         ],
         "italian": "studiare",
-        "frequencyRank": 48,
+        "frequencyRank": 800,
         "partOfSpeech": "verb"
     },
     {
-        "level": "A1",
+        "level": "A2",
         "english": "to learn",
         "id": "49",
         "alternatives": [
@@ -628,11 +628,11 @@
             "pick up"
         ],
         "italian": "imparare",
-        "frequencyRank": 49,
+        "frequencyRank": 813,
         "partOfSpeech": "verb"
     },
     {
-        "level": "A1",
+        "level": "A2",
         "english": "to teach",
         "id": "50",
         "alternatives": [
@@ -641,7 +641,7 @@
             "educate"
         ],
         "italian": "insegnare",
-        "frequencyRank": 50,
+        "frequencyRank": 1892,
         "partOfSpeech": "verb"
     },
     {
@@ -654,7 +654,7 @@
             "hi"
         ],
         "italian": "ciao",
-        "frequencyRank": 51,
+        "frequencyRank": 208,
         "partOfSpeech": "interjection"
     },
     {
@@ -666,7 +666,7 @@
             "thanks"
         ],
         "italian": "grazie",
-        "frequencyRank": 52,
+        "frequencyRank": 41,
         "partOfSpeech": "interjection"
     },
     {
@@ -678,7 +678,7 @@
             "yeah"
         ],
         "italian": "sì",
-        "frequencyRank": 54,
+        "frequencyRank": 108,
         "partOfSpeech": "interjection"
     },
     {
@@ -689,7 +689,7 @@
             "kindly"
         ],
         "italian": "per favore",
-        "frequencyRank": 56,
+        "frequencyRank": 234,
         "partOfSpeech": "interjection"
     },
     {
@@ -703,7 +703,7 @@
             "pardon me"
         ],
         "italian": "scusa",
-        "frequencyRank": 57,
+        "frequencyRank": 385,
         "partOfSpeech": "interjection"
     },
     {
@@ -715,16 +715,16 @@
             "good day"
         ],
         "italian": "buongiorno",
-        "frequencyRank": 58,
+        "frequencyRank": 1018,
         "partOfSpeech": "interjection"
     },
     {
-        "level": "A1",
+        "level": "C1",
         "english": "good evening",
         "id": "59",
         "alternatives": [],
         "italian": "buonasera",
-        "frequencyRank": 59,
+        "frequencyRank": 2945,
         "partOfSpeech": "interjection"
     },
     {
@@ -735,11 +735,11 @@
             "night"
         ],
         "italian": "buonanotte",
-        "frequencyRank": 60,
+        "frequencyRank": 2089,
         "partOfSpeech": "interjection"
     },
     {
-        "level": "A1",
+        "level": "C1",
         "english": "goodbye",
         "id": "61",
         "alternatives": [
@@ -748,7 +748,7 @@
             "bye"
         ],
         "italian": "arrivederci",
-        "frequencyRank": 61,
+        "frequencyRank": 5185,
         "partOfSpeech": "interjection"
     },
     {
@@ -760,7 +760,7 @@
             "hi"
         ],
         "italian": "salve",
-        "frequencyRank": 62,
+        "frequencyRank": 2147,
         "partOfSpeech": "interjection"
     },
     {
@@ -773,7 +773,7 @@
             "good"
         ],
         "italian": "bene",
-        "frequencyRank": 63,
+        "frequencyRank": 40,
         "partOfSpeech": "adverb"
     },
     {
@@ -786,7 +786,7 @@
             "ill"
         ],
         "italian": "male",
-        "frequencyRank": 64,
+        "frequencyRank": 105,
         "partOfSpeech": "adverb"
     },
     {
@@ -799,7 +799,7 @@
             "of course"
         ],
         "italian": "certo",
-        "frequencyRank": 65,
+        "frequencyRank": 109,
         "inflections": "Adj: certo, certa, certi, certe",
         "partOfSpeech": "adverb"
     },
@@ -813,7 +813,7 @@
             "set"
         ],
         "italian": "pronto",
-        "frequencyRank": 66,
+        "frequencyRank": 643,
         "inflections": "Adj: pronto, pronta, pronti, pronte",
         "partOfSpeech": "adjective"
     },
@@ -826,7 +826,7 @@
             "well"
         ],
         "italian": "allora",
-        "frequencyRank": 67,
+        "frequencyRank": 87,
         "partOfSpeech": "adverb"
     },
     {
@@ -838,7 +838,7 @@
             "there you go"
         ],
         "italian": "ecco",
-        "frequencyRank": 68,
+        "frequencyRank": 121,
         "partOfSpeech": "interjection"
     },
     {
@@ -850,7 +850,7 @@
             "yes"
         ],
         "italian": "già",
-        "frequencyRank": 70,
+        "frequencyRank": 34,
         "partOfSpeech": "adverb"
     },
     {
@@ -862,7 +862,7 @@
             "single"
         ],
         "italian": "uno",
-        "frequencyRank": 71,
+        "frequencyRank": 20,
         "partOfSpeech": "numeral"
     },
     {
@@ -874,7 +874,7 @@
             "2"
         ],
         "italian": "due",
-        "frequencyRank": 72,
+        "frequencyRank": 16,
         "partOfSpeech": "adjective"
     },
     {
@@ -885,22 +885,22 @@
             "3"
         ],
         "italian": "tre",
-        "frequencyRank": 73,
+        "frequencyRank": 67,
         "partOfSpeech": "numeral"
     },
     {
-        "level": "A1",
+        "level": "B1",
         "english": "four",
         "id": "74",
         "alternatives": [
             "4"
         ],
         "italian": "quattro",
-        "frequencyRank": 74,
+        "frequencyRank": 182,
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 75,
+        "frequencyRank": 248,
         "alternatives": [
             "5"
         ],
@@ -911,40 +911,40 @@
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 77,
+        "frequencyRank": 549,
         "alternatives": [
             "7"
         ],
         "italian": "sette",
-        "level": "A1",
+        "level": "A2",
         "english": "seven",
         "id": "77",
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 78,
+        "frequencyRank": 659,
         "alternatives": [
             "8"
         ],
         "italian": "otto",
-        "level": "A1",
+        "level": "A2",
         "english": "eight",
         "id": "78",
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 79,
+        "frequencyRank": 1006,
         "alternatives": [
             "9"
         ],
         "italian": "nove",
-        "level": "A1",
+        "level": "B1",
         "english": "nine",
         "id": "79",
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 80,
+        "frequencyRank": 407,
         "alternatives": [
             "10"
         ],
@@ -955,29 +955,29 @@
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 81,
+        "frequencyRank": 2290,
         "alternatives": [
             "11"
         ],
         "italian": "undici",
-        "level": "A1",
+        "level": "C1",
         "english": "eleven",
         "id": "81",
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 82,
+        "frequencyRank": 1543,
         "alternatives": [
             "12"
         ],
         "italian": "dodici",
-        "level": "A1",
+        "level": "B1",
         "english": "twelve",
         "id": "82",
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 83,
+        "frequencyRank": 3288,
         "alternatives": [
             "13"
         ],
@@ -988,7 +988,7 @@
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 84,
+        "frequencyRank": 3549,
         "alternatives": [
             "14"
         ],
@@ -999,67 +999,67 @@
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 85,
+        "frequencyRank": 1862,
         "alternatives": [
             "15",
             "the number fifteen"
         ],
         "italian": "quindici",
-        "level": "A1",
+        "level": "B1",
         "english": "fifteen",
         "id": "85",
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 86,
+        "frequencyRank": 1066,
         "alternatives": [
             "the number twenty",
             "20"
         ],
         "italian": "venti",
-        "level": "A1",
+        "level": "B2",
         "english": "twenty",
         "id": "86",
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 87,
+        "frequencyRank": 1765,
         "alternatives": [
             "30",
             "the number thirty"
         ],
         "italian": "trenta",
-        "level": "A1",
+        "level": "A2",
         "english": "thirty",
         "id": "87",
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 88,
+        "frequencyRank": 733,
         "alternatives": [
             "hundred",
             "100"
         ],
         "italian": "cento",
-        "level": "A1",
+        "level": "B2",
         "english": "one hundred",
         "id": "88",
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 89,
+        "frequencyRank": 533,
         "alternatives": [
             "1000",
             "thousand"
         ],
         "italian": "mille",
-        "level": "A1",
+        "level": "A2",
         "english": "one thousand",
         "id": "89",
         "partOfSpeech": "numeral"
     },
     {
-        "frequencyRank": 90,
+        "frequencyRank": 53,
         "alternatives": [
             "1st",
             "primary",
@@ -1073,57 +1073,57 @@
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 91,
+        "frequencyRank": 566,
         "alternatives": [
             "crimson",
             "scarlet"
         ],
         "italian": "rosso",
-        "level": "A1",
+        "level": "A2",
         "english": "red",
         "id": "91",
         "inflections": "Adj: rosso, rossa, rossi, rosse",
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 92,
+        "frequencyRank": 786,
         "alternatives": [
             "azure"
         ],
         "italian": "blu",
-        "level": "A1",
+        "level": "B1",
         "english": "blue",
         "id": "92",
         "inflections": "Adj: blu, blu, blu, blu",
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 93,
+        "frequencyRank": 706,
         "alternatives": [
             "emerald",
             "verdant"
         ],
         "italian": "verde",
-        "level": "A1",
+        "level": "A2",
         "english": "green",
         "id": "93",
         "inflections": "Adj: verde, verde, verdi, verdi",
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 94,
+        "frequencyRank": 1334,
         "alternatives": [
             "golden"
         ],
         "italian": "giallo",
-        "level": "A1",
+        "level": "B1",
         "english": "yellow",
         "id": "94",
         "inflections": "Adj: giallo, gialla, gialli, gialle",
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 95,
+        "frequencyRank": 459,
         "alternatives": [
             "dark"
         ],
@@ -1135,7 +1135,7 @@
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 96,
+        "frequencyRank": 525,
         "alternatives": [
             "pale"
         ],
@@ -1147,7 +1147,7 @@
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 97,
+        "frequencyRank": 3451,
         "alternatives": [],
         "italian": "arancione",
         "level": "A1",
@@ -1157,7 +1157,7 @@
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 98,
+        "frequencyRank": 1746,
         "alternatives": [
             "violet"
         ],
@@ -1169,45 +1169,45 @@
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 99,
+        "frequencyRank": 743,
         "alternatives": [
             "rose",
             "rosy"
         ],
         "italian": "rosa",
-        "level": "A1",
+        "level": "B2",
         "english": "pink",
         "id": "99",
         "inflections": "Adj: rosa, rosa, rosa, rosa",
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 100,
+        "frequencyRank": 2140,
         "alternatives": [
             "gray"
         ],
         "italian": "grigio",
-        "level": "A1",
+        "level": "B2",
         "english": "grey",
         "id": "100",
         "inflections": "Adj: grigio, grigia, grigi, grigie",
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 101,
+        "frequencyRank": 2157,
         "alternatives": [
             "sky blue",
             "azure"
         ],
         "italian": "azzurro",
-        "level": "A1",
+        "level": "B1",
         "english": "light blue",
         "id": "101",
         "inflections": "Adj: azzurro, azzurra, azzurri, azzurre",
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 102,
+        "frequencyRank": 3016,
         "alternatives": [
             "tan"
         ],
@@ -1219,21 +1219,21 @@
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 103,
+        "frequencyRank": 204,
         "alternatives": [
             "mom",
             "mamma",
             "mum"
         ],
         "italian": "madre",
-        "level": "A1",
+        "level": "A2",
         "english": "mother",
         "id": "103",
         "inflections": "Noun: la madre, le madri",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 104,
+        "frequencyRank": 159,
         "alternatives": [
             "dad",
             "papa"
@@ -1246,31 +1246,31 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 105,
+        "frequencyRank": 410,
         "alternatives": [
             "male sibling"
         ],
         "italian": "fratello",
-        "level": "A1",
+        "level": "A2",
         "english": "brother",
         "id": "105",
         "inflections": "Noun: il fratello, i fratelli",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 106,
+        "frequencyRank": 704,
         "alternatives": [
             "female sibling"
         ],
         "italian": "sorella",
-        "level": "A1",
+        "level": "B1",
         "english": "sister",
         "id": "106",
         "inflections": "Noun: la sorella, le sorelle",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 107,
+        "frequencyRank": 193,
         "alternatives": [
             "male child"
         ],
@@ -1282,51 +1282,51 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 108,
+        "frequencyRank": 442,
         "alternatives": [
             "female child"
         ],
         "italian": "figlia",
-        "level": "A1",
+        "level": "A2",
         "english": "daughter",
         "id": "108",
         "inflections": "Noun: la figlia, le figlie",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 109,
+        "frequencyRank": 1393,
         "alternatives": [
             "granddad",
             "grandpa"
         ],
         "italian": "nonno",
-        "level": "A1",
+        "level": "B2",
         "english": "grandfather",
         "id": "109",
         "inflections": "Noun: il nonno, i nonni",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 110,
+        "frequencyRank": 973,
         "alternatives": [
             "granny",
             "grandma"
         ],
         "italian": "nonna",
-        "level": "A1",
+        "level": "C2",
         "english": "grandmother",
         "id": "110",
         "inflections": "Noun: la nonna, le nonne",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 112,
+        "frequencyRank": 351,
         "alternatives": [
             "spouse",
             "partner"
         ],
         "italian": "moglie",
-        "level": "A1",
+        "level": "A2",
         "english": "wife",
         "id": "112",
         "inflections": "Noun: la moglie, le mogli",
@@ -1334,14 +1334,14 @@
     },
     {
         "italian": "zio",
-        "level": "A1",
+        "level": "C1",
         "id": "113",
         "english": "uncle",
         "alternatives": [
             "father's brother",
             "mother's brother"
         ],
-        "frequencyRank": 113,
+        "frequencyRank": 1230,
         "inflections": "Noun: lo zio, gli zii",
         "partOfSpeech": "noun"
     },
@@ -1353,7 +1353,7 @@
         "alternatives": [
             "auntie"
         ],
-        "frequencyRank": 114,
+        "frequencyRank": 1870,
         "inflections": "Noun: la zia, le zie",
         "partOfSpeech": "noun"
     },
@@ -1363,26 +1363,26 @@
         "id": "115",
         "english": "cousin",
         "alternatives": [],
-        "frequencyRank": 115,
+        "frequencyRank": 2014,
         "inflections": "Noun: il cugino, i cugini",
         "partOfSpeech": "noun"
     },
     {
         "italian": "nipote",
-        "level": "A1",
+        "level": "C1",
         "id": "116",
         "english": "nephew",
         "alternatives": [
             "niece",
             "grandchild"
         ],
-        "frequencyRank": 116,
+        "frequencyRank": 1550,
         "inflections": "Noun: il nipote, i nipoti",
         "partOfSpeech": "noun"
     },
     {
         "italian": "parente",
-        "level": "A1",
+        "level": "B1",
         "id": "117",
         "english": "relative",
         "alternatives": [
@@ -1390,7 +1390,7 @@
             "family member",
             "relation"
         ],
-        "frequencyRank": 117,
+        "frequencyRank": 2836,
         "inflections": "Noun: il parente, i parenti",
         "partOfSpeech": "noun"
     },
@@ -1403,7 +1403,7 @@
             "top",
             "mind"
         ],
-        "frequencyRank": 118,
+        "frequencyRank": 197,
         "inflections": "Noun: la testa, le teste",
         "partOfSpeech": "noun"
     },
@@ -1413,27 +1413,27 @@
         "id": "119",
         "english": "eye",
         "alternatives": [],
-        "frequencyRank": 119,
+        "frequencyRank": 684,
         "inflections": "Noun: l'occhio, gli occhi",
         "partOfSpeech": "noun"
     },
     {
         "italian": "bocca",
-        "level": "A1",
+        "level": "A2",
         "id": "121",
         "english": "mouth",
         "alternatives": [],
-        "frequencyRank": 121,
+        "frequencyRank": 551,
         "inflections": "Noun: la bocca, le bocche",
         "partOfSpeech": "noun"
     },
     {
         "italian": "orecchio",
-        "level": "A1",
+        "level": "B1",
         "id": "122",
         "english": "ear",
         "alternatives": [],
-        "frequencyRank": 122,
+        "frequencyRank": 3427,
         "inflections": "Noun: l'orecchio, le orecchie",
         "partOfSpeech": "noun"
     },
@@ -1443,37 +1443,37 @@
         "id": "123",
         "english": "hand",
         "alternatives": [],
-        "frequencyRank": 123,
+        "frequencyRank": 149,
         "inflections": "Noun: la mano, le mani",
         "partOfSpeech": "noun"
     },
     {
         "italian": "braccio",
-        "level": "A1",
+        "level": "A2",
         "id": "124",
         "english": "arm",
         "alternatives": [],
-        "frequencyRank": 124,
+        "frequencyRank": 1069,
         "inflections": "Noun: il braccio, le braccia",
         "partOfSpeech": "noun"
     },
     {
         "italian": "gamba",
-        "level": "A1",
+        "level": "B1",
         "id": "125",
         "english": "leg",
         "alternatives": [],
-        "frequencyRank": 125,
+        "frequencyRank": 1813,
         "inflections": "Noun: la gamba, le gambe",
         "partOfSpeech": "noun"
     },
     {
         "italian": "piede",
-        "level": "A1",
+        "level": "A2",
         "id": "126",
         "english": "foot",
         "alternatives": [],
-        "frequencyRank": 126,
+        "frequencyRank": 1134,
         "inflections": "Noun: il piede, i piedi",
         "partOfSpeech": "noun"
     },
@@ -1486,32 +1486,32 @@
             "frame",
             "physique"
         ],
-        "frequencyRank": 127,
+        "frequencyRank": 219,
         "inflections": "Noun: il corpo, i corpi",
         "partOfSpeech": "noun"
     },
     {
         "italian": "dente",
-        "level": "A1",
+        "level": "B2",
         "id": "129",
         "english": "tooth",
         "alternatives": [
             "incisor",
             "molar"
         ],
-        "frequencyRank": 129,
+        "frequencyRank": 3248,
         "inflections": "Noun: il dente, i denti",
         "partOfSpeech": "noun"
     },
     {
         "italian": "schiena",
-        "level": "A1",
+        "level": "C1",
         "id": "130",
         "english": "back",
         "alternatives": [
             "spine"
         ],
-        "frequencyRank": 130,
+        "frequencyRank": 1684,
         "inflections": "Noun: la schiena, le schiene",
         "partOfSpeech": "noun"
     },
@@ -1524,7 +1524,7 @@
             "center",
             "core"
         ],
-        "frequencyRank": 131,
+        "frequencyRank": 230,
         "inflections": "Noun: il cuore, i cuori",
         "partOfSpeech": "noun"
     },
@@ -1537,7 +1537,7 @@
             "tummy",
             "belly"
         ],
-        "frequencyRank": 132,
+        "frequencyRank": 1711,
         "inflections": "Noun: lo stomaco, gli stomaci",
         "partOfSpeech": "noun"
     },
@@ -1547,87 +1547,87 @@
         "id": "133",
         "english": "water",
         "alternatives": [],
-        "frequencyRank": 133,
+        "frequencyRank": 228,
         "inflections": "Noun: l'acqua, le acque",
         "partOfSpeech": "noun"
     },
     {
         "italian": "pane",
-        "level": "A1",
+        "level": "B1",
         "id": "134",
         "english": "bread",
         "alternatives": [
             "loaf"
         ],
-        "frequencyRank": 134,
+        "frequencyRank": 1009,
         "inflections": "Noun: il pane, i pani",
         "partOfSpeech": "noun"
     },
     {
         "italian": "caffè",
-        "level": "A1",
+        "level": "B2",
         "id": "135",
         "english": "coffee",
         "alternatives": [
             "java",
             "brew"
         ],
-        "frequencyRank": 135,
+        "frequencyRank": 718,
         "inflections": "Noun: il caffè, i caffè",
         "partOfSpeech": "noun"
     },
     {
         "italian": "vino",
-        "level": "A1",
+        "level": "A2",
         "id": "136",
         "english": "wine",
         "alternatives": [
             "vino"
         ],
-        "frequencyRank": 136,
+        "frequencyRank": 766,
         "inflections": "Noun: il vino, i vini",
         "partOfSpeech": "noun"
     },
     {
         "italian": "cibo",
-        "level": "A1",
+        "level": "B1",
         "id": "137",
         "english": "food",
         "alternatives": [
             "meal",
             "grub"
         ],
-        "frequencyRank": 137,
+        "frequencyRank": 440,
         "inflections": "Noun: il cibo, i cibi",
         "partOfSpeech": "noun"
     },
     {
         "italian": "carne",
-        "level": "A1",
+        "level": "A2",
         "id": "138",
         "english": "meat",
         "alternatives": [
             "flesh"
         ],
-        "frequencyRank": 138,
+        "frequencyRank": 732,
         "inflections": "Noun: la carne, le carni",
         "partOfSpeech": "noun"
     },
     {
         "italian": "frutta",
-        "level": "A1",
+        "level": "B2",
         "id": "139",
         "english": "fruit",
         "alternatives": [
             "produce"
         ],
-        "frequencyRank": 139,
+        "frequencyRank": 1666,
         "inflections": "Noun: la frutta, i frutti",
         "partOfSpeech": "noun"
     },
     {
         "italian": "verdura",
-        "level": "A1",
+        "level": "C1",
         "id": "140",
         "english": "vegetables",
         "alternatives": [
@@ -1635,33 +1635,33 @@
             "greens",
             "produce"
         ],
-        "frequencyRank": 140,
+        "frequencyRank": 3997,
         "inflections": "Noun: la verdura, le verdure",
         "partOfSpeech": "noun"
     },
     {
         "italian": "latte",
-        "level": "A1",
+        "level": "B1",
         "id": "141",
         "english": "milk",
         "alternatives": [],
-        "frequencyRank": 141,
+        "frequencyRank": 950,
         "inflections": "Noun: il latte, i latti",
         "partOfSpeech": "noun"
     },
     {
         "italian": "formaggio",
-        "level": "A1",
+        "level": "C1",
         "id": "142",
         "english": "cheese",
         "alternatives": [],
-        "frequencyRank": 142,
+        "frequencyRank": 2097,
         "inflections": "Noun: il formaggio, i formaggi",
         "partOfSpeech": "noun"
     },
     {
         "italian": "birra",
-        "level": "A1",
+        "level": "C1",
         "id": "146",
         "english": "beer",
         "alternatives": [
@@ -1669,7 +1669,7 @@
             "brew",
             "ale"
         ],
-        "frequencyRank": 146,
+        "frequencyRank": 1252,
         "inflections": "Noun: la birra, le birre",
         "partOfSpeech": "noun"
     },
@@ -1681,17 +1681,17 @@
         "alternatives": [
             "nectar"
         ],
-        "frequencyRank": 147,
+        "frequencyRank": 2763,
         "inflections": "Noun: il succo, i succhi",
         "partOfSpeech": "noun"
     },
     {
         "italian": "uovo",
-        "level": "A1",
+        "level": "B2",
         "id": "148",
         "english": "egg",
         "alternatives": [],
-        "frequencyRank": 148,
+        "frequencyRank": 2478,
         "inflections": "Noun: l'uovo, le uova",
         "partOfSpeech": "noun"
     },
@@ -1703,19 +1703,19 @@
         "alternatives": [
             "spread"
         ],
-        "frequencyRank": 149,
+        "frequencyRank": 2447,
         "inflections": "Noun: il burro, i burri",
         "partOfSpeech": "noun"
     },
     {
         "italian": "zucchero",
-        "level": "A1",
+        "level": "C1",
         "id": "150",
         "english": "sugar",
         "alternatives": [
             "sweetener"
         ],
-        "frequencyRank": 150,
+        "frequencyRank": 1510,
         "inflections": "Noun: lo zucchero, gli zuccheri",
         "partOfSpeech": "noun"
     },
@@ -1730,7 +1730,7 @@
         "level": "A1",
         "id": "151",
         "italian": "grande",
-        "frequencyRank": 151,
+        "frequencyRank": 52,
         "inflections": "Adj: grande, grande, grandi, grandi",
         "partOfSpeech": "adjective"
     },
@@ -1743,7 +1743,7 @@
         "level": "A1",
         "id": "152",
         "italian": "piccolo",
-        "frequencyRank": 152,
+        "frequencyRank": 271,
         "inflections": "Adj: piccolo, piccola, piccoli, piccole",
         "partOfSpeech": "adjective"
     },
@@ -1758,7 +1758,7 @@
         "level": "A1",
         "id": "153",
         "italian": "bello",
-        "frequencyRank": 153,
+        "frequencyRank": 237,
         "inflections": "Adj: bello, bella, belli, belle",
         "partOfSpeech": "adjective"
     },
@@ -1770,10 +1770,10 @@
             "unattractive",
             "nasty"
         ],
-        "level": "A1",
+        "level": "A2",
         "id": "154",
         "italian": "brutto",
-        "frequencyRank": 154,
+        "frequencyRank": 963,
         "inflections": "Adj: brutto, brutta, brutti, brutte",
         "partOfSpeech": "adjective"
     },
@@ -1787,7 +1787,7 @@
         "level": "A1",
         "id": "155",
         "italian": "buono",
-        "frequencyRank": 155,
+        "frequencyRank": 594,
         "inflections": "Adj: buono, buona, buoni, buone",
         "partOfSpeech": "adjective"
     },
@@ -1798,10 +1798,10 @@
             "evil",
             "naughty"
         ],
-        "level": "A1",
+        "level": "A2",
         "id": "156",
         "italian": "cattivo",
-        "frequencyRank": 156,
+        "frequencyRank": 1380,
         "inflections": "Adj: cattivo, cattiva, cattivi, cattive",
         "partOfSpeech": "adjective"
     },
@@ -1815,7 +1815,7 @@
         "level": "A1",
         "id": "157",
         "italian": "nuovo",
-        "frequencyRank": 157,
+        "frequencyRank": 60,
         "inflections": "Adj: nuovo, nuova, nuovi, nuove",
         "partOfSpeech": "adjective"
     },
@@ -1829,7 +1829,7 @@
         "level": "A1",
         "id": "158",
         "italian": "vecchio",
-        "frequencyRank": 158,
+        "frequencyRank": 446,
         "inflections": "Adj: vecchio, vecchia, vecchi, vecchie",
         "partOfSpeech": "adjective"
     },
@@ -1842,7 +1842,7 @@
         "level": "A1",
         "id": "159",
         "italian": "lungo",
-        "frequencyRank": 159,
+        "frequencyRank": 171,
         "inflections": "Adj: lungo, lunga, lunghi, lunghe",
         "partOfSpeech": "adjective"
     },
@@ -1852,10 +1852,10 @@
             "brief",
             "concise"
         ],
-        "level": "A1",
+        "level": "B1",
         "id": "160",
         "italian": "corto",
-        "frequencyRank": 160,
+        "frequencyRank": 2092,
         "inflections": "Adj: corto, corta, corti, corte",
         "partOfSpeech": "adjective"
     },
@@ -1867,7 +1867,7 @@
         "level": "A1",
         "id": "161",
         "italian": "alto",
-        "frequencyRank": 161,
+        "frequencyRank": 285,
         "inflections": "Adj: alto, alta, alti, alte",
         "partOfSpeech": "adjective"
     },
@@ -1881,7 +1881,7 @@
         "level": "A1",
         "id": "162",
         "italian": "basso",
-        "frequencyRank": 162,
+        "frequencyRank": 449,
         "inflections": "Adj: basso, bassa, bassi, basse",
         "partOfSpeech": "adjective"
     },
@@ -1891,10 +1891,10 @@
             "warm",
             "heated"
         ],
-        "level": "A1",
+        "level": "A2",
         "id": "163",
         "italian": "caldo",
-        "frequencyRank": 163,
+        "frequencyRank": 768,
         "inflections": "Adj: caldo, calda, caldi, calde",
         "partOfSpeech": "adjective"
     },
@@ -1904,10 +1904,10 @@
             "chilly",
             "cool"
         ],
-        "level": "A1",
+        "level": "A2",
         "id": "164",
         "italian": "freddo",
-        "frequencyRank": 164,
+        "frequencyRank": 845,
         "inflections": "Adj: freddo, fredda, freddi, fredde",
         "partOfSpeech": "adjective"
     },
@@ -1920,7 +1920,7 @@
         "level": "A1",
         "id": "165",
         "italian": "facile",
-        "frequencyRank": 165,
+        "frequencyRank": 329,
         "inflections": "Adj: facile, facile, facili, facili",
         "partOfSpeech": "adjective"
     },
@@ -1933,7 +1933,7 @@
         "level": "A1",
         "id": "166",
         "italian": "difficile",
-        "frequencyRank": 166,
+        "frequencyRank": 231,
         "inflections": "Adj: difficile, difficile, difficili, difficili",
         "partOfSpeech": "adjective"
     },
@@ -1947,7 +1947,7 @@
         "level": "A1",
         "id": "167",
         "italian": "vero",
-        "frequencyRank": 167,
+        "frequencyRank": 86,
         "inflections": "Adj: vero, vera, veri, vere",
         "partOfSpeech": "adjective"
     },
@@ -1960,7 +1960,7 @@
         "level": "A1",
         "id": "169",
         "italian": "molto",
-        "frequencyRank": 169,
+        "frequencyRank": 25,
         "inflections": "Adj: molto, molta, molti, molte",
         "partOfSpeech": "adverb"
     },
@@ -1975,7 +1975,7 @@
         "level": "A1",
         "id": "170",
         "italian": "poco",
-        "frequencyRank": 170,
+        "frequencyRank": 94,
         "inflections": "Adj: poco, poca, pochi, poche",
         "partOfSpeech": "adjective"
     },
@@ -1988,7 +1988,7 @@
         "level": "A1",
         "id": "171",
         "italian": "casa",
-        "frequencyRank": 171,
+        "frequencyRank": 44,
         "inflections": "Noun: la casa, le case",
         "partOfSpeech": "noun"
     },
@@ -2001,7 +2001,7 @@
         "level": "A1",
         "id": "172",
         "italian": "libro",
-        "frequencyRank": 172,
+        "frequencyRank": 187,
         "inflections": "Noun: il libro, i libri",
         "partOfSpeech": "noun"
     },
@@ -2014,7 +2014,7 @@
         "level": "A1",
         "id": "173",
         "italian": "strada",
-        "frequencyRank": 173,
+        "frequencyRank": 169,
         "inflections": "Noun: la strada, le strade",
         "partOfSpeech": "noun"
     },
@@ -2024,17 +2024,17 @@
         "level": "A1",
         "id": "174",
         "italian": "scuola",
-        "frequencyRank": 174,
+        "frequencyRank": 148,
         "inflections": "Noun: la scuola, le scuole",
         "partOfSpeech": "noun"
     },
     {
         "english": "window",
         "alternatives": [],
-        "level": "A1",
+        "level": "A2",
         "id": "176",
         "italian": "finestra",
-        "frequencyRank": 176,
+        "frequencyRank": 1212,
         "inflections": "Noun: la finestra, le finestre",
         "partOfSpeech": "noun"
     },
@@ -2043,10 +2043,10 @@
         "alternatives": [
             "desk"
         ],
-        "level": "A1",
+        "level": "A2",
         "id": "177",
         "italian": "tavolo",
-        "frequencyRank": 177,
+        "frequencyRank": 1062,
         "inflections": "Noun: il tavolo, i tavoli",
         "partOfSpeech": "noun"
     },
@@ -2055,20 +2055,20 @@
         "alternatives": [
             "seat"
         ],
-        "level": "A1",
+        "level": "C1",
         "id": "178",
         "italian": "sedia",
-        "frequencyRank": 178,
+        "frequencyRank": 2148,
         "inflections": "Noun: la sedia, le sedie",
         "partOfSpeech": "noun"
     },
     {
         "english": "bed",
         "alternatives": [],
-        "level": "A1",
+        "level": "B1",
         "id": "179",
         "italian": "letto",
-        "frequencyRank": 179,
+        "frequencyRank": 165,
         "inflections": "Noun: il letto, i letti",
         "partOfSpeech": "noun"
     },
@@ -2077,10 +2077,10 @@
         "alternatives": [
             "cuisine"
         ],
-        "level": "A1",
+        "level": "B1",
         "id": "180",
         "italian": "cucina",
-        "frequencyRank": 180,
+        "frequencyRank": 651,
         "inflections": "Noun: la cucina, le cucine",
         "partOfSpeech": "noun"
     },
@@ -2092,10 +2092,10 @@
             "bath",
             "washroom"
         ],
-        "level": "A1",
+        "level": "B1",
         "id": "181",
         "italian": "bagno",
-        "frequencyRank": 181,
+        "frequencyRank": 679,
         "inflections": "Noun: il bagno, i bagni",
         "partOfSpeech": "noun"
     },
@@ -2106,20 +2106,20 @@
             "automobile",
             "machine"
         ],
-        "level": "A1",
+        "level": "A2",
         "id": "182",
         "italian": "macchina",
-        "frequencyRank": 182,
+        "frequencyRank": 372,
         "inflections": "Noun: la macchina, le macchine",
         "partOfSpeech": "noun"
     },
     {
         "english": "train",
         "alternatives": [],
-        "level": "A1",
+        "level": "B1",
         "id": "183",
         "italian": "treno",
-        "frequencyRank": 183,
+        "frequencyRank": 856,
         "inflections": "Noun: il treno, i treni",
         "partOfSpeech": "noun"
     },
@@ -2128,10 +2128,10 @@
         "alternatives": [
             "telephone"
         ],
-        "level": "A1",
+        "level": "A2",
         "id": "184",
         "italian": "telefono",
-        "frequencyRank": 184,
+        "frequencyRank": 478,
         "inflections": "Noun: il telefono, i telefoni",
         "partOfSpeech": "noun"
     },
@@ -2143,7 +2143,7 @@
         "level": "A1",
         "id": "185",
         "italian": "giorno",
-        "frequencyRank": 185,
+        "frequencyRank": 48,
         "inflections": "Noun: il giorno, i giorni",
         "partOfSpeech": "noun"
     },
@@ -2155,17 +2155,17 @@
         "level": "A1",
         "id": "186",
         "italian": "notte",
-        "frequencyRank": 186,
+        "frequencyRank": 181,
         "inflections": "Noun: la notte, le notti",
         "partOfSpeech": "noun"
     },
     {
         "english": "morning",
         "alternatives": [],
-        "level": "A1",
+        "level": "A2",
         "id": "187",
         "italian": "mattina",
-        "frequencyRank": 187,
+        "frequencyRank": 500,
         "inflections": "Noun: la mattina, le mattine",
         "partOfSpeech": "noun"
     },
@@ -2177,7 +2177,7 @@
         "level": "A1",
         "id": "188",
         "italian": "sera",
-        "frequencyRank": 188,
+        "frequencyRank": 245,
         "inflections": "Noun: la sera, le sere",
         "partOfSpeech": "noun"
     },
@@ -2189,7 +2189,7 @@
         ],
         "english": "hour",
         "level": "A1",
-        "frequencyRank": 189,
+        "frequencyRank": 28,
         "inflections": "Noun: l'ora, le ore",
         "partOfSpeech": "noun"
     },
@@ -2199,7 +2199,7 @@
         "alternatives": [],
         "english": "year",
         "level": "A1",
-        "frequencyRank": 190,
+        "frequencyRank": 65,
         "inflections": "Noun: l'anno, gli anni",
         "partOfSpeech": "noun"
     },
@@ -2209,7 +2209,7 @@
         "alternatives": [],
         "english": "month",
         "level": "A1",
-        "frequencyRank": 191,
+        "frequencyRank": 215,
         "inflections": "Noun: il mese, i mesi",
         "partOfSpeech": "noun"
     },
@@ -2221,7 +2221,7 @@
         ],
         "english": "week",
         "level": "A1",
-        "frequencyRank": 192,
+        "frequencyRank": 162,
         "inflections": "Noun: la settimana, le settimane",
         "partOfSpeech": "noun"
     },
@@ -2234,7 +2234,7 @@
         ],
         "english": "today",
         "level": "A1",
-        "frequencyRank": 193,
+        "frequencyRank": 57,
         "partOfSpeech": "adverb"
     },
     {
@@ -2245,7 +2245,7 @@
         ],
         "english": "yesterday",
         "level": "A1",
-        "frequencyRank": 194,
+        "frequencyRank": 281,
         "partOfSpeech": "adverb"
     },
     {
@@ -2255,8 +2255,8 @@
             "the next day"
         ],
         "english": "tomorrow",
-        "level": "A1",
-        "frequencyRank": 195,
+        "level": "A2",
+        "frequencyRank": 328,
         "partOfSpeech": "adverb"
     },
     {
@@ -2269,7 +2269,7 @@
         ],
         "english": "now",
         "level": "A1",
-        "frequencyRank": 196,
+        "frequencyRank": 128,
         "partOfSpeech": "adverb"
     },
     {
@@ -2281,7 +2281,7 @@
         ],
         "english": "always",
         "level": "A1",
-        "frequencyRank": 197,
+        "frequencyRank": 22,
         "partOfSpeech": "adverb"
     },
     {
@@ -2293,7 +2293,7 @@
         ],
         "english": "never",
         "level": "A1",
-        "frequencyRank": 198,
+        "frequencyRank": 26,
         "partOfSpeech": "adverb"
     },
     {
@@ -2304,7 +2304,7 @@
         ],
         "english": "sun",
         "level": "A1",
-        "frequencyRank": 199,
+        "frequencyRank": 371,
         "inflections": "Noun: il sole, i soli",
         "partOfSpeech": "noun"
     },
@@ -2313,8 +2313,8 @@
         "id": "200",
         "alternatives": [],
         "english": "moon",
-        "level": "A1",
-        "frequencyRank": 200,
+        "level": "B1",
+        "frequencyRank": 882,
         "inflections": "Noun: la luna, le lune",
         "partOfSpeech": "noun"
     },
@@ -2323,8 +2323,8 @@
         "id": "201",
         "alternatives": [],
         "english": "sky",
-        "level": "A1",
-        "frequencyRank": 201,
+        "level": "A2",
+        "frequencyRank": 516,
         "inflections": "Noun: il cielo, i cieli",
         "partOfSpeech": "noun"
     },
@@ -2336,7 +2336,7 @@
         ],
         "english": "sea",
         "level": "A1",
-        "frequencyRank": 202,
+        "frequencyRank": 302,
         "partOfSpeech": "noun"
     },
     {
@@ -2347,8 +2347,8 @@
             "peak"
         ],
         "english": "mountain",
-        "level": "A1",
-        "frequencyRank": 203,
+        "level": "A2",
+        "frequencyRank": 1080,
         "inflections": "Noun: la montagna, le montagne",
         "partOfSpeech": "noun"
     },
@@ -2360,8 +2360,8 @@
             "bloom"
         ],
         "english": "flower",
-        "level": "A1",
-        "frequencyRank": 205,
+        "level": "B1",
+        "frequencyRank": 1630,
         "inflections": "Noun: il fiore, i fiori",
         "partOfSpeech": "noun"
     },
@@ -2373,8 +2373,8 @@
             "feline"
         ],
         "english": "cat",
-        "level": "A1",
-        "frequencyRank": 206,
+        "level": "B2",
+        "frequencyRank": 1333,
         "inflections": "Noun: il gatto, i gatti",
         "partOfSpeech": "noun"
     },
@@ -2387,8 +2387,8 @@
             "pup"
         ],
         "english": "dog",
-        "level": "A1",
-        "frequencyRank": 207,
+        "level": "B1",
+        "frequencyRank": 596,
         "inflections": "Noun: il cane, i cani",
         "partOfSpeech": "noun"
     },
@@ -2401,7 +2401,7 @@
         ],
         "english": "city",
         "level": "A1",
-        "frequencyRank": 208,
+        "frequencyRank": 59,
         "inflections": "Noun: la città, le città",
         "partOfSpeech": "noun"
     },
@@ -2416,7 +2416,7 @@
         ],
         "english": "country",
         "level": "A1",
-        "frequencyRank": 209,
+        "frequencyRank": 117,
         "inflections": "Noun: il paese, i paesi",
         "partOfSpeech": "noun"
     },
@@ -2429,8 +2429,8 @@
             "outlet"
         ],
         "english": "shop",
-        "level": "A1",
-        "frequencyRank": 210,
+        "level": "A2",
+        "frequencyRank": 909,
         "inflections": "Noun: il negozio, i negozi",
         "partOfSpeech": "noun"
     },
@@ -2441,8 +2441,8 @@
             "eatery"
         ],
         "english": "restaurant",
-        "level": "A1",
-        "frequencyRank": 211,
+        "level": "B1",
+        "frequencyRank": 1060,
         "inflections": "Noun: il ristorante, i ristoranti",
         "partOfSpeech": "noun"
     },
@@ -2454,7 +2454,7 @@
         ],
         "english": "church",
         "level": "A1",
-        "frequencyRank": 212,
+        "frequencyRank": 239,
         "inflections": "Noun: la chiesa, le chiese",
         "partOfSpeech": "noun"
     },
@@ -2466,8 +2466,8 @@
             "clinic"
         ],
         "english": "hospital",
-        "level": "A1",
-        "frequencyRank": 213,
+        "level": "A2",
+        "frequencyRank": 828,
         "inflections": "Noun: l'ospedale, gli ospedali",
         "partOfSpeech": "noun"
     },
@@ -2481,7 +2481,7 @@
         ],
         "english": "friend",
         "level": "A1",
-        "frequencyRank": 214,
+        "frequencyRank": 286,
         "inflections": "Noun: l'amico, gli amici",
         "partOfSpeech": "noun"
     },
@@ -2493,7 +2493,7 @@
         ],
         "english": "man",
         "level": "A1",
-        "frequencyRank": 215,
+        "frequencyRank": 113,
         "inflections": "Noun: l'uomo, gli uomini",
         "partOfSpeech": "noun"
     },
@@ -2506,7 +2506,7 @@
         ],
         "english": "woman",
         "level": "A1",
-        "frequencyRank": 216,
+        "frequencyRank": 132,
         "inflections": "Noun: la donna, le donne",
         "partOfSpeech": "noun"
     },
@@ -2520,7 +2520,7 @@
         ],
         "english": "child",
         "level": "A1",
-        "frequencyRank": 217,
+        "frequencyRank": 405,
         "inflections": "Noun: il bambino, i bambini",
         "partOfSpeech": "noun"
     },
@@ -2530,7 +2530,7 @@
         "alternatives": [],
         "english": "name",
         "level": "A1",
-        "frequencyRank": 218,
+        "frequencyRank": 93,
         "inflections": "Noun: il nome, i nomi",
         "partOfSpeech": "noun"
     },
@@ -2544,7 +2544,7 @@
         ],
         "english": "number",
         "level": "A1",
-        "frequencyRank": 219,
+        "frequencyRank": 106,
         "inflections": "Noun: il numero, i numeri",
         "partOfSpeech": "noun"
     },
@@ -2559,7 +2559,7 @@
         ],
         "english": "color",
         "level": "A1",
-        "frequencyRank": 220,
+        "frequencyRank": 482,
         "inflections": "Noun: il colore, i colori",
         "partOfSpeech": "noun"
     }

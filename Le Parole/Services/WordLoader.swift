@@ -13,7 +13,9 @@ private struct WordEntry: Decodable, Sendable {
 }
 
 enum WordLoader {
-    static let dataVersion = 15
+    // v18 refreshes ranks after retiring mechanically derivable number cards.
+    // Existing learning records are retained as skipped by migration v23.
+    static let dataVersion = 18
 
     private static let fileNames = [
         "words_a1", "words_a2", "words_b1", "words_b2", "words_c1",
@@ -66,12 +68,10 @@ enum WordLoader {
             let existingUserWordIdSet = Set(existingUserWordIds)
 
             try await db.write { [allEntries] db in
-                let validIds = Set(allEntries.map { $0.id })
-                for existing in existingWords {
-                    if !existing.isUserCreated && !validIds.contains(existing.wordId) {
-                        try existing.delete(db)
-                    }
-                }
+                // Never delete bundled words during a catalogue refresh. A word
+                // may have a userWords record whose review history must survive
+                // a source-data rename or correction. Dedicated migrations must
+                // remap any retired IDs before removal instead.
 
                 for entry in allEntries {
                     if let existing = existingById[entry.id] {

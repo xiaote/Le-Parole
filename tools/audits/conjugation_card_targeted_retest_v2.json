@@ -1,0 +1,312 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "scope": {
+    "generatedCards": 9,
+    "requestedCards": 9,
+    "tenses": [
+      "condizionale passato",
+      "condizionale presente",
+      "congiuntivo imperfetto",
+      "congiuntivo presente",
+      "futuro semplice"
+    ],
+    "subjunctiveCards": 5
+  },
+  "summary": {
+    "failedCards": 0,
+    "failedBatches": 0,
+    "issueCategories": {}
+  },
+  "failedBatches": [],
+  "failedCards": [],
+  "allCards": [
+    {
+      "request": {
+        "id": "case-036",
+        "verb": "volere",
+        "englishMeaning": "to want",
+        "tense": "condizionale presente",
+        "pronoun": "io",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-036",
+        "scratchpad": "Conjugate volere in condizionale presente for 'io'. Form is 'vorrei'.",
+        "sentence": "Al posto tuo, io _____ (volere) vedere quel film.",
+        "answer": "vorrei",
+        "explanation": "The condizionale presente form 'vorrei' is used for polite or hypothetical expressions.",
+        "tense": "condizionale presente",
+        "pronoun": "io",
+        "englishTranslation": "In your place, I would like to see that movie."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-036",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "naturalness"
+        ],
+        "reason": "Correct usage of the condizionale presente for a hypothetical scenario.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-048",
+        "verb": "essere",
+        "englishMeaning": "to be",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-048",
+        "scratchpad": "Conjugate essere in congiuntivo presente for 'io'. Must use a main clause with someone else. Form: sia.",
+        "sentence": "Mia madre vuole che io _____ (essere) felice.",
+        "answer": "sia",
+        "explanation": "The trigger 'vuole che' requires the congiuntivo presente; 'sia' is the correct form for 'io'.",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "englishTranslation": "My mother wants me to be happy."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-048",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "subjunctive"
+        ],
+        "reason": "Correct sequence of tenses and conjugation for congiuntivo presente.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-061",
+        "verb": "parlare",
+        "englishMeaning": "to speak",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-061",
+        "scratchpad": "Conjugate parlare in congiuntivo imperfetto for 'io'. Main clause must be someone else. Form: parlassi.",
+        "sentence": "Il mio professore sperava che io _____ (parlare) meglio in pubblico.",
+        "answer": "parlassi",
+        "explanation": "The trigger 'sperava che' in the past requires the congiuntivo imperfetto; 'parlassi' is the correct form for 'io'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "englishTranslation": "My professor hoped that I spoke better in public."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-061",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "subjunctive"
+        ],
+        "reason": "Correct sequence of tenses and conjugation for congiuntivo imperfetto following a past tense main verb.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-083",
+        "verb": "sapere",
+        "englishMeaning": "to know",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-083",
+        "scratchpad": "Conjugate sapere in congiuntivo imperfetto for 'io'. Main clause must be someone else. Form: sapessi.",
+        "sentence": "Tutti volevano che io _____ (sapere) tutta la verità.",
+        "answer": "sapessi",
+        "explanation": "Past trigger 'volevano che' requires the congiuntivo imperfetto; 'sapessi' is the form for 'io'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "englishTranslation": "Everyone wanted me to know the whole truth."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-083",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "subjunctive"
+        ],
+        "reason": "Correct sequence of tenses and conjugation for congiuntivo imperfetto.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-107",
+        "verb": "piacere",
+        "englishMeaning": "to like",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-107",
+        "scratchpad": "Conjugate piacere in congiuntivo imperfetto for experiencer 'io'. Main clause must be someone else. Form: mi piacesse.",
+        "sentence": "Lei voleva che _____ (piacere) anche a me questo progetto.",
+        "answer": "mi piacesse",
+        "explanation": "Trigger 'voleva che' requires congiuntivo imperfetto; singular subject 'progetto' requires 'piacesse'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "englishTranslation": "She wanted me to like this project too."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-107",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "inverted_verb"
+        ],
+        "reason": "Correct usage of the inverted construction with congiuntivo imperfetto.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-139",
+        "verb": "piacere",
+        "englishMeaning": "to like",
+        "tense": "futuro semplice",
+        "pronoun": "tu",
+        "suite": "inverted_verb"
+      },
+      "card": {
+        "id": "case-139",
+        "scratchpad": "Conjugate piacere in futuro semplice for experiencer 'tu'. Form: ti piacerà.",
+        "sentence": "Sono sicuro che domani _____ (piacere) il nuovo locale in centro.",
+        "answer": "ti piacerà",
+        "explanation": "Futuro semplice is needed for the time marker 'domani'; 'piacerà' agrees with the singular 'locale'.",
+        "tense": "futuro semplice",
+        "pronoun": "tu",
+        "englishTranslation": "I am sure you will like the new place downtown tomorrow."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-139",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "inverted_verb"
+        ],
+        "reason": "Correct agreement and future tense for an inverted verb construction.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-140",
+        "verb": "piacere",
+        "englishMeaning": "to like",
+        "tense": "condizionale presente",
+        "pronoun": "lui/lei",
+        "suite": "inverted_verb"
+      },
+      "card": {
+        "id": "case-140",
+        "scratchpad": "Conjugate piacere in condizionale presente for experiencer 'lui/lei'. Form: gli piacerebbe/le piacerebbe.",
+        "sentence": "Se avesse tempo, _____ (piacere) leggere quel libro.",
+        "answer": "gli piacerebbe/le piacerebbe",
+        "explanation": "Hypothetical 'se avesse' triggers condizionale presente; singular subject 'libro' requires 'piacerebbe'.",
+        "tense": "condizionale presente",
+        "pronoun": "lui/lei",
+        "englishTranslation": "If he/she had time, he/she would like to read that book."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-140",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "inverted_verb"
+        ],
+        "reason": "Correct application of the hypothetical conditional and inverted verb structure.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-141",
+        "verb": "piacere",
+        "englishMeaning": "to like",
+        "tense": "congiuntivo presente",
+        "pronoun": "voi",
+        "suite": "inverted_verb"
+      },
+      "card": {
+        "id": "case-141",
+        "scratchpad": "Conjugate piacere in congiuntivo presente for experiencer 'voi'. Form: vi piaccia.",
+        "sentence": "Spero proprio che _____ (piacere) il concerto di stasera.",
+        "answer": "vi piaccia",
+        "explanation": "Trigger 'spero che' requires congiuntivo presente; singular subject 'concerto' requires 'piaccia'.",
+        "tense": "congiuntivo presente",
+        "pronoun": "voi",
+        "englishTranslation": "I really hope you like tonight's concert."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-141",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "inverted_verb"
+        ],
+        "reason": "Correct usage of the congiuntivo presente with an inverted verb construction.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-154",
+        "verb": "piovere",
+        "englishMeaning": "to rain",
+        "tense": "condizionale passato",
+        "pronoun": "lui/lei",
+        "suite": "impersonal_verb"
+      },
+      "card": {
+        "id": "case-154",
+        "scratchpad": "Conjugate piovere in condizionale passato. It uses auxiliary 'avere' or 'essere' for impersonal verbs, usually 'avere' here. Form: sarebbe piovuto.",
+        "sentence": "Il meteo aveva previsto che _____ (piovere) in montagna.",
+        "answer": "sarebbe piovuto",
+        "explanation": "Future-in-the-past requires the condizionale passato.",
+        "tense": "condizionale passato",
+        "pronoun": "lui/lei",
+        "englishTranslation": "The weather report had predicted that it would rain in the mountains."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-154",
+        "verdict": "pass",
+        "categories": [
+          "grammar",
+          "impersonal_verb"
+        ],
+        "reason": "Correct use of 'essere' as the auxiliary for the impersonal 'piovere' in a compound tense.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    }
+  ]
+}

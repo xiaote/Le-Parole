@@ -1,33 +1,33 @@
 [
     {
         "italian": "maiale",
-        "level": "B1",
+        "level": "A2",
         "id": "748",
         "english": "pork",
         "alternatives": [
             "pork meat",
             "pig"
         ],
-        "frequencyRank": 748,
+        "frequencyRank": 2744,
         "inflections": "Noun: il maiale, i maiali",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 789,
+        "frequencyRank": 1868,
         "alternatives": [
             "weave",
             "storyline",
             "texture"
         ],
         "italian": "trama",
-        "level": "B1",
+        "level": "B2",
         "english": "plot",
         "id": "789",
         "inflections": "Noun: la trama, le trame",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A1",
         "english": "society",
         "id": "603",
         "alternatives": [
@@ -35,12 +35,12 @@
             "association"
         ],
         "italian": "società",
-        "frequencyRank": 603,
+        "frequencyRank": 112,
         "inflections": "Noun: la società, le società",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A1",
         "english": "government",
         "id": "605",
         "alternatives": [
@@ -48,7 +48,7 @@
             "administration"
         ],
         "italian": "governo",
-        "frequencyRank": 605,
+        "frequencyRank": 120,
         "inflections": "Noun: il governo, i governi",
         "partOfSpeech": "noun"
     },
@@ -58,10 +58,10 @@
             "regard",
             "esteem"
         ],
-        "level": "B1",
+        "level": "A1",
         "id": "711",
         "italian": "rispetto",
-        "frequencyRank": 711,
+        "frequencyRank": 126,
         "inflections": "Noun: il rispetto, i rispetti",
         "partOfSpeech": "noun"
     },
@@ -71,9 +71,9 @@
             "conflict"
         ],
         "italian": "guerra",
-        "frequencyRank": 618,
+        "frequencyRank": 135,
         "english": "war",
-        "level": "B1",
+        "level": "A1",
         "id": "618",
         "inflections": "Noun: la guerra, le guerre",
         "partOfSpeech": "noun"
@@ -84,15 +84,15 @@
             "reason"
         ],
         "italian": "causa",
-        "frequencyRank": 635,
+        "frequencyRank": 150,
         "english": "cause",
-        "level": "B1",
+        "level": "A1",
         "id": "635",
         "inflections": "Noun: la causa, le cause",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A1",
         "english": "right",
         "id": "611",
         "alternatives": [
@@ -100,7 +100,7 @@
             "entitlement"
         ],
         "italian": "diritto",
-        "frequencyRank": 611,
+        "frequencyRank": 156,
         "inflections": "Noun: il diritto, i diritti",
         "partOfSpeech": "noun"
     },
@@ -112,9 +112,9 @@
             "logic"
         ],
         "italian": "ragione",
-        "frequencyRank": 636,
+        "frequencyRank": 178,
         "english": "reason",
-        "level": "B1",
+        "level": "A1",
         "id": "636",
         "inflections": "Noun: la ragione, le ragioni",
         "partOfSpeech": "noun"
@@ -125,15 +125,15 @@
             "affection",
             "passion"
         ],
-        "level": "B1",
+        "level": "A1",
         "id": "708",
         "italian": "amore",
-        "frequencyRank": 708,
+        "frequencyRank": 199,
         "inflections": "Noun: l'amore, gli amori",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 691,
+        "frequencyRank": 216,
         "id": "691",
         "italian": "ricerca",
         "english": "research",
@@ -141,7 +141,7 @@
             "search",
             "investigation"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: la ricerca, le ricerche",
         "partOfSpeech": "noun"
     },
@@ -151,9 +151,9 @@
             "security"
         ],
         "italian": "sicurezza",
-        "frequencyRank": 626,
+        "frequencyRank": 226,
         "english": "safety",
-        "level": "B1",
+        "level": "A1",
         "id": "626",
         "inflections": "Noun: la sicurezza, le sicurezze",
         "partOfSpeech": "noun"
@@ -164,15 +164,15 @@
             "fright",
             "dread"
         ],
-        "level": "B1",
+        "level": "A2",
         "id": "696",
         "italian": "paura",
-        "frequencyRank": 696,
+        "frequencyRank": 251,
         "inflections": "Noun: la paura, le paure",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 668,
+        "frequencyRank": 275,
         "id": "668",
         "italian": "programma",
         "english": "program",
@@ -182,12 +182,12 @@
             "software",
             "plan"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: il programma, i programmi",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A1",
         "english": "culture",
         "id": "601",
         "alternatives": [
@@ -195,7 +195,7 @@
             "education"
         ],
         "italian": "cultura",
-        "frequencyRank": 601,
+        "frequencyRank": 278,
         "inflections": "Noun: la cultura, le culture",
         "partOfSpeech": "noun"
     },
@@ -206,15 +206,15 @@
             "therapy"
         ],
         "italian": "cura",
-        "frequencyRank": 652,
+        "frequencyRank": 287,
         "english": "treatment",
-        "level": "B1",
+        "level": "A1",
         "id": "652",
         "inflections": "Noun: la cura, le cure",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A1",
         "english": "simple",
         "id": "586",
         "alternatives": [
@@ -222,7 +222,7 @@
             "plain"
         ],
         "italian": "semplice",
-        "frequencyRank": 586,
+        "frequencyRank": 295,
         "inflections": "Adj: semplice, semplice, semplici, semplici",
         "partOfSpeech": "adjective"
     },
@@ -232,28 +232,28 @@
             "progress"
         ],
         "italian": "sviluppo",
-        "frequencyRank": 643,
+        "frequencyRank": 296,
         "english": "development",
-        "level": "B1",
+        "level": "A1",
         "id": "643",
         "inflections": "Noun: lo sviluppo, gli sviluppi",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 771,
+        "frequencyRank": 315,
         "alternatives": [
             "crew",
             "squad"
         ],
         "italian": "squadra",
-        "level": "B1",
+        "level": "A2",
         "english": "team",
         "id": "771",
         "inflections": "Noun: la squadra, le squadre",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A1",
         "english": "freedom",
         "id": "613",
         "alternatives": [
@@ -261,7 +261,7 @@
             "independence"
         ],
         "italian": "libertà",
-        "frequencyRank": 613,
+        "frequencyRank": 337,
         "inflections": "Noun: la libertà, le libertà",
         "partOfSpeech": "noun"
     },
@@ -271,15 +271,15 @@
             "tranquility"
         ],
         "italian": "pace",
-        "frequencyRank": 617,
+        "frequencyRank": 352,
         "english": "peace",
-        "level": "B1",
+        "level": "A1",
         "id": "617",
         "inflections": "Noun: la pace, le paci",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 669,
+        "frequencyRank": 362,
         "id": "669",
         "italian": "rete",
         "english": "network",
@@ -288,25 +288,25 @@
             "net",
             "grid"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: la rete, le reti",
         "partOfSpeech": "noun"
     },
     {
         "italian": "calcio",
-        "level": "B1",
+        "level": "A2",
         "id": "765",
         "english": "football",
         "alternatives": [
             "soccer",
             "kick"
         ],
-        "frequencyRank": 765,
+        "frequencyRank": 364,
         "inflections": "Noun: il calcio, i calci",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A1",
         "english": "citizen",
         "id": "608",
         "alternatives": [
@@ -314,12 +314,12 @@
             "resident"
         ],
         "italian": "cittadino",
-        "frequencyRank": 608,
+        "frequencyRank": 874,
         "inflections": "Noun: il cittadino, i cittadini",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 684,
+        "frequencyRank": 388,
         "id": "684",
         "italian": "università",
         "english": "university",
@@ -327,12 +327,12 @@
             "college",
             "academy"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: l'università, le università",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 682,
+        "frequencyRank": 394,
         "id": "682",
         "italian": "formazione",
         "english": "training",
@@ -340,12 +340,12 @@
             "education",
             "formation"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: la formazione, le formazioni",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 680,
+        "frequencyRank": 414,
         "id": "680",
         "italian": "natura",
         "english": "nature",
@@ -353,12 +353,12 @@
             "character",
             "essence"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: la natura, le nature",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A1",
         "english": "community",
         "id": "604",
         "alternatives": [
@@ -366,12 +366,12 @@
             "public"
         ],
         "italian": "comunità",
-        "frequencyRank": 604,
+        "frequencyRank": 426,
         "inflections": "Noun: la comunità, le comunità",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 673,
+        "frequencyRank": 433,
         "id": "673",
         "italian": "stampa",
         "english": "press",
@@ -379,7 +379,7 @@
             "printing",
             "media"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: la stampa, le stampe",
         "partOfSpeech": "noun"
     },
@@ -389,15 +389,15 @@
             "aim"
         ],
         "italian": "scopo",
-        "frequencyRank": 637,
+        "frequencyRank": 438,
         "english": "purpose",
-        "level": "B1",
+        "level": "A1",
         "id": "637",
         "inflections": "Noun: lo scopo, gli scopi",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 689,
+        "frequencyRank": 447,
         "id": "689",
         "italian": "voto",
         "english": "grade",
@@ -406,7 +406,7 @@
             "score",
             "mark"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: il voto, i voti",
         "partOfSpeech": "noun"
     },
@@ -416,16 +416,16 @@
             "downturn"
         ],
         "italian": "crisi",
-        "frequencyRank": 620,
+        "frequencyRank": 451,
         "english": "crisis",
-        "level": "B1",
+        "level": "A1",
         "id": "620",
         "inflections": "Noun: la crisi, le crisi",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 544,
+        "level": "A1",
+        "frequencyRank": 461,
         "italian": "ottenere",
         "id": "544",
         "english": "to obtain",
@@ -437,8 +437,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
-        "frequencyRank": 538,
+        "level": "A1",
+        "frequencyRank": 466,
         "italian": "creare",
         "id": "538",
         "english": "to create",
@@ -456,9 +456,9 @@
             "threat"
         ],
         "italian": "rischio",
-        "frequencyRank": 625,
+        "frequencyRank": 474,
         "english": "risk",
-        "level": "B1",
+        "level": "A1",
         "id": "625",
         "inflections": "Noun: il rischio, i rischi",
         "partOfSpeech": "noun"
@@ -469,20 +469,20 @@
             "answer"
         ],
         "italian": "soluzione",
-        "frequencyRank": 622,
+        "frequencyRank": 476,
         "english": "solution",
-        "level": "B1",
+        "level": "A1",
         "id": "622",
         "inflections": "Noun: la soluzione, le soluzioni",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 787,
+        "frequencyRank": 480,
         "alternatives": [
             "writer"
         ],
         "italian": "autore",
-        "level": "B1",
+        "level": "A1",
         "english": "author",
         "id": "787",
         "inflections": "Noun: l'autore, gli autori",
@@ -490,19 +490,19 @@
     },
     {
         "italian": "direttore",
-        "level": "B1",
+        "level": "A1",
         "id": "756",
         "english": "director",
         "alternatives": [
             "manager",
             "head"
         ],
-        "frequencyRank": 756,
+        "frequencyRank": 486,
         "inflections": "Noun: il direttore, i direttori",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A2",
         "english": "practical",
         "id": "583",
         "alternatives": [
@@ -511,15 +511,15 @@
             "functional"
         ],
         "italian": "pratico",
-        "frequencyRank": 583,
+        "frequencyRank": 2032,
         "inflections": "Adj: pratico, pratica, pratici, pratiche",
         "partOfSpeech": "adjective"
     },
     {
         "italian": "riuscire",
-        "level": "B1",
+        "level": "A1",
         "english": "to succeed",
-        "frequencyRank": 529,
+        "frequencyRank": 1010,
         "alternatives": [
             "to pull off",
             "manage"
@@ -532,16 +532,16 @@
             "well-being"
         ],
         "italian": "salute",
-        "frequencyRank": 646,
+        "frequencyRank": 502,
         "english": "health",
-        "level": "B1",
+        "level": "A1",
         "id": "646",
         "inflections": "Noun: la salute, le saluti",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 540,
+        "level": "A1",
+        "frequencyRank": 836,
         "italian": "scoprire",
         "id": "540",
         "english": "to discover",
@@ -552,13 +552,13 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 792,
+        "frequencyRank": 526,
         "alternatives": [
             "tune",
             "track"
         ],
         "italian": "canzone",
-        "level": "B1",
+        "level": "A2",
         "english": "song",
         "id": "792",
         "inflections": "Noun: la canzone, le canzoni",
@@ -566,9 +566,9 @@
     },
     {
         "italian": "evitare",
-        "level": "B1",
+        "level": "A1",
         "english": "to avoid",
-        "frequencyRank": 532,
+        "frequencyRank": 530,
         "alternatives": [
             "to dodge",
             "to prevent"
@@ -581,9 +581,9 @@
             "fairness"
         ],
         "italian": "giustizia",
-        "frequencyRank": 615,
+        "frequencyRank": 531,
         "english": "justice",
-        "level": "B1",
+        "level": "A1",
         "id": "615",
         "inflections": "Noun: la giustizia, le giustizie",
         "partOfSpeech": "noun"
@@ -595,9 +595,9 @@
             "target"
         ],
         "italian": "obiettivo",
-        "frequencyRank": 638,
+        "frequencyRank": 580,
         "english": "objective",
-        "level": "B1",
+        "level": "A1",
         "id": "638",
         "inflections": "Noun: l'obiettivo, gli obiettivi",
         "partOfSpeech": "noun"
@@ -608,9 +608,9 @@
             "power"
         ],
         "italian": "autorità",
-        "frequencyRank": 631,
+        "frequencyRank": 592,
         "english": "authority",
-        "level": "B1",
+        "level": "A1",
         "id": "631",
         "inflections": "Noun: l'autorità, le autorità",
         "partOfSpeech": "noun"
@@ -621,15 +621,15 @@
             "aspiration",
             "wish"
         ],
-        "level": "B1",
+        "level": "A2",
         "id": "707",
         "italian": "speranza",
-        "frequencyRank": 707,
+        "frequencyRank": 606,
         "inflections": "Noun: la speranza, le speranze",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 675,
+        "frequencyRank": 621,
         "id": "675",
         "italian": "energia",
         "english": "energy",
@@ -637,13 +637,13 @@
             "power",
             "vigor"
         ],
-        "level": "B1",
+        "level": "A2",
         "inflections": "Noun: l'energia, le energie",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 543,
+        "level": "A1",
+        "frequencyRank": 626,
         "italian": "raggiungere",
         "id": "543",
         "english": "to reach",
@@ -655,7 +655,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
+        "level": "A1",
         "english": "tradition",
         "id": "602",
         "alternatives": [
@@ -663,7 +663,7 @@
             "custom"
         ],
         "italian": "tradizione",
-        "frequencyRank": 602,
+        "frequencyRank": 647,
         "inflections": "Noun: la tradizione, le tradizioni",
         "partOfSpeech": "noun"
     },
@@ -674,9 +674,9 @@
             "effect"
         ],
         "italian": "conseguenza",
-        "frequencyRank": 634,
+        "frequencyRank": 650,
         "english": "consequence",
-        "level": "B1",
+        "level": "A1",
         "id": "634",
         "inflections": "Noun: la conseguenza, le conseguenze",
         "partOfSpeech": "noun"
@@ -687,28 +687,28 @@
             "faith",
             "confidence"
         ],
-        "level": "B1",
+        "level": "A2",
         "id": "706",
         "italian": "fiducia",
-        "frequencyRank": 706,
+        "frequencyRank": 654,
         "inflections": "Noun: la fiducia, le fiducie",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 793,
+        "frequencyRank": 727,
         "alternatives": [
             "device",
             "tool"
         ],
         "italian": "strumento",
-        "level": "B1",
+        "level": "A1",
         "english": "instrument",
         "id": "793",
         "inflections": "Noun: lo strumento, gli strumenti",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 690,
+        "frequencyRank": 672,
         "id": "690",
         "italian": "materia",
         "english": "subject",
@@ -717,26 +717,26 @@
             "topic",
             "field"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: la materia, le materie",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 788,
+        "frequencyRank": 852,
         "alternatives": [
             "figure",
             "role"
         ],
         "italian": "personaggio",
-        "level": "B1",
+        "level": "A1",
         "english": "character",
         "id": "788",
         "inflections": "Noun: il personaggio, i personaggi",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 571,
+        "level": "A2",
+        "frequencyRank": 675,
         "italian": "responsabile",
         "id": "571",
         "english": "responsible",
@@ -753,15 +753,15 @@
             "amendment"
         ],
         "italian": "riforma",
-        "frequencyRank": 645,
+        "frequencyRank": 687,
         "english": "reform",
-        "level": "B1",
+        "level": "A1",
         "id": "645",
         "inflections": "Noun: la riforma, le riforme",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 676,
+        "frequencyRank": 692,
         "id": "676",
         "italian": "ambiente",
         "english": "environment",
@@ -769,7 +769,7 @@
             "setting",
             "surroundings"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: l'ambiente, gli ambienti",
         "partOfSpeech": "noun"
     },
@@ -779,16 +779,16 @@
             "force"
         ],
         "italian": "violenza",
-        "frequencyRank": 627,
+        "frequencyRank": 707,
         "english": "violence",
-        "level": "B1",
+        "level": "A2",
         "id": "627",
         "inflections": "Noun: la violenza, le violenze",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 565,
+        "level": "A1",
+        "frequencyRank": 1223,
         "italian": "permettere",
         "id": "565",
         "english": "to allow",
@@ -804,50 +804,50 @@
             "sickness"
         ],
         "italian": "malattia",
-        "frequencyRank": 648,
+        "frequencyRank": 738,
         "english": "illness",
-        "level": "B1",
+        "level": "A2",
         "id": "648",
         "inflections": "Noun: la malattia, le malattie",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 664,
+        "frequencyRank": 764,
         "id": "664",
         "italian": "tecnologia",
         "english": "technology",
         "alternatives": [
             "tech"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: la tecnologia, le tecnologie",
         "partOfSpeech": "noun"
     },
     {
         "italian": "carriera",
-        "level": "B1",
+        "level": "A2",
         "id": "758",
         "english": "career",
         "alternatives": [
             "work",
             "profession"
         ],
-        "frequencyRank": 758,
+        "frequencyRank": 788,
         "inflections": "Noun: la carriera, le carriere",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A2",
         "english": "democracy",
         "id": "614",
         "alternatives": [],
         "italian": "democrazia",
-        "frequencyRank": 614,
+        "frequencyRank": 792,
         "inflections": "Noun: la democrazia, le democrazie",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 688,
+        "frequencyRank": 794,
         "id": "688",
         "italian": "esame",
         "english": "exam",
@@ -855,13 +855,13 @@
             "examination",
             "test"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: l'esame, gli esami",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 537,
+        "level": "A1",
+        "frequencyRank": 1136,
         "italian": "realizzare",
         "id": "537",
         "english": "to realize",
@@ -872,17 +872,17 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 783,
+        "frequencyRank": 826,
         "alternatives": [],
         "italian": "letteratura",
-        "level": "B1",
+        "level": "A2",
         "english": "literature",
         "id": "783",
         "inflections": "Noun: la letteratura, le letterature",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A2",
         "english": "nation",
         "id": "607",
         "alternatives": [
@@ -890,7 +890,7 @@
             "state"
         ],
         "italian": "nazione",
-        "frequencyRank": 607,
+        "frequencyRank": 848,
         "inflections": "Noun: la nazione, le nazioni",
         "partOfSpeech": "noun"
     },
@@ -900,18 +900,18 @@
             "prospect"
         ],
         "italian": "opportunità",
-        "frequencyRank": 623,
+        "frequencyRank": 849,
         "english": "opportunity",
-        "level": "B1",
+        "level": "A1",
         "id": "623",
         "inflections": "Noun: l'opportunità, le opportunità",
         "partOfSpeech": "noun"
     },
     {
         "italian": "offrire",
-        "level": "B1",
+        "level": "A1",
         "english": "to offer",
-        "frequencyRank": 503,
+        "frequencyRank": 1261,
         "alternatives": [
             "to provide",
             "to give"
@@ -920,18 +920,18 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 777,
+        "frequencyRank": 880,
         "alternatives": [],
         "italian": "lettura",
-        "level": "B1",
+        "level": "A1",
         "english": "reading",
         "id": "777",
         "inflections": "Noun: la lettura, le letture",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 556,
+        "level": "A1",
+        "frequencyRank": 884,
         "italian": "partecipare",
         "id": "556",
         "english": "to participate",
@@ -942,8 +942,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
-        "frequencyRank": 542,
+        "level": "A1",
+        "frequencyRank": 889,
         "italian": "risolvere",
         "id": "542",
         "english": "to solve",
@@ -954,8 +954,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
-        "frequencyRank": 545,
+        "level": "A1",
+        "frequencyRank": 898,
         "italian": "aumentare",
         "id": "545",
         "english": "to increase",
@@ -967,8 +967,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
-        "frequencyRank": 568,
+        "level": "A2",
+        "frequencyRank": 927,
         "italian": "salvare",
         "id": "568",
         "english": "to save",
@@ -987,12 +987,12 @@
             "stranger"
         ],
         "italian": "straniero",
-        "frequencyRank": 609,
+        "frequencyRank": 1647,
         "inflections": "Noun: lo straniero, gli stranieri",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 667,
+        "frequencyRank": 933,
         "id": "667",
         "italian": "applicazione",
         "english": "application",
@@ -1000,7 +1000,7 @@
             "use",
             "app"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: l'applicazione, le applicazioni",
         "partOfSpeech": "noun"
     },
@@ -1009,18 +1009,18 @@
             "dare"
         ],
         "italian": "sfida",
-        "frequencyRank": 624,
+        "frequencyRank": 958,
         "english": "challenge",
-        "level": "B1",
+        "level": "A2",
         "id": "624",
         "inflections": "Noun: la sfida, le sfide",
         "partOfSpeech": "noun"
     },
     {
         "italian": "combattere",
-        "level": "B1",
+        "level": "A2",
         "english": "to fight",
-        "frequencyRank": 527,
+        "frequencyRank": 965,
         "alternatives": [
             "battle",
             "to struggle",
@@ -1031,22 +1031,22 @@
     },
     {
         "italian": "dipendente",
-        "level": "B1",
+        "level": "A2",
         "id": "757",
         "english": "employee",
         "alternatives": [
             "worker",
             "staff member"
         ],
-        "frequencyRank": 757,
+        "frequencyRank": 1777,
         "inflections": "Noun: il dipendente, i dipendenti",
         "partOfSpeech": "noun"
     },
     {
         "italian": "accettare",
-        "level": "B1",
+        "level": "A1",
         "english": "to accept",
-        "frequencyRank": 501,
+        "frequencyRank": 981,
         "alternatives": [
             "to consent",
             "to agree"
@@ -1055,8 +1055,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
-        "frequencyRank": 552,
+        "level": "A1",
+        "frequencyRank": 982,
         "italian": "aggiungere",
         "id": "552",
         "english": "to add",
@@ -1067,7 +1067,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
+        "level": "A1",
         "english": "positive",
         "id": "592",
         "alternatives": [
@@ -1075,13 +1075,13 @@
             "optimistic"
         ],
         "italian": "positivo",
-        "frequencyRank": 592,
+        "frequencyRank": 989,
         "inflections": "Adj: positivo, positiva, positivi, positive",
         "partOfSpeech": "adjective"
     },
     {
-        "level": "B1",
-        "frequencyRank": 547,
+        "level": "A1",
+        "frequencyRank": 1024,
         "italian": "crescere",
         "id": "547",
         "english": "to grow",
@@ -1100,12 +1100,12 @@
         "level": "B1",
         "id": "702",
         "italian": "gioia",
-        "frequencyRank": 702,
+        "frequencyRank": 1028,
         "inflections": "Noun: la gioia, le gioie",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A1",
         "english": "modern",
         "id": "598",
         "alternatives": [
@@ -1113,26 +1113,26 @@
             "current"
         ],
         "italian": "moderno",
-        "frequencyRank": 598,
+        "frequencyRank": 1392,
         "inflections": "Adj: moderno, moderna, moderni, moderne",
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 800,
+        "frequencyRank": 1034,
         "alternatives": [
             "wealth",
             "assets",
             "patrimony"
         ],
         "italian": "patrimonio",
-        "level": "B1",
+        "level": "A2",
         "english": "heritage",
         "id": "800",
         "inflections": "Noun: il patrimonio, i patrimoni",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 775,
+        "frequencyRank": 1042,
         "alternatives": [
             "arena"
         ],
@@ -1149,18 +1149,18 @@
             "transformation"
         ],
         "italian": "cambiamento",
-        "frequencyRank": 644,
+        "frequencyRank": 1048,
         "english": "change",
-        "level": "B1",
+        "level": "A2",
         "id": "644",
         "inflections": "Noun: il cambiamento, i cambiamenti",
         "partOfSpeech": "noun"
     },
     {
         "italian": "dichiarare",
-        "level": "B1",
+        "level": "A1",
         "english": "to declare",
-        "frequencyRank": 509,
+        "frequencyRank": 2626,
         "alternatives": [
             "to announce",
             "to state",
@@ -1170,7 +1170,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 681,
+        "frequencyRank": 1055,
         "id": "681",
         "italian": "istruzione",
         "english": "education",
@@ -1178,7 +1178,7 @@
             "instruction",
             "training"
         ],
-        "level": "B1",
+        "level": "A1",
         "inflections": "Noun: l'istruzione, le istruzioni",
         "partOfSpeech": "noun"
     },
@@ -1188,15 +1188,15 @@
             "emotion",
             "sentiment"
         ],
-        "level": "B1",
+        "level": "A2",
         "id": "695",
         "italian": "sentimento",
-        "frequencyRank": 695,
+        "frequencyRank": 1585,
         "inflections": "Noun: il sentimento, i sentimenti",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A2",
         "english": "traditional",
         "id": "597",
         "alternatives": [
@@ -1204,15 +1204,15 @@
             "conventional"
         ],
         "italian": "tradizionale",
-        "frequencyRank": 597,
+        "frequencyRank": 1065,
         "inflections": "Adj: tradizionale, tradizionale, tradizionali, tradizionali",
         "partOfSpeech": "adjective"
     },
     {
         "italian": "dimostrare",
-        "level": "B1",
+        "level": "A1",
         "english": "to demonstrate",
-        "frequencyRank": 517,
+        "frequencyRank": 1074,
         "alternatives": [
             "prove",
             "to show"
@@ -1222,9 +1222,9 @@
     },
     {
         "italian": "gestire",
-        "level": "B1",
+        "level": "A1",
         "english": "to manage",
-        "frequencyRank": 533,
+        "frequencyRank": 1077,
         "alternatives": [
             "to run",
             "to handle"
@@ -1233,8 +1233,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
-        "frequencyRank": 564,
+        "level": "A2",
+        "frequencyRank": 4772,
         "italian": "preferire",
         "id": "564",
         "english": "to prefer",
@@ -1246,26 +1246,26 @@
     },
     {
         "italian": "promozione",
-        "level": "B1",
+        "level": "A2",
         "id": "759",
         "english": "promotion",
         "alternatives": [
             "advancement",
             "advertising"
         ],
-        "frequencyRank": 759,
+        "frequencyRank": 1082,
         "inflections": "Noun: la promozione, le promozioni",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 786,
+        "frequencyRank": 1084,
         "alternatives": [
             "tale",
             "narrative",
             "story"
         ],
         "italian": "racconto",
-        "level": "B1",
+        "level": "A2",
         "english": "short story",
         "id": "786",
         "inflections": "Noun: il racconto, i racconti",
@@ -1277,15 +1277,15 @@
             "clash"
         ],
         "italian": "conflitto",
-        "frequencyRank": 619,
+        "frequencyRank": 1094,
         "english": "conflict",
-        "level": "B1",
+        "level": "A2",
         "id": "619",
         "inflections": "Noun: il conflitto, i conflitti",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 685,
+        "frequencyRank": 1099,
         "id": "685",
         "italian": "facoltà",
         "english": "faculty",
@@ -1293,12 +1293,12 @@
             "university department",
             "department"
         ],
-        "level": "B1",
+        "level": "A2",
         "inflections": "Noun: la facoltà, le facoltà",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 692,
+        "frequencyRank": 1113,
         "id": "692",
         "italian": "tesi",
         "english": "thesis",
@@ -1306,17 +1306,17 @@
             "argument",
             "dissertation"
         ],
-        "level": "B1",
+        "level": "A2",
         "inflections": "Noun: la tesi, le tesi",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 784,
+        "frequencyRank": 1122,
         "alternatives": [
             "poem"
         ],
         "italian": "poesia",
-        "level": "B1",
+        "level": "A2",
         "english": "poetry",
         "id": "784",
         "inflections": "Noun: la poesia, le poesie",
@@ -1324,9 +1324,9 @@
     },
     {
         "italian": "organizzare",
-        "level": "B1",
+        "level": "A1",
         "english": "to organise",
-        "frequencyRank": 534,
+        "frequencyRank": 1439,
         "alternatives": [
             "organize",
             "to arrange",
@@ -1337,9 +1337,9 @@
     },
     {
         "italian": "proporre",
-        "level": "B1",
+        "level": "A1",
         "english": "to propose",
-        "frequencyRank": 504,
+        "frequencyRank": 2000,
         "alternatives": [
             "to suggest",
             "to offer"
@@ -1348,7 +1348,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 686,
+        "frequencyRank": 1156,
         "id": "686",
         "italian": "laurea",
         "english": "degree",
@@ -1356,7 +1356,7 @@
             "university degree",
             "graduation"
         ],
-        "level": "B1",
+        "level": "A2",
         "inflections": "Noun: la laurea, le lauree",
         "partOfSpeech": "noun"
     },
@@ -1369,12 +1369,12 @@
             "fishing",
             "peach tree"
         ],
-        "frequencyRank": 745,
+        "frequencyRank": 1731,
         "inflections": "Noun: la pesca, le pesche",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 785,
+        "frequencyRank": 1162,
         "alternatives": [
             "fiction",
             "book"
@@ -1387,8 +1387,8 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 554,
+        "level": "A1",
+        "frequencyRank": 1167,
         "italian": "condividere",
         "id": "554",
         "english": "to share",
@@ -1396,7 +1396,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
+        "level": "A2",
         "english": "independent",
         "id": "599",
         "alternatives": [
@@ -1404,15 +1404,15 @@
             "self-sufficient"
         ],
         "italian": "indipendente",
-        "frequencyRank": 599,
+        "frequencyRank": 1190,
         "inflections": "Adj: indipendente, indipendente, indipendenti, indipendenti",
         "partOfSpeech": "adjective"
     },
     {
         "italian": "difendere",
-        "level": "B1",
+        "level": "A2",
         "english": "to defend",
-        "frequencyRank": 515,
+        "frequencyRank": 1209,
         "alternatives": [
             "to support",
             "to protect"
@@ -1421,7 +1421,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 779,
+        "frequencyRank": 1213,
         "alternatives": [
             "photograph",
             "photo"
@@ -1434,8 +1434,8 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 569,
+        "level": "A1",
+        "frequencyRank": 1397,
         "italian": "raccogliere",
         "id": "569",
         "english": "to collect",
@@ -1447,9 +1447,9 @@
     },
     {
         "italian": "affermare",
-        "level": "B1",
+        "level": "A1",
         "english": "to affirm",
-        "frequencyRank": 510,
+        "frequencyRank": 2184,
         "alternatives": [
             "to state",
             "claim",
@@ -1464,16 +1464,16 @@
             "felony"
         ],
         "italian": "crimine",
-        "frequencyRank": 628,
+        "frequencyRank": 1253,
         "english": "crime",
-        "level": "B1",
+        "level": "B2",
         "id": "628",
         "inflections": "Noun: il crimine, i crimini",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 567,
+        "level": "A2",
+        "frequencyRank": 1264,
         "italian": "proteggere",
         "id": "567",
         "english": "to protect",
@@ -1484,13 +1484,13 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 790,
+        "frequencyRank": 1282,
         "alternatives": [
             "filmmaker",
             "film director"
         ],
         "italian": "regista",
-        "level": "B1",
+        "level": "A2",
         "english": "director",
         "id": "790",
         "inflections": "Noun: il regista, i registi",
@@ -1502,15 +1502,15 @@
             "rage",
             "fury"
         ],
-        "level": "B1",
+        "level": "B2",
         "id": "698",
         "italian": "rabbia",
-        "frequencyRank": 698,
+        "frequencyRank": 1298,
         "inflections": "Noun: la rabbia, le rabbie",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A2",
         "english": "effective",
         "id": "590",
         "alternatives": [
@@ -1518,7 +1518,7 @@
             "efficient"
         ],
         "italian": "efficace",
-        "frequencyRank": 590,
+        "frequencyRank": 1315,
         "inflections": "Adj: efficace, efficace, efficaci, efficaci",
         "partOfSpeech": "adjective"
     },
@@ -1530,7 +1530,7 @@
         "level": "B1",
         "id": "713",
         "italian": "curiosità",
-        "frequencyRank": 713,
+        "frequencyRank": 1328,
         "inflections": "Noun: la curiosità, le curiosità",
         "partOfSpeech": "noun"
     },
@@ -1540,10 +1540,10 @@
             "excitement",
             "feeling"
         ],
-        "level": "B1",
+        "level": "A2",
         "id": "694",
         "italian": "emozione",
-        "frequencyRank": 694,
+        "frequencyRank": 2735,
         "inflections": "Noun: l'emozione, le emozioni",
         "partOfSpeech": "noun"
     },
@@ -1553,7 +1553,7 @@
             "bankruptcy"
         ],
         "italian": "fallimento",
-        "frequencyRank": 641,
+        "frequencyRank": 1330,
         "english": "failure",
         "level": "B1",
         "id": "641",
@@ -1561,7 +1561,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A1",
         "english": "precise",
         "id": "588",
         "alternatives": [
@@ -1570,15 +1570,15 @@
             "exact"
         ],
         "italian": "preciso",
-        "frequencyRank": 588,
+        "frequencyRank": 1396,
         "inflections": "Adj: preciso, precisa, precisi, precise",
         "partOfSpeech": "adjective"
     },
     {
         "italian": "annunciare",
-        "level": "B1",
+        "level": "A2",
         "english": "to announce",
-        "frequencyRank": 508,
+        "frequencyRank": 4330,
         "alternatives": [
             "proclaim",
             "declare"
@@ -1587,12 +1587,12 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 791,
+        "frequencyRank": 1425,
         "alternatives": [
             "performer"
         ],
         "italian": "attore",
-        "level": "B1",
+        "level": "A2",
         "english": "actor",
         "id": "791",
         "inflections": "Noun: l'attore, gli attori",
@@ -1600,9 +1600,9 @@
     },
     {
         "italian": "confermare",
-        "level": "B1",
+        "level": "A1",
         "english": "to confirm",
-        "frequencyRank": 512,
+        "frequencyRank": 2266,
         "alternatives": [
             "validate",
             "verify"
@@ -1616,15 +1616,15 @@
             "dishonesty"
         ],
         "italian": "corruzione",
-        "frequencyRank": 629,
+        "frequencyRank": 1429,
         "english": "corruption",
-        "level": "B1",
+        "level": "C1",
         "id": "629",
         "inflections": "Noun: la corruzione, le corruzioni",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 671,
+        "frequencyRank": 1446,
         "id": "671",
         "italian": "schermo",
         "english": "screen",
@@ -1637,8 +1637,8 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 551,
+        "level": "A2",
+        "frequencyRank": 1457,
         "italian": "eliminare",
         "id": "551",
         "english": "to eliminate",
@@ -1650,7 +1650,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 798,
+        "frequencyRank": 1458,
         "alternatives": [
             "tunnel",
             "exhibition hall"
@@ -1663,7 +1663,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A2",
         "english": "negative",
         "id": "593",
         "alternatives": [
@@ -1671,12 +1671,12 @@
             "bad"
         ],
         "italian": "negativo",
-        "frequencyRank": 593,
+        "frequencyRank": 1464,
         "inflections": "Adj: negativo, negativa, negativi, negative",
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 782,
+        "frequencyRank": 1477,
         "alternatives": [
             "building design"
         ],
@@ -1688,7 +1688,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 658,
+        "frequencyRank": 1512,
         "id": "658",
         "italian": "ansia",
         "english": "anxiety",
@@ -1696,13 +1696,13 @@
             "unease",
             "worry"
         ],
-        "level": "B1",
+        "level": "B2",
         "inflections": "Noun: l'ansia, le ansie",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 566,
+        "level": "A2",
+        "frequencyRank": 1518,
         "italian": "impedire",
         "id": "566",
         "english": "to prevent",
@@ -1720,7 +1720,7 @@
             "counseling"
         ],
         "italian": "terapia",
-        "frequencyRank": 651,
+        "frequencyRank": 1528,
         "english": "therapy",
         "level": "B1",
         "id": "651",
@@ -1729,9 +1729,9 @@
     },
     {
         "italian": "giudicare",
-        "level": "B1",
+        "level": "A2",
         "english": "to judge",
-        "frequencyRank": 522,
+        "frequencyRank": 1546,
         "alternatives": [
             "decide",
             "assess"
@@ -1741,21 +1741,21 @@
     },
     {
         "italian": "pera",
-        "level": "B1",
+        "level": "C1",
         "id": "738",
         "english": "pear",
         "alternatives": [
             "fruit"
         ],
-        "frequencyRank": 738,
+        "frequencyRank": 6384,
         "inflections": "Noun: la pera, le pere",
         "partOfSpeech": "noun"
     },
     {
         "italian": "ammettere",
-        "level": "B1",
+        "level": "A1",
         "english": "to admit",
-        "frequencyRank": 513,
+        "frequencyRank": 1617,
         "alternatives": [
             "to acknowledge",
             "accept",
@@ -1767,9 +1767,9 @@
     },
     {
         "italian": "comunicare",
-        "level": "B1",
+        "level": "A1",
         "english": "to communicate",
-        "frequencyRank": 507,
+        "frequencyRank": 1624,
         "alternatives": [
             "inform",
             "convey"
@@ -1779,9 +1779,9 @@
     },
     {
         "italian": "tentare",
-        "level": "B1",
+        "level": "A2",
         "english": "to attempt",
-        "frequencyRank": 530,
+        "frequencyRank": 2153,
         "alternatives": [
             "to try",
             "test"
@@ -1797,20 +1797,20 @@
             "wellness"
         ],
         "italian": "benessere",
-        "frequencyRank": 647,
+        "frequencyRank": 1656,
         "english": "wellbeing",
         "level": "B1",
         "id": "647",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 769,
+        "frequencyRank": 1701,
         "alternatives": [
             "fitness center",
             "fitness centre"
         ],
         "italian": "palestra",
-        "level": "B1",
+        "level": "C1",
         "english": "gym",
         "id": "769",
         "inflections": "Noun: la palestra, le palestre",
@@ -1825,15 +1825,15 @@
             "strike (labor)",
             "walkout"
         ],
-        "frequencyRank": 764,
+        "frequencyRank": 1709,
         "inflections": "Noun: lo sciopero, gli scioperi",
         "partOfSpeech": "noun"
     },
     {
         "italian": "sviluppare",
-        "level": "B1",
+        "level": "A1",
         "english": "to develop",
-        "frequencyRank": 536,
+        "frequencyRank": 1713,
         "alternatives": [
             "grow",
             "expand"
@@ -1843,9 +1843,9 @@
     },
     {
         "italian": "valutare",
-        "level": "B1",
+        "level": "A1",
         "english": "to evaluate",
-        "frequencyRank": 521,
+        "frequencyRank": 1745,
         "alternatives": [
             "estimate",
             "appraise",
@@ -1859,15 +1859,15 @@
         "alternatives": [
             "farming"
         ],
-        "level": "B1",
+        "level": "A2",
         "id": "717",
         "italian": "agricoltura",
-        "frequencyRank": 717,
+        "frequencyRank": 1749,
         "inflections": "Noun: l'agricoltura, le agricolture",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 665,
+        "frequencyRank": 1756,
         "id": "665",
         "italian": "innovazione",
         "english": "innovation",
@@ -1875,15 +1875,15 @@
             "modernization",
             "breakthrough"
         ],
-        "level": "B1",
+        "level": "A2",
         "inflections": "Noun: l'innovazione, le innovazioni",
         "partOfSpeech": "noun"
     },
     {
         "italian": "verificare",
-        "level": "B1",
+        "level": "A1",
         "english": "to verify",
-        "frequencyRank": 518,
+        "frequencyRank": 1767,
         "alternatives": [
             "check",
             "validate"
@@ -1897,10 +1897,10 @@
             "self-respect",
             "dignity"
         ],
-        "level": "B1",
+        "level": "B2",
         "id": "705",
         "italian": "orgoglio",
-        "frequencyRank": 705,
+        "frequencyRank": 1787,
         "inflections": "Noun: l'orgoglio, gli orgogli",
         "partOfSpeech": "noun"
     },
@@ -1913,15 +1913,15 @@
         "level": "B1",
         "id": "704",
         "italian": "soddisfazione",
-        "frequencyRank": 704,
+        "frequencyRank": 1795,
         "inflections": "Noun: la soddisfazione, le soddisfazioni",
         "partOfSpeech": "noun"
     },
     {
         "italian": "rischiare",
-        "level": "B1",
+        "level": "A2",
         "english": "to risk",
-        "frequencyRank": 531,
+        "frequencyRank": 2643,
         "alternatives": [
             "to gamble",
             "to venture"
@@ -1930,13 +1930,13 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 780,
+        "frequencyRank": 1901,
         "alternatives": [
             "paint",
             "art"
         ],
         "italian": "pittura",
-        "level": "B1",
+        "level": "B2",
         "english": "painting",
         "id": "780",
         "inflections": "Noun: la pittura, le pitture",
@@ -1946,7 +1946,7 @@
         "italian": "accusare",
         "level": "B1",
         "english": "to accuse",
-        "frequencyRank": 514,
+        "frequencyRank": 4608,
         "alternatives": [
             "to charge",
             "to blame"
@@ -1963,7 +1963,7 @@
         "level": "B1",
         "id": "703",
         "italian": "entusiasmo",
-        "frequencyRank": 703,
+        "frequencyRank": 1952,
         "inflections": "Noun: l'entusiasmo, gli entusiasmi",
         "partOfSpeech": "noun"
     },
@@ -1973,7 +1973,7 @@
             "advancement"
         ],
         "italian": "progresso",
-        "frequencyRank": 642,
+        "frequencyRank": 1968,
         "english": "progress",
         "level": "B1",
         "id": "642",
@@ -1986,15 +1986,15 @@
             "sorrow",
             "unhappiness"
         ],
-        "level": "B1",
+        "level": "C1",
         "id": "701",
         "italian": "tristezza",
-        "frequencyRank": 701,
+        "frequencyRank": 1972,
         "inflections": "Noun: la tristezza, le tristezze",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 659,
+        "frequencyRank": 1984,
         "id": "659",
         "italian": "depressione",
         "english": "depression",
@@ -2002,12 +2002,12 @@
             "despondency",
             "gloom"
         ],
-        "level": "B1",
+        "level": "C2",
         "inflections": "Noun: la depressione, le depressioni",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 799,
+        "frequencyRank": 3218,
         "alternatives": [
             "exhibit",
             "exhibits",
@@ -2027,22 +2027,22 @@
             "indication"
         ],
         "italian": "sintomo",
-        "frequencyRank": 649,
+        "frequencyRank": 4081,
         "english": "symptom",
-        "level": "B1",
+        "level": "B2",
         "id": "649",
         "inflections": "Noun: il sintomo, i sintomi",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 770,
+        "frequencyRank": 2010,
         "alternatives": [
             "practice",
             "workout",
             "coaching"
         ],
         "italian": "allenamento",
-        "level": "B1",
+        "level": "C1",
         "english": "training",
         "id": "770",
         "inflections": "Noun: l'allenamento, gli allenamenti",
@@ -2058,7 +2058,7 @@
             "businessperson",
             "business owner"
         ],
-        "frequencyRank": 754,
+        "frequencyRank": 2141,
         "inflections": "Noun: l'imprenditore, gli imprenditori",
         "partOfSpeech": "noun"
     },
@@ -2067,28 +2067,28 @@
             "precaution"
         ],
         "italian": "prevenzione",
-        "frequencyRank": 654,
+        "frequencyRank": 2034,
         "english": "prevention",
-        "level": "B1",
+        "level": "A2",
         "id": "654",
         "inflections": "Noun: la prevenzione, le prevenzioni",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 794,
+        "frequencyRank": 2055,
         "alternatives": [
             "electric guitar",
             "acoustic guitar"
         ],
         "italian": "chitarra",
-        "level": "B1",
+        "level": "B2",
         "english": "guitar",
         "id": "794",
         "inflections": "Noun: la chitarra, le chitarre",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 674,
+        "frequencyRank": 2059,
         "id": "674",
         "italian": "dispositivo",
         "english": "device",
@@ -2102,9 +2102,9 @@
     },
     {
         "italian": "rinunciare",
-        "level": "B1",
+        "level": "A2",
         "english": "to give up",
-        "frequencyRank": 525,
+        "frequencyRank": 2072,
         "alternatives": [
             "to forgo",
             "renounce",
@@ -2114,8 +2114,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
-        "frequencyRank": 550,
+        "level": "A2",
+        "frequencyRank": 3448,
         "italian": "aggiornare",
         "id": "550",
         "english": "to update",
@@ -2126,8 +2126,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
-        "frequencyRank": 549,
+        "level": "A1",
+        "frequencyRank": 2107,
         "italian": "modificare",
         "id": "549",
         "english": "to modify",
@@ -2139,9 +2139,9 @@
     },
     {
         "italian": "negare",
-        "level": "B1",
+        "level": "A2",
         "english": "to deny",
-        "frequencyRank": 511,
+        "frequencyRank": 2108,
         "alternatives": [
             "to reject",
             "to negate",
@@ -2154,7 +2154,7 @@
         "italian": "resistere",
         "level": "B1",
         "english": "to resist",
-        "frequencyRank": 526,
+        "frequencyRank": 2118,
         "alternatives": [
             "withstand",
             "to endure"
@@ -2163,8 +2163,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
-        "frequencyRank": 557,
+        "level": "A1",
+        "frequencyRank": 2267,
         "italian": "contribuire",
         "id": "557",
         "english": "to contribute",
@@ -2175,8 +2175,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
-        "frequencyRank": 563,
+        "level": "A2",
+        "frequencyRank": 2181,
         "italian": "soddisfare",
         "id": "563",
         "english": "to satisfy",
@@ -2188,7 +2188,7 @@
     },
     {
         "level": "B1",
-        "frequencyRank": 562,
+        "frequencyRank": 6105,
         "italian": "sorprendere",
         "id": "562",
         "english": "to surprise",
@@ -2200,19 +2200,19 @@
     },
     {
         "italian": "pollo",
-        "level": "B1",
+        "level": "A2",
         "id": "749",
         "english": "chicken",
         "alternatives": [
             "poultry"
         ],
-        "frequencyRank": 749,
+        "frequencyRank": 2252,
         "inflections": "Noun: il pollo, i polli",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 548,
+        "level": "A1",
+        "frequencyRank": 2262,
         "italian": "trasformare",
         "id": "548",
         "english": "to transform",
@@ -2228,18 +2228,18 @@
             "assessment"
         ],
         "italian": "diagnosi",
-        "frequencyRank": 650,
+        "frequencyRank": 2304,
         "english": "diagnosis",
-        "level": "B1",
+        "level": "B2",
         "id": "650",
         "inflections": "Noun: la diagnosi, le diagnosi",
         "partOfSpeech": "noun"
     },
     {
         "italian": "rifiutare",
-        "level": "B1",
+        "level": "A2",
         "english": "to refuse",
-        "frequencyRank": 502,
+        "frequencyRank": 3178,
         "alternatives": [
             "to reject",
             "to decline"
@@ -2248,14 +2248,14 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 672,
+        "frequencyRank": 2325,
         "id": "672",
         "italian": "tastiera",
         "english": "keyboard",
         "alternatives": [
             "keypad"
         ],
-        "level": "B1",
+        "level": "C1",
         "inflections": "Noun: la tastiera, le tastiere",
         "partOfSpeech": "noun"
     },
@@ -2267,15 +2267,15 @@
         "level": "B1",
         "id": "730",
         "italian": "patata",
-        "frequencyRank": 730,
+        "frequencyRank": 4481,
         "inflections": "Noun: la patata, le patate",
         "partOfSpeech": "noun"
     },
     {
         "italian": "giustificare",
-        "level": "B1",
+        "level": "A2",
         "english": "to justify",
-        "frequencyRank": 516,
+        "frequencyRank": 2378,
         "alternatives": [
             "to defend",
             "excuse",
@@ -2285,8 +2285,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
-        "frequencyRank": 553,
+        "level": "A2",
+        "frequencyRank": 3202,
         "italian": "dividere",
         "id": "553",
         "english": "to divide",
@@ -2297,8 +2297,8 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
-        "frequencyRank": 560,
+        "level": "A2",
+        "frequencyRank": 3029,
         "italian": "preoccupare",
         "id": "560",
         "english": "to worry",
@@ -2315,16 +2315,16 @@
             "aloneness",
             "solitude"
         ],
-        "level": "B1",
+        "level": "B2",
         "id": "715",
         "italian": "solitudine",
-        "frequencyRank": 715,
+        "frequencyRank": 2433,
         "inflections": "Noun: la solitudine, le solitudini",
         "partOfSpeech": "noun"
     },
     {
         "italian": "assunzione",
-        "level": "B1",
+        "level": "A2",
         "id": "760",
         "english": "hiring",
         "alternatives": [
@@ -2332,12 +2332,12 @@
             "recruitment",
             "employment"
         ],
-        "frequencyRank": 760,
+        "frequencyRank": 2439,
         "inflections": "Noun: l'assunzione, le assunzioni",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A2",
         "english": "autonomous",
         "id": "600",
         "alternatives": [
@@ -2346,13 +2346,13 @@
             "self-sufficient"
         ],
         "italian": "autonomo",
-        "frequencyRank": 600,
+        "frequencyRank": 2529,
         "inflections": "Adj: autonomo, autonoma, autonomi, autonome",
         "partOfSpeech": "adjective"
     },
     {
-        "level": "B1",
-        "frequencyRank": 555,
+        "level": "A2",
+        "frequencyRank": 2621,
         "italian": "collaborare",
         "id": "555",
         "english": "to collaborate",
@@ -2364,9 +2364,9 @@
     },
     {
         "italian": "criticare",
-        "level": "B1",
+        "level": "B2",
         "english": "to criticise",
-        "frequencyRank": 523,
+        "frequencyRank": 2661,
         "alternatives": [
             "to critique",
             "to judge",
@@ -2376,7 +2376,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
+        "level": "B2",
         "english": "rational",
         "id": "582",
         "alternatives": [
@@ -2384,7 +2384,7 @@
             "reasonable"
         ],
         "italian": "razionale",
-        "frequencyRank": 582,
+        "frequencyRank": 2713,
         "inflections": "Adj: razionale, razionale, razionali, razionali",
         "partOfSpeech": "adjective"
     },
@@ -2396,15 +2396,15 @@
         "level": "B1",
         "id": "714",
         "italian": "noia",
-        "frequencyRank": 714,
+        "frequencyRank": 2748,
         "inflections": "Noun: la noia, le noie",
         "partOfSpeech": "noun"
     },
     {
         "italian": "analizzare",
-        "level": "B1",
+        "level": "A2",
         "english": "to analyse",
-        "frequencyRank": 520,
+        "frequencyRank": 2772,
         "alternatives": [
             "to study",
             "to analyze",
@@ -2414,7 +2414,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 677,
+        "frequencyRank": 2825,
         "id": "677",
         "italian": "inquinamento",
         "english": "pollution",
@@ -2427,7 +2427,7 @@
     },
     {
         "level": "B1",
-        "frequencyRank": 546,
+        "frequencyRank": 2906,
         "italian": "diminuire",
         "id": "546",
         "english": "to decrease",
@@ -2440,17 +2440,17 @@
     },
     {
         "italian": "mela",
-        "level": "B1",
+        "level": "C2",
         "id": "737",
         "english": "apple",
         "alternatives": [],
-        "frequencyRank": 737,
+        "frequencyRank": 2920,
         "inflections": "Noun: la mela, le mele",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 572,
+        "level": "C1",
+        "frequencyRank": 2942,
         "italian": "affidabile",
         "id": "572",
         "english": "reliable",
@@ -2467,7 +2467,7 @@
         "id": "766",
         "english": "swimming",
         "alternatives": [],
-        "frequencyRank": 766,
+        "frequencyRank": 3071,
         "inflections": "Noun: il nuoto, i nuoti",
         "partOfSpeech": "noun"
     },
@@ -2480,15 +2480,15 @@
         "level": "B1",
         "id": "725",
         "italian": "biologico",
-        "frequencyRank": 725,
+        "frequencyRank": 3096,
         "inflections": "Adj: biologico, biologica, biologici, biologiche",
         "partOfSpeech": "adjective"
     },
     {
         "italian": "consigliare",
-        "level": "B1",
+        "level": "A2",
         "english": "to advise",
-        "frequencyRank": 505,
+        "frequencyRank": 4683,
         "alternatives": [
             "to recommend",
             "to suggest"
@@ -2497,12 +2497,12 @@
         "partOfSpeech": "verb"
     },
     {
-        "frequencyRank": 656,
+        "frequencyRank": 3162,
         "id": "656",
         "italian": "infezione",
         "english": "infection",
         "alternatives": [],
-        "level": "B1",
+        "level": "C1",
         "inflections": "Noun: l'infezione, le infezioni",
         "partOfSpeech": "noun"
     },
@@ -2512,12 +2512,12 @@
         "id": "740",
         "english": "lemon",
         "alternatives": [],
-        "frequencyRank": 740,
+        "frequencyRank": 3164,
         "inflections": "Noun: il limone, i limoni",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 795,
+        "frequencyRank": 3173,
         "alternatives": [],
         "italian": "pianoforte",
         "level": "B1",
@@ -2527,10 +2527,10 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 781,
+        "frequencyRank": 3180,
         "alternatives": [],
         "italian": "scultura",
-        "level": "B1",
+        "level": "C1",
         "english": "sculpture",
         "id": "781",
         "inflections": "Noun: la scultura, le sculture",
@@ -2538,7 +2538,7 @@
     },
     {
         "italian": "licenziamento",
-        "level": "B1",
+        "level": "C1",
         "id": "761",
         "english": "dismissal",
         "alternatives": [
@@ -2546,7 +2546,7 @@
             "redundancy",
             "layoff"
         ],
-        "frequencyRank": 761,
+        "frequencyRank": 3214,
         "inflections": "Noun: il licenziamento, i licenziamenti",
         "partOfSpeech": "noun"
     },
@@ -2559,17 +2559,17 @@
             "imaginative"
         ],
         "italian": "creativo",
-        "frequencyRank": 581,
+        "frequencyRank": 3246,
         "inflections": "Adj: creativo, creativa, creativi, creative",
         "partOfSpeech": "adjective"
     },
     {
         "english": "tomato",
         "alternatives": [],
-        "level": "B1",
+        "level": "C2",
         "id": "729",
         "italian": "pomodoro",
-        "frequencyRank": 729,
+        "frequencyRank": 3322,
         "inflections": "Noun: il pomodoro, i pomodori",
         "partOfSpeech": "noun"
     },
@@ -2579,12 +2579,12 @@
         "level": "B1",
         "id": "720",
         "italian": "proteina",
-        "frequencyRank": 720,
+        "frequencyRank": 7063,
         "inflections": "Noun: la proteina, le proteine",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 683,
+        "frequencyRank": 3339,
         "id": "683",
         "italian": "apprendimento",
         "english": "learning",
@@ -2596,7 +2596,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 774,
+        "frequencyRank": 3340,
         "alternatives": [
             "arbiter",
             "umpire"
@@ -2617,13 +2617,13 @@
         "level": "B1",
         "id": "710",
         "italian": "compassione",
-        "frequencyRank": 710,
+        "frequencyRank": 3342,
         "inflections": "Noun: la compassione, le compassioni",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 570,
+        "level": "A2",
+        "frequencyRank": 3903,
         "italian": "distribuire",
         "id": "570",
         "english": "to distribute",
@@ -2639,7 +2639,7 @@
             "healing"
         ],
         "italian": "guarigione",
-        "frequencyRank": 653,
+        "frequencyRank": 3416,
         "english": "recovery",
         "level": "B1",
         "id": "653",
@@ -2647,7 +2647,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "A2",
         "english": "productive",
         "id": "591",
         "alternatives": [
@@ -2655,13 +2655,13 @@
             "fruitful"
         ],
         "italian": "produttivo",
-        "frequencyRank": 591,
+        "frequencyRank": 3430,
         "inflections": "Adj: produttivo, produttiva, produttivi, produttive",
         "partOfSpeech": "adjective"
     },
     {
         "level": "B1",
-        "frequencyRank": 558,
+        "frequencyRank": 3443,
         "italian": "supportare",
         "id": "558",
         "english": "to support",
@@ -2680,17 +2680,17 @@
         "alternatives": [
             "grape"
         ],
-        "frequencyRank": 742,
+        "frequencyRank": 3563,
         "inflections": "Noun: l'uva, le uve",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 661,
+        "frequencyRank": 3568,
         "id": "661",
         "italian": "chirurgo",
         "english": "surgeon",
         "alternatives": [],
-        "level": "B1",
+        "level": "B2",
         "inflections": "Noun: il chirurgo, i chirurghi",
         "partOfSpeech": "noun"
     },
@@ -2700,7 +2700,7 @@
         "level": "B1",
         "id": "727",
         "italian": "aglio",
-        "frequencyRank": 727,
+        "frequencyRank": 3702,
         "inflections": "Noun: l'aglio, gli agli",
         "partOfSpeech": "noun"
     },
@@ -2713,13 +2713,13 @@
         "level": "B1",
         "id": "699",
         "italian": "gelosia",
-        "frequencyRank": 699,
+        "frequencyRank": 3720,
         "inflections": "Noun: la gelosia, le gelosie",
         "partOfSpeech": "noun"
     },
     {
         "level": "B1",
-        "frequencyRank": 541,
+        "frequencyRank": 4721,
         "italian": "ricercare",
         "id": "541",
         "english": "to research",
@@ -2735,15 +2735,15 @@
             "parity"
         ],
         "italian": "uguaglianza",
-        "frequencyRank": 616,
+        "frequencyRank": 3783,
         "english": "equality",
-        "level": "B1",
+        "level": "C1",
         "id": "616",
         "inflections": "Noun: l'uguaglianza, le uguaglianze",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "C1",
         "english": "generous",
         "id": "577",
         "alternatives": [
@@ -2752,12 +2752,12 @@
             "bountiful"
         ],
         "italian": "generoso",
-        "frequencyRank": 577,
+        "frequencyRank": 3803,
         "inflections": "Adj: generoso, generosa, generosi, generose",
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 662,
+        "frequencyRank": 3826,
         "id": "662",
         "italian": "specialista",
         "english": "specialist",
@@ -2765,25 +2765,25 @@
             "expert",
             "consultant"
         ],
-        "level": "B1",
+        "level": "B2",
         "inflections": "Noun: lo specialista, gli specialisti",
         "partOfSpeech": "noun"
     },
     {
         "italian": "ciclismo",
-        "level": "B1",
+        "level": "C1",
         "id": "767",
         "english": "cycling",
         "alternatives": [
             "bicycle racing",
             "bike riding"
         ],
-        "frequencyRank": 767,
+        "frequencyRank": 3852,
         "inflections": "Noun: il ciclismo, i ciclismi",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 678,
+        "frequencyRank": 3878,
         "id": "678",
         "italian": "sostenibilità",
         "english": "sustainability",
@@ -2795,7 +2795,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "B2",
         "english": "brave",
         "id": "575",
         "alternatives": [
@@ -2804,15 +2804,15 @@
             "bold"
         ],
         "italian": "coraggioso",
-        "frequencyRank": 575,
+        "frequencyRank": 3897,
         "inflections": "Adj: coraggioso, coraggiosa, coraggiosi, coraggiose",
         "partOfSpeech": "adjective"
     },
     {
         "italian": "fallire",
-        "level": "B1",
+        "level": "B2",
         "english": "to fail",
-        "frequencyRank": 528,
+        "frequencyRank": 3907,
         "alternatives": [
             "to go bankrupt",
             "to be unsuccessful",
@@ -2822,7 +2822,7 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
+        "level": "C1",
         "english": "optimistic",
         "id": "594",
         "alternatives": [
@@ -2831,7 +2831,7 @@
             "positive"
         ],
         "italian": "ottimista",
-        "frequencyRank": 594,
+        "frequencyRank": 3928,
         "inflections": "Adj: ottimista, ottimista, ottimisti, ottimiste",
         "partOfSpeech": "adjective"
     },
@@ -2841,7 +2841,7 @@
         "level": "B1",
         "id": "728",
         "italian": "cipolla",
-        "frequencyRank": 728,
+        "frequencyRank": 3953,
         "inflections": "Noun: la cipolla, le cipolle",
         "partOfSpeech": "noun"
     },
@@ -2853,7 +2853,7 @@
         "alternatives": [
             "tuna fish"
         ],
-        "frequencyRank": 751,
+        "frequencyRank": 3994,
         "inflections": "Noun: il tonno, i tonni",
         "partOfSpeech": "noun"
     },
@@ -2866,7 +2866,7 @@
         "level": "B1",
         "id": "712",
         "italian": "ammirazione",
-        "frequencyRank": 712,
+        "frequencyRank": 4040,
         "inflections": "Noun: l'ammirazione, le ammirazioni",
         "partOfSpeech": "noun"
     },
@@ -2876,18 +2876,18 @@
             "dissatisfaction",
             "annoyance"
         ],
-        "level": "B1",
+        "level": "C1",
         "id": "697",
         "italian": "frustrazione",
-        "frequencyRank": 697,
+        "frequencyRank": 4172,
         "inflections": "Noun: la frustrazione, le frustrazioni",
         "partOfSpeech": "noun"
     },
     {
         "italian": "confrontare",
-        "level": "B1",
+        "level": "A2",
         "english": "to compare",
-        "frequencyRank": 519,
+        "frequencyRank": 4287,
         "alternatives": [
             "to contrast",
             "to check"
@@ -2901,13 +2901,13 @@
         "level": "B1",
         "id": "719",
         "italian": "caloria",
-        "frequencyRank": 719,
+        "frequencyRank": 13763,
         "inflections": "Noun: la caloria, le calorie",
         "partOfSpeech": "noun"
     },
     {
         "level": "B1",
-        "frequencyRank": 539,
+        "frequencyRank": 4414,
         "italian": "inventare",
         "id": "539",
         "english": "to invent",
@@ -2919,22 +2919,22 @@
         "partOfSpeech": "verb"
     },
     {
-        "level": "B1",
+        "level": "B2",
         "english": "flexible",
         "id": "580",
         "alternatives": [
             "adaptable"
         ],
         "italian": "flessibile",
-        "frequencyRank": 580,
+        "frequencyRank": 4459,
         "inflections": "Adj: flessibile, flessibile, flessibili, flessibili",
         "partOfSpeech": "adjective"
     },
     {
         "italian": "pianificare",
-        "level": "B1",
+        "level": "C2",
         "english": "to plan",
-        "frequencyRank": 535,
+        "frequencyRank": 4770,
         "alternatives": [
             "to organize",
             "to schedule"
@@ -2951,7 +2951,7 @@
             "reserved"
         ],
         "italian": "timido",
-        "frequencyRank": 576,
+        "frequencyRank": 4496,
         "inflections": "Adj: timido, timida, timidi, timide",
         "partOfSpeech": "adjective"
     },
@@ -2963,13 +2963,13 @@
         "alternatives": [
             "lamb meat"
         ],
-        "frequencyRank": 750,
+        "frequencyRank": 4548,
         "inflections": "Noun: l'agnello, gli agnelli",
         "partOfSpeech": "noun"
     },
     {
         "level": "B1",
-        "frequencyRank": 559,
+        "frequencyRank": 7391,
         "italian": "motivare",
         "id": "559",
         "english": "to motivate",
@@ -2982,9 +2982,9 @@
     },
     {
         "italian": "avvisare",
-        "level": "B1",
+        "level": "C1",
         "english": "to warn",
-        "frequencyRank": 506,
+        "frequencyRank": 5635,
         "alternatives": [
             "notify",
             "to alert",
@@ -3001,7 +3001,7 @@
         "level": "B1",
         "id": "718",
         "italian": "nutrizione",
-        "frequencyRank": 718,
+        "frequencyRank": 5083,
         "inflections": "Noun: la nutrizione, le nutrizioni",
         "partOfSpeech": "noun"
     },
@@ -3014,12 +3014,12 @@
             "orange (fruit",
             "citrus fruit"
         ],
-        "frequencyRank": 739,
+        "frequencyRank": 5117,
         "inflections": "Noun: l'arancia, le arance",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "C1",
         "english": "realistic",
         "id": "596",
         "alternatives": [
@@ -3027,22 +3027,22 @@
             "pragmatic"
         ],
         "italian": "realistico",
-        "frequencyRank": 596,
+        "frequencyRank": 5464,
         "inflections": "Adj: realistico, realistica, realistici, realistiche",
         "partOfSpeech": "adjective"
     },
     {
         "english": "vitamin",
         "alternatives": [],
-        "level": "B1",
+        "level": "C1",
         "id": "722",
         "italian": "vitamina",
-        "frequencyRank": 722,
+        "frequencyRank": 5480,
         "inflections": "Noun: la vitamina, le vitamine",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
+        "level": "C1",
         "english": "abstract",
         "id": "585",
         "alternatives": [
@@ -3050,7 +3050,7 @@
             "theoretical"
         ],
         "italian": "astratto",
-        "frequencyRank": 585,
+        "frequencyRank": 5487,
         "inflections": "Adj: astratto, astratta, astratti, astratte",
         "partOfSpeech": "adjective"
     },
@@ -3063,7 +3063,7 @@
         "level": "B1",
         "id": "721",
         "italian": "carboidrato",
-        "frequencyRank": 721,
+        "frequencyRank": 13883,
         "inflections": "Noun: il carboidrato, i carboidrati",
         "partOfSpeech": "noun"
     },
@@ -3078,7 +3078,7 @@
             "devoted"
         ],
         "italian": "leale",
-        "frequencyRank": 574,
+        "frequencyRank": 5593,
         "inflections": "Adj: leale, leale, leali, leali",
         "partOfSpeech": "adjective"
     },
@@ -3088,17 +3088,17 @@
         "id": "747",
         "english": "beef",
         "alternatives": [],
-        "frequencyRank": 747,
+        "frequencyRank": 5597,
         "inflections": "Noun: il manzo, i manzi",
         "partOfSpeech": "noun"
     },
     {
         "italian": "fragola",
-        "level": "B1",
+        "level": "A2",
         "id": "743",
         "english": "strawberry",
         "alternatives": [],
-        "frequencyRank": 743,
+        "frequencyRank": 6776,
         "inflections": "Noun: la fragola, le fragole",
         "partOfSpeech": "noun"
     },
@@ -3108,7 +3108,7 @@
         "level": "B1",
         "id": "731",
         "italian": "carota",
-        "frequencyRank": 731,
+        "frequencyRank": 6859,
         "inflections": "Noun: la carota, le carote",
         "partOfSpeech": "noun"
     },
@@ -3118,7 +3118,7 @@
         "id": "752",
         "english": "salmon",
         "alternatives": [],
-        "frequencyRank": 752,
+        "frequencyRank": 5958,
         "inflections": "Noun: il salmone, i salmoni",
         "partOfSpeech": "noun"
     },
@@ -3130,12 +3130,12 @@
         "alternatives": [
             "zucchini"
         ],
-        "frequencyRank": 736,
+        "frequencyRank": 13992,
         "inflections": "Noun: lo zucchino, gli zucchini",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 657,
+        "frequencyRank": 6150,
         "id": "657",
         "italian": "infiammazione",
         "english": "inflammation",
@@ -3155,7 +3155,7 @@
             "bell pepper",
             "capsicum"
         ],
-        "frequencyRank": 734,
+        "frequencyRank": 11276,
         "inflections": "Noun: il peperone, i peperoni",
         "partOfSpeech": "noun"
     },
@@ -3167,13 +3167,13 @@
         "alternatives": [
             "eggplant"
         ],
-        "frequencyRank": 735,
+        "frequencyRank": 13078,
         "inflections": "Noun: la melanzana, le melanzane",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B1",
-        "frequencyRank": 561,
+        "level": "C1",
+        "frequencyRank": 10491,
         "italian": "rilassare",
         "id": "561",
         "english": "to relax",
@@ -3192,7 +3192,7 @@
             "cynical"
         ],
         "italian": "pessimista",
-        "frequencyRank": 595,
+        "frequencyRank": 6965,
         "inflections": "Adj: pessimista, pessimista, pessimisti, pessimiste",
         "partOfSpeech": "adjective"
     },
@@ -3202,7 +3202,7 @@
         "level": "B1",
         "id": "723",
         "italian": "vegetariano",
-        "frequencyRank": 723,
+        "frequencyRank": 7266,
         "inflections": "Adj: vegetariano, vegetariana, vegetariani, vegetariane",
         "partOfSpeech": "adjective/noun"
     },
@@ -3212,7 +3212,7 @@
         "level": "B1",
         "id": "724",
         "italian": "vegano",
-        "frequencyRank": 724,
+        "frequencyRank": 7707,
         "inflections": "Adj: vegano, vegana, vegani, vegane",
         "partOfSpeech": "adjective/noun"
     },
@@ -3225,7 +3225,7 @@
             "broad-minded"
         ],
         "italian": "tollerante",
-        "frequencyRank": 579,
+        "frequencyRank": 7793,
         "inflections": "Adj: tollerante, tollerante, tolleranti, tolleranti",
         "partOfSpeech": "adjective"
     },
@@ -3238,7 +3238,7 @@
         "level": "B1",
         "id": "726",
         "italian": "condimento",
-        "frequencyRank": 726,
+        "frequencyRank": 7817,
         "inflections": "Noun: il condimento, i condimenti",
         "partOfSpeech": "noun"
     },
@@ -3250,17 +3250,17 @@
         "alternatives": [
             "prawn"
         ],
-        "frequencyRank": 753,
+        "frequencyRank": 13665,
         "inflections": "Noun: il gamberetto, i gamberetti",
         "partOfSpeech": "noun"
     },
     {
         "italian": "ciliegia",
-        "level": "B1",
+        "level": "B2",
         "id": "744",
         "english": "cherry",
         "alternatives": [],
-        "frequencyRank": 744,
+        "frequencyRank": 9573,
         "inflections": "Noun: la ciliegia, le ciliegie",
         "partOfSpeech": "noun"
     },
@@ -3268,7 +3268,7 @@
         "italian": "elogiare",
         "level": "B1",
         "english": "to praise",
-        "frequencyRank": 524,
+        "frequencyRank": 11350,
         "alternatives": [
             "to commend",
             "compliment"
@@ -3282,7 +3282,7 @@
         "id": "746",
         "english": "watermelon",
         "alternatives": [],
-        "frequencyRank": 746,
+        "frequencyRank": 10096,
         "inflections": "Noun: l'anguria, le angurie",
         "partOfSpeech": "noun"
     },
@@ -3295,12 +3295,12 @@
             "miserly"
         ],
         "italian": "avaro",
-        "frequencyRank": 578,
+        "frequencyRank": 10766,
         "inflections": "Adj: avaro, avara, avari, avare",
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 693,
+        "frequencyRank": 1267,
         "id": "693",
         "italian": "borsa di studio",
         "english": "scholarship",
@@ -3318,7 +3318,7 @@
         "id": "732",
         "english": "spinach",
         "alternatives": [],
-        "frequencyRank": 732,
+        "frequencyRank": 7871,
         "inflections": "Noun: lo spinacio, gli spinaci",
         "partOfSpeech": "noun"
     },
@@ -3330,7 +3330,7 @@
         "alternatives": [
             "mushroom"
         ],
-        "frequencyRank": 733,
+        "frequencyRank": 2783,
         "inflections": "Noun: il fungo, i funghi",
         "partOfSpeech": "noun"
     }

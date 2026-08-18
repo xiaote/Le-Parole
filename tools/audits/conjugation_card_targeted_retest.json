@@ -1,0 +1,416 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "scope": {
+    "generatedCards": 9,
+    "requestedCards": 9,
+    "tenses": [
+      "condizionale passato",
+      "condizionale presente",
+      "congiuntivo imperfetto",
+      "congiuntivo presente",
+      "futuro semplice"
+    ],
+    "subjunctiveCards": 5
+  },
+  "summary": {
+    "failedCards": 3,
+    "failedBatches": 0,
+    "issueCategories": {
+      "congiuntivo imperfetto": 1,
+      "congiuntivo presente": 1,
+      "essere": 1,
+      "futuro semplice": 1,
+      "piacere": 1,
+      "sapere": 1
+    }
+  },
+  "failedBatches": [],
+  "failedCards": [
+    {
+      "request": {
+        "id": "case-048",
+        "verb": "essere",
+        "englishMeaning": "to be",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-048",
+        "scratchpad": "Conjugate 'essere' in congiuntivo presente for 'io': sia. Trigger: 'Spero che'.",
+        "sentence": "Spero che io _____ (essere) pronto per il grande giorno.",
+        "answer": "sia",
+        "explanation": "The congiuntivo presente follows the trigger 'spero che' to express hope.",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "englishTranslation": "I hope that I am ready for the big day."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-048",
+        "verdict": "fail",
+        "categories": [
+          "congiuntivo presente",
+          "essere"
+        ],
+        "reason": "While grammatically correct, including the subject pronoun 'io' inside the clause is redundant and sounds unnatural in Italian.",
+        "suggestedAnswer": "sia",
+        "suggestedSentence": "Spero che io _____ (essere) pronto per il grande giorno."
+      }
+    },
+    {
+      "request": {
+        "id": "case-083",
+        "verb": "sapere",
+        "englishMeaning": "to know",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-083",
+        "scratchpad": "Conjugate 'sapere' in congiuntivo imperfetto for 'io': sapessi. Trigger: 'Se io'.",
+        "sentence": "Se io _____ (sapere) la verità, non sarei venuto qui.",
+        "answer": "sapessi",
+        "explanation": "In a hypothetical 'se' clause, the congiuntivo imperfetto is used to indicate a counterfactual condition.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "englishTranslation": "If I knew the truth, I wouldn't have come here."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-083",
+        "verdict": "fail",
+        "categories": [
+          "congiuntivo imperfetto",
+          "sapere"
+        ],
+        "reason": "The sentence as provided is a mixed-tense construction that is semantically awkward. For a past counterfactual, the 'se' clause requires the 'trapassato congiuntivo' (avessi saputo) if the main clause is 'non sarei venuto'.",
+        "suggestedAnswer": "avessi saputo",
+        "suggestedSentence": "Se io _____ (sapere) la verità, non sarei venuto qui."
+      }
+    },
+    {
+      "request": {
+        "id": "case-139",
+        "verb": "piacere",
+        "englishMeaning": "to like",
+        "tense": "futuro semplice",
+        "pronoun": "tu",
+        "suite": "inverted_verb"
+      },
+      "card": {
+        "id": "case-139",
+        "scratchpad": "Conjugate 'piacere' in futuro semplice for 'tu': piacerai. Usage: 'Tu piacerai'.",
+        "sentence": "Tra una settimana tu _____ (piacere) molto al nuovo capo.",
+        "answer": "piacerai",
+        "explanation": "The verb 'piacere' in the future tense with 'tu' as the subject indicates you will be pleasing to someone.",
+        "tense": "futuro semplice",
+        "pronoun": "tu",
+        "englishTranslation": "In one week, you will be pleasing to the new boss."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-139",
+        "verdict": "fail",
+        "categories": [
+          "futuro semplice",
+          "piacere"
+        ],
+        "reason": "The sentence structure 'tu piacerai' is technically possible but highly unnatural. In Italian, 'piacere' as an inverted verb requires the dative case (e.g., 'Tu piacerai al capo' is correct, but 'Tra una settimana il capo ti piacerà' is the standard way to express 'you will like the boss').",
+        "suggestedAnswer": "piacerai",
+        "suggestedSentence": "Tra una settimana tu _____ (piacere) molto al nuovo capo."
+      }
+    }
+  ],
+  "allCards": [
+    {
+      "request": {
+        "id": "case-036",
+        "verb": "volere",
+        "englishMeaning": "to want",
+        "tense": "condizionale presente",
+        "pronoun": "io",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-036",
+        "scratchpad": "Conjugate 'volere' in condizionale presente for 'io': vorrei.",
+        "sentence": "Al posto tuo, io _____ (volere) cambiare lavoro.",
+        "answer": "vorrei",
+        "explanation": "The condizionale presente is used to express a polite desire or hypothetical action.",
+        "tense": "condizionale presente",
+        "pronoun": "io",
+        "englishTranslation": "In your place, I would want to change jobs."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-036",
+        "verdict": "pass",
+        "categories": [
+          "condizionale presente",
+          "volere"
+        ],
+        "reason": "Correct usage and conjugation.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-048",
+        "verb": "essere",
+        "englishMeaning": "to be",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "suite": "all_tenses_pronouns"
+      },
+      "card": {
+        "id": "case-048",
+        "scratchpad": "Conjugate 'essere' in congiuntivo presente for 'io': sia. Trigger: 'Spero che'.",
+        "sentence": "Spero che io _____ (essere) pronto per il grande giorno.",
+        "answer": "sia",
+        "explanation": "The congiuntivo presente follows the trigger 'spero che' to express hope.",
+        "tense": "congiuntivo presente",
+        "pronoun": "io",
+        "englishTranslation": "I hope that I am ready for the big day."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-048",
+        "verdict": "fail",
+        "categories": [
+          "congiuntivo presente",
+          "essere"
+        ],
+        "reason": "While grammatically correct, including the subject pronoun 'io' inside the clause is redundant and sounds unnatural in Italian.",
+        "suggestedAnswer": "sia",
+        "suggestedSentence": "Spero che io _____ (essere) pronto per il grande giorno."
+      }
+    },
+    {
+      "request": {
+        "id": "case-061",
+        "verb": "parlare",
+        "englishMeaning": "to speak",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-061",
+        "scratchpad": "Conjugate 'parlare' in congiuntivo imperfetto for 'io': parlassi. Trigger: 'Mio padre voleva che'.",
+        "sentence": "Mio padre voleva che io _____ (parlare) con lui con calma.",
+        "answer": "parlassi",
+        "explanation": "The congiuntivo imperfetto is required after a past-tense verb of will like 'voleva che'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "englishTranslation": "My father wanted me to speak with him calmly."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-061",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo imperfetto",
+          "parlare"
+        ],
+        "reason": "Correct usage and sequence of tenses.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-083",
+        "verb": "sapere",
+        "englishMeaning": "to know",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-083",
+        "scratchpad": "Conjugate 'sapere' in congiuntivo imperfetto for 'io': sapessi. Trigger: 'Se io'.",
+        "sentence": "Se io _____ (sapere) la verità, non sarei venuto qui.",
+        "answer": "sapessi",
+        "explanation": "In a hypothetical 'se' clause, the congiuntivo imperfetto is used to indicate a counterfactual condition.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "englishTranslation": "If I knew the truth, I wouldn't have come here."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-083",
+        "verdict": "fail",
+        "categories": [
+          "congiuntivo imperfetto",
+          "sapere"
+        ],
+        "reason": "The sentence as provided is a mixed-tense construction that is semantically awkward. For a past counterfactual, the 'se' clause requires the 'trapassato congiuntivo' (avessi saputo) if the main clause is 'non sarei venuto'.",
+        "suggestedAnswer": "avessi saputo",
+        "suggestedSentence": "Se io _____ (sapere) la verità, non sarei venuto qui."
+      }
+    },
+    {
+      "request": {
+        "id": "case-107",
+        "verb": "piacere",
+        "englishMeaning": "to like",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "suite": "subjunctive_stress"
+      },
+      "card": {
+        "id": "case-107",
+        "scratchpad": "Conjugate 'piacere' in congiuntivo imperfetto for 'io': piacessi. Context: 'Speravano che io...'",
+        "sentence": "Speravano che io _____ (piacere) ai loro genitori.",
+        "answer": "piacessi",
+        "explanation": "The congiuntivo imperfetto follows the past-tense verb of hope 'speravano che'.",
+        "tense": "congiuntivo imperfetto",
+        "pronoun": "io",
+        "englishTranslation": "They hoped that I would be liked by their parents."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-107",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo imperfetto",
+          "piacere"
+        ],
+        "reason": "Correct usage of the intransitive 'piacere' in the subjunctive.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-139",
+        "verb": "piacere",
+        "englishMeaning": "to like",
+        "tense": "futuro semplice",
+        "pronoun": "tu",
+        "suite": "inverted_verb"
+      },
+      "card": {
+        "id": "case-139",
+        "scratchpad": "Conjugate 'piacere' in futuro semplice for 'tu': piacerai. Usage: 'Tu piacerai'.",
+        "sentence": "Tra una settimana tu _____ (piacere) molto al nuovo capo.",
+        "answer": "piacerai",
+        "explanation": "The verb 'piacere' in the future tense with 'tu' as the subject indicates you will be pleasing to someone.",
+        "tense": "futuro semplice",
+        "pronoun": "tu",
+        "englishTranslation": "In one week, you will be pleasing to the new boss."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-139",
+        "verdict": "fail",
+        "categories": [
+          "futuro semplice",
+          "piacere"
+        ],
+        "reason": "The sentence structure 'tu piacerai' is technically possible but highly unnatural. In Italian, 'piacere' as an inverted verb requires the dative case (e.g., 'Tu piacerai al capo' is correct, but 'Tra una settimana il capo ti piacerà' is the standard way to express 'you will like the boss').",
+        "suggestedAnswer": "piacerai",
+        "suggestedSentence": "Tra una settimana tu _____ (piacere) molto al nuovo capo."
+      }
+    },
+    {
+      "request": {
+        "id": "case-140",
+        "verb": "piacere",
+        "englishMeaning": "to like",
+        "tense": "condizionale presente",
+        "pronoun": "lui/lei",
+        "suite": "inverted_verb"
+      },
+      "card": {
+        "id": "case-140",
+        "scratchpad": "Conjugate 'piacere' in condizionale presente for 'lui/lei': piacerebbe.",
+        "sentence": "A me, lui _____ (piacere) sempre in qualsiasi situazione.",
+        "answer": "piacerebbe",
+        "explanation": "The condizionale presente is used here to state that one would find the person pleasant.",
+        "tense": "condizionale presente",
+        "pronoun": "lui/lei",
+        "englishTranslation": "I would always find him pleasant in any situation."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-140",
+        "verdict": "pass",
+        "categories": [
+          "condizionale presente",
+          "piacere"
+        ],
+        "reason": "Correct construction of the inverted verb 'piacere'.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-141",
+        "verb": "piacere",
+        "englishMeaning": "to like",
+        "tense": "congiuntivo presente",
+        "pronoun": "voi",
+        "suite": "inverted_verb"
+      },
+      "card": {
+        "id": "case-141",
+        "scratchpad": "Conjugate 'piacere' in congiuntivo presente for 'voi': piacciate. Trigger: 'Spero che'.",
+        "sentence": "Spero che voi _____ (piacere) al pubblico domani sera.",
+        "answer": "piacciate",
+        "explanation": "The congiuntivo presente is used after the trigger 'spero che' to express an expectation.",
+        "tense": "congiuntivo presente",
+        "pronoun": "voi",
+        "englishTranslation": "I hope that you will be pleasing to the audience tomorrow evening."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-141",
+        "verdict": "pass",
+        "categories": [
+          "congiuntivo presente",
+          "piacere"
+        ],
+        "reason": "Correct conjugation and usage.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    },
+    {
+      "request": {
+        "id": "case-154",
+        "verb": "piovere",
+        "englishMeaning": "to rain",
+        "tense": "condizionale passato",
+        "pronoun": "lui/lei",
+        "suite": "impersonal_verb"
+      },
+      "card": {
+        "id": "case-154",
+        "scratchpad": "Conjugate 'piovere' in condizionale passato for 'lui/lei': sarebbe piovuto. Context: 'Se non fosse uscito, non avrebbe preso il raffreddore'.",
+        "sentence": "Se lui fosse uscito prima, _____ (piovere) probabilmente durante il tragitto.",
+        "answer": "sarebbe piovuto",
+        "explanation": "Condizionale passato expresses a hypothetical past outcome; for 'piovere', the auxiliary is 'essere'.",
+        "tense": "condizionale passato",
+        "pronoun": "lui/lei",
+        "englishTranslation": "If he had left earlier, it probably would have rained during the trip."
+      },
+      "structuralIssues": [],
+      "review": {
+        "id": "case-154",
+        "verdict": "pass",
+        "categories": [
+          "condizionale passato",
+          "piovere"
+        ],
+        "reason": "Correct auxiliary selection for an impersonal weather verb.",
+        "suggestedAnswer": null,
+        "suggestedSentence": null
+      }
+    }
+  ]
+}

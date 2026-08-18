@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 2,
+  "frequencySource": {
+    "name": "wordfreq",
+    "version": "3.1.1",
+    "language": "it",
+    "metric": "Zipf frequency from wordfreq's best available Italian data"
+  },
+  "wordCount": 14186,
+  "matchedFrequencyCount": 14132,
+  "unmatchedFrequencyCount": 54,
+  "unmatchedFrequencyWords": [
+    {
+      "id": "1183",
+      "italian": "prerrogativa",
+      "english": "privilege",
+      "level": "C1",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "1242",
+      "italian": "efimero",
+      "english": "ephemeral",
+      "level": "C1",
+      "partOfSpeech": "adjective"
+    },
+    {
+      "id": "comm_5420",
+      "italian": "fallare",
+      "english": "to fail",
+      "level": "C1",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_5612",
+      "italian": "caraibo",
+      "english": "caribbean",
+      "level": "B1",
+      "partOfSpeech": "adjective"
+    },
+    {
+      "id": "comm_6177",
+      "italian": "microonda",
+      "english": "microwave",
+      "level": "B1",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "comm_8421",
+      "italian": "addire",
+      "english": "to suit",
+      "level": "C1",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_9543",
+      "italian": "paraggio",
+      "english": "vicinity",
+      "level": "C1",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "comm_9732",
+      "italian": "susseguire",
+      "english": "to follow one another",
+      "level": "C1",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_10315",
+      "italian": "frantume",
+      "english": "fragment",
+      "level": "B2",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "comm_10718",
+      "italian": "ostare",
+      "english": "to hinder",
+      "level": "C1",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_11273",
+      "italian": "prestabilire",
+      "english": "to pre-establish",
+      "level": "B2",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_11610",
+      "italian": "converre",
+      "english": "to be suitable",
+      "level": "C1",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_11887",
+      "italian": "disoccupare",
+      "english": "to make unemployed",
+      "level": "B2",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_12448",
+      "italian": "intemperia",
+      "english": "bad weather",
+      "level": "C1",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "comm_12450",
+      "italian": "linfocito",
+      "english": "lymphocyte",
+      "level": "C1",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "comm_12797",
+      "italian": "prefiggere",
+      "english": "to set (a goal)",
+      "level": "B2",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_12844",
+      "italian": "aggradare",
+      "english": "to please",
+      "level": "C1",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_12965",
+      "italian": "settant'anno",
+      "english": "seventy years (old)",
+      "level": "B1",
+      "partOfSpeech": "adjective"
+    },
+    {
+      "id": "comm_13333",
+      "italian": "insoddisfare",
+      "english": "to dissatisfy",
+      "level": "C1",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_13822",
+      "italian": "lipido",
+      "english": "lipid",
+      "level": "C1",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "comm_13921",
+      "italian": "capacitare",
+      "english": "to make understand",
+      "level": "B2",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_14114",
+      "italian": "grinfia",
+      "english": "claw",
+      "level": "B2",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "comm_14550",
+      "italian": "disordinare",
+      "english": "to mess up",
+      "level": "B1",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_14585",
+      "italian": "indisturbare",
+      "english": "to not disturb",
+      "level": "B2",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_14587",
+      "italian": "infondare",
+      "english": "to instill",
+      "level": "C1",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_14632",
+      "italian": "smisurare",
+      "english": "to go beyond measure",
+      "level": "C1",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_14680",
+      "italian": "carcerare",
+      "english": "to imprison",
+      "level": "B2",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_14733",
+      "italian": "impacciare",
+      "english": "to hinder",
+      "level": "B2",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_14926",
+      "italian": "protrare",
+      "english": "to prolong",
+      "level": "C1",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_15297",
+      "italian": "bassifondo",
+      "english": "slum",
+      "level": "C1",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "comm_15618",
+      "italian": "calzoncino",
+      "english": "shorts",
+      "level": "A2",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "comm_15666",
+      "italian": "garbare",
+      "english": "to please",
+      "level": "C1",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_15871",
+      "italian": "portabagaglio",
+      "english": "luggage rack",
+      "level": "A2",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "comm_15925",
+      "italian": "assetare",
+      "english": "to make thirsty",
+      "level": "C1",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_15928",
+      "italian": "avventare",
+      "english": "to hurl",
+      "level": "B2",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_15930",
+      "italian": "benedicere",
+      "english": "to bless",
+      "level": "B2",
+      "partOfSpeech": "verb"
+    },
+    {
+      "id": "comm_16008",
+      "italian": "paralimpiade",
+      "english": "paralympics (singular event)",
+      "level": "B2",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "comm_16530",
+      "italian": "stuzzicadente",
+      "english": "toothpick",
+      "level": "B1",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "1622",
+      "italian": "multidisciplinarietà",
+      "english": "multidisciplinarity",
+      "level": "B2",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "1768",
+      "italian": "antiesenzialismo",
+      "english": "anti-essentialism",
+      "level": "C1",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "1769",
+      "italian": "fondazionalismo",
+      "english": "foundationalism",
+      "level": "C1",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "1770",
+      "italian": "coerenzialismo",
+      "english": "coherentism",
+      "level": "C1",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "1789",
+      "italian": "disfemismo",
+      "english": "dysphemism",
+      "level": "C1",
+      "partOfSpeech": "noun"
+    },
+    {
+      "id": "1930",
+      "italian": "irrefragabile",
+      "english": "irrefragable",
+      "level": "C1",
+      "partOfSpeech": null
+    },
+    {
+      "id": "1938",
+      "italian": "monosemico",
+      "english": "monosemic",
+      "level": "C1",
+      "partOfSpeech": null
+    },
+    {
+      "id": "1948",
+      "italian": "coercere",
+      "english": "to coerce",
+      "level": "C1",
+      "partOfSpeech": null
+    },
+    {
+      "id": "1951",
+      "italian": "reificare",
+      "english": "to reify",
+      "level": "C1",
+      "partOfSpeech": null
+    },
+    {
+      "id": "1952",
+      "italian": "feticizzare",
+      "english": "to fetishise",
+      "level": "C1",
+      "partOfSpeech": null
+    },
+    {
+      "id": "1954",
+      "italian": "soggettivare",
+      "english": "to subjectify",
+      "level": "C1",
+      "partOfSpeech": null
+    },
+    {
+      "id": "1956",
+      "italian": "immanere",
+      "english": "to be immanent",
+      "level": "C1",
+      "partOfSpeech": null
+    },
+    {
+      "id": "1963",
+      "italian": "operazionalizzare",
+      "english": "to operationalise",
+      "level": "C1",
+      "partOfSpeech": null
+    },
+    {
+      "id": "1974",
+      "italian": "assiomatizzare",
+      "english": "to axiomatise",
+      "level": "C1",
+      "partOfSpeech": null
+    },
+    {
+      "id": "1980",
+      "italian": "controvertere",
+      "english": "to controvert",
+      "level": "C1",
+      "partOfSpeech": null
+    },
+    {
+      "id": "1982",
+      "italian": "apodissi",
+      "english": "apodixis",
+      "level": "C1",
+      "partOfSpeech": null
+    }
+  ],
+  "rankDigest": "62025f6c5e819ca671af0d8a8d425377743f8e3e3ff94730d007f90a0e69ce06"
+}
