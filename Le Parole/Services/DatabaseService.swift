@@ -495,6 +495,40 @@ final class DatabaseService: @unchecked Sendable {
             )
         }
 
+        // The original dailyActivity columns described the card's stage after
+        // an answer, which is neither an answer outcome nor a stage promotion.
+        // Preserve their aggregate activity as legacy review attempts, then
+        // record explicit, unambiguous events from this version forward.
+        migrator.registerMigration("v24_progress_metrics") { db in
+            try db.alter(table: "dailyActivity") { t in
+                t.add(column: "reviewAttempts", .integer).notNull().defaults(to: 0)
+                t.add(column: "correctAnswers", .integer).notNull().defaults(to: 0)
+                t.add(column: "wordsIntroduced", .integer).notNull().defaults(to: 0)
+                t.add(column: "movedToProduction", .integer).notNull().defaults(to: 0)
+                t.add(column: "movedToMastered", .integer).notNull().defaults(to: 0)
+                t.add(column: "hasDetailedMetrics", .boolean).notNull().defaults(to: false)
+            }
+            try db.execute(sql: """
+                UPDATE dailyActivity
+                SET reviewAttempts = recognition + production + mastered
+                """)
+
+            try db.alter(table: "tenseStats") { t in
+                t.add(column: "attempts", .integer).notNull().defaults(to: 0)
+            }
+            // Individual conjugation rows already retain their attempt totals,
+            // so historical sample sizes can be restored without modifying the
+            // intentionally recency-weighted scores.
+            try db.execute(sql: """
+                UPDATE tenseStats
+                SET attempts = COALESCE((
+                    SELECT SUM(conjugationStats.attempts)
+                    FROM conjugationStats
+                    WHERE conjugationStats.tense = tenseStats.tense
+                ), 0)
+                """)
+        }
+
         try migrator.migrate(db)
     }
 
@@ -604,38 +638,49 @@ final class DatabaseService: @unchecked Sendable {
 
     // MARK: - Observations
 
-    nonisolated func makeUserWordsObservation() -> ValueObservation<ValueReducers.Fetch<[UserWord]>> {
-        ValueObservation.tracking { db in try DatabaseService.fetchUserWords(db) }
-    }
-
     nonisolated func makeSettingsObservation() -> ValueObservation<ValueReducers.Fetch<UserSettings?>> {
         ValueObservation.tracking { db in try UserSettings.fetchOne(db) }
     }
 
     // MARK: - Activity Logging
 
-    func recordReview(stage: WordStage) async {
+    func recordReview(
+        correct: Bool,
+        introduced: Bool,
+        movedToProduction: Bool,
+        movedToMastered: Bool
+    ) async {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = TimeZone.current
         let todayStr = formatter.string(from: Date())
 
-        let column: String
-        switch stage {
-        case .recognition: column = "recognition"
-        case .production:  column = "production"
-        case .mastered:    column = "mastered"
-        default: return
-        }
-
         do {
             try await db.write { db in
                 try db.execute(sql: """
-                    INSERT INTO dailyActivity (date, recognition, production, mastered)
-                    VALUES (?, CASE WHEN ? = 'recognition' THEN 1 ELSE 0 END, CASE WHEN ? = 'production' THEN 1 ELSE 0 END, CASE WHEN ? = 'mastered' THEN 1 ELSE 0 END)
+                    INSERT INTO dailyActivity (
+                        date, recognition, production, mastered,
+                        reviewAttempts, correctAnswers, wordsIntroduced,
+                        movedToProduction, movedToMastered, hasDetailedMetrics
+                    )
+                    VALUES (?, 0, 0, 0, 1, ?, ?, ?, ?, 1)
                     ON CONFLICT(date) DO UPDATE SET
-                    \(column) = \(column) + 1
-                    """, arguments: [todayStr, column, column, column])
+                        reviewAttempts = reviewAttempts + 1,
+                        correctAnswers = correctAnswers +
+                            CASE WHEN hasDetailedMetrics THEN excluded.correctAnswers ELSE 0 END,
+                        wordsIntroduced = wordsIntroduced +
+                            CASE WHEN hasDetailedMetrics THEN excluded.wordsIntroduced ELSE 0 END,
+                        movedToProduction = movedToProduction +
+                            CASE WHEN hasDetailedMetrics THEN excluded.movedToProduction ELSE 0 END,
+                        movedToMastered = movedToMastered +
+                            CASE WHEN hasDetailedMetrics THEN excluded.movedToMastered ELSE 0 END
+                    """, arguments: [
+                        todayStr,
+                        correct ? 1 : 0,
+                        introduced ? 1 : 0,
+                        movedToProduction ? 1 : 0,
+                        movedToMastered ? 1 : 0,
+                    ])
             }
         } catch {
             print("Failed to record review: \(error)")
@@ -649,8 +694,14 @@ final class DatabaseService: @unchecked Sendable {
             try await db.write { db in
                 // Update TenseStat
                 let currentTense = try TenseStat.fetchOne(db, key: tense) ?? TenseStat(tense: tense)
-                let newTenseScore = (currentTense.score * 0.85) + (correct ? 0.15 : 0.0)
-                let updatedTense = TenseStat(tense: tense, score: newTenseScore)
+                let newTenseScore = currentTense.attempts == 0
+                    ? (correct ? 1.0 : 0.0)
+                    : (currentTense.score * 0.85) + (correct ? 0.15 : 0.0)
+                let updatedTense = TenseStat(
+                    tense: tense,
+                    score: newTenseScore,
+                    attempts: currentTense.attempts + 1
+                )
                 try updatedTense.save(db)
                 
                 // Update ConjugationStat
@@ -661,12 +712,6 @@ final class DatabaseService: @unchecked Sendable {
             }
         } catch {
             print("Failed to record conjugation result: \(error)")
-        }
-    }
-    
-    nonisolated func fetchTenseStats() throws -> [TenseStat] {
-        try db.read { db in
-            try TenseStat.fetchAll(db, sql: "SELECT * FROM tenseStats ORDER BY score DESC")
         }
     }
     

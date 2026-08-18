@@ -5,11 +5,14 @@ struct DailyCount: Identifiable, FetchableRecord, TableRecord {
     static let databaseTableName = "dailyActivity"
     
     var dateString: String // stored as "date" in db, but we need to map to Date
-    var recognition: Int
-    var production: Int
-    var mastered: Int
+    var reviewAttempts: Int
+    var correctAnswers: Int
+    var wordsIntroduced: Int
+    var movedToProduction: Int
+    var movedToMastered: Int
+    var hasDetailedMetrics: Bool
     
-    var total: Int { recognition + production + mastered }
+    var total: Int { reviewAttempts }
     var id: String { dateString }
     
     var date: Date {
@@ -19,18 +22,32 @@ struct DailyCount: Identifiable, FetchableRecord, TableRecord {
         return formatter.date(from: dateString) ?? .now
     }
     
-    init(dateString: String, recognition: Int, production: Int, mastered: Int) {
+    init(
+        dateString: String,
+        reviewAttempts: Int = 0,
+        correctAnswers: Int = 0,
+        wordsIntroduced: Int = 0,
+        movedToProduction: Int = 0,
+        movedToMastered: Int = 0,
+        hasDetailedMetrics: Bool = false
+    ) {
         self.dateString = dateString
-        self.recognition = recognition
-        self.production = production
-        self.mastered = mastered
+        self.reviewAttempts = reviewAttempts
+        self.correctAnswers = correctAnswers
+        self.wordsIntroduced = wordsIntroduced
+        self.movedToProduction = movedToProduction
+        self.movedToMastered = movedToMastered
+        self.hasDetailedMetrics = hasDetailedMetrics
     }
     
     init(row: GRDB.Row) {
         dateString = row["date"]
-        recognition = row["recognition"]
-        production = row["production"]
-        mastered = row["mastered"]
+        reviewAttempts = row["reviewAttempts"]
+        correctAnswers = row["correctAnswers"]
+        wordsIntroduced = row["wordsIntroduced"]
+        movedToProduction = row["movedToProduction"]
+        movedToMastered = row["movedToMastered"]
+        hasDetailedMetrics = row["hasDetailedMetrics"]
     }
 }
 
@@ -38,6 +55,7 @@ struct LevelStats: Equatable, Sendable {
     var level: String
     var mastered: Int
     var production: Int
+    var recognition: Int
     var total: Int
 }
 
@@ -54,10 +72,14 @@ struct StatsSnapshot: Equatable, Sendable {
 }
 
 struct CumulativeProgressEntry: Identifiable, Equatable {
-    let id = UUID()
     let date: Date
     let count: Int
-    let isProjected: Bool
+    var id: Date { date }
+}
+
+struct IntroducedWord: Sendable, Equatable {
+    let level: String
+    let learnedDate: Double
 }
 
 @Observable
@@ -66,13 +88,27 @@ final class StatsViewModel {
     var dailyActivities: [DailyCount] = []
     var tenseStats: [TenseStat] = []
     var settings: UserSettings?
-    var learnedDates: [Double] = []
+    var introducedWords: [IntroducedWord] = []
 
     private var statsCancellable: AnyDatabaseCancellable?
     private var activityCancellable: AnyDatabaseCancellable?
     private var tenseStatsCancellable: AnyDatabaseCancellable?
     private var settingsCancellable: AnyDatabaseCancellable?
-    private var learnedDatesCancellable: AnyDatabaseCancellable?
+    private var introducedWordsCancellable: AnyDatabaseCancellable?
+
+    static let cefrLevels = ["A1", "A2", "B1", "B2", "C1", "C2"]
+    static let supportedTenses = [
+        "presente",
+        "passato prossimo",
+        "imperfetto",
+        "presente progressivo",
+        "futuro semplice",
+        "imperativo",
+        "condizionale presente",
+        "condizionale passato",
+        "congiuntivo presente",
+        "congiuntivo imperfetto",
+    ]
 
     init() {
         let db = DatabaseService.shared
@@ -89,6 +125,7 @@ final class StatsViewModel {
                 SELECT w.level,
                        SUM(CASE WHEN uw.stage = 'mastered' THEN 1 ELSE 0 END) as mastered,
                        SUM(CASE WHEN uw.stage = 'production' THEN 1 ELSE 0 END) as production,
+                       SUM(CASE WHEN uw.stage = 'recognition' THEN 1 ELSE 0 END) as recognition,
                        SUM(CASE WHEN uw.stage != 'skipped' THEN 1 ELSE 0 END) as total
                 FROM userWords uw
                 JOIN words w ON uw.wordId = w.wordId
@@ -105,6 +142,7 @@ final class StatsViewModel {
                     level: level,
                     mastered: row["mastered"],
                     production: row["production"],
+                    recognition: row["recognition"],
                     total: row["total"]
                 )
             }
@@ -145,7 +183,11 @@ final class StatsViewModel {
         )
         
         tenseStatsCancellable = ValueObservation.tracking { db in
-            try TenseStat.fetchAll(db, sql: "SELECT * FROM tenseStats ORDER BY score DESC")
+            let stats = try TenseStat.fetchAll(db)
+            let ranks = Dictionary(uniqueKeysWithValues: Self.supportedTenses.enumerated().map { ($0.element, $0.offset) })
+            return stats
+                .filter { ranks[$0.tense] != nil }
+                .sorted { ranks[$0.tense, default: .max] < ranks[$1.tense, default: .max] }
         }.start(
             in: db.db,
             scheduling: .async(onQueue: .main),
@@ -153,13 +195,22 @@ final class StatsViewModel {
             onChange: { [weak self] stats in self?.tenseStats = stats }
         )
         
-        learnedDatesCancellable = ValueObservation.tracking { db in
-            try Double.fetchAll(db, sql: "SELECT learnedDate FROM userWords WHERE learnedDate IS NOT NULL ORDER BY learnedDate ASC")
+        introducedWordsCancellable = ValueObservation.tracking { db in
+            let rows = try Row.fetchAll(db, sql: """
+                SELECT w.level, uw.learnedDate
+                FROM userWords uw
+                JOIN words w ON w.wordId = uw.wordId
+                WHERE uw.learnedDate IS NOT NULL AND uw.stage != 'skipped'
+                ORDER BY uw.learnedDate ASC
+                """)
+            return rows.map { row in
+                IntroducedWord(level: row["level"], learnedDate: row["learnedDate"])
+            }
         }.start(
             in: db.db,
             scheduling: .async(onQueue: .main),
             onError: { _ in },
-            onChange: { [weak self] dates in self?.learnedDates = dates }
+            onChange: { [weak self] words in self?.introducedWords = words }
         )
     }
 
@@ -168,7 +219,8 @@ final class StatsViewModel {
         set {
             guard var s = settings else { return }
             s.targetLevel = newValue
-            Task.detached {
+            settings = s
+            Task {
                 try? DatabaseService.shared.db.write { db in try s.save(db) }
             }
         }
@@ -181,12 +233,10 @@ final class StatsViewModel {
     var skipped:     Int { snapshot.skipped }
     var total:       Int { snapshot.total }
 
-    var dailyGoal: Int { settings?.dailyNewWordGoal ?? 20 }
-
     var customCategories: [String] { snapshot.customCategories }
 
     func statsFor(level: String) -> LevelStats {
-        snapshot.levelStats[level] ?? LevelStats(level: level, mastered: 0, production: 0, total: 0)
+        snapshot.levelStats[level] ?? LevelStats(level: level, mastered: 0, production: 0, recognition: 0, total: 0)
     }
 
     func dailyWordCounts(days: Int = 30) -> [DailyCount] {
@@ -206,7 +256,7 @@ final class StatsViewModel {
             if let existing = activityDict[dateStr] {
                 return existing
             } else {
-                return DailyCount(dateString: dateStr, recognition: 0, production: 0, mastered: 0)
+                return DailyCount(dateString: dateStr)
             }
         }
     }
@@ -214,16 +264,23 @@ final class StatsViewModel {
     var thisWeekWordCount: Int {
         dailyWordCounts().suffix(7).reduce(0) { $0 + $1.total }
     }
-
     func cumulativeProgressData() -> [CumulativeProgressEntry] {
-        guard !learnedDates.isEmpty else { return [] }
+        guard
+            let targetIndex = Self.cefrLevels.firstIndex(of: targetLevel)
+        else {
+            return []
+        }
+
+        let includedLevels = Set(Self.cefrLevels.prefix(through: targetIndex))
+        let eligibleWords = introducedWords.filter { includedLevels.contains($0.level) }
+        guard !eligibleWords.isEmpty else { return [] }
         
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: .now)
         
         var dailyCounts: [Date: Int] = [:]
-        for ts in learnedDates {
-            let day = calendar.startOfDay(for: Date(timeIntervalSince1970: ts))
+        for word in eligibleWords {
+            let day = calendar.startOfDay(for: Date(timeIntervalSince1970: word.learnedDate))
             dailyCounts[day, default: 0] += 1
         }
         
@@ -236,55 +293,25 @@ final class StatsViewModel {
         var currentDay = firstDay
         while currentDay <= today {
             runningTotal += dailyCounts[currentDay] ?? 0
-            entries.append(CumulativeProgressEntry(date: currentDay, count: runningTotal, isProjected: false))
+            entries.append(CumulativeProgressEntry(date: currentDay, count: runningTotal))
             currentDay = calendar.date(byAdding: .day, value: 1, to: currentDay)!
         }
-        
-        if targetLevel != "None" {
-            let sevenDaysAgo = calendar.date(byAdding: .day, value: -7, to: today)!
-            let count7DaysAgo: Int
-            let daysForVelocity: Double
-            if let entry = entries.last(where: { $0.date <= sevenDaysAgo }) {
-                count7DaysAgo = entry.count
-                daysForVelocity = 7.0
-            } else {
-                count7DaysAgo = 0
-                daysForVelocity = max(1.0, Double(entries.count))
-            }
-            let learnedInPast7Days = runningTotal - count7DaysAgo
-            let velocity = Double(learnedInPast7Days) / daysForVelocity
-            
-            if velocity > 0 {
-                let targetLevels = ["A1", "A2", "B1", "B2", "C1", "C2"]
-                var totalTargetWords = 0
-                for lvl in targetLevels {
-                    totalTargetWords += statsFor(level: lvl).total
-                    if lvl == targetLevel { break }
-                }
-                
-                if runningTotal < totalTargetWords {
-                    // Start projection from the current day to connect the lines
-                    entries.append(CumulativeProgressEntry(date: today, count: runningTotal, isProjected: true))
-                    
-                    var projDate = calendar.date(byAdding: .day, value: 1, to: today)!
-                    var projTotal = Double(runningTotal)
-                    var futureDays = 0
-                    
-                    while projTotal < Double(totalTargetWords) && futureDays < 730 { // 2 years max
-                        futureDays += 1
-                        projTotal += velocity
-                        if projTotal >= Double(totalTargetWords) {
-                            entries.append(CumulativeProgressEntry(date: projDate, count: totalTargetWords, isProjected: true))
-                            break
-                        } else {
-                            entries.append(CumulativeProgressEntry(date: projDate, count: Int(projTotal), isProjected: true))
-                        }
-                        projDate = calendar.date(byAdding: .day, value: 1, to: projDate)!
-                    }
-                }
-            }
-        }
-        
         return entries
+    }
+
+    func targetWordCount(for level: String) -> Int {
+        guard let targetIndex = Self.cefrLevels.firstIndex(of: level) else { return 0 }
+        return Self.cefrLevels.prefix(through: targetIndex).reduce(0) { total, level in
+            total + statsFor(level: level).total
+        }
+    }
+
+    func benchmarks(for level: String) -> [(level: String, count: Int)] {
+        guard let targetIndex = Self.cefrLevels.firstIndex(of: level) else { return [] }
+        var total = 0
+        return Self.cefrLevels.prefix(through: targetIndex).map { level in
+            total += statsFor(level: level).total
+            return (level, total)
+        }
     }
 }

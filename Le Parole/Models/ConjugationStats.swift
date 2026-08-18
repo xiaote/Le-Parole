@@ -6,10 +6,12 @@ struct TenseStat: Codable, FetchableRecord, PersistableRecord, Sendable {
     
     var tense: String
     var score: Double
+    var attempts: Int
     
-    init(tense: String, score: Double = 0.5) {
+    init(tense: String, score: Double = 0.5, attempts: Int = 0) {
         self.tense = tense
         self.score = score
+        self.attempts = attempts
     }
 }
 

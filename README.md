@@ -25,8 +25,6 @@ The app is offline-first for study data: vocabulary and progress are stored loca
 - `Le Parole/ViewModels/` - App state and study-session orchestration.
 - `Le Parole/Views/` - SwiftUI screens and reusable UI components.
 - `Le Parole/Data/` - Static JSON vocabulary data used to seed the database.
-- `enrich_db.py` - Optional helper for enriching word data with Gemini.
-- `validate_translations.py` - Optional helper for validating generated translation alternatives.
 
 ## Requirements
 
@@ -50,12 +48,7 @@ The app can generate conjugation prompts in two ways:
 - Apple Intelligence: available on supported devices and OS versions.
 - Google Gemini: available when the user enters a Gemini API key in the app's Settings screen.
 
-Do not hardcode API keys into the repository. The app stores the Gemini key in the local app database after the user enters it in Settings. The Python helper scripts read `GEMINI_API_KEY` from the shell environment:
-
-```bash
-GEMINI_API_KEY="your_key_here" python3 enrich_db.py
-GEMINI_API_KEY="your_key_here" python3 validate_translations.py
-```
+Do not hardcode API keys into the repository. The app stores the Gemini key in the local app database after the user enters it in Settings.
 
 ## Sensitive Data
 
@@ -91,9 +84,9 @@ python3 tools/apply_kelly_cefr.py --source /tmp/it_m3.xls --write
 python3 tools/validate_vocabulary_data.py
 ```
 
-The generated reports in `tools/audits/` record the source and coverage:
-`frequency_audit.json` covers ranks, while `cefr_audit.json` covers the KELLY
-assignments and any cases deliberately left for manual review.
+The maintenance tools write local JSON reports to `tools/audits/`. Those reports
+are intentionally ignored because they are reproducible and become stale when
+the catalogue changes.
 
 Catalogue refreshes update existing words in place and must not delete an entry
 with a `userWords` record. User learning history is preserved even when a word's

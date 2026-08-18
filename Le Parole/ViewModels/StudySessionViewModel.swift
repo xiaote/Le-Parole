@@ -263,11 +263,6 @@ class StudySessionViewModel {
         }.map { $0.0 }
     }
 
-    func checkAnswer(_ input: String) -> Bool {
-        guard currentIndex < cards.count else { return false }
-        return cards[currentIndex].isCorrect(input)
-    }
-
     func isValidItalianSynonym(input: String) async -> Bool {
         guard let current = currentCard else { return false }
         let targetEnglish = current.userWord.word.english
@@ -291,19 +286,6 @@ class StudySessionViewModel {
 
     func recordResult(correct: Bool, context: MistakeContext? = nil) {
         processResult(correct: correct, context: context)
-    }
-
-    @discardableResult
-    func submitAnswer(_ input: String, overrideCorrect: Bool? = nil) -> Bool {
-        guard currentIndex < cards.count else { return false }
-        let correct = overrideCorrect ?? cards[currentIndex].isCorrect(input)
-        processResult(correct: correct)
-        return correct
-    }
-
-    func revealCard() {
-        guard currentIndex < cards.count else { return }
-        processResult(correct: false)
     }
 
     func advance() {
@@ -481,6 +463,8 @@ class StudySessionViewModel {
     private func processResult(correct: Bool, context: MistakeContext? = nil) {
         guard currentIndex < cards.count else { return }
         let cardType = cards[currentIndex].cardType
+        let stageBeforeAnswer = cards[currentIndex].userWord.stage
+        let wasIntroducedBeforeAnswer = cards[currentIndex].userWord.learnedDate != nil
 
         stats.total += 1
         if correct { stats.correct += 1 }
@@ -539,16 +523,12 @@ class StudySessionViewModel {
         }
 
         let uwToSave = cards[currentIndex].userWord
-        
-        let initialStage = cards[currentIndex].userWord.stage
-        let reviewStage: WordStage
-        if initialStage == .new || initialStage == .recognition {
-            reviewStage = .recognition
-        } else if initialStage == .mastered {
-            reviewStage = .mastered
-        } else {
-            reviewStage = .production
-        }
+        let introduced = !wasIntroducedBeforeAnswer && uwToSave.learnedDate != nil
+        let movedToProduction =
+            stageBeforeAnswer != .production &&
+            stageBeforeAnswer != .mastered &&
+            uwToSave.stage == .production
+        let movedToMastered = stageBeforeAnswer != .mastered && uwToSave.stage == .mastered
         
         // Record conjugation stats
         var conjVerb: String?
@@ -565,7 +545,12 @@ class StudySessionViewModel {
             try? await DatabaseService.shared.db.write { db in
                 try uwToSave.update(db)
             }
-            await DatabaseService.shared.recordReview(stage: reviewStage)
+            await DatabaseService.shared.recordReview(
+                correct: correct,
+                introduced: introduced,
+                movedToProduction: movedToProduction,
+                movedToMastered: movedToMastered
+            )
             if let verb = conjVerb, let tense = conjTense, let pronoun = conjPronoun {
                 await DatabaseService.shared.recordConjugationResult(verb: verb, tense: tense, pronoun: pronoun, correct: correct)
             }

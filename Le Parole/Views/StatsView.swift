@@ -12,41 +12,38 @@ struct StatsView: View {
                 Section("Activity") {
                     DailyActivityChart(
                         dailyCounts: vm.dailyWordCounts(),
-                        goal: vm.dailyGoal,
                         weekTotal: vm.thisWeekWordCount
                     )
                     .listRowInsets(EdgeInsets(top: 12, leading: 16, bottom: 16, trailing: 16))
                 }
 
-                let entries = vm.cumulativeProgressData()
-                if !entries.isEmpty {
-                    Section("Target Projection") {
-                        Picker("Target Level", selection: Binding(
-                            get: { vm.targetLevel },
-                            set: { vm.targetLevel = $0 }
-                        )) {
-                            Text("None").tag("None")
-                            Text("A1").tag("A1")
-                            Text("A2").tag("A2")
-                            Text("B1").tag("B1")
-                            Text("B2").tag("B2")
-                            Text("C1").tag("C1")
-                            Text("C2").tag("C2")
-                        }
+                Section("CEFR Coverage") {
+                    Picker("Target Level", selection: Binding(
+                        get: { vm.targetLevel },
+                        set: { vm.targetLevel = $0 }
+                    )) {
+                        Text("None").tag("None")
+                        Text("A1").tag("A1")
+                        Text("A2").tag("A2")
+                        Text("B1").tag("B1")
+                        Text("B2").tag("B2")
+                        Text("C1").tag("C1")
+                        Text("C2").tag("C2")
+                    }
 
-                        if vm.targetLevel != "None" {
-                            CumulativeProgressChartView(
-                                entries: entries,
-                                targetLevel: vm.targetLevel,
-                                vm: vm
-                            )
-                            .listRowInsets(EdgeInsets(top: 12, leading: 16, bottom: 16, trailing: 16))
-                        } else {
-                            Text("Select a target CEFR level above to calculate when you will reach it based on your recent velocity.")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                                .padding(.vertical, 8)
-                        }
+                    if vm.targetLevel != "None" {
+                        CumulativeProgressChartView(
+                            entries: vm.cumulativeProgressData(),
+                            targetLevel: vm.targetLevel,
+                            targetCount: vm.targetWordCount(for: vm.targetLevel),
+                            benchmarks: vm.benchmarks(for: vm.targetLevel)
+                        )
+                        .listRowInsets(EdgeInsets(top: 12, leading: 16, bottom: 16, trailing: 16))
+                    } else {
+                        Text("Choose a CEFR range to see the words you have introduced within that range.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .padding(.vertical, 8)
                     }
                 }
 
@@ -87,31 +84,15 @@ struct StatsView: View {
 
 // MARK: - Daily Activity Chart
 
-private struct DailyEntry: Identifiable {
-    let id = UUID()
-    let date: Date
-    let stage: String
-    let count: Int
-}
-
 private struct DailyActivityChart: View {
     let dailyCounts: [DailyCount]
-    let goal: Int
     let weekTotal: Int
 
     @State private var selectedDate: Date?
 
-    private var entries: [DailyEntry] {
-        dailyCounts.flatMap { day in [
-            DailyEntry(date: day.date, stage: "Recognizing", count: day.recognition),
-            DailyEntry(date: day.date, stage: "Reviewing",   count: day.production),
-            DailyEntry(date: day.date, stage: "Mastered",    count: day.mastered),
-        ]}
-    }
-
     private var yMax: Double {
         let maxTotal = dailyCounts.map(\.total).max() ?? 0
-        return Double(max(goal + 2, maxTotal + 2))
+        return Double(max(2, maxTotal + 2))
     }
 
     private var selectedCount: DailyCount? {
@@ -125,7 +106,7 @@ private struct DailyActivityChart: View {
         formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = TimeZone.current
         let todayStr = formatter.string(from: Date())
-        return DailyCount(dateString: todayStr, recognition: 0, production: 0, mastered: 0)
+        return DailyCount(dateString: todayStr)
     }
 
     var body: some View {
@@ -142,15 +123,16 @@ private struct DailyActivityChart: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .animation(.easeInOut(duration: 0.15), value: selectedCount == nil)
 
-            // Scrollable stacked bar chart
+            // Review-answer volume. This deliberately does not infer learning
+            // progress from a card's stage after an answer.
             ScrollView(.horizontal, showsIndicators: false) {
                 Chart {
-                    ForEach(entries) { entry in
+                    ForEach(dailyCounts) { entry in
                         BarMark(
                             x: .value("Day", entry.date, unit: .day),
-                            y: .value("Words", entry.count)
+                            y: .value("Review answers", entry.reviewAttempts)
                         )
-                        .foregroundStyle(by: .value("Stage", entry.stage))
+                        .foregroundStyle(Theme.primary)
                         .opacity(
                             selectedDate == nil ||
                             Calendar.current.startOfDay(for: entry.date) == selectedDate
@@ -159,21 +141,12 @@ private struct DailyActivityChart: View {
                         .cornerRadius(3, style: .continuous)
                     }
 
-                    RuleMark(y: .value("Goal", goal))
-                        .lineStyle(StrokeStyle(lineWidth: 1.5, dash: [5, 3]))
-                        .foregroundStyle(Color.secondary.opacity(0.4))
-
                     if let sel = selectedDate {
                         RuleMark(x: .value("Selected", sel, unit: .day))
                             .lineStyle(StrokeStyle(lineWidth: 1.5, dash: [4, 3]))
                             .foregroundStyle(Color.primary.opacity(0.5))
                     }
                 }
-                .chartForegroundStyleScale([
-                    "Recognizing": Theme.primaryLight,
-                    "Reviewing":   Theme.primary,
-                    "Mastered":    Theme.primaryDark,
-                ])
                 .chartLegend(.hidden)
                 .chartYScale(domain: 0...yMax)
                 .chartYAxis(.hidden)
@@ -203,17 +176,21 @@ private struct DailyActivityChart: View {
                     }
                 }
                 .chartOverlay { proxy in
-                    Color.clear.contentShape(Rectangle())
-                        .gesture(
-                            DragGesture(minimumDistance: 0)
-                                .onChanged { value in
-                                    if let tapped: Date = proxy.value(atX: value.location.x) {
-                                        let day = Calendar.current.startOfDay(for: tapped)
-                                        if selectedDate != day { selectedDate = day }
+                    GeometryReader { geometry in
+                        Color.clear.contentShape(Rectangle())
+                            .gesture(
+                                DragGesture(minimumDistance: 0)
+                                    .onChanged { value in
+                                        let plotArea = geometry[proxy.plotAreaFrame]
+                                        let xPosition = value.location.x - plotArea.origin.x
+                                        if let tapped: Date = proxy.value(atX: xPosition) {
+                                            let day = Calendar.current.startOfDay(for: tapped)
+                                            if selectedDate != day { selectedDate = day }
+                                        }
                                     }
-                                }
-                                .onEnded { _ in selectedDate = nil }
-                        )
+                                    .onEnded { _ in selectedDate = nil }
+                            )
+                    }
                 }
                 .frame(width: CGFloat(dailyCounts.count) * 30, height: 160)
             }
@@ -226,7 +203,7 @@ private struct DailyActivityChart: View {
     @ViewBuilder private var weekSummaryHeader: some View {
         HStack(alignment: .firstTextBaseline) {
             VStack(alignment: .leading, spacing: 2) {
-                Text("WORDS REVIEWED")
+                Text("REVIEW ANSWERS")
                     .font(.caption2)
                     .fontWeight(.semibold)
                     .foregroundStyle(.secondary)
@@ -241,7 +218,7 @@ private struct DailyActivityChart: View {
                 }
             }
             Spacer()
-            Text("Goal: \(goal)/day")
+            Text("Each submitted answer counts once")
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
@@ -258,15 +235,17 @@ private struct DailyActivityChart: View {
                     .tracking(0.5)
                     .textCase(.uppercase)
                 HStack(alignment: .firstTextBaseline, spacing: 8) {
-                    Text("\(data.total)")
+                    Text("\(data.reviewAttempts)")
                         .font(.theme(.title2, weight: .bold))
-                    HStack(spacing: 10) {
-                        MiniStageCount(color: Theme.primaryLight, count: data.recognition)
-                        MiniStageCount(color: Theme.primary,   count: data.production)
-                        MiniStageCount(color: Theme.primaryDark,  count: data.mastered)
+                    if data.hasDetailedMetrics {
+                        HStack(spacing: 10) {
+                            Text("\(data.correctAnswers) correct")
+                            Text("\(data.wordsIntroduced) introduced")
+                            Text("\(data.movedToMastered) mastered")
+                        }
+                        .font(.theme(.caption))
+                        .foregroundStyle(.secondary)
                     }
-                    .font(.theme(.caption))
-                    .foregroundStyle(.secondary)
                 }
             }
             Spacer()
@@ -279,128 +258,94 @@ private struct DailyActivityChart: View {
 private struct CumulativeProgressChartView: View {
     let entries: [CumulativeProgressEntry]
     let targetLevel: String
-    let vm: StatsViewModel
+    let targetCount: Int
+    let benchmarks: [(level: String, count: Int)]
     
     @State private var selectedDate: Date?
     
     private var yMax: Double {
         let maxCount = entries.last?.count ?? 0
-        let targetCount = benchmarks.last?.count ?? 0
-        return Double(max(maxCount, targetCount)) * 1.1
-    }
-    
-    private var benchmarks: [(level: String, count: Int)] {
-        let targetLevels = ["A1", "A2", "B1", "B2", "C1", "C2"]
-        var total = 0
-        var results: [(String, Int)] = []
-        for lvl in targetLevels {
-            total += vm.statsFor(level: lvl).total
-            results.append((lvl, total))
-            if lvl == targetLevel { break }
-        }
-        return results
+        return Double(max(1, max(maxCount, targetCount))) * 1.1
     }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             if let selected = selectedDate, let entry = entries.first(where: { Calendar.current.isDate($0.date, inSameDayAs: selected) }) {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(entry.date, format: .dateTime.weekday(.abbreviated).month(.abbreviated).day().year())
-                            .font(.caption2)
-                            .foregroundStyle(.secondary)
-                        Text("\(entry.count) words")
-                            .font(.headline)
-                        if entry.isProjected {
-                            Text("Projected")
-                                .font(.caption)
-                                .foregroundStyle(Theme.primary)
-                        }
-                    }
-                }
+                Text(entry.date, format: .dateTime.weekday(.abbreviated).month(.abbreviated).day().year())
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+                Text("\(entry.count) words introduced")
+                    .font(.headline)
             } else {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Target: \(targetLevel)")
-                            .font(.headline)
-                        if let last = entries.last, last.isProjected {
-                            Text("Projected by \(last.date, format: .dateTime.month(.abbreviated).day().year())")
-                                .font(.caption)
-                                .foregroundStyle(Theme.primary)
-                        } else {
-                            Text("Learn new words to generate a projection!")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
+                Text("\(entries.last?.count ?? 0) / \(targetCount) words introduced")
+                    .font(.headline)
+                Text("Counts only words labelled A1 through \(targetLevel).")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
+            if entries.isEmpty {
+                Text("No words in this CEFR range have been introduced yet.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, minHeight: 120, alignment: .leading)
+            } else {
+                Chart {
+                    ForEach(entries) { entry in
+                        LineMark(
+                            x: .value("Date", entry.date, unit: .day),
+                            y: .value("Words introduced", entry.count)
+                        )
+                        .lineStyle(StrokeStyle(lineWidth: 2))
+                        .foregroundStyle(Theme.primary)
+                    }
+
+                    ForEach(benchmarks, id: \.level) { benchmark in
+                        RuleMark(y: .value("Level", benchmark.count))
+                            .lineStyle(StrokeStyle(lineWidth: 1, dash: [2, 2]))
+                            .foregroundStyle(Color.secondary.opacity(0.5))
+                            .annotation(position: .top, alignment: .leading) {
+                                Text(benchmark.level)
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
+                    }
+
+                    if let selectedDate {
+                        RuleMark(x: .value("Selected", selectedDate, unit: .day))
+                            .lineStyle(StrokeStyle(lineWidth: 1.5, dash: [4, 3]))
+                            .foregroundStyle(Color.primary.opacity(0.5))
                     }
                 }
-            }
-            
-            Chart {
-                ForEach(entries) { entry in
-                    LineMark(
-                        x: .value("Date", entry.date, unit: .day),
-                        y: .value("Words", entry.count),
-                        series: .value("Type", entry.isProjected ? "Projected" : "Historical")
-                    )
-                    .lineStyle(StrokeStyle(lineWidth: 2, dash: entry.isProjected ? [5, 5] : []))
-                    .foregroundStyle(Theme.primary)
+                .chartYScale(domain: 0...yMax)
+                .chartXAxis {
+                    AxisMarks(values: .stride(by: .month)) { _ in
+                        AxisValueLabel(format: .dateTime.month(.abbreviated))
+                    }
                 }
-                
-                ForEach(benchmarks, id: \.0) { benchmark in
-                    RuleMark(y: .value("Level", benchmark.1))
-                        .lineStyle(StrokeStyle(lineWidth: 1, dash: [2, 2]))
-                        .foregroundStyle(Color.secondary.opacity(0.5))
-                        .annotation(position: .top, alignment: .leading) {
-                            Text(benchmark.0)
-                                .font(.caption2)
-                                .foregroundStyle(.secondary)
-                        }
+                .chartOverlay { proxy in
+                    GeometryReader { geometry in
+                        Color.clear.contentShape(Rectangle())
+                            .gesture(
+                                DragGesture(minimumDistance: 0)
+                                    .onChanged { value in
+                                        let plotArea = geometry[proxy.plotAreaFrame]
+                                        let xPosition = value.location.x - plotArea.origin.x
+                                        if let tapped: Date = proxy.value(atX: xPosition) {
+                                            selectedDate = Calendar.current.startOfDay(for: tapped)
+                                        }
+                                    }
+                                    .onEnded { _ in selectedDate = nil }
+                            )
+                    }
                 }
-                
-                if let sel = selectedDate {
-                    RuleMark(x: .value("Selected", sel, unit: .day))
-                        .lineStyle(StrokeStyle(lineWidth: 1.5, dash: [4, 3]))
-                        .foregroundStyle(Color.primary.opacity(0.5))
-                }
+                .frame(height: 200)
             }
-            .chartYScale(domain: 0...yMax)
-            .chartXAxis {
-                AxisMarks(values: .stride(by: .month)) { _ in
-                    AxisValueLabel(format: .dateTime.month(.abbreviated))
-                }
-            }
-            .chartOverlay { proxy in
-                Color.clear.contentShape(Rectangle())
-                    .gesture(
-                        DragGesture(minimumDistance: 0)
-                            .onChanged { value in
-                                if let tapped: Date = proxy.value(atX: value.location.x) {
-                                    let day = Calendar.current.startOfDay(for: tapped)
-                                    selectedDate = day
-                                }
-                            }
-                            .onEnded { _ in selectedDate = nil }
-                    )
-            }
-            .frame(height: 200)
         }
     }
 }
 
 // MARK: - Supporting views
-
-private struct MiniStageCount: View {
-    let color: Color
-    let count: Int
-
-    var body: some View {
-        HStack(spacing: 3) {
-            Circle().fill(color).frame(width: 6, height: 6)
-            Text("\(count)")
-        }
-    }
-}
 
 // MARK: - Existing rows
 
@@ -434,24 +379,25 @@ private struct LevelProgressRow: View {
             HStack {
                 Text(stats.level).fontWeight(.semibold)
                 Spacer()
-                Text("\(stats.mastered) mastered / \(stats.production) reviewing / \(stats.total) total")
+                Text("\(stats.mastered) mastered · \(stats.production) production · \(stats.recognition) recognition / \(stats.total)")
                     .foregroundStyle(.secondary)
                     .font(.caption)
             }
             GeometryReader { geo in
-                ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 4).fill(Color(.systemGray5))
-                    
-                    let totalProgressWidth = stats.total > 0 ? geo.size.width * CGFloat(stats.mastered + stats.production) / CGFloat(stats.total) : 0
-                    RoundedRectangle(cornerRadius: 4)
-                        .fill(Theme.primary)
-                        .frame(width: totalProgressWidth)
-                        
-                    let masteredWidth = stats.total > 0 ? geo.size.width * CGFloat(stats.mastered) / CGFloat(stats.total) : 0
-                    RoundedRectangle(cornerRadius: 4)
-                        .fill(Theme.primaryDark)
-                        .frame(width: masteredWidth)
+                let width = geo.size.width
+                let total = max(1, stats.total)
+                let masteredWidth = width * CGFloat(stats.mastered) / CGFloat(total)
+                let productionWidth = width * CGFloat(stats.production) / CGFloat(total)
+                let recognitionWidth = width * CGFloat(stats.recognition) / CGFloat(total)
+                let remainingWidth = max(0, width - masteredWidth - productionWidth - recognitionWidth)
+
+                HStack(spacing: 0) {
+                    Rectangle().fill(Theme.primaryDark).frame(width: masteredWidth)
+                    Rectangle().fill(Theme.primary).frame(width: productionWidth)
+                    Rectangle().fill(Theme.primaryLight).frame(width: recognitionWidth)
+                    Rectangle().fill(Color(.systemGray5)).frame(width: remainingWidth)
                 }
+                .clipShape(RoundedRectangle(cornerRadius: 4))
             }
             .frame(height: 8)
         }
@@ -467,7 +413,7 @@ private struct TenseProgressRow: View {
             HStack {
                 Text(stat.tense.capitalized).fontWeight(.semibold)
                 Spacer()
-                Text(String(format: "%.0f%% Mastery", stat.score * 100))
+                Text(String(format: "%.0f%% recent form · %@", stat.score * 100, attemptsLabel))
                     .foregroundStyle(.secondary)
                     .font(.caption)
             }
@@ -484,5 +430,9 @@ private struct TenseProgressRow: View {
             .frame(height: 8)
         }
         .padding(.vertical, 4)
+    }
+
+    private var attemptsLabel: String {
+        "\(stat.attempts) \(stat.attempts == 1 ? "attempt" : "attempts")"
     }
 }

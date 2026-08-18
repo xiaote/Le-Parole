@@ -23,64 +23,6 @@ struct AppleIntelligenceService {
         return validCEFRLevels.contains(text) ? text : nil
     }
 
-    /// Semantically grades an Italian→English answer. Returns true if the input is a correct
-    /// synonym or valid paraphrase. Falls back to false if the model is unavailable.
-    static func gradeEnglish(_ input: String, for word: Word) async -> Bool {
-        guard isAvailable else { return false }
-        let accepted = ([word.english] + word.alternatives).joined(separator: ", ")
-        let session = LanguageModelSession(instructions: """
-            You are a forgiving semantic grader.
-            Does the Student's Answer mean the same thing as the Acceptable Answer?
-            Accept synonyms, dropping unnecessary words, or equivalent concepts.
-            Output ONLY "yes" or "no".
-            
-            Examples:
-            Acceptable: swiss person | Student: swiss -> yes
-            Acceptable: button | Student: brick -> no
-            Acceptable: water | Student: h2o -> yes
-            Acceptable: to turn off | Student: to turn -> no
-            """
-        )
-        guard let response = try? await session.respond(to: """
-            Acceptable: \(accepted) | Student: \(input)
-            """
-        ) else { return false }
-        let content = response.content.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        let clean = content.trimmingCharacters(in: .punctuationCharacters)
-        return clean.hasPrefix("yes")
-    }
-
-    enum ItalianWordFormResult: String {
-        case grammar
-        case spelling
-        case unrelated
-    }
-
-    /// Evaluates if an Italian input is a grammatical variation or a spelling typo of the target.
-    static func gradeItalianWordForm(_ input: String, for target: String) async -> ItalianWordFormResult {
-        guard isAvailable else { return .unrelated }
-        let session = LanguageModelSession(instructions: """
-            You are an Italian language grader evaluating a flashcard answer.
-            Compare the Student's answer to the Target Italian word.
-            Classify the student's answer into one of these 3 categories:
-            1. 'grammar': The answer is a valid grammatical variation of the exact same root word (e.g. conjugation, plural/singular form, masculine/feminine variation).
-            2. 'spelling': The answer is extremely close to the target word but contains a minor spelling typo (e.g., missing a double letter, wrong vowel, or slight misspelling).
-            3. 'unrelated': The answer is a completely different word, or too far off.
-            Reply with ONLY ONE word: 'grammar', 'spelling', or 'unrelated'.
-            """
-        )
-        guard let response = try? await session.respond(to: """
-            Target Italian word: "\(target)"
-            Student's answer: "\(input)"
-            """
-        ) else { return .unrelated }
-        
-        let content = response.content.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        if content.contains("grammar") { return .grammar }
-        if content.contains("spelling") { return .spelling }
-        return .unrelated
-    }
-
     /// Generates a simple, practical Italian sentence using the target word as a contextual hint.
     static func generateHintSentence(for italianWord: String) async -> String? {
         #if targetEnvironment(simulator)
