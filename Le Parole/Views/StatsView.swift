@@ -17,8 +17,8 @@ struct StatsView: View {
                     .listRowInsets(EdgeInsets(top: 12, leading: 16, bottom: 16, trailing: 16))
                 }
 
-                Section("CEFR Coverage") {
-                    Picker("Target Level", selection: Binding(
+                Section("Learning progress") {
+                    Picker("Up to", selection: Binding(
                         get: { vm.targetLevel },
                         set: { vm.targetLevel = $0 }
                     )) {
@@ -36,48 +36,52 @@ struct StatsView: View {
                             entries: vm.cumulativeProgressData(),
                             targetLevel: vm.targetLevel,
                             targetCount: vm.targetWordCount(for: vm.targetLevel),
-                            benchmarks: vm.benchmarks(for: vm.targetLevel)
+                            benchmarks: vm.benchmarks(for: vm.targetLevel),
+                            projection: vm.coverageProjection(for: vm.targetLevel)
                         )
                         .listRowInsets(EdgeInsets(top: 12, leading: 16, bottom: 16, trailing: 16))
                     } else {
-                        Text("Choose a CEFR range to see the words you have introduced within that range.")
-                            .font(.caption)
+                        Text("Choose a level to see your progress.")
+                            .font(.theme(.caption))
                             .foregroundStyle(.secondary)
                             .padding(.vertical, 8)
                     }
                 }
 
                 Section("Overall") {
-                    ProgressRow(label: "Mastered",              count: vm.mastered,    total: vm.total, color: Theme.primaryDark)
-                    ProgressRow(label: "Production (EN → IT)",  count: vm.production,  total: vm.total, color: Theme.primary)
-                    ProgressRow(label: "Recognition (IT → EN)", count: vm.recognition, total: vm.total, color: Theme.primaryLight)
+                    ProgressRow(label: "Mastered",              count: vm.mastered,    total: vm.total, color: Theme.mastered)
+                    ProgressRow(label: "Production (EN → IT)",  count: vm.production,  total: vm.total, color: Theme.production)
+                    ProgressRow(label: "Recognition (IT → EN)", count: vm.recognition, total: vm.total, color: Theme.recognition)
                     ProgressRow(label: "Not started",           count: vm.notStarted,  total: vm.total, color: .gray)
                     ProgressRow(label: "Skipped",               count: vm.skipped,     total: nil,      color: .secondary)
                 }
                 
                 if !vm.tenseStats.isEmpty {
-                    Section("Tense Proficiency") {
+                    Section("Tense proficiency") {
                         ForEach(vm.tenseStats, id: \.tense) { stat in
                             TenseProgressRow(stat: stat)
                         }
                     }
                 }
 
-                Section("By Level") {
+                Section("By level") {
                     ForEach(levels, id: \.self) { level in
                         LevelProgressRow(stats: vm.statsFor(level: level))
                     }
                 }
 
                 if !vm.customCategories.isEmpty {
-                    Section("By Category") {
+                    Section("By category") {
                         ForEach(vm.customCategories, id: \.self) { category in
                             LevelProgressRow(stats: vm.statsFor(level: category))
                         }
                     }
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(Theme.canvas)
             .navigationTitle("Progress")
+            .toolbarBackground(Theme.canvas, for: .navigationBar)
         }
     }
 }
@@ -130,7 +134,7 @@ private struct DailyActivityChart: View {
                     ForEach(dailyCounts) { entry in
                         BarMark(
                             x: .value("Day", entry.date, unit: .day),
-                            y: .value("Review answers", entry.reviewAttempts)
+                            y: .value("Answers", entry.reviewAttempts)
                         )
                         .foregroundStyle(Theme.primary)
                         .opacity(
@@ -158,14 +162,13 @@ private struct DailyActivityChart: View {
                                 VStack(spacing: 1) {
                                     if isFirst {
                                         Text(date, format: .dateTime.month(.abbreviated))
-                                            .font(.system(size: 8))
+                                            .font(.theme(.caption2))
                                             .foregroundStyle(.secondary)
                                     } else {
-                                        Text("").font(.system(size: 8))
+                                        Text("").font(.theme(.caption2))
                                     }
                                     Text(date, format: .dateTime.weekday(.narrow))
-                                        .font(.theme(.caption2))
-                                        .fontWeight(Calendar.current.isDateInToday(date) ? .bold : .regular)
+                                        .font(.theme(.caption2, weight: Calendar.current.isDateInToday(date) ? .bold : .regular))
                                         .foregroundStyle(
                                             Calendar.current.isDateInToday(date)
                                                 ? Theme.primary : Color.secondary
@@ -181,7 +184,8 @@ private struct DailyActivityChart: View {
                             .gesture(
                                 DragGesture(minimumDistance: 0)
                                     .onChanged { value in
-                                        let plotArea = geometry[proxy.plotAreaFrame]
+                                        guard let plotFrame = proxy.plotFrame else { return }
+                                        let plotArea = geometry[plotFrame]
                                         let xPosition = value.location.x - plotArea.origin.x
                                         if let tapped: Date = proxy.value(atX: xPosition) {
                                             let day = Calendar.current.startOfDay(for: tapped)
@@ -203,24 +207,17 @@ private struct DailyActivityChart: View {
     @ViewBuilder private var weekSummaryHeader: some View {
         HStack(alignment: .firstTextBaseline) {
             VStack(alignment: .leading, spacing: 2) {
-                Text("REVIEW ANSWERS")
-                    .font(.caption2)
-                    .fontWeight(.semibold)
+                Text("THIS WEEK")
+                    .font(.theme(.caption2, weight: .semibold))
                     .foregroundStyle(.secondary)
                     .tracking(0.5)
                 HStack(alignment: .firstTextBaseline, spacing: 4) {
-                    Text("\(weekTotal)")
+                    Text("\(weekTotal) answers")
                         .font(.theme(.title2, weight: .bold))
                         .foregroundStyle(Theme.primary)
-                    Text("this week")
-                        .font(.theme(.caption))
-                        .foregroundStyle(.secondary)
                 }
             }
             Spacer()
-            Text("Each submitted answer counts once")
-                .font(.caption)
-                .foregroundStyle(.secondary)
         }
         .transition(.opacity)
     }
@@ -229,18 +226,17 @@ private struct DailyActivityChart: View {
         HStack(alignment: .firstTextBaseline) {
             VStack(alignment: .leading, spacing: 2) {
                 Text(data.date, format: .dateTime.weekday(.abbreviated).month(.abbreviated).day())
-                    .font(.caption2)
-                    .fontWeight(.semibold)
+                    .font(.theme(.caption2, weight: .semibold))
                     .foregroundStyle(.secondary)
                     .tracking(0.5)
                     .textCase(.uppercase)
                 HStack(alignment: .firstTextBaseline, spacing: 8) {
-                    Text("\(data.reviewAttempts)")
+                    Text("\(data.reviewAttempts) answers")
                         .font(.theme(.title2, weight: .bold))
                     if data.hasDetailedMetrics {
                         HStack(spacing: 10) {
                             Text("\(data.correctAnswers) correct")
-                            Text("\(data.wordsIntroduced) introduced")
+                            Text("\(data.wordsIntroduced) new")
                             Text("\(data.movedToMastered) mastered")
                         }
                         .font(.theme(.caption))
@@ -260,6 +256,7 @@ private struct CumulativeProgressChartView: View {
     let targetLevel: String
     let targetCount: Int
     let benchmarks: [(level: String, count: Int)]
+    let projection: CoverageProjection?
     
     @State private var selectedDate: Date?
     
@@ -267,26 +264,61 @@ private struct CumulativeProgressChartView: View {
         let maxCount = entries.last?.count ?? 0
         return Double(max(1, max(maxCount, targetCount))) * 1.1
     }
+
+    private var projectedEntries: [ProjectedCoverageEntry] {
+        guard let projection else { return [] }
+        return [
+            ProjectedCoverageEntry(date: projection.startDate, count: projection.currentCount),
+            ProjectedCoverageEntry(date: projection.projectedDate, count: projection.targetCount),
+        ]
+    }
+
+    private var currentCount: Int {
+        projection?.currentCount ?? entries.last?.count ?? 0
+    }
+
+    private var chartStartDate: Date? {
+        entries.first?.date ?? projectedEntries.first?.date
+    }
+
+    private var chartEndDate: Date? {
+        projectedEntries.last?.date ?? entries.last?.date
+    }
+
+    private var chartSpanInMonths: Int {
+        guard let chartStartDate, let chartEndDate else { return 0 }
+        return Calendar.current.dateComponents([.month], from: chartStartDate, to: chartEndDate).month ?? 0
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             if let selected = selectedDate, let entry = entries.first(where: { Calendar.current.isDate($0.date, inSameDayAs: selected) }) {
                 Text(entry.date, format: .dateTime.weekday(.abbreviated).month(.abbreviated).day().year())
-                    .font(.caption2)
+                    .font(.theme(.caption2))
                     .foregroundStyle(.secondary)
-                Text("\(entry.count) words introduced")
-                    .font(.headline)
+                Text("\(entry.count) introduced")
+                    .font(.theme(.headline, weight: .semibold))
             } else {
-                Text("\(entries.last?.count ?? 0) / \(targetCount) words introduced")
-                    .font(.headline)
-                Text("Counts only words labelled A1 through \(targetLevel).")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                Text("\(currentCount) / \(targetCount)")
+                    .font(.theme(.headline, weight: .semibold))
+                if let projection {
+                    Text("\(projection.sampleDays)-day pace: \(dailyRateLabel(projection.recentDailyRate))/day · \(projection.remainingCount) left → \(projection.projectedDate, format: .dateTime.month(.abbreviated).day().year())")
+                        .font(.theme(.caption))
+                        .foregroundStyle(.secondary)
+                } else if currentCount >= targetCount {
+                    Text("All vocabulary through \(targetLevel) is complete.")
+                        .font(.theme(.caption))
+                        .foregroundStyle(.secondary)
+                } else {
+                    Text("No new words added in the last \(StatsViewModel.coverageProjectionSampleDays) days.")
+                        .font(.theme(.caption))
+                        .foregroundStyle(.secondary)
+                }
             }
 
-            if entries.isEmpty {
-                Text("No words in this CEFR range have been introduced yet.")
-                    .font(.caption)
+            if entries.isEmpty && projection == nil {
+                Text("No words introduced yet.")
+                    .font(.theme(.caption))
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, minHeight: 120, alignment: .leading)
             } else {
@@ -294,9 +326,20 @@ private struct CumulativeProgressChartView: View {
                     ForEach(entries) { entry in
                         LineMark(
                             x: .value("Date", entry.date, unit: .day),
-                            y: .value("Words introduced", entry.count)
+                            y: .value("Introduced", entry.count),
+                            series: .value("Line", "Actual")
                         )
                         .lineStyle(StrokeStyle(lineWidth: 2))
+                        .foregroundStyle(Theme.primary)
+                    }
+
+                    ForEach(projectedEntries) { entry in
+                        LineMark(
+                            x: .value("Date", entry.date, unit: .day),
+                            y: .value("Introduced", entry.count),
+                            series: .value("Line", "Plan")
+                        )
+                        .lineStyle(StrokeStyle(lineWidth: 2, dash: [5, 4]))
                         .foregroundStyle(Theme.primary)
                     }
 
@@ -306,7 +349,7 @@ private struct CumulativeProgressChartView: View {
                             .foregroundStyle(Color.secondary.opacity(0.5))
                             .annotation(position: .top, alignment: .leading) {
                                 Text(benchmark.level)
-                                    .font(.caption2)
+                                    .font(.theme(.caption2))
                                     .foregroundStyle(.secondary)
                             }
                     }
@@ -319,8 +362,18 @@ private struct CumulativeProgressChartView: View {
                 }
                 .chartYScale(domain: 0...yMax)
                 .chartXAxis {
-                    AxisMarks(values: .stride(by: .month)) { _ in
-                        AxisValueLabel(format: .dateTime.month(.abbreviated))
+                    if chartSpanInMonths <= 12 {
+                        AxisMarks(values: .stride(by: .month)) { _ in
+                            AxisValueLabel(format: .dateTime.month(.abbreviated))
+                        }
+                    } else if chartSpanInMonths <= 36 {
+                        AxisMarks(values: .stride(by: .month, count: 3)) { _ in
+                            AxisValueLabel(format: .dateTime.month(.abbreviated).year(.twoDigits))
+                        }
+                    } else {
+                        AxisMarks(values: .stride(by: .year)) { _ in
+                            AxisValueLabel(format: .dateTime.year())
+                        }
                     }
                 }
                 .chartOverlay { proxy in
@@ -329,7 +382,8 @@ private struct CumulativeProgressChartView: View {
                             .gesture(
                                 DragGesture(minimumDistance: 0)
                                     .onChanged { value in
-                                        let plotArea = geometry[proxy.plotAreaFrame]
+                                        guard let plotFrame = proxy.plotFrame else { return }
+                                        let plotArea = geometry[plotFrame]
                                         let xPosition = value.location.x - plotArea.origin.x
                                         if let tapped: Date = proxy.value(atX: xPosition) {
                                             selectedDate = Calendar.current.startOfDay(for: tapped)
@@ -343,6 +397,17 @@ private struct CumulativeProgressChartView: View {
             }
         }
     }
+
+    private func dailyRateLabel(_ rate: Double) -> String {
+        String(format: rate < 1 ? "%.2f" : "%.1f", rate)
+    }
+}
+
+private struct ProjectedCoverageEntry: Identifiable {
+    let date: Date
+    let count: Int
+
+    var id: String { "\(date.timeIntervalSince1970)-\(count)" }
 }
 
 // MARK: - Supporting views
@@ -360,12 +425,12 @@ private struct ProgressRow: View {
             Text(label)
             Spacer()
             Text("\(count)")
+                .font(.theme(.body, weight: .semibold))
                 .foregroundStyle(color)
-                .fontWeight(.semibold)
             if let total {
                 Text("/ \(total)")
                     .foregroundStyle(.secondary)
-                    .font(.caption)
+                    .font(.theme(.caption))
             }
         }
     }
@@ -377,11 +442,16 @@ private struct LevelProgressRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack {
-                Text(stats.level).fontWeight(.semibold)
+                Text(stats.level)
+                    .font(.theme(.body, weight: .semibold))
+                    .lineLimit(1)
+                    .layoutPriority(1)
                 Spacer()
-                Text("\(stats.mastered) mastered · \(stats.production) production · \(stats.recognition) recognition / \(stats.total)")
+                Text("\(stats.mastered) M · \(stats.production) P · \(stats.recognition) R / \(stats.total)")
                     .foregroundStyle(.secondary)
-                    .font(.caption)
+                    .font(.theme(.caption))
+                    .multilineTextAlignment(.trailing)
+                    .accessibilityLabel("\(stats.mastered) mastered, \(stats.production) production, \(stats.recognition) recognition, \(stats.total) total")
             }
             GeometryReader { geo in
                 let width = geo.size.width
@@ -393,11 +463,11 @@ private struct LevelProgressRow: View {
 
                 HStack(spacing: 0) {
                     Rectangle().fill(Theme.masteredBar).frame(width: masteredWidth)
-                    Rectangle().fill(Theme.primary).frame(width: productionWidth)
-                    Rectangle().fill(Theme.primaryLight).frame(width: recognitionWidth)
-                    Rectangle().fill(Color(.systemGray5)).frame(width: remainingWidth)
+                    Rectangle().fill(Theme.production).frame(width: productionWidth)
+                    Rectangle().fill(Theme.recognition).frame(width: recognitionWidth)
+                    Rectangle().fill(Theme.chipBackground).frame(width: remainingWidth)
                 }
-                .clipShape(RoundedRectangle(cornerRadius: 4))
+                .clipShape(RoundedRectangle(cornerRadius: Theme.barCornerRadius, style: .continuous))
             }
             .frame(height: 8)
         }
@@ -411,18 +481,18 @@ private struct TenseProgressRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack {
-                Text(stat.tense.capitalized).fontWeight(.semibold)
+                Text(stat.tense.capitalized).font(.theme(.body, weight: .semibold))
                 Spacer()
-                Text(String(format: "%.0f%% recent form · %@", stat.score * 100, attemptsLabel))
+                Text(String(format: "%.0f%% recent · %@", stat.score * 100, attemptsLabel))
                     .foregroundStyle(.secondary)
-                    .font(.caption)
+                    .font(.theme(.caption))
             }
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 4).fill(Color(.systemGray5))
+                    RoundedRectangle(cornerRadius: Theme.barCornerRadius, style: .continuous).fill(Theme.chipBackground)
                     
                     let width = geo.size.width * CGFloat(max(0, min(1, stat.score)))
-                    RoundedRectangle(cornerRadius: 4)
+                    RoundedRectangle(cornerRadius: Theme.barCornerRadius, style: .continuous)
                         .fill(Theme.primary)
                         .frame(width: width)
                 }

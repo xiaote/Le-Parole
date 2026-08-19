@@ -25,100 +25,47 @@ struct WordBankView: View {
             ZStack {
                 Theme.canvas.ignoresSafeArea()
 
-                VStack(spacing: 0) {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 8) {
-                            LevelChip(title: "All", isSelected: selectedLevel == nil && !showingSkipped) {
-                                selectedLevel = nil
-                                showingSkipped = false
-                                selectedIDs.removeAll()
-                                vm.selectedLevel = nil
-                                vm.showingSkipped = false
-                            }
-                            ForEach(builtInLevels, id: \.self) { level in
-                                LevelChip(title: level, isSelected: selectedLevel == level && !showingSkipped) {
-                                    selectedLevel = level
-                                    showingSkipped = false
-                                    selectedIDs.removeAll()
-                                    vm.selectedLevel = level
-                                    vm.showingSkipped = false
-                                }
-                            }
-                            ForEach(vm.customLevels, id: \.self) { level in
-                                LevelChip(title: level, isSelected: selectedLevel == level && !showingSkipped) {
-                                    selectedLevel = level
-                                    showingSkipped = false
-                                    selectedIDs.removeAll()
-                                    vm.selectedLevel = level
-                                    vm.showingSkipped = false
-                                }
-                            }
-                            LevelChip(title: "Skipped", isSelected: showingSkipped, color: Color(.systemGray)) {
-                                showingSkipped = true
-                                selectedLevel = nil
-                                selectedIDs.removeAll()
-                                vm.showingSkipped = true
-                                vm.selectedLevel = nil
-                            }
-                        }
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 8)
-                    }
+                ScrollView {
+                    LazyVStack(spacing: 0) {
+                        filterBar
+                            .padding(.bottom, 8)
 
-                    List(vm.userWords) { uw in
-                        let rowId = uw.id ?? 0
-                        let isSelected = selectedIDs.contains(rowId)
-                        WordRow(userWord: uw, isSelecting: isSelecting, isSelected: isSelected)
-                            .listRowBackground(Theme.surface)
-                            .listRowSeparatorTint(Theme.border)
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                if isSelecting {
-                                    withAnimation(selectAnimation) {
-                                        if selectedIDs.contains(rowId) { selectedIDs.remove(rowId) }
-                                        else { selectedIDs.insert(rowId) }
-                                    }
-                                } else {
-                                    selectedWord = uw
-                                }
-                            }
-                            .onAppear {
-                                vm.loadMoreIfNeeded(after: uw.id)
-                            }
-                            .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                                if uw.word.isUserCreated {
-                                    Button(role: .destructive) {
-                                        wordToDelete = uw
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-                                }
-                            }
-                    }
-                    .listStyle(.plain)
-                    .scrollContentBackground(.hidden)
-                    .background(Theme.surface)
-                    .overlay {
+                        Divider()
+                            .overlay(Theme.border)
+                            .padding(.horizontal, 20)
+
                         if vm.userWords.isEmpty {
                             ContentUnavailableView(
                                 searchText.isEmpty ? "No words here" : "No results",
                                 systemImage: searchText.isEmpty ? "text.book.closed" : "magnifyingglass",
                                 description: Text(searchText.isEmpty ? "Add a word or choose another category." : "Try a different word or category.")
                             )
+                            .frame(maxWidth: .infinity, minHeight: 320)
+                        } else {
+                            LazyVStack(spacing: 0) {
+                                ForEach(vm.userWords) { userWord in
+                                    wordRow(userWord)
+                                        .onAppear {
+                                            vm.loadMoreIfNeeded(after: userWord.id)
+                                        }
+                                }
+
+                                if vm.hasMoreResults && vm.isLoadingMore {
+                                    ProgressView()
+                                    .padding(.vertical, 16)
+                                }
+                            }
+                            .padding(.horizontal, 20)
+                            .padding(.top, 12)
                         }
                     }
-                    .clipShape(RoundedRectangle(cornerRadius: Theme.cardCornerRadius, style: .continuous))
-                    .overlay {
-                        RoundedRectangle(cornerRadius: Theme.cardCornerRadius, style: .continuous)
-                            .stroke(Theme.border, lineWidth: 1)
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 8)
-
-                    if showBottomBar {
-                        bottomBar
-                            .transition(.move(edge: .bottom).combined(with: .opacity))
-                    }
+                    .padding(.bottom, 16)
+                }
+            }
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                if showBottomBar {
+                    bottomBar
+                        .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
             }
             .animation(selectAnimation, value: showBottomBar)
@@ -141,8 +88,7 @@ struct WordBankView: View {
                 isPresented: Binding(get: { wordToDelete != nil }, set: { if !$0 { wordToDelete = nil } })
             ) {
                 Button("Delete", role: .destructive) {
-                    if let w = wordToDelete {
-                        let word = w.word
+                    if let word = wordToDelete?.word {
                         Task.detached {
                             try? DatabaseService.shared.db.write { db in try word.delete(db) }
                         }
@@ -189,6 +135,82 @@ struct WordBankView: View {
                 }
             }
         }
+    }
+
+    private var filterBar: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                LevelChip(title: "All", isSelected: selectedLevel == nil && !showingSkipped) {
+                    selectedLevel = nil
+                    showingSkipped = false
+                    selectedIDs.removeAll()
+                    vm.selectedLevel = nil
+                    vm.showingSkipped = false
+                }
+                ForEach(builtInLevels, id: \.self) { level in
+                    LevelChip(title: level, isSelected: selectedLevel == level && !showingSkipped) {
+                        selectedLevel = level
+                        showingSkipped = false
+                        selectedIDs.removeAll()
+                        vm.selectedLevel = level
+                        vm.showingSkipped = false
+                    }
+                }
+                ForEach(vm.customLevels, id: \.self) { level in
+                    LevelChip(title: level, isSelected: selectedLevel == level && !showingSkipped) {
+                        selectedLevel = level
+                        showingSkipped = false
+                        selectedIDs.removeAll()
+                        vm.selectedLevel = level
+                        vm.showingSkipped = false
+                    }
+                }
+                LevelChip(title: "Skipped", isSelected: showingSkipped, color: Color(.systemGray)) {
+                    showingSkipped = true
+                    selectedLevel = nil
+                    selectedIDs.removeAll()
+                    vm.showingSkipped = true
+                    vm.selectedLevel = nil
+                }
+            }
+            .padding(.horizontal, 20)
+            .padding(.vertical, 8)
+        }
+    }
+
+    private func wordRow(_ userWord: UserWord) -> some View {
+        let rowID = userWord.id ?? 0
+        let isSelected = selectedIDs.contains(rowID)
+
+        return WordRow(userWord: userWord, isSelecting: isSelecting, isSelected: isSelected)
+            .contentShape(Rectangle())
+            .padding(.vertical, 8)
+            .onTapGesture {
+                if isSelecting {
+                    withAnimation(selectAnimation) {
+                        if selectedIDs.contains(rowID) {
+                            selectedIDs.remove(rowID)
+                        } else {
+                            selectedIDs.insert(rowID)
+                        }
+                    }
+                } else {
+                    selectedWord = userWord
+                }
+            }
+            .contextMenu {
+                if userWord.word.isUserCreated {
+                    Button(role: .destructive) {
+                        wordToDelete = userWord
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                }
+            }
+            .overlay(alignment: .bottom) {
+                Divider()
+                    .overlay(Theme.border)
+            }
     }
 
     private var bottomBar: some View {

@@ -522,21 +522,27 @@ final class GeminiService: Sendable {
         }
     }
     
-    struct GeminiRequest: Codable {
+    struct GeminiRequest: Encodable {
         let contents: [Content]
         let generationConfig: GenerationConfig
         
-        struct Content: Codable {
+        struct Content: Encodable {
             let role: String
             let parts: [Part]
         }
         
-        struct Part: Codable {
+        struct Part: Encodable {
             let text: String
         }
         
-        struct GenerationConfig: Codable {
+        struct GenerationConfig: Encodable {
             let responseMimeType: String
+            let responseSchema: BatchChallengeResponseSchema?
+
+            init(responseMimeType: String, responseSchema: BatchChallengeResponseSchema? = nil) {
+                self.responseMimeType = responseMimeType
+                self.responseSchema = responseSchema
+            }
         }
     }
     
@@ -568,7 +574,7 @@ final class GeminiService: Sendable {
         let pronoun: String
     }
     
-    struct BatchChallengeResponse: Codable {
+    struct BatchChallengeResponse: Decodable {
         let id: String
         var sentence: String
         let answer: String
@@ -577,8 +583,43 @@ final class GeminiService: Sendable {
         var pronoun: String?
         let englishTranslation: String?
     }
+
+    /// The API schema is deliberately kept separate from `BatchChallengeResponse`:
+    /// the latter is the app's decoded representation, while this is the exact
+    /// contract sent to Gemini. Requiring every field prevents a syntactically
+    /// valid but incomplete object from reaching the decoder.
+    struct BatchChallengeResponseSchema: Encodable {
+        let type = "array"
+        let items = Item()
+
+        struct Item: Encodable {
+            let type = "object"
+            let properties = Properties()
+            let required = ["id", "sentence", "answer", "explanation", "tense", "pronoun", "englishTranslation"]
+        }
+
+        struct Properties: Encodable {
+            let id = StringField()
+            let sentence = StringField()
+            let answer = StringField()
+            let explanation = StringField()
+            let tense = StringField()
+            let pronoun = StringField()
+            let englishTranslation = StringField()
+        }
+
+        struct StringField: Encodable {
+            let type = "string"
+        }
+    }
+
+    private struct BatchResponseValidationError: LocalizedError {
+        let description: String
+
+        var errorDescription: String? { description }
+    }
     
-    static func generateConjugationChallenge(for verb: String, englishMeaning: String, tense requestedTense: String, pronoun requestedPronoun: String, apiKey: String, retryCount: Int = 0) async -> (sentence: String, answer: String, explanation: String, tense: String, pronoun: String, englishTranslation: String)? {
+    static func generateConjugationChallenge(for verb: String, englishMeaning: String, tense requestedTense: String, pronoun requestedPronoun: String, apiKey: String) async -> (sentence: String, answer: String, explanation: String, tense: String, pronoun: String, englishTranslation: String)? {
         guard !apiKey.isEmpty else {
             print("Gemini API key is empty.")
             return nil
@@ -690,7 +731,6 @@ final class GeminiService: Sendable {
         
         do {
             let encoder = JSONEncoder()
-            encoder.keyEncodingStrategy = .convertToSnakeCase
             request.httpBody = try encoder.encode(payload)
             let (data, response) = try await URLSession.shared.data(for: request)
             
@@ -831,8 +871,67 @@ final class GeminiService: Sendable {
             return processed
         }
     }
+
+    private static func validateBatchResponses(_ responses: [BatchChallengeResponse], requests: [BatchChallengeRequest]) throws -> [BatchChallengeResponse] {
+        guard responses.count == requests.count else {
+            throw BatchResponseValidationError(
+                description: "Expected \(requests.count) cards but Gemini returned \(responses.count)."
+            )
+        }
+
+        let requestsByID = Dictionary(uniqueKeysWithValues: requests.map { ($0.id, $0) })
+        var returnedIDs = Set<String>()
+
+        for (index, response) in responses.enumerated() {
+            let itemDescription = "Card at array index \(index)"
+
+            guard !response.id.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+                throw BatchResponseValidationError(description: "\(itemDescription) has an empty id.")
+            }
+            guard requestsByID[response.id] != nil else {
+                throw BatchResponseValidationError(description: "\(itemDescription) has an unknown id: \(response.id).")
+            }
+            guard returnedIDs.insert(response.id).inserted else {
+                throw BatchResponseValidationError(description: "\(itemDescription) repeats id \(response.id).")
+            }
+            guard !response.sentence.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+                throw BatchResponseValidationError(description: "\(itemDescription) (id \(response.id)) has an empty sentence.")
+            }
+            guard !response.answer.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+                throw BatchResponseValidationError(description: "\(itemDescription) (id \(response.id)) has an empty answer.")
+            }
+            guard !(response.explanation?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true) else {
+                throw BatchResponseValidationError(description: "\(itemDescription) (id \(response.id)) has no explanation.")
+            }
+            guard !(response.tense?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true) else {
+                throw BatchResponseValidationError(description: "\(itemDescription) (id \(response.id)) has no tense.")
+            }
+            guard !(response.pronoun?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true) else {
+                throw BatchResponseValidationError(description: "\(itemDescription) (id \(response.id)) has no pronoun.")
+            }
+            guard !(response.englishTranslation?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true) else {
+                throw BatchResponseValidationError(description: "\(itemDescription) (id \(response.id)) has no English translation.")
+            }
+        }
+
+        let missingIDs = Set(requestsByID.keys).subtracting(returnedIDs)
+        guard missingIDs.isEmpty else {
+            throw BatchResponseValidationError(
+                description: "Gemini omitted \(missingIDs.count) requested card\(missingIDs.count == 1 ? "" : "s")."
+            )
+        }
+
+        return processBatchResponses(responses, requests: requests)
+    }
+
+    private static func batchResponseErrorMessage(_ error: Error) -> String {
+        if let validationError = error as? BatchResponseValidationError {
+            return validationError.description
+        }
+        return String(describing: error)
+    }
     
-    static func generateBatchedConjugationChallenges(requests: [BatchChallengeRequest], apiKey: String, retryCount: Int = 0) async -> [BatchChallengeResponse]? {
+    static func generateBatchedConjugationChallenges(requests: [BatchChallengeRequest], apiKey: String) async -> [BatchChallengeResponse]? {
         guard !apiKey.isEmpty else { return nil }
         guard !requests.isEmpty else { return [] }
         
@@ -846,7 +945,6 @@ final class GeminiService: Sendable {
         
         Each object MUST have the following keys:
         - "id": the exact string ID provided
-        - "scratchpad": step-by-step reasoning
         - "sentence": one natural Italian sentence using the conjugated form. Replace the conjugated verb in the sentence with '_____' (5 underscores) immediately followed by the infinitive in parentheses. e.g. "_____ (mangiare)". CRITICAL: If you use the verb reflexively (e.g. 'mi sveglio'), you MUST use the reflexive infinitive in the parentheses (e.g. '_____ (svegliarsi)', NOT '_____ (svegliare)').
         - "answer": the exact conjugated verb only (no subject pronouns unless reflexive), except for the special PIACERE construction below, which includes the requested dative clitic
         - "explanation": brief explanation of why this form is used
@@ -879,7 +977,6 @@ final class GeminiService: Sendable {
         [
             {
                 "id": "123e4567-e89b-12d3-a456-426614174000",
-                "scratchpad": "Conjugation: io mangio",
                 "sentence": "Oggi io _____ (mangiare) una pizza.",
                 "answer": "mangio",
                 "explanation": "The sentence uses 'io' and refers to the present, so 'mangio' is required.",
@@ -903,12 +1000,16 @@ final class GeminiService: Sendable {
         
         let payload = GeminiRequest(
             contents: [.init(role: "user", parts: [.init(text: instructions)])],
-            generationConfig: .init(responseMimeType: "application/json")
+            generationConfig: .init(
+                responseMimeType: "application/json",
+                responseSchema: BatchChallengeResponseSchema()
+            )
         )
         
         do {
             let encoder = JSONEncoder()
-            encoder.keyEncodingStrategy = .convertToSnakeCase
+            // Gemini's REST API uses lower-camel-case configuration keys. Keeping
+            // that spelling also preserves the response-schema property names.
             request.httpBody = try encoder.encode(payload)
             let (data, response) = try await URLSession.shared.data(for: request)
             
@@ -964,26 +1065,11 @@ final class GeminiService: Sendable {
                 if let jsonData = cleanText.data(using: .utf8) {
                     do {
                         let items = try JSONDecoder().decode([BatchChallengeResponse].self, from: jsonData)
-                        return processBatchResponses(items, requests: requests)
-                    } catch let arrayError {
-                        struct Wrapper: Codable {
-                            let flashcards: [BatchChallengeResponse]?
-                            let cards: [BatchChallengeResponse]?
-                            let items: [BatchChallengeResponse]?
-                        }
-                        if let wrapper = try? JSONDecoder().decode(Wrapper.self, from: jsonData),
-                           let items = wrapper.flashcards ?? wrapper.cards ?? wrapper.items {
-                            return processBatchResponses(items, requests: requests)
-                        }
-                        
-                        let snakeDecoder = JSONDecoder()
-                        snakeDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                        if let snakeArray = try? snakeDecoder.decode([BatchChallengeResponse].self, from: jsonData) {
-                            return processBatchResponses(snakeArray, requests: requests)
-                        }
-                        
-                        GeminiService.lastErrorMessage = "JSON Error: \(arrayError)\n\nRaw:\n\(cleanText)"
-                        print("Gemini JSON Error: \(arrayError)")
+                        return try validateBatchResponses(items, requests: requests)
+                    } catch {
+                        let message = batchResponseErrorMessage(error)
+                        GeminiService.lastErrorMessage = "Conjugation response error: \(message)\n\nRaw:\n\(cleanText)"
+                        print("Gemini conjugation response error: \(error)")
                     }
                 } else {
                     GeminiService.lastErrorMessage = "Failed to convert response to data"

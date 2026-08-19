@@ -77,6 +77,17 @@ struct CumulativeProgressEntry: Identifiable, Equatable {
     var id: Date { date }
 }
 
+struct CoverageProjection: Equatable {
+    let startDate: Date
+    let projectedDate: Date
+    let currentCount: Int
+    let targetCount: Int
+    let recentDailyRate: Double
+    let sampleDays: Int
+
+    var remainingCount: Int { targetCount - currentCount }
+}
+
 struct IntroducedWord: Sendable, Equatable {
     let level: String
     let learnedDate: Double
@@ -98,6 +109,7 @@ final class StatsViewModel {
     private var introducedWordsCancellable: AnyDatabaseCancellable?
 
     static let cefrLevels = ["A1", "A2", "B1", "B2", "C1", "C2"]
+    static let coverageProjectionSampleDays = 7
     static let supportedTenses = [
         "presente",
         "passato prossimo",
@@ -272,9 +284,9 @@ final class StatsViewModel {
     var thisWeekWordCount: Int {
         dailyWordCounts().suffix(7).reduce(0) { $0 + $1.total }
     }
-    func cumulativeProgressData() -> [CumulativeProgressEntry] {
+    func cumulativeProgressData(for level: String? = nil) -> [CumulativeProgressEntry] {
         guard
-            let targetIndex = Self.cefrLevels.firstIndex(of: targetLevel)
+            let targetIndex = Self.cefrLevels.firstIndex(of: level ?? targetLevel)
         else {
             return []
         }
@@ -312,6 +324,36 @@ final class StatsViewModel {
         return Self.cefrLevels.prefix(through: targetIndex).reduce(0) { total, level in
             total + statsFor(level: level).total
         }
+    }
+
+    func coverageProjection(for level: String) -> CoverageProjection? {
+        let targetCount = targetWordCount(for: level)
+        let entries = cumulativeProgressData(for: level)
+        let currentCount = entries.last?.count ?? 0
+        guard targetCount > currentCount else { return nil }
+
+        let calendar = Calendar.current
+        let startDate = calendar.startOfDay(for: .now)
+        let sampleDays = Self.coverageProjectionSampleDays
+        let sampleStart = calendar.date(byAdding: .day, value: -(sampleDays - 1), to: startDate)!
+        let countBeforeSample = entries.last(where: { $0.date < sampleStart })?.count ?? 0
+        let introducedInSample = currentCount - countBeforeSample
+        let recentDailyRate = Double(introducedInSample) / Double(sampleDays)
+        guard recentDailyRate > 0 else { return nil }
+
+        let daysNeeded = Int(ceil(Double(targetCount - currentCount) / recentDailyRate))
+        guard let projectedDate = calendar.date(byAdding: .day, value: daysNeeded, to: startDate) else {
+            return nil
+        }
+
+        return CoverageProjection(
+            startDate: startDate,
+            projectedDate: projectedDate,
+            currentCount: currentCount,
+            targetCount: targetCount,
+            recentDailyRate: recentDailyRate,
+            sampleDays: sampleDays
+        )
     }
 
     func benchmarks(for level: String) -> [(level: String, count: Int)] {
