@@ -80,6 +80,7 @@ struct CumulativeProgressEntry: Identifiable, Equatable {
 struct IntroducedWord: Sendable, Equatable {
     let level: String
     let learnedDate: Double
+    let count: Int
 }
 
 @Observable
@@ -197,14 +198,21 @@ final class StatsViewModel {
         
         introducedWordsCancellable = ValueObservation.tracking { db in
             let rows = try Row.fetchAll(db, sql: """
-                SELECT w.level, uw.learnedDate
+                SELECT w.level,
+                       MIN(uw.learnedDate) AS learnedDate,
+                       COUNT(*) AS count
                 FROM userWords uw
                 JOIN words w ON w.wordId = uw.wordId
                 WHERE uw.learnedDate IS NOT NULL AND uw.stage != 'skipped'
-                ORDER BY uw.learnedDate ASC
+                GROUP BY w.level, strftime('%Y-%m-%d', uw.learnedDate, 'unixepoch', 'localtime')
+                ORDER BY learnedDate ASC
                 """)
             return rows.map { row in
-                IntroducedWord(level: row["level"], learnedDate: row["learnedDate"])
+                IntroducedWord(
+                    level: row["level"],
+                    learnedDate: row["learnedDate"],
+                    count: row["count"]
+                )
             }
         }.start(
             in: db.db,
@@ -281,7 +289,7 @@ final class StatsViewModel {
         var dailyCounts: [Date: Int] = [:]
         for word in eligibleWords {
             let day = calendar.startOfDay(for: Date(timeIntervalSince1970: word.learnedDate))
-            dailyCounts[day, default: 0] += 1
+            dailyCounts[day, default: 0] += word.count
         }
         
         let sortedDays = dailyCounts.keys.sorted()

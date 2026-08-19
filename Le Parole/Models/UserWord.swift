@@ -76,7 +76,8 @@ extension UserWord: FetchableRecord {
             level: row["level"],
             frequencyRank: row["frequencyRank"],
             isUserCreated: row["isUserCreated"],
-            inflections: row["inflections"]
+            inflections: row["inflections"],
+            partOfSpeech: row["partOfSpeech"]
         )
     }
 }

@@ -4,7 +4,7 @@
             "authoritarian rule",
             "dictatorship"
         ],
-        "frequencyRank": 11789,
+        "frequencyRank": 12164,
         "italian": "autoritarismo",
         "id": "1502",
         "english": "authoritarianism",
@@ -16,11 +16,11 @@
         "alternatives": [
             "authoritarian nationalism"
         ],
-        "frequencyRank": 1886,
+        "frequencyRank": 2237,
         "italian": "fascismo",
         "id": "1503",
         "english": "fascism",
-        "level": "C1",
+        "level": "B2",
         "inflections": "Noun: il fascismo, i fascismi",
         "partOfSpeech": "noun"
     },
@@ -30,7 +30,7 @@
             "marxism",
             "collectivism"
         ],
-        "frequencyRank": 3526,
+        "frequencyRank": 4047,
         "italian": "comunismo",
         "id": "1504",
         "english": "communism",
@@ -42,11 +42,11 @@
         "alternatives": [
             "social democracy"
         ],
-        "frequencyRank": 3134,
+        "frequencyRank": 3618,
         "italian": "socialismo",
         "id": "1505",
         "english": "socialism",
-        "level": "C1",
+        "level": "B2",
         "inflections": "Noun: il socialismo, i socialismi",
         "partOfSpeech": "noun"
     },
@@ -54,7 +54,7 @@
         "alternatives": [
             "liberal thinking"
         ],
-        "frequencyRank": 5800,
+        "frequencyRank": 6487,
         "italian": "liberalismo",
         "id": "1506",
         "english": "liberalism",
@@ -66,7 +66,7 @@
         "alternatives": [
             "traditionalism"
         ],
-        "frequencyRank": 10422,
+        "frequencyRank": 10946,
         "italian": "conservatorismo",
         "id": "1507",
         "english": "conservatism",
@@ -78,7 +78,7 @@
         "alternatives": [
             "patriotism"
         ],
-        "frequencyRank": 4477,
+        "frequencyRank": 5094,
         "italian": "nazionalismo",
         "id": "1508",
         "english": "nationalism",
@@ -90,7 +90,7 @@
         "alternatives": [
             "secessionism"
         ],
-        "frequencyRank": 13464,
+        "frequencyRank": 13651,
         "italian": "separatismo",
         "id": "1509",
         "english": "separatism",
@@ -103,11 +103,11 @@
             "independence",
             "self-rule"
         ],
-        "frequencyRank": 1531,
+        "frequencyRank": 1833,
         "italian": "autonomia",
         "id": "1510",
         "english": "autonomy",
-        "level": "A2",
+        "level": "B2",
         "inflections": "Noun: l'autonomia, le autonomie",
         "partOfSpeech": "noun"
     },
@@ -116,7 +116,7 @@
             "federal government",
             "federal system"
         ],
-        "frequencyRank": 7450,
+        "frequencyRank": 8151,
         "italian": "federalismo",
         "id": "1511",
         "english": "federalism",
@@ -129,7 +129,7 @@
             "centralized power",
             "central government"
         ],
-        "frequencyRank": 13134,
+        "frequencyRank": 13366,
         "italian": "centralismo",
         "id": "1512",
         "english": "centralism",
@@ -142,7 +142,7 @@
             "royal rule",
             "kingship"
         ],
-        "frequencyRank": 3318,
+        "frequencyRank": 3816,
         "italian": "monarchia",
         "id": "1513",
         "english": "monarchy",
@@ -155,11 +155,11 @@
             "democratic state",
             "commonwealth"
         ],
-        "frequencyRank": 332,
+        "frequencyRank": 409,
         "italian": "repubblica",
         "id": "1514",
         "english": "republic",
-        "level": "A1",
+        "level": "B2",
         "inflections": "Noun: la repubblica, le repubbliche",
         "partOfSpeech": "noun"
     },
@@ -168,11 +168,11 @@
             "tyranny",
             "autocracy"
         ],
-        "frequencyRank": 2457,
+        "frequencyRank": 2869,
         "italian": "dittatura",
         "id": "1515",
         "english": "dictatorship",
-        "level": "C1",
+        "level": "B2",
         "inflections": "Noun: la dittatura, le dittature",
         "partOfSpeech": "noun"
     },
@@ -183,7 +183,7 @@
             "coup d'etat",
             "overthrow"
         ],
-        "frequencyRank": 681,
+        "frequencyRank": 3522,
         "italian": "colpo di stato",
         "id": "1517",
         "english": "coup",
@@ -196,11 +196,11 @@
             "overthrow",
             "uprising"
         ],
-        "frequencyRank": 835,
+        "frequencyRank": 1052,
         "italian": "rivoluzione",
         "id": "1518",
         "english": "revolution",
-        "level": "B1",
+        "level": "B2",
         "inflections": "Noun: la rivoluzione, le rivoluzioni",
         "partOfSpeech": "noun"
     },
@@ -210,11 +210,11 @@
             "protest",
             "manifestation"
         ],
-        "frequencyRank": 987,
+        "frequencyRank": 1223,
         "italian": "manifestazione",
         "id": "1520",
         "english": "demonstration",
-        "level": "A1",
+        "level": "B2",
         "inflections": "Noun: la manifestazione, le manifestazioni",
         "partOfSpeech": "noun"
     },
@@ -224,11 +224,11 @@
             "combination",
             "amalgamation"
         ],
-        "frequencyRank": 2198,
+        "frequencyRank": 2577,
         "italian": "fusione",
         "id": "1525",
         "english": "merger",
-        "level": "C1",
+        "level": "B2",
         "inflections": "Noun: la fusione, le fusioni",
         "partOfSpeech": "noun"
     },
@@ -237,11 +237,11 @@
             "purchase",
             "takeover"
         ],
-        "frequencyRank": 3338,
+        "frequencyRank": 3853,
         "italian": "acquisizione",
         "id": "1526",
         "english": "acquisition",
-        "level": "A2",
+        "level": "B2",
         "inflections": "Noun: l'acquisizione, le acquisizioni",
         "partOfSpeech": "noun"
     },
@@ -252,7 +252,7 @@
             "listing",
             "ipo"
         ],
-        "frequencyRank": 10169,
+        "frequencyRank": 13697,
         "italian": "quotazione in borsa",
         "id": "1527",
         "english": "stock market listing",
@@ -265,7 +265,7 @@
             "net income",
             "bottom line"
         ],
-        "frequencyRank": 2361,
+        "frequencyRank": 5554,
         "italian": "utile netto",
         "id": "1528",
         "english": "net profit",
@@ -279,11 +279,11 @@
             "edge",
             "profit margin"
         ],
-        "frequencyRank": 2248,
+        "frequencyRank": 2625,
         "italian": "margine",
         "id": "1530",
         "english": "margin",
-        "level": "B1",
+        "level": "B2",
         "inflections": "Noun: il margine, i margini",
         "partOfSpeech": "noun"
     },
@@ -292,7 +292,7 @@
             "market portion",
             "share of the market"
         ],
-        "frequencyRank": 1414,
+        "frequencyRank": 4665,
         "italian": "quota di mercato",
         "id": "1531",
         "english": "market share",
@@ -305,11 +305,11 @@
             "opponent",
             "rival"
         ],
-        "frequencyRank": 3660,
+        "frequencyRank": 4192,
         "italian": "concorrente",
         "id": "1532",
         "english": "competitor",
-        "level": "C1",
+        "level": "B2",
         "inflections": "Noun: il concorrente, i concorrenti",
         "partOfSpeech": "noun"
     },
@@ -318,11 +318,11 @@
             "rivalry",
             "contest"
         ],
-        "frequencyRank": 1599,
+        "frequencyRank": 1914,
         "italian": "concorrenza",
         "id": "1533",
         "english": "competition",
-        "level": "B1",
+        "level": "B2",
         "inflections": "Noun: la concorrenza, le concorrenze",
         "partOfSpeech": "noun"
     },
@@ -331,11 +331,11 @@
             "exclusive control",
             "market dominance"
         ],
-        "frequencyRank": 3217,
+        "frequencyRank": 3720,
         "italian": "monopolio",
         "id": "1534",
         "english": "monopoly",
-        "level": "C1",
+        "level": "B2",
         "inflections": "Noun: il monopolio, i monopoli",
         "partOfSpeech": "noun"
     },
@@ -343,7 +343,7 @@
         "alternatives": [
             "limited competition"
         ],
-        "frequencyRank": 13811,
+        "frequencyRank": 13909,
         "italian": "oligopolio",
         "id": "1535",
         "english": "oligopoly",
@@ -355,7 +355,7 @@
         "alternatives": [
             "production line"
         ],
-        "frequencyRank": 3657,
+        "frequencyRank": 9868,
         "italian": "catena di montaggio",
         "id": "1536",
         "english": "assembly line",
@@ -367,7 +367,7 @@
         "alternatives": [
             "supply network"
         ],
-        "frequencyRank": 3892,
+        "frequencyRank": 10912,
         "italian": "catena di fornitura",
         "id": "1537",
         "english": "supply chain",
@@ -380,7 +380,7 @@
             "distribution",
             "transportation"
         ],
-        "frequencyRank": 5010,
+        "frequencyRank": 5666,
         "italian": "logistica",
         "id": "1538",
         "english": "logistics",
@@ -395,16 +395,16 @@
             "depot",
             "storeroom"
         ],
-        "frequencyRank": 2555,
+        "frequencyRank": 2969,
         "italian": "magazzino",
         "id": "1539",
         "english": "warehouse",
-        "level": "C1",
+        "level": "B2",
         "inflections": "Noun: il magazzino, i magazzini",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 5719,
+        "frequencyRank": 6408,
         "id": "1540",
         "italian": "inventario",
         "english": "inventory",
@@ -418,7 +418,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 12101,
+        "frequencyRank": 12439,
         "id": "1541",
         "italian": "oncologia",
         "english": "oncology",
@@ -431,7 +431,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 11328,
+        "frequencyRank": 11757,
         "id": "1542",
         "italian": "cardiologia",
         "english": "cardiology",
@@ -443,7 +443,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 11395,
+        "frequencyRank": 11816,
         "id": "1543",
         "italian": "neurologia",
         "english": "neurology",
@@ -455,7 +455,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 6030,
+        "frequencyRank": 6707,
         "id": "1544",
         "italian": "psichiatria",
         "english": "psychiatry",
@@ -468,7 +468,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 9327,
+        "frequencyRank": 9921,
         "id": "1545",
         "italian": "pediatria",
         "english": "paediatrics",
@@ -481,7 +481,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 10233,
+        "frequencyRank": 10767,
         "id": "1546",
         "italian": "ginecologia",
         "english": "gynaecology",
@@ -494,7 +494,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 13378,
+        "frequencyRank": 13581,
         "id": "1547",
         "italian": "dermatologia",
         "english": "dermatology",
@@ -506,7 +506,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 13037,
+        "frequencyRank": 13286,
         "id": "1548",
         "italian": "ortopedia",
         "english": "orthopaedics",
@@ -518,7 +518,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 9528,
+        "frequencyRank": 10101,
         "id": "1549",
         "italian": "radiologia",
         "english": "radiology",
@@ -530,7 +530,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 5985,
+        "frequencyRank": 6672,
         "id": "1550",
         "italian": "anestesia",
         "english": "anaesthesia",
@@ -544,7 +544,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 3059,
+        "frequencyRank": 9760,
         "id": "1552",
         "italian": "donazione di organi",
         "english": "organ donation",
@@ -554,7 +554,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 6818,
+        "frequencyRank": 13629,
         "id": "1553",
         "italian": "risonanza magnetica",
         "english": "mri scan",
@@ -567,7 +567,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 8290,
+        "frequencyRank": 8951,
         "id": "1554",
         "italian": "ecografia",
         "english": "ultrasound",
@@ -581,7 +581,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 5624,
+        "frequencyRank": 6290,
         "id": "1555",
         "italian": "TAC",
         "english": "ct scan",
@@ -593,7 +593,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 962,
+        "frequencyRank": 3975,
         "id": "1556",
         "italian": "analisi del sangue",
         "english": "blood test",
@@ -606,7 +606,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 4021,
+        "frequencyRank": 4585,
         "id": "1557",
         "italian": "interfaccia",
         "english": "interface",
@@ -614,12 +614,12 @@
             "connection",
             "link"
         ],
-        "level": "C1",
+        "level": "B2",
         "inflections": "Noun: l'interfaccia, le interfacce",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 4661,
+        "frequencyRank": 5293,
         "id": "1559",
         "italian": "prototipo",
         "english": "prototype",
@@ -632,7 +632,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 2296,
+        "frequencyRank": 6823,
         "id": "1563",
         "italian": "banda larga",
         "english": "broadband",
@@ -645,7 +645,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 4410,
+        "frequencyRank": 8740,
         "id": "1564",
         "italian": "fibra ottica",
         "english": "fibre optic",
@@ -659,7 +659,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 5521,
+        "frequencyRank": 10821,
         "id": "1565",
         "italian": "nuvola informatica",
         "english": "cloud computing",
@@ -673,7 +673,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 7013,
+        "frequencyRank": 7740,
         "id": "1566",
         "italian": "crittografia",
         "english": "cryptography",
@@ -685,7 +685,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1050,
+        "frequencyRank": 5039,
         "id": "1570",
         "italian": "dati personali",
         "english": "personal data",
@@ -698,7 +698,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 10049,
+        "frequencyRank": 10601,
         "id": "1571",
         "italian": "narcisismo",
         "english": "narcissism",
@@ -711,7 +711,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 4753,
+        "frequencyRank": 5392,
         "id": "1572",
         "italian": "empatia",
         "english": "empathy",
@@ -724,7 +724,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 2064,
+        "frequencyRank": 5772,
         "id": "1573",
         "italian": "meccanismo di difesa",
         "english": "defence mechanism",
@@ -737,7 +737,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 7121,
+        "frequencyRank": 7837,
         "id": "1574",
         "italian": "inconscio",
         "english": "unconscious",
@@ -752,7 +752,7 @@
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 10973,
+        "frequencyRank": 11428,
         "id": "1575",
         "italian": "subconscio",
         "english": "subconscious",
@@ -764,7 +764,7 @@
         "partOfSpeech": "adjective"
     },
     {
-        "frequencyRank": 2974,
+        "frequencyRank": 3439,
         "id": "1576",
         "italian": "proiezione",
         "english": "projection",
@@ -774,14 +774,14 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 2756,
+        "frequencyRank": 3199,
         "id": "1577",
         "italian": "rimozione",
         "english": "repression",
         "alternatives": [
             "removal"
         ],
-        "level": "C1",
+        "level": "B2",
         "inflections": "Noun: la rimozione, le rimozioni",
         "partOfSpeech": "noun"
     },
@@ -793,7 +793,7 @@
         "alternatives": [
             "transfer"
         ],
-        "frequencyRank": 13327,
+        "frequencyRank": 13535,
         "inflections": "Noun: il transfert, i transfert",
         "partOfSpeech": "noun"
     },
@@ -805,7 +805,7 @@
         "alternatives": [
             "nervous disorder"
         ],
-        "frequencyRank": 9835,
+        "frequencyRank": 10401,
         "inflections": "Noun: la nevrosi, le nevrosi",
         "partOfSpeech": "noun"
     },
@@ -818,7 +818,7 @@
             "mental disorder",
             "psychological disorder"
         ],
-        "frequencyRank": 7148,
+        "frequencyRank": 7858,
         "inflections": "Noun: la psicosi, le psicosi",
         "partOfSpeech": "noun"
     },
@@ -830,7 +830,7 @@
         "alternatives": [
             "thought disorder"
         ],
-        "frequencyRank": 8240,
+        "frequencyRank": 8905,
         "inflections": "Noun: la schizofrenia, le schizofrenie",
         "partOfSpeech": "noun"
     },
@@ -843,7 +843,7 @@
             "manic depression",
             "mood disorder"
         ],
-        "frequencyRank": 7821,
+        "frequencyRank": 13794,
         "partOfSpeech": "noun"
     },
     {
@@ -854,7 +854,7 @@
         "alternatives": [
             "eating disorder"
         ],
-        "frequencyRank": 2694,
+        "frequencyRank": 7978,
         "partOfSpeech": "noun"
     },
     {
@@ -866,7 +866,7 @@
             "loss of appetite",
             "anorexia nervosa"
         ],
-        "frequencyRank": 10299,
+        "frequencyRank": 10827,
         "inflections": "Noun: l'anoressia, le anoressie",
         "partOfSpeech": "noun"
     },
@@ -878,7 +878,7 @@
         "alternatives": [
             "post-traumatic stress disorder"
         ],
-        "frequencyRank": 7538,
+        "frequencyRank": 13781,
         "inflections": "Noun: il disturbo da stress post-traumatico, i disturbi da stress post-traumatico",
         "partOfSpeech": "noun"
     },
@@ -890,7 +890,7 @@
         "alternatives": [
             "anxiety attack"
         ],
-        "frequencyRank": 2185,
+        "frequencyRank": 8055,
         "inflections": "Noun: l'attacco di panico, gli attacchi di panico",
         "partOfSpeech": "noun"
     },
@@ -903,7 +903,7 @@
             "irrational fear",
             "intense fear"
         ],
-        "frequencyRank": 8391,
+        "frequencyRank": 9052,
         "inflections": "Noun: la fobia, le fobie",
         "partOfSpeech": "noun"
     },
@@ -916,13 +916,13 @@
             "compulsive behavior",
             "obsessive behavior"
         ],
-        "frequencyRank": 9285,
+        "frequencyRank": 13941,
         "inflections": "Noun: il comportamento compulsivo, i comportamenti compulsivi",
         "partOfSpeech": "noun"
     },
     {
         "italian": "relazione",
-        "level": "A1",
+        "level": "B2",
         "id": "1591",
         "english": "relationship",
         "alternatives": [
@@ -930,7 +930,7 @@
             "association",
             "link"
         ],
-        "frequencyRank": 431,
+        "frequencyRank": 530,
         "inflections": "Noun: la relazione, le relazioni",
         "partOfSpeech": "noun"
     },
@@ -942,7 +942,7 @@
         "alternatives": [
             "body language"
         ],
-        "frequencyRank": 2861,
+        "frequencyRank": 9761,
         "inflections": "Noun: la comunicazione non verbale, le comunicazioni non verbali",
         "partOfSpeech": "noun"
     },
@@ -955,7 +955,7 @@
             "gestures",
             "non-verbal communication"
         ],
-        "frequencyRank": 1157,
+        "frequencyRank": 4559,
         "inflections": "Noun: il linguaggio del corpo, i linguaggi del corpo",
         "partOfSpeech": "noun"
     },
@@ -968,7 +968,7 @@
             "confidence",
             "self-assurance"
         ],
-        "frequencyRank": 13978,
+        "frequencyRank": 14034,
         "inflections": "Noun: l'assertività, le assertività",
         "partOfSpeech": "noun"
     },
@@ -981,7 +981,7 @@
             "deal-making",
             "bargaining"
         ],
-        "frequencyRank": 5807,
+        "frequencyRank": 6494,
         "inflections": "Noun: la negoziazione, le negoziazioni",
         "partOfSpeech": "noun"
     },
@@ -994,7 +994,7 @@
             "arbitration",
             "intercession"
         ],
-        "frequencyRank": 3165,
+        "frequencyRank": 3663,
         "inflections": "Noun: la mediazione, le mediazioni",
         "partOfSpeech": "noun"
     },
@@ -1007,7 +1007,7 @@
             "dispute resolution",
             "conflict management"
         ],
-        "frequencyRank": 3280,
+        "frequencyRank": 9842,
         "inflections": "Noun: la risoluzione dei conflitti, le risoluzioni dei conflitti",
         "partOfSpeech": "noun"
     },
@@ -1022,7 +1022,7 @@
             "upskilling",
             "cpd"
         ],
-        "frequencyRank": 2228,
+        "frequencyRank": 6666,
         "inflections": "Noun: l'aggiornamento professionale, gli aggiornamenti professionali",
         "partOfSpeech": "noun"
     },
@@ -1036,7 +1036,7 @@
             "working from home",
             "telecommuting"
         ],
-        "frequencyRank": 11765,
+        "frequencyRank": 12140,
         "inflections": "Noun: il telelavoro, i telelavori",
         "partOfSpeech": "noun"
     },
@@ -1049,7 +1049,7 @@
             "work schedule flexibility",
             "flexible working"
         ],
-        "frequencyRank": 5793,
+        "frequencyRank": 13388,
         "inflections": "Noun: la flessibilità lavorativa, le flessibilità lavorative",
         "partOfSpeech": "noun"
     },
@@ -1062,7 +1062,7 @@
             "balance between work and life",
             "work-life integration"
         ],
-        "frequencyRank": 1752,
+        "frequencyRank": 6367,
         "inflections": "Noun: l'equilibrio vita-lavoro, gli equilibri vita-lavoro",
         "partOfSpeech": "noun"
     },
@@ -1074,7 +1074,7 @@
         "alternatives": [
             "social advancement"
         ],
-        "frequencyRank": 2504,
+        "frequencyRank": 9564,
         "inflections": "Noun: la mobilità sociale, le mobilità sociali",
         "partOfSpeech": "noun"
     },
@@ -1088,7 +1088,7 @@
             "social elevator",
             "upward mobility"
         ],
-        "frequencyRank": 3653,
+        "frequencyRank": 12161,
         "inflections": "Noun: l'ascensore sociale, gli ascensori sociali",
         "partOfSpeech": "noun"
     },
@@ -1101,7 +1101,7 @@
             "social hierarchy",
             "social class system"
         ],
-        "frequencyRank": 10972,
+        "frequencyRank": 13868,
         "inflections": "Noun: la stratificazione sociale, le stratificazioni sociali",
         "partOfSpeech": "noun"
     },
@@ -1114,7 +1114,7 @@
             "social unity",
             "community spirit"
         ],
-        "frequencyRank": 4625,
+        "frequencyRank": 13443,
         "inflections": "Noun: la coesione sociale, le coesioni sociali",
         "partOfSpeech": "noun"
     },
@@ -1127,7 +1127,7 @@
             "relationships",
             "social networks"
         ],
-        "frequencyRank": 719,
+        "frequencyRank": 3303,
         "inflections": "Noun: il capitale sociale, i capitali sociali",
         "partOfSpeech": "noun"
     },
@@ -1140,7 +1140,7 @@
             "marginalization",
             "ostracism"
         ],
-        "frequencyRank": 2736,
+        "frequencyRank": 10163,
         "inflections": "Noun: l'esclusione sociale, le esclusioni sociali",
         "partOfSpeech": "noun"
     },
@@ -1153,7 +1153,7 @@
             "inclusion",
             "social assimilation"
         ],
-        "frequencyRank": 1634,
+        "frequencyRank": 7207,
         "inflections": "Noun: l'integrazione sociale, le integrazioni sociali",
         "partOfSpeech": "noun"
     },
@@ -1166,7 +1166,7 @@
             "state pension",
             "retirement pension"
         ],
-        "frequencyRank": 4592,
+        "frequencyRank": 13321,
         "inflections": "Noun: la pensione di vecchiaia, le pensioni di vecchiaia",
         "partOfSpeech": "noun"
     },
@@ -1179,7 +1179,7 @@
             "unemployment insurance",
             "jobseeker's allowance"
         ],
-        "frequencyRank": 4642,
+        "frequencyRank": 13298,
         "inflections": "Noun: l'indennità di disoccupazione, le indennità di disoccupazione",
         "partOfSpeech": "noun"
     },
@@ -1192,7 +1192,7 @@
             "public healthcare",
             "healthcare"
         ],
-        "frequencyRank": 1417,
+        "frequencyRank": 6279,
         "inflections": "Noun: la sanità pubblica, le sanità pubbliche",
         "partOfSpeech": "noun"
     },
@@ -1205,7 +1205,7 @@
         "level": "B2",
         "id": "1616",
         "italian": "servizi sociali",
-        "frequencyRank": 890,
+        "frequencyRank": 4019,
         "inflections": "Noun: il servizio sociale, i servizi sociali",
         "partOfSpeech": "noun"
     },
@@ -1218,7 +1218,7 @@
         "level": "B2",
         "id": "1617",
         "italian": "terzo settore",
-        "frequencyRank": 855,
+        "frequencyRank": 3256,
         "inflections": "Noun: il terzo settore, i terzi settori",
         "partOfSpeech": "noun"
     },
@@ -1229,10 +1229,10 @@
             "voluntary work",
             "charity work"
         ],
-        "level": "B1",
+        "level": "B2",
         "id": "1618",
         "italian": "volontariato",
-        "frequencyRank": 3235,
+        "frequencyRank": 3735,
         "inflections": "Noun: il volontariato, i volontariati",
         "partOfSpeech": "noun"
     },
@@ -1245,7 +1245,7 @@
         "level": "B2",
         "id": "1619",
         "italian": "ONG",
-        "frequencyRank": 2874,
+        "frequencyRank": 3325,
         "inflections": "Noun: l'ONG, le ONG",
         "partOfSpeech": "noun"
     },
@@ -1258,7 +1258,7 @@
         "level": "B2",
         "id": "1620",
         "italian": "organizzazione internazionale",
-        "frequencyRank": 1033,
+        "frequencyRank": 3068,
         "inflections": "Noun: l'organizzazione internazionale, le organizzazioni internazionali",
         "partOfSpeech": "noun"
     },
@@ -1271,7 +1271,7 @@
         "level": "B2",
         "id": "1621",
         "italian": "interdisciplinarietà",
-        "frequencyRank": 14067,
+        "frequencyRank": 14102,
         "inflections": "Noun: l'interdisciplinarietà, le interdisciplinarietà",
         "partOfSpeech": "noun"
     },
@@ -1284,7 +1284,7 @@
         "level": "B2",
         "id": "1622",
         "italian": "multidisciplinarietà",
-        "frequencyRank": 14171,
+        "frequencyRank": 14089,
         "inflections": "Noun: la multidisciplinarietà, le multidisciplinarietà",
         "partOfSpeech": "noun"
     },
@@ -1298,7 +1298,7 @@
         "level": "B2",
         "id": "1623",
         "italian": "trasversale",
-        "frequencyRank": 4971,
+        "frequencyRank": 5610,
         "inflections": "Adj: trasversale, trasversale, trasversali, trasversali",
         "partOfSpeech": "adjective"
     },
@@ -1308,10 +1308,10 @@
             "level",
             "flat"
         ],
-        "level": "C1",
+        "level": "B2",
         "id": "1624",
         "italian": "orizzontale",
-        "frequencyRank": 3320,
+        "frequencyRank": 3818,
         "inflections": "Adj: orizzontale, orizzontale, orizzontali, orizzontali",
         "partOfSpeech": "adjective"
     },
@@ -1324,7 +1324,7 @@
         "level": "B2",
         "id": "1625",
         "italian": "verticale",
-        "frequencyRank": 2653,
+        "frequencyRank": 3066,
         "inflections": "Adj: verticale, verticale, verticali, verticali",
         "partOfSpeech": "adjective"
     },
@@ -1337,7 +1337,7 @@
         "level": "B2",
         "id": "1626",
         "italian": "gerarchico",
-        "frequencyRank": 11696,
+        "frequencyRank": 12077,
         "inflections": "Adj: gerarchico, gerarchica, gerarchici, gerarchiche",
         "partOfSpeech": "adjective"
     },
@@ -1350,7 +1350,7 @@
         "level": "B2",
         "id": "1627",
         "italian": "sistemico",
-        "frequencyRank": 10855,
+        "frequencyRank": 11325,
         "inflections": "Adj: sistemico, sistemica, sistemici, sistemiche",
         "partOfSpeech": "adjective"
     },
@@ -1363,7 +1363,7 @@
         "level": "B2",
         "id": "1628",
         "italian": "olistico",
-        "frequencyRank": 13210,
+        "frequencyRank": 13432,
         "inflections": "Adj: olistico, olistica, olistici, olistiche",
         "partOfSpeech": "adjective"
     },
@@ -1376,7 +1376,7 @@
         "level": "B2",
         "id": "1629",
         "italian": "riduzionismo",
-        "frequencyRank": 13825,
+        "frequencyRank": 13918,
         "inflections": "Noun: il riduzionismo, i riduzionismi",
         "partOfSpeech": "noun"
     },
@@ -1385,10 +1385,10 @@
         "alternatives": [
             "intricacy"
         ],
-        "level": "B1",
+        "level": "B2",
         "id": "1630",
         "italian": "complessità",
-        "frequencyRank": 2776,
+        "frequencyRank": 3225,
         "inflections": "Noun: la complessità, le complessità",
         "partOfSpeech": "noun"
     },
@@ -1398,10 +1398,10 @@
             "unpredictability",
             "doubt"
         ],
-        "level": "B1",
+        "level": "B2",
         "id": "1631",
         "italian": "incertezza",
-        "frequencyRank": 3419,
+        "frequencyRank": 3939,
         "inflections": "Noun: l'incertezza, le incertezze",
         "partOfSpeech": "noun"
     },
@@ -1414,7 +1414,7 @@
         "level": "B2",
         "id": "1632",
         "italian": "ambivalenza",
-        "frequencyRank": 13278,
+        "frequencyRank": 13493,
         "inflections": "Noun: l'ambivalenza, le ambivalenze",
         "partOfSpeech": "noun"
     },
@@ -1429,7 +1429,7 @@
         "level": "B2",
         "id": "1636",
         "italian": "discrepanza",
-        "frequencyRank": 9910,
+        "frequencyRank": 10472,
         "inflections": "Noun: la discrepanza, le discrepanze",
         "partOfSpeech": "noun"
     },
@@ -1443,7 +1443,7 @@
         "level": "B2",
         "id": "1637",
         "italian": "divario",
-        "frequencyRank": 4566,
+        "frequencyRank": 5206,
         "inflections": "Noun: il divario, i divari",
         "partOfSpeech": "noun"
     },
@@ -1456,7 +1456,7 @@
         "level": "B2",
         "id": "1638",
         "italian": "asimmetria",
-        "frequencyRank": 13028,
+        "frequencyRank": 13279,
         "inflections": "Noun: l'asimmetria, le asimmetrie",
         "partOfSpeech": "noun"
     },
@@ -1470,7 +1470,7 @@
         "level": "B2",
         "id": "1639",
         "italian": "squilibrio",
-        "frequencyRank": 7414,
+        "frequencyRank": 8113,
         "inflections": "Noun: lo squilibrio, gli squilibri",
         "partOfSpeech": "noun"
     },
@@ -1483,7 +1483,7 @@
         "level": "B2",
         "id": "1640",
         "italian": "fragilità",
-        "frequencyRank": 5214,
+        "frequencyRank": 5882,
         "inflections": "Noun: la fragilità, le fragilità",
         "partOfSpeech": "noun"
     },
@@ -1496,7 +1496,7 @@
         "level": "B2",
         "id": "1641",
         "italian": "vulnerabilità",
-        "frequencyRank": 5326,
+        "frequencyRank": 5996,
         "inflections": "Noun: la vulnerabilità, le vulnerabilità",
         "partOfSpeech": "noun"
     },
@@ -1505,10 +1505,10 @@
         "alternatives": [
             "contact"
         ],
-        "level": "A2",
+        "level": "B2",
         "id": "1642",
         "italian": "esposizione",
-        "frequencyRank": 1663,
+        "frequencyRank": 1988,
         "inflections": "Noun: l'esposizione, le esposizioni",
         "partOfSpeech": "noun"
     },
@@ -1522,7 +1522,7 @@
         "level": "B2",
         "id": "1643",
         "italian": "precarietà",
-        "frequencyRank": 6300,
+        "frequencyRank": 7007,
         "inflections": "Noun: la precarietà, le precarietà",
         "partOfSpeech": "noun"
     },
@@ -1535,7 +1535,7 @@
         "level": "B2",
         "id": "1644",
         "italian": "instabilità",
-        "frequencyRank": 4809,
+        "frequencyRank": 5445,
         "inflections": "Noun: l'instabilità, le instabilità",
         "partOfSpeech": "noun"
     },
@@ -1548,7 +1548,7 @@
         "level": "B2",
         "id": "1645",
         "italian": "stagnazione",
-        "frequencyRank": 9646,
+        "frequencyRank": 10207,
         "inflections": "Noun: la stagnazione, le stagnazioni",
         "partOfSpeech": "noun"
     },
@@ -1562,7 +1562,7 @@
         "level": "B2",
         "id": "1646",
         "italian": "deterioramento",
-        "frequencyRank": 7016,
+        "frequencyRank": 7742,
         "inflections": "Noun: il deterioramento, i deterioramenti",
         "partOfSpeech": "noun"
     },
@@ -1575,7 +1575,7 @@
         "level": "B2",
         "id": "1647",
         "italian": "degrado",
-        "frequencyRank": 3055,
+        "frequencyRank": 3535,
         "inflections": "Noun: il degrado, i degradi",
         "partOfSpeech": "noun"
     },
@@ -1586,10 +1586,10 @@
             "renovation",
             "restoration"
         ],
-        "level": "C1",
+        "level": "B2",
         "id": "1651",
         "italian": "rinnovamento",
-        "frequencyRank": 4076,
+        "frequencyRank": 4647,
         "inflections": "Noun: il rinnovamento, i rinnovamenti",
         "partOfSpeech": "noun"
     },
@@ -1599,10 +1599,10 @@
             "change",
             "conversion"
         ],
-        "level": "A2",
+        "level": "B2",
         "id": "1652",
         "italian": "trasformazione",
-        "frequencyRank": 1650,
+        "frequencyRank": 1968,
         "inflections": "Noun: la trasformazione, le trasformazioni",
         "partOfSpeech": "noun"
     },
@@ -1612,10 +1612,10 @@
             "change",
             "shift"
         ],
-        "level": "C1",
+        "level": "B2",
         "id": "1653",
         "italian": "transizione",
-        "frequencyRank": 2802,
+        "frequencyRank": 3248,
         "inflections": "Noun: la transizione, le transizioni",
         "partOfSpeech": "noun"
     },
@@ -1625,7 +1625,7 @@
         "level": "B2",
         "id": "1655",
         "italian": "punto di rottura",
-        "frequencyRank": 2040,
+        "frequencyRank": 7974,
         "inflections": "Noun: il punto di rottura, i punti di rottura",
         "partOfSpeech": "noun"
     },
@@ -1636,10 +1636,10 @@
             "limit",
             "doorstep"
         ],
-        "level": "B1",
+        "level": "B2",
         "id": "1656",
         "italian": "soglia",
-        "frequencyRank": 2219,
+        "frequencyRank": 2594,
         "inflections": "Noun: la soglia, le soglie",
         "partOfSpeech": "noun"
     },
@@ -1650,22 +1650,22 @@
             "boundary",
             "end"
         ],
-        "level": "A1",
+        "level": "B2",
         "id": "1657",
         "italian": "limite",
-        "frequencyRank": 881,
+        "frequencyRank": 1109,
         "inflections": "Noun: il limite, i limiti",
         "partOfSpeech": "noun"
     },
     {
         "english": "border",
-        "frequencyRank": 1093,
+        "frequencyRank": 1337,
         "alternatives": [
             "boundary",
             "limit",
             "frontier"
         ],
-        "level": "A2",
+        "level": "B2",
         "id": "1658",
         "italian": "confine",
         "inflections": "Noun: il confine, i confini",
@@ -1673,7 +1673,7 @@
     },
     {
         "english": "marginality",
-        "frequencyRank": 13143,
+        "frequencyRank": 13373,
         "alternatives": [
             "alienation"
         ],
@@ -1685,7 +1685,7 @@
     },
     {
         "english": "periphery",
-        "frequencyRank": 2509,
+        "frequencyRank": 2921,
         "alternatives": [
             "suburbs",
             "edge",
@@ -1699,7 +1699,7 @@
     },
     {
         "english": "centre-periphery",
-        "frequencyRank": 2577,
+        "frequencyRank": 2998,
         "alternatives": [
             "core-periphery",
             "center-periphery"
@@ -1712,7 +1712,7 @@
     },
     {
         "english": "gentrification",
-        "frequencyRank": 13474,
+        "frequencyRank": 13660,
         "alternatives": [
             "upgrading",
             "revitalization"
@@ -1725,7 +1725,7 @@
     },
     {
         "english": "urbanisation",
-        "frequencyRank": 7421,
+        "frequencyRank": 8119,
         "alternatives": [
             "urbanization",
             "development"
@@ -1738,7 +1738,7 @@
     },
     {
         "english": "population density",
-        "frequencyRank": 6211,
+        "frequencyRank": 13555,
         "alternatives": [
             "crowding"
         ],
@@ -1750,7 +1750,7 @@
     },
     {
         "english": "population ageing",
-        "frequencyRank": 7387,
+        "frequencyRank": 13596,
         "alternatives": [
             "aging population",
             "population aging",
@@ -1764,7 +1764,7 @@
     },
     {
         "english": "birth rate decline",
-        "frequencyRank": 13923,
+        "frequencyRank": 13994,
         "alternatives": [
             "declining birth rate",
             "low birth rate"
@@ -1777,7 +1777,7 @@
     },
     {
         "english": "life expectancy",
-        "frequencyRank": 665,
+        "frequencyRank": 4179,
         "alternatives": [
             "longevity",
             "life span"
@@ -1790,7 +1790,7 @@
     },
     {
         "english": "mortality rate",
-        "frequencyRank": 4146,
+        "frequencyRank": 12711,
         "alternatives": [
             "fatality rate",
             "death rate"
@@ -1803,7 +1803,7 @@
     },
     {
         "english": "birth rate",
-        "frequencyRank": 6493,
+        "frequencyRank": 13732,
         "alternatives": [
             "fertility rate",
             "natality rate"
@@ -1816,7 +1816,7 @@
     },
     {
         "english": "migration flow",
-        "frequencyRank": 8599,
+        "frequencyRank": 13725,
         "alternatives": [
             "inflow of migrants",
             "migration stream",
@@ -1830,7 +1830,7 @@
     },
     {
         "english": "family reunification",
-        "frequencyRank": 11284,
+        "frequencyRank": 13966,
         "alternatives": [
             "family reunion"
         ],
@@ -1841,7 +1841,7 @@
     },
     {
         "english": "asylum seeker",
-        "frequencyRank": 6650,
+        "frequencyRank": 13721,
         "alternatives": [
             "asylum applicant"
         ],
@@ -1853,13 +1853,13 @@
     },
     {
         "english": "expulsion",
-        "frequencyRank": 3582,
+        "frequencyRank": 4109,
         "alternatives": [
             "ejection",
             "deportation",
             "removal"
         ],
-        "level": "C1",
+        "level": "B2",
         "id": "1674",
         "italian": "espulsione",
         "inflections": "Noun: l'espulsione, le espulsioni",
@@ -1867,7 +1867,7 @@
     },
     {
         "english": "repatriation",
-        "frequencyRank": 7487,
+        "frequencyRank": 8182,
         "alternatives": [
             "return to home country"
         ],
@@ -1879,11 +1879,11 @@
     },
     {
         "english": "citizenship",
-        "frequencyRank": 1147,
+        "frequencyRank": 1402,
         "alternatives": [
             "nationality"
         ],
-        "level": "B1",
+        "level": "B2",
         "id": "1676",
         "italian": "cittadinanza",
         "inflections": "Noun: la cittadinanza, le cittadinanze",
@@ -1891,7 +1891,7 @@
     },
     {
         "english": "naturalisation",
-        "frequencyRank": 13145,
+        "frequencyRank": 13375,
         "alternatives": [
             "naturalization"
         ],
@@ -1903,7 +1903,7 @@
     },
     {
         "english": "dual nationality",
-        "frequencyRank": 3251,
+        "frequencyRank": 9894,
         "alternatives": [
             "dual citizenship"
         ],
@@ -1915,7 +1915,7 @@
     },
     {
         "english": "cultural identity",
-        "frequencyRank": 1388,
+        "frequencyRank": 5371,
         "alternatives": [],
         "level": "B2",
         "id": "1679",
@@ -1925,7 +1925,7 @@
     },
     {
         "english": "cultural diversity",
-        "frequencyRank": 2628,
+        "frequencyRank": 9407,
         "alternatives": [
             "cultural variety",
             "multiculturalism"
@@ -1938,7 +1938,7 @@
     },
     {
         "english": "cultural relativism",
-        "frequencyRank": 10726,
+        "frequencyRank": 13906,
         "alternatives": [],
         "level": "B2",
         "id": "1681",
@@ -1948,7 +1948,7 @@
     },
     {
         "english": "ethnocentrism",
-        "frequencyRank": 14011,
+        "frequencyRank": 14062,
         "alternatives": [
             "cultural bias"
         ],
@@ -1960,7 +1960,7 @@
     },
     {
         "english": "xenophobia",
-        "frequencyRank": 7425,
+        "frequencyRank": 8123,
         "alternatives": [
             "prejudice against outsiders",
             "fear of foreigners"
@@ -1973,7 +1973,7 @@
     },
     {
         "english": "antisemitism",
-        "frequencyRank": 7805,
+        "frequencyRank": 8496,
         "alternatives": [
             "anti-jewish prejudice"
         ],
@@ -1985,7 +1985,7 @@
     },
     {
         "english": "islamophobia",
-        "frequencyRank": 13477,
+        "frequencyRank": 13662,
         "alternatives": [
             "anti-muslim prejudice"
         ],
@@ -1997,7 +1997,7 @@
     },
     {
         "english": "homophobia",
-        "frequencyRank": 4132,
+        "frequencyRank": 4708,
         "alternatives": [
             "anti-gay prejudice"
         ],
@@ -2009,7 +2009,7 @@
     },
     {
         "english": "misogyny",
-        "frequencyRank": 10149,
+        "frequencyRank": 10690,
         "alternatives": [
             "prejudice against women"
         ],
@@ -2021,7 +2021,7 @@
     },
     {
         "english": "sexism",
-        "frequencyRank": 5758,
+        "frequencyRank": 6440,
         "alternatives": [
             "gender discrimination"
         ],
@@ -2033,7 +2033,7 @@
     },
     {
         "english": "sexual harassment",
-        "frequencyRank": 7046,
+        "frequencyRank": 13792,
         "alternatives": [
             "unwanted sexual conduct"
         ],
@@ -2045,7 +2045,7 @@
     },
     {
         "english": "gender-based violence",
-        "frequencyRank": 894,
+        "frequencyRank": 4556,
         "alternatives": [
             "domestic violence"
         ],
@@ -2056,7 +2056,7 @@
     },
     {
         "english": "gender equality",
-        "frequencyRank": 2207,
+        "frequencyRank": 8920,
         "alternatives": [
             "gender equity"
         ],
@@ -2067,7 +2067,7 @@
     },
     {
         "english": "gender quota",
-        "frequencyRank": 1734,
+        "frequencyRank": 4674,
         "alternatives": [
             "women's quota"
         ],
@@ -2079,7 +2079,7 @@
     },
     {
         "english": "gender pay gap",
-        "frequencyRank": 8592,
+        "frequencyRank": 13809,
         "alternatives": [
             "pay gap"
         ],
@@ -2090,7 +2090,7 @@
     },
     {
         "english": "work-family balance",
-        "frequencyRank": 6435,
+        "frequencyRank": 13747,
         "alternatives": [
             "work-life balance"
         ],
@@ -2110,7 +2110,7 @@
             "maternity leave"
         ],
         "level": "B2",
-        "frequencyRank": 13186,
+        "frequencyRank": 14046,
         "inflections": "Noun: il congedo parentale, i congedi parentali",
         "partOfSpeech": "noun phrase"
     },
@@ -2124,7 +2124,7 @@
             "crèche"
         ],
         "level": "B2",
-        "frequencyRank": 3706,
+        "frequencyRank": 10328,
         "inflections": "Noun: l'asilo nido, gli asili nido",
         "partOfSpeech": "noun"
     },
@@ -2137,7 +2137,7 @@
             "nursery school"
         ],
         "level": "B2",
-        "frequencyRank": 4599,
+        "frequencyRank": 13433,
         "inflections": "Noun: la scuola materna, le scuole materne",
         "partOfSpeech": "noun"
     },
@@ -2150,7 +2150,7 @@
             "education system"
         ],
         "level": "B2",
-        "frequencyRank": 1907,
+        "frequencyRank": 6961,
         "inflections": "Noun: il sistema scolastico, i sistemi scolastici",
         "partOfSpeech": "noun"
     },
@@ -2163,7 +2163,7 @@
             "educational reform"
         ],
         "level": "B2",
-        "frequencyRank": 3032,
+        "frequencyRank": 10330,
         "inflections": "Noun: la riforma scolastica, le riforme scolastiche",
         "partOfSpeech": "noun"
     },
@@ -2176,7 +2176,7 @@
             "training program"
         ],
         "level": "B2",
-        "frequencyRank": 6094,
+        "frequencyRank": 13156,
         "inflections": "Noun: il programma formativo, i programmi formativi",
         "partOfSpeech": "noun"
     },
@@ -2189,7 +2189,7 @@
             "adult education"
         ],
         "level": "B2",
-        "frequencyRank": 4097,
+        "frequencyRank": 11733,
         "inflections": "Noun: l'apprendimento permanente, gli apprendimenti permanenti",
         "partOfSpeech": "noun"
     },
@@ -2202,7 +2202,7 @@
             "computer skills"
         ],
         "level": "B2",
-        "frequencyRank": 2860,
+        "frequencyRank": 8557,
         "inflections": "Noun: la competenza digitale, le competenze digitali",
         "partOfSpeech": "noun"
     },
@@ -2215,7 +2215,7 @@
             "eq"
         ],
         "level": "B2",
-        "frequencyRank": 4947,
+        "frequencyRank": 13370,
         "inflections": "Noun: l'intelligenza emotiva, le intelligenze emotive",
         "partOfSpeech": "noun"
     },
@@ -2228,7 +2228,7 @@
             "reasoning skills"
         ],
         "level": "B2",
-        "frequencyRank": 1675,
+        "frequencyRank": 4564,
         "inflections": "Noun: il pensiero critico, i pensieri critici",
         "partOfSpeech": "noun"
     },
@@ -2241,7 +2241,7 @@
             "creative thinking"
         ],
         "level": "B2",
-        "frequencyRank": 3369,
+        "frequencyRank": 5481,
         "inflections": "Noun: il pensiero laterale, i pensieri laterali",
         "partOfSpeech": "noun"
     },
@@ -2254,7 +2254,7 @@
             "design process"
         ],
         "level": "B2",
-        "frequencyRank": 1789,
+        "frequencyRank": 6895,
         "inflections": "Noun: il pensiero design, i pensieri design",
         "partOfSpeech": "noun"
     },
@@ -2266,7 +2266,7 @@
             "societal innovation"
         ],
         "level": "B2",
-        "frequencyRank": 1923,
+        "frequencyRank": 6880,
         "inflections": "Noun: l'innovazione sociale, le innovazioni sociali",
         "partOfSpeech": "noun"
     },
@@ -2279,7 +2279,7 @@
             "social venture"
         ],
         "level": "B2",
-        "frequencyRank": 13406,
+        "frequencyRank": 14016,
         "inflections": "Noun: l'imprenditorialità sociale, le imprenditorialità sociali",
         "partOfSpeech": "noun"
     },
@@ -2292,7 +2292,7 @@
             "social effect"
         ],
         "level": "B2",
-        "frequencyRank": 1517,
+        "frequencyRank": 6363,
         "inflections": "Noun: l'impatto sociale, gli impatti sociali",
         "partOfSpeech": "noun"
     },
@@ -2306,7 +2306,7 @@
             "social disclosure"
         ],
         "level": "B2",
-        "frequencyRank": 8631,
+        "frequencyRank": 13900,
         "inflections": "Noun: il rendiconto sociale, i rendiconti sociali",
         "partOfSpeech": "noun"
     },
@@ -2319,7 +2319,7 @@
             "corporate responsibility"
         ],
         "level": "B2",
-        "frequencyRank": 1612,
+        "frequencyRank": 5684,
         "inflections": "Noun: la responsabilità sociale d'impresa, le responsabilità sociali d'impresa",
         "partOfSpeech": "noun"
     },
@@ -2332,7 +2332,7 @@
             "solidarity-based economy"
         ],
         "level": "B2",
-        "frequencyRank": 4348,
+        "frequencyRank": 13315,
         "inflections": "Noun: l'economia solidale, le economie solidali",
         "partOfSpeech": "noun"
     },
@@ -2344,7 +2344,7 @@
             "fair and ethical trade"
         ],
         "level": "B2",
-        "frequencyRank": 6339,
+        "frequencyRank": 13314,
         "inflections": "Noun: il commercio equo e solidale, i commerci equi e solidali",
         "partOfSpeech": "noun"
     },
@@ -2357,7 +2357,7 @@
             "microfinance"
         ],
         "level": "B2",
-        "frequencyRank": 13208,
+        "frequencyRank": 13430,
         "inflections": "Noun: il microcredito, i microcrediti",
         "partOfSpeech": "noun"
     },
@@ -2370,7 +2370,7 @@
             "socially responsible finance"
         ],
         "level": "B2",
-        "frequencyRank": 3062,
+        "frequencyRank": 9150,
         "inflections": "Noun: la finanza etica, le finanze etiche",
         "partOfSpeech": "noun"
     },
@@ -2385,7 +2385,7 @@
             "ethical investing"
         ],
         "level": "B2",
-        "frequencyRank": 2244,
+        "frequencyRank": 7309,
         "inflections": "Noun: l'investimento responsabile, gli investimenti responsabili",
         "partOfSpeech": "noun"
     },
@@ -2397,7 +2397,7 @@
             "water usage footprint"
         ],
         "level": "B2",
-        "frequencyRank": 7025,
+        "frequencyRank": 13689,
         "inflections": "Noun: l'impronta idrica, le impronte idriche",
         "partOfSpeech": "noun"
     },
@@ -2409,7 +2409,7 @@
             "solar power"
         ],
         "level": "B2",
-        "frequencyRank": 1988,
+        "frequencyRank": 5052,
         "partOfSpeech": "noun"
     },
     {
@@ -2420,7 +2420,7 @@
             "wind power"
         ],
         "level": "B2",
-        "frequencyRank": 10666,
+        "frequencyRank": 13987,
         "inflections": "Noun: l'energia eolica, le energie eoliche",
         "partOfSpeech": "noun"
     },
@@ -2433,7 +2433,7 @@
             "atomic energy"
         ],
         "level": "B2",
-        "frequencyRank": 2020,
+        "frequencyRank": 5419,
         "partOfSpeech": "noun"
     },
     {
@@ -2445,7 +2445,7 @@
             "hydropower"
         ],
         "level": "B2",
-        "frequencyRank": 8872,
+        "frequencyRank": 13917,
         "inflections": "Noun: l'energia idroelettrica, le energie idroelettriche",
         "partOfSpeech": "noun"
     },
@@ -2458,7 +2458,7 @@
             "energy saving"
         ],
         "level": "B2",
-        "frequencyRank": 4694,
+        "frequencyRank": 11563,
         "inflections": "Noun: l'efficienza energetica, le efficienze energetiche",
         "partOfSpeech": "noun"
     },
@@ -2470,7 +2470,7 @@
             "power saving"
         ],
         "level": "B2",
-        "frequencyRank": 4315,
+        "frequencyRank": 7950,
         "inflections": "Noun: il risparmio energetico, i risparmi energetici",
         "partOfSpeech": "noun"
     },
@@ -2483,7 +2483,7 @@
             "greenhouse gases"
         ],
         "level": "B2",
-        "frequencyRank": 3362,
+        "frequencyRank": 9472,
         "inflections": "Noun: il gas a effetto serra, i gas a effetto serra",
         "partOfSpeech": "noun"
     },
@@ -2495,7 +2495,7 @@
             "co2"
         ],
         "level": "B2",
-        "frequencyRank": 8849,
+        "frequencyRank": 13745,
         "inflections": "Noun: l'anidride carbonica, le anidridi carboniche",
         "partOfSpeech": "noun"
     },
@@ -2507,7 +2507,7 @@
             "paris accord"
         ],
         "level": "B2",
-        "frequencyRank": 896,
+        "frequencyRank": 3632,
         "inflections": "Noun: l'accordo di Parigi, gli accordi di Parigi",
         "partOfSpeech": "noun"
     },
@@ -2519,7 +2519,7 @@
             "sdgs"
         ],
         "level": "B2",
-        "frequencyRank": 3021,
+        "frequencyRank": 9441,
         "inflections": "Noun: l'obiettivo di sviluppo sostenibile, gli obiettivi di sviluppo sostenibile",
         "partOfSpeech": "noun"
     },
@@ -2531,7 +2531,7 @@
         ],
         "level": "B2",
         "italian": "transizione ecologica",
-        "frequencyRank": 6114,
+        "frequencyRank": 13563,
         "inflections": "Noun: la transizione ecologica, le transizioni ecologiche",
         "partOfSpeech": "noun"
     },
@@ -2543,7 +2543,7 @@
         ],
         "level": "B2",
         "italian": "agenda verde",
-        "frequencyRank": 3239,
+        "frequencyRank": 10918,
         "inflections": "Noun: l'agenda verde, le agende verdi",
         "partOfSpeech": "noun"
     },
@@ -2555,7 +2555,7 @@
         ],
         "level": "B2",
         "italian": "politica ambientale",
-        "frequencyRank": 1639,
+        "frequencyRank": 6078,
         "inflections": "Noun: la politica ambientale, le politiche ambientali",
         "partOfSpeech": "noun"
     },
@@ -2568,7 +2568,7 @@
         ],
         "level": "B2",
         "italian": "valutazione d'impatto ambientale",
-        "frequencyRank": 3090,
+        "frequencyRank": 6876,
         "inflections": "Noun: la valutazione d'impatto ambientale, le valutazioni d'impatto ambientale",
         "partOfSpeech": "noun"
     },
@@ -2581,7 +2581,7 @@
         ],
         "level": "B2",
         "italian": "diritto ambientale",
-        "frequencyRank": 1627,
+        "frequencyRank": 6077,
         "inflections": "Noun: il diritto ambientale, i diritti ambientali",
         "partOfSpeech": "noun"
     },
@@ -2594,7 +2594,7 @@
         ],
         "level": "B2",
         "italian": "crimini ambientali",
-        "frequencyRank": 3301,
+        "frequencyRank": 9212,
         "inflections": "Noun: il crimine ambientale, i crimini ambientali",
         "partOfSpeech": "noun"
     },
@@ -2607,7 +2607,7 @@
         ],
         "level": "B2",
         "italian": "bene comune",
-        "frequencyRank": 200,
+        "frequencyRank": 1360,
         "inflections": "Noun: il bene comune, i beni comuni",
         "partOfSpeech": "noun"
     },
@@ -2620,7 +2620,7 @@
         ],
         "level": "B2",
         "italian": "beni pubblici",
-        "frequencyRank": 1266,
+        "frequencyRank": 5058,
         "inflections": "Noun: il bene pubblico, i beni pubblici",
         "partOfSpeech": "noun"
     },
@@ -2634,7 +2634,7 @@
         ],
         "level": "B2",
         "italian": "esternalità",
-        "frequencyRank": 13472,
+        "frequencyRank": 13658,
         "inflections": "Noun: l'esternalità, le esternalità",
         "partOfSpeech": "noun"
     },
@@ -2646,7 +2646,7 @@
         ],
         "level": "B2",
         "italian": "fallimento di mercato",
-        "frequencyRank": 1545,
+        "frequencyRank": 6799,
         "inflections": "Noun: il fallimento di mercato, i fallimenti di mercato",
         "partOfSpeech": "noun"
     },
@@ -2658,7 +2658,7 @@
         ],
         "level": "B2",
         "italian": "asimmetria informativa",
-        "frequencyRank": 13203,
+        "frequencyRank": 13920,
         "inflections": "Noun: l'asimmetria informativa, le asimmetrie informative",
         "partOfSpeech": "noun"
     },
@@ -2670,7 +2670,7 @@
         ],
         "level": "B2",
         "italian": "azzardo morale",
-        "frequencyRank": 3452,
+        "frequencyRank": 11344,
         "inflections": "Noun: l'azzardo morale, gli azzardi morali",
         "partOfSpeech": "noun"
     },
@@ -2682,7 +2682,7 @@
         ],
         "level": "B2",
         "italian": "selezione avversa",
-        "frequencyRank": 9858,
+        "frequencyRank": 13960,
         "inflections": "Noun: la selezione avversa, le selezioni avverse",
         "partOfSpeech": "noun"
     },
@@ -2692,7 +2692,7 @@
         "alternatives": [],
         "level": "B2",
         "italian": "dilemma del prigioniero",
-        "frequencyRank": 5578,
+        "frequencyRank": 13472,
         "inflections": "Noun: il dilemma del prigioniero, i dilemmi del prigioniero",
         "partOfSpeech": "noun"
     },
@@ -2704,7 +2704,7 @@
         ],
         "level": "B2",
         "italian": "teoria dei giochi",
-        "frequencyRank": 1164,
+        "frequencyRank": 3732,
         "inflections": "Noun: la teoria dei giochi, le teorie dei giochi",
         "partOfSpeech": "noun"
     },
@@ -2716,7 +2716,7 @@
         ],
         "level": "B2",
         "italian": "equilibrio di Nash",
-        "frequencyRank": 6440,
+        "frequencyRank": 13698,
         "inflections": "Noun: l'equilibrio di Nash, gli equilibri di Nash",
         "partOfSpeech": "noun"
     },
@@ -2728,7 +2728,7 @@
         ],
         "level": "B2",
         "italian": "razionalità limitata",
-        "frequencyRank": 6032,
+        "frequencyRank": 13552,
         "inflections": "Noun: la razionalità limitata, le razionalità limitate",
         "partOfSpeech": "adjective phrase"
     },
@@ -2740,7 +2740,7 @@
         ],
         "level": "B2",
         "italian": "economia comportamentale",
-        "frequencyRank": 8189,
+        "frequencyRank": 13616,
         "inflections": "Noun: l'economia comportamentale, le economie comportamentali",
         "partOfSpeech": "noun"
     }

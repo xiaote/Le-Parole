@@ -4,7 +4,23 @@ Le Parole is an iPhone and iPad app for learning Italian vocabulary and verb con
 
 ## Highlights
 
-- Learn from bundled Italian vocabulary across CEFR levels A1–C1, or add your own words.
+- Learn from bundled Italian vocabulary across CEFR levels A1–C2, or add your own words.
+
+## Vocabulary curation
+
+Frequency ranks determine learning priority; they do not assign CEFR levels. The
+catalogue's original labels are frozen in `tools/cefr_level_baseline.json`, and
+every editorial correction must be documented in
+`tools/cefr_level_overrides.json` with its intended sense, rationale, and
+reference. Run `python3 tools/validate_vocabulary_data.py` to verify both the
+catalogue and this audit trail.
+
+## Catalogue migrations
+
+The database migration is intentionally squashed at `v27_current_schema`.
+It creates the complete current schema for a fresh install and preserves the
+known local database, including the two reviewed catalogue redirects, during
+the upgrade. There is no compatibility path for pre-v25 installations.
 - Review recognition and production cards using SM-2 scheduling.
 - Practice verb conjugations in contextual fill-in-the-blank sentences.
 - Track progress, mastery, and conjugation performance.

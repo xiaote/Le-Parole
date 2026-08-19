@@ -138,7 +138,7 @@ struct QuizCardView: View {
                 HStack(spacing: 12) {
                     Image(systemName: "sparkles")
                         .font(.theme(.title3, weight: .bold))
-                        .foregroundStyle(Theme.playfulAccent)
+                        .foregroundStyle(Theme.mastered)
                     
                     Text("Mastered!")
                         .font(.theme(.headline, weight: .bold))

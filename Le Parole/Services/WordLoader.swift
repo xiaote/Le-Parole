@@ -13,9 +13,9 @@ private struct WordEntry: Decodable, Sendable {
 }
 
 enum WordLoader {
-    // v18 refreshes ranks after retiring mechanically derivable number cards.
-    // Existing learning records are retained as skipped by migration v23.
-    static let dataVersion = 18
+    // v22 adds reviewed CEFR overrides and merges two retired spelling cards
+    // without losing their existing learning history (migration v26).
+    static let dataVersion = 22
 
     private static let fileNames = [
         "words_a1", "words_a2", "words_b1", "words_b2", "words_c1",

@@ -10,30 +10,15 @@ import unicodedata
 from collections import Counter
 from pathlib import Path
 
+from apply_cefr_level_overrides import load_baseline, load_ledger, validate as validate_cefr_ledger
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "Le Parole" / "Data"
 LEVELS = {"A1", "A2", "B1", "B2", "C1", "C2"}
-# These IDs are retired by app migrations after their userWords history is
-# merged into the canonical ID. Keeping the redirect here lets a pre-migration
-# backup be validated against the new catalogue as well.
 RETIRED_WORD_REDIRECTS = {
-    "comm_1670": "comm_6",
-    "1276": "comm_3313",
-    "comm_406": "2037",
-    "comm_10049": "comm_11857",
-    "comm_10851": "comm_1040",
-    "comm_384": "comm_1208",
-    "comm_323": "comm_6",
-    "comm_13094": "comm_3866",
-    "comm_16341": "comm_1999",
-    "comm_16342": "comm_1816",
-    "comm_5660": "393",
-    "comm_13543": "comm_11827",
-    "comm_4578": "465",
-    "comm_13785": "comm_4596",
-    "comm_9145": "comm_1333",
-    "comm_6403": "comm_2161",
+    "comm_15943": "comm_444",  # claro (obsolete) → chiaro
+    "comm_11974": "2050",      # sù → su
 }
 RETIRED_WORD_IDS = {
     "comm_9227", "comm_7994", "comm_6213", "comm_5973", "comm_10902",
@@ -77,6 +62,8 @@ def main() -> None:
                     errors.append(f"{prefix}: missing {required}")
             if word.get("level") not in LEVELS:
                 errors.append(f"{prefix}: unsupported CEFR level {word.get('level')!r}")
+            if not isinstance(word.get("partOfSpeech"), str) or not word["partOfSpeech"].strip():
+                errors.append(f"{prefix}: missing partOfSpeech")
             if not isinstance(word.get("frequencyRank"), int) or word.get("frequencyRank", 0) < 1:
                 errors.append(f"{prefix}: frequencyRank must be a positive integer")
             if not isinstance(word.get("alternatives", []), list) or not all(
@@ -101,6 +88,16 @@ def main() -> None:
     expected_ranks = set(range(1, len(entries) + 1))
     if set(ranks) != expected_ranks or len(ranks) != len(set(ranks)):
         errors.append("frequencyRank must be a collision-free sequence from 1 through the word count")
+
+    try:
+        cefr_errors = validate_cefr_ledger(
+            {word["id"]: word for word in entries if isinstance(word.get("id"), str)},
+            load_ledger(),
+            load_baseline(),
+        )
+        errors.extend(f"CEFR ledger: {error}" for error in cefr_errors)
+    except (OSError, ValueError, json.JSONDecodeError) as error:
+        errors.append(f"CEFR ledger: {error}")
 
     if errors:
         print("Vocabulary validation failed:", file=sys.stderr)

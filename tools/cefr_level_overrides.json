@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "policy": "Frequency identifies review candidates but never assigns a CEFR level. Every departure from the curated baseline must record its intended sense, rationale, and evidence here.",
+  "levelOverrides": [
+    {
+      "id": "1827",
+      "italian": "difesa",
+      "oldLevel": "C1",
+      "newLevel": "B1",
+      "rationale": "The card teaches the everyday senses 'defence/protection', including familiar personal, sport, and civic contexts; C1 overstates its intended learning burden.",
+      "references": [
+        "https://dizionario.internazionale.it/parola/difesa",
+        "https://www.unistrapg.it/profilo_lingua_italiana/site/sei-livelli.html"
+      ],
+      "reviewedOn": "2026-08-19"
+    },
+    {
+      "id": "1947",
+      "italian": "convincere",
+      "oldLevel": "C1",
+      "newLevel": "B1",
+      "rationale": "The card targets the common interpersonal meaning 'to convince/persuade', appropriate for explaining opinions and reasons at B1 rather than advanced C1 use.",
+      "references": [
+        "https://dizionario.internazionale.it/parola/convincere",
+        "https://www.unistrapg.it/profilo_lingua_italiana/site/sei-livelli.html"
+      ],
+      "reviewedOn": "2026-08-19"
+    },
+    {
+      "id": "1074",
+      "italian": "diffondere",
+      "oldLevel": "C1",
+      "newLevel": "B2",
+      "rationale": "Its broad, common senses ('spread', 'make known', 'broadcast') support upper-intermediate discussion; specialized uses remain optional extensions rather than the card's target sense.",
+      "references": [
+        "https://dizionario.internazionale.it/parola/diffondere",
+        "https://www.unistrapg.it/profilo_lingua_italiana/site/sei-livelli.html"
+      ],
+      "reviewedOn": "2026-08-19"
+    },
+    {
+      "id": "1075",
+      "italian": "trasmettere",
+      "oldLevel": "C1",
+      "newLevel": "B2",
+      "rationale": "The taught meanings 'transmit/broadcast/relay' are frequent general-language senses. The card does not teach a specialized technical or legal sense that would justify C1.",
+      "references": [
+        "https://dizionario.internazionale.it/parola/trasmettere",
+        "https://www.unistrapg.it/profilo_lingua_italiana/site/sei-livelli.html"
+      ],
+      "reviewedOn": "2026-08-19"
+    },
+    {
+      "id": "1076",
+      "italian": "segnalare",
+      "oldLevel": "C1",
+      "newLevel": "B2",
+      "rationale": "The card's intended reporting and signalling senses are frequent, concrete and useful in travel, work and public-information contexts; B2 is a conservative upper-intermediate placement.",
+      "references": [
+        "https://dizionario.internazionale.it/parola/segnalare",
+        "https://www.unistrapg.it/profilo_lingua_italiana/site/sei-livelli.html"
+      ],
+      "reviewedOn": "2026-08-19"
+    },
+    {
+      "id": "1137",
+      "italian": "regolamento",
+      "oldLevel": "C1",
+      "newLevel": "B2",
+      "rationale": "The card teaches ordinary rules and regulations, useful for schools, workplaces and public services; the advanced legal senses are not required by its gloss.",
+      "references": [
+        "https://dizionario.internazionale.it/parola/regolamento",
+        "https://www.unistrapg.it/profilo_lingua_italiana/site/sei-livelli.html"
+      ],
+      "reviewedOn": "2026-08-19"
+    }
+  ],
+  "retirements": [
+    {
+      "id": "comm_15943",
+      "italian": "claro",
+      "replacementId": "comm_444",
+      "rationale": "The card duplicates modern Italian chiaro while claro is marked obsolete by the cited dictionary. Existing learning history is merged into chiaro.",
+      "references": [
+        "https://dizionario.internazionale.it/parola/claro",
+        "https://dizionario.internazionale.it/parola/chiaro"
+      ],
+      "reviewedOn": "2026-08-19"
+    },
+    {
+      "id": "comm_11974",
+      "italian": "sù",
+      "replacementId": "2050",
+      "rationale": "The accent spelling represents the same lemma su in its adverbial use. The retained card already accepts the meanings on, above, upstairs and up; existing learning history is merged into it.",
+      "references": [
+        "https://www.treccani.it/vocabolario/su/"
+      ],
+      "reviewedOn": "2026-08-19"
+    }
+  ]
+}

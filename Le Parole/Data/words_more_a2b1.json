@@ -8,7 +8,7 @@
         "english": "to get bored",
         "id": "1251",
         "level": "A2",
-        "frequencyRank": 13289,
+        "frequencyRank": 13504,
         "partOfSpeech": "verb"
     },
     {
@@ -20,7 +20,7 @@
         "english": "to have fun",
         "id": "1252",
         "level": "A2",
-        "frequencyRank": 3407,
+        "frequencyRank": 3929,
         "partOfSpeech": "verb"
     },
     {
@@ -32,7 +32,7 @@
         "english": "to wake up",
         "id": "1253",
         "level": "A2",
-        "frequencyRank": 5246,
+        "frequencyRank": 5913,
         "partOfSpeech": "verb"
     },
     {
@@ -44,7 +44,7 @@
         "english": "to get up",
         "id": "1254",
         "level": "A2",
-        "frequencyRank": 4435,
+        "frequencyRank": 5053,
         "partOfSpeech": "verb"
     },
     {
@@ -59,7 +59,7 @@
         "english": "to wash oneself",
         "id": "1255",
         "level": "A2",
-        "frequencyRank": 5943,
+        "frequencyRank": 6629,
         "partOfSpeech": "verb"
     },
     {
@@ -71,7 +71,7 @@
         "english": "to get dressed",
         "id": "1256",
         "level": "A2",
-        "frequencyRank": 4843,
+        "frequencyRank": 5476,
         "partOfSpeech": "verb"
     },
     {
@@ -83,7 +83,7 @@
         "english": "to fall asleep",
         "id": "1257",
         "level": "A2",
-        "frequencyRank": 9764,
+        "frequencyRank": 10333,
         "partOfSpeech": "verb"
     },
     {
@@ -95,7 +95,7 @@
         "english": "to sit down",
         "id": "1258",
         "level": "A2",
-        "frequencyRank": 4540,
+        "frequencyRank": 5167,
         "partOfSpeech": "verb"
     },
     {
@@ -108,7 +108,7 @@
         "english": "to stand up",
         "id": "1259",
         "level": "A2",
-        "frequencyRank": 4549,
+        "frequencyRank": 13409,
         "partOfSpeech": "verb"
     },
     {
@@ -117,7 +117,7 @@
         "english": "to fall in love",
         "id": "1260",
         "level": "A2",
-        "frequencyRank": 6622,
+        "frequencyRank": 7347,
         "partOfSpeech": "verb"
     },
     {
@@ -129,8 +129,8 @@
         ],
         "english": "boyfriend",
         "id": "1261",
-        "level": "B1",
-        "frequencyRank": 1811,
+        "level": "A2",
+        "frequencyRank": 2151,
         "inflections": "Noun: il fidanzato, i fidanzati",
         "partOfSpeech": "noun"
     },
@@ -144,7 +144,7 @@
         "english": "girlfriend",
         "id": "1262",
         "level": "A2",
-        "frequencyRank": 1664,
+        "frequencyRank": 1989,
         "inflections": "Noun: la fidanzata, le fidanzate",
         "partOfSpeech": "noun"
     },
@@ -156,7 +156,7 @@
         "english": "to get engaged",
         "id": "1263",
         "level": "A2",
-        "frequencyRank": 13420,
+        "frequencyRank": 13611,
         "partOfSpeech": "verb"
     },
     {
@@ -168,7 +168,7 @@
         "english": "to divorce",
         "id": "1264",
         "level": "A2",
-        "frequencyRank": 9087,
+        "frequencyRank": 3850,
         "partOfSpeech": "verb"
     },
     {
@@ -179,7 +179,7 @@
         "english": "divorce",
         "id": "1265",
         "level": "A2",
-        "frequencyRank": 2239,
+        "frequencyRank": 2620,
         "inflections": "Noun: il divorzio, i divorzi",
         "partOfSpeech": "noun"
     },
@@ -190,8 +190,8 @@
         ],
         "english": "partner",
         "id": "1266",
-        "level": "B2",
-        "frequencyRank": 10894,
+        "level": "A2",
+        "frequencyRank": 11363,
         "inflections": "Noun: il convivente, i conviventi",
         "partOfSpeech": "noun"
     },
@@ -201,7 +201,7 @@
         "english": "father-in-law",
         "id": "1268",
         "level": "A2",
-        "frequencyRank": 6040,
+        "frequencyRank": 6713,
         "inflections": "Noun: il suocero, i suoceri",
         "partOfSpeech": "noun"
     },
@@ -210,8 +210,8 @@
         "alternatives": [],
         "english": "mother-in-law",
         "id": "1269",
-        "level": "C1",
-        "frequencyRank": 5173,
+        "level": "A2",
+        "frequencyRank": 5827,
         "inflections": "Noun: la suocera, le suocere",
         "partOfSpeech": "noun"
     },
@@ -221,7 +221,7 @@
         "english": "brother-in-law",
         "id": "1270",
         "level": "A2",
-        "frequencyRank": 4927,
+        "frequencyRank": 5574,
         "inflections": "Noun: il cognato, i cognati",
         "partOfSpeech": "noun"
     },
@@ -230,8 +230,8 @@
         "alternatives": [],
         "english": "sister-in-law",
         "id": "1271",
-        "level": "B2",
-        "frequencyRank": 6062,
+        "level": "A2",
+        "frequencyRank": 6748,
         "inflections": "Noun: la cognata, le cognate",
         "partOfSpeech": "noun"
     },
@@ -240,8 +240,8 @@
         "alternatives": [],
         "english": "son-in-law",
         "id": "1272",
-        "level": "C1",
-        "frequencyRank": 6144,
+        "level": "A2",
+        "frequencyRank": 6836,
         "inflections": "Noun: il genero, i generi",
         "partOfSpeech": "noun"
     },
@@ -251,7 +251,7 @@
         "english": "daughter-in-law",
         "id": "1273",
         "level": "A2",
-        "frequencyRank": 9414,
+        "frequencyRank": 9998,
         "inflections": "Noun: la nuora, le nuore",
         "partOfSpeech": "noun"
     },
@@ -263,7 +263,7 @@
         "english": "twin",
         "id": "1274",
         "level": "A2",
-        "frequencyRank": 6214,
+        "frequencyRank": 6914,
         "inflections": "Noun: il gemello, i gemelli",
         "partOfSpeech": "noun"
     },
@@ -274,8 +274,8 @@
         ],
         "english": "to adopt",
         "id": "1275",
-        "level": "A1",
-        "frequencyRank": 2227,
+        "level": "A2",
+        "frequencyRank": 725,
         "partOfSpeech": "verb"
     },
     {
@@ -286,7 +286,7 @@
         "english": "science",
         "id": "1279",
         "level": "A2",
-        "frequencyRank": 991,
+        "frequencyRank": 1226,
         "inflections": "Noun: la scienza, le scienze",
         "partOfSpeech": "noun"
     },
@@ -298,8 +298,8 @@
         ],
         "english": "computer science",
         "id": "1280",
-        "level": "B2",
-        "frequencyRank": 1848,
+        "level": "A2",
+        "frequencyRank": 2193,
         "inflections": "Noun: l'informatica, le informatiche",
         "partOfSpeech": "noun"
     },
@@ -312,7 +312,7 @@
         "english": "physical education",
         "id": "1281",
         "level": "A2",
-        "frequencyRank": 1515,
+        "frequencyRank": 5656,
         "inflections": "Noun: l'educazione fisica, le educazioni fisiche",
         "partOfSpeech": "noun"
     },
@@ -323,8 +323,8 @@
         ],
         "english": "art",
         "id": "1282",
-        "level": "A1",
-        "frequencyRank": 318,
+        "level": "A2",
+        "frequencyRank": 395,
         "inflections": "Noun: l'arte, le arti",
         "partOfSpeech": "noun"
     },
@@ -334,7 +334,7 @@
         "english": "philosophy",
         "id": "1283",
         "level": "A2",
-        "frequencyRank": 969,
+        "frequencyRank": 1203,
         "inflections": "Noun: la filosofia, le filosofie",
         "partOfSpeech": "noun"
     },
@@ -347,7 +347,7 @@
         "english": "homework",
         "id": "1284",
         "level": "A2",
-        "frequencyRank": 1538,
+        "frequencyRank": 1840,
         "inflections": "Noun: il compito, i compiti",
         "partOfSpeech": "noun"
     },
@@ -359,7 +359,7 @@
         "english": "school report",
         "id": "1285",
         "level": "A2",
-        "frequencyRank": 11730,
+        "frequencyRank": 12110,
         "inflections": "Noun: la pagella, le pagelle",
         "partOfSpeech": "noun"
     },
@@ -370,8 +370,8 @@
         ],
         "english": "oral exam",
         "id": "1286",
-        "level": "B2",
-        "frequencyRank": 5075,
+        "level": "A2",
+        "frequencyRank": 5737,
         "inflections": "Noun: l'interrogazione, le interrogazioni",
         "partOfSpeech": "noun"
     },
@@ -384,8 +384,8 @@
         ],
         "english": "to fail",
         "id": "1287",
-        "level": "C1",
-        "frequencyRank": 12171,
+        "level": "A2",
+        "frequencyRank": 5308,
         "partOfSpeech": "verb"
     },
     {
@@ -395,8 +395,8 @@
         "alternatives": [
             "to advance (a student)"
         ],
-        "level": "A1",
-        "frequencyRank": 1525,
+        "level": "A2",
+        "frequencyRank": 841,
         "partOfSpeech": "verb"
     },
     {
@@ -405,7 +405,7 @@
         "english": "volleyball",
         "alternatives": [],
         "level": "A2",
-        "frequencyRank": 3814,
+        "frequencyRank": 4369,
         "inflections": "Noun: la pallavolo, le pallavolo",
         "partOfSpeech": "noun"
     },
@@ -415,7 +415,7 @@
         "english": "basketball",
         "alternatives": [],
         "level": "A2",
-        "frequencyRank": 2442,
+        "frequencyRank": 2855,
         "inflections": "Noun: il basket, i basket",
         "partOfSpeech": "noun"
     },
@@ -427,7 +427,7 @@
             "go swimming"
         ],
         "level": "A2",
-        "frequencyRank": 4712,
+        "frequencyRank": 4870,
         "partOfSpeech": "verb"
     },
     {
@@ -438,7 +438,7 @@
             "go skiing"
         ],
         "level": "A2",
-        "frequencyRank": 8045,
+        "frequencyRank": 8718,
         "partOfSpeech": "verb"
     },
     {
@@ -450,7 +450,7 @@
             "to practice"
         ],
         "level": "A2",
-        "frequencyRank": 5981,
+        "frequencyRank": 6669,
         "partOfSpeech": "verb"
     },
     {
@@ -461,8 +461,8 @@
             "victor",
             "champion"
         ],
-        "level": "B2",
-        "frequencyRank": 1801,
+        "level": "A2",
+        "frequencyRank": 2135,
         "inflections": "Noun: il vincitore, i vincitori",
         "partOfSpeech": "noun"
     },
@@ -476,7 +476,7 @@
             "defeated one"
         ],
         "level": "A2",
-        "frequencyRank": 6298,
+        "frequencyRank": 7005,
         "inflections": "Noun: il perdente, i perdenti",
         "partOfSpeech": "noun"
     },
@@ -489,7 +489,7 @@
             "winner"
         ],
         "level": "A2",
-        "frequencyRank": 1070,
+        "frequencyRank": 1312,
         "inflections": "Noun: il campione, i campioni",
         "partOfSpeech": "noun"
     },
@@ -501,8 +501,8 @@
             "supporter",
             "enthusiast"
         ],
-        "level": "B2",
-        "frequencyRank": 5320,
+        "level": "A2",
+        "frequencyRank": 5991,
         "inflections": "Noun: il tifoso, i tifosi",
         "partOfSpeech": "noun"
     },
@@ -512,7 +512,7 @@
         "english": "lung",
         "alternatives": [],
         "level": "A2",
-        "frequencyRank": 5300,
+        "frequencyRank": 5973,
         "inflections": "Noun: il polmone, i polmoni",
         "partOfSpeech": "noun"
     },
@@ -522,7 +522,7 @@
         "english": "kidney",
         "alternatives": [],
         "level": "A2",
-        "frequencyRank": 4252,
+        "frequencyRank": 4838,
         "inflections": "Noun: il rene, i reni",
         "partOfSpeech": "noun"
     },
@@ -532,7 +532,7 @@
         "english": "liver",
         "alternatives": [],
         "level": "B1",
-        "frequencyRank": 2376,
+        "frequencyRank": 2773,
         "inflections": "Noun: il fegato, i fegati",
         "partOfSpeech": "noun"
     },
@@ -542,7 +542,7 @@
         "english": "muscle",
         "alternatives": [],
         "level": "B1",
-        "frequencyRank": 4026,
+        "frequencyRank": 4590,
         "inflections": "Noun: il muscolo, i muscoli",
         "partOfSpeech": "noun"
     },
@@ -551,8 +551,8 @@
         "italian": "osso",
         "english": "bone",
         "alternatives": [],
-        "level": "B2",
-        "frequencyRank": 3926,
+        "level": "B1",
+        "frequencyRank": 4487,
         "inflections": "Noun: l'osso, le ossa",
         "partOfSpeech": "noun"
     },
@@ -564,8 +564,8 @@
             "hide",
             "complexion"
         ],
-        "level": "A2",
-        "frequencyRank": 701,
+        "level": "B1",
+        "frequencyRank": 885,
         "inflections": "Noun: la pelle, le pelli",
         "partOfSpeech": "noun"
     },
@@ -577,7 +577,7 @@
             "blood vessel"
         ],
         "level": "B1",
-        "frequencyRank": 5987,
+        "frequencyRank": 6674,
         "inflections": "Noun: l'arteria, le arterie",
         "partOfSpeech": "noun"
     },
@@ -587,7 +587,7 @@
         "english": "nerve",
         "alternatives": [],
         "level": "B1",
-        "frequencyRank": 5082,
+        "frequencyRank": 5742,
         "inflections": "Noun: il nervo, i nervi",
         "partOfSpeech": "noun"
     },
@@ -598,8 +598,8 @@
         "alternatives": [
             "lifeblood"
         ],
-        "level": "A2",
-        "frequencyRank": 444,
+        "level": "B1",
+        "frequencyRank": 551,
         "inflections": "Noun: il sangue, i sanguini",
         "partOfSpeech": "noun"
     },
@@ -611,7 +611,7 @@
             "arterial pressure"
         ],
         "level": "B1",
-        "frequencyRank": 7143,
+        "frequencyRank": 13797,
         "inflections": "Noun: la pressione sanguigna, le pressioni sanguigne",
         "partOfSpeech": "noun"
     },
@@ -623,7 +623,7 @@
             "pulse"
         ],
         "level": "B1",
-        "frequencyRank": 3371,
+        "frequencyRank": 3882,
         "inflections": "Noun: il polso, i polsi",
         "partOfSpeech": "noun"
     },
@@ -633,7 +633,7 @@
         "english": "ankle",
         "alternatives": [],
         "level": "B1",
-        "frequencyRank": 4925,
+        "frequencyRank": 5572,
         "inflections": "Noun: la caviglia, le caviglie",
         "partOfSpeech": "noun"
     },
@@ -642,8 +642,8 @@
         "italian": "ginocchio",
         "english": "knee",
         "alternatives": [],
-        "level": "C1",
-        "frequencyRank": 2273,
+        "level": "B1",
+        "frequencyRank": 2657,
         "inflections": "Noun: il ginocchio, le ginocchia",
         "partOfSpeech": "noun"
     },
@@ -652,8 +652,8 @@
         "italian": "spalla",
         "english": "shoulder",
         "alternatives": [],
-        "level": "A2",
-        "frequencyRank": 2048,
+        "level": "B1",
+        "frequencyRank": 2402,
         "inflections": "Noun: la spalla, le spalle",
         "partOfSpeech": "noun"
     },
@@ -664,8 +664,8 @@
         "alternatives": [
             "breast"
         ],
-        "level": "C1",
-        "frequencyRank": 1760,
+        "level": "B1",
+        "frequencyRank": 2094,
         "inflections": "Noun: il petto, i petti",
         "partOfSpeech": "noun"
     },
@@ -676,8 +676,8 @@
         "alternatives": [
             "throat"
         ],
-        "level": "B2",
-        "frequencyRank": 1148,
+        "level": "B1",
+        "frequencyRank": 1403,
         "inflections": "Noun: il collo, i colli",
         "partOfSpeech": "noun"
     },
@@ -689,7 +689,7 @@
             "jawline"
         ],
         "level": "B1",
-        "frequencyRank": 4584,
+        "frequencyRank": 5221,
         "inflections": "Noun: il mento, i menti",
         "partOfSpeech": "noun"
     },
@@ -701,7 +701,7 @@
             "side of face"
         ],
         "level": "B1",
-        "frequencyRank": 5066,
+        "frequencyRank": 5732,
         "inflections": "Noun: la guancia, le guance",
         "partOfSpeech": "noun"
     },
@@ -713,7 +713,7 @@
             "brow"
         ],
         "level": "B1",
-        "frequencyRank": 9143,
+        "frequencyRank": 9741,
         "inflections": "Noun: il sopracciglio, le sopracciglia",
         "partOfSpeech": "noun"
     },
@@ -725,7 +725,7 @@
             "lash"
         ],
         "level": "B1",
-        "frequencyRank": 5193,
+        "frequencyRank": 5862,
         "inflections": "Noun: il ciglio, le ciglia",
         "partOfSpeech": "noun"
     },
@@ -737,7 +737,7 @@
             "big cat"
         ],
         "level": "B1",
-        "frequencyRank": 1358,
+        "frequencyRank": 1650,
         "inflections": "Noun: il leone, i leoni",
         "partOfSpeech": "noun"
     },
@@ -749,7 +749,7 @@
             "big cat"
         ],
         "level": "B1",
-        "frequencyRank": 4086,
+        "frequencyRank": 4656,
         "inflections": "Noun: la tigre, le tigri",
         "partOfSpeech": "noun"
     },
@@ -759,7 +759,7 @@
         "english": "elephant",
         "alternatives": [],
         "level": "B1",
-        "frequencyRank": 4804,
+        "frequencyRank": 5441,
         "inflections": "Noun: l'elefante, gli elefanti",
         "partOfSpeech": "noun"
     },
@@ -769,7 +769,7 @@
         "english": "giraffe",
         "alternatives": [],
         "level": "B1",
-        "frequencyRank": 10445,
+        "frequencyRank": 10968,
         "inflections": "Noun: la giraffa, le giraffe",
         "partOfSpeech": "noun"
     },
@@ -782,7 +782,7 @@
             "ape"
         ],
         "level": "B1",
-        "frequencyRank": 3557,
+        "frequencyRank": 4076,
         "inflections": "Noun: la scimmia, le scimmie",
         "partOfSpeech": "noun"
     },
@@ -792,15 +792,15 @@
         "english": "bear",
         "alternatives": [],
         "level": "B1",
-        "frequencyRank": 3219,
+        "frequencyRank": 3722,
         "inflections": "Noun: l'orso, gli orsi",
         "partOfSpeech": "noun"
     },
     {
         "english": "wolf",
-        "frequencyRank": 1360,
+        "frequencyRank": 1652,
         "alternatives": [],
-        "level": "B2",
+        "level": "B1",
         "id": "1327",
         "italian": "lupo",
         "inflections": "Noun: il lupo, i lupi",
@@ -808,9 +808,9 @@
     },
     {
         "english": "fox",
-        "frequencyRank": 3836,
+        "frequencyRank": 4387,
         "alternatives": [],
-        "level": "B2",
+        "level": "B1",
         "id": "1328",
         "italian": "volpe",
         "inflections": "Noun: la volpe, le volpi",
@@ -818,7 +818,7 @@
     },
     {
         "english": "deer",
-        "frequencyRank": 4743,
+        "frequencyRank": 5386,
         "alternatives": [
             "stag"
         ],
@@ -830,7 +830,7 @@
     },
     {
         "english": "eagle",
-        "frequencyRank": 2293,
+        "frequencyRank": 2683,
         "alternatives": [
             "raptor",
             "bird of prey"
@@ -843,7 +843,7 @@
     },
     {
         "english": "owl",
-        "frequencyRank": 7023,
+        "frequencyRank": 7747,
         "alternatives": [],
         "level": "B1",
         "id": "1331",
@@ -853,7 +853,7 @@
     },
     {
         "english": "parrot",
-        "frequencyRank": 6379,
+        "frequencyRank": 7091,
         "alternatives": [],
         "level": "B1",
         "id": "1332",
@@ -863,7 +863,7 @@
     },
     {
         "english": "snake",
-        "frequencyRank": 3604,
+        "frequencyRank": 4128,
         "alternatives": [
             "serpent"
         ],
@@ -875,7 +875,7 @@
     },
     {
         "english": "turtle",
-        "frequencyRank": 5038,
+        "frequencyRank": 5692,
         "alternatives": [
             "tortoise"
         ],
@@ -887,7 +887,7 @@
     },
     {
         "english": "frog",
-        "frequencyRank": 5025,
+        "frequencyRank": 5680,
         "alternatives": [],
         "level": "B1",
         "id": "1335",
@@ -897,7 +897,7 @@
     },
     {
         "english": "butterfly",
-        "frequencyRank": 4520,
+        "frequencyRank": 5150,
         "alternatives": [],
         "level": "B1",
         "id": "1336",
@@ -907,7 +907,7 @@
     },
     {
         "english": "bee",
-        "frequencyRank": 4850,
+        "frequencyRank": 5494,
         "alternatives": [
             "honeybee"
         ],
@@ -919,7 +919,7 @@
     },
     {
         "english": "mosquito",
-        "frequencyRank": 5684,
+        "frequencyRank": 6361,
         "alternatives": [
             "gnat",
             "pest"
@@ -932,7 +932,7 @@
     },
     {
         "english": "spider",
-        "frequencyRank": 4248,
+        "frequencyRank": 4834,
         "alternatives": [
             "arachnid"
         ],
@@ -944,7 +944,7 @@
     },
     {
         "english": "dolphin",
-        "frequencyRank": 4451,
+        "frequencyRank": 5068,
         "alternatives": [],
         "level": "B1",
         "id": "1340",
@@ -954,7 +954,7 @@
     },
     {
         "english": "whale",
-        "frequencyRank": 5122,
+        "frequencyRank": 5782,
         "alternatives": [],
         "level": "B1",
         "id": "1341",
@@ -964,7 +964,7 @@
     },
     {
         "english": "shark",
-        "frequencyRank": 5242,
+        "frequencyRank": 5909,
         "alternatives": [],
         "level": "B1",
         "id": "1342",
@@ -974,7 +974,7 @@
     },
     {
         "english": "octopus",
-        "frequencyRank": 8427,
+        "frequencyRank": 9086,
         "alternatives": [],
         "level": "B1",
         "id": "1343",
@@ -984,7 +984,7 @@
     },
     {
         "english": "crab",
-        "frequencyRank": 8394,
+        "frequencyRank": 9055,
         "alternatives": [],
         "level": "B1",
         "id": "1344",
@@ -994,7 +994,7 @@
     },
     {
         "english": "horse",
-        "frequencyRank": 1020,
+        "frequencyRank": 1263,
         "alternatives": [
             "steed"
         ],
@@ -1006,7 +1006,7 @@
     },
     {
         "english": "cow",
-        "frequencyRank": 4476,
+        "frequencyRank": 5093,
         "alternatives": [
             "cattle",
             "bovine"
@@ -1019,7 +1019,7 @@
     },
     {
         "english": "sheep",
-        "frequencyRank": 4243,
+        "frequencyRank": 4829,
         "alternatives": [
             "ram",
             "lamb",
@@ -1033,7 +1033,7 @@
     },
     {
         "english": "goat",
-        "frequencyRank": 3398,
+        "frequencyRank": 3920,
         "alternatives": [
             "kid"
         ],
@@ -1045,7 +1045,7 @@
     },
     {
         "english": "hen",
-        "frequencyRank": 4524,
+        "frequencyRank": 5154,
         "alternatives": [
             "chicken",
             "fowl"
@@ -1058,14 +1058,14 @@
     },
     {
         "english": "meadow",
-        "frequencyRank": 1821,
+        "frequencyRank": 2161,
         "alternatives": [
             "pasture",
             "grassland",
             "lawn",
             "field"
         ],
-        "level": "C1",
+        "level": "B1",
         "id": "1351",
         "italian": "prato",
         "inflections": "Noun: il prato, i prati",
@@ -1073,7 +1073,7 @@
     },
     {
         "english": "wood",
-        "frequencyRank": 1450,
+        "frequencyRank": 1747,
         "alternatives": [
             "woodland",
             "grove",
@@ -1087,12 +1087,12 @@
     },
     {
         "english": "wave",
-        "frequencyRank": 1008,
+        "frequencyRank": 1251,
         "alternatives": [
             "swell",
             "billow"
         ],
-        "level": "A2",
+        "level": "B1",
         "id": "1353",
         "italian": "onda",
         "inflections": "Noun: l'onda, le onde",
@@ -1100,9 +1100,9 @@
     },
     {
         "english": "sand",
-        "frequencyRank": 2075,
+        "frequencyRank": 2435,
         "alternatives": [],
-        "level": "C1",
+        "level": "B1",
         "id": "1354",
         "italian": "sabbia",
         "inflections": "Noun: la sabbia, le sabbie",
@@ -1110,12 +1110,12 @@
     },
     {
         "english": "rock",
-        "frequencyRank": 2513,
+        "frequencyRank": 2924,
         "alternatives": [
             "stone",
             "boulder"
         ],
-        "level": "C1",
+        "level": "B1",
         "id": "1355",
         "italian": "roccia",
         "inflections": "Noun: la roccia, le rocce",
@@ -1123,7 +1123,7 @@
     },
     {
         "english": "cave",
-        "frequencyRank": 3478,
+        "frequencyRank": 3999,
         "alternatives": [
             "cavern",
             "grotto"
@@ -1136,7 +1136,7 @@
     },
     {
         "english": "volcano",
-        "frequencyRank": 3883,
+        "frequencyRank": 4435,
         "alternatives": [],
         "level": "B1",
         "id": "1357",
@@ -1146,12 +1146,12 @@
     },
     {
         "english": "earthquake",
-        "frequencyRank": 1198,
+        "frequencyRank": 1457,
         "alternatives": [
             "quake",
             "tremor"
         ],
-        "level": "C1",
+        "level": "B1",
         "id": "1358",
         "italian": "terremoto",
         "inflections": "Noun: il terremoto, i terremoti",
@@ -1159,7 +1159,7 @@
     },
     {
         "english": "flood",
-        "frequencyRank": 6506,
+        "frequencyRank": 7221,
         "alternatives": [
             "deluge"
         ],
@@ -1171,7 +1171,7 @@
     },
     {
         "english": "drought",
-        "frequencyRank": 5825,
+        "frequencyRank": 6511,
         "alternatives": [
             "dry spell"
         ],
@@ -1183,12 +1183,12 @@
     },
     {
         "english": "river",
-        "frequencyRank": 774,
+        "frequencyRank": 980,
         "alternatives": [
             "stream",
             "waterway"
         ],
-        "level": "A2",
+        "level": "B1",
         "id": "1361",
         "italian": "fiume",
         "inflections": "Noun: il fiume, i fiumi",
@@ -1196,9 +1196,9 @@
     },
     {
         "english": "lake",
-        "frequencyRank": 1107,
+        "frequencyRank": 1348,
         "alternatives": [],
-        "level": "B2",
+        "level": "B1",
         "id": "1362",
         "italian": "lago",
         "inflections": "Noun: il lago, i laghi",
@@ -1210,10 +1210,10 @@
             "promontory",
             "headland"
         ],
-        "level": "C2",
+        "level": "B1",
         "id": "1364",
         "italian": "penisola",
-        "frequencyRank": 2428,
+        "frequencyRank": 2827,
         "inflections": "Noun: la penisola, le penisole",
         "partOfSpeech": "noun"
     },
@@ -1223,10 +1223,10 @@
             "flatland",
             "grassland"
         ],
-        "level": "C1",
+        "level": "B1",
         "id": "1366",
         "italian": "pianura",
-        "frequencyRank": 3073,
+        "frequencyRank": 3550,
         "inflections": "Noun: la pianura, le pianure",
         "partOfSpeech": "noun"
     },
@@ -1235,10 +1235,10 @@
         "alternatives": [
             "wasteland"
         ],
-        "level": "B2",
+        "level": "B1",
         "id": "1367",
         "italian": "deserto",
-        "frequencyRank": 1775,
+        "frequencyRank": 2113,
         "inflections": "Noun: il deserto, i deserti",
         "partOfSpeech": "noun"
     },
@@ -1249,10 +1249,10 @@
             "knoll",
             "rise"
         ],
-        "level": "B2",
+        "level": "B1",
         "id": "1368",
         "italian": "collina",
-        "frequencyRank": 2688,
+        "frequencyRank": 3127,
         "inflections": "Noun: la collina, le colline",
         "partOfSpeech": "noun"
     },
@@ -1264,10 +1264,10 @@
             "woods",
             "woodland"
         ],
-        "level": "B2",
+        "level": "B1",
         "id": "1370",
         "italian": "foresta",
-        "frequencyRank": 1780,
+        "frequencyRank": 2118,
         "inflections": "Noun: la foresta, le foreste",
         "partOfSpeech": "noun"
     },
@@ -1279,7 +1279,7 @@
         "level": "B1",
         "id": "1371",
         "italian": "basilico",
-        "frequencyRank": 6332,
+        "frequencyRank": 7049,
         "inflections": "Noun: il basilico, i basilici",
         "partOfSpeech": "noun"
     },
@@ -1289,7 +1289,7 @@
         "level": "B1",
         "id": "1372",
         "italian": "rosmarino",
-        "frequencyRank": 8728,
+        "frequencyRank": 9358,
         "inflections": "Noun: il rosmarino, i rosmarini",
         "partOfSpeech": "noun"
     },
@@ -1302,7 +1302,7 @@
         "level": "B1",
         "id": "1373",
         "italian": "origano",
-        "frequencyRank": 12362,
+        "frequencyRank": 12679,
         "inflections": "Noun: l'origano, gli origani",
         "partOfSpeech": "noun"
     },
@@ -1316,7 +1316,7 @@
         "level": "B1",
         "id": "1374",
         "italian": "peperoncino",
-        "frequencyRank": 4311,
+        "frequencyRank": 4907,
         "inflections": "Noun: il peperoncino, i peperoncini",
         "partOfSpeech": "noun"
     },
@@ -1329,7 +1329,7 @@
         "level": "B1",
         "id": "1376",
         "italian": "olio",
-        "frequencyRank": 1007,
+        "frequencyRank": 1250,
         "inflections": "Noun: l'olio, gli oli",
         "partOfSpeech": "noun"
     },
@@ -1338,10 +1338,10 @@
         "alternatives": [
             "meal"
         ],
-        "level": "C2",
+        "level": "B1",
         "id": "1377",
         "italian": "farina",
-        "frequencyRank": 2546,
+        "frequencyRank": 2960,
         "inflections": "Noun: la farina, le farine",
         "partOfSpeech": "noun"
     },
@@ -1350,10 +1350,10 @@
         "alternatives": [
             "sweetener"
         ],
-        "level": "C2",
+        "level": "B1",
         "id": "1379",
         "italian": "miele",
-        "frequencyRank": 2595,
+        "frequencyRank": 3014,
         "inflections": "Noun: il miele, i mieli",
         "partOfSpeech": "noun"
     },
@@ -1368,7 +1368,7 @@
         "level": "B1",
         "id": "1380",
         "italian": "marmellata",
-        "frequencyRank": 5148,
+        "frequencyRank": 5805,
         "inflections": "Noun: la marmellata, le marmellate",
         "partOfSpeech": "noun"
     },
@@ -1381,7 +1381,7 @@
         "level": "B1",
         "id": "1381",
         "italian": "prosciutto",
-        "frequencyRank": 3819,
+        "frequencyRank": 4374,
         "inflections": "Noun: il prosciutto, i prosciutti",
         "partOfSpeech": "noun"
     },
@@ -1394,7 +1394,7 @@
         "level": "B1",
         "id": "1382",
         "italian": "salame",
-        "frequencyRank": 6103,
+        "frequencyRank": 6786,
         "inflections": "Noun: il salame, i salami",
         "partOfSpeech": "noun"
     },
@@ -1406,7 +1406,7 @@
         "level": "B1",
         "id": "1385",
         "italian": "parmigiano",
-        "frequencyRank": 5157,
+        "frequencyRank": 5813,
         "inflections": "Noun: il parmigiano, i parmigiani",
         "partOfSpeech": "noun"
     },
@@ -1419,7 +1419,7 @@
         "level": "B1",
         "id": "1389",
         "italian": "minestra",
-        "frequencyRank": 6720,
+        "frequencyRank": 7435,
         "inflections": "Noun: la minestra, le minestre",
         "partOfSpeech": "noun"
     },
@@ -1428,10 +1428,10 @@
         "alternatives": [
             "stock"
         ],
-        "level": "C1",
+        "level": "B1",
         "id": "1390",
         "italian": "brodo",
-        "frequencyRank": 4046,
+        "frequencyRank": 4623,
         "inflections": "Noun: il brodo, i brodi",
         "partOfSpeech": "noun"
     },
@@ -1444,7 +1444,7 @@
         "level": "B1",
         "id": "1391",
         "italian": "tiramisù",
-        "frequencyRank": 9868,
+        "frequencyRank": 10431,
         "inflections": "Noun: il tiramisù, i tiramisù",
         "partOfSpeech": "noun"
     },
@@ -1456,10 +1456,10 @@
             "academic",
             "lecturer"
         ],
-        "level": "A1",
+        "level": "B1",
         "id": "1398",
         "italian": "professore",
-        "frequencyRank": 870,
+        "frequencyRank": 1094,
         "inflections": "Noun: il professore, i professori",
         "partOfSpeech": "noun"
     },
@@ -1471,10 +1471,10 @@
             "medic",
             "gp"
         ],
-        "level": "A2",
+        "level": "B1",
         "id": "1399",
         "italian": "dottore",
-        "frequencyRank": 1544,
+        "frequencyRank": 1846,
         "inflections": "Noun: il dottore, i dottori",
         "partOfSpeech": "noun"
     },
@@ -1484,7 +1484,7 @@
         "level": "B1",
         "id": "1400",
         "italian": "ingegnere",
-        "frequencyRank": 2170,
+        "frequencyRank": 2550,
         "partOfSpeech": "noun"
     },
     {
@@ -1492,10 +1492,10 @@
         "alternatives": [
             "planner"
         ],
-        "level": "B2",
+        "level": "B1",
         "id": "1401",
         "italian": "architetto",
-        "frequencyRank": 2808,
+        "frequencyRank": 3261,
         "inflections": "Noun: l'architetto, gli architetti",
         "partOfSpeech": "noun"
     },
@@ -1511,7 +1511,7 @@
         "level": "B1",
         "id": "1402",
         "italian": "commercialista",
-        "frequencyRank": 6338,
+        "frequencyRank": 7055,
         "inflections": "Noun: il commercialista, i commercialisti",
         "partOfSpeech": "noun"
     },
@@ -1523,7 +1523,7 @@
         "level": "B1",
         "id": "1403",
         "italian": "notaio",
-        "frequencyRank": 2921,
+        "frequencyRank": 3379,
         "inflections": "Noun: il notaio, i notai",
         "partOfSpeech": "noun"
     },
@@ -1535,10 +1535,10 @@
             "peace officer",
             "cop"
         ],
-        "level": "B2",
+        "level": "B1",
         "id": "1404",
         "italian": "poliziotto",
-        "frequencyRank": 1902,
+        "frequencyRank": 2251,
         "inflections": "Noun: il poliziotto, i poliziotti",
         "partOfSpeech": "noun"
     },
@@ -1550,7 +1550,7 @@
         "level": "B1",
         "id": "1405",
         "italian": "pompiere",
-        "frequencyRank": 9621,
+        "frequencyRank": 10188,
         "partOfSpeech": "noun"
     },
     {
@@ -1560,14 +1560,14 @@
             "trooper",
             "serviceman"
         ],
-        "level": "B2",
+        "level": "B1",
         "id": "1406",
         "italian": "militare",
-        "frequencyRank": 501,
+        "frequencyRank": 618,
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 2609,
+        "frequencyRank": 3026,
         "id": "1407",
         "italian": "sacerdote",
         "english": "priest",
@@ -1576,12 +1576,12 @@
             "minister",
             "cleric"
         ],
-        "level": "B2",
+        "level": "B1",
         "inflections": "Noun: il sacerdote, i sacerdoti",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 3594,
+        "frequencyRank": 4120,
         "id": "1408",
         "italian": "parroco",
         "english": "parish priest",
@@ -1595,7 +1595,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 863,
+        "frequencyRank": 1087,
         "id": "1409",
         "italian": "giornalista",
         "english": "journalist",
@@ -1604,12 +1604,12 @@
             "reporter",
             "correspondent"
         ],
-        "level": "A2",
+        "level": "B1",
         "inflections": "Noun: il giornalista, i giornalisti",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 928,
+        "frequencyRank": 1155,
         "id": "1410",
         "italian": "scrittore",
         "english": "writer",
@@ -1621,17 +1621,17 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 995,
+        "frequencyRank": 1239,
         "id": "1411",
         "italian": "artista",
         "english": "artist",
         "alternatives": [],
-        "level": "A2",
+        "level": "B1",
         "inflections": "Noun: l'artista, gli artisti",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 2831,
+        "frequencyRank": 3279,
         "id": "1412",
         "italian": "musicista",
         "english": "musician",
@@ -1639,12 +1639,12 @@
             "instrumentalist",
             "performer"
         ],
-        "level": "B2",
+        "level": "B1",
         "inflections": "Noun: il musicista, i musicisti",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1405,
+        "frequencyRank": 1699,
         "id": "1413",
         "italian": "cantante",
         "english": "singer",
@@ -1652,12 +1652,12 @@
             "performer",
             "vocalist"
         ],
-        "level": "B2",
+        "level": "B1",
         "inflections": "Noun: il cantante, i cantanti",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 5738,
+        "frequencyRank": 6425,
         "id": "1414",
         "italian": "pianista",
         "english": "pianist",
@@ -1670,7 +1670,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 3575,
+        "frequencyRank": 4104,
         "id": "1415",
         "italian": "cuoco",
         "english": "cook",
@@ -1682,7 +1682,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 3457,
+        "frequencyRank": 3982,
         "id": "1416",
         "italian": "cameriere",
         "english": "waiter",
@@ -1693,7 +1693,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 7894,
+        "frequencyRank": 8576,
         "id": "1418",
         "italian": "cassiere",
         "english": "cashier",
@@ -1705,7 +1705,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 3241,
+        "frequencyRank": 3743,
         "id": "1419",
         "italian": "autista",
         "english": "driver",
@@ -1717,7 +1717,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 1859,
+        "frequencyRank": 2203,
         "id": "1420",
         "italian": "pilota",
         "english": "pilot",
@@ -1726,24 +1726,24 @@
             "flier",
             "airman"
         ],
-        "level": "B2",
+        "level": "B1",
         "inflections": "Noun: il pilota, i piloti",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 7540,
+        "frequencyRank": 8237,
         "id": "1421",
         "italian": "elettricista",
         "english": "electrician",
         "alternatives": [
             "electrical worker"
         ],
-        "level": "B2",
+        "level": "B1",
         "inflections": "Noun: l'elettricista, gli elettricisti",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 4295,
+        "frequencyRank": 4891,
         "id": "1422",
         "italian": "idraulico",
         "english": "plumber",
@@ -1756,7 +1756,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 7542,
+        "frequencyRank": 8239,
         "id": "1423",
         "italian": "falegname",
         "english": "carpenter",
@@ -1769,7 +1769,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 6229,
+        "frequencyRank": 6929,
         "id": "1424",
         "italian": "muratore",
         "english": "bricklayer",
@@ -1782,7 +1782,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 5454,
+        "frequencyRank": 6135,
         "id": "1425",
         "italian": "parrucchiere",
         "english": "hairdresser",
@@ -1795,7 +1795,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 5586,
+        "frequencyRank": 6256,
         "id": "1426",
         "italian": "farmacista",
         "english": "pharmacist",
@@ -1808,7 +1808,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 4732,
+        "frequencyRank": 5363,
         "id": "1427",
         "italian": "veterinario",
         "english": "vet",
@@ -1822,7 +1822,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 3698,
+        "frequencyRank": 4224,
         "id": "1428",
         "italian": "traduttore",
         "english": "translator",
@@ -1834,19 +1834,19 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 3263,
+        "frequencyRank": 3762,
         "id": "1429",
         "italian": "interprete",
         "english": "interpreter",
         "alternatives": [
             "communicator"
         ],
-        "level": "B2",
+        "level": "B1",
         "inflections": "Noun: l'interprete, gli interpreti",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 3212,
+        "frequencyRank": 11070,
         "id": "1430",
         "italian": "guida turistica",
         "english": "tour guide",
@@ -1860,7 +1860,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 957,
+        "frequencyRank": 1185,
         "id": "1432",
         "italian": "segretario",
         "english": "secretary",
@@ -1868,12 +1868,12 @@
             "admin assistant",
             "assistant"
         ],
-        "level": "A2",
+        "level": "B1",
         "inflections": "Noun: il segretario, i segretari",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 4167,
+        "frequencyRank": 4747,
         "id": "1433",
         "italian": "contabile",
         "english": "bookkeeper",
@@ -1886,7 +1886,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 5483,
+        "frequencyRank": 6170,
         "id": "1434",
         "italian": "analista",
         "english": "analyst",
@@ -1899,7 +1899,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 2190,
+        "frequencyRank": 2569,
         "id": "1435",
         "italian": "consulente",
         "english": "consultant",
@@ -1907,12 +1907,12 @@
             "advisor",
             "specialist"
         ],
-        "level": "B2",
+        "level": "B1",
         "inflections": "Noun: il consulente, i consulenti",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 5462,
+        "frequencyRank": 6143,
         "id": "1436",
         "italian": "programmatore",
         "english": "programmer",
@@ -1926,7 +1926,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 5972,
+        "frequencyRank": 6654,
         "id": "1437",
         "italian": "sviluppatore",
         "english": "developer",
@@ -1938,7 +1938,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 2547,
+        "frequencyRank": 2961,
         "id": "1439",
         "italian": "fotografo",
         "english": "photographer",
@@ -1950,7 +1950,7 @@
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 253,
+        "frequencyRank": 310,
         "id": "1440",
         "italian": "regione",
         "english": "region",
@@ -1959,24 +1959,24 @@
             "zone",
             "area"
         ],
-        "level": "A1",
+        "level": "B1",
         "inflections": "Noun: la regione, le regioni",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 369,
+        "frequencyRank": 458,
         "id": "1441",
         "italian": "provincia",
         "english": "province",
         "alternatives": [
             "territory"
         ],
-        "level": "A1",
+        "level": "B1",
         "inflections": "Noun: la provincia, le province",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 141,
+        "frequencyRank": 172,
         "id": "1442",
         "italian": "comune",
         "english": "municipality",
@@ -1986,12 +1986,12 @@
             "town hall",
             "local council"
         ],
-        "level": "A1",
+        "level": "B1",
         "inflections": "Noun: il comune, i comuni",
         "partOfSpeech": "noun"
     },
     {
-        "frequencyRank": 51,
+        "frequencyRank": 55,
         "id": "1443",
         "italian": "via",
         "english": "street",
@@ -2000,7 +2000,7 @@
             "road",
             "path"
         ],
-        "level": "A1",
+        "level": "B1",
         "inflections": "Noun: la via, le vie",
         "partOfSpeech": "noun"
     },
@@ -2013,20 +2013,20 @@
             "boulevard",
             "wide street"
         ],
-        "frequencyRank": 2362,
+        "frequencyRank": 2751,
         "inflections": "Noun: il viale, i viali",
         "partOfSpeech": "noun"
     },
     {
         "italian": "piazza",
-        "level": "A2",
+        "level": "B1",
         "id": "1445",
         "english": "square",
         "alternatives": [
             "public square",
             "plaza"
         ],
-        "frequencyRank": 321,
+        "frequencyRank": 398,
         "inflections": "Noun: la piazza, le piazze",
         "partOfSpeech": "noun"
     },
@@ -2040,20 +2040,20 @@
             "alleyway",
             "narrow street"
         ],
-        "frequencyRank": 4674,
+        "frequencyRank": 5303,
         "inflections": "Noun: il vicolo, i vicoli",
         "partOfSpeech": "noun"
     },
     {
         "italian": "corso",
-        "level": "A1",
+        "level": "B1",
         "id": "1447",
         "english": "main street",
         "alternatives": [
             "boulevard",
             "thoroughfare"
         ],
-        "frequencyRank": 151,
+        "frequencyRank": 189,
         "inflections": "Noun: il corso, i corsi",
         "partOfSpeech": "noun"
     },
@@ -2066,13 +2066,13 @@
             "viaduct",
             "overpass"
         ],
-        "frequencyRank": 817,
+        "frequencyRank": 1032,
         "inflections": "Noun: il ponte, i ponti",
         "partOfSpeech": "noun"
     },
     {
         "italian": "autostrada",
-        "level": "B2",
+        "level": "B1",
         "id": "1449",
         "english": "motorway",
         "alternatives": [
@@ -2080,7 +2080,7 @@
             "expressway",
             "highway"
         ],
-        "frequencyRank": 2719,
+        "frequencyRank": 3165,
         "inflections": "Noun: l'autostrada, le autostrade",
         "partOfSpeech": "noun"
     },
@@ -2093,20 +2093,20 @@
             "stoplight",
             "traffic lights"
         ],
-        "frequencyRank": 5472,
+        "frequencyRank": 6152,
         "inflections": "Noun: il semaforo, i semafori",
         "partOfSpeech": "noun"
     },
     {
         "italian": "incrocio",
-        "level": "C2",
+        "level": "B1",
         "id": "1451",
         "english": "crossroads",
         "alternatives": [
             "intersection",
             "junction"
         ],
-        "frequencyRank": 4177,
+        "frequencyRank": 4757,
         "inflections": "Noun: l'incrocio, gli incroci",
         "partOfSpeech": "noun"
     },
@@ -2120,20 +2120,20 @@
             "one way",
             "unidirectional street"
         ],
-        "frequencyRank": 420,
+        "frequencyRank": 1857,
         "inflections": "Noun: il senso unico, i sensi unici",
         "partOfSpeech": "noun"
     },
     {
         "italian": "parcheggio",
-        "level": "B2",
+        "level": "B1",
         "id": "1454",
         "english": "car park",
         "alternatives": [
             "parking lot",
             "parking"
         ],
-        "frequencyRank": 1858,
+        "frequencyRank": 2202,
         "inflections": "Noun: il parcheggio, i parcheggi",
         "partOfSpeech": "noun"
     },
@@ -2146,7 +2146,7 @@
             "box office",
             "ticket booth"
         ],
-        "frequencyRank": 7720,
+        "frequencyRank": 8411,
         "inflections": "Noun: la biglietteria, le biglietterie",
         "partOfSpeech": "noun"
     },
@@ -2161,7 +2161,7 @@
             "platform (train)",
             "shoulder (road)"
         ],
-        "frequencyRank": 7888,
+        "frequencyRank": 8572,
         "inflections": "Noun: la banchina, le banchine",
         "partOfSpeech": "noun"
     },
@@ -2174,20 +2174,20 @@
             "rail",
             "railway track"
         ],
-        "frequencyRank": 4159,
+        "frequencyRank": 4739,
         "inflections": "Noun: il binario, i binari",
         "partOfSpeech": "noun"
     },
     {
         "italian": "coincidenza",
-        "level": "C1",
+        "level": "B1",
         "id": "1458",
         "english": "connection",
         "alternatives": [
             "connecting train",
             "transfer"
         ],
-        "frequencyRank": 2903,
+        "frequencyRank": 3362,
         "inflections": "Noun: la coincidenza, le coincidenze",
         "partOfSpeech": "noun"
     },
@@ -2199,7 +2199,7 @@
         "alternatives": [
             "chopper"
         ],
-        "frequencyRank": 3718,
+        "frequencyRank": 4256,
         "inflections": "Noun: l'elicottero, gli elicotteri",
         "partOfSpeech": "noun"
     },
@@ -2211,7 +2211,7 @@
         "alternatives": [
             "lorry"
         ],
-        "frequencyRank": 2404,
+        "frequencyRank": 2807,
         "inflections": "Noun: il camion, i camion",
         "partOfSpeech": "noun"
     },
@@ -2224,7 +2224,7 @@
             "panel van",
             "delivery van"
         ],
-        "frequencyRank": 4523,
+        "frequencyRank": 5153,
         "inflections": "Noun: il furgone, i furgoni",
         "partOfSpeech": "noun"
     },
@@ -2237,7 +2237,7 @@
             "licence",
             "driver's license"
         ],
-        "frequencyRank": 2467,
+        "frequencyRank": 2879,
         "inflections": "Noun: la patente, le patenti",
         "partOfSpeech": "noun"
     },
@@ -2250,13 +2250,13 @@
             "policy",
             "coverage"
         ],
-        "frequencyRank": 1771,
+        "frequencyRank": 2108,
         "inflections": "Noun: l'assicurazione, le assicurazioni",
         "partOfSpeech": "noun"
     },
     {
         "italian": "incidente",
-        "level": "A2",
+        "level": "B1",
         "id": "1469",
         "english": "accident",
         "alternatives": [
@@ -2264,19 +2264,19 @@
             "incident",
             "mishap"
         ],
-        "frequencyRank": 948,
+        "frequencyRank": 1178,
         "inflections": "Noun: l'incidente, gli incidenti",
         "partOfSpeech": "noun"
     },
     {
         "italian": "ambulanza",
-        "level": "B2",
+        "level": "B1",
         "id": "1471",
         "english": "ambulance",
         "alternatives": [
             "emergency vehicle"
         ],
-        "frequencyRank": 4281,
+        "frequencyRank": 4878,
         "inflections": "Noun: l'ambulanza, le ambulanze",
         "partOfSpeech": "noun"
     },
@@ -2289,7 +2289,7 @@
             "gas station",
             "filling station"
         ],
-        "frequencyRank": 4136,
+        "frequencyRank": 10547,
         "inflections": "Noun: la pompa di benzina, le pompe di benzina",
         "partOfSpeech": "noun"
     },
@@ -2302,7 +2302,7 @@
             "workshop",
             "repair shop"
         ],
-        "frequencyRank": 4131,
+        "frequencyRank": 4707,
         "inflections": "Noun: l'officina, le officine",
         "partOfSpeech": "noun"
     },
@@ -2317,7 +2317,7 @@
             "duty",
             "levy"
         ],
-        "frequencyRank": 2324,
+        "frequencyRank": 2705,
         "inflections": "Noun: la tassa, le tasse",
         "partOfSpeech": "noun"
     },
@@ -2331,7 +2331,7 @@
             "statement",
             "invoice"
         ],
-        "frequencyRank": 4618,
+        "frequencyRank": 5259,
         "inflections": "Noun: la bolletta, le bollette",
         "partOfSpeech": "noun"
     },
@@ -2344,33 +2344,33 @@
             "statement",
             "account statement"
         ],
-        "frequencyRank": 1954,
+        "frequencyRank": 8206,
         "inflections": "Noun: l'estratto conto, gli estratti conto",
         "partOfSpeech": "noun"
     },
     {
         "italian": "prelievo",
-        "level": "C1",
+        "level": "B1",
         "id": "1478",
         "english": "withdrawal",
         "alternatives": [
             "cash withdrawal",
             "debit"
         ],
-        "frequencyRank": 4716,
+        "frequencyRank": 5352,
         "inflections": "Noun: il prelievo, i prelievi",
         "partOfSpeech": "noun"
     },
     {
         "italian": "versamento",
-        "level": "B2",
+        "level": "B1",
         "id": "1479",
         "english": "deposit",
         "alternatives": [
             "payment",
             "contribution"
         ],
-        "frequencyRank": 4842,
+        "frequencyRank": 5475,
         "inflections": "Noun: il versamento, i versamenti",
         "partOfSpeech": "noun"
     },
@@ -2383,19 +2383,19 @@
             "wire transfer",
             "transfer"
         ],
-        "frequencyRank": 4797,
+        "frequencyRank": 5434,
         "inflections": "Noun: il bonifico, i bonifici",
         "partOfSpeech": "noun"
     },
     {
         "italian": "assegno",
-        "level": "B2",
+        "level": "B1",
         "id": "1481",
         "english": "cheque",
         "alternatives": [
             "check"
         ],
-        "frequencyRank": 3092,
+        "frequencyRank": 3578,
         "inflections": "Noun: l'assegno, gli assegni",
         "partOfSpeech": "noun"
     },
@@ -2409,7 +2409,7 @@
             "portion",
             "installment"
         ],
-        "frequencyRank": 5162,
+        "frequencyRank": 5817,
         "inflections": "Noun: la rata, le rate",
         "partOfSpeech": "noun"
     },
@@ -2422,20 +2422,20 @@
             "quotation",
             "estimate"
         ],
-        "frequencyRank": 3547,
+        "frequencyRank": 4068,
         "inflections": "Noun: il preventivo, i preventivi",
         "partOfSpeech": "noun"
     },
     {
         "italian": "fattura",
-        "level": "C1",
+        "level": "B1",
         "id": "1485",
         "english": "invoice",
         "alternatives": [
             "statement",
             "bill"
         ],
-        "frequencyRank": 2909,
+        "frequencyRank": 3367,
         "inflections": "Noun: la fattura, le fatture",
         "partOfSpeech": "noun"
     },
@@ -2448,7 +2448,7 @@
             "value-added tax"
         ],
         "italian": "IVA",
-        "frequencyRank": 2101,
+        "frequencyRank": 2469,
         "inflections": "Noun: l'IVA, le IVA",
         "partOfSpeech": "noun"
     },
@@ -2463,7 +2463,7 @@
             "tin"
         ],
         "italian": "codice fiscale",
-        "frequencyRank": 1597,
+        "frequencyRank": 6798,
         "inflections": "Noun: il codice fiscale, i codici fiscali",
         "partOfSpeech": "noun"
     },
@@ -2477,12 +2477,12 @@
             "vat registration number"
         ],
         "italian": "partita IVA",
-        "frequencyRank": 2348,
+        "frequencyRank": 8489,
         "inflections": "Noun: la partita IVA, le partite IVA",
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
+        "level": "B1",
         "english": "registration",
         "id": "1489",
         "alternatives": [
@@ -2492,12 +2492,12 @@
             "entry"
         ],
         "italian": "iscrizione",
-        "frequencyRank": 1669,
+        "frequencyRank": 1992,
         "inflections": "Noun: l'iscrizione, le iscrizioni",
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
+        "level": "B1",
         "english": "form",
         "id": "1490",
         "alternatives": [
@@ -2505,12 +2505,12 @@
             "application"
         ],
         "italian": "modulo",
-        "frequencyRank": 2464,
+        "frequencyRank": 2876,
         "inflections": "Noun: il modulo, i moduli",
         "partOfSpeech": "noun"
     },
     {
-        "level": "A1",
+        "level": "B1",
         "english": "document",
         "id": "1491",
         "alternatives": [
@@ -2519,7 +2519,7 @@
             "file"
         ],
         "italian": "documento",
-        "frequencyRank": 773,
+        "frequencyRank": 979,
         "inflections": "Noun: il documento, i documenti",
         "partOfSpeech": "noun"
     },
@@ -2533,12 +2533,12 @@
             "id card"
         ],
         "italian": "carta d'identità",
-        "frequencyRank": 1268,
+        "frequencyRank": 5436,
         "inflections": "Noun: la carta d'identità, le carte d'identità",
         "partOfSpeech": "noun"
     },
     {
-        "level": "B2",
+        "level": "B1",
         "english": "shipment",
         "id": "1496",
         "alternatives": [
@@ -2547,7 +2547,7 @@
             "expedition"
         ],
         "italian": "spedizione",
-        "frequencyRank": 1340,
+        "frequencyRank": 1627,
         "inflections": "Noun: la spedizione, le spedizioni",
         "partOfSpeech": "noun"
     },
@@ -2561,17 +2561,17 @@
             "package"
         ],
         "italian": "pacco",
-        "frequencyRank": 2750,
+        "frequencyRank": 3195,
         "inflections": "Noun: il pacco, i pacchi",
         "partOfSpeech": "noun"
     },
     {
-        "level": "A1",
+        "level": "B1",
         "english": "address",
         "id": "1498",
         "alternatives": [],
         "italian": "indirizzo",
-        "frequencyRank": 1191,
+        "frequencyRank": 1450,
         "inflections": "Noun: l'indirizzo, gli indirizzi",
         "partOfSpeech": "noun"
     },
@@ -2584,12 +2584,12 @@
             "postal code"
         ],
         "italian": "codice postale",
-        "frequencyRank": 2859,
+        "frequencyRank": 10329,
         "inflections": "Noun: il codice postale, i codici postali",
         "partOfSpeech": "noun"
     },
     {
-        "level": "A2",
+        "level": "B1",
         "english": "neighbourhood",
         "id": "1500",
         "alternatives": [
@@ -2599,7 +2599,7 @@
             "neighborhood"
         ],
         "italian": "quartiere",
-        "frequencyRank": 887,
+        "frequencyRank": 1114,
         "partOfSpeech": "noun"
     }
 ]

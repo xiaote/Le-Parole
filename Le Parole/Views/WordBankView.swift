@@ -82,6 +82,9 @@ struct WordBankView: View {
                                     selectedWord = uw
                                 }
                             }
+                            .onAppear {
+                                vm.loadMoreIfNeeded(after: uw.id)
+                            }
                             .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                                 if uw.word.isUserCreated {
                                     Button(role: .destructive) {
@@ -176,7 +179,7 @@ struct WordBankView: View {
                 }
                 ToolbarItem(placement: .topBarLeading) {
                     if isSelecting && !showingSkipped {
-                        Button("Select all") {
+                        Button("Select loaded") {
                             withAnimation(selectAnimation) {
                                 selectedIDs = Set(vm.userWords.compactMap { $0.id })
                             }
