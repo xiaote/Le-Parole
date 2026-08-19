@@ -529,6 +529,15 @@ final class DatabaseService: @unchecked Sendable {
                 """)
         }
 
+        // Practice volume is separate from new-word pacing. Existing users
+        // receive a sustainable default rather than inheriting a potentially
+        // much smaller new-word limit as their review target.
+        migrator.registerMigration("v25_daily_practice_goal") { db in
+            try db.alter(table: "userSettings") { t in
+                t.add(column: "dailyPracticeGoal", .integer).notNull().defaults(to: 20)
+            }
+        }
+
         try migrator.migrate(db)
     }
 

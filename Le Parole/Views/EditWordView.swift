@@ -91,16 +91,16 @@ struct EditWordView: View {
                         }
                     if isDuplicate {
                         Label("This word is already in your word bank", systemImage: "exclamationmark.circle.fill")
-                            .font(.caption)
+                            .font(.theme(.caption))
                             .foregroundStyle(.red)
                     }
                     if isConjugated {
                         Label("Please add the infinitive form of this verb instead.", systemImage: "exclamationmark.triangle.fill")
-                            .font(.caption)
-                            .foregroundStyle(.orange)
+                            .font(.theme(.caption))
+                            .foregroundStyle(Theme.playfulAccent)
                     }
                 } header: {
-                    Text("Italian Word")
+                    Text("Italian word")
                 }
 
                 Section {
@@ -113,7 +113,7 @@ struct EditWordView: View {
                         }
                     }
                 } header: {
-                    Text("English Translation")
+                    Text("English translation")
                 } footer: {
                     Text("Auto-filled — edit as needed.")
                 }
@@ -132,10 +132,10 @@ struct EditWordView: View {
                         }
                     }
                     Button { alternatives.append("") } label: {
-                        Label("Add Alternative", systemImage: "plus.circle")
+                        Label("Add alternative", systemImage: "plus.circle")
                     }
                 } header: {
-                    Text("Alternative Translations")
+                    Text("Alternative translations")
                 } footer: {
                     Text("Other accepted English answers for this word.")
                 }
@@ -145,7 +145,7 @@ struct EditWordView: View {
                         ForEach(allCategories, id: \.self) { level in
                             Text(level).tag(level)
                         }
-                        Text("New Category…").tag(Self.newCategoryTag)
+                        Text("New category…").tag(Self.newCategoryTag)
                     }
                     if selectedCategory == Self.newCategoryTag {
                         TextField("e.g. Food, Travel…", text: $newCategoryName)
@@ -159,7 +159,7 @@ struct EditWordView: View {
                             ProgressView().scaleEffect(0.75)
                             Text("Assessing level…")
                         }
-                        .font(.caption)
+                        .font(.theme(.caption))
                         .foregroundStyle(.secondary)
                     }
                 }
@@ -168,13 +168,16 @@ struct EditWordView: View {
                     Button(role: .destructive) {
                         showingDeleteAlert = true
                     } label: {
-                        Text("Delete Word")
+                        Text("Delete word")
                             .frame(maxWidth: .infinity, alignment: .center)
                     }
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(Theme.canvas)
             .navigationTitle("Edit Word")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Theme.canvas, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {

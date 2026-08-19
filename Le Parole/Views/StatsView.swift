@@ -392,7 +392,7 @@ private struct LevelProgressRow: View {
                 let remainingWidth = max(0, width - masteredWidth - productionWidth - recognitionWidth)
 
                 HStack(spacing: 0) {
-                    Rectangle().fill(Theme.primaryDark).frame(width: masteredWidth)
+                    Rectangle().fill(Theme.masteredBar).frame(width: masteredWidth)
                     Rectangle().fill(Theme.primary).frame(width: productionWidth)
                     Rectangle().fill(Theme.primaryLight).frame(width: recognitionWidth)
                     Rectangle().fill(Color(.systemGray5)).frame(width: remainingWidth)

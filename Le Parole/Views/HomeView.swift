@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
     @State private var vm = HomeViewModel()
     @State private var showingSession = false
     @State private var showingExtraSession = false
@@ -9,99 +11,90 @@ struct HomeView: View {
     @State private var showingTestSession = false
     @State private var showingMastered = false
 
+    private var sessionAction: String {
+        vm.hasWork ? "Start practice" : (vm.canLearnMore ? "Keep learning" : "All caught up")
+    }
+
+    private var dashboardColumns: [GridItem] {
+        let count = dynamicTypeSize.isAccessibilitySize ? 1 : 2
+        return Array(repeating: GridItem(.flexible(), spacing: 12), count: count)
+    }
+
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: 24) {
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                        Button {
-                            if vm.mastered > 0 { showingMastered = true }
-                        } label: {
-                            StatCard(title: "Mastered", value: vm.mastered, icon: "checkmark.seal.fill", color: Theme.primary)
-                        }
-                        .buttonStyle(.plain)
-                        
-                        InProgressCard(count: vm.inProgress) {
-                            if vm.inProgress > 0 { showingInProgress = true }
-                        }
-                        
-                        StatCard(title: "Due Today", value: vm.dueToday, icon: "clock.fill", color: Theme.primary)
-                        
-                        MistakesCard(count: vm.mistakesToday.count) {
-                            if !vm.mistakesToday.isEmpty { showingMistakes = true }
-                        }
-                    }
-                    .padding(.horizontal)
+            ZStack {
+                Theme.canvas.ignoresSafeArea()
 
-                    Button {
-                        if vm.hasWork { showingSession = true }
-                        else if vm.canLearnMore { showingExtraSession = true }
-                    } label: {
-                        Group {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 16) {
+                        PracticeCard(
+                            title: sessionAction,
+                            completedToday: vm.reviewAttemptsToday,
+                            dailyTarget: vm.dailyPracticeGoal,
+                            isEnabled: vm.hasWork || vm.canLearnMore
+                        ) {
                             if vm.hasWork {
-                                Label("Start Today's Session", systemImage: "play.fill")
+                                showingSession = true
                             } else if vm.canLearnMore {
-                                Label("Continue Learning", systemImage: "arrow.right.circle.fill")
-                            } else {
-                                Label("All Caught Up!", systemImage: "checkmark.circle.fill")
+                                showingExtraSession = true
                             }
                         }
-                        .font(.theme(.body, weight: .semibold))
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(vm.hasWork || vm.canLearnMore ? Theme.primary : Color(.systemGray4))
-                        .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 14))
-                        .shadow(color: (vm.hasWork || vm.canLearnMore) ? Theme.primary.opacity(0.3) : .clear, radius: 8, y: 4)
-                    }
-                    .disabled(!vm.hasWork && !vm.canLearnMore)
-                    .padding(.horizontal)
 
-                    if vm.testQueueCount > 0 {
-                        Button {
-                            showingTestSession = true
-                        } label: {
-                            VStack(alignment: .leading, spacing: 8) {
-                                HStack {
-                                    Image(systemName: "sparkles")
-                                        .font(.title2)
-                                        .foregroundStyle(Theme.primary)
-                                    Text("Test Out of Words")
-                                        .font(.theme(.headline, weight: .bold))
-                                        .foregroundStyle(.primary)
-                                    Spacer()
-                                    Text("\(vm.testQueueCount)")
-                                        .font(.theme(.subheadline, weight: .bold))
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 4)
-                                        .background(Theme.primary.opacity(0.15))
-                                        .foregroundStyle(Theme.primary)
-                                        .clipShape(Capsule())
-                                }
-                                Text("Bypass words you already know by translating them in one shot to master them instantly.")
-                                    .font(.theme(.subheadline))
-                                    .multilineTextAlignment(.leading)
-                                    .foregroundStyle(.secondary)
+                        LazyVGrid(columns: dashboardColumns, spacing: 12) {
+                            DashboardTile(
+                                title: "Mastered",
+                                value: vm.mastered.formatted(),
+                                detail: "words",
+                                tint: Theme.mastered,
+                                isEnabled: vm.mastered > 0
+                            ) {
+                                showingMastered = true
                             }
-                            .padding()
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .background(Color(.secondarySystemBackground))
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
-                            .overlay(RoundedRectangle(cornerRadius: 16).stroke(Theme.primary.opacity(0.3), lineWidth: 1))
-                            .shadow(color: Color.black.opacity(0.05), radius: 8, y: 4)
+
+                            DashboardTile(
+                                title: "In progress",
+                                value: vm.inProgress.formatted(),
+                                detail: "words",
+                                tint: Theme.primary,
+                                isEnabled: vm.inProgress > 0
+                            ) {
+                                showingInProgress = true
+                            }
+
+                            if !vm.mistakesToday.isEmpty {
+                                DashboardTile(
+                                    title: "Mistakes",
+                                    value: vm.mistakesToday.count.formatted(),
+                                    detail: "errors",
+                                    tint: Theme.playfulAccent
+                                ) {
+                                    showingMistakes = true
+                                }
+                            }
+
+                            if vm.testQueueCount > 0 {
+                                DashboardTile(
+                                    title: "Test out",
+                                    value: vm.testQueueCount.formatted(),
+                                    detail: "words ready",
+                                    tint: Theme.primary
+                                ) {
+                                    showingTestSession = true
+                                }
+                            }
                         }
-                        .buttonStyle(.plain)
-                        .padding(.horizontal)
                     }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 8)
+                    .padding(.bottom, 32)
                 }
-                .padding(.vertical)
             }
             .refreshable {
                 await vm.refresh()
             }
-            .navigationTitle("Le Parole")
+            .navigationTitle("Today")
             .fullScreenCover(isPresented: $showingSession) {
-                StudySessionView(dailyNewLimit: vm.dailyGoal)
+                StudySessionView(dailyNewLimit: vm.newWordPacing)
             }
             .fullScreenCover(isPresented: $showingExtraSession) {
                 StudySessionView(dailyNewLimit: vm.extraSessionDailyLimit)
@@ -118,85 +111,198 @@ struct HomeView: View {
             .sheet(isPresented: $showingMastered) {
                 MasteredWordsView(words: vm.getMasteredWords())
             }
+            .navigationBarTitleDisplayMode(.large)
+            .toolbarBackground(Theme.canvas, for: .navigationBar)
         }
     }
 }
 
-private struct StatCard: View {
+private struct PracticeCard: View {
     let title: String
-    let value: Int
-    let icon: String
-    let color: Color
+    let completedToday: Int
+    let dailyTarget: Int
+    let isEnabled: Bool
+    let action: () -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Image(systemName: icon)
-                .foregroundStyle(color)
-                .font(.title3)
-            Text("\(value)")
-                .font(.theme(.title, weight: .bold))
-            Text(title)
-                .font(.theme(.caption))
-                .foregroundStyle(.secondary)
+        Button(action: action) {
+            VStack(alignment: .leading, spacing: 20) {
+                HStack(alignment: .center, spacing: 12) {
+                    Text(title)
+                        .font(.theme(.title3, weight: .semibold))
+                        .foregroundStyle(.primary)
+                        .lineLimit(1)
+
+                    Spacer(minLength: 8)
+
+                    CardAccessory(
+                        systemImage: isEnabled ? "arrow.right" : "checkmark",
+                        tint: Theme.primary,
+                        isFilled: true
+                    )
+                }
+
+                HStack(alignment: .center, spacing: 20) {
+                    DailyGoalRing(completed: completedToday, target: dailyTarget)
+
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("\(completedToday.formatted()) of \(dailyTarget.formatted())")
+                            .font(.theme(.title2, weight: .bold))
+                            .foregroundStyle(Theme.primary)
+                            .monospacedDigit()
+                            .lineLimit(1)
+
+                        Text("reviews completed today")
+                            .font(.theme(.subheadline))
+                            .foregroundStyle(.secondary)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
+            .padding(20)
+            .frame(maxWidth: .infinity, minHeight: 170, alignment: .leading)
+            .primaryDashboardCard()
         }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color(.secondarySystemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
+        .buttonStyle(DashboardCardButtonStyle())
+        .disabled(!isEnabled)
+        .accessibilityHint(isEnabled ? "Starts a study session" : "No practice is currently available")
+    }
+
+}
+
+private struct DailyGoalRing: View {
+    let completed: Int
+    let target: Int
+
+    private var progress: Double {
+        min(max(Double(completed) / Double(max(target, 1)), 0), 1)
+    }
+
+    private var isComplete: Bool {
+        target > 0 && completed >= target
+    }
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(Theme.primary.opacity(0.16), lineWidth: 10)
+
+            Circle()
+                .trim(from: 0, to: progress)
+                .stroke(
+                    Theme.primary,
+                    style: StrokeStyle(lineWidth: 10, lineCap: .round)
+                )
+                .rotationEffect(.degrees(-90))
+
+            if isComplete {
+                Image(systemName: "checkmark")
+                    .font(.theme(.headline, weight: .bold))
+                    .foregroundStyle(Theme.primary)
+            } else {
+                Text(completed.formatted())
+                    .font(.theme(.headline, weight: .bold))
+                    .foregroundStyle(.primary)
+                    .monospacedDigit()
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
+                    .padding(12)
+            }
+        }
+        .frame(width: 88, height: 88)
+        .animation(.easeOut(duration: 0.45), value: progress)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Daily practice goal: \(completed) of \(target) reviews completed")
     }
 }
 
-private struct InProgressCard: View {
-    let count: Int
-    let onTap: () -> Void
+private struct DashboardTile: View {
+    let title: String
+    let value: String
+    let detail: String
+    let tint: Color
+    var isEnabled = true
+    let action: () -> Void
 
     var body: some View {
-        Button(action: onTap) {
-            VStack(alignment: .leading, spacing: 8) {
-                Image(systemName: "arrow.triangle.2.circlepath")
-                    .foregroundStyle(count > 0 ? Theme.primary : Color.secondary)
-                    .font(.title3)
-                Text("\(count)")
-                    .font(.theme(.title, weight: .bold))
-                Text("In Progress")
-                    .font(.theme(.caption))
+        Button(action: action) {
+            VStack(alignment: .leading, spacing: 6) {
+                HStack(alignment: .center, spacing: 8) {
+                    Text(title)
+                        .font(.theme(.headline, weight: .semibold))
+                        .foregroundStyle(.primary)
+                        .lineLimit(2)
+
+                    Spacer(minLength: 4)
+
+                    CardAccessory(systemImage: "chevron.right", tint: .secondary)
+                        .opacity(isEnabled ? 1 : 0.35)
+                }
+
+                Spacer(minLength: 16)
+
+                Text(value)
+                    .font(.theme(.title2, weight: .bold))
+                    .foregroundStyle(tint)
+                    .monospacedDigit()
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+
+                Text(detail)
+                    .font(.theme(.subheadline))
                     .foregroundStyle(.secondary)
+                    .lineLimit(1)
             }
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color(.secondarySystemBackground))
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
+            .padding(18)
+            .frame(maxWidth: .infinity, minHeight: 146, alignment: .leading)
+            .themeCard()
         }
-        .buttonStyle(.plain)
-        .disabled(count == 0)
+        .buttonStyle(DashboardCardButtonStyle())
+        .disabled(!isEnabled)
     }
 }
 
-private struct MistakesCard: View {
-    let count: Int
-    let onTap: () -> Void
+private struct CardAccessory: View {
+    let systemImage: String
+    let tint: Color
+    var isFilled = false
 
     var body: some View {
-        Button(action: onTap) {
-            VStack(alignment: .leading, spacing: 8) {
-                Image(systemName: "arrow.counterclockwise")
-                    .foregroundStyle(count > 0 ? Theme.primary : Color.secondary)
-                    .font(.title3)
-                Text("\(count)")
-                    .font(.theme(.title, weight: .bold))
-                Text("Missed Today")
-                    .font(.theme(.caption))
-                    .foregroundStyle(.secondary)
+        Image(systemName: systemImage)
+            .font(.theme(.subheadline, weight: .semibold))
+            .foregroundStyle(isFilled ? Color.white : tint)
+            .frame(width: 32, height: 32)
+            .background(isFilled ? tint : Theme.chipBackground)
+            .clipShape(Circle())
+    }
+}
+
+private extension View {
+    func primaryDashboardCard() -> some View {
+        background {
+            ZStack {
+                Theme.surface
+                LinearGradient(
+                    colors: [Theme.primary.opacity(0.18), .clear],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
             }
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color(.secondarySystemBackground))
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
         }
-        .buttonStyle(.plain)
-        .disabled(count == 0)
+        .clipShape(RoundedRectangle(cornerRadius: Theme.cardCornerRadius, style: .continuous))
+        .overlay {
+            RoundedRectangle(cornerRadius: Theme.cardCornerRadius, style: .continuous)
+                .stroke(Theme.primary.opacity(0.32), lineWidth: 1)
+        }
+        .shadow(color: Theme.cardShadow, radius: 14, y: 7)
+    }
+}
+
+private struct DashboardCardButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.98 : 1)
+            .opacity(configuration.isPressed ? 0.88 : 1)
+            .animation(.easeOut(duration: 0.16), value: configuration.isPressed)
     }
 }

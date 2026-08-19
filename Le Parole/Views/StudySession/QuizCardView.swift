@@ -15,7 +15,7 @@ struct QuizCardView: View {
     @FocusState private var inputFocused: Bool
     @State private var wrongCount = 0
     @State private var shakeOffset: CGFloat = 0
-    @State private var frontHighlight: Color = Color(.systemGray6)
+    @State private var frontHighlight: Color = Theme.surface
     @State private var swipeOffset: CGFloat = 0
     @State private var cardOpacity: Double = 1.0
     @State private var cardScale: CGFloat = 1.0
@@ -82,14 +82,14 @@ struct QuizCardView: View {
         ZStack {
             VStack(spacing: 0) {
             Text("\(vm.currentIndex + 1) of \(vm.cards.count)")
-                .font(.subheadline)
+                .font(.theme(.subheadline))
                 .foregroundStyle(.secondary)
                 .padding(.top, 4)
 
             Spacer()
 
             flipCard
-                .padding(.horizontal)
+                .padding(.horizontal, 20)
                 .scaleEffect(cardScale)
                 .offset(x: swipeOffset + shakeOffset)
                 .opacity(cardOpacity)
@@ -107,18 +107,17 @@ struct QuizCardView: View {
                         }
                     } else {
                         Text("Examples:")
-                            .font(.headline)
+                            .font(.theme(.headline, weight: .semibold))
                         ForEach(exampleSentences, id: \.self) { ex in
                             Text(ex)
-                                .font(.subheadline)
+                                .font(.theme(.subheadline))
                         }
                     }
                 }
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color(.systemGray6))
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .padding(.horizontal)
+                .themeCard(cornerRadius: Theme.controlCornerRadius)
+                .padding(.horizontal, 20)
                 .padding(.bottom, 24)
                 .transition(.asymmetric(insertion: .move(edge: .bottom).combined(with: .opacity).combined(with: .scale(scale: 0.95)), removal: .opacity))
             }
@@ -137,20 +136,20 @@ struct QuizCardView: View {
 
             if showMasteryCelebration {
                 HStack(spacing: 12) {
-                    Image(systemName: "bird")
-                        .font(.system(size: 28, weight: .ultraLight))
-                        .foregroundStyle(Theme.primary)
+                    Image(systemName: "sparkles")
+                        .font(.theme(.title3, weight: .bold))
+                        .foregroundStyle(Theme.playfulAccent)
                     
                     Text("Mastered!")
                         .font(.theme(.headline, weight: .bold))
-                        .foregroundStyle(Theme.primaryDark)
+                        .foregroundStyle(Theme.mastered)
                 }
                 .padding(.horizontal, 20)
                 .padding(.vertical, 12)
-                .background(Color(.systemBackground))
-                .overlay(Capsule().stroke(Theme.primary.opacity(0.2), lineWidth: 1))
+                .background(Theme.surface)
+                .overlay(Capsule().stroke(Theme.border, lineWidth: 1))
                 .clipShape(Capsule())
-                .shadow(color: .black.opacity(0.1), radius: 15, y: 5)
+                .shadow(color: Theme.cardShadow, radius: 15, y: 5)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 .padding(.top, 24) // Hover above the flashcard, below the top edge
                 .padding(.trailing, 20)
@@ -159,10 +158,18 @@ struct QuizCardView: View {
             }
         }
         .onAppear {
+            Task { @MainActor in
+                await Task.yield()
+                guard !Task.isCancelled else { return }
+                playFrontAudioIfNeeded()
+                preloadInflectionsIfNeeded()
+                preloadExamplesIfNeeded()
+            }
+        }
+        .task(id: card.id) {
+            await Task.yield()
+            guard !isRevealed, !Task.isCancelled else { return }
             inputFocused = true
-            playFrontAudioIfNeeded()
-            preloadInflectionsIfNeeded()
-            preloadExamplesIfNeeded()
         }
         .onChange(of: conjugationSentence) { _, newSentence in
             if let sentence = newSentence, card.cardType == .conjugation, !isFlipped, getAutoPlaySetting() {
@@ -209,7 +216,7 @@ struct QuizCardView: View {
         switch wasCorrect {
         case true:  return Color.green.opacity(0.15)
         case false: return Color.red.opacity(0.08)
-        case nil:   return Color(.systemBackground)
+        case nil:   return Theme.surface
         }
     }
 
@@ -240,7 +247,7 @@ struct QuizCardView: View {
                 explanation: nil,
                 alternatives: (card.cardType == .production) ? card.userWord.word.cleanAlternatives : nil,
                 background: frontHighlight,
-                borderColor: Color(.systemGray4),
+                borderColor: Theme.border,
                 showHintArea: true,
                 isLoading: isGeneratingConjugation
             ) { SpeechService.shared.speak(card.cardType == .conjugation ? (conjugationSentence ?? "") : card.prompt, languageCode: frontLanguageCode) }
@@ -299,8 +306,8 @@ struct QuizCardView: View {
         ZStack(alignment: .topLeading) {
             VStack(spacing: 12) {
                 Text(language.uppercased())
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(.secondary)
+                    .font(.theme(.caption, weight: .semibold))
+                    .foregroundStyle(Theme.primary)
                     .tracking(1)
 
                 if isLoading {
@@ -308,16 +315,14 @@ struct QuizCardView: View {
                         .scaleEffect(1.5)
                         .padding()
                 } else {
-                    let baseSize: CGFloat = card.cardType == .conjugation ? 28 : 44
                     Text(word)
-                        .font(.system(size: baseSize, weight: .bold, design: .serif))
-                        .minimumScaleFactor(0.3)
+                        .font(card.cardType == .conjugation ? Theme.wordPrompt : Theme.wordDisplay)
                         .lineLimit(4)
                         .multilineTextAlignment(.center)
                         
                     if let explanation = explanation {
                         Text(explanation)
-                            .font(.subheadline)
+                            .font(.theme(.subheadline))
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
                             .fixedSize(horizontal: false, vertical: true)
@@ -332,7 +337,7 @@ struct QuizCardView: View {
                                 .padding(.top, 4)
                         } else if let hint = hintText {
                             Text(hint)
-                                .font(.callout)
+                                .font(.theme(.callout))
                                 .italic()
                                 .foregroundStyle(.secondary)
                                 .multilineTextAlignment(.center)
@@ -343,7 +348,7 @@ struct QuizCardView: View {
                         }
                     } else if let alts = alternatives, !alts.isEmpty {
                         Text("Also: " + alts.joined(separator: ", "))
-                            .font(.subheadline)
+                            .font(.theme(.subheadline))
                             .italic()
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
@@ -358,7 +363,7 @@ struct QuizCardView: View {
                             .padding(.top, 4)
                     } else if let infl = inflections {
                         Text(infl)
-                            .font(.subheadline)
+                            .font(.theme(.subheadline))
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
                             .fixedSize(horizontal: false, vertical: true)
@@ -373,7 +378,7 @@ struct QuizCardView: View {
 
             Button(action: speakAction) {
                 Image(systemName: "speaker.wave.2.fill")
-                    .font(.caption.weight(.semibold))
+                    .font(.theme(.caption, weight: .semibold))
                     .foregroundStyle(.white)
                     .frame(width: 30, height: 30)
                     .background(Theme.primary, in: Circle())
@@ -381,9 +386,9 @@ struct QuizCardView: View {
             .padding(20)
         }
         .background(background)
-        .overlay(RoundedRectangle(cornerRadius: 24).stroke(borderColor, lineWidth: 1.5))
-        .clipShape(RoundedRectangle(cornerRadius: 24))
-        .shadow(color: .black.opacity(0.07), radius: 10, y: 5)
+        .overlay(RoundedRectangle(cornerRadius: Theme.studyCardCornerRadius, style: .continuous).stroke(borderColor, lineWidth: 1.5))
+        .clipShape(RoundedRectangle(cornerRadius: Theme.studyCardCornerRadius, style: .continuous))
+        .shadow(color: Theme.cardShadow, radius: 16, y: 8)
     }
 
     // MARK: - Controls
@@ -393,7 +398,7 @@ struct QuizCardView: View {
             if wrongCount > 0 && !vm.isTestMode {
                 let remaining = Self.maxWrongAttempts - wrongCount
                 Text(remaining == 1 ? "1 attempt left" : "\(remaining) attempts left")
-                    .font(.caption)
+                    .font(.theme(.caption))
                     .foregroundStyle(.secondary)
                     .animation(.easeInOut, value: wrongCount)
             }
@@ -403,11 +408,15 @@ struct QuizCardView: View {
                 text: $input
             )
             .multilineTextAlignment(.center)
-            .font(.body)
+            .font(.theme(.body))
             .padding(.vertical, 13)
             .padding(.horizontal, 16)
-            .background(Color(.systemGray6))
-            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .background(Theme.inputBackground)
+            .clipShape(RoundedRectangle(cornerRadius: Theme.controlCornerRadius, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: Theme.controlCornerRadius, style: .continuous)
+                    .stroke(Theme.border, lineWidth: 1)
+            )
             .focused($inputFocused)
             .onSubmit {
                 submitAnswer()
@@ -462,7 +471,7 @@ struct QuizCardView: View {
         wasCorrect = nil
         wrongCount = 0
         shakeOffset = 0
-        frontHighlight = Color(.systemGray6)
+        frontHighlight = Theme.surface
         interactionLocked = false
         isGrading = false
         hintText = nil
@@ -481,7 +490,6 @@ struct QuizCardView: View {
             cardOpacity = 1.0
             cardScale = 1.0
         }
-        inputFocused = true
         playFrontAudioIfNeeded()
         preloadInflectionsIfNeeded()
         preloadExamplesIfNeeded()
@@ -783,7 +791,7 @@ struct QuizCardView: View {
         try? await Task.sleep(for: .seconds(0.25))
 
         withAnimation(.easeOut(duration: 0.3)) {
-            frontHighlight = Color(.systemGray6)
+            frontHighlight = Theme.surface
         }
         try? await Task.sleep(for: .seconds(0.3))
     }

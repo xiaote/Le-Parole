@@ -32,8 +32,8 @@ struct SplashView: View {
                             .scaleEffect(pulse ? 1.05 : 0.95)
                             .animation(.easeInOut(duration: 2).repeatForever(autoreverses: true), value: pulse)
                         
-                        Image(systemName: "bird")
-                            .font(.system(size: 64, weight: .ultraLight))
+                        Image(systemName: "book.closed.fill")
+                            .font(.system(size: 52, weight: .regular))
                             .foregroundStyle(.white)
                             .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
                     }

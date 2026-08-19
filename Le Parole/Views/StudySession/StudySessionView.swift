@@ -14,27 +14,31 @@ struct StudySessionView: View {
 
     var body: some View {
         NavigationStack {
-            Group {
-                if let vm = viewModel {
-                    ZStack {
+            ZStack {
+                Theme.canvas.ignoresSafeArea()
+
+                Group {
+                    if let vm = viewModel {
+                        ZStack {
                         if vm.isComplete {
                             SessionCompleteView(stats: vm.stats, isTestMode: vm.isTestMode) { dismiss() }
                         } else if let card = vm.currentCard {
                             QuizCardView(card: card, vm: vm)
                         }
                     }
-                    .alert(isPresented: .init(
-                        get: { vm.geminiError != nil },
-                        set: { if !$0 { vm.geminiError = nil } }
-                    )) {
-                        Alert(
-                            title: Text("API Error"),
-                            message: Text(vm.geminiError ?? "Unknown Error"),
-                            dismissButton: .default(Text("OK"))
-                        )
+                        .alert(isPresented: .init(
+                            get: { vm.geminiError != nil },
+                            set: { if !$0 { vm.geminiError = nil } }
+                        )) {
+                            Alert(
+                                title: Text("API Error"),
+                                message: Text(vm.geminiError ?? "Unknown Error"),
+                                dismissButton: .default(Text("OK"))
+                            )
+                        }
+                    } else {
+                        PreparingSessionView()
                     }
-                } else {
-                    PreparingSessionView()
                 }
             }
             .toolbar {
@@ -52,6 +56,7 @@ struct StudySessionView: View {
             }
             .navigationTitle(viewModel?.isTestMode == true ? "Test Mode" : "Study Session")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Theme.canvas, for: .navigationBar)
         }
         .task {
             if viewModel == nil {
@@ -79,8 +84,8 @@ private struct PreparingSessionView: View {
                     .scaleEffect(pulse ? 1.05 : 0.95)
                     .animation(.easeInOut(duration: 2).repeatForever(autoreverses: true), value: pulse)
                 
-                Image(systemName: "bird")
-                    .font(.system(size: 48, weight: .ultraLight))
+                Image(systemName: "book.closed.fill")
+                    .font(.system(size: 42, weight: .regular))
                     .foregroundStyle(Theme.primary)
             }
             

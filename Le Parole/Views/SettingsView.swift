@@ -12,23 +12,44 @@ struct SettingsView: View {
             Form {
                 Section {
                     HStack {
-                        Text("New words per day")
+                        Text("Reviews per day")
                         Spacer()
-                        Text("\(vm.dailyGoal)")
+                        Text("\(vm.dailyPracticeGoal)")
                             .foregroundStyle(.secondary)
                     }
                     Slider(
                         value: Binding(
-                            get: { Double(vm.dailyGoal) },
-                            set: { vm.dailyGoal = Int($0) }
+                            get: { Double(vm.dailyPracticeGoal) },
+                            set: { vm.dailyPracticeGoal = Int($0) }
+                        ),
+                        in: 10...500,
+                        step: 10
+                    )
+                } header: {
+                    Text("Daily practice")
+                } footer: {
+                    Text("Sets the daily progress target on Home. Each answered practice card counts toward this goal.")
+                }
+
+                Section {
+                    HStack {
+                        Text("New words per day")
+                        Spacer()
+                        Text("\(vm.newWordsPerDay)")
+                            .foregroundStyle(.secondary)
+                    }
+                    Slider(
+                        value: Binding(
+                            get: { Double(vm.newWordsPerDay) },
+                            set: { vm.newWordsPerDay = Int($0) }
                         ),
                         in: 5...50,
                         step: 5
                     )
                 } header: {
-                    Text("Daily Goal")
+                    Text("New-word pacing")
                 } footer: {
-                    Text("Sets how many new words are introduced each day. New bundled words are selected by Italian usage frequency; your own additions come first. Review cards for words already in progress are always included.")
+                    Text("Limits how many new words are introduced each day. Reviews are always included in practice.")
                 }
 
                 Section {
@@ -37,7 +58,7 @@ struct SettingsView: View {
                         set: { vm.extraConjugationCards = $0 }
                     ), in: 0...20) {
                         HStack {
-                            Text("Extra Conjugation Cards")
+                            Text("Extra conjugation cards")
                             Spacer()
                             Text("\(vm.extraConjugationCards)")
                                 .foregroundStyle(.secondary)
@@ -45,7 +66,7 @@ struct SettingsView: View {
                     }
                     
                     HStack {
-                        Text("Conjugation Level")
+                        Text("Conjugation level")
                         Spacer()
                         Picker("", selection: Binding(
                             get: { vm.conjugationLevel },
@@ -59,7 +80,7 @@ struct SettingsView: View {
                         }
                     }
                 } header: {
-                    Text("Practice Settings")
+                    Text("Practice")
                 } footer: {
                     Text("Controls how many extra conjugation cards are drawn from verbs you already know during review sessions, and what tenses you are tested on.")
                 }
@@ -87,13 +108,13 @@ struct SettingsView: View {
                         .buttonStyle(PlainButtonStyle())
                     }
                 } header: {
-                    Text("AI Settings")
+                    Text("AI")
                 } footer: {
                     Text("Paste your free Google Gemini API key to power dynamic conjugation flashcards with flawless grammar.")
                 }
 
                 Section {
-                    Toggle("Auto-Play Pronunciation", isOn: Binding(
+                    Toggle("Auto-play pronunciation", isOn: Binding(
                         get: { vm.autoPlayPronunciation },
                         set: { vm.autoPlayPronunciation = $0 }
                     ))
@@ -113,7 +134,7 @@ struct SettingsView: View {
                     } label: {
                         HStack {
                             Image(systemName: "archivebox")
-                            Text(backupUrlToExport == nil ? "Generate Backup File" : "Regenerate Backup File")
+                            Text(backupUrlToExport == nil ? "Generate backup file" : "Regenerate backup file")
                         }
                     }
                     
@@ -121,8 +142,8 @@ struct SettingsView: View {
                         ShareLink(item: exportUrl) {
                             HStack {
                                 Image(systemName: "square.and.arrow.up")
-                                Text("Save Backup to Files")
-                                    .fontWeight(.semibold)
+                                Text("Save backup to Files")
+                                    .font(.theme(.body, weight: .semibold))
                             }
                         }
                     }
@@ -132,16 +153,19 @@ struct SettingsView: View {
                     } label: {
                         HStack {
                             Image(systemName: "arrow.down.doc")
-                            Text("Restore from Backup")
+                            Text("Restore from backup")
                         }
                     }
                 } header: {
-                    Text("Data Backup")
+                    Text("Data backup")
                 } footer: {
                     Text("Manually export your progress to a file, or restore from a previously saved backup file. Restoring will overwrite all current progress and instantly close the app to apply changes.")
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(Theme.canvas)
             .navigationTitle("Settings")
+            .toolbarBackground(Theme.canvas, for: .navigationBar)
             .fileImporter(isPresented: $isImporting, allowedContentTypes: [.data], allowsMultipleSelection: false) { result in
                 switch result {
                 case .success(let urls):

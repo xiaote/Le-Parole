@@ -14,11 +14,24 @@ struct MasteredWordsView: View {
             List {
                 ForEach(sortedWords) { uw in
                     MasteredRow(userWord: uw)
+                        .listRowBackground(Theme.surface)
                 }
             }
             .listStyle(.insetGrouped)
+            .scrollContentBackground(.hidden)
+            .background(Theme.canvas)
+            .overlay {
+                if words.isEmpty {
+                    ContentUnavailableView(
+                        "No mastered words yet",
+                        systemImage: "checkmark.seal",
+                        description: Text("Words you master will appear here.")
+                    )
+                }
+            }
             .navigationTitle("Mastered")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Theme.canvas, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
@@ -35,18 +48,18 @@ private struct MasteredRow: View {
         HStack {
             VStack(alignment: .leading, spacing: 3) {
                 Text(userWord.word.italian)
-                    .font(.body.bold())
+                    .font(Theme.wordList)
                 Text(userWord.word.english)
-                    .font(.subheadline)
+                    .font(.theme(.subheadline))
                     .foregroundStyle(.secondary)
             }
             Spacer()
             VStack(alignment: .trailing, spacing: 3) {
                 Text(userWord.word.level)
-                    .font(.caption.weight(.semibold))
+                    .font(.theme(.caption, weight: .semibold))
                     .padding(.horizontal, 6)
                     .padding(.vertical, 2)
-                    .background(Color(.systemGray5))
+                    .background(Theme.chipBackground)
                     .clipShape(Capsule())
             }
         }

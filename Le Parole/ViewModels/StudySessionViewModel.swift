@@ -84,10 +84,15 @@ class StudySessionViewModel {
 
     func initialize(dailyNewLimit: Int, isTestMode: Bool = false) async {
         self.isTestMode = isTestMode
-        let allUserWords = (try? DatabaseService.shared.fetchUserWords()) ?? []
-        let extraConjugationCards = (try? await DatabaseService.shared.db.read { db in
+        async let userWords = DatabaseService.shared.db.read { db in
+            try DatabaseService.fetchUserWords(db)
+        }
+        async let conjugationCardCount = DatabaseService.shared.db.read { db in
             try UserSettings.fetchOne(db)?.extraConjugationCards
-        }) ?? 2
+        }
+
+        let allUserWords = (try? await userWords) ?? []
+        let extraConjugationCards = (try? await conjugationCardCount) ?? 2
 
         if isTestMode {
             buildTestQueue(from: allUserWords, limit: dailyNewLimit)
@@ -95,7 +100,9 @@ class StudySessionViewModel {
             buildQueue(from: allUserWords, dailyNewLimit: dailyNewLimit, extraConjugationCards: extraConjugationCards)
         }
         
-        await prefetchUpcomingCards()
+        Task { [weak self] in
+            await self?.prefetchUpcomingCards()
+        }
     }
 
     private func buildTestQueue(from allUserWords: [UserWord], limit: Int) {

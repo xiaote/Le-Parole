@@ -10,12 +10,12 @@ struct SessionCompleteView: View {
         VStack(spacing: 32) {
             Spacer()
 
-            Image(systemName: "bird")
-                .font(.system(size: 64, weight: .ultraLight))
+            Image(systemName: "book.closed.fill")
+                .font(.system(size: 52, weight: .regular))
                 .foregroundStyle(Theme.primary)
 
             Text(isTestMode ? "Test Complete!" : "Session Complete!")
-                .font(.title.bold())
+                .font(.theme(.title, weight: .bold))
 
             VStack(spacing: 12) {
                 ResultRow(label: isTestMode ? "Cards tested" : "Cards reviewed", value: "\(stats.total)")
@@ -24,17 +24,16 @@ struct SessionCompleteView: View {
                 if isTestMode {
                     if stats.correct > 0 {
                         ResultRow(label: "Words mastered", value: "\(stats.correct)")
-                            .foregroundStyle(Theme.primaryDark)
+                            .foregroundStyle(Theme.mastered)
                     }
                 } else if stats.graduated > 0 {
                     ResultRow(label: "Words graduated to EN→IT", value: "\(stats.graduated)")
                         .foregroundStyle(Theme.primary)
                 }
             }
-            .padding()
-            .background(.regularMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
-            .padding(.horizontal)
+            .padding(20)
+            .themeCard()
+            .padding(.horizontal, 20)
 
             Spacer()
 
@@ -44,12 +43,8 @@ struct SessionCompleteView: View {
                         showingMistakes = true
                     } label: {
                         Label("Review Mistakes (\(stats.wrongWords.count))", systemImage: "arrow.counterclockwise")
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(.regularMaterial)
-                            .foregroundStyle(.primary)
-                            .clipShape(RoundedRectangle(cornerRadius: 14))
                     }
+                    .buttonStyle(SecondaryButtonStyle())
                     .padding(.horizontal, 20)
                 }
 
@@ -59,6 +54,7 @@ struct SessionCompleteView: View {
             }
             .padding(.bottom, 48)
         }
+        .background(Theme.canvas)
         .sheet(isPresented: $showingMistakes) {
             MistakesReviewView(words: stats.wrongWords)
         }
@@ -71,9 +67,11 @@ private struct ResultRow: View {
 
     var body: some View {
         HStack {
-            Text(label).foregroundStyle(.secondary)
+            Text(label)
+                .font(.theme(.body))
+                .foregroundStyle(.secondary)
             Spacer()
-            Text(value).fontWeight(.semibold)
+            Text(value).font(.theme(.body, weight: .semibold))
         }
     }
 }

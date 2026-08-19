@@ -22,6 +22,7 @@ struct InProgressView: View {
                     Section {
                         ForEach(recognitionWords) { uw in
                             InProgressRow(userWord: uw)
+                                .listRowBackground(Theme.surface)
                         }
                     } header: {
                         Label("Recognition", systemImage: "eye")
@@ -32,6 +33,7 @@ struct InProgressView: View {
                     Section {
                         ForEach(productionWords) { uw in
                             InProgressRow(userWord: uw)
+                                .listRowBackground(Theme.surface)
                         }
                     } header: {
                         Label("Production", systemImage: "pencil")
@@ -39,8 +41,20 @@ struct InProgressView: View {
                 }
             }
             .listStyle(.insetGrouped)
+            .scrollContentBackground(.hidden)
+            .background(Theme.canvas)
+            .overlay {
+                if words.isEmpty {
+                    ContentUnavailableView(
+                        "Nothing in progress",
+                        systemImage: "checkmark.circle",
+                        description: Text("Words you are actively learning will appear here.")
+                    )
+                }
+            }
             .navigationTitle("In Progress")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Theme.canvas, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
@@ -64,8 +78,8 @@ private struct InProgressRow: View {
 
     private var dueColor: Color {
         let days = Calendar.current.dateComponents([.day], from: .now, to: userWord.nextReviewDate).day ?? 0
-        if days <= 0 { return Theme.primary }
-        if days <= 1 { return Theme.primaryLight }
+        if days <= 0 { return Theme.production }
+        if days <= 1 { return Theme.recognition }
         return .secondary
     }
 
@@ -73,21 +87,21 @@ private struct InProgressRow: View {
         HStack {
             VStack(alignment: .leading, spacing: 3) {
                 Text(userWord.word.italian)
-                    .font(.body.bold())
+                    .font(Theme.wordList)
                 Text(userWord.word.english)
-                    .font(.subheadline)
+                    .font(.theme(.subheadline))
                     .foregroundStyle(.secondary)
             }
             Spacer()
             VStack(alignment: .trailing, spacing: 3) {
                 Text(userWord.word.level)
-                    .font(.caption.weight(.semibold))
+                    .font(.theme(.caption, weight: .semibold))
                     .padding(.horizontal, 6)
                     .padding(.vertical, 2)
-                    .background(Color(.systemGray5))
+                    .background(Theme.chipBackground)
                     .clipShape(Capsule())
                 Text(dueLabel)
-                    .font(.caption)
+                    .font(.theme(.caption))
                     .foregroundStyle(dueColor)
             }
         }

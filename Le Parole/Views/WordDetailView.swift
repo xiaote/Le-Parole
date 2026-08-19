@@ -28,9 +28,9 @@ struct WordDetailView: View {
         switch userWord.stage {
         case .new:         Color(.systemGray3)
         case .skipped:     Color(.systemGray)
-        case .recognition: Theme.primaryLight
-        case .production:  Theme.primary
-        case .mastered:    Theme.primaryDark
+        case .recognition: Theme.recognition
+        case .production:  Theme.production
+        case .mastered:    Theme.mastered
         }
     }
 
@@ -42,10 +42,13 @@ struct WordDetailView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 24) {
+            ZStack {
+                Theme.canvas.ignoresSafeArea()
+
+                VStack(spacing: 24) {
                 VStack(spacing: 8) {
                     Text(userWord.word.italian)
-                        .font(.theme(.largeTitle, weight: .bold))
+                        .font(Theme.wordDisplay)
                         .multilineTextAlignment(.center)
                         
                     if let pos = userWord.word.partOfSpeech {
@@ -74,7 +77,7 @@ struct WordDetailView: View {
                         .font(.theme(.subheadline, weight: .semibold))
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
-                        .background(Color(.systemGray5))
+                        .background(Theme.chipBackground)
                         .clipShape(Capsule())
 
                     Label(stageLabel, systemImage: stageIcon)
@@ -96,15 +99,16 @@ struct WordDetailView: View {
                             statRow("Next review", value: userWord.nextReviewDate.formatted(date: .abbreviated, time: .omitted))
                         }
                     }
-                    .background(Color(.secondarySystemBackground))
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .themeCard()
                 }
 
                 Spacer()
             }
-            .padding()
+            .padding(20)
+            }
             .navigationTitle("Word Detail")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Theme.canvas, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }

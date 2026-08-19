@@ -17,7 +17,18 @@ final class SettingsViewModel {
         )
     }
 
-    var dailyGoal: Int {
+    var dailyPracticeGoal: Int {
+        get { settings?.dailyPracticeGoal ?? 20 }
+        set {
+            guard var s = settings else { return }
+            s.dailyPracticeGoal = newValue
+            Task.detached {
+                try? DatabaseService.shared.db.write { db in try s.save(db) }
+            }
+        }
+    }
+
+    var newWordsPerDay: Int {
         get { settings?.dailyNewWordGoal ?? 20 }
         set {
             guard var s = settings else { return }

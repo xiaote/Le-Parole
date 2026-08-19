@@ -16,6 +16,8 @@ struct ContentView: View {
                     SettingsView()
                         .tabItem { Label("Settings", systemImage: "gearshape.fill") }
                 }
+                .toolbarBackground(Theme.surface, for: .tabBar)
+                .toolbarBackground(.visible, for: .tabBar)
             } else {
                 SplashView()
             }

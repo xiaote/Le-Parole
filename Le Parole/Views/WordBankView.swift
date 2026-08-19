@@ -22,77 +22,100 @@ struct WordBankView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 0) {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        LevelChip(title: "All", isSelected: selectedLevel == nil && !showingSkipped) {
-                            selectedLevel = nil
-                            showingSkipped = false
-                            selectedIDs.removeAll()
-                            vm.selectedLevel = nil
-                            vm.showingSkipped = false
-                        }
-                        ForEach(builtInLevels, id: \.self) { level in
-                            LevelChip(title: level, isSelected: selectedLevel == level && !showingSkipped) {
-                                selectedLevel = level
+            ZStack {
+                Theme.canvas.ignoresSafeArea()
+
+                VStack(spacing: 0) {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            LevelChip(title: "All", isSelected: selectedLevel == nil && !showingSkipped) {
+                                selectedLevel = nil
                                 showingSkipped = false
                                 selectedIDs.removeAll()
-                                vm.selectedLevel = level
+                                vm.selectedLevel = nil
                                 vm.showingSkipped = false
                             }
-                        }
-                        ForEach(vm.customLevels, id: \.self) { level in
-                            LevelChip(title: level, isSelected: selectedLevel == level && !showingSkipped, color: Theme.primaryDark) {
-                                selectedLevel = level
-                                showingSkipped = false
+                            ForEach(builtInLevels, id: \.self) { level in
+                                LevelChip(title: level, isSelected: selectedLevel == level && !showingSkipped) {
+                                    selectedLevel = level
+                                    showingSkipped = false
+                                    selectedIDs.removeAll()
+                                    vm.selectedLevel = level
+                                    vm.showingSkipped = false
+                                }
+                            }
+                            ForEach(vm.customLevels, id: \.self) { level in
+                                LevelChip(title: level, isSelected: selectedLevel == level && !showingSkipped) {
+                                    selectedLevel = level
+                                    showingSkipped = false
+                                    selectedIDs.removeAll()
+                                    vm.selectedLevel = level
+                                    vm.showingSkipped = false
+                                }
+                            }
+                            LevelChip(title: "Skipped", isSelected: showingSkipped, color: Color(.systemGray)) {
+                                showingSkipped = true
+                                selectedLevel = nil
                                 selectedIDs.removeAll()
-                                vm.selectedLevel = level
-                                vm.showingSkipped = false
+                                vm.showingSkipped = true
+                                vm.selectedLevel = nil
                             }
                         }
-                        LevelChip(title: "Skipped", isSelected: showingSkipped, color: Color(.systemGray)) {
-                            showingSkipped = true
-                            selectedLevel = nil
-                            selectedIDs.removeAll()
-                            vm.showingSkipped = true
-                            vm.selectedLevel = nil
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 8)
+                    }
+
+                    List(vm.userWords) { uw in
+                        let rowId = uw.id ?? 0
+                        let isSelected = selectedIDs.contains(rowId)
+                        WordRow(userWord: uw, isSelecting: isSelecting, isSelected: isSelected)
+                            .listRowBackground(Theme.surface)
+                            .listRowSeparatorTint(Theme.border)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                if isSelecting {
+                                    withAnimation(selectAnimation) {
+                                        if selectedIDs.contains(rowId) { selectedIDs.remove(rowId) }
+                                        else { selectedIDs.insert(rowId) }
+                                    }
+                                } else {
+                                    selectedWord = uw
+                                }
+                            }
+                            .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                if uw.word.isUserCreated {
+                                    Button(role: .destructive) {
+                                        wordToDelete = uw
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                }
+                            }
+                    }
+                    .listStyle(.plain)
+                    .scrollContentBackground(.hidden)
+                    .background(Theme.surface)
+                    .overlay {
+                        if vm.userWords.isEmpty {
+                            ContentUnavailableView(
+                                searchText.isEmpty ? "No words here" : "No results",
+                                systemImage: searchText.isEmpty ? "text.book.closed" : "magnifyingglass",
+                                description: Text(searchText.isEmpty ? "Add a word or choose another category." : "Try a different word or category.")
+                            )
                         }
                     }
-                    .padding(.horizontal)
+                    .clipShape(RoundedRectangle(cornerRadius: Theme.cardCornerRadius, style: .continuous))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: Theme.cardCornerRadius, style: .continuous)
+                            .stroke(Theme.border, lineWidth: 1)
+                    }
+                    .padding(.horizontal, 20)
                     .padding(.vertical, 8)
-                }
-                Divider()
 
-                List(vm.userWords) { uw in
-                    let rowId = uw.id ?? 0
-                    let isSelected = selectedIDs.contains(rowId)
-                    WordRow(userWord: uw, isSelecting: isSelecting, isSelected: isSelected)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            if isSelecting {
-                                withAnimation(selectAnimation) {
-                                    if selectedIDs.contains(rowId) { selectedIDs.remove(rowId) }
-                                    else { selectedIDs.insert(rowId) }
-                                }
-                            } else {
-                                selectedWord = uw
-                            }
-                        }
-                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                            if uw.word.isUserCreated {
-                                Button(role: .destructive) {
-                                    wordToDelete = uw
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
-                            }
-                        }
-                }
-                .listStyle(.plain)
-
-                if showBottomBar {
-                    bottomBar
-                        .transition(.move(edge: .bottom).combined(with: .opacity))
+                    if showBottomBar {
+                        bottomBar
+                            .transition(.move(edge: .bottom).combined(with: .opacity))
+                    }
                 }
             }
             .animation(selectAnimation, value: showBottomBar)
@@ -100,7 +123,8 @@ struct WordBankView: View {
             .onChange(of: searchText) { _, newValue in
                 vm.searchText = newValue
             }
-            .navigationTitle("Word Bank")
+            .navigationTitle("Words")
+            .toolbarBackground(Theme.canvas, for: .navigationBar)
             .sheet(isPresented: $showingAddWord) { AddWordView() }
             .sheet(item: $selectedWord) { word in
                 if word.word.isUserCreated {
@@ -152,7 +176,7 @@ struct WordBankView: View {
                 }
                 ToolbarItem(placement: .topBarLeading) {
                     if isSelecting && !showingSkipped {
-                        Button("Select All") {
+                        Button("Select all") {
                             withAnimation(selectAnimation) {
                                 selectedIDs = Set(vm.userWords.compactMap { $0.id })
                             }
@@ -177,13 +201,8 @@ struct WordBankView: View {
                         }
                     } label: {
                         Label("Restore \(selectedCount)", systemImage: "arrow.uturn.left")
-                            .font(.theme(.body, weight: .semibold))
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 12)
-                            .background(Theme.primary.opacity(0.12))
-                            .foregroundStyle(Theme.primary)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
+                    .buttonStyle(SecondaryButtonStyle())
                 } else {
                     Button {
                         vm.applyStage(.skipped, to: selectedIDs)
@@ -193,19 +212,14 @@ struct WordBankView: View {
                         }
                     } label: {
                         Label("Skip \(selectedCount)", systemImage: "slash.circle")
-                            .font(.theme(.body, weight: .semibold))
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 12)
-                            .background(Color(.systemGray5))
-                            .foregroundStyle(Color.secondary)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
+                    .buttonStyle(SecondaryButtonStyle(tint: .secondary))
                 }
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 20)
             .padding(.vertical, 10)
         }
-        .background(.regularMaterial)
+        .background(Theme.surface)
     }
 }
 
@@ -221,9 +235,10 @@ private struct LevelChip: View {
                 .font(.theme(.subheadline, weight: .medium))
                 .padding(.horizontal, 14)
                 .padding(.vertical, 6)
-                .background(isSelected ? color : Color(.systemGray5))
+                .background(isSelected ? color : Theme.chipBackground)
                 .foregroundStyle(isSelected ? .white : .primary)
                 .clipShape(Capsule())
+                .overlay(Capsule().stroke(isSelected ? .clear : Theme.border, lineWidth: 1))
         }
         .buttonStyle(.plain)
     }
@@ -238,9 +253,9 @@ private struct WordRow: View {
         switch userWord.stage {
         case .new:         Color(.systemGray3)
         case .skipped:     Color(.systemGray)
-        case .recognition: Theme.primaryLight
-        case .production:  Theme.primary
-        case .mastered:    Theme.primaryDark
+        case .recognition: Theme.recognition
+        case .production:  Theme.production
+        case .mastered:    Theme.mastered
         }
     }
 
@@ -258,7 +273,7 @@ private struct WordRow: View {
         HStack(spacing: 12) {
             Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
                 .foregroundStyle(isSelected ? Theme.primary : Color(.systemGray3))
-                .font(.title3)
+                .font(.theme(.title3))
                 .frame(width: isSelecting ? 22 : 0)
                 .opacity(isSelecting ? 1 : 0)
                 .clipped()
@@ -266,7 +281,7 @@ private struct WordRow: View {
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(userWord.word.italian)
-                    .font(.theme(.body, weight: .bold))
+                    .font(Theme.wordList)
                 Text(userWord.word.english)
                     .font(.theme(.subheadline))
                     .foregroundStyle(.secondary)
@@ -277,7 +292,7 @@ private struct WordRow: View {
                     .font(.theme(.caption, weight: .semibold))
                     .padding(.horizontal, 6)
                     .padding(.vertical, 2)
-                    .background(Color(.systemGray5))
+                    .background(Theme.chipBackground)
                     .clipShape(Capsule())
                 Image(systemName: stageIcon)
                     .foregroundStyle(stageColor)
