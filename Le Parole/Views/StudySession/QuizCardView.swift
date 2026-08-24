@@ -10,6 +10,9 @@ struct QuizCardView: View {
 
     @State private var input = ""
     @State private var isFlipped = false
+    // Keep the rendered angle independent from the logical state. A spring on a
+    // boolean-driven rotation can overshoot 180° and briefly reveal the wrong face.
+    @State private var flipAngle: Double = 0
     @State private var isRevealed = false
     @State private var wasCorrect: Bool? = nil
     @FocusState private var inputFocused: Bool
@@ -251,7 +254,14 @@ struct QuizCardView: View {
                 showHintArea: true,
                 isLoading: isGeneratingConjugation
             ) { SpeechService.shared.speak(card.cardType == .conjugation ? (conjugationSentence ?? "") : card.prompt, languageCode: frontLanguageCode) }
-            .opacity(isFlipped ? 0 : 1)
+            // Both faces rotate around the vertical axis. The front is hidden
+            // after the edge-on midpoint so it can never be read upside down.
+            .rotation3DEffect(
+                .degrees(flipAngle),
+                axis: (x: 0, y: 1, z: 0),
+                perspective: 0.25
+            )
+            .opacity(flipAngle < 90 ? 1 : 0)
             .allowsHitTesting(!isFlipped)
 
             cardFace(
@@ -266,21 +276,18 @@ struct QuizCardView: View {
                 showHintArea: false,
                 isLoading: false
             ) { SpeechService.shared.speak(card.cardType == .conjugation ? completedConjugationSentence : card.correctAnswer, languageCode: backLanguageCode) }
-            .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-            .opacity(isFlipped ? 1 : 0)
+            .rotation3DEffect(
+                .degrees(flipAngle - 180),
+                axis: (x: 0, y: 1, z: 0),
+                perspective: 0.25
+            )
+            .opacity(flipAngle >= 90 ? 1 : 0)
             .allowsHitTesting(isFlipped)
         }
-        .rotation3DEffect(
-            .degrees(isFlipped ? 180 : 0),
-            axis: (x: 0, y: 1, z: 0),
-            perspective: 0.4
-        )
         .onTapGesture {
             guard !interactionLocked else { return }
             if isRevealed {
-                withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
-                    isFlipped.toggle()
-                }
+                toggleFlip()
             } else {
                 performReveal(correct: false)
             }
@@ -467,6 +474,7 @@ struct QuizCardView: View {
         gradingTask = nil
         input = ""
         isFlipped = false
+        flipAngle = 0
         isRevealed = false
         wasCorrect = nil
         wrongCount = 0
@@ -649,9 +657,7 @@ struct QuizCardView: View {
         let wasMastered = card.userWord.stage == .mastered
         
         animationTask = Task { @MainActor in
-            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) { 
-                isFlipped = true 
-            }
+            animateFlip(to: 180)
             
             withAnimation(.easeOut(duration: 0.3)) {
                 if card.cardType == .conjugation {
@@ -741,9 +747,7 @@ struct QuizCardView: View {
         inputFocused = false
 
         animationTask = Task { @MainActor in
-            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
-                isFlipped = true
-            }
+            animateFlip(to: 180)
             
             if getAutoPlaySetting() {
                 if card.cardType == .production {
@@ -772,6 +776,17 @@ struct QuizCardView: View {
             vm.recordResult(correct: correct, context: context)
             
             interactionLocked = false
+        }
+    }
+
+    private func toggleFlip() {
+        animateFlip(to: isFlipped ? 0 : 180)
+    }
+
+    private func animateFlip(to angle: Double) {
+        withAnimation(.easeInOut(duration: 0.32)) {
+            flipAngle = angle
+            isFlipped = angle >= 90
         }
     }
 
