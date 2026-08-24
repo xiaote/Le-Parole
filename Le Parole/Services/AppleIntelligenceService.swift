@@ -3,6 +3,14 @@ import FoundationModels
 import GRDB
 import NaturalLanguage
 
+private let conjugationExplanationRules = """
+- EXPLANATION CONTENT: Teach how the answer is conjugated, not why the sentence calls for the requested tense. Do not justify the tense using time markers, sentence context, or phrases such as "refers to the present/past/future."
+- If the form follows a REGULAR pattern in this tense, name the infinitive class or construction, describe the applicable stem/ending rule, and show how that rule produces the requested answer. Mention any applicable spelling rule for verbs ending in -care, -gare, -ciare, or -giare. Example: "Parlare is a regular -are verb. In the present, remove -are and add -iamo for noi: parl- + -iamo = parliamo."
+- If the verb or any part of the requested form is IRREGULAR in this tense, the explanation is valid only if it contains BOTH of these parts: (1) "Formation:" followed by a derivation of the requested answer that names the exact irregular stem, ending, participle, auxiliary, or other change for that pronoun; and (2) "Full <tense>:" followed by the complete forms in the SAME tense. Do not merely restate the target form. Include io, tu, lui/lei, noi, voi, and loro when that tense has those persons; for the imperative, include all applicable persons. This full paradigm is mandatory even when an irregular participle or gerund does not change by person. Example: "Formation: venire uses irregular vien- for tu; vien- + -i = vieni. Full presente: io vengo, tu vieni, lui/lei viene, noi veniamo, voi venite, loro vengono."
+- For compound or progressive forms, explain how each component is formed (including auxiliary choice, participle or gerund formation, reflexive pronoun, and agreement when applicable). For an irregular form, explicitly call the component irregular, derive it, and show the full conjugated construction—not just the unchanged participle or gerund. Examples: "Formation: vedere has the irregular participle visto; lei uses ha + visto = ha visto. Full passato prossimo: io ho visto, tu hai visto, lui/lei ha visto, noi abbiamo visto, voi avete visto, loro hanno visto." "Formation: bere has the irregular gerund bev- + -endo = bevendo; loro uses stanno + bevendo. Full presente progressivo: io sto bevendo, tu stai bevendo, lui/lei sta bevendo, noi stiamo bevendo, voi state bevendo, loro stanno bevendo."
+- Keep regular explanations concise but concrete; irregular explanations may be longer because the complete paradigm is required. Never merely say that the requested pronoun "requires" the answer.
+"""
+
 struct AppleIntelligenceService {
     private static let validCEFRLevels = ["A1", "A2", "B1", "B2", "C1", "C2"]
 
@@ -144,7 +152,7 @@ struct AppleIntelligenceService {
         return (
             sentence: "Ieri, io e Marco _____ (andare) al cinema.",
             answer: "siamo andati",
-            explanation: "The pronoun 'noi' requires the first person plural 'siamo andati' in passato prossimo.",
+            explanation: "Andare forms the passato prossimo with essere: for noi, siamo + andati gives siamo andati, with -i agreement for a masculine or mixed plural. Across the tense: io sono andato/a, tu sei andato/a, lui/lei è andato/a, noi siamo andati/e, voi siete andati/e, loro sono andati/e.",
             tense: "passato prossimo",
             pronoun: "noi",
             englishTranslation: "Yesterday, Marco and I went to the cinema."
@@ -163,7 +171,7 @@ struct AppleIntelligenceService {
             </scratchpad>
             <sentence>Oggi noi _____ (mangiare) una pizza.</sentence>
             <answer>mangiamo</answer>
-            <explanation>The sentence uses 'noi' and refers to the present, so 'mangiamo' is required.</explanation>
+            <explanation>Mangiare is a regular -are verb with the stem mangi-. Add the present noi ending -iamo and write the adjacent i only once: mangi- + -iamo = mangiamo.</explanation>
         </flashcard>
         """
         
@@ -180,6 +188,7 @@ struct AppleIntelligenceService {
         - SPELLING & ACCENTS: Pay strict attention to spelling! Verbs like 'bere', 'volere', 'venire', 'tenere', 'rimanere' have irregular future/conditional stems (e.g. berrò, vorrò, verrò, terrò, rimarrò). Verify spelling in the <scratchpad> step-by-step.
         - MULTI-WORD VERBS (e.g. 'alzarsi in piedi', 'andare d'accordo'): Put the extra words (e.g. 'in piedi') OUTSIDE the blank in the sentence. The blank and parentheses MUST only contain the root verb. Example sentence: "_____ (alzarsi) in piedi." The answer MUST be only the conjugated root verb (e.g., "ti alzi").
         """
+        rulesText += "\n\(conjugationExplanationRules)"
 
         // Only include the rule for the requested tense — keeps prompt short for on-device model
         let tenseContextRule: String
@@ -230,7 +239,7 @@ struct AppleIntelligenceService {
                 </scratchpad>
                 <sentence>SCRIVERE_QUI</sentence>
                 <answer>conjugated form only</answer>
-                <explanation>brief explanation</explanation>
+                <explanation>brief explanation of how the answer is conjugated</explanation>
             </flashcard>
 
             FORMAT EXAMPLES (structure only — use the verb/tense/pronoun specified above, not these):
@@ -634,7 +643,7 @@ final class GeminiService: Sendable {
           "scratchpad": "Step 1: Conjugate 'mangiare' in 'presente': io mangio, tu mangi, lui/lei mangia, noi mangiamo, voi mangiate, loro mangiano. Step 2: Select for 'noi': mangiamo.",
           "sentence": "Oggi noi _____ (mangiare) una pizza.",
           "answer": "mangiamo",
-          "explanation": "The sentence uses 'noi' and refers to the present, so 'mangiamo' is required.",
+          "explanation": "Mangiare is a regular -are verb with the stem mangi-. Add the present noi ending -iamo and write the adjacent i only once: mangi- + -iamo = mangiamo.",
           "englishTranslation": "Today we are eating a pizza."
         }
         """
@@ -654,6 +663,7 @@ final class GeminiService: Sendable {
         - SPELLING & ACCENTS: Pay strict attention to spelling! Verbs like 'bere', 'volere', 'venire', 'tenere', 'rimanere' have irregular future/conditional stems (e.g. berrò, vorrò, verrò, terrò, rimarrò). Verify spelling in the 'scratchpad' step-by-step.
         - MULTI-WORD VERBS (e.g. 'alzarsi in piedi', 'andare d'accordo'): Put the extra words (e.g. 'in piedi') OUTSIDE the blank in the sentence. The blank and parentheses MUST only contain the root verb. Example sentence: "_____ (alzarsi) in piedi." The answer MUST be only the conjugated root verb (e.g., "ti alzi").
         """
+        rulesText += "\n\(conjugationExplanationRules)"
         
         let simpleTenses = ["presente", "imperfetto", "futuro semplice", "condizionale presente", "congiuntivo presente", "congiuntivo imperfetto", "imperativo"]
         if simpleTenses.contains(requestedTense.lowercased()) && verb.lowercased() != "piacere" {
@@ -708,7 +718,7 @@ final class GeminiService: Sendable {
                 "scratchpad": "Conjugation: [\(requestedPronoun) conjugated form]",
                 "sentence": "SCRIVERE_QUI",
                 "answer": "conjugated form only",
-                "explanation": "brief explanation",
+                "explanation": "brief explanation of how the answer is conjugated",
                 "englishTranslation": "English translation of the generated sentence"
             }
 
@@ -947,7 +957,7 @@ final class GeminiService: Sendable {
         - "id": the exact string ID provided
         - "sentence": one natural Italian sentence using the conjugated form. Replace the conjugated verb in the sentence with '_____' (5 underscores) immediately followed by the infinitive in parentheses. e.g. "_____ (mangiare)". CRITICAL: If you use the verb reflexively (e.g. 'mi sveglio'), you MUST use the reflexive infinitive in the parentheses (e.g. '_____ (svegliarsi)', NOT '_____ (svegliare)').
         - "answer": the exact conjugated verb only (no subject pronouns unless reflexive), except for the special PIACERE construction below, which includes the requested dative clitic
-        - "explanation": brief explanation of why this form is used
+        - "explanation": brief explanation of how the answer is conjugated, following the explanation rules below
         - "tense": echo the exact requested tense character-for-character; never shorten it (for example, "congiuntivo presente", not "congiuntivo")
         - "pronoun": echo the exact requested pronoun character-for-character
         - "englishTranslation": an accurate English translation of the full 'sentence'
@@ -961,6 +971,7 @@ final class GeminiService: Sendable {
         - CONGIUNTIVO TRIGGERS: NEVER use phrases like 'sperare che', 'pensare che', 'credere che', 'aspettarsi che', 'volere che' UNLESS the requested tense is explicitly 'congiuntivo'. If the requested tense is 'imperfetto', 'passato prossimo', or 'presente', you MUST NOT use verbs of opinion or expectation + 'che'.
         - AUXILIARY VERBS & PARTICIPLES: For compound tenses, use ESSERE for motion/state verbs (andare, venire, uscire, arrivare, partire, tornare, stare, rimanere, essere, diventare), intransitive verbs of happening (succedere, capitare), and all reflexive verbs. Use AVERE for all others. With ESSERE, the past participle MUST agree in gender and number with the subject. For 'succedere', the past participle is 'successo' (e.g. è successo).
         - GENDER AMBIGUITY: If the pronoun is 'io', 'tu', 'noi', or 'voi' AND the verb requires 'essere', the gender is ambiguous. You MUST provide BOTH the masculine and feminine forms in the 'answer' field, separated by a slash (e.g., "sono andato/sono andata", "ci siamo vestiti/ci siamo vestite"). DO NOT use abbreviations like 'andato/a'. Do NOT include gendered adjectives in the 'sentence' that would force one specific gender.
+        \(conjugationExplanationRules)
         - TENSES context:
           * presente: Express a current action, habit, or general truth (e.g. oggi, di solito, tutti i giorni). NEVER use past time markers like 'ieri', 'scorso', or 'fa'.
           * passato prossimo: Include a specific past time marker: 'ieri', 'stamattina', 'la settimana scorsa', 'poco fa'. Use correct auxiliary (ESSERE/AVERE).
@@ -979,7 +990,7 @@ final class GeminiService: Sendable {
                 "id": "123e4567-e89b-12d3-a456-426614174000",
                 "sentence": "Oggi io _____ (mangiare) una pizza.",
                 "answer": "mangio",
-                "explanation": "The sentence uses 'io' and refers to the present, so 'mangio' is required.",
+                "explanation": "Mangiare is a regular -are verb. Remove -are to get mangi-, then add the present io ending -o: mangi- + -o = mangio.",
                 "tense": "presente",
                 "pronoun": "io",
                 "englishTranslation": "Today I eat a pizza."
