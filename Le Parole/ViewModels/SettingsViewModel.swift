@@ -39,17 +39,6 @@ final class SettingsViewModel {
         }
     }
 
-    var extraConjugationCards: Int {
-        get { settings?.extraConjugationCards ?? 2 }
-        set {
-            guard var s = settings else { return }
-            s.extraConjugationCards = newValue
-            Task.detached {
-                try? DatabaseService.shared.db.write { db in try s.save(db) }
-            }
-        }
-    }
-
     var autoPlayPronunciation: Bool {
         get { settings?.autoPlayPronunciation ?? true }
         set {

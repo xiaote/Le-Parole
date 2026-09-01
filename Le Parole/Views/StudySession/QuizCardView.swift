@@ -8,6 +8,26 @@ struct QuizCardView: View {
 
     private static let maxWrongAttempts = 3
 
+    private struct SessionNotice: Equatable {
+        let icon: String
+        let title: String
+        let detail: String?
+
+        static let mastered = SessionNotice(icon: "sparkles", title: "Mastered!", detail: nil)
+
+        static func reviewScheduled(_ feedback: ReviewScheduleFeedback) -> SessionNotice {
+            SessionNotice(
+                icon: "checkmark.seal.fill",
+                title: feedback.title,
+                detail: feedback.detail
+            )
+        }
+
+        var accessibilityLabel: String {
+            [title, detail].compactMap { $0 }.joined(separator: ". ")
+        }
+    }
+
     @State private var input = ""
     @State private var isFlipped = false
     // Keep the rendered angle independent from the logical state. A spring on a
@@ -35,8 +55,7 @@ struct QuizCardView: View {
     @State private var inflectionsText: String? = nil
     @State private var isGeneratingInflections = false
     @State private var inflectionsTask: Task<Void, Never>?
-    @State private var showMasteryCelebration = false
-    @State private var celebrationScale: CGFloat = 0.8
+    @State private var sessionNotice: SessionNotice?
     
 
 
@@ -84,7 +103,7 @@ struct QuizCardView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-            Text("\(vm.currentIndex + 1) of \(vm.cards.count)")
+            Text("\(vm.currentIndex + 1) of \(vm.totalCardCount)")
                 .font(.theme(.subheadline))
                 .foregroundStyle(.secondary)
                 .padding(.top, 4)
@@ -137,15 +156,25 @@ struct QuizCardView: View {
             Spacer().frame(height: 32)
         }
 
-            if showMasteryCelebration {
+            if let sessionNotice {
                 HStack(spacing: 12) {
-                    Image(systemName: "sparkles")
+                    Image(systemName: sessionNotice.icon)
                         .font(.theme(.title3, weight: .bold))
                         .foregroundStyle(Theme.mastered)
                     
-                    Text("Mastered!")
-                        .font(.theme(.headline, weight: .bold))
-                        .foregroundStyle(Theme.mastered)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(sessionNotice.title)
+                            .font(.theme(.headline, weight: .bold))
+                            .foregroundStyle(Theme.mastered)
+
+                        if let detail = sessionNotice.detail {
+                            Text(detail)
+                                .font(.theme(.subheadline, weight: .semibold))
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
                 }
                 .padding(.horizontal, 20)
                 .padding(.vertical, 12)
@@ -155,8 +184,10 @@ struct QuizCardView: View {
                 .shadow(color: Theme.cardShadow, radius: 15, y: 5)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 .padding(.top, 24) // Hover above the flashcard, below the top edge
-                .padding(.trailing, 20)
+                .padding(.horizontal, 20)
                 .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity), removal: .move(edge: .trailing).combined(with: .opacity)))
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(sessionNotice.accessibilityLabel)
                 .zIndex(100)
             }
         }
@@ -166,7 +197,6 @@ struct QuizCardView: View {
                 guard !Task.isCancelled else { return }
                 playFrontAudioIfNeeded()
                 preloadInflectionsIfNeeded()
-                preloadExamplesIfNeeded()
             }
         }
         .task(id: card.id) {
@@ -175,7 +205,7 @@ struct QuizCardView: View {
             inputFocused = true
         }
         .onChange(of: conjugationSentence) { _, newSentence in
-            if let sentence = newSentence, card.cardType == .conjugation, !isFlipped, getAutoPlaySetting() {
+            if let sentence = newSentence, card.cardType == .conjugation, !isFlipped, vm.autoPlayPronunciation {
                 SpeechService.shared.speak(sentence, languageCode: "it-IT")
             }
         }
@@ -185,20 +215,8 @@ struct QuizCardView: View {
         .onChange(of: card.id) { _, _ in resetState() }
     }
 
-    // MARK: - Settings
-
-    private func getAutoPlaySetting() -> Bool {
-        do {
-            return try DatabaseService.shared.db.read { db in
-                try UserSettings.fetchOne(db)?.autoPlayPronunciation ?? true
-            }
-        } catch {
-            return true
-        }
-    }
-
     private func playFrontAudioIfNeeded() {
-        if getAutoPlaySetting() && card.cardType == .recognition {
+        if vm.autoPlayPronunciation && card.cardType == .recognition {
             SpeechService.shared.speak(card.prompt, languageCode: "it-IT")
         }
     }
@@ -472,6 +490,8 @@ struct QuizCardView: View {
         hintTask = nil
         gradingTask?.cancel()
         gradingTask = nil
+        examplesTask?.cancel()
+        examplesTask = nil
         input = ""
         isFlipped = false
         flipAngle = 0
@@ -483,7 +503,7 @@ struct QuizCardView: View {
         interactionLocked = false
         isGrading = false
         hintText = nil
-        showMasteryCelebration = false
+        sessionNotice = nil
         isLoadingHint = false
         swipeOffset = 0
         cardOpacity = 0
@@ -500,7 +520,6 @@ struct QuizCardView: View {
         }
         playFrontAudioIfNeeded()
         preloadInflectionsIfNeeded()
-        preloadExamplesIfNeeded()
     }
 
     private func preloadInflectionsIfNeeded() {
@@ -513,17 +532,21 @@ struct QuizCardView: View {
         }
     }
 
-    private func preloadExamplesIfNeeded() {
-        if card.cardType != .conjugation {
-            isGeneratingExamples = true
-            examplesTask = Task { @MainActor in
-                let targetItalian = card.userWord.word.italian
-                let sentences = await AppleIntelligenceService.generateExamples(for: targetItalian)
-                guard !Task.isCancelled else { return }
-                withAnimation {
-                    exampleSentences = sentences
-                    isGeneratingExamples = false
-                }
+    private func generateExamplesIfNeeded() {
+        guard card.cardType != .conjugation,
+              examplesTask == nil,
+              exampleSentences.isEmpty else { return }
+
+        let requestedCardID = card.id
+        let targetItalian = card.userWord.word.italian
+        isGeneratingExamples = true
+        examplesTask = Task { @MainActor in
+            let sentences = await AppleIntelligenceService.generateExamples(for: targetItalian)
+            guard !Task.isCancelled, card.id == requestedCardID else { return }
+            withAnimation {
+                exampleSentences = sentences
+                isGeneratingExamples = false
+                examplesTask = nil
             }
         }
     }
@@ -649,6 +672,9 @@ struct QuizCardView: View {
     private func handleCorrect() {
         wasCorrect = true
         interactionLocked = true
+        examplesTask?.cancel()
+        examplesTask = nil
+        isGeneratingExamples = false
         
         if card.cardType == .conjugation {
             inputFocused = false
@@ -665,7 +691,7 @@ struct QuizCardView: View {
                 }
             }
             
-            if getAutoPlaySetting() {
+            if vm.autoPlayPronunciation {
                 if card.cardType == .production {
                     SpeechService.shared.speak(card.correctAnswer, languageCode: "it-IT")
                 } else if card.cardType == .conjugation {
@@ -682,6 +708,17 @@ struct QuizCardView: View {
                 explanation: conjugationExplanation
             )
             vm.recordResult(correct: true, context: context)
+            let reviewFeedback = wasMastered ? vm.currentReviewScheduleFeedback : nil
+
+            let isNowMastered = vm.cards[vm.currentIndex].userWord.stage == .mastered
+            let notice: SessionNotice?
+            if !wasMastered && isNowMastered {
+                notice = .mastered
+            } else if let reviewFeedback {
+                notice = .reviewScheduled(reviewFeedback)
+            } else {
+                notice = nil
+            }
             
             let hasInflections = (card.cardType == .production) && (inflectionsText != nil || isGeneratingInflections)
             let hasAlternatives = (card.cardType == .recognition) && !card.userWord.word.cleanAlternatives.isEmpty
@@ -698,25 +735,9 @@ struct QuizCardView: View {
                 remainingDelay = card.cardType == .conjugation ? 2.1 : 0.8
             }
             
+            async let noticeCompleted = presentSessionNotice(notice)
             try? await Task.sleep(for: .seconds(remainingDelay))
-            guard !Task.isCancelled else { return }
-            
-            let isNowMastered = vm.cards[vm.currentIndex].userWord.stage == .mastered
-            
-            if !wasMastered && isNowMastered {
-                UINotificationFeedbackGenerator().notificationOccurred(.success)
-                withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
-                    showMasteryCelebration = true
-                }
-                try? await Task.sleep(for: .seconds(1.5))
-                guard !Task.isCancelled else { return }
-                withAnimation(.easeOut(duration: 0.3)) {
-                    showMasteryCelebration = false
-                }
-                try? await Task.sleep(for: .seconds(0.3))
-                guard !Task.isCancelled else { return }
-                celebrationScale = 0.8
-            }
+            guard !Task.isCancelled, await noticeCompleted else { return }
             
             withAnimation(.easeIn(duration: 0.3)) { swipeOffset = 500; cardOpacity = 0 }
             try? await Task.sleep(for: .seconds(0.3))
@@ -725,8 +746,38 @@ struct QuizCardView: View {
         }
     }
 
+    @MainActor
+    private func presentSessionNotice(_ notice: SessionNotice?) async -> Bool {
+        guard let notice else { return true }
+
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
+        withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
+            sessionNotice = notice
+        }
+
+        do {
+            try await Task.sleep(for: .seconds(1.5))
+        } catch {
+            return false
+        }
+
+        withAnimation(.easeOut(duration: 0.3)) {
+            sessionNotice = nil
+        }
+
+        do {
+            try await Task.sleep(for: .seconds(0.3))
+            return true
+        } catch {
+            return false
+        }
+    }
+
     private func handleWrong() {
         wrongCount += 1
+        if wrongCount == 1 {
+            generateExamplesIfNeeded()
+        }
         interactionLocked = true
         animationTask = Task { @MainActor in
             await performShakeAndRed()
@@ -749,7 +800,7 @@ struct QuizCardView: View {
         animationTask = Task { @MainActor in
             animateFlip(to: 180)
             
-            if getAutoPlaySetting() {
+            if vm.autoPlayPronunciation {
                 if card.cardType == .production {
                     SpeechService.shared.speak(card.correctAnswer, languageCode: "it-IT")
                 } else if card.cardType == .conjugation {

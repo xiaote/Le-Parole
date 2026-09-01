@@ -1,6 +1,12 @@
 import Foundation
 import GRDB
 
+struct ConjugationReviewRecord: Sendable {
+    let verb: String
+    let tense: String
+    let pronoun: String
+}
+
 final class DatabaseService: @unchecked Sendable {
     nonisolated static let shared = DatabaseService()
 
@@ -106,7 +112,6 @@ final class DatabaseService: @unchecked Sendable {
             t.autoIncrementedPrimaryKey("id")
             t.column("dailyPracticeGoal", .integer).notNull().defaults(to: 20)
             t.column("dailyNewWordGoal", .integer).notNull().defaults(to: 20)
-            t.column("extraConjugationCards", .integer).notNull().defaults(to: 2)
             t.column("autoPlayPronunciation", .boolean).notNull().defaults(to: true)
             t.column("conjugationLevel", .integer).notNull().defaults(to: 1)
             t.column("geminiApiKey", .text).notNull().defaults(to: "")
@@ -253,13 +258,17 @@ final class DatabaseService: @unchecked Sendable {
 
     // MARK: - Fetch helpers
 
-    nonisolated static let joinSQL = """
+    nonisolated static let userWordSelectSQL = """
         SELECT uw.id, uw.wordId, uw.stage, uw.easeFactor, uw.interval, uw.repetitions,
                uw.nextReviewDate, uw.lastReviewDate, uw.learnedDate, uw.lastWrongDate,
                uw.totalCorrect, uw.totalAttempts,
                w.italian, w.english, w.alternatives, w.level, w.frequencyRank, w.isUserCreated, w.inflections, w.partOfSpeech
         FROM userWords uw
         JOIN words w ON uw.wordId = w.wordId
+        """
+
+    nonisolated static let joinSQL = """
+        \(userWordSelectSQL)
         ORDER BY w.frequencyRank
         """
 
@@ -271,24 +280,34 @@ final class DatabaseService: @unchecked Sendable {
         try db.read { db in try Self.fetchUserWords(db) }
     }
 
-    nonisolated func fetchSettings() throws -> UserSettings? {
-        try db.read { db in try UserSettings.fetchOne(db) }
-    }
-
     nonisolated func makeSettingsObservation() -> ValueObservation<ValueReducers.Fetch<UserSettings?>> {
         ValueObservation.tracking { db in try UserSettings.fetchOne(db) }
     }
 
-    // MARK: - Activity logging
+    // MARK: - Review persistence
 
-    func recordReview(correct: Bool, introduced: Bool, movedToProduction: Bool, movedToMastered: Bool) async {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = .current
-        let today = formatter.string(from: Date())
+    /// Persists all state produced by one answer in a single transaction. This
+    /// keeps the user word, daily totals, and optional conjugation scores atomic
+    /// while avoiding two or three separate writer-queue hops per card.
+    func persistReview(
+        userWord: UserWord,
+        correct: Bool,
+        introduced: Bool,
+        movedToProduction: Bool,
+        movedToMastered: Bool,
+        conjugation: ConjugationReviewRecord?
+    ) async {
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: .now)
+        let today = String(
+            format: "%04d-%02d-%02d",
+            components.year ?? 0,
+            components.month ?? 0,
+            components.day ?? 0
+        )
 
         do {
             try await db.write { db in
+                try userWord.update(db)
                 try db.execute(sql: """
                     INSERT INTO dailyActivity (
                         date, recognition, production, mastered,
@@ -309,48 +328,42 @@ final class DatabaseService: @unchecked Sendable {
                         movedToProduction ? 1 : 0,
                         movedToMastered ? 1 : 0,
                     ])
-            }
-        } catch {
-            print("Failed to record review: \(error)")
-        }
-    }
 
-    // MARK: - Conjugation statistics
-
-    func recordConjugationResult(verb: String, tense: String, pronoun: String, correct: Bool) async {
-        do {
-            try await db.write { db in
-                let currentTense = try TenseStat.fetchOne(db, key: tense) ?? TenseStat(tense: tense)
+                guard let conjugation else { return }
+                let currentTense = try TenseStat.fetchOne(db, key: conjugation.tense)
+                    ?? TenseStat(tense: conjugation.tense)
                 let tenseScore = currentTense.attempts == 0
                     ? (correct ? 1.0 : 0.0)
                     : (currentTense.score * 0.85) + (correct ? 0.15 : 0.0)
-                try TenseStat(tense: tense, score: tenseScore, attempts: currentTense.attempts + 1).save(db)
+                try TenseStat(
+                    tense: conjugation.tense,
+                    score: tenseScore,
+                    attempts: currentTense.attempts + 1
+                ).save(db)
 
                 let currentConjugation = try ConjugationStat.fetchOne(
                     db,
                     sql: "SELECT * FROM conjugationStats WHERE verb = ? AND tense = ? AND pronoun = ?",
-                    arguments: [verb, tense, pronoun]
-                ) ?? ConjugationStat(verb: verb, tense: tense, pronoun: pronoun)
+                    arguments: [conjugation.verb, conjugation.tense, conjugation.pronoun]
+                ) ?? ConjugationStat(
+                    verb: conjugation.verb,
+                    tense: conjugation.tense,
+                    pronoun: conjugation.pronoun
+                )
                 let conjugationScore = currentConjugation.attempts == 0
                     ? (correct ? 1.0 : 0.0)
                     : (currentConjugation.score * 0.85) + (correct ? 0.15 : 0.0)
                 try ConjugationStat(
                     id: currentConjugation.id,
-                    verb: verb,
-                    tense: tense,
-                    pronoun: pronoun,
+                    verb: conjugation.verb,
+                    tense: conjugation.tense,
+                    pronoun: conjugation.pronoun,
                     score: conjugationScore,
                     attempts: currentConjugation.attempts + 1
                 ).save(db)
             }
         } catch {
-            print("Failed to record conjugation result: \(error)")
-        }
-    }
-
-    nonisolated func fetchConjugationStats(for verb: String) throws -> [ConjugationStat] {
-        try db.read { database in
-            try ConjugationStat.fetchAll(database, sql: "SELECT * FROM conjugationStats WHERE verb = ?", arguments: [verb])
+            print("Failed to persist review: \(error)")
         }
     }
 }

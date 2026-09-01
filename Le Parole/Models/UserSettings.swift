@@ -7,16 +7,14 @@ struct UserSettings: Identifiable, Sendable {
     var id: Int64?
     var dailyPracticeGoal: Int
     var dailyNewWordGoal: Int
-    var extraConjugationCards: Int
     var autoPlayPronunciation: Bool
     var conjugationLevel: Int
     var geminiApiKey: String
     var targetLevel: String
 
-    init(dailyPracticeGoal: Int = 20, dailyNewWordGoal: Int = 20, extraConjugationCards: Int = 2, autoPlayPronunciation: Bool = true, conjugationLevel: Int = 1, geminiApiKey: String = "", targetLevel: String = "None") {
+    init(dailyPracticeGoal: Int = 20, dailyNewWordGoal: Int = 20, autoPlayPronunciation: Bool = true, conjugationLevel: Int = 1, geminiApiKey: String = "", targetLevel: String = "None") {
         self.dailyPracticeGoal = dailyPracticeGoal
         self.dailyNewWordGoal = dailyNewWordGoal
-        self.extraConjugationCards = extraConjugationCards
         self.autoPlayPronunciation = autoPlayPronunciation
         self.conjugationLevel = conjugationLevel
         self.geminiApiKey = geminiApiKey
@@ -29,7 +27,6 @@ extension UserSettings: FetchableRecord {
         id                    = row["id"]
         dailyPracticeGoal     = row["dailyPracticeGoal"]
         dailyNewWordGoal      = row["dailyNewWordGoal"]
-        extraConjugationCards = row["extraConjugationCards"]
         autoPlayPronunciation = row["autoPlayPronunciation"]
         conjugationLevel      = row["conjugationLevel"]
         geminiApiKey          = row["geminiApiKey"] ?? ""
@@ -46,7 +43,6 @@ extension UserSettings: MutablePersistableRecord {
         if let id { container["id"] = id }
         container["dailyPracticeGoal"] = dailyPracticeGoal
         container["dailyNewWordGoal"] = dailyNewWordGoal
-        container["extraConjugationCards"] = extraConjugationCards
         container["autoPlayPronunciation"] = autoPlayPronunciation
         container["conjugationLevel"] = conjugationLevel
         container["geminiApiKey"] = geminiApiKey

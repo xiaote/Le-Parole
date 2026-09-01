@@ -53,18 +53,6 @@ struct SettingsView: View {
                 }
 
                 Section {
-                    Stepper(value: Binding(
-                        get: { vm.extraConjugationCards },
-                        set: { vm.extraConjugationCards = $0 }
-                    ), in: 0...20) {
-                        HStack {
-                            Text("Extra conjugation cards")
-                            Spacer()
-                            Text("\(vm.extraConjugationCards)")
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                    
                     HStack {
                         Text("Conjugation level")
                         Spacer()
@@ -82,7 +70,7 @@ struct SettingsView: View {
                 } header: {
                     Text("Practice")
                 } footer: {
-                    Text("Controls how many extra conjugation cards are drawn from verbs you already know during review sessions, and what tenses you are tested on.")
+                    Text("Controls which tenses appear when a due verb is reviewed as a conjugation card.")
                 }
 
                 Section {

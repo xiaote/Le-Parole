@@ -24,6 +24,10 @@ struct StudySessionView: View {
                             SessionCompleteView(stats: vm.stats, isTestMode: vm.isTestMode) { dismiss() }
                         } else if let card = vm.currentCard {
                             QuizCardView(card: card, vm: vm)
+                        } else if vm.isLoadingMoreCards {
+                            ProgressView("Loading more cards…")
+                                .font(.theme(.subheadline))
+                                .foregroundStyle(.secondary)
                         }
                     }
                         .alert(isPresented: .init(
@@ -46,7 +50,7 @@ struct StudySessionView: View {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("End Session") {
                             if vm.currentIndex > 0 {
-                                vm.cards = Array(vm.cards.prefix(vm.currentIndex))
+                                vm.endSession()
                             } else {
                                 dismiss()
                             }
@@ -64,6 +68,9 @@ struct StudySessionView: View {
                 await vm.initialize(dailyNewLimit: dailyNewLimit, isTestMode: isTestMode)
                 viewModel = vm
             }
+        }
+        .onDisappear {
+            viewModel?.cancelSessionWork()
         }
     }
 }

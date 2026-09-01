@@ -82,6 +82,45 @@ struct Word: Identifiable, Sendable, Equatable {
                   .replacingOccurrences(of: "‘", with: "'")
     }
 
+    /// Produces the small set of spellings SQLite should check when resolving
+    /// an Italian answer. Italian normally writes at most one accent, so these
+    /// variants preserve the app's accent tolerance without scanning the full
+    /// dictionary after every unsuccessful production answer.
+    nonisolated static func italianLookupCandidates(_ input: String) -> [String] {
+        let normalized = normalizeApostrophes(input)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .lowercased()
+        guard !normalized.isEmpty else { return [] }
+
+        let accentVariants: [Character: [Character]] = [
+            "a": ["à"], "e": ["è", "é"], "i": ["ì"], "o": ["ò"], "u": ["ù"],
+            "à": ["a"], "è": ["e"], "é": ["e"], "ì": ["i"], "ò": ["o"], "ù": ["u"],
+        ]
+        let characters = Array(normalized)
+        var candidates: Set<String> = [normalized]
+
+        for index in characters.indices {
+            guard let replacements = accentVariants[characters[index]] else { continue }
+            for replacement in replacements {
+                var variant = characters
+                variant[index] = replacement
+                candidates.insert(String(variant))
+            }
+        }
+
+        // Catalogue and user-created entries may use either common apostrophe.
+        for candidate in Array(candidates) where candidate.contains("'") {
+            candidates.insert(candidate.replacingOccurrences(of: "'", with: "’"))
+        }
+        for candidate in Array(candidates) {
+            candidates.insert(candidate.uppercased())
+            if let first = candidate.first {
+                candidates.insert(first.uppercased() + String(candidate.dropFirst()))
+            }
+        }
+        return candidates.sorted()
+    }
+
     private nonisolated static func normalizeEnglish(_ s: String) -> String {
         var t = normalizeApostrophes(s).trimmingCharacters(in: .whitespaces).lowercased()
         
@@ -126,6 +165,9 @@ struct Word: Identifiable, Sendable, Equatable {
     /// Normalizes digits in a string to their spelled-out English forms (e.g. "50 years" -> "fifty years")
     /// Also strips hyphens to ensure "twenty-four" matches "twenty four".
     private nonisolated static func normalizeDigitsToWords(_ text: String) -> String {
+        guard text.contains(where: \.isNumber) else {
+            return text.replacingOccurrences(of: "-", with: " ")
+        }
         let formatter = NumberFormatter()
         formatter.numberStyle = .spellOut
         let regex = try! NSRegularExpression(pattern: "\\d+")
@@ -145,6 +187,7 @@ struct Word: Identifiable, Sendable, Equatable {
 
     nonisolated func isCorrectEnglish(_ input: String) -> Bool {
         let normalizedInput = Self.normalizeEnglish(input)
+        let textInput = Self.normalizeDigitsToWords(normalizedInput)
         let acceptableAnswers = [english] + alternatives
         
         for ans in acceptableAnswers {
@@ -153,7 +196,6 @@ struct Word: Identifiable, Sendable, Equatable {
             
             // Convert all digits to spelled-out words and remove hyphens, then compare
             let textAns = Self.normalizeDigitsToWords(normalizedAns)
-            let textInput = Self.normalizeDigitsToWords(normalizedInput)
             if textAns == textInput { return true }
             
             // Typo tolerance for English words
@@ -174,25 +216,25 @@ struct Word: Identifiable, Sendable, Equatable {
         if aCount == 0 { return bCount }
         if bCount == 0 { return aCount }
         
-        var dist = [[Int]](repeating: [Int](repeating: 0, count: bCount + 1), count: aCount + 1)
-        
-        for i in 0...aCount { dist[i][0] = i }
-        for j in 0...bCount { dist[0][j] = j }
-        
+        var previous = Array(0...bCount)
+        var current = Array(repeating: 0, count: bCount + 1)
+
         for i in 1...aCount {
+            current[0] = i
             for j in 1...bCount {
                 if a[i-1] == b[j-1] {
-                    dist[i][j] = dist[i-1][j-1]
+                    current[j] = previous[j-1]
                 } else {
-                    dist[i][j] = min(
-                        dist[i-1][j] + 1,
-                        dist[i][j-1] + 1,
-                        dist[i-1][j-1] + 1
+                    current[j] = min(
+                        previous[j] + 1,
+                        current[j-1] + 1,
+                        previous[j-1] + 1
                     )
                 }
             }
+            swap(&previous, &current)
         }
-        return dist[aCount][bCount]
+        return previous[bCount]
     }
 
     nonisolated func isCorrectItalian(_ input: String) -> Bool {
