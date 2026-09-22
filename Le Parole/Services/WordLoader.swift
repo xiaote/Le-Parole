@@ -35,7 +35,8 @@ enum WordLoader {
         #else
         let forceRefresh = false
         #endif
-        guard forceRefresh || storedVersion < dataVersion else { return }
+        let hasCatalogue = await hasCatalogue()
+        guard forceRefresh || storedVersion < dataVersion || !hasCatalogue else { return }
 
         var allEntries: [WordEntry] = []
         for name in fileNames {
@@ -131,14 +132,27 @@ enum WordLoader {
         }
     }
 
-    static func ensureSettings() {
+    /// A version preference can outlive a restored or recreated SQLite file.
+    /// Treat an empty catalogue as needing import even when the preference says
+    /// the bundled data has already been loaded.
+    static func hasCatalogue() async -> Bool {
+        do {
+            return try await DatabaseService.shared.db.read { db in
+                (try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM words") ?? 0) > 0
+            }
+        } catch {
+            return false
+        }
+    }
+
+    static func ensureSettings() async {
         let db = DatabaseService.shared.db
         do {
-            let count = try db.read { db in
+            let count = try await db.read { db in
                 try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userSettings") ?? 0
             }
             if count == 0 {
-                try db.write { db in
+                try await db.write { db in
                     var settings = UserSettings()
                     try settings.insert(db)
                 }
