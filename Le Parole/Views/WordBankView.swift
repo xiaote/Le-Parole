@@ -2,6 +2,7 @@ import SwiftUI
 import GRDB
 
 struct WordBankView: View {
+    let appActivity: AppActivity
     @State private var vm = WordBankViewModel()
     @State private var selectedLevel: String? = nil
     @State private var searchText = ""
@@ -134,6 +135,9 @@ struct WordBankView: View {
                     }
                 }
             }
+        }
+        .onChange(of: appActivity.isStudySessionActive) { _, isStudying in
+            vm.setObserving(!isStudying)
         }
     }
 

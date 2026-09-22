@@ -124,6 +124,20 @@ final class StatsViewModel {
     ]
 
     init() {
+        setObserving(true)
+    }
+
+    func setObserving(_ shouldObserve: Bool) {
+        guard shouldObserve else {
+            statsCancellable = nil
+            activityCancellable = nil
+            tenseStatsCancellable = nil
+            settingsCancellable = nil
+            introducedWordsCancellable = nil
+            return
+        }
+        guard statsCancellable == nil else { return }
+
         let db = DatabaseService.shared
         
         statsCancellable = ValueObservation.tracking { db in

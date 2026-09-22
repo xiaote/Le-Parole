@@ -72,6 +72,7 @@ struct StudySessionView: View {
         }
         .onDisappear {
             viewModel?.cancelSessionWork()
+            SpeechService.shared.stop()
         }
     }
 }

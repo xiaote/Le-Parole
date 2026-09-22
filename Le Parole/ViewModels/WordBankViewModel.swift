@@ -18,6 +18,7 @@ final class WordBankViewModel {
     private var cursor: ResultCursor?
     private var activeRequestID: UUID?
     private var deliveredRequestID: UUID?
+    private var isObserving = false
 
     private struct ResultCursor {
         let frequencyRank: Int
@@ -25,8 +26,22 @@ final class WordBankViewModel {
     }
     
     init() {
+        setObserving(true)
+    }
+
+    func setObserving(_ shouldObserve: Bool) {
+        guard shouldObserve else {
+            isObserving = false
+            cancellable = nil
+            levelsCancellable = nil
+            activeRequestID = UUID()
+            isLoadingMore = false
+            return
+        }
+        guard !isObserving else { return }
+        isObserving = true
+
         let db = DatabaseService.shared
-        
         levelsCancellable = ValueObservation.tracking { db in
             let levels = try String.fetchAll(db, sql: "SELECT DISTINCT level FROM words")
             let builtIn: Set<String> = ["A1", "A2", "B1", "B2", "C1", "C2"]
@@ -38,11 +53,11 @@ final class WordBankViewModel {
             onChange: { [weak self] levels in self?.customLevels = levels }
         )
         
-        loadNextPage(replacingResults: true)
+        resetResults()
     }
     
     private func loadNextPage(replacingResults: Bool = false) {
-        guard !isLoadingMore else { return }
+        guard isObserving, !isLoadingMore else { return }
 
         isLoadingMore = true
         let text = searchText

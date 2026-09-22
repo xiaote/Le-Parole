@@ -2,6 +2,7 @@ import SwiftUI
 import Charts
 
 struct StatsView: View {
+    let appActivity: AppActivity
     @State private var vm = StatsViewModel()
 
     private let levels = ["A1", "A2", "B1", "B2", "C1", "C2"]
@@ -82,6 +83,9 @@ struct StatsView: View {
             .background(Theme.canvas)
             .navigationTitle("Progress")
             .toolbarBackground(Theme.canvas, for: .navigationBar)
+        }
+        .onChange(of: appActivity.isStudySessionActive) { _, isStudying in
+            vm.setObserving(!isStudying)
         }
     }
 }

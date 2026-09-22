@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    let appActivity: AppActivity
 
     @State private var vm = HomeViewModel()
     @State private var showingSession = false
@@ -103,6 +104,12 @@ struct HomeView: View {
             }
             .navigationBarTitleDisplayMode(.large)
             .toolbarBackground(Theme.canvas, for: .navigationBar)
+        }
+        .onChange(of: showingSession || showingTestSession) { _, isStudying in
+            appActivity.isStudySessionActive = isStudying
+        }
+        .onChange(of: appActivity.isStudySessionActive) { _, isStudying in
+            vm.setObserving(!isStudying)
         }
     }
 }

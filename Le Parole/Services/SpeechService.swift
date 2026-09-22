@@ -1,12 +1,15 @@
 import AVFoundation
 
-final class SpeechService {
+final class SpeechService: NSObject, AVSpeechSynthesizerDelegate {
     static let shared = SpeechService()
     private let synthesizer = AVSpeechSynthesizer()
     private var isAudioSessionConfigured = false
     private var voicesByLanguageCode: [String: AVSpeechSynthesisVoice] = [:]
 
-    private init() {}
+    private override init() {
+        super.init()
+        synthesizer.delegate = self
+    }
 
     func speak(_ text: String, languageCode: String) {
         // .playback category bypasses the silent switch so speech is always audible
@@ -37,5 +40,26 @@ final class SpeechService {
         }
         utterance.rate = 0.42
         synthesizer.speak(utterance)
+    }
+
+    func stop() {
+        synthesizer.stopSpeaking(at: .immediate)
+        deactivateAudioSession()
+    }
+
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        if !synthesizer.isSpeaking {
+            deactivateAudioSession()
+        }
+    }
+
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
+        if !synthesizer.isSpeaking {
+            deactivateAudioSession()
+        }
+    }
+
+    private func deactivateAudioSession() {
+        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
     }
 }

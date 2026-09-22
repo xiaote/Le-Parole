@@ -22,8 +22,18 @@ final class HomeViewModel {
     private var settingsCancellable: AnyDatabaseCancellable?
 
     init() {
+        setObserving(true)
+    }
+
+    func setObserving(_ shouldObserve: Bool) {
+        guard shouldObserve else {
+            statsCancellable = nil
+            settingsCancellable = nil
+            return
+        }
+        guard statsCancellable == nil, settingsCancellable == nil else { return }
+
         setupObservation()
-        
         let db = DatabaseService.shared
         settingsCancellable = db.makeSettingsObservation().start(
             in: db.db,
@@ -93,7 +103,9 @@ final class HomeViewModel {
     }
 
     func refresh() async {
-        setupObservation()
+        statsCancellable = nil
+        settingsCancellable = nil
+        setObserving(true)
         // Short delay to allow the async DB read to complete before the refresh spinner dismisses
         try? await Task.sleep(for: .milliseconds(300))
     }

@@ -2,16 +2,17 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isReady = false
+    @State private var appActivity = AppActivity()
 
     var body: some View {
         Group {
             if isReady {
                 TabView {
-                    HomeView()
+                    HomeView(appActivity: appActivity)
                         .tabItem { Label("Home", systemImage: "house.fill") }
-                    WordBankView()
+                    WordBankView(appActivity: appActivity)
                         .tabItem { Label("Words", systemImage: "book.fill") }
-                    StatsView()
+                    StatsView(appActivity: appActivity)
                         .tabItem { Label("Progress", systemImage: "chart.bar.fill") }
                     SettingsView()
                         .tabItem { Label("Settings", systemImage: "gearshape.fill") }
