@@ -156,7 +156,11 @@ struct QuizCardView: View {
 
     private var wordConcept: WordConcept? {
         ConceptService.shared.concept(for: card.userWord.word.italian)
-}
+    }
+
+    private var diagramLearningCue: String? {
+        SailingDiagramService.learningCue(for: card.userWord.word.italian)
+    }
     // Conjugation states (computed from vm cache)
     private var isGeneratingConjugation: Bool {
         if card.cardType != .conjugation { return false }
@@ -463,6 +467,7 @@ struct QuizCardView: View {
                 showHintArea: (card.cardType == .production || visualQuizData == nil),
                 isLoading: isGeneratingConjugation,
                 diagramImageName: card.cardType == .production ? sailingDiagram?.promptImageName : nil,
+                diagramLearningCue: card.cardType == .production ? diagramLearningCue : nil,
                 diagramAction: {
                     inputFocused = false
                     if let d = sailingDiagram { activeSheet = .diagram(d) }
@@ -490,6 +495,7 @@ struct QuizCardView: View {
                 showHintArea: false,
                 isLoading: false,
                 diagramImageName: sailingDiagram?.revealedImageName,
+                diagramLearningCue: diagramLearningCue,
                 diagramAction: {
                     inputFocused = false
                     if let d = sailingDiagram { activeSheet = .diagram(d) }
@@ -526,13 +532,14 @@ struct QuizCardView: View {
         showHintArea: Bool,
         isLoading: Bool,
         diagramImageName: String? = nil,
+        diagramLearningCue: String? = nil,
         diagramAction: (() -> Void)? = nil,
         speakAction: @escaping () -> Void
     ) -> some View {
         let isCardFlippedOrRevealed = isFlipped || isRevealed
         let imageMaxHeight: CGFloat = isCardFlippedOrRevealed ? 330 : 210
         let cardMinHeight: CGFloat = (diagramImageName != nil)
-            ? (isCardFlippedOrRevealed ? 470 : 330)
+            ? (isCardFlippedOrRevealed ? 540 : 400)
             : (visualQuizData != nil ? (isCardFlippedOrRevealed ? 225 : 120) : (isCardFlippedOrRevealed ? 190 : 170))
         let cardPadding: CGFloat = (diagramImageName != nil)
             ? (isCardFlippedOrRevealed ? 16 : 18)
@@ -573,7 +580,7 @@ struct QuizCardView: View {
                                 HStack(spacing: 5) {
                                     Image(systemName: "arrow.up.left.and.arrow.down.right")
                                         .font(.system(size: 11, weight: .semibold))
-                                    Text("Tap diagram for full plate")
+                                    Text(sailingDiagram?.hasMatchingFullPlate == true ? "Open the related full plate" : "Enlarge this reference diagram")
                                         .font(.theme(.caption, weight: .medium))
                                 }
                                 .foregroundStyle(Theme.primary)
@@ -582,6 +589,21 @@ struct QuizCardView: View {
                         }
                         .buttonStyle(.plain)
                         .accessibilityLabel("Open full diagram plate")
+
+                        if let diagramLearningCue {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Label("Why this helps", systemImage: "lightbulb.fill")
+                                    .font(.theme(.caption, weight: .bold))
+                                    .foregroundStyle(Theme.primary)
+                                Text(diagramLearningCue)
+                                    .font(.theme(.caption))
+                                    .foregroundStyle(.secondary)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(10)
+                            .background(Theme.primary.opacity(0.08), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                        }
                     }
 
                     Text(word)

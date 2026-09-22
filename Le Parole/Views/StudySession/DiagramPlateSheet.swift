@@ -9,7 +9,7 @@ struct DiagramPlateSheet: View {
 
     init(diagram: WordDiagram, displayImageName: String? = nil) {
         self.diagram = diagram
-        self.displayImageName = displayImageName ?? diagram.plateName
+        self.displayImageName = displayImageName ?? diagram.expandedImageName
     }
 
     var body: some View {
@@ -76,7 +76,7 @@ struct DiagramPlateSheet: View {
                     .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
             }
-            .navigationTitle(displayImageName == diagram.plateName ? diagram.plateTitle : diagram.title)
+            .navigationTitle(displayImageName == diagram.plateName ? diagram.plateTitle : diagram.expandedTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(Theme.canvas, for: .navigationBar)

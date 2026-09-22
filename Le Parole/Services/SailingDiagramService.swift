@@ -8,6 +8,17 @@ public struct WordDiagram: Identifiable, Sendable, Equatable {
     public let plateName: String
     public let plateTitle: String
     public let caption: String?
+    public let hasMatchingFullPlate: Bool
+
+    /// Some source tables are represented only by a focused crop. Never expand
+    /// those terms into a different, merely related boat plate.
+    public var expandedImageName: String {
+        hasMatchingFullPlate ? plateName : revealedImageName
+    }
+
+    public var expandedTitle: String {
+        hasMatchingFullPlate ? plateTitle : title
+    }
 
     public init(
         id: String,
@@ -16,7 +27,8 @@ public struct WordDiagram: Identifiable, Sendable, Equatable {
         title: String,
         plateName: String,
         plateTitle: String,
-        caption: String?
+        caption: String?,
+        hasMatchingFullPlate: Bool
     ) {
         self.id = id
         self.promptImageName = promptImageName
@@ -25,6 +37,7 @@ public struct WordDiagram: Identifiable, Sendable, Equatable {
         self.plateName = plateName
         self.plateTitle = plateTitle
         self.caption = caption
+        self.hasMatchingFullPlate = hasMatchingFullPlate
     }
 }
 
@@ -42,6 +55,18 @@ public enum SailingDiagramService {
             plateTitle: String,
             caption: String?
         ) {
+            let tablePrefixesByPlate = [
+                "cvc_plate_la_barca": "Tavola 1:",
+                "cvc_plate_nodi": "Tavola 3:",
+                "cvc_plate_manovre_cavi": "Tavola 6:",
+                "cvc_plate_direzioni": "Tavola 7:",
+                "cvc_plate_rosa_venti": "Tavola 8:",
+                "cvc_plate_andature": "Tavola 9:",
+                "cvc_plate_scuffia": "Tavola 5:",
+                "cvc_plate_panna": "Tavola 21:",
+                "cvc_plate_cabinato": "Tavola 33:",
+                "cvc_plate_winch_stopper": "Tavola 34:",
+            ]
             let item = WordDiagram(
                 id: id,
                 promptImageName: prompt,
@@ -49,7 +74,8 @@ public enum SailingDiagramService {
                 title: title,
                 plateName: plate,
                 plateTitle: plateTitle,
-                caption: caption
+                caption: caption,
+                hasMatchingFullPlate: tablePrefixesByPlate[plate].map(plateTitle.hasPrefix) ?? false
             )
             for k in keys {
                 dict[normalize(k)] = item
@@ -1159,6 +1185,15 @@ public enum SailingDiagramService {
             }
         }
         return nil
+    }
+
+    public static func learningCue(for italianWord: String) -> String? {
+        let normalizedWord = normalize(italianWord)
+        if normalizedWord == "dare fondo" {
+            return "The numbered sequence shows the action: stop head-to-wind, lower the anchor, then let out chain until it holds."
+        }
+        guard let diagram = diagram(for: italianWord), let caption = diagram.caption else { return nil }
+        return "This image is a visual reference for \(diagram.title): \(caption)"
     }
 
     public static var allDiagrams: [WordDiagram] {
