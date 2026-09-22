@@ -17,10 +17,9 @@ catalogue and this audit trail.
 
 ## Catalogue migrations
 
-The database migration is intentionally squashed at `v27_current_schema`.
-It creates the complete current schema for a fresh install and preserves the
-known local database, including the two reviewed catalogue redirects, during
-the upgrade. There is no compatibility path for pre-v25 installations.
+The database keeps historic migration identifiers so local learning data can
+upgrade in place. Fresh installs are created directly with the current schema,
+while `v27_current_schema` also applies the reviewed catalogue redirects.
 - Review recognition and production cards using SM-2 scheduling.
 - Practice verb conjugations in contextual fill-in-the-blank sentences.
 - Track progress, mastery, and conjugation performance.

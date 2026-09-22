@@ -64,12 +64,31 @@ final class DatabaseService: @unchecked Sendable {
         try fileManager.copyItem(at: url, to: databaseURL)
     }
 
-    // The app has one active, already-current installation. v27 intentionally
-    // replaces the historic migration chain: fresh databases get the complete
-    // current schema, while the known local database only receives the final
-    // catalogue-history reconciliation.
+    // GRDB validates the complete ordered migration history stored on-device.
+    // Keep the retired identifiers so an existing progress database upgrades
+    // instead of being rejected as having an incompatible history.
     private func migrate() throws {
         var migrator = DatabaseMigrator()
+        let historicMigrationIdentifiers = [
+            "v1_schema", "v2_cleanup_conjugated_verbs", "v2_schema_settings",
+            "v2_dedup_words", "v3_daily_activity", "v4_dedup_words",
+            "v5_dedup_all", "v6_conjugation_setting", "v8_autoplay_setting",
+            "v9_conjugation_level", "v7_cleanup_conjugated_verbs",
+            "v10_remove_same_words", "v11_conjugation_stats",
+            "v12_deduplicate_words_2026", "v13_remove_same_words_again",
+            "v14_remove_abbreviations", "v15_inflections", "v16_gemini_key",
+            "v17_target_level", "v18_part_of_speech", "v19_cleanup_orphans",
+            "v20_ensure_userwords", "v21_redirect_catalogue_duplicates",
+            "v22_redirect_orthographic_variants", "v23_retire_composite_number_cards",
+            "v24_progress_metrics", "v25_daily_practice_goal",
+        ]
+        for identifier in historicMigrationIdentifiers {
+            migrator.registerMigration(identifier) { _ in
+                // Fresh databases are created at v27. These identifiers allow
+                // GRDB to recognize the history already stored by older apps.
+            }
+        }
+
         migrator.registerMigration("v27_current_schema") { db in
             if try db.tableExists("words") {
                 try Self.reconcileKnownCatalogueRetirements(db)
