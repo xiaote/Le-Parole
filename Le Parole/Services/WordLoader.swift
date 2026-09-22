@@ -16,6 +16,10 @@ enum WordLoader {
     // v22 adds reviewed CEFR overrides and merges two retired spelling cards
     // without losing their existing learning history (migration v26).
     static let dataVersion = 22
+    /// Debug-only Xcode launch argument for deliberately exercising the full
+    /// catalogue import. Normal Debug launches use the same version gate as
+    /// Release builds, avoiding a needless rewrite of every bundled word.
+    private static let forceRefreshLaunchArgument = "-refresh-word-catalogue"
 
     private static let fileNames = [
         "words_a1", "words_a2", "words_b1", "words_b2", "words_c1",
@@ -26,9 +30,12 @@ enum WordLoader {
 
     static func loadIfNeeded() async {
         let storedVersion = UserDefaults.standard.integer(forKey: "wordDataVersion")
-        #if !DEBUG
-        guard storedVersion < dataVersion else { return }
+        #if DEBUG
+        let forceRefresh = ProcessInfo.processInfo.arguments.contains(forceRefreshLaunchArgument)
+        #else
+        let forceRefresh = false
         #endif
+        guard forceRefresh || storedVersion < dataVersion else { return }
 
         var allEntries: [WordEntry] = []
         for name in fileNames {
