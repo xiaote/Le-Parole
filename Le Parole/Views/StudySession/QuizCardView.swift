@@ -592,7 +592,7 @@ struct QuizCardView: View {
 
                         if let diagramLearningCue {
                             VStack(alignment: .leading, spacing: 4) {
-                                Label("Why this helps", systemImage: "lightbulb.fill")
+                                Label("What to notice", systemImage: "eye.fill")
                                     .font(.theme(.caption, weight: .bold))
                                     .foregroundStyle(Theme.primary)
                                 Text(diagramLearningCue)

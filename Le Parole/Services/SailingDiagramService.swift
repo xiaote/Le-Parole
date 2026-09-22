@@ -1189,11 +1189,28 @@ public enum SailingDiagramService {
 
     public static func learningCue(for italianWord: String) -> String? {
         let normalizedWord = normalize(italianWord)
-        if normalizedWord == "dare fondo" {
-            return "The numbered sequence shows the action: stop head-to-wind, lower the anchor, then let out chain until it holds."
+        let specificCues = [
+            "gavitello": "Find the orange buoy marked B. That floating marker is the gavitello; the dashed line shows the boat's final approach.",
+            "dare fondo": "Follow the numbered sequence: stop head-to-wind, lower the anchor, then let out chain until it holds.",
+            "virata": "Trace the boat as it turns through the wind. That change of side is a virata.",
+            "strambata": "Trace the boat as the stern passes through the wind. That change of side is a strambata.",
+            "uomo in mare": "Follow the boat's return path to the person in the water; this is the recovery manoeuvre.",
+        ]
+        if let cue = specificCues[normalizedWord] {
+            return cue
         }
-        guard let diagram = diagram(for: italianWord), let caption = diagram.caption else { return nil }
-        return "This image is a visual reference for \(diagram.title): \(caption)"
+        guard let diagram = diagram(for: italianWord) else { return nil }
+
+        if diagram.plateName == "cvc_plate_rosa_venti" {
+            return "Use the compass point and arrow: the labeled direction is the wind's name."
+        }
+        if diagram.plateName == "cvc_plate_andature" || diagram.id == "bolina" || diagram.id == "lasco" {
+            return "Use the wind arrow and the boat's heading to identify this point of sail."
+        }
+        if diagram.id == "bozzello" || diagram.plateName == "cvc_plate_la_barca" || diagram.plateName == "cvc_plate_cabinato" {
+            return "Find the named boat part; its leader line shows exactly which piece of equipment the word means."
+        }
+        return "Follow the highlighted feature or sequence in the drawing, then match it to the Italian term."
     }
 
     public static var allDiagrams: [WordDiagram] {
