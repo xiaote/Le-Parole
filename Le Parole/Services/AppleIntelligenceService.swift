@@ -5,10 +5,11 @@ import NaturalLanguage
 
 private let conjugationExplanationRules = """
 - EXPLANATION CONTENT: Teach how the answer is conjugated, not why the sentence calls for the requested tense. Do not justify the tense using time markers, sentence context, or phrases such as "refers to the present/past/future."
-- If the form follows a REGULAR pattern in this tense, name the infinitive class or construction, describe the applicable stem/ending rule, and show how that rule produces the requested answer. Mention any applicable spelling rule for verbs ending in -care, -gare, -ciare, or -giare. Example: "Parlare is a regular -are verb. In the present, remove -are and add -iamo for noi: parl- + -iamo = parliamo."
-- If the verb or any part of the requested form is IRREGULAR in this tense, the explanation is valid only if it contains BOTH of these parts: (1) "Formation:" followed by a derivation of the requested answer that names the exact irregular stem, ending, participle, auxiliary, or other change for that pronoun; and (2) "Full <tense>:" followed by the complete forms in the SAME tense. Do not merely restate the target form. Include io, tu, lui/lei, noi, voi, and loro when that tense has those persons; for the imperative, include all applicable persons. This full paradigm is mandatory even when an irregular participle or gerund does not change by person. Example: "Formation: venire uses irregular vien- for tu; vien- + -i = vieni. Full presente: io vengo, tu vieni, lui/lei viene, noi veniamo, voi venite, loro vengono."
-- For compound or progressive forms, explain how each component is formed (including auxiliary choice, participle or gerund formation, reflexive pronoun, and agreement when applicable). For an irregular form, explicitly call the component irregular, derive it, and show the full conjugated construction—not just the unchanged participle or gerund. Examples: "Formation: vedere has the irregular participle visto; lei uses ha + visto = ha visto. Full passato prossimo: io ho visto, tu hai visto, lui/lei ha visto, noi abbiamo visto, voi avete visto, loro hanno visto." "Formation: bere has the irregular gerund bev- + -endo = bevendo; loro uses stanno + bevendo. Full presente progressivo: io sto bevendo, tu stai bevendo, lui/lei sta bevendo, noi stiamo bevendo, voi state bevendo, loro stanno bevendo."
-- Keep regular explanations concise but concrete; irregular explanations may be longer because the complete paradigm is required. Never merely say that the requested pronoun "requires" the answer.
+- Make the explanation compact and scannable. Use the labels and line breaks below exactly. Do not write a paragraph, repeat the sentence, or repeat the tense name.
+- If the form follows a REGULAR pattern, output exactly ONE short line (about 20 words): "Rule: [stem/construction] + [ending/component] → [answer] ([brief regular rule])." For -ciare and -giare verbs, avoid an ambiguous stem equation; instead use: "Rule: regular -are [pronoun] ending [ending] → [answer] ([spelling change if applicable])." Example: "Rule: regular -are noi ending -iamo → mangiamo (adjacent i written once)."
+- If the verb or any component is IRREGULAR in this tense, output exactly TWO lines. Line 1: "Rule: [compact derivation] ([name the irregular change])." Line 2: "Forms (io→loro): [six forms in standard io, tu, lui/lei, noi, voi, loro order, separated by ·]." Do not repeat the pronouns beside every form. For the imperative use "Forms (tu→loro):" and include only applicable persons. Example: "Rule: vien- + -i → vieni (irregular tu stem).\nForms (io→loro): vengo · vieni · viene · veniamo · venite · vengono"
+- For compound or progressive forms, the Rule line must show the auxiliary or stare, the participle or gerund, reflexive pronoun, and agreement when applicable. If any component is irregular, the Forms line must contain the complete conjugated construction. Examples: "Rule: ha + visto → ha visto (irregular participle of vedere).\nForms (io→loro): ho visto · hai visto · ha visto · abbiamo visto · avete visto · hanno visto" and "Rule: stanno + bevendo → stanno bevendo (irregular gerund of bere).\nForms (io→loro): sto bevendo · stai bevendo · sta bevendo · stiamo bevendo · state bevendo · stanno bevendo"
+- Never merely say that the requested pronoun "requires" the answer.
 """
 
 struct AppleIntelligenceService {
@@ -38,7 +39,7 @@ struct AppleIntelligenceService {
         return "Questo è un esempio per la parola '\(italianWord)' (SIMULATOR MOCK)."
         #else
         guard isAvailable else { return nil }
-        
+
         let session = LanguageModelSession(instructions: """
             Generate exactly one short, simple, natural-sounding Italian sentence that uses the word provided by the user.
             The sentence should be easy to understand for a beginner/intermediate learner.
@@ -96,7 +97,7 @@ struct AppleIntelligenceService {
     }
 
     /// Generates 1 example sentence with an English translation for a failed word.
-    static func generateExamples(for italianWord: String) async -> [String] {
+    static func generateExamples(for italianWord: String, englishMeaning: String? = nil, topic: String? = nil) async -> [String] {
         #if targetEnvironment(simulator)
         try? await Task.sleep(for: .seconds(2))
         return [
@@ -105,15 +106,24 @@ struct AppleIntelligenceService {
         #else
         guard isAvailable else { return [] }
         
+        var prompt = "Word: \(italianWord)"
+        if let englishMeaning, !englishMeaning.isEmpty {
+            prompt += " (meaning: \(englishMeaning))"
+        }
+        if let topic, !topic.isEmpty {
+            prompt += " (topic/context: \(topic))"
+        }
+
         let session = LanguageModelSession(instructions: """
             You are an Italian language tutor.
-            Generate 1 short, highly practical example sentence using the provided Italian word.
+            Generate 1 short, highly practical example sentence using the provided Italian word matching the specified meaning and context.
             
             Rules:
             1. You MUST generate a full, complete sentence.
             2. The exact provided Italian word MUST literally appear in the Italian sentence.
-            3. ALWAYS use the verb 'avere' (to have) for age, hunger, thirst, ecc.
-            4. Output ONLY valid JSON in the following format:
+            3. Respect the specific meaning/context provided so words with multiple meanings are used accurately.
+            4. ALWAYS use the verb 'avere' (to have) for age, hunger, thirst, ecc.
+            5. Output ONLY valid JSON in the following format:
             [
               {
                 "it": "Italian sentence",
@@ -123,7 +133,7 @@ struct AppleIntelligenceService {
             """
         )
         do {
-            let response = try await session.respond(to: "Word: \(italianWord)")
+            let response = try await session.respond(to: prompt)
             var text = response.content.trimmingCharacters(in: .whitespacesAndNewlines)
             
             if text.hasPrefix("```json") { text = String(text.dropFirst(7)) }
@@ -152,7 +162,7 @@ struct AppleIntelligenceService {
         return (
             sentence: "Ieri, io e Marco _____ (andare) al cinema.",
             answer: "siamo andati",
-            explanation: "Andare forms the passato prossimo with essere: for noi, siamo + andati gives siamo andati, with -i agreement for a masculine or mixed plural. Across the tense: io sono andato/a, tu sei andato/a, lui/lei è andato/a, noi siamo andati/e, voi siete andati/e, loro sono andati/e.",
+            explanation: "Rule: siamo + andati → siamo andati (essere; plural agreement).",
             tense: "passato prossimo",
             pronoun: "noi",
             englishTranslation: "Yesterday, Marco and I went to the cinema."
@@ -171,7 +181,7 @@ struct AppleIntelligenceService {
             </scratchpad>
             <sentence>Oggi noi _____ (mangiare) una pizza.</sentence>
             <answer>mangiamo</answer>
-            <explanation>Mangiare is a regular -are verb with the stem mangi-. Add the present noi ending -iamo and write the adjacent i only once: mangi- + -iamo = mangiamo.</explanation>
+            <explanation>Rule: mangi- + -iamo → mangiamo (regular -giare; adjacent i written once).</explanation>
         </flashcard>
         """
         
@@ -643,7 +653,7 @@ final class GeminiService: Sendable {
           "scratchpad": "Step 1: Conjugate 'mangiare' in 'presente': io mangio, tu mangi, lui/lei mangia, noi mangiamo, voi mangiate, loro mangiano. Step 2: Select for 'noi': mangiamo.",
           "sentence": "Oggi noi _____ (mangiare) una pizza.",
           "answer": "mangiamo",
-          "explanation": "Mangiare is a regular -are verb with the stem mangi-. Add the present noi ending -iamo and write the adjacent i only once: mangi- + -iamo = mangiamo.",
+          "explanation": "Rule: mangi- + -iamo → mangiamo (regular -giare; adjacent i written once).",
           "englishTranslation": "Today we are eating a pizza."
         }
         """
@@ -732,6 +742,7 @@ final class GeminiService: Sendable {
         }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.timeoutInterval = 12
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let payload = GeminiRequest(
@@ -990,7 +1001,7 @@ final class GeminiService: Sendable {
                 "id": "123e4567-e89b-12d3-a456-426614174000",
                 "sentence": "Oggi io _____ (mangiare) una pizza.",
                 "answer": "mangio",
-                "explanation": "Mangiare is a regular -are verb. Remove -are to get mangi-, then add the present io ending -o: mangi- + -o = mangio.",
+                "explanation": "Rule: mangi- + -o → mangio (regular -are, io).",
                 "tense": "presente",
                 "pronoun": "io",
                 "englishTranslation": "Today I eat a pizza."
@@ -1007,6 +1018,7 @@ final class GeminiService: Sendable {
         }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.timeoutInterval = 12
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let payload = GeminiRequest(

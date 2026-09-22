@@ -114,6 +114,19 @@ final class HomeViewModel {
     var dueToday: Int { reviewsDue + newToLearnToday }
     var hasWork: Bool { dueToday > 0 }
     var canLearnMore: Bool { dueToday == 0 && newAvailable > 0 }
+    var canStudy: Bool { hasWork || (newAvailable + inProgress + mastered > 0) }
+
+    var sessionAction: String {
+        if hasWork {
+            return "Start practice"
+        } else if newAvailable > 0 {
+            return "Keep learning"
+        } else if inProgress > 0 || mastered > 0 {
+            return "Keep practicing"
+        } else {
+            return "All caught up"
+        }
+    }
     
     var recognitionBacklog: Int { stats.recognitionBacklog }
     

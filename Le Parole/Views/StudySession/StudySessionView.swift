@@ -6,10 +6,12 @@ struct StudySessionView: View {
 
     let dailyNewLimit: Int
     let isTestMode: Bool
+    let isExtraSession: Bool
 
-    init(dailyNewLimit: Int = 20, isTestMode: Bool = false) {
+    init(dailyNewLimit: Int = 20, isTestMode: Bool = false, isExtraSession: Bool = false) {
         self.dailyNewLimit = dailyNewLimit
         self.isTestMode = isTestMode
+        self.isExtraSession = isExtraSession
     }
 
     var body: some View {
@@ -30,16 +32,6 @@ struct StudySessionView: View {
                                 .foregroundStyle(.secondary)
                         }
                     }
-                        .alert(isPresented: .init(
-                            get: { vm.geminiError != nil },
-                            set: { if !$0 { vm.geminiError = nil } }
-                        )) {
-                            Alert(
-                                title: Text("API Error"),
-                                message: Text(vm.geminiError ?? "Unknown Error"),
-                                dismissButton: .default(Text("OK"))
-                            )
-                        }
                     } else {
                         PreparingSessionView()
                     }
@@ -56,16 +48,25 @@ struct StudySessionView: View {
                             }
                         }
                     }
+
+                    ToolbarItem(placement: .principal) {
+                        VStack(spacing: 2) {
+                            Text(vm.isTestMode ? "Test Mode" : "Study Session")
+                                .font(.theme(.headline, weight: .semibold))
+                            Text("\(vm.currentIndex + 1) of \(vm.totalCardCount)")
+                                .font(.theme(.caption2, weight: .medium))
+                                .foregroundStyle(.secondary)
+                        }
+                    }
                 }
             }
-            .navigationTitle(viewModel?.isTestMode == true ? "Test Mode" : "Study Session")
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(Theme.canvas, for: .navigationBar)
         }
         .task {
             if viewModel == nil {
                 let vm = StudySessionViewModel()
-                await vm.initialize(dailyNewLimit: dailyNewLimit, isTestMode: isTestMode)
+                await vm.initialize(dailyNewLimit: dailyNewLimit, isTestMode: isTestMode, isExtraSession: isExtraSession)
                 viewModel = vm
             }
         }

@@ -111,6 +111,7 @@ extension View {
             .overlay(
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                     .stroke(Theme.border, lineWidth: 1)
+                    .allowsHitTesting(false)
             )
             .shadow(color: elevated ? Theme.cardShadow : .clear, radius: elevated ? 14 : 0, y: elevated ? 7 : 0)
     }

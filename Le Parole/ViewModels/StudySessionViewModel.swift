@@ -16,6 +16,7 @@ struct StudyCard: Identifiable, Sendable {
     enum SchedulingIntent: Sendable {
         case standard
         case familiarityConfirmation
+        case lapseRecovery
     }
 
     var prompt: String {
@@ -50,7 +51,7 @@ struct MistakeContext: Sendable {
 }
 
 struct MistakeItem: Identifiable, Sendable {
-    let id = UUID()
+    var id: String { "\(userWord.id)_\(cardType)" }
     let userWord: UserWord
     let cardType: StudyCard.CardType
     var context: MistakeContext?
@@ -72,6 +73,13 @@ struct ReviewScheduleFeedback: Sendable {
     let detail: String
 }
 
+enum ReviewOutcome: Sendable {
+    case stageChanged(from: WordStage, to: WordStage)
+    case lapseRecovered(ReviewScheduleFeedback)
+    case reviewScheduled(ReviewScheduleFeedback)
+    case none
+}
+
 enum ConjugationFetchStatus: Sendable {
     case loading
     case success(sentence: String, answer: String, explanation: String, tense: String, pronoun: String, englishTranslation: String)
@@ -90,13 +98,13 @@ private struct SessionInitialization: Sendable {
 class StudySessionViewModel {
     private nonisolated static let testPageSize = 200
     private nonisolated static let testPagePrefetchThreshold = 40
+    private nonisolated static let conjugationGenerationTimeout: Duration = .seconds(12)
 
     var cards: [StudyCard] = []
     var conjugationCache: [UUID: ConjugationFetchStatus] = [:]
     var currentIndex: Int = 0
     var stats = SessionStats()
     var isTestMode = false
-    var geminiError: String? = nil
     private(set) var autoPlayPronunciation = true
     private(set) var conjugationLevel = 1
     private(set) var geminiApiKey = ""
@@ -113,7 +121,7 @@ class StudySessionViewModel {
         return cards[currentIndex]
     }
 
-    func initialize(dailyNewLimit: Int, isTestMode: Bool = false) async {
+    func initialize(dailyNewLimit: Int, isTestMode: Bool = false, isExtraSession: Bool = false) async {
         self.isTestMode = isTestMode
         let now = Date.now
         let today = Calendar.current.startOfDay(for: now)
@@ -157,27 +165,82 @@ class StudySessionViewModel {
                 sql: "SELECT COUNT(*) FROM userWords WHERE learnedDate >= ?",
                 arguments: [today.timeIntervalSince1970]
             ) ?? 0
-            let remainingNewSlots = max(0, dailyNewLimit - alreadyLearnedToday)
-            let dueWords = try UserWord.fetchAll(db, sql: """
+            let remainingNewSlots = isExtraSession ? 0 : max(0, dailyNewLimit - alreadyLearnedToday)
+            var dueWords = try UserWord.fetchAll(db, sql: """
                 \(DatabaseService.userWordSelectSQL)
                 WHERE uw.stage IN ('recognition', 'production', 'mastered')
                   AND uw.nextReviewDate <= ?
                 """, arguments: [now.timeIntervalSince1970])
-            let newWords = try UserWord.fetchAll(db, sql: """
-                \(DatabaseService.userWordSelectSQL)
-                WHERE uw.stage = 'new'
-                ORDER BY w.isUserCreated DESC,
-                         CASE WHEN w.isUserCreated THEN
-                             CASE w.level
-                                 WHEN 'A1' THEN 0 WHEN 'A2' THEN 1 WHEN 'B1' THEN 2
-                                 WHEN 'B2' THEN 3 WHEN 'C1' THEN 4 WHEN 'C2' THEN 5
-                                 ELSE 99
-                             END
-                         ELSE 0 END,
-                         w.frequencyRank,
-                         w.wordId
-                LIMIT ?
-                """, arguments: [remainingNewSlots])
+            var newWords: [UserWord] = []
+            if remainingNewSlots > 0 {
+                newWords = try UserWord.fetchAll(db, sql: """
+                    \(DatabaseService.userWordSelectSQL)
+                    WHERE uw.stage = 'new'
+                    ORDER BY w.isUserCreated DESC,
+                             CASE WHEN w.isUserCreated THEN
+                                 CASE w.level
+                                     WHEN 'A1' THEN 0 WHEN 'A2' THEN 1 WHEN 'B1' THEN 2
+                                     WHEN 'B2' THEN 3 WHEN 'C1' THEN 4 WHEN 'C2' THEN 5
+                                     ELSE 99
+                                 END
+                             ELSE 0 END,
+                             w.frequencyRank,
+                             w.wordId
+                    LIMIT ?
+                    """, arguments: [remainingNewSlots])
+            }
+
+            if isExtraSession || (dueWords.isEmpty && newWords.isEmpty) {
+                let targetBatchSize = max(settings?.dailyNewWordGoal ?? 20, 20)
+                let recognitionBacklog = try Int.fetchOne(
+                    db,
+                    sql: "SELECT COUNT(*) FROM userWords WHERE stage = 'recognition'"
+                ) ?? 0
+                let newWordPacing = settings?.dailyNewWordGoal ?? 20
+
+                if recognitionBacklog < Int(Double(newWordPacing) * 1.5) {
+                    let neededNewSlots = min(targetBatchSize, newWordPacing)
+                    newWords = try UserWord.fetchAll(db, sql: """
+                        \(DatabaseService.userWordSelectSQL)
+                        WHERE uw.stage = 'new'
+                        ORDER BY w.isUserCreated DESC,
+                                 CASE WHEN w.isUserCreated THEN
+                                     CASE w.level
+                                         WHEN 'A1' THEN 0 WHEN 'A2' THEN 1 WHEN 'B1' THEN 2
+                                         WHEN 'B2' THEN 3 WHEN 'C1' THEN 4 WHEN 'C2' THEN 5
+                                         ELSE 99
+                                     END
+                                 ELSE 0 END,
+                                 w.frequencyRank,
+                                 w.wordId
+                        LIMIT ?
+                        """, arguments: [neededNewSlots])
+                }
+
+                let neededReviewSlots = max(0, targetBatchSize - newWords.count)
+                if neededReviewSlots > 0 {
+                    let reviewWords = try UserWord.fetchAll(db, sql: """
+                        \(DatabaseService.userWordSelectSQL)
+                        WHERE uw.stage IN ('recognition', 'production', 'mastered')
+                        ORDER BY
+                            CASE WHEN uw.nextReviewDate <= ? THEN 0 ELSE 1 END,
+                            CASE WHEN uw.lastWrongDate IS NOT NULL AND (uw.lastReviewDate IS NULL OR uw.lastWrongDate >= uw.lastReviewDate) THEN 0 ELSE 1 END,
+                            CASE WHEN uw.stage = 'recognition' THEN 0 ELSE 1 END,
+                            CASE WHEN uw.stage = 'production' THEN 0 ELSE 1 END,
+                            uw.nextReviewDate ASC,
+                            w.frequencyRank ASC
+                        LIMIT ?
+                        """, arguments: [now.timeIntervalSince1970, neededReviewSlots])
+
+                    let existingIDs = Set(dueWords.compactMap(\.id))
+                    for word in reviewWords {
+                        if let id = word.id, !existingIDs.contains(id) {
+                            dueWords.append(word)
+                        }
+                    }
+                }
+            }
+
             return SessionInitialization(
                 settings: settings,
                 dueWords: dueWords,
@@ -202,6 +265,7 @@ class StudySessionViewModel {
             )
         }
         
+        prepareCurrentCardForImmediateDisplay()
         prefetchUpcomingCards()
     }
 
@@ -259,20 +323,25 @@ class StudySessionViewModel {
         maintenanceWords.sort { isHigherPriority($0, than: $1, now: now) }
 
         let aiAvailable = AppleIntelligenceService.isAvailable
-        let makeDueCard: (UserWord) -> StudyCard = { userWord in
+        let makeDueCard: (UserWord, StudyCard.SchedulingIntent) -> StudyCard = { userWord, schedulingIntent in
             let isVerb = userWord.word.english.lowercased().hasPrefix("to ")
             let type: StudyCard.CardType = aiAvailable && isVerb ? .conjugation : .production
-            return StudyCard(userWord: userWord, cardType: type)
+            return StudyCard(userWord: userWord, cardType: type, schedulingIntent: schedulingIntent)
         }
 
         let attentionCards = attentionWords.map { userWord in
-            userWord.stage == .recognition
-                ? StudyCard(userWord: userWord, cardType: .recognition)
-                : makeDueCard(userWord)
+            if userWord.stage == .recognition {
+                return StudyCard(userWord: userWord, cardType: .recognition)
+            }
+            let schedulingIntent: StudyCard.SchedulingIntent =
+                hasUnresolvedMistake(userWord) && SM2.isLapseRecoveryCandidate(userWord)
+                ? .lapseRecovery
+                : .standard
+            return makeDueCard(userWord, schedulingIntent)
         }
-        let dueLearningCards = learningWords.map(makeDueCard)
+        let dueLearningCards = learningWords.map { makeDueCard($0, .standard) }
         let learningCards = alternating(newCards, dueLearningCards)
-        let maintenanceCards = maintenanceWords.map(makeDueCard)
+        let maintenanceCards = maintenanceWords.map { makeDueCard($0, .standard) }
 
         let queue = rotateQueue(
             attention: attentionCards,
@@ -398,12 +467,13 @@ class StudySessionViewModel {
         return false
     }
 
-    func recordResult(correct: Bool, context: MistakeContext? = nil) {
+    func recordResult(correct: Bool, context: MistakeContext? = nil) -> ReviewOutcome {
         processResult(correct: correct, context: context)
     }
 
     func advance() {
         currentIndex += 1
+        prepareCurrentCardForImmediateDisplay()
         if isTestMode {
             if currentIndex >= cards.count && currentIndex < totalCardCount {
                 isLoadingMoreCards = true
@@ -467,35 +537,108 @@ class StudySessionViewModel {
     private var prefetchTask: Task<Void, Never>?
     private var persistenceTask: Task<Void, Never>?
     private var persistenceGeneration = 0
+
+    private nonisolated static func generatedBeforeDeadline<Value: Sendable>(
+        operation: @escaping @Sendable () async -> Value?
+    ) async -> Value? {
+        await withTaskGroup(of: Value?.self) { group in
+            group.addTask {
+                await operation()
+            }
+            group.addTask {
+                do {
+                    try await Task.sleep(for: conjugationGenerationTimeout)
+                } catch {
+                    return nil
+                }
+                return nil
+            }
+
+            let result = await group.next() ?? nil
+            group.cancelAll()
+            return result
+        }
+    }
+
+    private func downgradeConjugationCard(id: UUID) {
+        conjugationCache[id] = .failed
+        if let index = cards.firstIndex(where: { $0.id == id }) {
+            cards[index].cardType = .production
+        }
+    }
+
+    /// A study card should never block the session while generated content is
+    /// pending. Use a prefetched challenge when ready; otherwise retain the
+    /// same word and fall back to the ordinary production interaction.
+    private func prepareCurrentCardForImmediateDisplay() {
+        guard currentIndex < cards.count,
+              cards[currentIndex].cardType == .conjugation else { return }
+        if case .success = conjugationCache[cards[currentIndex].id] { return }
+        downgradeConjugationCard(id: cards[currentIndex].id)
+    }
     
     private func prefetchUpcomingCards() {
         guard prefetchTask == nil else { return }
         
         prefetchTask = Task { @MainActor in
-            defer { self.prefetchTask = nil }
-            var cachedAhead = 0
+            var requestedCardIDs: [UUID] = []
+            var generatedAnyCard = false
+            defer {
+                if Task.isCancelled {
+                    for cardID in requestedCardIDs {
+                        if case .loading = self.conjugationCache[cardID] {
+                            self.downgradeConjugationCard(id: cardID)
+                        }
+                    }
+                }
+                self.prefetchTask = nil
+
+                let currentNeedsGeneration: Bool
+                if !Task.isCancelled,
+                   self.currentIndex < self.cards.count,
+                   self.cards[self.currentIndex].cardType == .conjugation {
+                    currentNeedsGeneration = self.conjugationCache[self.cards[self.currentIndex].id] == nil
+                } else {
+                    currentNeedsGeneration = false
+                }
+
+                // Refill after a successful request, or immediately prioritize a
+                // conjugation card reached while an earlier batch was in flight.
+                if !Task.isCancelled && (generatedAnyCard || currentNeedsGeneration) {
+                    self.prefetchUpcomingCards()
+                }
+            }
+            var readyAhead = 0
             var missingCards: [StudyCard] = []
             
             for i in self.currentIndex..<self.cards.count {
                 if self.cards[i].cardType == .conjugation {
                     let cacheState = self.conjugationCache[self.cards[i].id]
                     if let state = cacheState {
-                        if case .failed = state {
-                            // skip failed
-                        } else {
-                            cachedAhead += 1
+                        switch state {
+                        case .success:
+                            readyAhead += 1
+                        case .loading:
+                            // A loading state without the owning prefetch task is
+                            // stale. Fail safely rather than treating it as ready.
+                            self.downgradeConjugationCard(id: self.cards[i].id)
+                        case .failed:
+                            break
                         }
                     } else {
                         missingCards.append(self.cards[i])
                     }
-                    if cachedAhead + missingCards.count >= 3 {
+                    if readyAhead + missingCards.count >= 3 {
                         break
                     }
                 }
             }
             
-            let neededCards = max(0, 3 - cachedAhead)
-            missingCards = Array(missingCards.prefix(neededCards))
+            let neededCards = max(0, 3 - readyAhead)
+            let currentCardNeedsPriority = self.currentIndex < self.cards.count &&
+                self.cards[self.currentIndex].cardType == .conjugation &&
+                self.conjugationCache[self.cards[self.currentIndex].id] == nil
+            missingCards = Array(missingCards.prefix(currentCardNeedsPriority ? 1 : neededCards))
             guard !missingCards.isEmpty else { return }
 
             let apiKey = self.geminiApiKey
@@ -531,6 +674,7 @@ class StudySessionViewModel {
             
             for card in missingCards {
                 self.conjugationCache[card.id] = .loading
+                requestedCardIDs.append(card.id)
                 let verb = card.userWord.word.italian
                 let isStative = stativeVerbs.contains(verb.lowercased())
                 let isImpersonal = impersonalVerbs.contains(verb.lowercased())
@@ -585,18 +729,23 @@ class StudySessionViewModel {
             }
             
             if !apiKey.isEmpty {
-                if let results = await GeminiService.generateBatchedConjugationChallenges(requests: batchedRequests, apiKey: apiKey) {
+                let requests = batchedRequests
+                if let results = await Self.generatedBeforeDeadline(operation: {
+                    await GeminiService.generateBatchedConjugationChallenges(requests: requests, apiKey: apiKey)
+                }) {
                     guard !Task.isCancelled else { return }
                     for result in results {
                         guard let cardId = UUID(uuidString: result.id) else { continue }
-                        if self.cards.contains(where: { $0.id == cardId }) {
+                        if let cardIndex = self.cards.firstIndex(where: { $0.id == cardId }),
+                           self.cards[cardIndex].cardType == .conjugation,
+                           case .loading = self.conjugationCache[cardId] {
                             self.conjugationCache[cardId] = .success(sentence: result.sentence, answer: result.answer, explanation: result.explanation ?? "", tense: result.tense ?? "", pronoun: result.pronoun ?? "", englishTranslation: result.englishTranslation ?? "")
+                            generatedAnyCard = true
                         }
                         batchedRequests.removeAll { $0.id == result.id }
                     }
                 }
-                if let errorStr = GeminiService.lastErrorMessage {
-                    self.geminiError = errorStr
+                if GeminiService.lastErrorMessage != nil {
                     GeminiService.lastErrorMessage = nil
                 }
             }
@@ -608,24 +757,26 @@ class StudySessionViewModel {
                 if !apiKey.isEmpty {
                     result = nil
                 } else {
-                    result = await AppleIntelligenceService.generateConjugationChallenge(
-                        for: req.verb,
-                        englishMeaning: req.englishMeaning,
-                        tense: req.tense,
-                        pronoun: req.pronoun
-                    )
+                    result = await Self.generatedBeforeDeadline(operation: {
+                        await AppleIntelligenceService.generateConjugationChallenge(
+                            for: req.verb,
+                            englishMeaning: req.englishMeaning,
+                            tense: req.tense,
+                            pronoun: req.pronoun
+                        )
+                    })
                 }
                 guard !Task.isCancelled else { return }
                 
                 if let res = result {
-                    if self.cards.contains(where: { $0.id == cardId }) {
+                    if let cardIndex = self.cards.firstIndex(where: { $0.id == cardId }),
+                       self.cards[cardIndex].cardType == .conjugation,
+                       case .loading = self.conjugationCache[cardId] {
                         self.conjugationCache[cardId] = .success(sentence: res.sentence, answer: res.answer, explanation: res.explanation, tense: res.tense, pronoun: res.pronoun, englishTranslation: res.englishTranslation)
+                        generatedAnyCard = true
                     }
                 } else {
-                    self.conjugationCache[cardId] = .failed
-                    if let indexToDowngrade = self.cards.firstIndex(where: { $0.id == cardId }) {
-                        self.cards[indexToDowngrade].cardType = .production
-                    }
+                    self.downgradeConjugationCard(id: cardId)
                 }
             }
             
@@ -644,8 +795,8 @@ class StudySessionViewModel {
         }
     }
 
-    private func processResult(correct: Bool, context: MistakeContext? = nil) {
-        guard currentIndex < cards.count else { return }
+    private func processResult(correct: Bool, context: MistakeContext? = nil) -> ReviewOutcome {
+        guard currentIndex < cards.count else { return .none }
         let cardType = cards[currentIndex].cardType
         let schedulingIntent = cards[currentIndex].schedulingIntent
         let stageBeforeAnswer = cards[currentIndex].userWord.stage
@@ -704,13 +855,24 @@ class StudySessionViewModel {
                 }
 
             case .production, .conjugation:
-                let result = schedulingIntent == .familiarityConfirmation && correct
-                    ? SM2.acceleratedMastery(for: cards[currentIndex].userWord)
-                    : SM2.evaluate(userWord: cards[currentIndex].userWord, correct: correct)
+                let isMasteredLapse = !correct && stageBeforeAnswer == .mastered
+                let result: SM2Result
+                if schedulingIntent == .familiarityConfirmation && correct {
+                    result = SM2.acceleratedMastery(for: cards[currentIndex].userWord)
+                } else if schedulingIntent == .lapseRecovery && correct {
+                    result = SM2.completeLapseRecovery(for: cards[currentIndex].userWord)
+                } else if isMasteredLapse {
+                    result = SM2.beginLapseRecovery(for: cards[currentIndex].userWord)
+                } else {
+                    result = SM2.evaluate(userWord: cards[currentIndex].userWord, correct: correct)
+                }
                 applyResult(result, to: &cards[currentIndex].userWord)
+                if isMasteredLapse {
+                    cards[currentIndex].userWord.nextReviewDate = SM2.nextReviewDate(interval: SM2.lapseReviewDelay)
+                }
                 if correct && result.interval >= SM2.masteryThreshold {
                     cards[currentIndex].userWord.stage = .mastered
-                } else if !correct && stageBeforeAnswer == .mastered {
+                } else if isMasteredLapse {
                     cards[currentIndex].userWord.stage = .production
                 }
             }
@@ -722,7 +884,24 @@ class StudySessionViewModel {
             stageBeforeAnswer != .production &&
             stageBeforeAnswer != .mastered &&
             uwToSave.stage == .production
-        let movedToMastered = stageBeforeAnswer != .mastered && uwToSave.stage == .mastered
+        let didTransitionToMastered = stageBeforeAnswer != .mastered && uwToSave.stage == .mastered
+        let countsAsNewMastery: Bool
+        if case .lapseRecovery = schedulingIntent {
+            countsAsNewMastery = false
+        } else {
+            countsAsNewMastery = didTransitionToMastered
+        }
+
+        let outcome: ReviewOutcome
+        if schedulingIntent == .lapseRecovery, correct, didTransitionToMastered {
+            outcome = .lapseRecovered(reviewScheduleFeedback(for: uwToSave.interval))
+        } else if stageBeforeAnswer != uwToSave.stage {
+            outcome = .stageChanged(from: stageBeforeAnswer, to: uwToSave.stage)
+        } else if correct, stageBeforeAnswer == .mastered, uwToSave.stage == .mastered {
+            outcome = .reviewScheduled(reviewScheduleFeedback(for: uwToSave.interval))
+        } else {
+            outcome = .none
+        }
         
         let conjugationReview: ConjugationReviewRecord?
         if cardType == .conjugation, case .success(_, _, _, let tense, let pronoun, _) = conjugationCache[cards[currentIndex].id] {
@@ -745,7 +924,7 @@ class StudySessionViewModel {
                 correct: correct,
                 introduced: introduced,
                 movedToProduction: movedToProduction,
-                movedToMastered: movedToMastered,
+                movedToMastered: countsAsNewMastery,
                 conjugation: conjugationReview
             )
         }
@@ -755,6 +934,7 @@ class StudySessionViewModel {
             guard let self, self.persistenceGeneration == generation else { return }
             self.persistenceTask = nil
         }
+        return outcome
     }
 
     /// A first-sight recognition success may be a word the learner already
@@ -777,9 +957,7 @@ class StudySessionViewModel {
         userWord.nextReviewDate = SM2.nextReviewDate(interval: result.interval)
     }
 
-    var currentReviewScheduleFeedback: ReviewScheduleFeedback? {
-        guard let userWord = currentCard?.userWord, userWord.stage == .mastered else { return nil }
-        let interval = userWord.interval
+    private func reviewScheduleFeedback(for interval: Int) -> ReviewScheduleFeedback {
         let title: String
         switch interval {
         case ...1:

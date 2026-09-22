@@ -27,7 +27,7 @@ struct SessionCompleteView: View {
                             .foregroundStyle(Theme.mastered)
                     }
                 } else if stats.graduated > 0 {
-                    ResultRow(label: "Words graduated to EN→IT", value: "\(stats.graduated)")
+                    ResultRow(label: "Words moving up", value: "\(stats.graduated)")
                         .foregroundStyle(Theme.primary)
                 }
             }

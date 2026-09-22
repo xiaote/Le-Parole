@@ -10,6 +10,9 @@ enum SM2 {
     // Words with SM-2 interval >= this threshold are considered mastered.
     static let masteryThreshold = 21
     static let acceleratedMasteryInterval = 30
+    static let lapseReviewDelay = 1
+    private static let minimumRetainedLapseInterval = 8
+    private static let maximumRetainedLapseInterval = 14
 
     /// Evaluates a production-stage review and returns updated SM-2 values.
     static func evaluate(userWord: UserWord, correct: Bool) -> SM2Result {
@@ -54,6 +57,38 @@ enum SM2 {
             easeFactor: max(2.5, userWord.easeFactor),
             repetitions: max(3, userWord.repetitions)
         )
+    }
+
+    /// A lapse should prompt a quick refresher without erasing the stability
+    /// earned before mastery. The retained interval feeds the recovery review;
+    /// its actual due date is intentionally scheduled for tomorrow.
+    static func beginLapseRecovery(for userWord: UserWord) -> SM2Result {
+        let retainedInterval = min(
+            maximumRetainedLapseInterval,
+            max(minimumRetainedLapseInterval, Int(round(Double(userWord.interval) * 0.25)))
+        )
+        return SM2Result(
+            interval: retainedInterval,
+            easeFactor: max(1.3, userWord.easeFactor - 0.15),
+            repetitions: max(2, userWord.repetitions - 1)
+        )
+    }
+
+    /// One successful next-day refresher restores mastery, but from the much
+    /// shorter retained interval rather than the word's former long interval.
+    static func completeLapseRecovery(for userWord: UserWord) -> SM2Result {
+        let result = evaluate(userWord: userWord, correct: true)
+        return SM2Result(
+            interval: max(masteryThreshold, result.interval),
+            easeFactor: result.easeFactor,
+            repetitions: result.repetitions
+        )
+    }
+
+    static func isLapseRecoveryCandidate(_ userWord: UserWord) -> Bool {
+        userWord.stage == .production &&
+            userWord.repetitions >= 2 &&
+            (minimumRetainedLapseInterval...maximumRetainedLapseInterval).contains(userWord.interval)
     }
 
     static func nextReviewDate(interval: Int) -> Date {

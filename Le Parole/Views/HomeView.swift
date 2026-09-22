@@ -5,15 +5,11 @@ struct HomeView: View {
 
     @State private var vm = HomeViewModel()
     @State private var showingSession = false
-    @State private var showingExtraSession = false
     @State private var showingMistakes = false
+    @State private var mistakesReviewWords: [MistakeItem] = []
     @State private var showingInProgress = false
     @State private var showingTestSession = false
     @State private var showingMastered = false
-
-    private var sessionAction: String {
-        vm.hasWork ? "Start practice" : (vm.canLearnMore ? "Keep learning" : "All caught up")
-    }
 
     private var dashboardColumns: [GridItem] {
         let count = dynamicTypeSize.isAccessibilitySize ? 1 : 2
@@ -28,16 +24,12 @@ struct HomeView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
                         PracticeCard(
-                            title: sessionAction,
+                            title: vm.sessionAction,
                             completedToday: vm.reviewAttemptsToday,
                             dailyTarget: vm.dailyPracticeGoal,
-                            isEnabled: vm.hasWork || vm.canLearnMore
+                            isEnabled: vm.canStudy
                         ) {
-                            if vm.hasWork {
-                                showingSession = true
-                            } else if vm.canLearnMore {
-                                showingExtraSession = true
-                            }
+                            showingSession = true
                         }
 
                         LazyVGrid(columns: dashboardColumns, spacing: 12) {
@@ -68,6 +60,7 @@ struct HomeView: View {
                                     detail: "errors",
                                     tint: Theme.playfulAccent
                                 ) {
+                                    mistakesReviewWords = vm.mistakesToday.map { MistakeItem(userWord: $0, cardType: .production, context: nil) }
                                     showingMistakes = true
                                 }
                             }
@@ -94,16 +87,13 @@ struct HomeView: View {
             }
             .navigationTitle("Today")
             .fullScreenCover(isPresented: $showingSession) {
-                StudySessionView(dailyNewLimit: vm.newWordPacing)
-            }
-            .fullScreenCover(isPresented: $showingExtraSession) {
-                StudySessionView(dailyNewLimit: vm.extraSessionDailyLimit)
+                StudySessionView(dailyNewLimit: vm.newWordPacing, isExtraSession: !vm.hasWork)
             }
             .fullScreenCover(isPresented: $showingTestSession) {
                 StudySessionView(dailyNewLimit: Int.max, isTestMode: true)
             }
             .sheet(isPresented: $showingMistakes) {
-                MistakesReviewView(words: vm.mistakesToday.map { MistakeItem(userWord: $0, cardType: .production, context: nil) })
+                MistakesReviewView(words: mistakesReviewWords)
             }
             .sheet(isPresented: $showingInProgress) {
                 InProgressView(words: vm.getInProgressWords())

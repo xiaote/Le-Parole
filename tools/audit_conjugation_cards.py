@@ -142,6 +142,15 @@ def build_cases(verbs: dict[str, str]) -> list[dict[str, str]]:
 def current_app_prompt(requests_for_batch: list[dict[str, str]]) -> str:
     """Render the production batch prompt directly from the Swift source."""
     source = SERVICE.read_text(encoding="utf-8")
+    explanation_rules_match = re.search(
+        r'private let conjugationExplanationRules = """\n(.*?)\n"""',
+        source,
+        flags=re.DOTALL,
+    )
+    if not explanation_rules_match:
+        raise RuntimeError("Could not extract the shared conjugation explanation rules")
+    explanation_rules = explanation_rules_match.group(1).replace(r"\n", "\n")
+
     method_start = source.index("static func generateBatchedConjugationChallenges")
     method = source[method_start:]
     match = re.search(
@@ -151,7 +160,9 @@ def current_app_prompt(requests_for_batch: list[dict[str, str]]) -> str:
     )
     if not match:
         raise RuntimeError("Could not extract Gemini's batch prompt from AppleIntelligenceService.swift")
-    template = match.group(1).replace(r"\(requests.count)", str(len(requests_for_batch)))
+    template = match.group(1)
+    template = template.replace(r"\(requests.count)", str(len(requests_for_batch)))
+    template = template.replace(r"\(conjugationExplanationRules)", explanation_rules)
     before_requests, marker, _ = template.partition("        REQUESTS:\n")
     if not marker:
         raise RuntimeError("The extracted batch prompt has no REQUESTS marker")
@@ -242,6 +253,14 @@ Italian. Check all of the following:
    forms use the stated grammatical subject correctly.
 5. The blank, infinitive label, explanation, and English translation are
    coherent; the Italian should sound natural rather than merely possible.
+6. The explanation is concise, scannable, and morphologically correct. A
+   regular form should have one short `Rule:` line. An irregular form should
+   have a compact `Rule:` line followed by `Forms (io→loro):` (or the applicable
+   imperative range), with forms in standard person order. Fail explanations
+   that use an incorrect stem/ending analysis, dense prose, or omit the
+   irregular paradigm. For -ciare/-giare verbs, require the unambiguous
+   `regular -are [pronoun] ending [ending]` format and any applicable spelling
+   note instead of a potentially misleading stem equation.
 
 Return ONLY a JSON object with a `results` array. Each result must have:
 `id`, `verdict` (`pass` or `fail`), `categories` (array), `reason`,

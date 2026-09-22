@@ -2,6 +2,7 @@ import SwiftUI
 
 struct PrimaryButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
+    var verticalPadding: CGFloat = 15
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -9,7 +10,7 @@ struct PrimaryButtonStyle: ButtonStyle {
             .foregroundStyle(.white)
             .padding(.horizontal, 18)
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 15)
+            .padding(.vertical, verticalPadding)
             .background(isEnabled ? AnyShapeStyle(Theme.primaryGradient) : AnyShapeStyle(Color(.systemGray4)))
             .clipShape(RoundedRectangle(cornerRadius: Theme.controlCornerRadius, style: .continuous))
             .overlay(
@@ -24,22 +25,37 @@ struct PrimaryButtonStyle: ButtonStyle {
 }
 
 struct SecondaryButtonStyle: ButtonStyle {
+    @Environment(\.isEnabled) private var isEnabled
     let tint: Color
+    var verticalPadding: CGFloat = 15
 
-    init(tint: Color = Theme.primary) {
+    init(tint: Color = Theme.primary, verticalPadding: CGFloat = 15) {
         self.tint = tint
+        self.verticalPadding = verticalPadding
     }
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.theme(.body, weight: .semibold))
-            .foregroundStyle(tint)
+            .foregroundStyle(isEnabled ? tint : tint.opacity(0.4))
             .padding(.horizontal, 18)
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 15)
+            .padding(.vertical, verticalPadding)
             .themeCard(cornerRadius: Theme.controlCornerRadius)
             .scaleEffect(configuration.isPressed ? 0.97 : 1)
-            .opacity(configuration.isPressed ? 0.8 : 1)
+            .opacity(configuration.isPressed ? 0.8 : (isEnabled ? 1.0 : 0.6))
             .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
+    }
+}
+
+struct PressableButtonStyle: ButtonStyle {
+    var scale: CGFloat = 0.94
+    var pressedOpacity: Double = 0.8
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? scale : 1.0)
+            .opacity(configuration.isPressed ? pressedOpacity : 1.0)
+            .animation(.easeOut(duration: 0.15), value: configuration.isPressed)
     }
 }

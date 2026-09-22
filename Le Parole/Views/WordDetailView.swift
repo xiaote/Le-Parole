@@ -3,6 +3,27 @@ import SwiftUI
 struct WordDetailView: View {
     let userWord: UserWord
     @Environment(\.dismiss) private var dismiss
+    @State private var activeSheet: ActiveSheet?
+
+    private enum ActiveSheet: Identifiable {
+        case diagram(WordDiagram)
+        case relatedTerm(String)
+
+        var id: String {
+            switch self {
+            case .diagram(let d): return "diagram_\(d.id)"
+            case .relatedTerm(let t): return "term_\(t)"
+            }
+        }
+    }
+
+    private var diagram: WordDiagram? {
+        SailingDiagramService.diagram(for: userWord.word.italian)
+    }
+
+    private var concept: WordConcept? {
+        ConceptService.shared.concept(for: userWord.word.italian)
+    }
 
     private var stageLabel: String {
         switch userWord.stage {
@@ -45,66 +66,140 @@ struct WordDetailView: View {
             ZStack {
                 Theme.canvas.ignoresSafeArea()
 
-                VStack(spacing: 24) {
-                VStack(spacing: 8) {
-                    Text(userWord.word.italian)
-                        .font(Theme.wordDisplay)
-                        .multilineTextAlignment(.center)
-                        
-                    if let pos = userWord.word.partOfSpeech {
-                        Text(pos)
-                            .font(.theme(.subheadline))
-                            .foregroundStyle(.secondary)
-                            .italic()
-                    }
-                        
-                    Text(userWord.word.english)
-                        .font(.theme(.title3))
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                        
-                    if !userWord.word.cleanAlternatives.isEmpty {
-                        Text(userWord.word.cleanAlternatives.joined(separator: ", "))
-                            .font(.theme(.subheadline))
-                            .foregroundStyle(.secondary)
-                            .multilineTextAlignment(.center)
-                    }
-                }
-                .padding(.top, 8)
+                ScrollView {
+                    VStack(spacing: 20) {
+                        VStack(spacing: 8) {
+                            HStack(spacing: 8) {
+                                Text(userWord.word.italian)
+                                    .font(Theme.wordDisplay)
+                                    .multilineTextAlignment(.center)
 
-                HStack(spacing: 12) {
-                    Text(userWord.word.level)
-                        .font(.theme(.subheadline, weight: .semibold))
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .background(Theme.chipBackground)
-                        .clipShape(Capsule())
+                                Button {
+                                    SpeechService.shared.speak(userWord.word.italian, languageCode: "it-IT")
+                                } label: {
+                                    Image(systemName: "speaker.wave.2.fill")
+                                        .font(.theme(.subheadline, weight: .semibold))
+                                        .foregroundStyle(.white)
+                                        .frame(width: 32, height: 32)
+                                        .background(Theme.primary, in: Circle())
+                                }
+                                .buttonStyle(.plain)
+                            }
 
-                    Label(stageLabel, systemImage: stageIcon)
-                        .font(.theme(.subheadline, weight: .semibold))
-                        .foregroundStyle(stageColor)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .background(stageColor.opacity(0.12))
-                        .clipShape(Capsule())
-                }
+                            if let pos = userWord.word.partOfSpeech {
+                                Text(pos)
+                                    .font(.theme(.subheadline))
+                                    .foregroundStyle(.secondary)
+                                    .italic()
+                            }
 
-                if userWord.totalAttempts > 0 {
-                    VStack(spacing: 0) {
-                        statRow("Accuracy", value: accuracy)
-                        Divider().padding(.leading, 16)
-                        statRow("Total attempts", value: "\(userWord.totalAttempts)")
-                        if userWord.stage != .new && userWord.stage != .skipped {
-                            Divider().padding(.leading, 16)
-                            statRow("Next review", value: userWord.nextReviewDate.formatted(date: .abbreviated, time: .omitted))
+                            Text(userWord.word.english)
+                                .font(.theme(.title3))
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
+
+                            if !userWord.word.cleanAlternatives.isEmpty {
+                                Text(userWord.word.cleanAlternatives.joined(separator: ", "))
+                                    .font(.theme(.subheadline))
+                                    .foregroundStyle(.secondary)
+                                    .multilineTextAlignment(.center)
+                            }
                         }
-                    }
-                    .themeCard()
-                }
+                        .padding(.top, 8)
 
-                Spacer()
-            }
-            .padding(20)
+                        HStack(spacing: 12) {
+                            Text(userWord.word.level)
+                                .font(.theme(.subheadline, weight: .semibold))
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 6)
+                                .background(Theme.chipBackground)
+                                .clipShape(Capsule())
+
+                            Label(stageLabel, systemImage: stageIcon)
+                                .font(.theme(.subheadline, weight: .semibold))
+                                .foregroundStyle(stageColor)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 6)
+                                .background(stageColor.opacity(0.12))
+                                .clipShape(Capsule())
+                        }
+
+                        if let diagram {
+                            VStack(alignment: .leading, spacing: 10) {
+                                HStack {
+                                    Label("Manuale CVC", systemImage: "sailboat.fill")
+                                        .font(.theme(.subheadline, weight: .semibold))
+                                        .foregroundStyle(Theme.primary)
+
+                                    Spacer()
+
+                                    Button {
+                                        activeSheet = .diagram(diagram)
+                                    } label: {
+                                        HStack(spacing: 4) {
+                                            Text("Tavola intera")
+                                            Image(systemName: "arrow.up.left.and.arrow.down.right")
+                                        }
+                                        .font(.theme(.caption, weight: .semibold))
+                                        .foregroundStyle(Theme.primary)
+                                        .padding(.vertical, 4)
+                                        .padding(.horizontal, 6)
+                                        .contentShape(Rectangle())
+                                    }
+                                    .buttonStyle(.plain)
+                                }
+
+                                Button {
+                                    activeSheet = .diagram(diagram)
+                                } label: {
+                                    Image(diagram.revealedImageName)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxHeight: 260)
+                                        .frame(maxWidth: .infinity)
+                                        .background(Color.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                                .stroke(Color.primary.opacity(0.12), lineWidth: 1)
+                                        )
+                                }
+                                .buttonStyle(.plain)
+
+                                if let caption = diagram.caption {
+                                    Text(caption)
+                                        .font(.theme(.subheadline))
+                                        .foregroundStyle(.secondary)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                }
+                            }
+                            .padding(16)
+                            .themeCard()
+                        }
+
+                        if let concept {
+                            ConceptSectionView(concept: concept) { term in
+                                activeSheet = .relatedTerm(term)
+                            }
+                        }
+
+                        if userWord.totalAttempts > 0 {
+                            VStack(spacing: 0) {
+                                statRow("Accuracy", value: accuracy)
+                                Divider().padding(.leading, 16)
+                                statRow("Total attempts", value: "\(userWord.totalAttempts)")
+                                if userWord.stage != .new && userWord.stage != .skipped {
+                                    Divider().padding(.leading, 16)
+                                    statRow("Next review", value: userWord.nextReviewDate.formatted(date: .abbreviated, time: .omitted))
+                                }
+                            }
+                            .themeCard()
+                        }
+
+                        Spacer(minLength: 20)
+                    }
+                    .padding(20)
+                }
             }
             .navigationTitle("Word Detail")
             .navigationBarTitleDisplayMode(.inline)
@@ -112,6 +207,14 @@ struct WordDetailView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
+                }
+            }
+            .sheet(item: $activeSheet) { sheet in
+                switch sheet {
+                case .diagram(let diag):
+                    DiagramPlateSheet(diagram: diag)
+                case .relatedTerm(let term):
+                    RelatedWordSheet(term: term)
                 }
             }
         }
