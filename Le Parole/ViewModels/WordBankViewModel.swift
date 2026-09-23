@@ -8,11 +8,22 @@ final class WordBankViewModel {
     private(set) var hasMoreResults = false
     private(set) var isLoadingMore = false
     
-    var searchText: String = "" { didSet { resetResults() } }
+    private var searchDebounceTask: Task<Void, Never>?
+    private var pageTask: Task<Void, Never>?
+
+    var searchText: String = "" {
+        didSet {
+            searchDebounceTask?.cancel()
+            searchDebounceTask = Task { @MainActor [weak self] in
+                try? await Task.sleep(for: .milliseconds(250))
+                guard !Task.isCancelled else { return }
+                self?.resetResults()
+            }
+        }
+    }
     var showingSkipped: Bool = false { didSet { resetResults() } }
     var selectedLevel: String? = nil { didSet { resetResults() } }
     
-    private var cancellable: AnyDatabaseCancellable?
     private var levelsCancellable: AnyDatabaseCancellable?
     private static let pageSize = 250
     private var cursor: ResultCursor?
@@ -25,14 +36,15 @@ final class WordBankViewModel {
         let userWordID: Int64
     }
     
-    init() {
-        setObserving(true)
-    }
+    init() {}
 
     func setObserving(_ shouldObserve: Bool) {
         guard shouldObserve else {
             isObserving = false
-            cancellable = nil
+            pageTask?.cancel()
+            pageTask = nil
+            searchDebounceTask?.cancel()
+            searchDebounceTask = nil
             levelsCancellable = nil
             activeRequestID = UUID()
             isLoadingMore = false
@@ -60,15 +72,15 @@ final class WordBankViewModel {
         guard isObserving, !isLoadingMore else { return }
 
         isLoadingMore = true
-        let text = searchText
+        let text = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
         let skipped = showingSkipped
         let level = selectedLevel
         let pageCursor = cursor
         let requestID = UUID()
-        let pageStartIndex = replacingResults ? 0 : userWords.count
         activeRequestID = requestID
-        
-        cancellable = ValueObservation.tracking { db in
+
+        pageTask?.cancel()
+        pageTask = Task { @MainActor [weak self] in
             let baseSQL = """
                 SELECT uw.id, uw.wordId, uw.stage, uw.easeFactor, uw.interval, uw.repetitions,
                        uw.nextReviewDate, uw.lastReviewDate, uw.learnedDate, uw.lastWrongDate,
@@ -107,32 +119,34 @@ final class WordBankViewModel {
             let whereClause = conditions.isEmpty ? "" : "WHERE " + conditions.joined(separator: " AND ")
             let sql = "\(baseSQL) \(whereClause) ORDER BY w.frequencyRank, uw.id LIMIT ?"
             arguments.append(Self.pageSize)
-            
-            return try UserWord.fetchAll(db, sql: sql, arguments: StatementArguments(arguments))
-        }.start(
-            in: DatabaseService.shared.db,
-            scheduling: .async(onQueue: .main),
-            onError: { _ in },
-            onChange: { [weak self] words in
-                guard self?.activeRequestID == requestID else { return }
-
-                if replacingResults {
-                    self?.userWords = words
-                } else if self?.deliveredRequestID == requestID {
-                    self?.userWords.replaceSubrange(pageStartIndex..., with: words)
-                } else {
-                    self?.userWords.append(contentsOf: words)
+            let statementArgs = StatementArguments(arguments) ?? StatementArguments()
+            let words: [UserWord]
+            do {
+                words = try await DatabaseService.shared.db.read { db in
+                    try UserWord.fetchAll(db, sql: sql, arguments: statementArgs)
                 }
-
-                self?.deliveredRequestID = requestID
-                self?.cursor = words.last.flatMap { word in
-                    guard let id = word.id else { return nil }
-                    return ResultCursor(frequencyRank: word.word.frequencyRank, userWordID: id)
-                } ?? pageCursor
-                self?.hasMoreResults = words.count == Self.pageSize
-                self?.isLoadingMore = false
+            } catch {
+                guard let self, self.activeRequestID == requestID else { return }
+                self.isLoadingMore = false
+                return
             }
-        )
+
+            guard !Task.isCancelled, let self, self.activeRequestID == requestID else { return }
+
+            if replacingResults {
+                self.userWords = words
+            } else {
+                self.userWords.append(contentsOf: words)
+            }
+
+            self.deliveredRequestID = requestID
+            self.cursor = words.last.flatMap { word in
+                guard let id = word.id else { return nil }
+                return ResultCursor(frequencyRank: word.word.frequencyRank, userWordID: id)
+            } ?? pageCursor
+            self.hasMoreResults = words.count == Self.pageSize
+            self.isLoadingMore = false
+        }
     }
 
     func loadMoreIfNeeded(after userWordID: Int64?) {
@@ -140,7 +154,13 @@ final class WordBankViewModel {
         loadNextPage()
     }
 
+    func refresh() {
+        resetResults()
+    }
+
     private func resetResults() {
+        pageTask?.cancel()
+        pageTask = nil
         activeRequestID = UUID()
         isLoadingMore = false
         cursor = nil
@@ -153,7 +173,7 @@ final class WordBankViewModel {
     func applyStage(_ stage: WordStage, to ids: Set<Int64>) {
         guard !ids.isEmpty else { return }
         Task.detached {
-            try? DatabaseService.shared.db.write { db in
+            try? await DatabaseService.shared.db.write { db in
                 for id in ids {
                     try db.execute(
                         sql: "UPDATE userWords SET stage = ? WHERE id = ?",
@@ -170,6 +190,9 @@ final class WordBankViewModel {
                         )
                     }
                 }
+            }
+            await MainActor.run { [weak self] in
+                self?.resetResults()
             }
         }
     }

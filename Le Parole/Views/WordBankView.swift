@@ -27,7 +27,7 @@ struct WordBankView: View {
                 Theme.canvas.ignoresSafeArea()
 
                 ScrollView {
-                    LazyVStack(spacing: 0) {
+                    VStack(spacing: 0) {
                         filterBar
                             .padding(.bottom, 8)
 
@@ -35,7 +35,7 @@ struct WordBankView: View {
                             .overlay(Theme.border)
                             .padding(.horizontal, 20)
 
-                        if vm.userWords.isEmpty {
+                        if vm.userWords.isEmpty && !vm.isLoadingMore {
                             ContentUnavailableView(
                                 searchText.isEmpty ? "No words here" : "No results",
                                 systemImage: searchText.isEmpty ? "text.book.closed" : "magnifyingglass",
@@ -53,7 +53,7 @@ struct WordBankView: View {
 
                                 if vm.hasMoreResults && vm.isLoadingMore {
                                     ProgressView()
-                                    .padding(.vertical, 16)
+                                        .padding(.vertical, 16)
                                 }
                             }
                             .padding(.horizontal, 20)
@@ -91,7 +91,10 @@ struct WordBankView: View {
                 Button("Delete", role: .destructive) {
                     if let word = wordToDelete?.word {
                         Task.detached {
-                            try? DatabaseService.shared.db.write { db in try word.delete(db) }
+                            try? await DatabaseService.shared.db.write { db in try word.delete(db) }
+                            await MainActor.run {
+                                vm.refresh()
+                            }
                         }
                     }
                     wordToDelete = nil
@@ -135,6 +138,14 @@ struct WordBankView: View {
                     }
                 }
             }
+        }
+        .onAppear {
+            if !appActivity.isStudySessionActive {
+                vm.setObserving(true)
+            }
+        }
+        .onDisappear {
+            vm.setObserving(false)
         }
         .onChange(of: appActivity.isStudySessionActive) { _, isStudying in
             vm.setObserving(!isStudying)

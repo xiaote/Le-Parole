@@ -1,9 +1,23 @@
 import SwiftUI
 
 struct InProgressView: View {
-    let words: [UserWord]
+    @State private var words: [UserWord] = []
+    @State private var isLoading = false
+    private let loadWords: (@Sendable () async -> [UserWord])?
 
     @Environment(\.dismiss) private var dismiss
+
+    init(words: [UserWord]) {
+        self._words = State(initialValue: words)
+        self._isLoading = State(initialValue: false)
+        self.loadWords = nil
+    }
+
+    init(loadWords: @escaping @Sendable () async -> [UserWord]) {
+        self._words = State(initialValue: [])
+        self._isLoading = State(initialValue: true)
+        self.loadWords = loadWords
+    }
 
     private var recognitionWords: [UserWord] {
         words.filter { $0.stage == .recognition }
@@ -44,12 +58,20 @@ struct InProgressView: View {
             .scrollContentBackground(.hidden)
             .background(Theme.canvas)
             .overlay {
-                if words.isEmpty {
+                if isLoading {
+                    ProgressView()
+                } else if words.isEmpty {
                     ContentUnavailableView(
                         "Nothing in progress",
                         systemImage: "checkmark.circle",
                         description: Text("Words you are actively learning will appear here.")
                     )
+                }
+            }
+            .task {
+                if let loadWords {
+                    words = await loadWords()
+                    isLoading = false
                 }
             }
             .navigationTitle("In Progress")

@@ -11,9 +11,10 @@ struct StatsView: View {
         NavigationStack {
             List {
                 Section("Activity") {
+                    let counts = vm.dailyWordCounts()
                     DailyActivityChart(
-                        dailyCounts: vm.dailyWordCounts(),
-                        weekTotal: vm.thisWeekWordCount
+                        dailyCounts: counts,
+                        weekTotal: vm.thisWeekWordCount(from: counts)
                     )
                     .listRowInsets(EdgeInsets(top: 12, leading: 16, bottom: 16, trailing: 16))
                 }
@@ -84,6 +85,14 @@ struct StatsView: View {
             .navigationTitle("Progress")
             .toolbarBackground(Theme.canvas, for: .navigationBar)
         }
+        .onAppear {
+            if !appActivity.isStudySessionActive {
+                vm.setObserving(true)
+            }
+        }
+        .onDisappear {
+            vm.setObserving(false)
+        }
         .onChange(of: appActivity.isStudySessionActive) { _, isStudying in
             vm.setObserving(!isStudying)
         }
@@ -110,11 +119,7 @@ private struct DailyActivityChart: View {
 
     // Placeholder keeps the ZStack height stable when nothing is selected.
     private var placeholderCount: DailyCount {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = TimeZone.current
-        let todayStr = formatter.string(from: Date())
-        return DailyCount(dateString: todayStr)
+        DailyCount(dateString: AppDateFormatter.string(from: Date()))
     }
 
     var body: some View {

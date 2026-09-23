@@ -97,10 +97,14 @@ struct HomeView: View {
                 MistakesReviewView(words: mistakesReviewWords)
             }
             .sheet(isPresented: $showingInProgress) {
-                InProgressView(words: vm.getInProgressWords())
+                InProgressView {
+                    await vm.getInProgressWords()
+                }
             }
             .sheet(isPresented: $showingMastered) {
-                MasteredWordsView(words: vm.getMasteredWords())
+                MasteredWordsView {
+                    await vm.getMasteredWords()
+                }
             }
             .navigationBarTitleDisplayMode(.large)
             .toolbarBackground(Theme.canvas, for: .navigationBar)

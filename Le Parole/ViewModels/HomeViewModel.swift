@@ -50,10 +50,7 @@ final class HomeViewModel {
             let now = Date.now.timeIntervalSince1970
             let todayStart = Calendar.current.startOfDay(for: .now).timeIntervalSince1970
             let sixDaysAgo = Calendar.current.date(byAdding: .day, value: -6, to: .now)?.timeIntervalSince1970 ?? now
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            dateFormatter.timeZone = .current
-            let todayKey = dateFormatter.string(from: .now)
+            let todayKey = AppDateFormatter.string(from: .now)
 
             let mastered = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE stage = 'mastered'") ?? 0
             let inProgress = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE stage IN ('recognition', 'production')") ?? 0
@@ -152,8 +149,8 @@ final class HomeViewModel {
         }
     }
     
-    private func fetchWords(stageIn: [String]) -> [UserWord] {
-        (try? DatabaseService.shared.db.read { db in
+    private func fetchWords(stageIn: [String]) async -> [UserWord] {
+        (try? await DatabaseService.shared.db.read { db in
             let stages = stageIn.map { "'\($0)'" }.joined(separator: ", ")
             let sql = """
                 SELECT uw.id, uw.wordId, uw.stage, uw.easeFactor, uw.interval, uw.repetitions,
@@ -169,11 +166,11 @@ final class HomeViewModel {
         }) ?? []
     }
     
-    func getInProgressWords() -> [UserWord] {
-        fetchWords(stageIn: ["recognition", "production"])
+    func getInProgressWords() async -> [UserWord] {
+        await fetchWords(stageIn: ["recognition", "production"])
     }
     
-    func getMasteredWords() -> [UserWord] {
-        fetchWords(stageIn: ["mastered"])
+    func getMasteredWords() async -> [UserWord] {
+        await fetchWords(stageIn: ["mastered"])
     }
 }

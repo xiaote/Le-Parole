@@ -603,16 +603,18 @@ class StudySessionViewModel {
                     currentNeedsGeneration = false
                 }
 
-                // Refill after a successful request, or immediately prioritize a
-                // conjugation card reached while an earlier batch was in flight.
-                if !Task.isCancelled && (generatedAnyCard || currentNeedsGeneration) {
+                // Immediately prioritize the current visible card if it was reached while
+                // another request was in flight. Do not self-retrigger to refill the buffer.
+                if !Task.isCancelled && currentNeedsGeneration {
                     self.prefetchUpcomingCards()
                 }
             }
             var readyAhead = 0
             var missingCards: [StudyCard] = []
             
-            for i in self.currentIndex..<self.cards.count {
+            // Restrict lookahead to at most the current and the immediately following card
+            let maxLookahead = min(self.currentIndex + 2, self.cards.count)
+            for i in self.currentIndex..<maxLookahead {
                 if self.cards[i].cardType == .conjugation {
                     let cacheState = self.conjugationCache[self.cards[i].id]
                     if let state = cacheState {
@@ -629,13 +631,13 @@ class StudySessionViewModel {
                     } else {
                         missingCards.append(self.cards[i])
                     }
-                    if readyAhead + missingCards.count >= 3 {
+                    if readyAhead + missingCards.count >= 1 {
                         break
                     }
                 }
             }
             
-            let neededCards = max(0, 3 - readyAhead)
+            let neededCards = max(0, 1 - readyAhead)
             let currentCardNeedsPriority = self.currentIndex < self.cards.count &&
                 self.cards[self.currentIndex].cardType == .conjugation &&
                 self.conjugationCache[self.cards[self.currentIndex].id] == nil

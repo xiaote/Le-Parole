@@ -121,11 +121,21 @@ struct Word: Identifiable, Sendable, Equatable {
         return candidates.sorted()
     }
 
+    // MARK: - Cached Regexes & Formatter
+    private static let parenthesesRegex = try? NSRegularExpression(pattern: "\\([^)]*\\)")
+    private static let digitsRegex = try! NSRegularExpression(pattern: "\\d+")
+    private static let spellOutFormatterLock = NSLock()
+    private nonisolated(unsafe) static let spellOutFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .spellOut
+        return formatter
+    }()
+
     private nonisolated static func normalizeEnglish(_ s: String) -> String {
         var t = normalizeApostrophes(s).trimmingCharacters(in: .whitespaces).lowercased()
         
         // Remove any text inside parentheses, e.g. "apple (fruit)" -> "apple"
-        if let regex = try? NSRegularExpression(pattern: "\\([^)]*\\)") {
+        if let regex = parenthesesRegex {
             let range = NSRange(location: 0, length: t.utf16.count)
             t = regex.stringByReplacingMatches(in: t, options: [], range: range, withTemplate: "")
             t = t.trimmingCharacters(in: .whitespaces)
@@ -168,17 +178,19 @@ struct Word: Identifiable, Sendable, Equatable {
         guard text.contains(where: \.isNumber) else {
             return text.replacingOccurrences(of: "-", with: " ")
         }
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .spellOut
-        let regex = try! NSRegularExpression(pattern: "\\d+")
-        let matches = regex.matches(in: text, range: NSRange(text.startIndex..., in: text))
+        let matches = digitsRegex.matches(in: text, range: NSRange(text.startIndex..., in: text))
         
         var result = text
         for match in matches.reversed() {
             if let range = Range(match.range, in: text) {
                 let numberString = String(text[range])
-                if let number = Int(numberString), let spelledOut = formatter.string(from: NSNumber(value: number)) {
-                    result.replaceSubrange(range, with: spelledOut.replacingOccurrences(of: "-", with: " "))
+                if let number = Int(numberString) {
+                    let spelledOut = spellOutFormatterLock.withLock {
+                        spellOutFormatter.string(from: NSNumber(value: number))
+                    }
+                    if let spelledOut {
+                        result.replaceSubrange(range, with: spelledOut.replacingOccurrences(of: "-", with: " "))
+                    }
                 }
             }
         }
@@ -275,12 +287,22 @@ struct Word: Identifiable, Sendable, Equatable {
 
     // MARK: - GRDB helpers (nonisolated so GRDB can call from any thread)
 
+    private static let jsonLock = NSLock()
+    private nonisolated(unsafe) static let jsonEncoder = JSONEncoder()
+    private nonisolated(unsafe) static let jsonDecoder = JSONDecoder()
+
     nonisolated static func encodeAlternatives(_ alts: [String]) -> String {
-        (try? String(data: JSONEncoder().encode(alts), encoding: .utf8)) ?? "[]"
+        guard !alts.isEmpty else { return "[]" }
+        return jsonLock.withLock {
+            (try? String(data: jsonEncoder.encode(alts), encoding: .utf8)) ?? "[]"
+        }
     }
 
     nonisolated static func decodeAlternatives(_ json: String) -> [String] {
-        (try? JSONDecoder().decode([String].self, from: Data(json.utf8))) ?? []
+        if json == "[]" || json.isEmpty { return [] }
+        return jsonLock.withLock {
+            (try? jsonDecoder.decode([String].self, from: Data(json.utf8))) ?? []
+        }
     }
 }
 

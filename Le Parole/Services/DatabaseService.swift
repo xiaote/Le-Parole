@@ -112,6 +112,13 @@ final class DatabaseService: @unchecked Sendable {
                 try Self.createCurrentSchema(db)
             }
         }
+
+        migrator.registerMigration("v28_performance_indexes") { db in
+            try db.create(index: "idx_uw_stage_review", on: "userWords", columns: ["stage", "nextReviewDate"], ifNotExists: true)
+            try db.create(index: "idx_uw_learned_date", on: "userWords", columns: ["learnedDate"], ifNotExists: true)
+            try db.create(index: "idx_uw_last_wrong_date", on: "userWords", columns: ["lastWrongDate"], ifNotExists: true)
+            try db.create(index: "idx_uw_last_review", on: "userWords", columns: ["lastReviewDate"], ifNotExists: true)
+        }
         try migrator.migrate(db)
     }
 
@@ -185,6 +192,10 @@ final class DatabaseService: @unchecked Sendable {
         try db.create(index: "idx_uw_stage", on: "userWords", columns: ["stage"])
         try db.create(index: "idx_uw_review", on: "userWords", columns: ["nextReviewDate"])
         try db.create(index: "idx_uw_word", on: "userWords", columns: ["wordId"])
+        try db.create(index: "idx_uw_stage_review", on: "userWords", columns: ["stage", "nextReviewDate"])
+        try db.create(index: "idx_uw_learned_date", on: "userWords", columns: ["learnedDate"])
+        try db.create(index: "idx_uw_last_wrong_date", on: "userWords", columns: ["lastWrongDate"])
+        try db.create(index: "idx_uw_last_review", on: "userWords", columns: ["lastReviewDate"])
         try db.create(index: "idx_w_italian", on: "words", columns: ["italian"])
         try db.create(index: "idx_w_level_freq", on: "words", columns: ["level", "frequencyRank"])
     }

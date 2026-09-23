@@ -14,13 +14,7 @@ struct DailyCount: Identifiable, FetchableRecord, TableRecord {
     
     var total: Int { reviewAttempts }
     var id: String { dateString }
-    
-    var date: Date {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = TimeZone.current
-        return formatter.date(from: dateString) ?? .now
-    }
+    let date: Date
     
     init(
         dateString: String,
@@ -38,6 +32,7 @@ struct DailyCount: Identifiable, FetchableRecord, TableRecord {
         self.movedToProduction = movedToProduction
         self.movedToMastered = movedToMastered
         self.hasDetailedMetrics = hasDetailedMetrics
+        self.date = AppDateFormatter.date(from: dateString) ?? .now
     }
     
     init(row: GRDB.Row) {
@@ -48,6 +43,7 @@ struct DailyCount: Identifiable, FetchableRecord, TableRecord {
         movedToProduction = row["movedToProduction"]
         movedToMastered = row["movedToMastered"]
         hasDetailedMetrics = row["hasDetailedMetrics"]
+        date = AppDateFormatter.date(from: dateString) ?? .now
     }
 }
 
@@ -123,9 +119,7 @@ final class StatsViewModel {
         "congiuntivo imperfetto",
     ]
 
-    init() {
-        setObserving(true)
-    }
+    init() {}
 
     func setObserving(_ shouldObserve: Bool) {
         guard shouldObserve else {
@@ -277,15 +271,11 @@ final class StatsViewModel {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: .now)
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = TimeZone.current
-        
         let activityDict = Dictionary(uniqueKeysWithValues: dailyActivities.map { ($0.dateString, $0) })
         
         return (0..<days).reversed().map { offset in
             let date = calendar.date(byAdding: .day, value: -offset, to: today)!
-            let dateStr = formatter.string(from: date)
+            let dateStr = AppDateFormatter.string(from: date)
             
             if let existing = activityDict[dateStr] {
                 return existing
@@ -296,7 +286,11 @@ final class StatsViewModel {
     }
 
     var thisWeekWordCount: Int {
-        dailyWordCounts().suffix(7).reduce(0) { $0 + $1.total }
+        thisWeekWordCount(from: dailyWordCounts())
+    }
+
+    func thisWeekWordCount(from counts: [DailyCount]) -> Int {
+        counts.suffix(7).reduce(0) { $0 + $1.total }
     }
     func cumulativeProgressData(for level: String? = nil) -> [CumulativeProgressEntry] {
         guard
