@@ -479,30 +479,33 @@ struct QuizCardView: View {
             .opacity(flipAngle < 90 ? 1 : 0)
             .allowsHitTesting(!isFlipped)
 
-            cardFace(
-                word: card.cardType == .conjugation ? completedConjugationSentence : card.correctAnswer,
-                language: card.cardType == .production ? "Italian" : (card.cardType == .conjugation ? "Italian" : "English"),
-                explanation: (card.cardType == .conjugation) ? (wasCorrect == true ? geminiEnglishTranslation : conjugationExplanation) : nil,
-                alternatives: (card.cardType == .recognition) ? card.userWord.word.cleanAlternatives : nil,
-                inflections: (card.cardType == .production) ? inflectionsText : nil,
-                isGeneratingInflections: (card.cardType == .production) ? isGeneratingInflections : false,
-                background: backFaceBackground,
-                borderColor: backFaceBorderColor,
-                showHintArea: false,
-                isLoading: false,
-                diagramImageName: sailingDiagram?.revealedImageName,
-                diagramAction: {
-                    inputFocused = false
-                    if let d = sailingDiagram { activeSheet = .diagram(d) }
-                }
-            ) { SpeechService.shared.speak(card.cardType == .conjugation ? completedConjugationSentence : card.correctAnswer, languageCode: backLanguageCode) }
-            .rotation3DEffect(
-                .degrees(flipAngle - 180),
-                axis: (x: 0, y: 1, z: 0),
-                perspective: 0.25
-            )
-            .opacity(flipAngle >= 90 ? 1 : 0)
-            .allowsHitTesting(isFlipped)
+            if isFlipped || isRevealed {
+                cardFace(
+                    word: card.cardType == .conjugation ? completedConjugationSentence : card.correctAnswer,
+                    language: card.cardType == .production ? "Italian" : (card.cardType == .conjugation ? "Italian" : "English"),
+                    explanation: (card.cardType == .conjugation) ? (wasCorrect == true ? geminiEnglishTranslation : conjugationExplanation) : nil,
+                    alternatives: (card.cardType == .recognition) ? card.userWord.word.cleanAlternatives : nil,
+                    inflections: (card.cardType == .production) ? inflectionsText : nil,
+                    isGeneratingInflections: (card.cardType == .production) ? isGeneratingInflections : false,
+                    background: backFaceBackground,
+                    borderColor: backFaceBorderColor,
+                    showHintArea: false,
+                    isLoading: false,
+                    diagramImageName: sailingDiagram?.revealedImageName,
+                    diagramAction: {
+                        inputFocused = false
+                        if let d = sailingDiagram { activeSheet = .diagram(d) }
+                    }
+                ) { SpeechService.shared.speak(card.cardType == .conjugation ? completedConjugationSentence : card.correctAnswer, languageCode: backLanguageCode) }
+                .rotation3DEffect(
+                    .degrees(flipAngle - 180),
+                    axis: (x: 0, y: 1, z: 0),
+                    perspective: 0.25
+                )
+                .opacity(flipAngle >= 90 ? 1 : 0)
+                .allowsHitTesting(isFlipped)
+                .transition(.identity)
+            }
         }
         .onTapGesture {
             guard !interactionLocked, !isGeneratingConjugation else { return }

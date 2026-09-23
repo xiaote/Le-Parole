@@ -13,13 +13,18 @@ final class DatabaseService: @unchecked Sendable {
     nonisolated let db: DatabaseQueue
 
     private init() {
-        let appSupport = FileManager.default.urls(
+        let fileManager = FileManager.default
+        let appSupport = fileManager.urls(
             for: .applicationSupportDirectory,
             in: .userDomainMask
         )[0]
         let dbPath = appSupport.appendingPathComponent("le_parole.sqlite").path
 
         do {
+            try fileManager.createDirectory(
+                at: appSupport,
+                withIntermediateDirectories: true
+            )
             var config = Configuration()
             config.foreignKeysEnabled = true
             db = try DatabaseQueue(path: dbPath, configuration: config)
