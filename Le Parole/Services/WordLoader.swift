@@ -38,84 +38,79 @@ enum WordLoader {
         let hasCatalogue = await hasCatalogue()
         guard forceRefresh || storedVersion < dataVersion || !hasCatalogue else { return }
 
-        var allEntries: [WordEntry] = []
-        for name in fileNames {
-            guard
-                let url = Bundle.main.url(forResource: name, withExtension: "json"),
-                let data = try? Data(contentsOf: url),
-                let entries = try? JSONDecoder().decode([WordEntry].self, from: data)
-            else { continue }
-            allEntries += entries
-        }
-
-        // Deduplicate across files before touching the DB.
-        // existingItalian (built below) only reflects words already persisted,
-        // so without this step a word present in two JSON files under different IDs
-        // would survive the guard inside the write block and produce duplicate rows.
-        // Earlier files win (fileNames order determines priority).
         var seenIds     = Set<String>()
         var seenItalian = Set<String>()
-        allEntries = allEntries.filter { entry in
-            let italian = entry.italian.lowercased()
-            guard !seenIds.contains(entry.id) && !seenItalian.contains(italian) else { return false }
-            seenIds.insert(entry.id)
-            seenItalian.insert(italian)
-            return true
-        }
 
         let db = DatabaseService.shared.db
 
         do {
             let existingWords = try await db.read { db in try Word.fetchAll(db) }
-            let existingById = Dictionary(uniqueKeysWithValues: existingWords.map { ($0.wordId, $0) })
-            let existingItalian = Set(existingWords.filter { !$0.isUserCreated }.map { $0.italian.lowercased() })
+            var existingById = Dictionary(uniqueKeysWithValues: existingWords.map { ($0.wordId, $0) })
+            var existingItalian = Set(existingWords.filter { !$0.isUserCreated }.map { $0.italian.lowercased() })
 
             let existingUserWordIds = try await db.read { db in
                 try String.fetchAll(db, sql: "SELECT wordId FROM userWords")
             }
-            let existingUserWordIdSet = Set(existingUserWordIds)
+            var existingUserWordIdSet = Set(existingUserWordIds)
 
-            try await db.write { [allEntries] db in
-                // Never delete bundled words during a catalogue refresh. A word
-                // may have a userWords record whose review history must survive
-                // a source-data rename or correction. Dedicated migrations must
-                // remap any retired IDs before removal instead.
+            for name in fileNames {
+                guard
+                    let url = Bundle.main.url(forResource: name, withExtension: "json"),
+                    let data = try? Data(contentsOf: url),
+                    let entries = try? JSONDecoder().decode([WordEntry].self, from: data)
+                else { continue }
 
-                for entry in allEntries {
-                    if let existing = existingById[entry.id] {
-                        guard !existing.isUserCreated else { continue }
-                        var updated = existing
-                        updated.italian = entry.italian
-                        updated.english = entry.english
-                        updated.alternatives = entry.alternatives ?? []
-                        updated.level = entry.level
-                        updated.frequencyRank = entry.frequencyRank
-                        updated.inflections = entry.inflections
-                        updated.partOfSpeech = entry.partOfSpeech
-                        try updated.update(db)
+                let fileEntries = entries.filter { entry in
+                    let italian = entry.italian.lowercased()
+                    guard !seenIds.contains(entry.id) && !seenItalian.contains(italian) else { return false }
+                    seenIds.insert(entry.id)
+                    seenItalian.insert(italian)
+                    return true
+                }
+                guard !fileEntries.isEmpty else { continue }
 
-                        if !existingUserWordIdSet.contains(entry.id) {
-                            var uw = UserWord(word: updated)
-                            try uw.insert(db)
-                        }
-                    } else {
-                        guard !existingItalian.contains(entry.italian.lowercased()) else { continue }
+                try await db.write { db in
+                    for entry in fileEntries {
+                        if let existing = existingById[entry.id] {
+                            guard !existing.isUserCreated else { continue }
+                            var updated = existing
+                            updated.italian = entry.italian
+                            updated.english = entry.english
+                            updated.alternatives = entry.alternatives ?? []
+                            updated.level = entry.level
+                            updated.frequencyRank = entry.frequencyRank
+                            updated.inflections = entry.inflections
+                            updated.partOfSpeech = entry.partOfSpeech
+                            try updated.update(db)
 
-                        let word = Word(
-                            wordId: entry.id,
-                            italian: entry.italian,
-                            english: entry.english,
-                            alternatives: entry.alternatives ?? [],
-                            level: entry.level,
-                            frequencyRank: entry.frequencyRank,
-                            inflections: entry.inflections,
-                            partOfSpeech: entry.partOfSpeech
-                        )
-                        try word.insert(db)
+                            if !existingUserWordIdSet.contains(entry.id) {
+                                var uw = UserWord(word: updated)
+                                try uw.insert(db)
+                                existingUserWordIdSet.insert(entry.id)
+                            }
+                            existingById[entry.id] = updated
+                        } else {
+                            guard !existingItalian.contains(entry.italian.lowercased()) else { continue }
 
-                        if !existingUserWordIdSet.contains(entry.id) {
-                            var uw = UserWord(word: word)
-                            try uw.insert(db)
+                            let word = Word(
+                                wordId: entry.id,
+                                italian: entry.italian,
+                                english: entry.english,
+                                alternatives: entry.alternatives ?? [],
+                                level: entry.level,
+                                frequencyRank: entry.frequencyRank,
+                                inflections: entry.inflections,
+                                partOfSpeech: entry.partOfSpeech
+                            )
+                            try word.insert(db)
+
+                            if !existingUserWordIdSet.contains(entry.id) {
+                                var uw = UserWord(word: word)
+                                try uw.insert(db)
+                                existingUserWordIdSet.insert(entry.id)
+                            }
+                            existingById[entry.id] = word
+                            existingItalian.insert(entry.italian.lowercased())
                         }
                     }
                 }

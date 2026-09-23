@@ -164,6 +164,12 @@ struct ZoomableImageView: UIViewRepresentable {
         Coordinator(self)
     }
 
+    static func dismantleUIView(_ uiView: UIScrollView, coordinator: Coordinator) {
+        coordinator.imageView?.image = nil
+        coordinator.imageView = nil
+        uiView.delegate = nil
+    }
+
     final class Coordinator: NSObject, UIScrollViewDelegate {
         var parent: ZoomableImageView
         weak var imageView: UIImageView?

@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 import GRDB
 
 struct ConjugationReviewRecord: Sendable {
@@ -11,6 +12,8 @@ final class DatabaseService: @unchecked Sendable {
     nonisolated static let shared = DatabaseService()
 
     nonisolated let db: DatabaseQueue
+    private var memoryWarningObserver: Any?
+    private var backgroundObserver: Any?
 
     private init() {
         let fileManager = FileManager.default
@@ -27,10 +30,41 @@ final class DatabaseService: @unchecked Sendable {
             )
             var config = Configuration()
             config.foreignKeysEnabled = true
+            config.prepareDatabase { db in
+                // Cap cache size to 1MB (negative value specifies size in KiB)
+                try db.execute(sql: "PRAGMA cache_size = -1000;")
+            }
             db = try DatabaseQueue(path: dbPath, configuration: config)
             try migrate()
+            setupMemoryTrimming()
         } catch {
             fatalError("DatabaseService init failed: \(error.localizedDescription)")
+        }
+    }
+
+    private func setupMemoryTrimming() {
+        memoryWarningObserver = NotificationCenter.default.addObserver(
+            forName: UIApplication.didReceiveMemoryWarningNotification,
+            object: nil,
+            queue: nil
+        ) { [weak self] _ in
+            self?.shrinkMemory()
+        }
+
+        backgroundObserver = NotificationCenter.default.addObserver(
+            forName: UIApplication.didEnterBackgroundNotification,
+            object: nil,
+            queue: nil
+        ) { [weak self] _ in
+            self?.shrinkMemory()
+        }
+    }
+
+    func shrinkMemory() {
+        Task.detached { [db] in
+            try? db.write { database in
+                try database.execute(sql: "PRAGMA shrink_memory;")
+            }
         }
     }
 
