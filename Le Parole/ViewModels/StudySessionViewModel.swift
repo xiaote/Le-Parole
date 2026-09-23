@@ -1,4 +1,5 @@
 import Foundation
+import Observation
 import GRDB
 
 struct StudyCard: Identifiable, Sendable {
@@ -108,10 +109,10 @@ class StudySessionViewModel {
     private(set) var autoPlayPronunciation = true
     private(set) var conjugationLevel = 1
     private(set) var geminiApiKey = ""
-    private var synonymCandidatesByInput: [String: [Word]] = [:]
+    @ObservationIgnored private var synonymCandidatesByInput: [String: [Word]] = [:]
     private var testWordIDs: [Int64] = []
-    private var nextTestPageIndex = 0
-    private var testPageTask: Task<Void, Never>?
+    @ObservationIgnored private var nextTestPageIndex = 0
+    @ObservationIgnored private var testPageTask: Task<Void, Never>?
     private(set) var isLoadingMoreCards = false
 
     var totalCardCount: Int { isTestMode ? testWordIDs.count : cards.count }
@@ -534,9 +535,9 @@ class StudySessionViewModel {
         }
     }
     
-    private var prefetchTask: Task<Void, Never>?
-    private var persistenceTask: Task<Void, Never>?
-    private var persistenceGeneration = 0
+    @ObservationIgnored private var prefetchTask: Task<Void, Never>?
+    @ObservationIgnored private var persistenceTask: Task<Void, Never>?
+    @ObservationIgnored private var persistenceGeneration = 0
 
     private nonisolated static func generatedBeforeDeadline<Value: Sendable>(
         operation: @escaping @Sendable () async -> Value?

@@ -188,9 +188,12 @@ struct ConceptSectionView: View {
 private struct ConnectedConceptPill: View {
     let item: RelatedConceptItem
     let action: () -> Void
+    private let diagram: WordDiagram?
 
-    private var diagram: WordDiagram? {
-        SailingDiagramService.diagram(for: item.term)
+    init(item: RelatedConceptItem, action: @escaping () -> Void) {
+        self.item = item
+        self.action = action
+        self.diagram = SailingDiagramService.diagram(for: item.term)
     }
 
     var body: some View {

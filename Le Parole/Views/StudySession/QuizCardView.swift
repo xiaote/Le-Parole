@@ -5,6 +5,22 @@ import Translation
 struct QuizCardView: View {
     let card: StudyCard
     let vm: StudySessionViewModel
+    private let sailingDiagram: WordDiagram?
+    private let wordConcept: WordConcept?
+    private let visualQuizData: (target: WordDiagram, options: [WordDiagram])?
+
+    init(card: StudyCard, vm: StudySessionViewModel) {
+        self.card = card
+        self.vm = vm
+        let italian = card.userWord.word.italian
+        self.sailingDiagram = SailingDiagramService.diagram(for: italian)
+        self.wordConcept = ConceptService.shared.concept(for: italian)
+        if card.cardType == .recognition {
+            self.visualQuizData = SailingDiagramService.visualQuizOptions(for: italian)
+        } else {
+            self.visualQuizData = nil
+        }
+    }
 
     private static let maxWrongAttempts = 3
 
@@ -108,14 +124,15 @@ struct QuizCardView: View {
     // boolean-driven rotation can overshoot 180° and briefly reveal the wrong face.
     @State private var flipAngle: Double = 0
     @State private var isRevealed = false
+    @State private var showDetails = false
     @State private var wasCorrect: Bool? = nil
     @FocusState private var inputFocused: Bool
     @State private var wrongCount = 0
     @State private var shakeTrigger: CGFloat = 0
     @State private var frontHighlight: Color = Theme.surface
     @State private var swipeOffset: CGFloat = 0
-    @State private var cardOpacity: Double = 1.0
-    @State private var cardScale: CGFloat = 1.0
+    @State private var cardOpacity: Double = 0.0
+    @State private var cardScale: CGFloat = 0.96
     @State private var interactionLocked = false
     @State private var animationTask: Task<Void, Never>?
     @State private var hintText: String? = nil
@@ -131,7 +148,6 @@ struct QuizCardView: View {
     @State private var inflectionsTask: Task<Void, Never>?
     @State private var sessionNotice: SessionNotice?
     @State private var activeSheet: ActiveSheet?
-    @State private var visualQuizData: (target: WordDiagram, options: [WordDiagram])? = nil
     @State private var selectedVisualOptionId: String? = nil
 
     private enum ActiveSheet: Identifiable {
@@ -148,14 +164,6 @@ struct QuizCardView: View {
             case .relatedTerm(let t): return "term_\(t)"
             }
         }
-    }
-
-    private var sailingDiagram: WordDiagram? {
-        SailingDiagramService.diagram(for: card.userWord.word.italian)
-    }
-
-    private var wordConcept: WordConcept? {
-        ConceptService.shared.concept(for: card.userWord.word.italian)
     }
 
     // Conjugation states (computed from vm cache)
@@ -236,6 +244,7 @@ struct QuizCardView: View {
 
                         flipCard
                             .padding(.horizontal, 20)
+                            .compositingGroup()
                             .scaleEffect(cardScale)
                             .offset(x: swipeOffset)
                             .modifier(ShakeEffect(animatableData: shakeTrigger))
@@ -274,7 +283,7 @@ struct QuizCardView: View {
                             .transition(.asymmetric(insertion: .move(edge: .bottom).combined(with: .opacity).combined(with: .scale(scale: 0.95)), removal: .opacity))
                         }
 
-                        if (isRevealed || isFlipped), let concept = wordConcept {
+                        if (showDetails || isRevealed), let concept = wordConcept {
                             ConceptSectionView(
                                 concept: concept,
                                 onSelectRelatedItem: { item in
@@ -308,7 +317,6 @@ struct QuizCardView: View {
                             Spacer().frame(height: inputFocused ? 16 : 32)
                         }
                     }
-                    .animation(.spring(response: 0.35, dampingFraction: 0.8), value: inputFocused)
                     .frame(minHeight: geo.size.height, alignment: .top)
                 }
                 .scrollDismissesKeyboard(.interactively)
@@ -341,6 +349,7 @@ struct QuizCardView: View {
                 .overlay(Capsule().stroke(Theme.border, lineWidth: 1))
                 .clipShape(Capsule())
                 .shadow(color: Theme.cardShadow, radius: 15, y: 5)
+                .compositingGroup()
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 .padding(.top, 24) // Hover above the flashcard, below the top edge
                 .padding(.horizontal, 20)
@@ -351,8 +360,9 @@ struct QuizCardView: View {
             }
         }
         .onAppear {
-            if card.cardType == .recognition && visualQuizData == nil {
-                visualQuizData = SailingDiagramService.visualQuizOptions(for: card.userWord.word.italian)
+            withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
+                cardOpacity = 1.0
+                cardScale = 1.0
             }
             Task { @MainActor in
                 await Task.yield()
@@ -362,11 +372,8 @@ struct QuizCardView: View {
             }
         }
         .task(id: card.id) {
-            await Task.yield()
+            try? await Task.sleep(for: .milliseconds(180))
             guard !isRevealed, !Task.isCancelled else { return }
-            if card.cardType == .recognition {
-                visualQuizData = SailingDiagramService.visualQuizOptions(for: card.userWord.word.italian)
-            }
             let showsFrontDiagram = (card.cardType == .production && sailingDiagram?.promptImageName != nil)
             if !showsFrontDiagram && visualQuizData == nil {
                 inputFocused = true
@@ -392,7 +399,6 @@ struct QuizCardView: View {
         .onDisappear {
             animationTask?.cancel(); hintTask?.cancel(); gradingTask?.cancel(); examplesTask?.cancel(); inflectionsTask?.cancel()
         }
-        .onChange(of: card.id) { _, _ in resetState() }
         .sheet(item: $activeSheet) { sheet in
             switch sheet {
             case .diagram(let diag):
@@ -463,49 +469,34 @@ struct QuizCardView: View {
                 borderColor: Theme.border,
                 showHintArea: (card.cardType == .production || visualQuizData == nil),
                 isLoading: isGeneratingConjugation,
+                isBackFace: false,
                 diagramImageName: card.cardType == .production ? sailingDiagram?.promptImageName : nil,
                 diagramAction: {
                     inputFocused = false
                     if let d = sailingDiagram { activeSheet = .diagram(d) }
                 }
             ) { SpeechService.shared.speak(card.cardType == .conjugation ? (conjugationSentence ?? "") : card.prompt, languageCode: frontLanguageCode) }
-            // Both faces rotate around the vertical axis. The front is hidden
-            // after the edge-on midpoint so it can never be read upside down.
-            .rotation3DEffect(
-                .degrees(flipAngle),
-                axis: (x: 0, y: 1, z: 0),
-                perspective: 0.25
-            )
-            .opacity(flipAngle < 90 ? 1 : 0)
-            .allowsHitTesting(!isFlipped)
+            .modifier(FlipEffect(angle: flipAngle, isBack: false, perspective: 0.25))
 
-            if isFlipped || isRevealed {
-                cardFace(
-                    word: card.cardType == .conjugation ? completedConjugationSentence : card.correctAnswer,
-                    language: card.cardType == .production ? "Italian" : (card.cardType == .conjugation ? "Italian" : "English"),
-                    explanation: (card.cardType == .conjugation) ? (wasCorrect == true ? geminiEnglishTranslation : conjugationExplanation) : nil,
-                    alternatives: (card.cardType == .recognition) ? card.userWord.word.cleanAlternatives : nil,
-                    inflections: (card.cardType == .production) ? inflectionsText : nil,
-                    isGeneratingInflections: (card.cardType == .production) ? isGeneratingInflections : false,
-                    background: backFaceBackground,
-                    borderColor: backFaceBorderColor,
-                    showHintArea: false,
-                    isLoading: false,
-                    diagramImageName: sailingDiagram?.revealedImageName,
-                    diagramAction: {
-                        inputFocused = false
-                        if let d = sailingDiagram { activeSheet = .diagram(d) }
-                    }
-                ) { SpeechService.shared.speak(card.cardType == .conjugation ? completedConjugationSentence : card.correctAnswer, languageCode: backLanguageCode) }
-                .rotation3DEffect(
-                    .degrees(flipAngle - 180),
-                    axis: (x: 0, y: 1, z: 0),
-                    perspective: 0.25
-                )
-                .opacity(flipAngle >= 90 ? 1 : 0)
-                .allowsHitTesting(isFlipped)
-                .transition(.identity)
-            }
+            cardFace(
+                word: card.cardType == .conjugation ? completedConjugationSentence : card.correctAnswer,
+                language: card.cardType == .production ? "Italian" : (card.cardType == .conjugation ? "Italian" : "English"),
+                explanation: (card.cardType == .conjugation) ? (wasCorrect == true ? geminiEnglishTranslation : conjugationExplanation) : nil,
+                alternatives: (card.cardType == .recognition) ? card.userWord.word.cleanAlternatives : nil,
+                inflections: (card.cardType == .production) ? inflectionsText : nil,
+                isGeneratingInflections: (card.cardType == .production) ? isGeneratingInflections : false,
+                background: backFaceBackground,
+                borderColor: backFaceBorderColor,
+                showHintArea: false,
+                isLoading: false,
+                isBackFace: true,
+                diagramImageName: sailingDiagram?.revealedImageName,
+                diagramAction: {
+                    inputFocused = false
+                    if let d = sailingDiagram { activeSheet = .diagram(d) }
+                }
+            ) { SpeechService.shared.speak(card.cardType == .conjugation ? completedConjugationSentence : card.correctAnswer, languageCode: backLanguageCode) }
+            .modifier(FlipEffect(angle: flipAngle, isBack: true, perspective: 0.25))
         }
         .onTapGesture {
             guard !interactionLocked, !isGeneratingConjugation else { return }
@@ -529,24 +520,25 @@ struct QuizCardView: View {
         borderColor: Color,
         showHintArea: Bool,
         isLoading: Bool,
+        isBackFace: Bool,
         diagramImageName: String? = nil,
         diagramAction: (() -> Void)? = nil,
         speakAction: @escaping () -> Void
     ) -> some View {
-        let isCardFlippedOrRevealed = isFlipped || isRevealed
-        let imageMaxHeight: CGFloat = isCardFlippedOrRevealed ? 330 : 210
+        let isCardExpanded = isBackFace && (showDetails || isRevealed)
+        let imageMaxHeight: CGFloat = isCardExpanded ? 330 : 210
         let cardMinHeight: CGFloat = (diagramImageName != nil)
-            ? (isCardFlippedOrRevealed ? 540 : 400)
-            : (visualQuizData != nil ? (isCardFlippedOrRevealed ? 225 : 120) : (isCardFlippedOrRevealed ? 190 : 170))
+            ? (isCardExpanded ? 540 : 400)
+            : (visualQuizData != nil ? (isCardExpanded ? 225 : 120) : (isCardExpanded ? 190 : 170))
         let cardPadding: CGFloat = (diagramImageName != nil)
-            ? (isCardFlippedOrRevealed ? 16 : 18)
-            : (visualQuizData != nil ? (isCardFlippedOrRevealed ? 20 : 14) : 22)
+            ? (isCardExpanded ? 16 : 18)
+            : (visualQuizData != nil ? (isCardExpanded ? 20 : 14) : 22)
 
         // The back face has a static 180° inner rotation that is cancelled by the outer
         // flip animation's 180°, so layout coordinates map directly to visual coordinates
         // on both faces — .topLeading always appears at top-left.
         return ZStack(alignment: .topLeading) {
-            VStack(spacing: diagramImageName != nil ? 10 : (visualQuizData != nil && !isCardFlippedOrRevealed ? 6 : 12)) {
+            VStack(spacing: diagramImageName != nil ? 10 : (visualQuizData != nil && !isCardExpanded ? 6 : 12)) {
                 Text(language.uppercased())
                     .font(.theme(.caption, weight: .semibold))
                     .foregroundStyle(Theme.primary)
@@ -607,24 +599,28 @@ struct QuizCardView: View {
                         .padding(.top, 2)
                     }
 
-                    if let translation = geminiEnglishTranslation, isRevealed {
-                        Text(translation)
-                            .font(.theme(.body))
-                            .foregroundStyle(.secondary)
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(.top, 4)
-                            .padding(.horizontal, 16)
-                    }
+                    if (showDetails || isRevealed) {
+                        if let translation = geminiEnglishTranslation {
+                            Text(translation)
+                                .font(.theme(.body))
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .padding(.top, 4)
+                                .padding(.horizontal, 16)
+                                .transition(.opacity)
+                        }
 
-                    if let explanation = conjugationExplanation, isRevealed {
-                        Text(explanation)
-                            .font(.theme(.subheadline))
-                            .foregroundStyle(.secondary)
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(.top, 6)
-                            .padding(.horizontal, 16)
+                        if let explanation = conjugationExplanation {
+                            Text(explanation)
+                                .font(.theme(.subheadline))
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .padding(.top, 6)
+                                .padding(.horizontal, 16)
+                                .transition(.opacity)
+                        }
                     }
 
                     if showHintArea {
@@ -646,18 +642,22 @@ struct QuizCardView: View {
                         .padding(.top, 4)
                     }
 
-                    if isGeneratingInflections {
-                        ProgressView()
-                            .scaleEffect(0.75)
-                            .padding(.top, 4)
-                    } else if let infl = inflections {
-                        Text(infl)
-                            .font(.theme(.subheadline))
-                            .foregroundStyle(.secondary)
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(.top, 4)
-                            .padding(.horizontal, 16)
+                    if (showDetails || isRevealed) {
+                        if isGeneratingInflections {
+                            ProgressView()
+                                .scaleEffect(0.75)
+                                .padding(.top, 4)
+                                .transition(.opacity)
+                        } else if let infl = inflections {
+                            Text(infl)
+                                .font(.theme(.subheadline))
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .padding(.top, 4)
+                                .padding(.horizontal, 16)
+                                .transition(.opacity)
+                        }
                     }
                 }
             }
@@ -680,6 +680,7 @@ struct QuizCardView: View {
         .overlay(RoundedRectangle(cornerRadius: Theme.studyCardCornerRadius, style: .continuous).stroke(borderColor, lineWidth: 1.5))
         .clipShape(RoundedRectangle(cornerRadius: Theme.studyCardCornerRadius, style: .continuous))
         .shadow(color: Theme.cardShadow, radius: 16, y: 8)
+        .compositingGroup()
     }
 
     @ViewBuilder
@@ -761,17 +762,32 @@ struct QuizCardView: View {
     }
 
     private var incorrectRevealedControls: some View {
-        Button("Next →") { vm.advance() }
-            .buttonStyle(PrimaryButtonStyle())
-            .padding(.horizontal, 20)
+        Button("Next →") {
+            advanceToNextCard()
+        }
+        .buttonStyle(PrimaryButtonStyle())
+        .padding(.horizontal, 20)
+    }
+
+    private func advanceToNextCard() {
+        guard !interactionLocked else { return }
+        interactionLocked = true
+        withAnimation(.easeIn(duration: 0.25)) {
+            swipeOffset = 500
+            cardOpacity = 0
+        }
+        animationTask = Task { @MainActor in
+            try? await Task.sleep(for: .seconds(0.25))
+            guard !Task.isCancelled else { return }
+            vm.advance()
+        }
     }
 
     // MARK: - Visual Multiple Choice Grid
 
+    @ViewBuilder
     private var visualChoiceGrid: some View {
-        guard let quiz = visualQuizData else { return AnyView(EmptyView()) }
-
-        return AnyView(
+        if let quiz = visualQuizData {
             LazyVGrid(
                 columns: [
                     GridItem(.flexible(), spacing: 10),
@@ -796,7 +812,7 @@ struct QuizCardView: View {
             }
             .padding(.horizontal, 20)
             .layoutPriority(1)
-        )
+        }
     }
 
     private func selectVisualOption(_ option: WordDiagram, target: WordDiagram) {
@@ -825,51 +841,6 @@ struct QuizCardView: View {
     }
 
     // MARK: - Actions
-
-    private func resetState() {
-        animationTask?.cancel()
-        animationTask = nil
-        hintTask?.cancel()
-        hintTask = nil
-        gradingTask?.cancel()
-        gradingTask = nil
-        examplesTask?.cancel()
-        examplesTask = nil
-        input = ""
-        selectedVisualOptionId = nil
-        if card.cardType == .recognition {
-            visualQuizData = SailingDiagramService.visualQuizOptions(for: card.userWord.word.italian)
-        } else {
-            visualQuizData = nil
-        }
-        isFlipped = false
-        flipAngle = 0
-        isRevealed = false
-        wasCorrect = nil
-        wrongCount = 0
-        shakeTrigger = 0
-        frontHighlight = Theme.surface
-        interactionLocked = false
-        isGrading = false
-        hintText = nil
-        sessionNotice = nil
-        isLoadingHint = false
-        swipeOffset = 0
-        cardOpacity = 0
-        cardScale = 0.92
-        exampleSentences = []
-        isGeneratingExamples = false
-        inflectionsText = nil
-        isGeneratingInflections = false
-        inflectionsTask?.cancel()
-        inflectionsTask = nil
-        withAnimation(.spring(response: 0.4, dampingFraction: 0.82)) {
-            cardOpacity = 1.0
-            cardScale = 1.0
-        }
-        playFrontAudioIfNeeded()
-        preloadInflectionsIfNeeded()
-    }
 
     private func preloadInflectionsIfNeeded() {
         if card.cardType == .production {
@@ -1033,12 +1004,6 @@ struct QuizCardView: View {
         animationTask = Task { @MainActor in
             animateFlip(to: 180)
             
-            withAnimation(.easeOut(duration: 0.3)) {
-                if card.cardType == .conjugation {
-                    isRevealed = true
-                }
-            }
-            
             if vm.autoPlayPronunciation {
                 if card.cardType == .production {
                     SpeechService.shared.speak(card.correctAnswer, languageCode: "it-IT")
@@ -1047,8 +1012,13 @@ struct QuizCardView: View {
                 }
             }
 
-            try? await Task.sleep(for: .seconds(0.3))
+            try? await Task.sleep(for: .milliseconds(320))
             guard !Task.isCancelled else { return }
+            
+            withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
+                isRevealed = true
+                showDetails = true
+            }
             
             let context: MistakeContext?
             if card.cardType == .conjugation {
@@ -1164,16 +1134,14 @@ struct QuizCardView: View {
                 }
             }
 
-            try? await Task.sleep(for: .seconds(0.3))
+            try? await Task.sleep(for: .milliseconds(320))
             guard !Task.isCancelled else { return }
             
-            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+            withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
                 isRevealed = true
+                showDetails = true
                 inputFocused = false
             }
-            
-            try? await Task.sleep(for: .seconds(0.35))
-            guard !Task.isCancelled else { return }
             
             let context: MistakeContext?
             if card.cardType == .conjugation {
@@ -1200,12 +1168,30 @@ struct QuizCardView: View {
 
     private func toggleFlip() {
         inputFocused = false
-        animateFlip(to: isFlipped ? 0 : 180)
+        if isFlipped {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                showDetails = false
+            }
+            animateFlip(to: 0)
+        } else {
+            animateFlip(to: 180)
+            animationTask = Task { @MainActor in
+                try? await Task.sleep(for: .milliseconds(320))
+                guard !Task.isCancelled else { return }
+                withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
+                    showDetails = true
+                }
+            }
+        }
     }
 
     private func animateFlip(to angle: Double) {
         withAnimation(.easeInOut(duration: 0.32)) {
             flipAngle = angle
+        }
+        Task { @MainActor in
+            try? await Task.sleep(for: .milliseconds(160))
+            guard !Task.isCancelled else { return }
             isFlipped = angle >= 90
         }
     }
@@ -1238,6 +1224,35 @@ private struct ShakeEffect: GeometryEffect {
         let damping = max(0, 1.0 - progress)
         let translation = travel * damping * sin(progress * .pi * 2 * shakesPerUnit)
         return ProjectionTransform(CGAffineTransform(translationX: translation, y: 0))
+    }
+}
+
+private struct FlipEffect: AnimatableModifier {
+    var angle: Double
+    var isBack: Bool
+    var perspective: CGFloat = 0.25
+
+    var animatableData: Double {
+        get { angle }
+        set { angle = newValue }
+    }
+
+    func body(content: Content) -> some View {
+        let normalized = angle.truncatingRemainder(dividingBy: 360)
+        let positiveAngle = normalized < 0 ? normalized + 360 : normalized
+        let isFrontVisible = positiveAngle < 90 || positiveAngle > 270
+
+        let shouldShow = isBack ? !isFrontVisible : isFrontVisible
+        let rotationAngle = isBack ? angle - 180 : angle
+
+        content
+            .rotation3DEffect(
+                .degrees(rotationAngle),
+                axis: (x: 0, y: 1, z: 0),
+                perspective: perspective
+            )
+            .opacity(shouldShow ? 1 : 0)
+            .allowsHitTesting(shouldShow)
     }
 }
 
@@ -1314,6 +1329,7 @@ struct VisualOptionTile: View {
         }
         .buttonStyle(.plain)
         .disabled(isDisabled)
+        .compositingGroup()
         .scaleEffect(isSelected ? 0.98 : 1.0)
         .animation(.spring(response: 0.25, dampingFraction: 0.7), value: isSelected)
         .animation(.spring(response: 0.25, dampingFraction: 0.7), value: showFeedback)

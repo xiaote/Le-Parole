@@ -22,16 +22,17 @@ struct StudySessionView: View {
                 Group {
                     if let vm = viewModel {
                         ZStack {
-                        if vm.isComplete {
-                            SessionCompleteView(stats: vm.stats, isTestMode: vm.isTestMode) { dismiss() }
-                        } else if let card = vm.currentCard {
-                            QuizCardView(card: card, vm: vm)
-                        } else if vm.isLoadingMoreCards {
-                            ProgressView("Loading more cards…")
-                                .font(.theme(.subheadline))
-                                .foregroundStyle(.secondary)
+                            if vm.isComplete {
+                                SessionCompleteView(stats: vm.stats, isTestMode: vm.isTestMode) { dismiss() }
+                            } else if let card = vm.currentCard {
+                                QuizCardView(card: card, vm: vm)
+                                    .id(card.id)
+                            } else if vm.isLoadingMoreCards {
+                                ProgressView("Loading more cards…")
+                                    .font(.theme(.subheadline))
+                                    .foregroundStyle(.secondary)
+                            }
                         }
-                    }
                     } else {
                         PreparingSessionView()
                     }

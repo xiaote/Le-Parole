@@ -1173,21 +1173,39 @@ public enum SailingDiagramService {
         return clean.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
+    private static let lock = NSLock()
+    private static var lookupCache: [String: WordDiagram?] = [:]
+
     public static func diagram(for italianWord: String) -> WordDiagram? {
         let norm = normalize(italianWord)
+        lock.lock()
+        if let cached = lookupCache[norm] {
+            lock.unlock()
+            return cached
+        }
+        lock.unlock()
+
+        let found: WordDiagram?
         if let direct = diagrams[norm] {
-            return direct
-        }
-        // Substring fallback if word contains key (e.g. "dare volta su una galloccia")
-        for (key, diagram) in diagrams {
-            if norm == key || norm.hasPrefix(key + " ") || norm.hasSuffix(" " + key) {
-                return diagram
+            found = direct
+        } else {
+            var match: WordDiagram? = nil
+            for (key, diagram) in diagrams {
+                if norm == key || norm.hasPrefix(key + " ") || norm.hasSuffix(" " + key) {
+                    match = diagram
+                    break
+                }
             }
+            found = match
         }
-        return nil
+
+        lock.lock()
+        lookupCache[norm] = found
+        lock.unlock()
+        return found
     }
 
-    public static var allDiagrams: [WordDiagram] {
+    public static let allDiagrams: [WordDiagram] = {
         var seen = Set<String>()
         var list: [WordDiagram] = []
         for diag in diagrams.values {
@@ -1196,7 +1214,11 @@ public enum SailingDiagramService {
             }
         }
         return list
-    }
+    }()
+
+    private static let diagramsByPlate: [String: [WordDiagram]] = {
+        Dictionary(grouping: allDiagrams, by: \.plateName)
+    }()
 
     public static func visualQuizOptions(for italianWord: String, count: Int = 4) -> (target: WordDiagram, options: [WordDiagram])? {
         guard let target = diagram(for: italianWord) else { return nil }
@@ -1206,8 +1228,8 @@ public enum SailingDiagramService {
         var usedIds = Set<String>([target.id])
 
         // 1. Prioritize distractors from the same diagram plate
-        let samePlateCandidates = allDiagrams
-            .filter { $0.plateName == target.plateName && !usedIds.contains($0.id) }
+        let samePlateCandidates = (diagramsByPlate[target.plateName] ?? [])
+            .filter { !usedIds.contains($0.id) }
             .shuffled()
 
         for diag in samePlateCandidates {
