@@ -233,14 +233,8 @@ struct QuizCardView: View {
         ZStack {
             GeometryReader { geo in
                 ScrollView(showsIndicators: false) {
-                    VStack(spacing: 0) {
-                        if visualQuizData != nil && !isRevealed {
-                            Spacer(minLength: 4).frame(maxHeight: 8)
-                        } else if sailingDiagram != nil && !isRevealed {
-                            Spacer(minLength: 6).frame(maxHeight: 14)
-                        } else {
-                            Spacer(minLength: 16)
-                        }
+                    VStack(spacing: 16) {
+                        Spacer(minLength: 8)
 
                         flipCard
                             .padding(.horizontal, 20)
@@ -251,11 +245,7 @@ struct QuizCardView: View {
                             .opacity(cardOpacity)
 
                         if visualQuizData != nil && !isRevealed {
-                            Color.clear.frame(height: 10)
-                        } else if sailingDiagram != nil && !isRevealed {
-                            Color.clear.frame(height: 12)
-                        } else {
-                            Spacer(minLength: 16)
+                            visualChoiceGrid
                         }
 
                         if isRevealed && (!exampleSentences.isEmpty || isGeneratingExamples) && (wasCorrect == false) {
@@ -279,7 +269,6 @@ struct QuizCardView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .themeCard(cornerRadius: Theme.controlCornerRadius)
                             .padding(.horizontal, 20)
-                            .padding(.bottom, inputFocused ? 8 : 20)
                             .transition(.asymmetric(insertion: .move(edge: .bottom).combined(with: .opacity).combined(with: .scale(scale: 0.95)), removal: .opacity))
                         }
 
@@ -294,33 +283,18 @@ struct QuizCardView: View {
                                 }
                             )
                             .padding(.horizontal, 20)
-                            .padding(.bottom, inputFocused ? 8 : 20)
                             .transition(.asymmetric(insertion: .move(edge: .bottom).combined(with: .opacity), removal: .opacity))
                         }
 
-                        Group {
-                            if isRevealed {
-                                incorrectRevealedControls
-                            } else if visualQuizData != nil {
-                                visualChoiceGrid
-                            } else {
-                                inputControls
-                            }
-                        }
-                        .animation(.easeInOut(duration: 0.2), value: isRevealed)
-
-                        if visualQuizData != nil && !isRevealed {
-                            Spacer(minLength: 8).frame(maxHeight: 20)
-                        } else if sailingDiagram != nil && !isRevealed {
-                            Spacer(minLength: 12).frame(maxHeight: 24)
-                        } else {
-                            Spacer().frame(height: inputFocused ? 16 : 32)
-                        }
+                        Spacer(minLength: 16)
                     }
                     .frame(minHeight: geo.size.height, alignment: .top)
                 }
                 .scrollDismissesKeyboard(.interactively)
                 .scrollBounceBehavior(.basedOnSize)
+                .safeAreaInset(edge: .bottom, spacing: 0) {
+                    controlsFooter
+                }
             }
 
             if let sessionNotice {
@@ -712,66 +686,82 @@ struct QuizCardView: View {
 
     // MARK: - Controls
 
-    private var inputControls: some View {
-        VStack(spacing: 12) {
-            TextField(
-                card.cardType == .recognition ? "Type in English…" : "Type in Italian…",
-                text: $input
-            )
-            .multilineTextAlignment(.center)
-            .font(.theme(.body))
-            .padding(.vertical, 11)
-            .padding(.horizontal, 16)
-            .background(Theme.inputBackground)
-            .clipShape(RoundedRectangle(cornerRadius: Theme.controlCornerRadius, style: .continuous))
-            .overlay(
-                RoundedRectangle(cornerRadius: Theme.controlCornerRadius, style: .continuous)
-                    .stroke(Theme.border, lineWidth: 1)
-            )
-            .focused($inputFocused)
-            .onSubmit {
-                submitAnswer()
-            }
-            .autocorrectionDisabled()
-            .textInputAutocapitalization(.never)
-            .padding(.horizontal, 20)
-
-            HStack(spacing: 12) {
-                if !vm.isTestMode {
-                    Button("Hint") { requestHint() }
-                        .buttonStyle(SecondaryButtonStyle(verticalPadding: 14))
-                        .disabled(!canRequestHint)
-                }
-
-                Button { submitAnswer() } label: {
-                    if isGrading {
-                        HStack(spacing: 6) {
-                            ProgressView().tint(.white).scaleEffect(0.85)
-                            Text("Checking…")
-                        }
-                    } else {
-                        Text("Check")
+    @ViewBuilder
+    private var controlsFooter: some View {
+        if isRevealed || visualQuizData == nil {
+            VStack(spacing: 12) {
+                if isRevealed {
+                    Button("Next →") {
+                        advanceToNextCard()
                     }
+                    .buttonStyle(PrimaryButtonStyle())
+                    .transition(.opacity)
+                } else {
+                    VStack(spacing: 12) {
+                        TextField(
+                            card.cardType == .recognition ? "Type in English…" : "Type in Italian…",
+                            text: $input
+                        )
+                        .multilineTextAlignment(.center)
+                        .font(.theme(.body))
+                        .padding(.vertical, 11)
+                        .padding(.horizontal, 16)
+                        .background(Theme.inputBackground)
+                        .clipShape(RoundedRectangle(cornerRadius: Theme.controlCornerRadius, style: .continuous))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: Theme.controlCornerRadius, style: .continuous)
+                                .stroke(Theme.border, lineWidth: 1)
+                        )
+                        .focused($inputFocused)
+                        .onSubmit {
+                            submitAnswer()
+                        }
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
+
+                        HStack(spacing: 12) {
+                            if !vm.isTestMode {
+                                Button("Hint") { requestHint() }
+                                    .buttonStyle(SecondaryButtonStyle(verticalPadding: 14))
+                                    .disabled(!canRequestHint)
+                            }
+
+                            Button { submitAnswer() } label: {
+                                if isGrading {
+                                    HStack(spacing: 6) {
+                                        ProgressView().tint(.white).scaleEffect(0.85)
+                                        Text("Checking…")
+                                    }
+                                } else {
+                                    Text("Check")
+                                }
+                            }
+                            .buttonStyle(PrimaryButtonStyle(verticalPadding: 14))
+                            .disabled(input.trimmingCharacters(in: .whitespaces).isEmpty || isGeneratingConjugation)
+                        }
+                    }
+                    .transition(.opacity)
                 }
-                .buttonStyle(PrimaryButtonStyle(verticalPadding: 14))
-                .disabled(input.trimmingCharacters(in: .whitespaces).isEmpty || isGeneratingConjugation)
             }
             .padding(.horizontal, 20)
+            .padding(.top, 10)
+            .padding(.bottom, 12)
+            .background(
+                Theme.canvas
+                    .opacity(0.96)
+                    .ignoresSafeArea(edges: .bottom)
+            )
+            .animation(.easeInOut(duration: 0.2), value: isRevealed)
+            .animation(.easeInOut(duration: 0.15), value: canRequestHint)
+            .animation(.easeInOut(duration: 0.15), value: input.trimmingCharacters(in: .whitespaces).isEmpty)
         }
-        .layoutPriority(1)
-    }
-
-    private var incorrectRevealedControls: some View {
-        Button("Next →") {
-            advanceToNextCard()
-        }
-        .buttonStyle(PrimaryButtonStyle())
-        .padding(.horizontal, 20)
     }
 
     private func advanceToNextCard() {
         guard !interactionLocked else { return }
         interactionLocked = true
+        animationTask?.cancel()
+        sessionNotice = nil
         withAnimation(.easeIn(duration: 0.25)) {
             swipeOffset = 500
             cardOpacity = 0
@@ -1039,6 +1029,9 @@ struct QuizCardView: View {
             let outcome = vm.recordResult(correct: true, context: context)
             let notice = SessionNotice.make(for: outcome)
             
+            // Allow user to tap Next or interact immediately
+            interactionLocked = false
+
             let hasInflections = (card.cardType == .production) && (inflectionsText != nil || isGeneratingInflections)
             let hasAlternatives = (card.cardType == .recognition) && !card.userWord.word.cleanAlternatives.isEmpty
             let hasExplanation = card.cardType == .conjugation && conjugationExplanation != nil
@@ -1061,6 +1054,7 @@ struct QuizCardView: View {
             try? await Task.sleep(for: .seconds(remainingDelay))
             guard !Task.isCancelled, await noticeCompleted else { return }
             
+            interactionLocked = true
             withAnimation(.easeIn(duration: 0.3)) { swipeOffset = 500; cardOpacity = 0 }
             try? await Task.sleep(for: .seconds(0.3))
             guard !Task.isCancelled else { return }
