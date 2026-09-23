@@ -604,15 +604,6 @@ struct QuizCardView: View {
                         .padding(.top, 2)
                     }
 
-                    if let answer = conjugationAnswer, isRevealed {
-                        Text(answer)
-                            .font(.theme(.title3, weight: .bold))
-                            .foregroundStyle(wasCorrect == true ? Theme.primary : Theme.playfulAccent)
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(.top, 2)
-                    }
-
                     if let translation = geminiEnglishTranslation, isRevealed {
                         Text(translation)
                             .font(.theme(.body))
