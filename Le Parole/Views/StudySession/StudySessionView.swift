@@ -24,9 +24,9 @@ struct StudySessionView: View {
                         ZStack {
                             if vm.isComplete {
                                 SessionCompleteView(stats: vm.stats, isTestMode: vm.isTestMode) { dismiss() }
-                            } else if let card = vm.currentCard {
-                                QuizCardView(card: card, vm: vm)
-                                    .id(card.id)
+                            } else if let presentation = vm.presentation {
+                                QuizCardView(presentation: presentation, vm: vm)
+                                    .id(presentation.card.id)
                             } else if vm.isLoadingMoreCards {
                                 ProgressView("Loading more cards…")
                                     .font(.theme(.subheadline))
@@ -51,13 +51,7 @@ struct StudySessionView: View {
                     }
 
                     ToolbarItem(placement: .principal) {
-                        VStack(spacing: 2) {
-                            Text(vm.isTestMode ? "Test Mode" : "Study Session")
-                                .font(.theme(.headline, weight: .semibold))
-                            Text("\(vm.currentIndex + 1) of \(vm.totalCardCount)")
-                                .font(.theme(.caption2, weight: .medium))
-                                .foregroundStyle(.secondary)
-                        }
+                        SessionProgressTitle(vm: vm)
                     }
                 }
             }
@@ -74,6 +68,22 @@ struct StudySessionView: View {
         .onDisappear {
             viewModel?.cancelSessionWork()
             SpeechService.shared.stop()
+        }
+    }
+}
+
+/// Separate view so queue-length changes (e.g. a familiarity confirmation
+/// inserted while a card flips) re-render only the title, not the card.
+private struct SessionProgressTitle: View {
+    let vm: StudySessionViewModel
+
+    var body: some View {
+        VStack(spacing: 2) {
+            Text(vm.isTestMode ? "Test Mode" : "Study Session")
+                .font(.theme(.headline, weight: .semibold))
+            Text("\(vm.currentIndex + 1) of \(vm.totalCardCount)")
+                .font(.theme(.caption2, weight: .medium))
+                .foregroundStyle(.secondary)
         }
     }
 }

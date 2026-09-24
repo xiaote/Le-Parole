@@ -5,9 +5,8 @@ typealias VisualQuizData = (target: WordDiagram, options: [WordDiagram])
 struct VisualChoiceGridView: View {
     let quiz: VisualQuizData
     let selectedOptionId: String?
-    let isRevealed: Bool
-    let interactionLocked: Bool
-    let onSelect: (WordDiagram, WordDiagram) -> Void
+    let isDisabled: Bool
+    let onSelect: (WordDiagram) -> Void
     let onZoom: (WordDiagram) -> Void
 
     var body: some View {
@@ -23,13 +22,13 @@ struct VisualChoiceGridView: View {
                     option: option,
                     isSelected: selectedOptionId == option.id,
                     isTarget: option.id == quiz.target.id,
-                    showFeedback: isRevealed || selectedOptionId != nil,
-                    isDisabled: interactionLocked || isRevealed,
+                    showFeedback: selectedOptionId != nil,
+                    isDisabled: isDisabled,
                     onZoom: {
                         onZoom(option)
                     }
                 ) {
-                    onSelect(option, quiz.target)
+                    onSelect(option)
                 }
             }
         }
@@ -59,14 +58,17 @@ struct VisualOptionTile: View {
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 185)
-                .background(Color.white)
                 .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .background(
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(Color.white)
+                        .shadow(color: Color.black.opacity(0.06), radius: 6, y: 2)
+                )
                 .overlay(
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
                         .stroke(borderColor, lineWidth: borderWidth)
                 )
-                .shadow(color: Color.black.opacity(0.06), radius: 6, y: 2)
 
                 // Magnifying zoom button in top-left
                 VStack {

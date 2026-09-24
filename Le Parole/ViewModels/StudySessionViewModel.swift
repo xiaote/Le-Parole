@@ -24,7 +24,7 @@ nonisolated struct StudyCard: Identifiable, Sendable {
         switch cardType {
         case .recognition: userWord.word.italian
         case .production:  userWord.word.english
-        case .conjugation: "" // handled dynamically in view
+        case .conjugation: "" // see CardPresentation
         }
     }
 
@@ -32,7 +32,7 @@ nonisolated struct StudyCard: Identifiable, Sendable {
         switch cardType {
         case .recognition: userWord.word.english
         case .production:  userWord.word.italian
-        case .conjugation: "" // handled dynamically in view
+        case .conjugation: "" // see CardPresentation
         }
     }
 
@@ -40,7 +40,7 @@ nonisolated struct StudyCard: Identifiable, Sendable {
         switch cardType {
         case .recognition: userWord.word.isCorrectEnglish(input)
         case .production:  userWord.word.isCorrectItalian(input)
-        case .conjugation: false // handled dynamically in view
+        case .conjugation: false // see CardPresentation
         }
     }
 }
@@ -87,8 +87,21 @@ class StudySessionViewModel {
     private nonisolated static let testPageSize = 200
     private nonisolated static let testPagePrefetchThreshold = 40
 
-    var cards: [StudyCard] = []
-    var conjugationCache: [UUID: ConjugationFetchStatus] = [:]
+    // The queue and the conjugation cache change in the background (scheduling
+    // updates, familiarity insertions, prefetch results and downgrades of
+    // upcoming cards). Views must not observe them, or every such change would
+    // re-render the card on screen mid-animation; they observe `presentation`,
+    // `isComplete` and `queueLength` instead.
+    @ObservationIgnored var cards: [StudyCard] = [] {
+        didSet {
+            if cards.count != queueLength { queueLength = cards.count }
+        }
+    }
+    @ObservationIgnored var conjugationCache: [UUID: ConjugationFetchStatus] = [:]
+    private(set) var queueLength = 0
+    /// The card on screen. Replaced only when the learner moves to another card.
+    private(set) var presentation: CardPresentation?
+    private(set) var isComplete = false
     var currentIndex: Int = 0
     var stats = SessionStats()
     var isTestMode = false
@@ -101,8 +114,7 @@ class StudySessionViewModel {
     @ObservationIgnored private var testPageTask: Task<Void, Never>?
     private(set) var isLoadingMoreCards = false
 
-    var totalCardCount: Int { isTestMode ? testWordIDs.count : cards.count }
-    var isComplete: Bool { currentIndex >= totalCardCount }
+    var totalCardCount: Int { isTestMode ? testWordIDs.count : queueLength }
     var currentCard: StudyCard? {
         guard currentIndex < cards.count else { return nil }
         return cards[currentIndex]
@@ -110,6 +122,10 @@ class StudySessionViewModel {
 
     func initialize(dailyNewLimit: Int, isTestMode: Bool = false, isExtraSession: Bool = false) async {
         self.isTestMode = isTestMode
+        // Runs alongside the queue query so the first card doesn't pay for it.
+        let speechPreparation = Task {
+            await SpeechService.shared.prepare(languageCodes: ["it-IT", "en-US"])
+        }
         let now = Date.now
         let today = Calendar.current.startOfDay(for: now)
         let sixDaysAgo = Calendar.current.date(byAdding: .day, value: -6, to: now) ?? now
@@ -203,6 +219,7 @@ class StudySessionViewModel {
             )
         }
         autoPlayPronunciation = settings.autoPlayPronunciation
+        await speechPreparation.value
         conjugationLevel = settings.conjugationLevel
         geminiApiKey = KeychainStore.get(KeychainStore.geminiApiKey) ?? ""
 
@@ -219,7 +236,22 @@ class StudySessionViewModel {
         }
         
         prepareCurrentCardForImmediateDisplay()
+        presentCurrentCard()
         prefetchUpcomingCards()
+    }
+
+    /// Publishes the card at `currentIndex` (and completion) to the view.
+    private func presentCurrentCard() {
+        let complete = currentIndex >= totalCardCount
+        if complete != isComplete { isComplete = complete }
+        guard let card = currentCard else {
+            presentation = nil
+            return
+        }
+        guard presentation?.card.id != card.id else { return }
+        var challenge: ConjugationChallenge?
+        if case .success(let ready) = conjugationCache[card.id] { challenge = ready }
+        presentation = CardPresentation(card: card, challenge: challenge)
     }
 
     private nonisolated static func fetchUserWords(_ db: Database, ids: [Int64]) throws -> [UserWord] {
@@ -293,6 +325,7 @@ class StudySessionViewModel {
             }
             prefetchTestPageIfNeeded()
         }
+        presentCurrentCard()
         prefetchUpcomingCards()
     }
 
@@ -304,6 +337,7 @@ class StudySessionViewModel {
         } else {
             cards = Array(cards.prefix(currentIndex))
         }
+        presentCurrentCard()
     }
 
     func cancelSessionWork() {
@@ -341,6 +375,7 @@ class StudySessionViewModel {
             self.nextTestPageIndex = pageEnd
             self.isLoadingMoreCards = false
             self.testPageTask = nil
+            self.presentCurrentCard()
 
             // A short final page may still leave the buffer below the threshold.
             self.prefetchTestPageIfNeeded()

@@ -42,3 +42,26 @@ struct FlipEffect: AnimatableModifier {
             .allowsHitTesting(shouldShow)
     }
 }
+
+/// Stacks the two sides of a flip card, centred, and takes the size of one of
+/// them: the prompt until the card is revealed, then the answer. The hidden
+/// answer side therefore never pads the card before it is needed, and the
+/// card resizes in the same transaction as the flip.
+struct FlipCardLayout: Layout {
+    var showsBack: Bool
+
+    private func sizingIndex(_ subviews: Subviews) -> Int {
+        showsBack ? subviews.count - 1 : 0
+    }
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        guard !subviews.isEmpty else { return .zero }
+        return subviews[sizingIndex(subviews)].sizeThatFits(proposal)
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        for subview in subviews {
+            subview.place(at: CGPoint(x: bounds.midX, y: bounds.midY), anchor: .center, proposal: proposal)
+        }
+    }
+}

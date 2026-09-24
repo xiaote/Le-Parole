@@ -120,10 +120,15 @@ struct SessionNoticeView: View {
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 12)
-        .background(Theme.surface)
-        .overlay(Capsule().stroke(Theme.border, lineWidth: 1))
         .clipShape(Capsule())
-        .shadow(color: Theme.cardShadow, radius: 15, y: 5)
+        .background(
+            // A shape shadow is drawn directly; a shadow of the content would
+            // be re-rendered offscreen on every frame of the scale transition.
+            Capsule()
+                .fill(Theme.surface)
+                .shadow(color: Theme.cardShadow, radius: 15, y: 5)
+        )
+        .overlay(Capsule().stroke(Theme.border, lineWidth: 1))
         .compositingGroup()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
         .padding(.top, 24)
