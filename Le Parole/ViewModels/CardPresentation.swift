@@ -111,6 +111,13 @@ struct ConjugationDisplay {
     let completedSentence: String
     /// The explanation shortened for the card.
     let explanation: String
+    /// How the answer is formed, e.g. "vien- + -i → vieni (irregular tu stem)."
+    let rule: String
+    /// `rule` without its closing note, for a correct answer.
+    let ruleSummary: String
+    /// The whole paradigm, when the explanation lists it; shown after a
+    /// wrong answer.
+    let forms: [ConjugationForm]
     let tense: String
     let pronoun: String
     let englishTranslation: String
@@ -120,6 +127,8 @@ struct ConjugationDisplay {
         answer = challenge.answer
         completedSentence = Self.completing(challenge.sentence, with: challenge.answer)
         explanation = Self.concise(challenge.explanation)
+        (rule, forms) = Self.parse(explanation, answer: challenge.answer)
+        ruleSummary = Self.summary(of: rule)
         tense = challenge.tense
         pronoun = challenge.pronoun
         englishTranslation = challenge.englishTranslation
@@ -142,6 +151,45 @@ struct ConjugationDisplay {
         return sentence
     }
 
+    /// Splits "Rule: … Forms (io→loro): a · b · …" into the rule and the
+    /// forms, pairing each form with its pronoun when the count matches.
+    static func parse(_ explanation: String, answer: String) -> (rule: String, forms: [ConjugationForm]) {
+        guard let formsRange = explanation.range(of: #"Forms\s*(\([^)]*\))?\s*:"#, options: .regularExpression) else {
+            return (ruleText(explanation), [])
+        }
+        let rule = ruleText(String(explanation[..<formsRange.lowerBound]))
+        let header = explanation[formsRange]
+        let forms = explanation[formsRange.upperBound...]
+            .split(separator: "·")
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines.union(CharacterSet(charactersIn: "."))) }
+            .filter { !$0.isEmpty }
+
+        let allPronouns = ["io", "tu", "lui/lei", "noi", "voi", "loro"]
+        let first = allPronouns.first { header.contains("(\($0)") } ?? "io"
+        let pronouns = Array(allPronouns.drop { $0 != first })
+        let answers = Set(answer.split(separator: "/").map { $0.trimmingCharacters(in: .whitespaces).lowercased() })
+
+        return (rule, forms.enumerated().map { index, form in
+            ConjugationForm(
+                pronoun: forms.count == pronouns.count ? pronouns[index] : nil,
+                form: form,
+                // "sareste cascati/e" matches the answer "sareste cascati".
+                isAnswer: form.split(separator: "/").contains { answers.contains($0.trimmingCharacters(in: .whitespaces).lowercased()) }
+            )
+        })
+    }
+
+    private static func ruleText(_ text: String) -> String {
+        text.replacingOccurrences(of: #"^\s*Rule:\s*"#, with: "", options: .regularExpression)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    /// Drops a closing "(…)" note: "mangi- + -o → mangio (regular -are)." → "mangi- + -o → mangio".
+    static func summary(of rule: String) -> String {
+        let summary = rule.replacingOccurrences(of: #"\s*\([^()]*\)\.?$"#, with: "", options: .regularExpression)
+        return summary.isEmpty ? rule : summary
+    }
+
     private static func concise(_ explanation: String) -> String {
         var concise = explanation
             .replacingOccurrences(of: "Formation:", with: "Rule:", options: .caseInsensitive)
@@ -161,4 +209,13 @@ struct ConjugationDisplay {
         }
         return concise
     }
+}
+
+/// One cell of a conjugation table.
+struct ConjugationForm {
+    /// nil when the forms could not be matched to pronouns.
+    let pronoun: String?
+    let form: String
+    /// The form the card asked for.
+    let isAnswer: Bool
 }

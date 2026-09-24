@@ -120,7 +120,7 @@ enum GeminiService {
                 "id": "123e4567-e89b-12d3-a456-426614174000",
                 "sentence": "Oggi io _____ (mangiare) una pizza.",
                 "answer": "mangio",
-                "explanation": "Rule: mangi- + -o → mangio (regular -are, io).",
+                "explanation": "Rule: mangi- + -o → mangio (regular -are, io).\\nForms (io→loro): mangio · mangi · mangia · mangiamo · mangiate · mangiano",
                 "tense": "presente",
                 "pronoun": "io",
                 "englishTranslation": "Today I eat a pizza."

@@ -79,7 +79,17 @@ struct QuizCardFace: View {
 
                 if isRevealed, let conjugation = presentation.conjugation {
                     detailText(conjugation.englishTranslation, font: .theme(.body), topPadding: 4)
-                    detailText(conjugation.explanation, font: .theme(.subheadline), topPadding: 6)
+                    // Got it right: just the rule. Got it wrong: the rule with
+                    // its note, and the whole paradigm to scan.
+                    if wasCorrect == true {
+                        detailText(conjugation.ruleSummary, font: .theme(.subheadline), topPadding: 6)
+                    } else {
+                        detailText(conjugation.rule, font: .theme(.subheadline), topPadding: 6)
+                        if !conjugation.forms.isEmpty {
+                            ConjugationTable(forms: conjugation.forms)
+                                .padding(.top, 6)
+                        }
+                    }
                 }
 
                 if showsHintArea {
@@ -247,6 +257,55 @@ private struct AspectFitFrame: Layout {
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
         for subview in subviews {
             subview.place(at: bounds.origin, proposal: ProposedViewSize(bounds.size))
+        }
+    }
+}
+
+/// The paradigm as the familiar two columns: singular persons on the left,
+/// plural on the right, with the asked-for form highlighted.
+private struct ConjugationTable: View {
+    let forms: [ConjugationForm]
+
+    var body: some View {
+        // Without pronouns, split down the middle.
+        let singularCount = forms.first?.pronoun == nil
+            ? (forms.count + 1) / 2
+            : forms.count { ["io", "tu", "lui/lei"].contains($0.pronoun) }
+        let singular = Array(forms.prefix(singularCount))
+        let plural = Array(forms.dropFirst(singularCount))
+        Grid(alignment: .leadingFirstTextBaseline, horizontalSpacing: 14, verticalSpacing: 7) {
+            ForEach(0..<max(singular.count, plural.count), id: \.self) { row in
+                GridRow {
+                    cell(row < singular.count ? singular[row] : nil)
+                    cell(row < plural.count ? plural[row] : nil)
+                }
+            }
+        }
+        .padding(.vertical, 12)
+        .padding(.horizontal, 14)
+        .frame(maxWidth: .infinity)
+        .background(Color.primary.opacity(0.04), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+        .padding(.horizontal, 8)
+    }
+
+    @ViewBuilder
+    private func cell(_ form: ConjugationForm?) -> some View {
+        if let form {
+            HStack(alignment: .firstTextBaseline, spacing: 6) {
+                if let pronoun = form.pronoun {
+                    Text(pronoun)
+                        .font(.theme(.caption))
+                        .foregroundStyle(.secondary)
+                        .frame(width: 44, alignment: .leading)
+                }
+                Text(form.form)
+                    .font(.theme(.subheadline, weight: form.isAnswer ? .bold : .regular))
+                    .foregroundStyle(form.isAnswer ? Theme.primary : .primary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        } else {
+            Color.clear.gridCellUnsizedAxes([.horizontal, .vertical])
         }
     }
 }

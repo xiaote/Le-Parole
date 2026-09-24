@@ -158,7 +158,7 @@ struct AppleIntelligenceService {
         return ConjugationChallenge(
             sentence: "Ieri, io e Marco _____ (andare) al cinema.",
             answer: "siamo andati",
-            explanation: "Rule: siamo + andati → siamo andati (essere; plural agreement).",
+            explanation: "Rule: siamo + andati → siamo andati (essere; plural agreement).\nForms (io→loro): sono andato/a · sei andato/a · è andato/a · siamo andati/e · siete andati/e · sono andati/e",
             tense: "passato prossimo",
             pronoun: "noi",
             englishTranslation: "Yesterday, Marco and I went to the cinema."
@@ -205,7 +205,7 @@ struct AppleIntelligenceService {
                 </scratchpad>
                 <sentence>Oggi noi _____ (mangiare) una pizza.</sentence>
                 <answer>mangiamo</answer>
-                <explanation>Rule: mangi- + -iamo → mangiamo (regular -giare; adjacent i written once).</explanation>
+                <explanation>Rule: mangi- + -iamo → mangiamo (regular -giare; adjacent i written once).\nForms (io→loro): mangio · mangi · mangia · mangiamo · mangiate · mangiano</explanation>
             </flashcard>
             """
         )

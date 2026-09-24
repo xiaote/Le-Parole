@@ -76,6 +76,9 @@ struct QuizCardView: View {
 
     @State private var state = CardState()
     @FocusState private var inputFocused: Bool
+    /// Whether the card and what follows it are taller than the space
+    /// above the footer (and keyboard).
+    @State private var contentOverflows = false
     @State private var activeSheet: ActiveSheet?
     /// The running grading / feedback / reveal / auto-advance sequence.
     @State private var sequenceTask: Task<Void, Never>?
@@ -133,10 +136,14 @@ struct QuizCardView: View {
                     }
                     .padding(.vertical, 16)
                     .frame(maxWidth: .infinity)
-                    .containerRelativeFrame(.vertical, alignment: .center)
                 }
+                // Centred while it fits; scrolls from the top once it doesn't.
+                .defaultScrollAnchor(.center, for: .alignment)
                 .scrollDismissesKeyboard(.interactively)
                 .scrollBounceBehavior(.basedOnSize)
+                .onScrollGeometryChange(for: Bool.self) { $0.contentSize.height > $0.containerSize.height } action: { _, overflows in
+                    contentOverflows = overflows
+                }
 
                 QuizControlsFooterView(
                     isRevealed: isRevealed,
@@ -160,6 +167,11 @@ struct QuizCardView: View {
             }
         }
         .onDisappear(perform: cancelTasks)
+        .onChange(of: isRevealed && contentOverflows) { _, overflows in
+            // The keyboard stays up between cards, except when the answer,
+            // its examples or its concept need the room to be read in full.
+            if overflows { inputFocused = false }
+        }
         .sheet(item: $activeSheet) { sheet in
             switch sheet {
             case .diagram(let diagram):
@@ -227,6 +239,7 @@ struct QuizCardView: View {
                 ForEach(sentences, id: \.self) { sentence in
                     Text(sentence)
                         .font(.theme(.subheadline))
+                        .fixedSize(horizontal: false, vertical: true)
                 }
             case .none:
                 EmptyView()
