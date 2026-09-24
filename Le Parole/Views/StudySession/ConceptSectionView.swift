@@ -5,22 +5,6 @@ struct ConceptSectionView: View {
     var onSelectRelatedItem: ((RelatedConceptItem) -> Void)? = nil
     var onSelectRelatedTerm: ((String) -> Void)? = nil
 
-    init(
-        concept: WordConcept,
-        onSelectRelatedItem: ((RelatedConceptItem) -> Void)? = nil,
-        onSelectRelatedTerm: ((String) -> Void)? = nil
-    ) {
-        self.concept = concept
-        self.onSelectRelatedItem = onSelectRelatedItem
-        self.onSelectRelatedTerm = onSelectRelatedTerm
-    }
-
-    init(concept: WordConcept, onSelectRelatedTerm: ((String) -> Void)?) {
-        self.concept = concept
-        self.onSelectRelatedItem = nil
-        self.onSelectRelatedTerm = onSelectRelatedTerm
-    }
-
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             // MARK: - The Concept
@@ -43,13 +27,7 @@ struct ConceptSectionView: View {
             }
             .padding(14)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Theme.surface)
-            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-            .overlay(
-                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                    .stroke(Theme.border, lineWidth: 1)
-                    .allowsHitTesting(false)
-            )
+            .themeCard(cornerRadius: 12)
 
             // MARK: - Real-World Commands & In the Wild
             if let phrases = concept.commonPhrases, !phrases.isEmpty {
@@ -67,19 +45,7 @@ struct ConceptSectionView: View {
                     VStack(spacing: 8) {
                         ForEach(phrases) { item in
                             HStack(alignment: .top, spacing: 10) {
-                                Button {
-                                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                                    SpeechService.shared.speak(item.phrase, languageCode: "it-IT")
-                                } label: {
-                                    Image(systemName: "speaker.wave.2.fill")
-                                        .font(.system(size: 13, weight: .semibold))
-                                        .foregroundStyle(.white)
-                                        .frame(width: 32, height: 32)
-                                        .background(Theme.primary, in: Circle())
-                                        .contentShape(Circle())
-                                }
-                                .buttonStyle(PressableButtonStyle())
-                                .accessibilityLabel("Pronounce \(item.phrase)")
+                                SpeakButton(text: item.phrase, iconFont: .system(size: 13, weight: .semibold))
 
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text(item.phrase)
@@ -110,13 +76,7 @@ struct ConceptSectionView: View {
                 }
                 .padding(14)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Theme.surface)
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .stroke(Theme.border, lineWidth: 1)
-                        .allowsHitTesting(false)
-                )
+                .themeCard(cornerRadius: 12)
             }
 
             // MARK: - In Practice / Rule of Thumb
@@ -140,13 +100,7 @@ struct ConceptSectionView: View {
                 }
                 .padding(14)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Theme.surface)
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .stroke(Theme.border, lineWidth: 1)
-                        .allowsHitTesting(false)
-                )
+                .themeCard(cornerRadius: 12)
             }
 
             // MARK: - Connected Concept Clusters

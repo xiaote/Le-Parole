@@ -4,6 +4,9 @@ import GRDB
 struct Word: Identifiable, Sendable, Equatable {
     static let databaseTableName = "words"
 
+    /// Built-in CEFR levels, in order. Any other `level` value is a custom category.
+    nonisolated static let cefrLevels = ["A1", "A2", "B1", "B2", "C1", "C2"]
+
     var wordId: String
     var italian: String
     var english: String

@@ -97,12 +97,12 @@ struct HomeView: View {
                 MistakesReviewView(words: mistakesReviewWords)
             }
             .sheet(isPresented: $showingInProgress) {
-                InProgressView {
+                StageWordsView(kind: .inProgress) {
                     await vm.getInProgressWords()
                 }
             }
             .sheet(isPresented: $showingMastered) {
-                MasteredWordsView {
+                StageWordsView(kind: .mastered) {
                     await vm.getMasteredWords()
                 }
             }

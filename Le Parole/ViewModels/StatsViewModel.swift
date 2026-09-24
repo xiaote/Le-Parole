@@ -92,11 +92,19 @@ struct IntroducedWord: Sendable, Equatable {
 
 @Observable
 final class StatsViewModel {
-    var snapshot = StatsSnapshot()
-    var dailyActivities: [DailyCount] = []
+    var snapshot = StatsSnapshot() { didSet { updateProgress() } }
+    var dailyActivities: [DailyCount] = [] { didSet { updateDailyCounts() } }
     var tenseStats: [TenseStat] = []
-    var settings: UserSettings?
-    var introducedWords: [IntroducedWord] = []
+    var settings: UserSettings? { didSet { updateProgress() } }
+    var introducedWords: [IntroducedWord] = [] { didSet { updateProgress() } }
+
+    // Derived values, recomputed only when the observed data above changes.
+    private(set) var dailyCounts: [DailyCount] = []
+    private(set) var weekTotal = 0
+    private(set) var progressEntries: [CumulativeProgressEntry] = []
+    private(set) var targetWordCount = 0
+    private(set) var benchmarks: [(level: String, count: Int)] = []
+    private(set) var coverageProjection: CoverageProjection?
 
     private var statsCancellable: AnyDatabaseCancellable?
     private var activityCancellable: AnyDatabaseCancellable?
@@ -104,7 +112,6 @@ final class StatsViewModel {
     private var settingsCancellable: AnyDatabaseCancellable?
     private var introducedWordsCancellable: AnyDatabaseCancellable?
 
-    static let cefrLevels = ["A1", "A2", "B1", "B2", "C1", "C2"]
     static let coverageProjectionSampleDays = 7
     static let supportedTenses = [
         "presente",
@@ -119,7 +126,9 @@ final class StatsViewModel {
         "congiuntivo imperfetto",
     ]
 
-    init() {}
+    init() {
+        updateDailyCounts()
+    }
 
     func setObserving(_ shouldObserve: Bool) {
         guard shouldObserve else {
@@ -168,8 +177,7 @@ final class StatsViewModel {
                 )
             }
             
-            let builtIn: Set<String> = ["A1", "A2", "B1", "B2", "C1", "C2"]
-            let customCategories = allLevels.subtracting(builtIn).sorted()
+            let customCategories = allLevels.subtracting(Word.cefrLevels).sorted()
             
             return StatsSnapshot(
                 mastered: mastered,
@@ -267,57 +275,59 @@ final class StatsViewModel {
         snapshot.levelStats[level] ?? LevelStats(level: level, mastered: 0, production: 0, recognition: 0, total: 0)
     }
 
-    func dailyWordCounts(days: Int = 30) -> [DailyCount] {
+    // MARK: - Derived data
+
+    private func updateDailyCounts(days: Int = 30) {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: .now)
-        
         let activityDict = Dictionary(uniqueKeysWithValues: dailyActivities.map { ($0.dateString, $0) })
-        
-        return (0..<days).reversed().map { offset in
+
+        dailyCounts = (0..<days).reversed().map { offset in
             let date = calendar.date(byAdding: .day, value: -offset, to: today)!
             let dateStr = AppDateFormatter.string(from: date)
-            
-            if let existing = activityDict[dateStr] {
-                return existing
-            } else {
-                return DailyCount(dateString: dateStr)
-            }
+            return activityDict[dateStr] ?? DailyCount(dateString: dateStr)
         }
+        weekTotal = dailyCounts.suffix(7).reduce(0) { $0 + $1.total }
     }
 
-    var thisWeekWordCount: Int {
-        thisWeekWordCount(from: dailyWordCounts())
-    }
-
-    func thisWeekWordCount(from counts: [DailyCount]) -> Int {
-        counts.suffix(7).reduce(0) { $0 + $1.total }
-    }
-    func cumulativeProgressData(for level: String? = nil) -> [CumulativeProgressEntry] {
-        guard
-            let targetIndex = Self.cefrLevels.firstIndex(of: level ?? targetLevel)
-        else {
-            return []
+    private func updateProgress() {
+        guard let targetIndex = Word.cefrLevels.firstIndex(of: targetLevel) else {
+            progressEntries = []
+            targetWordCount = 0
+            benchmarks = []
+            coverageProjection = nil
+            return
         }
+        let includedLevels = Word.cefrLevels.prefix(through: targetIndex)
 
-        let includedLevels = Set(Self.cefrLevels.prefix(through: targetIndex))
-        let eligibleWords = introducedWords.filter { includedLevels.contains($0.level) }
+        var total = 0
+        benchmarks = includedLevels.map { level in
+            total += statsFor(level: level).total
+            return (level, total)
+        }
+        targetWordCount = total
+        progressEntries = cumulativeProgressData(levels: Set(includedLevels))
+        coverageProjection = makeCoverageProjection(entries: progressEntries, targetCount: total)
+    }
+
+    private func cumulativeProgressData(levels: Set<String>) -> [CumulativeProgressEntry] {
+        let eligibleWords = introducedWords.filter { levels.contains($0.level) }
         guard !eligibleWords.isEmpty else { return [] }
-        
+
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: .now)
-        
+
         var dailyCounts: [Date: Int] = [:]
         for word in eligibleWords {
             let day = calendar.startOfDay(for: Date(timeIntervalSince1970: word.learnedDate))
             dailyCounts[day, default: 0] += word.count
         }
-        
-        let sortedDays = dailyCounts.keys.sorted()
-        guard let firstDay = sortedDays.first else { return [] }
-        
+
+        guard let firstDay = dailyCounts.keys.min() else { return [] }
+
         var entries: [CumulativeProgressEntry] = []
         var runningTotal = 0
-        
+
         var currentDay = firstDay
         while currentDay <= today {
             runningTotal += dailyCounts[currentDay] ?? 0
@@ -327,16 +337,7 @@ final class StatsViewModel {
         return entries
     }
 
-    func targetWordCount(for level: String) -> Int {
-        guard let targetIndex = Self.cefrLevels.firstIndex(of: level) else { return 0 }
-        return Self.cefrLevels.prefix(through: targetIndex).reduce(0) { total, level in
-            total + statsFor(level: level).total
-        }
-    }
-
-    func coverageProjection(for level: String) -> CoverageProjection? {
-        let targetCount = targetWordCount(for: level)
-        let entries = cumulativeProgressData(for: level)
+    private func makeCoverageProjection(entries: [CumulativeProgressEntry], targetCount: Int) -> CoverageProjection? {
         let currentCount = entries.last?.count ?? 0
         guard targetCount > currentCount else { return nil }
 
@@ -362,14 +363,5 @@ final class StatsViewModel {
             recentDailyRate: recentDailyRate,
             sampleDays: sampleDays
         )
-    }
-
-    func benchmarks(for level: String) -> [(level: String, count: Int)] {
-        guard let targetIndex = Self.cefrLevels.firstIndex(of: level) else { return [] }
-        var total = 0
-        return Self.cefrLevels.prefix(through: targetIndex).map { level in
-            total += statsFor(level: level).total
-            return (level, total)
-        }
     }
 }

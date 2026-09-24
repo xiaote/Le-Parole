@@ -78,17 +78,7 @@ struct RelatedWordSheet: View {
 
                                 Spacer()
 
-                                Button {
-                                    SpeechService.shared.speak(currentTerm, languageCode: "it-IT")
-                                } label: {
-                                    Image(systemName: "speaker.wave.2.fill")
-                                        .font(.theme(.caption, weight: .semibold))
-                                        .foregroundStyle(.white)
-                                        .frame(width: 32, height: 32)
-                                        .background(Theme.primary, in: Circle())
-                                        .contentShape(Circle())
-                                }
-                                .buttonStyle(PressableButtonStyle())
+                                SpeakButton(text: currentTerm)
                             }
 
                             if let word = word {
@@ -120,73 +110,17 @@ struct RelatedWordSheet: View {
 
                         // MARK: - Technical Manual Diagram Card (if available)
                         if let diagram {
-                            VStack(alignment: .leading, spacing: 10) {
-                                HStack {
-                                    Label("Manuale CVC", systemImage: "sailboat.fill")
-                                        .font(.theme(.subheadline, weight: .semibold))
-                                        .foregroundStyle(Theme.primary)
-
-                                    Spacer()
-
-                                    Button {
-                                        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-                                        presentedPlate = diagram
-                                    } label: {
-                                        HStack(spacing: 4) {
-                                            Text("Tavola intera")
-                                            Image(systemName: "arrow.up.left.and.arrow.down.right")
-                                        }
-                                        .font(.theme(.caption, weight: .semibold))
-                                        .foregroundStyle(Theme.primary)
-                                        .padding(.vertical, 6)
-                                        .padding(.horizontal, 10)
-                                        .background(Theme.primary.opacity(0.1))
-                                        .clipShape(Capsule())
-                                        .contentShape(Capsule())
-                                    }
-                                    .buttonStyle(PressableButtonStyle())
-                                }
-
-                                Button {
-                                    UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-                                    presentedPlate = diagram
-                                } label: {
-                                    Image(diagram.revealedImageName)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(maxHeight: 220)
-                                        .frame(maxWidth: .infinity)
-                                        .background(Color.white)
-                                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                                .stroke(Color.primary.opacity(0.12), lineWidth: 1)
-                                                .allowsHitTesting(false)
-                                        )
-                                        .contentShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                                }
-                                .buttonStyle(PressableButtonStyle())
-
-                                if let caption = diagram.caption {
-                                    Text(caption)
-                                        .font(.theme(.subheadline))
-                                        .foregroundStyle(.secondary)
-                                        .fixedSize(horizontal: false, vertical: true)
-                                }
-                            }
-                            .padding(16)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .themeCard(cornerRadius: Theme.cardCornerRadius)
+                            DiagramCard(diagram: diagram, imageMaxHeight: 220) { presentedPlate = $0 }
                         }
 
                         // Concept Deep Dive if available
                         if let concept = concept {
-                            ConceptSectionView(concept: concept) { nextTerm in
+                            ConceptSectionView(concept: concept, onSelectRelatedTerm: { nextTerm in
                                 // Nested chip tap: update current term
                                 Task {
                                     await loadTerm(nextTerm)
                                 }
-                            }
+                            })
                         }
                     }
                     .padding(20)

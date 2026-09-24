@@ -21,8 +21,8 @@ final class WordBankViewModel {
             }
         }
     }
-    var showingSkipped: Bool = false { didSet { resetResults() } }
-    var selectedLevel: String? = nil { didSet { resetResults() } }
+    private(set) var showingSkipped = false
+    private(set) var selectedLevel: String? = nil
     
     private var levelsCancellable: AnyDatabaseCancellable?
     private static let pageSize = 250
@@ -56,8 +56,7 @@ final class WordBankViewModel {
         let db = DatabaseService.shared
         levelsCancellable = ValueObservation.tracking { db in
             let levels = try String.fetchAll(db, sql: "SELECT DISTINCT level FROM words")
-            let builtIn: Set<String> = ["A1", "A2", "B1", "B2", "C1", "C2"]
-            return Set(levels).subtracting(builtIn).sorted()
+            return Set(levels).subtracting(Word.cefrLevels).sorted()
         }.start(
             in: db.db,
             scheduling: .async(onQueue: .main),
@@ -154,8 +153,19 @@ final class WordBankViewModel {
         loadNextPage()
     }
 
-    func refresh() {
+    /// Sets the level and skipped filters together so only one query runs.
+    func setFilter(level: String?, skipped: Bool) {
+        guard level != selectedLevel || skipped != showingSkipped else { return }
+        selectedLevel = level
+        showingSkipped = skipped
         resetResults()
+    }
+
+    func deleteWord(_ word: Word) {
+        Task {
+            _ = try? await DatabaseService.shared.db.write { db in try word.delete(db) }
+            resetResults()
+        }
     }
 
     private func resetResults() {

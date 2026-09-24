@@ -5,17 +5,11 @@ struct StatsView: View {
     let appActivity: AppActivity
     @State private var vm = StatsViewModel()
 
-    private let levels = ["A1", "A2", "B1", "B2", "C1", "C2"]
-
     var body: some View {
         NavigationStack {
             List {
                 Section("Activity") {
-                    let counts = vm.dailyWordCounts()
-                    DailyActivityChart(
-                        dailyCounts: counts,
-                        weekTotal: vm.thisWeekWordCount(from: counts)
-                    )
+                    DailyActivityChart(dailyCounts: vm.dailyCounts, weekTotal: vm.weekTotal)
                     .listRowInsets(EdgeInsets(top: 12, leading: 16, bottom: 16, trailing: 16))
                 }
 
@@ -25,21 +19,18 @@ struct StatsView: View {
                         set: { vm.targetLevel = $0 }
                     )) {
                         Text("None").tag("None")
-                        Text("A1").tag("A1")
-                        Text("A2").tag("A2")
-                        Text("B1").tag("B1")
-                        Text("B2").tag("B2")
-                        Text("C1").tag("C1")
-                        Text("C2").tag("C2")
+                        ForEach(Word.cefrLevels, id: \.self) { level in
+                            Text(level).tag(level)
+                        }
                     }
 
                     if vm.targetLevel != "None" {
                         CumulativeProgressChartView(
-                            entries: vm.cumulativeProgressData(),
+                            entries: vm.progressEntries,
                             targetLevel: vm.targetLevel,
-                            targetCount: vm.targetWordCount(for: vm.targetLevel),
-                            benchmarks: vm.benchmarks(for: vm.targetLevel),
-                            projection: vm.coverageProjection(for: vm.targetLevel)
+                            targetCount: vm.targetWordCount,
+                            benchmarks: vm.benchmarks,
+                            projection: vm.coverageProjection
                         )
                         .listRowInsets(EdgeInsets(top: 12, leading: 16, bottom: 16, trailing: 16))
                     } else {
@@ -67,7 +58,7 @@ struct StatsView: View {
                 }
 
                 Section("By level") {
-                    ForEach(levels, id: \.self) { level in
+                    ForEach(Word.cefrLevels, id: \.self) { level in
                         LevelProgressRow(stats: vm.statsFor(level: level))
                     }
                 }

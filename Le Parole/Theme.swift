@@ -43,7 +43,6 @@ enum Theme {
         light: UIColor(red: 0.95, green: 0.98, blue: 0.96, alpha: 1),
         dark: UIColor(red: 0.035, green: 0.06, blue: 0.045, alpha: 1)
     )
-    static let background = Color(.systemBackground)
     static let surface = adaptiveColor(
         light: UIColor(red: 0.995, green: 0.999, blue: 0.996, alpha: 1),
         dark: UIColor(red: 0.075, green: 0.10, blue: 0.085, alpha: 1)
@@ -67,7 +66,6 @@ enum Theme {
 
     // MARK: - Layout tokens
 
-    static let smallCornerRadius: CGFloat = 10
     static let barCornerRadius: CGFloat = 4
     static let controlCornerRadius: CGFloat = 14
     static let cardCornerRadius: CGFloat = 18

@@ -25,12 +25,6 @@ struct MistakesReviewView: View {
         return words[currentIndex]
     }
 
-    private func hasRichContent(for item: MistakeItem) -> Bool {
-        let hasDiagram = SailingDiagramService.diagram(for: item.userWord.word.italian) != nil
-        let hasConcept = ConceptService.shared.concept(for: item.userWord.word.italian) != nil
-        return hasDiagram || hasConcept
-    }
-
     var body: some View {
         NavigationStack {
             ZStack {
@@ -47,6 +41,9 @@ struct MistakesReviewView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else if let word = current {
+                    let diagram = SailingDiagramService.diagram(for: word.userWord.word.italian)
+                    let concept = ConceptService.shared.concept(for: word.userWord.word.italian)
+                    let hasRichContent = diagram != nil || concept != nil
                     VStack(spacing: 0) {
                         // Header Progress
                         VStack(spacing: 6) {
@@ -86,19 +83,20 @@ struct MistakesReviewView: View {
                         // Scrollable Mistake Content
                         ScrollView(showsIndicators: false) {
                             VStack(spacing: 16) {
-                                if !hasRichContent(for: word) {
+                                if !hasRichContent {
                                     Spacer(minLength: 32)
                                 }
 
                                 MistakeCard(
                                     item: word,
-                                    hasRichContent: hasRichContent(for: word),
+                                    diagram: diagram,
+                                    concept: concept,
                                     onSelectDiagram: { diag in activeSheet = .diagram(diag) },
                                     onSelectRelatedConcept: { item in activeSheet = .relatedConcept(item) },
                                     onSelectRelatedTerm: { term in activeSheet = .relatedTerm(term) }
                                 )
 
-                                if !hasRichContent(for: word) {
+                                if !hasRichContent {
                                     Spacer(minLength: 32)
                                 } else {
                                     Spacer(minLength: 20)
@@ -199,18 +197,13 @@ struct MistakesReviewView: View {
 
 private struct MistakeCard: View {
     let item: MistakeItem
-    var hasRichContent: Bool = false
+    let diagram: WordDiagram?
+    let concept: WordConcept?
     var onSelectDiagram: (WordDiagram) -> Void
     var onSelectRelatedConcept: (RelatedConceptItem) -> Void
     var onSelectRelatedTerm: (String) -> Void
 
-    private var diagram: WordDiagram? {
-        SailingDiagramService.diagram(for: item.userWord.word.italian)
-    }
-
-    private var concept: WordConcept? {
-        ConceptService.shared.concept(for: item.userWord.word.italian)
-    }
+    private var hasRichContent: Bool { diagram != nil || concept != nil }
 
     var body: some View {
         VStack(spacing: 16) {
@@ -236,18 +229,7 @@ private struct MistakeCard: View {
 
                         Spacer()
 
-                        Button {
-                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                            SpeechService.shared.speak(completedSentence, languageCode: "it-IT")
-                        } label: {
-                            Image(systemName: "speaker.wave.2.fill")
-                                .font(.theme(.caption, weight: .semibold))
-                                .foregroundStyle(.white)
-                                .frame(width: 30, height: 30)
-                                .background(Theme.primary, in: Circle())
-                                .contentShape(Circle())
-                        }
-                        .buttonStyle(PressableButtonStyle())
+                        SpeakButton(text: completedSentence, size: 30)
                     }
 
                     if let explanation = context.explanation {
@@ -330,82 +312,15 @@ private struct MistakeCard: View {
                     .frame(minHeight: hasRichContent ? nil : 240)
 
                     // Audio speaker button placed in top-left matching QuizCardView
-                    Button {
-                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                        SpeechService.shared.speak(item.userWord.word.italian, languageCode: "it-IT")
-                    } label: {
-                        Image(systemName: "speaker.wave.2.fill")
-                            .font(.theme(.caption, weight: .semibold))
-                            .foregroundStyle(.white)
-                            .frame(width: 32, height: 32)
-                            .background(Theme.primary, in: Circle())
-                            .contentShape(Circle())
-                    }
-                    .buttonStyle(PressableButtonStyle())
-                    .padding(18)
+                    SpeakButton(text: item.userWord.word.italian)
+                        .padding(18)
                 }
                 .themeCard(cornerRadius: Theme.prominentCardCornerRadius, elevated: true)
             }
 
             // MARK: - Technical Manual Diagram Card (if available)
             if let diagram {
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack {
-                        Label("Manuale CVC", systemImage: "sailboat.fill")
-                            .font(.theme(.subheadline, weight: .semibold))
-                            .foregroundStyle(Theme.primary)
-
-                        Spacer()
-
-                        Button {
-                            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-                            onSelectDiagram(diagram)
-                        } label: {
-                            HStack(spacing: 4) {
-                                Text("Tavola intera")
-                                Image(systemName: "arrow.up.left.and.arrow.down.right")
-                            }
-                            .font(.theme(.caption, weight: .semibold))
-                            .foregroundStyle(Theme.primary)
-                            .padding(.vertical, 6)
-                            .padding(.horizontal, 10)
-                            .background(Theme.primary.opacity(0.1))
-                            .clipShape(Capsule())
-                            .contentShape(Capsule())
-                        }
-                        .buttonStyle(PressableButtonStyle())
-                    }
-
-                    Button {
-                        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-                        onSelectDiagram(diagram)
-                    } label: {
-                        Image(diagram.revealedImageName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxHeight: 250)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.white)
-                            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                    .stroke(Color.primary.opacity(0.12), lineWidth: 1)
-                                    .allowsHitTesting(false)
-                            )
-                            .contentShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                    }
-                    .buttonStyle(PressableButtonStyle())
-
-                    if let caption = diagram.caption {
-                        Text(caption)
-                            .font(.theme(.subheadline))
-                            .foregroundStyle(.secondary)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                }
-                .padding(16)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .themeCard(cornerRadius: Theme.cardCornerRadius)
+                DiagramCard(diagram: diagram, onOpen: onSelectDiagram)
             }
 
             // MARK: - Concept Learning & Spoken Commands (if available)

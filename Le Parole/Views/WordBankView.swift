@@ -1,22 +1,15 @@
 import SwiftUI
-import GRDB
 
 struct WordBankView: View {
     let appActivity: AppActivity
     @State private var vm = WordBankViewModel()
-    @State private var selectedLevel: String? = nil
-    @State private var searchText = ""
-    @State private var showingSkipped = false
     @State private var isSelecting = false
     @State private var selectedIDs = Set<Int64>()
     @State private var showingAddWord = false
     @State private var selectedWord: UserWord? = nil
     @State private var wordToDelete: UserWord? = nil
 
-    private let builtInLevels = ["A1", "A2", "B1", "B2", "C1", "C2"]
     private let selectAnimation = Animation.spring(response: 0.3, dampingFraction: 0.85)
-
-
 
     private var selectedCount: Int { selectedIDs.count }
     private var showBottomBar: Bool { isSelecting && selectedCount > 0 }
@@ -37,9 +30,9 @@ struct WordBankView: View {
 
                         if vm.userWords.isEmpty && !vm.isLoadingMore {
                             ContentUnavailableView(
-                                searchText.isEmpty ? "No words here" : "No results",
-                                systemImage: searchText.isEmpty ? "text.book.closed" : "magnifyingglass",
-                                description: Text(searchText.isEmpty ? "Add a word or choose another category." : "Try a different word or category.")
+                                vm.searchText.isEmpty ? "No words here" : "No results",
+                                systemImage: vm.searchText.isEmpty ? "text.book.closed" : "magnifyingglass",
+                                description: Text(vm.searchText.isEmpty ? "Add a word or choose another category." : "Try a different word or category.")
                             )
                             .frame(maxWidth: .infinity, minHeight: 320)
                         } else {
@@ -70,16 +63,13 @@ struct WordBankView: View {
                 }
             }
             .animation(selectAnimation, value: showBottomBar)
-            .searchable(text: $searchText, prompt: "Search Italian or English")
-            .onChange(of: searchText) { _, newValue in
-                vm.searchText = newValue
-            }
+            .searchable(text: $vm.searchText, prompt: "Search Italian or English")
             .navigationTitle("Words")
             .toolbarBackground(Theme.canvas, for: .navigationBar)
-            .sheet(isPresented: $showingAddWord) { AddWordView() }
+            .sheet(isPresented: $showingAddWord) { WordFormView(mode: .add) }
             .sheet(item: $selectedWord) { word in
                 if word.word.isUserCreated {
-                    EditWordView(userWord: word)
+                    WordFormView(mode: .edit(word))
                 } else {
                     WordDetailView(userWord: word)
                 }
@@ -90,12 +80,7 @@ struct WordBankView: View {
             ) {
                 Button("Delete", role: .destructive) {
                     if let word = wordToDelete?.word {
-                        Task.detached {
-                            try? await DatabaseService.shared.db.write { db in try word.delete(db) }
-                            await MainActor.run {
-                                vm.refresh()
-                            }
-                        }
+                        vm.deleteWord(word)
                     }
                     wordToDelete = nil
                 }
@@ -128,7 +113,7 @@ struct WordBankView: View {
                     }
                 }
                 ToolbarItem(placement: .topBarLeading) {
-                    if isSelecting && !showingSkipped {
+                    if isSelecting && !vm.showingSkipped {
                         Button("Select loaded") {
                             withAnimation(selectAnimation) {
                                 selectedIDs = Set(vm.userWords.compactMap { $0.id })
@@ -155,42 +140,26 @@ struct WordBankView: View {
     private var filterBar: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                LevelChip(title: "All", isSelected: selectedLevel == nil && !showingSkipped) {
-                    selectedLevel = nil
-                    showingSkipped = false
-                    selectedIDs.removeAll()
-                    vm.selectedLevel = nil
-                    vm.showingSkipped = false
+                FilterChip(title: "All", isSelected: vm.selectedLevel == nil && !vm.showingSkipped) {
+                    selectFilter(level: nil)
                 }
-                ForEach(builtInLevels, id: \.self) { level in
-                    LevelChip(title: level, isSelected: selectedLevel == level && !showingSkipped) {
-                        selectedLevel = level
-                        showingSkipped = false
-                        selectedIDs.removeAll()
-                        vm.selectedLevel = level
-                        vm.showingSkipped = false
+                ForEach(Word.cefrLevels + vm.customLevels, id: \.self) { level in
+                    FilterChip(title: level, isSelected: vm.selectedLevel == level) {
+                        selectFilter(level: level)
                     }
                 }
-                ForEach(vm.customLevels, id: \.self) { level in
-                    LevelChip(title: level, isSelected: selectedLevel == level && !showingSkipped) {
-                        selectedLevel = level
-                        showingSkipped = false
-                        selectedIDs.removeAll()
-                        vm.selectedLevel = level
-                        vm.showingSkipped = false
-                    }
-                }
-                LevelChip(title: "Skipped", isSelected: showingSkipped, color: Color(.systemGray)) {
-                    showingSkipped = true
-                    selectedLevel = nil
-                    selectedIDs.removeAll()
-                    vm.showingSkipped = true
-                    vm.selectedLevel = nil
+                FilterChip(title: "Skipped", isSelected: vm.showingSkipped, color: Color(.systemGray)) {
+                    selectFilter(level: nil, skipped: true)
                 }
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 8)
         }
+    }
+
+    private func selectFilter(level: String?, skipped: Bool = false) {
+        selectedIDs.removeAll()
+        vm.setFilter(level: level, skipped: skipped)
     }
 
     private func wordRow(_ userWord: UserWord) -> some View {
@@ -232,7 +201,7 @@ struct WordBankView: View {
         VStack(spacing: 0) {
             Divider()
             HStack {
-                if showingSkipped {
+                if vm.showingSkipped {
                     Button {
                         vm.applyStage(.new, to: selectedIDs)
                         withAnimation(selectAnimation) {
@@ -263,7 +232,7 @@ struct WordBankView: View {
     }
 }
 
-private struct LevelChip: View {
+private struct FilterChip: View {
     let title: String
     let isSelected: Bool
     var color: Color = Theme.primary
@@ -289,26 +258,6 @@ private struct WordRow: View {
     var isSelecting: Bool = false
     var isSelected: Bool = false
 
-    private var stageColor: Color {
-        switch userWord.stage {
-        case .new:         Color(.systemGray3)
-        case .skipped:     Color(.systemGray)
-        case .recognition: Theme.recognition
-        case .production:  Theme.production
-        case .mastered:    Theme.mastered
-        }
-    }
-
-    private var stageIcon: String {
-        switch userWord.stage {
-        case .new:         "circle"
-        case .skipped:     "slash.circle"
-        case .recognition: "eye"
-        case .production:  "pencil"
-        case .mastered:    "checkmark.seal.fill"
-        }
-    }
-
     var body: some View {
         HStack(spacing: 12) {
             Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
@@ -328,14 +277,9 @@ private struct WordRow: View {
             }
             Spacer()
             HStack(spacing: 6) {
-                Text(userWord.word.level)
-                    .font(.theme(.caption, weight: .semibold))
-                    .padding(.horizontal, 6)
-                    .padding(.vertical, 2)
-                    .background(Theme.chipBackground)
-                    .clipShape(Capsule())
-                Image(systemName: stageIcon)
-                    .foregroundStyle(stageColor)
+                LevelChip(level: userWord.word.level)
+                Image(systemName: userWord.stage.iconName)
+                    .foregroundStyle(userWord.stage.color)
             }
         }
         .padding(.vertical, 4)

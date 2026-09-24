@@ -25,36 +25,6 @@ struct WordDetailView: View {
         ConceptService.shared.concept(for: userWord.word.italian)
     }
 
-    private var stageLabel: String {
-        switch userWord.stage {
-        case .new:         "Not started"
-        case .skipped:     "Skipped"
-        case .recognition: "Recognition"
-        case .production:  "Production"
-        case .mastered:    "Mastered"
-        }
-    }
-
-    private var stageIcon: String {
-        switch userWord.stage {
-        case .new:         "circle"
-        case .skipped:     "slash.circle"
-        case .recognition: "eye"
-        case .production:  "pencil"
-        case .mastered:    "checkmark.seal.fill"
-        }
-    }
-
-    private var stageColor: Color {
-        switch userWord.stage {
-        case .new:         Color(.systemGray3)
-        case .skipped:     Color(.systemGray)
-        case .recognition: Theme.recognition
-        case .production:  Theme.production
-        case .mastered:    Theme.mastered
-        }
-    }
-
     private var accuracy: String {
         guard userWord.totalAttempts > 0 else { return "—" }
         let pct = Int((Double(userWord.totalCorrect) / Double(userWord.totalAttempts)) * 100)
@@ -74,16 +44,10 @@ struct WordDetailView: View {
                                     .font(Theme.wordDisplay)
                                     .multilineTextAlignment(.center)
 
-                                Button {
-                                    SpeechService.shared.speak(userWord.word.italian, languageCode: "it-IT")
-                                } label: {
-                                    Image(systemName: "speaker.wave.2.fill")
-                                        .font(.theme(.subheadline, weight: .semibold))
-                                        .foregroundStyle(.white)
-                                        .frame(width: 32, height: 32)
-                                        .background(Theme.primary, in: Circle())
-                                }
-                                .buttonStyle(.plain)
+                                SpeakButton(
+                                    text: userWord.word.italian,
+                                    iconFont: .theme(.subheadline, weight: .semibold)
+                                )
                             }
 
                             if let pos = userWord.word.partOfSpeech {
@@ -108,79 +72,25 @@ struct WordDetailView: View {
                         .padding(.top, 8)
 
                         HStack(spacing: 12) {
-                            Text(userWord.word.level)
-                                .font(.theme(.subheadline, weight: .semibold))
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 6)
-                                .background(Theme.chipBackground)
-                                .clipShape(Capsule())
+                            LevelChip(level: userWord.word.level, isLarge: true)
 
-                            Label(stageLabel, systemImage: stageIcon)
+                            Label(userWord.stage.title, systemImage: userWord.stage.iconName)
                                 .font(.theme(.subheadline, weight: .semibold))
-                                .foregroundStyle(stageColor)
+                                .foregroundStyle(userWord.stage.color)
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 6)
-                                .background(stageColor.opacity(0.12))
+                                .background(userWord.stage.color.opacity(0.12))
                                 .clipShape(Capsule())
                         }
 
                         if let diagram {
-                            VStack(alignment: .leading, spacing: 10) {
-                                HStack {
-                                    Label("Manuale CVC", systemImage: "sailboat.fill")
-                                        .font(.theme(.subheadline, weight: .semibold))
-                                        .foregroundStyle(Theme.primary)
-
-                                    Spacer()
-
-                                    Button {
-                                        activeSheet = .diagram(diagram)
-                                    } label: {
-                                        HStack(spacing: 4) {
-                                            Text("Tavola intera")
-                                            Image(systemName: "arrow.up.left.and.arrow.down.right")
-                                        }
-                                        .font(.theme(.caption, weight: .semibold))
-                                        .foregroundStyle(Theme.primary)
-                                        .padding(.vertical, 4)
-                                        .padding(.horizontal, 6)
-                                        .contentShape(Rectangle())
-                                    }
-                                    .buttonStyle(.plain)
-                                }
-
-                                Button {
-                                    activeSheet = .diagram(diagram)
-                                } label: {
-                                    Image(diagram.revealedImageName)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(maxHeight: 260)
-                                        .frame(maxWidth: .infinity)
-                                        .background(Color.white)
-                                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                                .stroke(Color.primary.opacity(0.12), lineWidth: 1)
-                                        )
-                                }
-                                .buttonStyle(.plain)
-
-                                if let caption = diagram.caption {
-                                    Text(caption)
-                                        .font(.theme(.subheadline))
-                                        .foregroundStyle(.secondary)
-                                        .fixedSize(horizontal: false, vertical: true)
-                                }
-                            }
-                            .padding(16)
-                            .themeCard()
+                            DiagramCard(diagram: diagram, imageMaxHeight: 260) { activeSheet = .diagram($0) }
                         }
 
                         if let concept {
-                            ConceptSectionView(concept: concept) { term in
+                            ConceptSectionView(concept: concept, onSelectRelatedTerm: { term in
                                 activeSheet = .relatedTerm(term)
-                            }
+                            })
                         }
 
                         if userWord.totalAttempts > 0 {
