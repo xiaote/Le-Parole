@@ -7,7 +7,7 @@ struct QuizCardView: View {
     let vm: StudySessionViewModel
     private let sailingDiagram: WordDiagram?
     private let wordConcept: WordConcept?
-    private let visualQuizData: (target: WordDiagram, options: [WordDiagram])?
+    private let visualQuizData: VisualQuizData?
 
     init(card: StudyCard, vm: StudySessionViewModel) {
         self.card = card
@@ -23,100 +23,6 @@ struct QuizCardView: View {
     }
 
     private static let maxWrongAttempts = 3
-
-    private struct SessionNotice {
-        enum Tone {
-            case success
-            case encouragement
-            case refresh
-        }
-
-        let icon: String
-        let title: String
-        let detail: String?
-        let tone: Tone
-
-        static func make(for outcome: ReviewOutcome) -> SessionNotice? {
-            switch outcome {
-            case .stageChanged(let oldStage, let newStage):
-                stageChanged(from: oldStage, to: newStage)
-            case .lapseRecovered(let feedback):
-                SessionNotice(
-                    icon: "checkmark.circle.fill",
-                    title: "Back on track",
-                    detail: feedback.detail,
-                    tone: .success
-                )
-            case .reviewScheduled(let feedback):
-                reviewScheduled(feedback)
-            case .none:
-                nil
-            }
-        }
-
-        static func stageChanged(from oldStage: WordStage, to newStage: WordStage) -> SessionNotice? {
-            switch (oldStage, newStage) {
-            case (_, .mastered):
-                return SessionNotice(
-                    icon: "sparkles",
-                    title: "Mastered!",
-                    detail: nil,
-                    tone: .success
-                )
-            case (.mastered, .production):
-                return SessionNotice(
-                    icon: "arrow.clockwise.circle.fill",
-                    title: "Quick refresh",
-                    detail: "Review tomorrow",
-                    tone: .refresh
-                )
-            case (_, .production):
-                return SessionNotice(
-                    icon: "arrow.up.right.circle.fill",
-                    title: "Moving up!",
-                    detail: nil,
-                    tone: .success
-                )
-            case (_, .recognition):
-                return SessionNotice(
-                    icon: "arrow.clockwise.circle.fill",
-                    title: "Practice tomorrow",
-                    detail: nil,
-                    tone: .encouragement
-                )
-            case (_, .new), (_, .skipped):
-                return nil
-            }
-        }
-
-        static func reviewScheduled(_ feedback: ReviewScheduleFeedback) -> SessionNotice {
-            SessionNotice(
-                icon: "checkmark.seal.fill",
-                title: feedback.title,
-                detail: feedback.detail,
-                tone: .success
-            )
-        }
-
-        var tint: Color {
-            switch tone {
-            case .success: Theme.mastered
-            case .encouragement: Theme.primary
-            case .refresh: Theme.playfulAccent
-            }
-        }
-
-        var haptic: UINotificationFeedbackGenerator.FeedbackType? {
-            switch tone {
-            case .success: .success
-            case .encouragement, .refresh: nil
-            }
-        }
-
-        var accessibilityLabel: String {
-            [title, detail].compactMap { $0 }.joined(separator: ". ")
-        }
-    }
 
     @State private var input = ""
     @State private var isFlipped = false
@@ -231,11 +137,9 @@ struct QuizCardView: View {
 
     var body: some View {
         ZStack {
-            GeometryReader { geo in
+            VStack(spacing: 0) {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 16) {
-                        Spacer(minLength: 8)
-
                         flipCard
                             .padding(.horizontal, 20)
                             .compositingGroup()
@@ -244,8 +148,19 @@ struct QuizCardView: View {
                             .modifier(ShakeEffect(animatableData: shakeTrigger))
                             .opacity(cardOpacity)
 
-                        if visualQuizData != nil && !isRevealed {
-                            visualChoiceGrid
+                        if let quiz = visualQuizData, !isRevealed {
+                            VisualChoiceGridView(
+                                quiz: quiz,
+                                selectedOptionId: selectedVisualOptionId,
+                                isRevealed: isRevealed,
+                                interactionLocked: interactionLocked,
+                                onSelect: { option, target in
+                                    selectVisualOption(option, target: target)
+                                },
+                                onZoom: { option in
+                                    activeSheet = .diagramCrop(diagram: option, imageName: option.promptImageName)
+                                }
+                            )
                         }
 
                         if isRevealed && (!exampleSentences.isEmpty || isGeneratingExamples) && (wasCorrect == false) {
@@ -285,52 +200,19 @@ struct QuizCardView: View {
                             .padding(.horizontal, 20)
                             .transition(.asymmetric(insertion: .move(edge: .bottom).combined(with: .opacity), removal: .opacity))
                         }
-
-                        Spacer(minLength: 16)
                     }
-                    .frame(minHeight: geo.size.height, alignment: .top)
+                    .padding(.vertical, 16)
+                    .frame(maxWidth: .infinity)
+                    .containerRelativeFrame(.vertical, alignment: .center)
                 }
                 .scrollDismissesKeyboard(.interactively)
                 .scrollBounceBehavior(.basedOnSize)
-                .safeAreaInset(edge: .bottom, spacing: 0) {
-                    controlsFooter
-                }
+
+                controlsFooter
             }
 
             if let sessionNotice {
-                HStack(spacing: 12) {
-                    Image(systemName: sessionNotice.icon)
-                        .font(.theme(.title3, weight: .bold))
-                        .foregroundStyle(sessionNotice.tint)
-                    
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(sessionNotice.title)
-                            .font(.theme(.headline, weight: .bold))
-                            .foregroundStyle(sessionNotice.tint)
-
-                        if let detail = sessionNotice.detail {
-                            Text(detail)
-                                .font(.theme(.subheadline, weight: .semibold))
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                    .multilineTextAlignment(.leading)
-                    .fixedSize(horizontal: false, vertical: true)
-                }
-                .padding(.horizontal, 20)
-                .padding(.vertical, 12)
-                .background(Theme.surface)
-                .overlay(Capsule().stroke(Theme.border, lineWidth: 1))
-                .clipShape(Capsule())
-                .shadow(color: Theme.cardShadow, radius: 15, y: 5)
-                .compositingGroup()
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-                .padding(.top, 24) // Hover above the flashcard, below the top edge
-                .padding(.horizontal, 20)
-                .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity), removal: .move(edge: .trailing).combined(with: .opacity)))
-                .accessibilityElement(children: .combine)
-                .accessibilityLabel(sessionNotice.accessibilityLabel)
-                .zIndex(100)
+                SessionNoticeView(notice: sessionNotice)
             }
         }
         .onAppear {
@@ -686,75 +568,21 @@ struct QuizCardView: View {
 
     // MARK: - Controls
 
-    @ViewBuilder
     private var controlsFooter: some View {
-        if isRevealed || visualQuizData == nil {
-            VStack(spacing: 12) {
-                if isRevealed {
-                    Button("Next →") {
-                        advanceToNextCard()
-                    }
-                    .buttonStyle(PrimaryButtonStyle())
-                    .transition(.opacity)
-                } else {
-                    VStack(spacing: 12) {
-                        TextField(
-                            card.cardType == .recognition ? "Type in English…" : "Type in Italian…",
-                            text: $input
-                        )
-                        .multilineTextAlignment(.center)
-                        .font(.theme(.body))
-                        .padding(.vertical, 11)
-                        .padding(.horizontal, 16)
-                        .background(Theme.inputBackground)
-                        .clipShape(RoundedRectangle(cornerRadius: Theme.controlCornerRadius, style: .continuous))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: Theme.controlCornerRadius, style: .continuous)
-                                .stroke(Theme.border, lineWidth: 1)
-                        )
-                        .focused($inputFocused)
-                        .onSubmit {
-                            submitAnswer()
-                        }
-                        .autocorrectionDisabled()
-                        .textInputAutocapitalization(.never)
-
-                        HStack(spacing: 12) {
-                            if !vm.isTestMode {
-                                Button("Hint") { requestHint() }
-                                    .buttonStyle(SecondaryButtonStyle(verticalPadding: 14))
-                                    .disabled(!canRequestHint)
-                            }
-
-                            Button { submitAnswer() } label: {
-                                if isGrading {
-                                    HStack(spacing: 6) {
-                                        ProgressView().tint(.white).scaleEffect(0.85)
-                                        Text("Checking…")
-                                    }
-                                } else {
-                                    Text("Check")
-                                }
-                            }
-                            .buttonStyle(PrimaryButtonStyle(verticalPadding: 14))
-                            .disabled(input.trimmingCharacters(in: .whitespaces).isEmpty || isGeneratingConjugation)
-                        }
-                    }
-                    .transition(.opacity)
-                }
-            }
-            .padding(.horizontal, 20)
-            .padding(.top, 10)
-            .padding(.bottom, 12)
-            .background(
-                Theme.canvas
-                    .opacity(0.96)
-                    .ignoresSafeArea(edges: .bottom)
-            )
-            .animation(.easeInOut(duration: 0.2), value: isRevealed)
-            .animation(.easeInOut(duration: 0.15), value: canRequestHint)
-            .animation(.easeInOut(duration: 0.15), value: input.trimmingCharacters(in: .whitespaces).isEmpty)
-        }
+        QuizControlsFooterView(
+            isRevealed: isRevealed,
+            showControls: isRevealed || visualQuizData == nil,
+            cardType: card.cardType,
+            input: $input,
+            isFocused: $inputFocused,
+            isTestMode: vm.isTestMode,
+            canRequestHint: canRequestHint,
+            isGrading: isGrading,
+            isGeneratingConjugation: isGeneratingConjugation,
+            onRequestHint: { requestHint() },
+            onSubmit: { submitAnswer() },
+            onNext: { advanceToNextCard() }
+        )
     }
 
     private func advanceToNextCard() {
@@ -770,38 +598,6 @@ struct QuizCardView: View {
             try? await Task.sleep(for: .seconds(0.25))
             guard !Task.isCancelled else { return }
             vm.advance()
-        }
-    }
-
-    // MARK: - Visual Multiple Choice Grid
-
-    @ViewBuilder
-    private var visualChoiceGrid: some View {
-        if let quiz = visualQuizData {
-            LazyVGrid(
-                columns: [
-                    GridItem(.flexible(), spacing: 10),
-                    GridItem(.flexible(), spacing: 10)
-                ],
-                spacing: 10
-            ) {
-                ForEach(quiz.options) { option in
-                    VisualOptionTile(
-                        option: option,
-                        isSelected: selectedVisualOptionId == option.id,
-                        isTarget: option.id == quiz.target.id,
-                        showFeedback: isRevealed || selectedVisualOptionId != nil,
-                        isDisabled: interactionLocked || isRevealed,
-                        onZoom: {
-                            activeSheet = .diagramCrop(diagram: option, imageName: option.promptImageName)
-                        }
-                    ) {
-                        selectVisualOption(option, target: quiz.target)
-                    }
-                }
-            }
-            .padding(.horizontal, 20)
-            .layoutPriority(1)
         }
     }
 
@@ -986,11 +782,33 @@ struct QuizCardView: View {
     private func handleCorrect() {
         wasCorrect = true
         interactionLocked = true
-        inputFocused = false
+        withAnimation(.easeInOut(duration: 0.25)) {
+            isRevealed = true
+            inputFocused = false
+        }
         examplesTask?.cancel()
         examplesTask = nil
         isGeneratingExamples = false
         
+        let context: MistakeContext?
+        if card.cardType == .conjugation {
+            context = MistakeContext(
+                question: conjugationSentence,
+                answer: conjugationAnswer,
+                explanation: conjugationExplanation
+            )
+        } else if let quiz = visualQuizData {
+            context = MistakeContext(
+                question: quiz.target.title,
+                answer: quiz.target.title,
+                explanation: quiz.target.caption
+            )
+        } else {
+            context = nil
+        }
+        let outcome = vm.recordResult(correct: true, context: context)
+        let notice = SessionNotice.make(for: outcome)
+
         animationTask = Task { @MainActor in
             animateFlip(to: 180)
             
@@ -1002,32 +820,14 @@ struct QuizCardView: View {
                 }
             }
 
+            async let noticeCompleted = presentSessionNotice(notice)
+
             try? await Task.sleep(for: .milliseconds(320))
             guard !Task.isCancelled else { return }
             
             withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
-                isRevealed = true
                 showDetails = true
             }
-            
-            let context: MistakeContext?
-            if card.cardType == .conjugation {
-                context = MistakeContext(
-                    question: conjugationSentence,
-                    answer: conjugationAnswer,
-                    explanation: conjugationExplanation
-                )
-            } else if let quiz = visualQuizData {
-                context = MistakeContext(
-                    question: quiz.target.title,
-                    answer: quiz.target.title,
-                    explanation: quiz.target.caption
-                )
-            } else {
-                context = nil
-            }
-            let outcome = vm.recordResult(correct: true, context: context)
-            let notice = SessionNotice.make(for: outcome)
             
             // Allow user to tap Next or interact immediately
             interactionLocked = false
@@ -1050,7 +850,6 @@ struct QuizCardView: View {
                 remainingDelay = card.cardType == .conjugation ? 2.1 : 0.8
             }
             
-            async let noticeCompleted = presentSessionNotice(notice)
             try? await Task.sleep(for: .seconds(remainingDelay))
             guard !Task.isCancelled, await noticeCompleted else { return }
             
@@ -1069,7 +868,7 @@ struct QuizCardView: View {
         if let haptic = notice.haptic {
             UINotificationFeedbackGenerator().notificationOccurred(haptic)
         }
-        withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
+        withAnimation(.spring(response: 0.28, dampingFraction: 0.8)) {
             sessionNotice = notice
         }
 
@@ -1079,12 +878,12 @@ struct QuizCardView: View {
             return false
         }
 
-        withAnimation(.easeOut(duration: 0.3)) {
+        withAnimation(.easeOut(duration: 0.25)) {
             sessionNotice = nil
         }
 
         do {
-            try await Task.sleep(for: .seconds(0.3))
+            try await Task.sleep(for: .seconds(0.25))
             return true
         } catch {
             return false
@@ -1115,7 +914,29 @@ struct QuizCardView: View {
         guard !isRevealed else { return }
         wasCorrect = correct
         interactionLocked = true
-        inputFocused = false
+        withAnimation(.easeInOut(duration: 0.25)) {
+            isRevealed = true
+            inputFocused = false
+        }
+
+        let context: MistakeContext?
+        if card.cardType == .conjugation {
+            context = MistakeContext(
+                question: conjugationSentence,
+                answer: conjugationAnswer,
+                explanation: conjugationExplanation
+            )
+        } else if let quiz = visualQuizData {
+            context = MistakeContext(
+                question: quiz.target.title,
+                answer: quiz.target.title,
+                explanation: quiz.target.caption
+            )
+        } else {
+            context = nil
+        }
+        let outcome = vm.recordResult(correct: correct, context: context)
+        let notice = SessionNotice.make(for: outcome)
 
         animationTask = Task { @MainActor in
             animateFlip(to: 180)
@@ -1128,40 +949,24 @@ struct QuizCardView: View {
                 }
             }
 
+            async let noticeCompleted = presentSessionNotice(notice)
+
             try? await Task.sleep(for: .milliseconds(320))
             guard !Task.isCancelled else { return }
             
             withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
-                isRevealed = true
                 showDetails = true
-                inputFocused = false
             }
             
-            let context: MistakeContext?
-            if card.cardType == .conjugation {
-                context = MistakeContext(
-                    question: conjugationSentence,
-                    answer: conjugationAnswer,
-                    explanation: conjugationExplanation
-                )
-            } else if let quiz = visualQuizData {
-                context = MistakeContext(
-                    question: quiz.target.title,
-                    answer: quiz.target.title,
-                    explanation: quiz.target.caption
-                )
-            } else {
-                context = nil
-            }
-            let outcome = vm.recordResult(correct: correct, context: context)
-            _ = await presentSessionNotice(SessionNotice.make(for: outcome))
-            
+            _ = await noticeCompleted
             interactionLocked = false
         }
     }
 
     private func toggleFlip() {
-        inputFocused = false
+        withAnimation(.easeInOut(duration: 0.25)) {
+            inputFocused = false
+        }
         if isFlipped {
             withAnimation(.easeInOut(duration: 0.2)) {
                 showDetails = false
@@ -1207,143 +1012,4 @@ struct QuizCardView: View {
         try? await Task.sleep(for: .seconds(0.12))
     }
 }
-private struct ShakeEffect: GeometryEffect {
-    var travel: CGFloat = 12
-    var shakesPerUnit: CGFloat = 3
-    var animatableData: CGFloat
 
-    func effectValue(size: CGSize) -> ProjectionTransform {
-        let unitProgress = animatableData.truncatingRemainder(dividingBy: 1.0)
-        let progress = unitProgress == 0 && animatableData > 0 ? 1.0 : unitProgress
-        let damping = max(0, 1.0 - progress)
-        let translation = travel * damping * sin(progress * .pi * 2 * shakesPerUnit)
-        return ProjectionTransform(CGAffineTransform(translationX: translation, y: 0))
-    }
-}
-
-private struct FlipEffect: AnimatableModifier {
-    var angle: Double
-    var isBack: Bool
-    var perspective: CGFloat = 0.25
-
-    var animatableData: Double {
-        get { angle }
-        set { angle = newValue }
-    }
-
-    func body(content: Content) -> some View {
-        let normalized = angle.truncatingRemainder(dividingBy: 360)
-        let positiveAngle = normalized < 0 ? normalized + 360 : normalized
-        let isFrontVisible = positiveAngle < 90 || positiveAngle > 270
-
-        let shouldShow = isBack ? !isFrontVisible : isFrontVisible
-        let rotationAngle = isBack ? angle - 180 : angle
-
-        content
-            .rotation3DEffect(
-                .degrees(rotationAngle),
-                axis: (x: 0, y: 1, z: 0),
-                perspective: perspective
-            )
-            .opacity(shouldShow ? 1 : 0)
-            .allowsHitTesting(shouldShow)
-    }
-}
-
-// MARK: - Visual Option Tile
-
-struct VisualOptionTile: View {
-    let option: WordDiagram
-    let isSelected: Bool
-    let isTarget: Bool
-    let showFeedback: Bool
-    let isDisabled: Bool
-    let onZoom: () -> Void
-    let action: () -> Void
-
-    var body: some View {
-        Button(action: action) {
-            ZStack(alignment: .topTrailing) {
-                VStack(spacing: 0) {
-                    Image(option.promptImageName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: .infinity, maxHeight: 175)
-                        .padding(6)
-                }
-                .frame(maxWidth: .infinity)
-                .frame(height: 185)
-                .background(Color.white)
-                .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .stroke(borderColor, lineWidth: borderWidth)
-                )
-                .shadow(color: Color.black.opacity(0.06), radius: 6, y: 2)
-
-                // Magnifying zoom button in top-left
-                VStack {
-                    HStack {
-                        Button {
-                            onZoom()
-                        } label: {
-                            Image(systemName: "plus.magnifyingglass")
-                                .font(.system(size: 13, weight: .bold))
-                                .foregroundStyle(Theme.primary)
-                                .padding(7)
-                                .background(Color.white.opacity(0.92), in: Circle())
-                                .shadow(color: Color.black.opacity(0.12), radius: 3, y: 1)
-                        }
-                        .buttonStyle(.plain)
-                        .padding(6)
-                        Spacer()
-                    }
-                    Spacer()
-                }
-
-                if showFeedback {
-                    if isTarget {
-                        Image(systemName: "checkmark.circle.fill")
-                            .font(.system(size: 24, weight: .bold))
-                            .foregroundStyle(.green)
-                            .background(Circle().fill(Color.white))
-                            .padding(8)
-                            .transition(.scale.combined(with: .opacity))
-                    } else if isSelected {
-                        Image(systemName: "xmark.circle.fill")
-                            .font(.system(size: 24, weight: .bold))
-                            .foregroundStyle(.red)
-                            .background(Circle().fill(Color.white))
-                            .padding(8)
-                            .transition(.scale.combined(with: .opacity))
-                    }
-                }
-            }
-        }
-        .buttonStyle(.plain)
-        .disabled(isDisabled)
-        .compositingGroup()
-        .scaleEffect(isSelected ? 0.98 : 1.0)
-        .animation(.spring(response: 0.25, dampingFraction: 0.7), value: isSelected)
-        .animation(.spring(response: 0.25, dampingFraction: 0.7), value: showFeedback)
-    }
-
-    private var borderColor: Color {
-        if showFeedback {
-            if isTarget {
-                return Color.green
-            } else if isSelected {
-                return Color.red
-            }
-        }
-        return Theme.border
-    }
-
-    private var borderWidth: CGFloat {
-        if showFeedback && (isTarget || isSelected) {
-            return 2.5
-        }
-        return 1.0
-    }
-}
