@@ -106,7 +106,11 @@ def repair_bozzello() -> None:
 
 
 def repair_gavitello() -> None:
-    # Boat approach track and buoy B.
+    # Boat approach track and buoy B. This crops the asset in place, so only
+    # the original 646-px-wide render may be cropped; re-cropping the result
+    # selects an area outside the image and produces an all-black diagram.
+    if Image.open(image_path("cvc_crop_gavitello_full")).width != 646:
+        return
     reference = crop_from("cvc_crop_gavitello_full", (270, 80, 646, 650))
     full = fit(reference)
     save("cvc_crop_gavitello_full", full)
