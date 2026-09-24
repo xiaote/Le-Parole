@@ -88,7 +88,6 @@ enum ConjugationFetchStatus: Sendable {
 }
 
 private struct SessionInitialization: Sendable {
-    let settings: UserSettings?
     let dueWords: [UserWord]
     let newWords: [UserWord]
     let testWordIDs: [Int64]
@@ -127,9 +126,10 @@ class StudySessionViewModel {
         let today = Calendar.current.startOfDay(for: now)
         let sixDaysAgo = Calendar.current.date(byAdding: .day, value: -6, to: now) ?? now
 
-        let snapshot = try? await DatabaseService.shared.db.read { db -> SessionInitialization in
-            let settings = try UserSettings.fetchOne(db)
+        let settings = SettingsStore.shared
+        let newWordPacing = settings.dailyNewWordGoal
 
+        let snapshot = try? await DatabaseService.shared.db.read { db -> SessionInitialization in
             if isTestMode {
                 var ids = try Int64.fetchAll(db, sql: """
                     SELECT uw.id
@@ -139,11 +139,7 @@ class StudySessionViewModel {
                       AND (uw.lastReviewDate IS NULL OR uw.lastReviewDate < ?)
                       AND NOT (uw.stage IN ('recognition', 'production') AND uw.nextReviewDate <= ?)
                     ORDER BY w.isUserCreated DESC,
-                             CASE w.level
-                                 WHEN 'A1' THEN 0 WHEN 'A2' THEN 1 WHEN 'B1' THEN 2
-                                 WHEN 'B2' THEN 3 WHEN 'C1' THEN 4 WHEN 'C2' THEN 5
-                                 ELSE 99
-                             END,
+                             \(Word.cefrOrderSQL),
                              w.frequencyRank,
                              uw.id
                     """, arguments: [sixDaysAgo.timeIntervalSince1970, now.timeIntervalSince1970])
@@ -152,7 +148,6 @@ class StudySessionViewModel {
                 }
                 let initialIDs = Array(ids.prefix(Self.testPageSize))
                 return SessionInitialization(
-                    settings: settings,
                     dueWords: [],
                     newWords: [],
                     testWordIDs: ids,
@@ -173,48 +168,19 @@ class StudySessionViewModel {
                 """, arguments: [now.timeIntervalSince1970])
             var newWords: [UserWord] = []
             if remainingNewSlots > 0 {
-                newWords = try UserWord.fetchAll(db, sql: """
-                    \(DatabaseService.userWordSelectSQL)
-                    WHERE uw.stage = 'new'
-                    ORDER BY w.isUserCreated DESC,
-                             CASE WHEN w.isUserCreated THEN
-                                 CASE w.level
-                                     WHEN 'A1' THEN 0 WHEN 'A2' THEN 1 WHEN 'B1' THEN 2
-                                     WHEN 'B2' THEN 3 WHEN 'C1' THEN 4 WHEN 'C2' THEN 5
-                                     ELSE 99
-                                 END
-                             ELSE 0 END,
-                             w.frequencyRank,
-                             w.wordId
-                    LIMIT ?
-                    """, arguments: [remainingNewSlots])
+                newWords = try DatabaseService.fetchNewWords(db, limit: remainingNewSlots)
             }
 
             if isExtraSession || (dueWords.isEmpty && newWords.isEmpty) {
-                let targetBatchSize = max(settings?.dailyNewWordGoal ?? 20, 20)
+                let targetBatchSize = max(newWordPacing, 20)
                 let recognitionBacklog = try Int.fetchOne(
                     db,
                     sql: "SELECT COUNT(*) FROM userWords WHERE stage = 'recognition'"
                 ) ?? 0
-                let newWordPacing = settings?.dailyNewWordGoal ?? 20
 
                 if recognitionBacklog < Int(Double(newWordPacing) * 1.5) {
                     let neededNewSlots = min(targetBatchSize, newWordPacing)
-                    newWords = try UserWord.fetchAll(db, sql: """
-                        \(DatabaseService.userWordSelectSQL)
-                        WHERE uw.stage = 'new'
-                        ORDER BY w.isUserCreated DESC,
-                                 CASE WHEN w.isUserCreated THEN
-                                     CASE w.level
-                                         WHEN 'A1' THEN 0 WHEN 'A2' THEN 1 WHEN 'B1' THEN 2
-                                         WHEN 'B2' THEN 3 WHEN 'C1' THEN 4 WHEN 'C2' THEN 5
-                                         ELSE 99
-                                     END
-                                 ELSE 0 END,
-                                 w.frequencyRank,
-                                 w.wordId
-                        LIMIT ?
-                        """, arguments: [neededNewSlots])
+                    newWords = try DatabaseService.fetchNewWords(db, limit: neededNewSlots)
                 }
 
                 let neededReviewSlots = max(0, targetBatchSize - newWords.count)
@@ -242,15 +208,14 @@ class StudySessionViewModel {
             }
 
             return SessionInitialization(
-                settings: settings,
                 dueWords: dueWords,
                 newWords: newWords,
                 testWordIDs: [],
                 initialTestWords: []
             )
         }
-        autoPlayPronunciation = snapshot?.settings?.autoPlayPronunciation ?? true
-        conjugationLevel = snapshot?.settings?.conjugationLevel ?? 1
+        autoPlayPronunciation = settings.autoPlayPronunciation
+        conjugationLevel = settings.conjugationLevel
         geminiApiKey = KeychainStore.get(KeychainStore.geminiApiKey) ?? ""
 
         if isTestMode {
@@ -271,10 +236,9 @@ class StudySessionViewModel {
 
     private nonisolated static func fetchUserWords(_ db: Database, ids: [Int64]) throws -> [UserWord] {
         guard !ids.isEmpty else { return [] }
-        let placeholders = Array(repeating: "?", count: ids.count).joined(separator: ",")
         let words = try UserWord.fetchAll(
             db,
-            sql: "\(DatabaseService.userWordSelectSQL) WHERE uw.id IN (\(placeholders))",
+            sql: "\(DatabaseService.userWordSelectSQL) WHERE uw.id IN (\(databaseQuestionMarks(count: ids.count)))",
             arguments: StatementArguments(ids)
         )
         let wordsByID = Dictionary(uniqueKeysWithValues: words.compactMap { word in
@@ -535,8 +499,6 @@ class StudySessionViewModel {
     }
     
     @ObservationIgnored private var prefetchTask: Task<Void, Never>?
-    @ObservationIgnored private var persistenceTask: Task<Void, Never>?
-    @ObservationIgnored private var persistenceGeneration = 0
 
     private func downgradeConjugationCard(id: UUID) {
         conjugationCache[id] = .failed
@@ -751,26 +713,14 @@ class StudySessionViewModel {
             conjugationReview = nil
         }
 
-        let precedingPersistence = persistenceTask
-        persistenceGeneration += 1
-        let generation = persistenceGeneration
-        let persistence = Task.detached {
-            await precedingPersistence?.value
-            await DatabaseService.shared.persistReview(
-                userWord: uwToSave,
-                correct: correct,
-                introduced: introduced,
-                movedToProduction: movedToProduction,
-                movedToMastered: countsAsNewMastery,
-                conjugation: conjugationReview
-            )
-        }
-        persistenceTask = persistence
-        Task { @MainActor [weak self] in
-            await persistence.value
-            guard let self, self.persistenceGeneration == generation else { return }
-            self.persistenceTask = nil
-        }
+        DatabaseService.shared.persistReview(
+            userWord: uwToSave,
+            correct: correct,
+            introduced: introduced,
+            movedToProduction: movedToProduction,
+            movedToMastered: countsAsNewMastery,
+            conjugation: conjugationReview
+        )
         return outcome
     }
 

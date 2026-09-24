@@ -16,10 +16,9 @@ struct HomeStats: Equatable, Sendable {
 @Observable
 final class HomeViewModel {
     var stats = HomeStats(mastered: 0, inProgress: 0, reviewsDue: 0, reviewAttemptsToday: 0, wordsLearnedToday: 0, newAvailable: 0, mistakesToday: [], testQueueCount: 0, recognitionBacklog: 0)
-    var settings: UserSettings?
 
+    private let settings = SettingsStore.shared
     private var statsCancellable: AnyDatabaseCancellable?
-    private var settingsCancellable: AnyDatabaseCancellable?
 
     init() {
         setObserving(true)
@@ -28,87 +27,69 @@ final class HomeViewModel {
     func setObserving(_ shouldObserve: Bool) {
         guard shouldObserve else {
             statsCancellable = nil
-            settingsCancellable = nil
             return
         }
-        guard statsCancellable == nil, settingsCancellable == nil else { return }
+        guard statsCancellable == nil else { return }
 
-        setupObservation()
-        let db = DatabaseService.shared
-        settingsCancellable = db.makeSettingsObservation().start(
-            in: db.db,
-            scheduling: .async(onQueue: .main),
-            onError: { _ in },
-            onChange: { [weak self] s in self?.settings = s }
-        )
-    }
-
-    private func setupObservation() {
-        let db = DatabaseService.shared
-        
-        statsCancellable = ValueObservation.tracking { db in
-            let now = Date.now.timeIntervalSince1970
-            let todayStart = Calendar.current.startOfDay(for: .now).timeIntervalSince1970
-            let sixDaysAgo = Calendar.current.date(byAdding: .day, value: -6, to: .now)?.timeIntervalSince1970 ?? now
-            let todayKey = AppDateFormatter.string(from: .now)
-
-            let mastered = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE stage = 'mastered'") ?? 0
-            let inProgress = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE stage IN ('recognition', 'production')") ?? 0
-            let reviewsDue = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE stage IN ('recognition', 'production', 'mastered') AND nextReviewDate <= ?", arguments: [now]) ?? 0
-            let reviewAttemptsToday = try Int.fetchOne(db, sql: "SELECT reviewAttempts FROM dailyActivity WHERE date = ?", arguments: [todayKey]) ?? 0
-            let wordsLearnedToday = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE learnedDate >= ?", arguments: [todayStart]) ?? 0
-            let newAvailable = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE stage = 'new'") ?? 0
-            
-            let mistakesSQL = """
-                SELECT uw.id, uw.wordId, uw.stage, uw.easeFactor, uw.interval, uw.repetitions,
-                       uw.nextReviewDate, uw.lastReviewDate, uw.learnedDate, uw.lastWrongDate,
-                       uw.totalCorrect, uw.totalAttempts,
-                       w.italian, w.english, w.alternatives, w.level, w.frequencyRank, w.isUserCreated, w.inflections, w.partOfSpeech
-                FROM userWords uw
-                JOIN words w ON uw.wordId = w.wordId
-                WHERE uw.lastWrongDate >= ?
-                ORDER BY w.frequencyRank
-                """
-            let mistakesToday = try UserWord.fetchAll(db, sql: mistakesSQL, arguments: [todayStart])
-            
-            let testQueueCount = try Int.fetchOne(db, sql: """
-                SELECT COUNT(*) FROM userWords 
-                WHERE stage NOT IN ('mastered', 'skipped')
-                AND (lastReviewDate IS NULL OR lastReviewDate < ?)
-                AND NOT (stage IN ('recognition', 'production') AND nextReviewDate <= ?)
-                """, arguments: [sixDaysAgo, now]) ?? 0
-
-            let recognitionBacklog = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE stage = 'recognition'") ?? 0
-
-            return HomeStats(
-                mastered: mastered,
-                inProgress: inProgress,
-                reviewsDue: reviewsDue,
-                reviewAttemptsToday: reviewAttemptsToday,
-                wordsLearnedToday: wordsLearnedToday,
-                newAvailable: newAvailable,
-                mistakesToday: mistakesToday,
-                testQueueCount: testQueueCount,
-                recognitionBacklog: recognitionBacklog
-            )
-        }.start(
-            in: db.db,
+        statsCancellable = ValueObservation.tracking(Self.fetchStats).start(
+            in: DatabaseService.shared.db,
             scheduling: .async(onQueue: .main),
             onError: { _ in },
             onChange: { [weak self] stats in self?.stats = stats }
         )
     }
 
-    func refresh() async {
-        statsCancellable = nil
-        settingsCancellable = nil
-        setObserving(true)
-        // Short delay to allow the async DB read to complete before the refresh spinner dismisses
-        try? await Task.sleep(for: .milliseconds(300))
+    private nonisolated static func fetchStats(_ db: Database) throws -> HomeStats {
+        let now = Date.now.timeIntervalSince1970
+        let todayStart = Calendar.current.startOfDay(for: .now).timeIntervalSince1970
+        let sixDaysAgo = Calendar.current.date(byAdding: .day, value: -6, to: .now)?.timeIntervalSince1970 ?? now
+        let todayKey = AppDateFormatter.string(from: .now)
+
+        let counts = try Row.fetchOne(db, sql: """
+            SELECT
+                SUM(stage = 'mastered') AS mastered,
+                SUM(stage IN ('recognition', 'production')) AS inProgress,
+                SUM(stage IN ('recognition', 'production', 'mastered') AND nextReviewDate <= :now) AS reviewsDue,
+                SUM(learnedDate >= :todayStart) AS wordsLearnedToday,
+                SUM(stage = 'new') AS newAvailable,
+                SUM(stage NOT IN ('mastered', 'skipped')
+                    AND (lastReviewDate IS NULL OR lastReviewDate < :sixDaysAgo)
+                    AND NOT (stage IN ('recognition', 'production') AND nextReviewDate <= :now)) AS testQueueCount,
+                SUM(stage = 'recognition') AS recognitionBacklog
+            FROM userWords
+            """, arguments: ["now": now, "todayStart": todayStart, "sixDaysAgo": sixDaysAgo])
+        func count(_ column: String) -> Int { (counts?[column] as Int?) ?? 0 }
+
+        let reviewAttemptsToday = try Int.fetchOne(db, sql: "SELECT reviewAttempts FROM dailyActivity WHERE date = ?", arguments: [todayKey]) ?? 0
+        let mistakesToday = try UserWord.fetchAll(db, sql: """
+            \(DatabaseService.userWordSelectSQL)
+            WHERE uw.lastWrongDate >= ?
+            ORDER BY w.frequencyRank
+            """, arguments: [todayStart])
+
+        return HomeStats(
+            mastered: count("mastered"),
+            inProgress: count("inProgress"),
+            reviewsDue: count("reviewsDue"),
+            reviewAttemptsToday: reviewAttemptsToday,
+            wordsLearnedToday: count("wordsLearnedToday"),
+            newAvailable: count("newAvailable"),
+            mistakesToday: mistakesToday,
+            testQueueCount: count("testQueueCount"),
+            recognitionBacklog: count("recognitionBacklog")
+        )
     }
 
-    var dailyPracticeGoal: Int { settings?.dailyPracticeGoal ?? 20 }
-    var newWordPacing: Int { settings?.dailyNewWordGoal ?? 20 }
+    /// Re-reads time-dependent counts (e.g. reviews that became due) that the
+    /// observation only recomputes when the database changes.
+    func refresh() async {
+        if let stats = try? await DatabaseService.shared.db.read(Self.fetchStats) {
+            self.stats = stats
+        }
+    }
+
+    var dailyPracticeGoal: Int { settings.dailyPracticeGoal }
+    var newWordPacing: Int { settings.dailyNewWordGoal }
 
     var mastered: Int { stats.mastered }
     var inProgress: Int { stats.inProgress }
@@ -148,29 +129,22 @@ final class HomeViewModel {
             return wordsLearnedToday + newWordPacing
         }
     }
-    
-    private func fetchWords(stageIn: [String]) async -> [UserWord] {
+
+    private func fetchWords(stageIn stages: [WordStage]) async -> [UserWord] {
         (try? await DatabaseService.shared.db.read { db in
-            let stages = stageIn.map { "'\($0)'" }.joined(separator: ", ")
-            let sql = """
-                SELECT uw.id, uw.wordId, uw.stage, uw.easeFactor, uw.interval, uw.repetitions,
-                       uw.nextReviewDate, uw.lastReviewDate, uw.learnedDate, uw.lastWrongDate,
-                       uw.totalCorrect, uw.totalAttempts,
-                       w.italian, w.english, w.alternatives, w.level, w.frequencyRank, w.isUserCreated, w.inflections, w.partOfSpeech
-                FROM userWords uw
-                JOIN words w ON uw.wordId = w.wordId
-                WHERE uw.stage IN (\(stages))
+            try UserWord.fetchAll(db, sql: """
+                \(DatabaseService.userWordSelectSQL)
+                WHERE uw.stage IN (\(databaseQuestionMarks(count: stages.count)))
                 ORDER BY w.frequencyRank
-                """
-            return try UserWord.fetchAll(db, sql: sql)
+                """, arguments: StatementArguments(stages.map(\.rawValue)))
         }) ?? []
     }
-    
+
     func getInProgressWords() async -> [UserWord] {
-        await fetchWords(stageIn: ["recognition", "production"])
+        await fetchWords(stageIn: [.recognition, .production])
     }
-    
+
     func getMasteredWords() async -> [UserWord] {
-        await fetchWords(stageIn: ["mastered"])
+        await fetchWords(stageIn: [.mastered])
     }
 }

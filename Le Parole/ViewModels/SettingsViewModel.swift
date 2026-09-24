@@ -1,70 +1,27 @@
 import Foundation
-import GRDB
 
 @Observable
 final class SettingsViewModel {
-    var settings: UserSettings?
-
-    private var cancellable: AnyDatabaseCancellable?
-
-    init() {
-        let db = DatabaseService.shared
-        cancellable = db.makeSettingsObservation().start(
-            in: db.db,
-            scheduling: .async(onQueue: .main),
-            onError: { _ in },
-            onChange: { [weak self] s in
-                guard let self else { return }
-                settings = s
-                // A restore can move a legacy key from the database into the Keychain.
-                let storedKey = KeychainStore.get(KeychainStore.geminiApiKey) ?? ""
-                if storedKey != geminiApiKey { geminiApiKey = storedKey }
-            }
-        )
-    }
+    private let store = SettingsStore.shared
 
     var dailyPracticeGoal: Int {
-        get { settings?.dailyPracticeGoal ?? 20 }
-        set {
-            guard var s = settings else { return }
-            s.dailyPracticeGoal = newValue
-            Task.detached {
-                try? DatabaseService.shared.db.write { db in try s.save(db) }
-            }
-        }
+        get { store.dailyPracticeGoal }
+        set { store.update { $0.dailyPracticeGoal = newValue } }
     }
 
     var newWordsPerDay: Int {
-        get { settings?.dailyNewWordGoal ?? 20 }
-        set {
-            guard var s = settings else { return }
-            s.dailyNewWordGoal = newValue
-            Task.detached {
-                try? DatabaseService.shared.db.write { db in try s.save(db) }
-            }
-        }
+        get { store.dailyNewWordGoal }
+        set { store.update { $0.dailyNewWordGoal = newValue } }
     }
 
     var autoPlayPronunciation: Bool {
-        get { settings?.autoPlayPronunciation ?? true }
-        set {
-            guard var s = settings else { return }
-            s.autoPlayPronunciation = newValue
-            Task.detached {
-                try? DatabaseService.shared.db.write { db in try s.save(db) }
-            }
-        }
+        get { store.autoPlayPronunciation }
+        set { store.update { $0.autoPlayPronunciation = newValue } }
     }
 
     var conjugationLevel: Int {
-        get { settings?.conjugationLevel ?? 1 }
-        set {
-            guard var s = settings else { return }
-            s.conjugationLevel = newValue
-            Task.detached {
-                try? DatabaseService.shared.db.write { db in try s.save(db) }
-            }
-        }
+        get { store.conjugationLevel }
+        set { store.update { $0.conjugationLevel = newValue } }
     }
 
     /// Kept in the Keychain rather than SQLite so it never ends up in a backup.
@@ -72,14 +29,9 @@ final class SettingsViewModel {
         didSet { KeychainStore.set(geminiApiKey, for: KeychainStore.geminiApiKey) }
     }
 
-    var targetLevel: String {
-        get { settings?.targetLevel ?? "None" }
-        set {
-            guard var s = settings else { return }
-            s.targetLevel = newValue
-            Task.detached {
-                try? DatabaseService.shared.db.write { db in try s.save(db) }
-            }
-        }
+    /// A restore can move a legacy key from the database into the Keychain.
+    func reloadGeminiApiKey() {
+        let storedKey = KeychainStore.get(KeychainStore.geminiApiKey) ?? ""
+        if storedKey != geminiApiKey { geminiApiKey = storedKey }
     }
 }

@@ -7,6 +7,11 @@ struct Word: Identifiable, Sendable, Equatable {
     /// Built-in CEFR levels, in order. Any other `level` value is a custom category.
     nonisolated static let cefrLevels = ["A1", "A2", "B1", "B2", "C1", "C2"]
 
+    /// SQL expression ranking `w.level` in CEFR order; custom categories sort last.
+    nonisolated static let cefrOrderSQL = "CASE w.level "
+        + cefrLevels.enumerated().map { "WHEN '\($0.element)' THEN \($0.offset)" }.joined(separator: " ")
+        + " ELSE 99 END"
+
     var wordId: String
     var italian: String
     var english: String
@@ -125,10 +130,9 @@ struct Word: Identifiable, Sendable, Equatable {
     }
 
     // MARK: - Cached Regexes & Formatter
-    private static let parenthesesRegex = try? NSRegularExpression(pattern: "\\([^)]*\\)")
-    private static let digitsRegex = try! NSRegularExpression(pattern: "\\d+")
-    private static let spellOutFormatterLock = NSLock()
-    private nonisolated(unsafe) static let spellOutFormatter: NumberFormatter = {
+    private nonisolated static let parenthesesRegex = try? NSRegularExpression(pattern: "\\([^)]*\\)")
+    private nonisolated static let digitsRegex = try! NSRegularExpression(pattern: "\\d+")
+    private nonisolated static let spellOutFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .spellOut
         return formatter
@@ -188,10 +192,7 @@ struct Word: Identifiable, Sendable, Equatable {
             if let range = Range(match.range, in: text) {
                 let numberString = String(text[range])
                 if let number = Int(numberString) {
-                    let spelledOut = spellOutFormatterLock.withLock {
-                        spellOutFormatter.string(from: NSNumber(value: number))
-                    }
-                    if let spelledOut {
+                    if let spelledOut = spellOutFormatter.string(from: NSNumber(value: number)) {
                         result.replaceSubrange(range, with: spelledOut.replacingOccurrences(of: "-", with: " "))
                     }
                 }
@@ -290,22 +291,17 @@ struct Word: Identifiable, Sendable, Equatable {
 
     // MARK: - GRDB helpers (nonisolated so GRDB can call from any thread)
 
-    private static let jsonLock = NSLock()
-    private nonisolated(unsafe) static let jsonEncoder = JSONEncoder()
-    private nonisolated(unsafe) static let jsonDecoder = JSONDecoder()
+    private nonisolated static let jsonEncoder = JSONEncoder()
+    private nonisolated static let jsonDecoder = JSONDecoder()
 
     nonisolated static func encodeAlternatives(_ alts: [String]) -> String {
         guard !alts.isEmpty else { return "[]" }
-        return jsonLock.withLock {
-            (try? String(data: jsonEncoder.encode(alts), encoding: .utf8)) ?? "[]"
-        }
+        return (try? String(data: jsonEncoder.encode(alts), encoding: .utf8)) ?? "[]"
     }
 
     nonisolated static func decodeAlternatives(_ json: String) -> [String] {
         if json == "[]" || json.isEmpty { return [] }
-        return jsonLock.withLock {
-            (try? jsonDecoder.decode([String].self, from: Data(json.utf8))) ?? []
-        }
+        return (try? jsonDecoder.decode([String].self, from: Data(json.utf8))) ?? []
     }
 }
 

@@ -166,6 +166,7 @@ struct SettingsView: View {
             .background(Theme.canvas)
             .navigationTitle("Settings")
             .toolbarBackground(Theme.canvas, for: .navigationBar)
+            .onAppear { vm.reloadGeminiApiKey() }
             .fileImporter(isPresented: $isImporting, allowedContentTypes: [.data], allowsMultipleSelection: false) { result in
                 switch result {
                 case .success(let urls):
@@ -198,6 +199,7 @@ struct SettingsView: View {
                     try DatabaseService.shared.importDatabase(from: url)
                 }.value
                 await WordLoader.resyncAfterRestore()
+                vm.reloadGeminiApiKey()
                 restoreResult = RestoreResult(title: "Backup restored", message: "Your progress has been restored from the backup file.")
             } catch {
                 restoreResult = RestoreResult(title: "Restore failed", message: error.localizedDescription)

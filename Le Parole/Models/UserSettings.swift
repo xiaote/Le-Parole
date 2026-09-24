@@ -11,7 +11,7 @@ struct UserSettings: Identifiable, Sendable {
     var conjugationLevel: Int
     var targetLevel: String
 
-    init(dailyPracticeGoal: Int = 20, dailyNewWordGoal: Int = 20, autoPlayPronunciation: Bool = true, conjugationLevel: Int = 1, targetLevel: String = "None") {
+    nonisolated init(dailyPracticeGoal: Int = 20, dailyNewWordGoal: Int = 20, autoPlayPronunciation: Bool = true, conjugationLevel: Int = 1, targetLevel: String = "None") {
         self.dailyPracticeGoal = dailyPracticeGoal
         self.dailyNewWordGoal = dailyNewWordGoal
         self.autoPlayPronunciation = autoPlayPronunciation

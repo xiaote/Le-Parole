@@ -41,7 +41,7 @@ struct UserWord: Identifiable, Sendable, Equatable {
     }
 }
 
-// MARK: - GRDB FetchableRecord (decodes from JOIN query — see DatabaseService.joinSQL)
+// MARK: - GRDB FetchableRecord (decodes from JOIN query — see DatabaseService.userWordSelectSQL)
 
 extension UserWord: FetchableRecord {
     nonisolated init(row: Row) throws {

@@ -201,6 +201,24 @@ final class DatabaseService: @unchecked Sendable {
             try db.create(index: "idx_uw_last_wrong_date", on: "userWords", columns: ["lastWrongDate"], ifNotExists: true)
             try db.create(index: "idx_uw_last_review", on: "userWords", columns: ["lastReviewDate"], ifNotExists: true)
         }
+
+        migrator.registerMigration("v29_index_cleanup") { db in
+            // Old installs could hold several progress rows for one word. Keep
+            // the most practised (oldest on ties) so wordId can become unique.
+            try db.execute(sql: """
+                DELETE FROM userWords
+                WHERE EXISTS (
+                    SELECT 1 FROM userWords keep
+                    WHERE keep.wordId = userWords.wordId
+                      AND (keep.totalAttempts > userWords.totalAttempts
+                           OR (keep.totalAttempts = userWords.totalAttempts AND keep.id < userWords.id))
+                )
+                """)
+            // idx_uw_stage is a prefix of idx_uw_stage_review.
+            try db.execute(sql: "DROP INDEX IF EXISTS idx_uw_stage")
+            try db.execute(sql: "DROP INDEX IF EXISTS idx_uw_word")
+            try db.create(index: "idx_uw_word_unique", on: "userWords", columns: ["wordId"], unique: true, ifNotExists: true)
+        }
         try migrator.migrate(db)
     }
 
@@ -271,9 +289,8 @@ final class DatabaseService: @unchecked Sendable {
             t.uniqueKey(["verb", "tense", "pronoun"])
         }
 
-        try db.create(index: "idx_uw_stage", on: "userWords", columns: ["stage"])
         try db.create(index: "idx_uw_review", on: "userWords", columns: ["nextReviewDate"])
-        try db.create(index: "idx_uw_word", on: "userWords", columns: ["wordId"])
+        try db.create(index: "idx_uw_word_unique", on: "userWords", columns: ["wordId"], unique: true)
         try db.create(index: "idx_uw_stage_review", on: "userWords", columns: ["stage", "nextReviewDate"])
         try db.create(index: "idx_uw_learned_date", on: "userWords", columns: ["learnedDate"])
         try db.create(index: "idx_uw_last_wrong_date", on: "userWords", columns: ["lastWrongDate"])
@@ -395,28 +412,24 @@ final class DatabaseService: @unchecked Sendable {
         JOIN words w ON uw.wordId = w.wordId
         """
 
-    nonisolated static let joinSQL = """
-        \(userWordSelectSQL)
-        ORDER BY w.frequencyRank
-        """
-
-    nonisolated static func fetchUserWords(_ db: Database) throws -> [UserWord] {
-        try UserWord.fetchAll(db, sql: joinSQL)
-    }
-
-    nonisolated func fetchUserWords() throws -> [UserWord] {
-        try db.read { db in try Self.fetchUserWords(db) }
-    }
-
-    nonisolated func makeSettingsObservation() -> ValueObservation<ValueReducers.Fetch<UserSettings?>> {
-        ValueObservation.tracking { db in try UserSettings.fetchOne(db) }
+    /// Words not yet introduced: user-created first (in CEFR order), then by frequency.
+    nonisolated static func fetchNewWords(_ db: Database, limit: Int) throws -> [UserWord] {
+        try UserWord.fetchAll(db, sql: """
+            \(userWordSelectSQL)
+            WHERE uw.stage = 'new'
+            ORDER BY w.isUserCreated DESC,
+                     CASE WHEN w.isUserCreated THEN \(Word.cefrOrderSQL) ELSE 0 END,
+                     w.frequencyRank,
+                     w.wordId
+            LIMIT ?
+            """, arguments: [limit])
     }
 
     // MARK: - Review persistence
 
     /// Persists all state produced by one answer in a single transaction. This
-    /// keeps the user word, daily totals, and optional conjugation scores atomic
-    /// while avoiding two or three separate writer-queue hops per card.
+    /// keeps the user word, daily totals, and optional conjugation scores atomic.
+    /// Called from the main actor, `asyncWrite` enqueues reviews in answer order.
     func persistReview(
         userWord: UserWord,
         correct: Bool,
@@ -424,74 +437,68 @@ final class DatabaseService: @unchecked Sendable {
         movedToProduction: Bool,
         movedToMastered: Bool,
         conjugation: ConjugationReviewRecord?
-    ) async {
-        let components = Calendar.current.dateComponents([.year, .month, .day], from: .now)
-        let today = String(
-            format: "%04d-%02d-%02d",
-            components.year ?? 0,
-            components.month ?? 0,
-            components.day ?? 0
-        )
+    ) {
+        let today = AppDateFormatter.string(from: .now)
 
-        do {
-            try await db.write { db in
-                try userWord.update(db)
-                try db.execute(sql: """
-                    INSERT INTO dailyActivity (
-                        date, recognition, production, mastered,
-                        reviewAttempts, correctAnswers, wordsIntroduced,
-                        movedToProduction, movedToMastered, hasDetailedMetrics
-                    )
-                    VALUES (?, 0, 0, 0, 1, ?, ?, ?, ?, 1)
-                    ON CONFLICT(date) DO UPDATE SET
-                        reviewAttempts = reviewAttempts + 1,
-                        correctAnswers = correctAnswers + CASE WHEN hasDetailedMetrics THEN excluded.correctAnswers ELSE 0 END,
-                        wordsIntroduced = wordsIntroduced + CASE WHEN hasDetailedMetrics THEN excluded.wordsIntroduced ELSE 0 END,
-                        movedToProduction = movedToProduction + CASE WHEN hasDetailedMetrics THEN excluded.movedToProduction ELSE 0 END,
-                        movedToMastered = movedToMastered + CASE WHEN hasDetailedMetrics THEN excluded.movedToMastered ELSE 0 END
-                    """, arguments: [
-                        today,
-                        correct ? 1 : 0,
-                        introduced ? 1 : 0,
-                        movedToProduction ? 1 : 0,
-                        movedToMastered ? 1 : 0,
-                    ])
-
-                guard let conjugation else { return }
-                let currentTense = try TenseStat.fetchOne(db, key: conjugation.tense)
-                    ?? TenseStat(tense: conjugation.tense)
-                let tenseScore = currentTense.attempts == 0
-                    ? (correct ? 1.0 : 0.0)
-                    : (currentTense.score * 0.85) + (correct ? 0.15 : 0.0)
-                try TenseStat(
-                    tense: conjugation.tense,
-                    score: tenseScore,
-                    attempts: currentTense.attempts + 1
-                ).save(db)
-
-                let currentConjugation = try ConjugationStat.fetchOne(
-                    db,
-                    sql: "SELECT * FROM conjugationStats WHERE verb = ? AND tense = ? AND pronoun = ?",
-                    arguments: [conjugation.verb, conjugation.tense, conjugation.pronoun]
-                ) ?? ConjugationStat(
-                    verb: conjugation.verb,
-                    tense: conjugation.tense,
-                    pronoun: conjugation.pronoun
+        db.asyncWrite({ db in
+            try userWord.update(db)
+            try db.execute(sql: """
+                INSERT INTO dailyActivity (
+                    date, recognition, production, mastered,
+                    reviewAttempts, correctAnswers, wordsIntroduced,
+                    movedToProduction, movedToMastered, hasDetailedMetrics
                 )
-                let conjugationScore = currentConjugation.attempts == 0
-                    ? (correct ? 1.0 : 0.0)
-                    : (currentConjugation.score * 0.85) + (correct ? 0.15 : 0.0)
-                try ConjugationStat(
-                    id: currentConjugation.id,
-                    verb: conjugation.verb,
-                    tense: conjugation.tense,
-                    pronoun: conjugation.pronoun,
-                    score: conjugationScore,
-                    attempts: currentConjugation.attempts + 1
-                ).save(db)
+                VALUES (?, 0, 0, 0, 1, ?, ?, ?, ?, 1)
+                ON CONFLICT(date) DO UPDATE SET
+                    reviewAttempts = reviewAttempts + 1,
+                    correctAnswers = correctAnswers + CASE WHEN hasDetailedMetrics THEN excluded.correctAnswers ELSE 0 END,
+                    wordsIntroduced = wordsIntroduced + CASE WHEN hasDetailedMetrics THEN excluded.wordsIntroduced ELSE 0 END,
+                    movedToProduction = movedToProduction + CASE WHEN hasDetailedMetrics THEN excluded.movedToProduction ELSE 0 END,
+                    movedToMastered = movedToMastered + CASE WHEN hasDetailedMetrics THEN excluded.movedToMastered ELSE 0 END
+                """, arguments: [
+                    today,
+                    correct ? 1 : 0,
+                    introduced ? 1 : 0,
+                    movedToProduction ? 1 : 0,
+                    movedToMastered ? 1 : 0,
+                ])
+
+            guard let conjugation else { return }
+            let currentTense = try TenseStat.fetchOne(db, key: conjugation.tense)
+                ?? TenseStat(tense: conjugation.tense)
+            let tenseScore = currentTense.attempts == 0
+                ? (correct ? 1.0 : 0.0)
+                : (currentTense.score * 0.85) + (correct ? 0.15 : 0.0)
+            try TenseStat(
+                tense: conjugation.tense,
+                score: tenseScore,
+                attempts: currentTense.attempts + 1
+            ).save(db)
+
+            let currentConjugation = try ConjugationStat.fetchOne(
+                db,
+                sql: "SELECT * FROM conjugationStats WHERE verb = ? AND tense = ? AND pronoun = ?",
+                arguments: [conjugation.verb, conjugation.tense, conjugation.pronoun]
+            ) ?? ConjugationStat(
+                verb: conjugation.verb,
+                tense: conjugation.tense,
+                pronoun: conjugation.pronoun
+            )
+            let conjugationScore = currentConjugation.attempts == 0
+                ? (correct ? 1.0 : 0.0)
+                : (currentConjugation.score * 0.85) + (correct ? 0.15 : 0.0)
+            try ConjugationStat(
+                id: currentConjugation.id,
+                verb: conjugation.verb,
+                tense: conjugation.tense,
+                pronoun: conjugation.pronoun,
+                score: conjugationScore,
+                attempts: currentConjugation.attempts + 1
+            ).save(db)
+        }, completion: { _, result in
+            if case .failure(let error) = result {
+                print("Failed to persist review: \(error)")
             }
-        } catch {
-            print("Failed to persist review: \(error)")
-        }
+        })
     }
 }

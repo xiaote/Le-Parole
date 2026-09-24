@@ -95,7 +95,6 @@ final class StatsViewModel {
     var snapshot = StatsSnapshot() { didSet { updateProgress() } }
     var dailyActivities: [DailyCount] = [] { didSet { updateDailyCounts() } }
     var tenseStats: [TenseStat] = []
-    var settings: UserSettings? { didSet { updateProgress() } }
     var introducedWords: [IntroducedWord] = [] { didSet { updateProgress() } }
 
     // Derived values, recomputed only when the observed data above changes.
@@ -109,7 +108,7 @@ final class StatsViewModel {
     private var statsCancellable: AnyDatabaseCancellable?
     private var activityCancellable: AnyDatabaseCancellable?
     private var tenseStatsCancellable: AnyDatabaseCancellable?
-    private var settingsCancellable: AnyDatabaseCancellable?
+    private var targetLevelTask: Task<Void, Never>?
     private var introducedWordsCancellable: AnyDatabaseCancellable?
 
     static let coverageProjectionSampleDays = 7
@@ -135,7 +134,8 @@ final class StatsViewModel {
             statsCancellable = nil
             activityCancellable = nil
             tenseStatsCancellable = nil
-            settingsCancellable = nil
+            targetLevelTask?.cancel()
+            targetLevelTask = nil
             introducedWordsCancellable = nil
             return
         }
@@ -144,51 +144,40 @@ final class StatsViewModel {
         let db = DatabaseService.shared
         
         statsCancellable = ValueObservation.tracking { db in
-            let mastered = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE stage = 'mastered'") ?? 0
-            let production = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE stage = 'production'") ?? 0
-            let recognition = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE stage = 'recognition'") ?? 0
-            let notStarted = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE stage = 'new'") ?? 0
-            let skipped = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE stage = 'skipped'") ?? 0
-            let total = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userWords WHERE stage != 'skipped'") ?? 0
-            
+            // userWords.wordId references words (cascading), so the per-level
+            // rows add up to the overall totals.
             let rows = try Row.fetchAll(db, sql: """
                 SELECT w.level,
-                       SUM(CASE WHEN uw.stage = 'mastered' THEN 1 ELSE 0 END) as mastered,
-                       SUM(CASE WHEN uw.stage = 'production' THEN 1 ELSE 0 END) as production,
-                       SUM(CASE WHEN uw.stage = 'recognition' THEN 1 ELSE 0 END) as recognition,
-                       SUM(CASE WHEN uw.stage != 'skipped' THEN 1 ELSE 0 END) as total
+                       SUM(uw.stage = 'mastered') AS mastered,
+                       SUM(uw.stage = 'production') AS production,
+                       SUM(uw.stage = 'recognition') AS recognition,
+                       SUM(uw.stage = 'new') AS notStarted,
+                       SUM(uw.stage = 'skipped') AS skipped,
+                       SUM(uw.stage != 'skipped') AS total
                 FROM userWords uw
                 JOIN words w ON uw.wordId = w.wordId
                 GROUP BY w.level
             """)
-            
-            var levelStats: [String: LevelStats] = [:]
-            var allLevels: Set<String> = []
-            
+
+            var snapshot = StatsSnapshot()
             for row in rows {
-                let level: String = row["level"]
-                allLevels.insert(level)
-                levelStats[level] = LevelStats(
-                    level: level,
+                let level = LevelStats(
+                    level: row["level"],
                     mastered: row["mastered"],
                     production: row["production"],
                     recognition: row["recognition"],
                     total: row["total"]
                 )
+                snapshot.levelStats[level.level] = level
+                snapshot.mastered += level.mastered
+                snapshot.production += level.production
+                snapshot.recognition += level.recognition
+                snapshot.notStarted += row["notStarted"] as Int
+                snapshot.skipped += row["skipped"] as Int
+                snapshot.total += level.total
             }
-            
-            let customCategories = allLevels.subtracting(Word.cefrLevels).sorted()
-            
-            return StatsSnapshot(
-                mastered: mastered,
-                production: production,
-                recognition: recognition,
-                notStarted: notStarted,
-                skipped: skipped,
-                total: total,
-                customCategories: customCategories,
-                levelStats: levelStats
-            )
+            snapshot.customCategories = Set(snapshot.levelStats.keys).subtracting(Word.cefrLevels).sorted()
+            return snapshot
         }.start(
             in: db.db,
             scheduling: .async(onQueue: .main),
@@ -204,13 +193,12 @@ final class StatsViewModel {
             onError: { _ in },
             onChange: { [weak self] activities in self?.dailyActivities = activities }
         )
-        settingsCancellable = db.makeSettingsObservation().start(
-            in: db.db,
-            scheduling: .async(onQueue: .main),
-            onError: { _ in },
-            onChange: { [weak self] s in self?.settings = s }
-        )
-        
+        targetLevelTask = Task { [weak self] in
+            for await _ in Observations({ @MainActor in SettingsStore.shared.targetLevel }) {
+                self?.updateProgress()
+            }
+        }
+
         tenseStatsCancellable = ValueObservation.tracking { db in
             let stats = try TenseStat.fetchAll(db)
             let ranks = Dictionary(uniqueKeysWithValues: Self.supportedTenses.enumerated().map { ($0.element, $0.offset) })
@@ -251,15 +239,8 @@ final class StatsViewModel {
     }
 
     var targetLevel: String {
-        get { settings?.targetLevel ?? "None" }
-        set {
-            guard var s = settings else { return }
-            s.targetLevel = newValue
-            settings = s
-            Task {
-                try? DatabaseService.shared.db.write { db in try s.save(db) }
-            }
-        }
+        get { SettingsStore.shared.targetLevel }
+        set { SettingsStore.shared.update { $0.targetLevel = newValue } }
     }
 
     var mastered:    Int { snapshot.mastered }

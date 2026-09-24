@@ -80,14 +80,6 @@ final class WordBankViewModel {
 
         pageTask?.cancel()
         pageTask = Task { @MainActor [weak self] in
-            let baseSQL = """
-                SELECT uw.id, uw.wordId, uw.stage, uw.easeFactor, uw.interval, uw.repetitions,
-                       uw.nextReviewDate, uw.lastReviewDate, uw.learnedDate, uw.lastWrongDate,
-                       uw.totalCorrect, uw.totalAttempts,
-                       w.italian, w.english, w.alternatives, w.level, w.frequencyRank, w.isUserCreated, w.inflections, w.partOfSpeech
-                FROM userWords uw
-                JOIN words w ON uw.wordId = w.wordId
-                """
             var conditions: [String] = []
             var arguments: [DatabaseValueConvertible] = []
             
@@ -116,7 +108,7 @@ final class WordBankViewModel {
             }
             
             let whereClause = conditions.isEmpty ? "" : "WHERE " + conditions.joined(separator: " AND ")
-            let sql = "\(baseSQL) \(whereClause) ORDER BY w.frequencyRank, uw.id LIMIT ?"
+            let sql = "\(DatabaseService.userWordSelectSQL) \(whereClause) ORDER BY w.frequencyRank, uw.id LIMIT ?"
             arguments.append(Self.pageSize)
             let statementArgs = StatementArguments(arguments) ?? StatementArguments()
             let words: [UserWord]
