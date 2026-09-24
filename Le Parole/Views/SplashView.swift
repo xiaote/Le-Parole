@@ -3,8 +3,6 @@ import SwiftUI
 struct SplashView: View {
     @State private var scale: CGFloat = 0.8
     @State private var opacity: Double = 0.0
-    @State private var pulse: Bool = false
-    @State private var isAnimatingLoader = false
 
     var body: some View {
         ZStack {
@@ -25,18 +23,7 @@ struct SplashView: View {
 
                 // Sleek new logo concept (Abstract Chat/Language)
                 VStack(spacing: 16) {
-                    ZStack {
-                        Circle()
-                            .fill(.white.opacity(0.15))
-                            .frame(width: 120, height: 120)
-                            .scaleEffect(pulse ? 1.05 : 0.95)
-                            .animation(.easeInOut(duration: 2).repeatForever(autoreverses: true), value: pulse)
-                        
-                        Image(systemName: "book.closed.fill")
-                            .font(.system(size: 52, weight: .regular))
-                            .foregroundStyle(.white)
-                            .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
-                    }
+                    LoadingMark(onGradient: true)
 
                     Text("Le Parole")
                         .font(.theme(.largeTitle, weight: .bold))
@@ -49,24 +36,9 @@ struct SplashView: View {
 
                 Spacer()
 
-                // Custom Sleek Loader
-                HStack(spacing: 8) {
-                    ForEach(0..<3) { index in
-                        Circle()
-                            .fill(Color.white)
-                            .frame(width: 8, height: 8)
-                            .scaleEffect(isAnimatingLoader ? 1 : 0.5)
-                            .opacity(isAnimatingLoader ? 1 : 0.3)
-                            .animation(
-                                .easeInOut(duration: 0.6)
-                                .repeatForever()
-                                .delay(0.2 * Double(index)),
-                                value: isAnimatingLoader
-                            )
-                    }
-                }
-                .padding(.bottom, 60)
-                .opacity(opacity)
+                LoadingDots(color: .white)
+                    .padding(.bottom, 60)
+                    .opacity(opacity)
             }
         }
         .onAppear {
@@ -74,8 +46,6 @@ struct SplashView: View {
                 scale = 1.0
                 opacity = 1.0
             }
-            pulse = true
-            isAnimatingLoader = true
         }
     }
 }

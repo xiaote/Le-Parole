@@ -262,7 +262,7 @@ struct QuizCardView: View {
             case .diagramCrop(let diag, let imageName):
                 DiagramPlateSheet(diagram: diag, displayImageName: imageName)
             case .relatedConcept(let item):
-                RelatedWordSheet(item: item)
+                RelatedWordSheet(term: item.term, relatedItem: item)
             case .relatedTerm(let term):
                 RelatedWordSheet(term: term)
             }

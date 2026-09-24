@@ -16,12 +16,6 @@ struct RelatedWordSheet: View {
         _currentTerm = State(initialValue: term)
     }
 
-    init(item: RelatedConceptItem) {
-        self.term = item.term
-        self.relatedItem = item
-        _currentTerm = State(initialValue: item.term)
-    }
-
     private var concept: WordConcept? {
         ConceptService.shared.concept(for: currentTerm)
     }
@@ -38,19 +32,19 @@ struct RelatedWordSheet: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
                         // Relationship Context Banner (if arrived via a connected concept)
-                        if let relatedItem, let rel = relatedItem.cleanRelationship, !rel.isEmpty {
+                        if let relatedItem, let rel = relatedItem.relationship, !rel.isEmpty {
                             HStack(spacing: 8) {
                                 HStack(spacing: 4) {
-                                    Image(systemName: relatedItem.effectiveType.iconName)
+                                    Image(systemName: relatedItem.type.iconName)
                                         .font(.system(size: 11, weight: .bold))
-                                    Text(relatedItem.effectiveType.title.uppercased())
+                                    Text(relatedItem.type.title.uppercased())
                                         .font(.system(size: 9.5, weight: .bold))
                                         .tracking(0.6)
                                 }
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
-                                .background(relatedItem.effectiveType.tintColor.opacity(0.15))
-                                .foregroundStyle(relatedItem.effectiveType.tintColor)
+                                .background(relatedItem.type.tintColor.opacity(0.15))
+                                .foregroundStyle(relatedItem.type.tintColor)
                                 .clipShape(Capsule())
 
                                 Text(rel)
@@ -64,7 +58,7 @@ struct RelatedWordSheet: View {
                             .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                    .stroke(relatedItem.effectiveType.tintColor.opacity(0.3), lineWidth: 1)
+                                    .stroke(relatedItem.type.tintColor.opacity(0.3), lineWidth: 1)
                                     .allowsHitTesting(false)
                             )
                         }
@@ -148,7 +142,7 @@ struct RelatedWordSheet: View {
     private func loadTerm(_ termToLoad: String) async {
         currentTerm = termToLoad
         isLoading = true
-        word = await ConceptService.shared.fetchWord(for: termToLoad)
+        word = await Word.fetch(italian: termToLoad)
         isLoading = false
     }
 }

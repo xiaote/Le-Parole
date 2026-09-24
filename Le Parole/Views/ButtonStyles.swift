@@ -26,13 +26,8 @@ struct PrimaryButtonStyle: ButtonStyle {
 
 struct SecondaryButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
-    let tint: Color
+    var tint: Color = Theme.primary
     var verticalPadding: CGFloat = 15
-
-    init(tint: Color = Theme.primary, verticalPadding: CGFloat = 15) {
-        self.tint = tint
-        self.verticalPadding = verticalPadding
-    }
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -49,13 +44,10 @@ struct SecondaryButtonStyle: ButtonStyle {
 }
 
 struct PressableButtonStyle: ButtonStyle {
-    var scale: CGFloat = 0.94
-    var pressedOpacity: Double = 0.8
-
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .scaleEffect(configuration.isPressed ? scale : 1.0)
-            .opacity(configuration.isPressed ? pressedOpacity : 1.0)
+            .scaleEffect(configuration.isPressed ? 0.94 : 1.0)
+            .opacity(configuration.isPressed ? 0.8 : 1.0)
             .animation(.easeOut(duration: 0.15), value: configuration.isPressed)
     }
 }

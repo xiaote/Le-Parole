@@ -10,12 +10,11 @@ struct HomeStats: Equatable, Sendable {
     var newAvailable: Int
     var mistakesToday: [UserWord]
     var testQueueCount: Int
-    var recognitionBacklog: Int
 }
 
 @Observable
 final class HomeViewModel {
-    var stats = HomeStats(mastered: 0, inProgress: 0, reviewsDue: 0, reviewAttemptsToday: 0, wordsLearnedToday: 0, newAvailable: 0, mistakesToday: [], testQueueCount: 0, recognitionBacklog: 0)
+    var stats = HomeStats(mastered: 0, inProgress: 0, reviewsDue: 0, reviewAttemptsToday: 0, wordsLearnedToday: 0, newAvailable: 0, mistakesToday: [], testQueueCount: 0)
 
     private let settings = SettingsStore.shared
     private var statsCancellable: AnyDatabaseCancellable?
@@ -54,8 +53,7 @@ final class HomeViewModel {
                 SUM(stage = 'new') AS newAvailable,
                 SUM(stage NOT IN ('mastered', 'skipped')
                     AND (lastReviewDate IS NULL OR lastReviewDate < :sixDaysAgo)
-                    AND NOT (stage IN ('recognition', 'production') AND nextReviewDate <= :now)) AS testQueueCount,
-                SUM(stage = 'recognition') AS recognitionBacklog
+                    AND NOT (stage IN ('recognition', 'production') AND nextReviewDate <= :now)) AS testQueueCount
             FROM userWords
             """, arguments: ["now": now, "todayStart": todayStart, "sixDaysAgo": sixDaysAgo])
         func count(_ column: String) -> Int { (counts?[column] as Int?) ?? 0 }
@@ -75,8 +73,7 @@ final class HomeViewModel {
             wordsLearnedToday: count("wordsLearnedToday"),
             newAvailable: count("newAvailable"),
             mistakesToday: mistakesToday,
-            testQueueCount: count("testQueueCount"),
-            recognitionBacklog: count("recognitionBacklog")
+            testQueueCount: count("testQueueCount")
         )
     }
 
@@ -91,42 +88,20 @@ final class HomeViewModel {
     var dailyPracticeGoal: Int { settings.dailyPracticeGoal }
     var newWordPacing: Int { settings.dailyNewWordGoal }
 
-    var mastered: Int { stats.mastered }
-    var inProgress: Int { stats.inProgress }
-    var reviewsDue: Int { stats.reviewsDue }
-    var reviewAttemptsToday: Int { stats.reviewAttemptsToday }
-    var wordsLearnedToday: Int { stats.wordsLearnedToday }
-    var newAvailable: Int { stats.newAvailable }
-    var mistakesToday: [UserWord] { stats.mistakesToday }
-    var testQueueCount: Int { stats.testQueueCount }
-
-    var newToLearnToday: Int { min(newAvailable, max(0, newWordPacing - wordsLearnedToday)) }
-    var dueToday: Int { reviewsDue + newToLearnToday }
+    var newToLearnToday: Int { min(stats.newAvailable, max(0, newWordPacing - stats.wordsLearnedToday)) }
+    var dueToday: Int { stats.reviewsDue + newToLearnToday }
     var hasWork: Bool { dueToday > 0 }
-    var canLearnMore: Bool { dueToday == 0 && newAvailable > 0 }
-    var canStudy: Bool { hasWork || (newAvailable + inProgress + mastered > 0) }
+    var canStudy: Bool { hasWork || (stats.newAvailable + stats.inProgress + stats.mastered > 0) }
 
     var sessionAction: String {
         if hasWork {
             return "Start practice"
-        } else if newAvailable > 0 {
+        } else if stats.newAvailable > 0 {
             return "Keep learning"
-        } else if inProgress > 0 || mastered > 0 {
+        } else if stats.inProgress > 0 || stats.mastered > 0 {
             return "Keep practicing"
         } else {
             return "All caught up"
-        }
-    }
-    
-    var recognitionBacklog: Int { stats.recognitionBacklog }
-    
-    var extraSessionDailyLimit: Int {
-        // If the backlog of unrecognized words is high (>= 1.5x new-word pace),
-        // don't introduce new words in the extra session. Just drill the backlog.
-        if recognitionBacklog >= Int(Double(newWordPacing) * 1.5) {
-            return wordsLearnedToday
-        } else {
-            return wordsLearnedToday + newWordPacing
         }
     }
 

@@ -52,7 +52,7 @@ struct MistakeContext: Sendable {
 }
 
 struct MistakeItem: Identifiable, Sendable {
-    var id: String { "\(userWord.id)_\(cardType)" }
+    var id: String { "\(userWord.id ?? -1)_\(cardType)" }
     let userWord: UserWord
     let cardType: StudyCard.CardType
     var context: MistakeContext?
@@ -284,10 +284,6 @@ class StudySessionViewModel {
         return false
     }
 
-    func recordResult(correct: Bool, context: MistakeContext? = nil) -> ReviewOutcome {
-        processResult(correct: correct, context: context)
-    }
-
     func advance() {
         currentIndex += 1
         prepareCurrentCardForImmediateDisplay()
@@ -447,7 +443,7 @@ class StudySessionViewModel {
         }
     }
 
-    private func processResult(correct: Bool, context: MistakeContext? = nil) -> ReviewOutcome {
+    func recordResult(correct: Bool, context: MistakeContext? = nil) -> ReviewOutcome {
         guard currentIndex < cards.count else { return .none }
         let card = cards[currentIndex]
         let result = ReviewScheduler.schedule(

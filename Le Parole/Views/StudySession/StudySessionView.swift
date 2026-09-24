@@ -79,54 +79,21 @@ struct StudySessionView: View {
 }
 
 private struct PreparingSessionView: View {
-    @State private var pulse = false
-    @State private var isAnimatingLoader = false
-    
     var body: some View {
         VStack(spacing: 32) {
             Spacer()
-            
-            // Sleek Logo Concept
-            ZStack {
-                Circle()
-                    .fill(Theme.primary.opacity(0.1))
-                    .frame(width: 100, height: 100)
-                    .scaleEffect(pulse ? 1.05 : 0.95)
-                    .animation(.easeInOut(duration: 2).repeatForever(autoreverses: true), value: pulse)
-                
-                Image(systemName: "book.closed.fill")
-                    .font(.system(size: 42, weight: .regular))
-                    .foregroundStyle(Theme.primary)
-            }
-            
+
+            LoadingMark()
+
             Text("Preparing session…")
                 .font(.theme(.title3, weight: .semibold))
                 .foregroundStyle(.secondary)
-            
-            // Custom Sleek Loader
-            HStack(spacing: 8) {
-                ForEach(0..<3) { index in
-                    Circle()
-                        .fill(Theme.primary)
-                        .frame(width: 8, height: 8)
-                        .scaleEffect(isAnimatingLoader ? 1 : 0.5)
-                        .opacity(isAnimatingLoader ? 1 : 0.3)
-                        .animation(
-                            .easeInOut(duration: 0.6)
-                            .repeatForever()
-                            .delay(0.2 * Double(index)),
-                            value: isAnimatingLoader
-                        )
-                }
-            }
-            .padding(.top, 16)
-            
+
+            LoadingDots(color: Theme.primary)
+                .padding(.top, 16)
+
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .onAppear {
-            pulse = true
-            isAnimatingLoader = true
-        }
     }
 }

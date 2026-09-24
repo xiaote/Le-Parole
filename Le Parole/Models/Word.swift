@@ -129,6 +129,27 @@ struct Word: Identifiable, Sendable, Equatable {
         return candidates.sorted()
     }
 
+    private nonisolated static let leadingArticles = ["il ", "lo ", "la ", "l'", "i ", "gli ", "le ", "un ", "uno ", "una "]
+
+    /// Lowercased, trimmed term without its leading article ("L'ancora" -> "ancora"),
+    /// used to match terms against concept and diagram keys.
+    nonisolated static func strippingArticle(_ term: String) -> String {
+        var clean = term.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        if let article = leadingArticles.first(where: clean.hasPrefix) {
+            clean = String(clean.dropFirst(article.count))
+        }
+        return clean.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    /// The catalogue or user word spelled `italian`, tolerating accent/apostrophe/case variants.
+    static func fetch(italian: String) async -> Word? {
+        let candidates = italianLookupCandidates(italian)
+        guard !candidates.isEmpty else { return nil }
+        return try? await DatabaseService.shared.db.read { db in
+            try Word.filter(candidates.contains(Column("italian"))).fetchOne(db)
+        }
+    }
+
     // MARK: - Cached Regexes & Formatter
     private nonisolated static let parenthesesRegex = try? NSRegularExpression(pattern: "\\([^)]*\\)")
     private nonisolated static let digitsRegex = try! NSRegularExpression(pattern: "\\d+")

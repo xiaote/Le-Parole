@@ -104,7 +104,7 @@ struct ConceptSectionView: View {
             }
 
             // MARK: - Connected Concept Clusters
-            let related = concept.effectiveRelatedConcepts
+            let related = concept.relatedConcepts
             if !related.isEmpty {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(spacing: 6) {
@@ -175,20 +175,20 @@ private struct ConnectedConceptPill: View {
 
                         // Distinct Relationship Type Icon Badge
                         HStack(spacing: 3) {
-                            Image(systemName: item.effectiveType.iconName)
+                            Image(systemName: item.type.iconName)
                                 .font(.system(size: 9, weight: .bold))
-                            Text(item.effectiveType.title.uppercased())
+                            Text(item.type.title.uppercased())
                                 .font(.system(size: 8.5, weight: .bold))
                                 .tracking(0.5)
                         }
                         .padding(.horizontal, 6)
                         .padding(.vertical, 2)
-                        .background(item.effectiveType.tintColor.opacity(0.14))
-                        .foregroundStyle(item.effectiveType.tintColor)
+                        .background(item.type.tintColor.opacity(0.14))
+                        .foregroundStyle(item.type.tintColor)
                         .clipShape(Capsule())
                     }
 
-                    if let rel = item.cleanRelationship, !rel.isEmpty {
+                    if let rel = item.relationship, !rel.isEmpty {
                         Text(rel)
                             .font(.theme(.caption2, weight: .medium))
                             .foregroundStyle(.secondary)

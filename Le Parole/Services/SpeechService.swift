@@ -1,5 +1,6 @@
 import AVFoundation
 
+@MainActor
 final class SpeechService: NSObject, AVSpeechSynthesizerDelegate {
     static let shared = SpeechService()
     private let synthesizer = AVSpeechSynthesizer()
@@ -47,13 +48,17 @@ final class SpeechService: NSObject, AVSpeechSynthesizerDelegate {
         deactivateAudioSession()
     }
 
-    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        if !synthesizer.isSpeaking {
-            deactivateAudioSession()
-        }
+    // AVSpeechSynthesizer calls its delegate off the main actor; hop back to
+    // read the shared synthesizer and release the audio session when idle.
+    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        Task { @MainActor in self.deactivateAudioSessionIfIdle() }
     }
 
-    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
+    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
+        Task { @MainActor in self.deactivateAudioSessionIfIdle() }
+    }
+
+    private func deactivateAudioSessionIfIdle() {
         if !synthesizer.isSpeaking {
             deactivateAudioSession()
         }

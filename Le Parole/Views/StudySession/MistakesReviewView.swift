@@ -187,7 +187,7 @@ struct MistakesReviewView: View {
             case .diagram(let diag):
                 DiagramPlateSheet(diagram: diag)
             case .relatedConcept(let item):
-                RelatedWordSheet(item: item)
+                RelatedWordSheet(term: item.term, relatedItem: item)
             case .relatedTerm(let term):
                 RelatedWordSheet(term: term)
             }

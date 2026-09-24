@@ -113,18 +113,8 @@ enum SailingDiagramService {
     /// Italian-key resolution only; the sense check is cheap and applied per call.
     private static var lookupCache: [String: Match?] = [:]
 
-    private static let articles = ["il ", "lo ", "la ", "l'", "i ", "gli ", "le ", "un ", "uno ", "una "]
-
-    private static func normalize(_ str: String) -> String {
-        var clean = str.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        if let article = articles.first(where: clean.hasPrefix) {
-            clean = String(clean.dropFirst(article.count))
-        }
-        return clean.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
-
     private static func match(for italianWord: String) -> Match? {
-        let norm = normalize(italianWord)
+        let norm = Word.strippingArticle(italianWord)
         if let cached = lookupCache[norm] {
             return cached
         }

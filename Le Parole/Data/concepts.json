@@ -1,7 +1,6 @@
 [
   {
     "italian": "bordo",
-    "category": "sailing",
     "intuition": "A single straight diagonal leg sailed across the wind when zigzagging upwind toward a destination you cannot reach directly.",
     "practicalTip": "Hold the boat in close-hauled (bolina) on one bordo until you reach the layline, then tack onto the opposite bordo.",
     "commonPhrases": [
@@ -20,11 +19,6 @@
         "meaning": "Starboard tack!",
         "context": "Calling right-of-way when crossing other boats"
       }
-    ],
-    "relatedTerms": [
-      "bordeggiare",
-      "virata",
-      "bolina"
     ],
     "relatedConcepts": [
       {
@@ -46,7 +40,6 @@
   },
   {
     "italian": "bordeggiare",
-    "category": "sailing",
     "intuition": "Zigzagging back and forth across the wind in alternating diagonal legs to travel towards an upwind destination.",
     "practicalTip": "Keep the boat close to the edge of the wind on each leg to minimize the total distance sailed.",
     "commonPhrases": [
@@ -55,11 +48,6 @@
         "meaning": "We need to tack back and forth to enter the channel.",
         "context": "Navigation decision in restricted water"
       }
-    ],
-    "relatedTerms": [
-      "bordo",
-      "virata",
-      "angolo morto"
     ],
     "relatedConcepts": [
       {
@@ -81,7 +69,6 @@
   },
   {
     "italian": "scarroccio",
-    "category": "sailing",
     "intuition": "The sideways slide of a boat pushed by the wind, despite the keel and daggerboard resisting lateral motion in the water.",
     "practicalTip": "Aim slightly upwind of your target buoy or harbour entrance to compensate for the sideways drift.",
     "commonPhrases": [
@@ -95,11 +82,6 @@
         "meaning": "There's heavy leeway with this wind.",
         "context": "Helmsman noticing drift on the compass course"
       }
-    ],
-    "relatedTerms": [
-      "deriva",
-      "rotta",
-      "bolina"
     ],
     "relatedConcepts": [
       {
@@ -121,7 +103,6 @@
   },
   {
     "italian": "mettere a segno",
-    "category": "sailing",
     "intuition": "Adjusting the angle of a sail relative to the wind so air flows smoothly across both surfaces like an airplane wing.",
     "practicalTip": "Ease the sheet until the forward edge begins to flutter (fileggiare), then trim in just enough to smooth it out.",
     "commonPhrases": [
@@ -135,11 +116,6 @@
         "meaning": "Sail is trimmed and drawing properly!",
         "context": "Trimmer confirmation to helmsman"
       }
-    ],
-    "relatedTerms": [
-      "cazzare",
-      "lascare",
-      "fileggiare"
     ],
     "relatedConcepts": [
       {
@@ -161,7 +137,6 @@
   },
   {
     "italian": "cazzare",
-    "category": "sailing",
     "intuition": "Pulling in a control line or sheet to bring the sail closer to the center of the boat, flattening it for sailing upwind.",
     "practicalTip": "Pull smoothly hand-over-hand while keeping your fingers clear of the winch drum.",
     "commonPhrases": [
@@ -180,11 +155,6 @@
         "meaning": "Trim the jib sheet!",
         "context": "Trimmer command after completing a tack"
       }
-    ],
-    "relatedTerms": [
-      "lascare",
-      "scotta",
-      "mettere a segno"
     ],
     "relatedConcepts": [
       {
@@ -206,7 +176,6 @@
   },
   {
     "italian": "lascare",
-    "category": "sailing",
     "intuition": "Easing or letting out a sheet or line to open up the sail angle as the boat turns away from the wind.",
     "practicalTip": "Never let go of the line abruptly unless emergency depowering is needed; let it slip controlled under tension.",
     "commonPhrases": [
@@ -225,11 +194,6 @@
         "meaning": "Ease a little bit of sheet!",
         "context": "Fine trim adjustment"
       }
-    ],
-    "relatedTerms": [
-      "cazzare",
-      "fileggiare",
-      "scotta"
     ],
     "relatedConcepts": [
       {
@@ -251,7 +215,6 @@
   },
   {
     "italian": "fileggiare",
-    "category": "sailing",
     "intuition": "The flapping or fluttering of a sail when it is angled too far into the wind or when the sheet is eased too far.",
     "practicalTip": "A flapping sail generates drag and noise instead of forward lift; trim the sheet in or bear away until it stops.",
     "commonPhrases": [
@@ -265,11 +228,6 @@
         "meaning": "Let it luff to slow down!",
         "context": "Approaching a pontoon or mooring"
       }
-    ],
-    "relatedTerms": [
-      "mettere a segno",
-      "cazzare",
-      "angolo morto"
     ],
     "relatedConcepts": [
       {
@@ -291,7 +249,6 @@
   },
   {
     "italian": "vento apparente",
-    "category": "sailing",
     "intuition": "The wind you actually feel on the moving boat. It combines the real natural wind with the headwind created by the boat's forward speed.",
     "practicalTip": "Always trim sails and read the wind pennant (mostravento) based on apparent wind, not true wind.",
     "commonPhrases": [
@@ -305,11 +262,6 @@
         "meaning": "The faster we sail, the more the wind shifts forward.",
         "context": "Explaining apparent wind vector physics"
       }
-    ],
-    "relatedTerms": [
-      "vento reale",
-      "mostravento",
-      "bolina"
     ],
     "relatedConcepts": [
       {
@@ -331,7 +283,6 @@
   },
   {
     "italian": "vento reale",
-    "category": "sailing",
     "intuition": "The true direction and speed of the meteorological wind across the water, independent of the boat's movement.",
     "practicalTip": "Look at flags on shore or ripples on the water before leaving port to judge true wind direction.",
     "commonPhrases": [
@@ -340,10 +291,6 @@
         "meaning": "The true wind is coming from the north.",
         "context": "Pre-departure weather briefing"
       }
-    ],
-    "relatedTerms": [
-      "vento apparente",
-      "rosa dei venti"
     ],
     "relatedConcepts": [
       {
@@ -360,7 +307,6 @@
   },
   {
     "italian": "virata",
-    "category": "sailing",
     "intuition": "Turning the bow (front) of the boat through the eye of the wind to switch which side the wind hits the sails.",
     "practicalTip": "Carry good boat speed before turning so momentum pushes the boat through the dead zone.",
     "commonPhrases": [
@@ -384,12 +330,6 @@
         "meaning": "Release old sheet, take up new sheet!",
         "context": "Jib trimmer action during tack"
       }
-    ],
-    "relatedTerms": [
-      "strambata",
-      "angolo morto",
-      "bordo",
-      "prua"
     ],
     "relatedConcepts": [
       {
@@ -416,7 +356,6 @@
   },
   {
     "italian": "virare",
-    "category": "sailing",
     "intuition": "To turn the bow of the boat through the wind to change tack from port to starboard or vice versa.",
     "practicalTip": "Push the tiller smoothly and avoid slamming the rudder hard over, which acts as a brake.",
     "commonPhrases": [
@@ -430,12 +369,6 @@
         "meaning": "Tack now!",
         "context": "Executive command"
       }
-    ],
-    "relatedTerms": [
-      "strambare",
-      "barra",
-      "bordo",
-      "prua"
     ],
     "relatedConcepts": [
       {
@@ -462,7 +395,6 @@
   },
   {
     "italian": "strambata",
-    "category": "sailing",
     "intuition": "Turning the stern (back) of the boat through the wind when sailing downwind, causing the boom to swing across rapidly.",
     "practicalTip": "Center the boom with the mainsheet before turning through the wind to prevent an uncontrolled violent swing.",
     "commonPhrases": [
@@ -481,12 +413,6 @@
         "meaning": "Gybe now!",
         "context": "Executing the turn"
       }
-    ],
-    "relatedTerms": [
-      "virata",
-      "fil di ruota",
-      "boma",
-      "poppa"
     ],
     "relatedConcepts": [
       {
@@ -513,7 +439,6 @@
   },
   {
     "italian": "strambare",
-    "category": "sailing",
     "intuition": "To turn the stern of the boat through the wind while sailing off the wind, shifting the boom to the opposite side.",
     "practicalTip": "Coordinate sheet trimming and helm smoothly so the boom travels across under control.",
     "commonPhrases": [
@@ -527,12 +452,6 @@
         "meaning": "Gybe!",
         "context": "Execution command"
       }
-    ],
-    "relatedTerms": [
-      "virare",
-      "boma",
-      "fil di ruota",
-      "poppa"
     ],
     "relatedConcepts": [
       {
@@ -559,7 +478,6 @@
   },
   {
     "italian": "orzare",
-    "category": "sailing",
     "intuition": "Steering the boat closer toward the direction the wind is coming from, tightening your angle to the wind.",
     "practicalTip": "Push the tiller away from you (toward the wind/sail) to head up and depower during a strong gust.",
     "commonPhrases": [
@@ -573,12 +491,6 @@
         "meaning": "Head up into the gust!",
         "context": "Depowering the sails to keep the boat flat"
       }
-    ],
-    "relatedTerms": [
-      "poggiare",
-      "barra",
-      "fileggiare",
-      "sbandamento"
     ],
     "relatedConcepts": [
       {
@@ -605,7 +517,6 @@
   },
   {
     "italian": "orza",
-    "category": "sailing",
     "intuition": "The action or command to turn closer into the wind.",
     "practicalTip": "Keep an eye on the telltales on the jib to avoid turning too far into the dead zone.",
     "commonPhrases": [
@@ -614,11 +525,6 @@
         "meaning": "Head up!",
         "context": "Immediate steering instruction"
       }
-    ],
-    "relatedTerms": [
-      "poggia",
-      "barra",
-      "bolina"
     ],
     "relatedConcepts": [
       {
@@ -640,7 +546,6 @@
   },
   {
     "italian": "poggiare",
-    "category": "sailing",
     "intuition": "Steering the boat away from the direction the wind is coming from, turning further downwind.",
     "practicalTip": "Pull the tiller toward you (away from wind) to bear away, and remember to ease the sheets as you turn.",
     "commonPhrases": [
@@ -654,11 +559,6 @@
         "meaning": "Bear away and ease sheets!",
         "context": "Coordinated helmsman & trimmer instruction"
       }
-    ],
-    "relatedTerms": [
-      "orzare",
-      "barra",
-      "lascare"
     ],
     "relatedConcepts": [
       {
@@ -680,7 +580,6 @@
   },
   {
     "italian": "poggia",
-    "category": "sailing",
     "intuition": "The action or command to turn away from the wind.",
     "practicalTip": "Easing the sails allows the boat to accelerate as you bear away.",
     "commonPhrases": [
@@ -689,10 +588,6 @@
         "meaning": "Bear away!",
         "context": "Immediate steering instruction"
       }
-    ],
-    "relatedTerms": [
-      "orza",
-      "lascare"
     ],
     "relatedConcepts": [
       {
@@ -709,7 +604,6 @@
   },
   {
     "italian": "in panna",
-    "category": "sailing",
     "intuition": "A self-balancing 'parking' maneuver where the jib is sheeted to the wrong side (backed) and the helm is turned into wind, bringing the boat to a stable, gentle drift.",
     "practicalTip": "Use this maneuver in heavy weather or whenever the crew needs a safe break to reef sails, eat lunch, or attend to repairs.",
     "commonPhrases": [
@@ -723,11 +617,6 @@
         "meaning": "Lash the helm and leave the jib backed!",
         "context": "Setting up the heaved-to balance"
       }
-    ],
-    "relatedTerms": [
-      "alla cappa",
-      "fiocco",
-      "virata"
     ],
     "relatedConcepts": [
       {
@@ -749,7 +638,6 @@
   },
   {
     "italian": "alla cappa",
-    "category": "sailing",
     "intuition": "Heaving-to in heavy weather; setting sails and helm to ride out high winds and rough seas with minimal drift and stress on the vessel.",
     "practicalTip": "Once balanced in cappa, the boat creates a smooth slick of disturbed water (scia) to windward that breaks oncoming waves.",
     "commonPhrases": [
@@ -758,11 +646,6 @@
         "meaning": "We are hove-to, the boat is riding smoothly.",
         "context": "Heavy weather status report"
       }
-    ],
-    "relatedTerms": [
-      "in panna",
-      "terzaroli",
-      "scarroccio"
     ],
     "relatedConcepts": [
       {
@@ -784,7 +667,6 @@
   },
   {
     "italian": "sbandamento",
-    "category": "sailing",
     "intuition": "The leaning or tilting of the boat to one side caused by the force of the wind pushing sideways against the sails.",
     "practicalTip": "Hiking out (cinghie puntapiedi) with your body weight counters heeling, keeping the daggerboard vertical and efficient.",
     "commonPhrases": [
@@ -798,11 +680,6 @@
         "meaning": "Everyone hike out on the toe-straps!",
         "context": "Crew command in fresh breeze"
       }
-    ],
-    "relatedTerms": [
-      "raddrizzare",
-      "deriva",
-      "cinghie puntapiedi"
     ],
     "relatedConcepts": [
       {
@@ -824,7 +701,6 @@
   },
   {
     "italian": "sbandare",
-    "category": "sailing",
     "intuition": "To heel or lean over to one side under wind pressure on the sails.",
     "practicalTip": "A small amount of heel is normal, but excessive heeling causes the rudder to drag and the boat to slide sideways.",
     "commonPhrases": [
@@ -833,11 +709,6 @@
         "meaning": "The boat is heeling too much, ease the mainsail!",
         "context": "Gust control instruction"
       }
-    ],
-    "relatedTerms": [
-      "orzare",
-      "sbandamento",
-      "cinghie puntapiedi"
     ],
     "relatedConcepts": [
       {
@@ -859,7 +730,6 @@
   },
   {
     "italian": "angolo morto",
-    "category": "sailing",
     "intuition": "The ~90° cone pointing directly into the wind where sails cannot generate aerodynamic lift and will only flutter uselessly.",
     "practicalTip": "Never try to point directly at an upwind mark inside this angle; sail at roughly 45° to the wind on a close-hauled course.",
     "commonPhrases": [
@@ -868,11 +738,6 @@
         "meaning": "You're in the dead zone, bear away!",
         "context": "Coach correcting a stalled helm"
       }
-    ],
-    "relatedTerms": [
-      "bolina",
-      "virata",
-      "fileggiare"
     ],
     "relatedConcepts": [
       {
@@ -894,7 +759,6 @@
   },
   {
     "italian": "bolina",
-    "category": "sailing",
     "intuition": "The point of sail closest to the wind (roughly 45° off the wind direction), where the sails act as wings generating forward lift.",
     "practicalTip": "Keep the sails sheeted in tight and watch the telltales (filetti) to steer right on the wind's edge.",
     "commonPhrases": [
@@ -908,12 +772,6 @@
         "meaning": "We are sailing close-hauled.",
         "context": "Course confirmation"
       }
-    ],
-    "relatedTerms": [
-      "angolo morto",
-      "traverso",
-      "cazzare",
-      "scarroccio"
     ],
     "relatedConcepts": [
       {
@@ -940,7 +798,6 @@
   },
   {
     "italian": "traverso",
-    "category": "sailing",
     "intuition": "The point of sail where the wind blows directly perpendicular (90°) onto the side of the boat; typically the fastest and easiest point of sail.",
     "practicalTip": "Set the sails halfway out so the boom points roughly toward the leeward corner of the transom.",
     "commonPhrases": [
@@ -949,11 +806,6 @@
         "meaning": "Beam reach course, maximum speed!",
         "context": "Enjoyable cruising speed call"
       }
-    ],
-    "relatedTerms": [
-      "bolina",
-      "lasco",
-      "andatura"
     ],
     "relatedConcepts": [
       {
@@ -975,7 +827,6 @@
   },
   {
     "italian": "lasco",
-    "category": "sailing",
     "intuition": "A broad reach point of sail where the wind comes over the rear quarter of the boat (roughly 120°–140° off the bow).",
     "practicalTip": "Ease the boom out broad and raise the daggerboard halfway to reduce drag when sailing on a broad reach.",
     "commonPhrases": [
@@ -984,11 +835,6 @@
         "meaning": "Bear away to a broad reach!",
         "context": "Course change after rounding the windward mark"
       }
-    ],
-    "relatedTerms": [
-      "traverso",
-      "fil di ruota",
-      "bolina"
     ],
     "relatedConcepts": [
       {
@@ -1010,7 +856,6 @@
   },
   {
     "italian": "fil di ruota",
-    "category": "sailing",
     "intuition": "Sailing dead downwind (180° off the wind), with the wind pushing the boat directly from behind.",
     "practicalTip": "Beware of unintentional accidental gybes (strambata involontaria); keep a boom preventer rigged or watch the wind vane closely.",
     "commonPhrases": [
@@ -1024,11 +869,6 @@
         "meaning": "Go wing-on-wing (goosewinged)!",
         "context": "Jib to one side, main to the other"
       }
-    ],
-    "relatedTerms": [
-      "lasco",
-      "strambata",
-      "boma"
     ],
     "relatedConcepts": [
       {
@@ -1050,7 +890,6 @@
   },
   {
     "italian": "dare fondo",
-    "category": "sailing",
     "intuition": "Dropping or letting go of the anchor into the sea bed to secure the vessel at rest.",
     "practicalTip": "Stop the boat's forward momentum completely and begin drifting backwards slowly before dropping anchor.",
     "commonPhrases": [
@@ -1069,11 +908,6 @@
         "meaning": "The anchor has dug in / set!",
         "context": "Bowman confirmation to helm"
       }
-    ],
-    "relatedTerms": [
-      "ancora",
-      "calumo",
-      "abbrivo"
     ],
     "relatedConcepts": [
       {
@@ -1095,7 +929,6 @@
   },
   {
     "italian": "dare volta",
-    "category": "sailing",
     "intuition": "Securing a line firmly to a cleat (galloccia) or bitt by wrapping it with an initial turn and figure-eight locking hitches.",
     "practicalTip": "Do not add too many locking hitches on a cleat; one clean figure-eight with a half-hitch is secure and will never jam.",
     "commonPhrases": [
@@ -1109,11 +942,6 @@
         "meaning": "Cast off the turns / uncleat!",
         "context": "Preparing to untie or lower sail"
       }
-    ],
-    "relatedTerms": [
-      "galloccia",
-      "bitta",
-      "addugliare"
     ],
     "relatedConcepts": [
       {
@@ -1135,7 +963,6 @@
   },
   {
     "italian": "addugliare",
-    "category": "sailing",
     "intuition": "Coiling a line neatly into loops so it stows without tangling and is ready to run free instantly when needed.",
     "practicalTip": "Roll a clockwise twist with your thumb and forefinger on each loop to prevent kinks and hockles.",
     "commonPhrases": [
@@ -1149,11 +976,6 @@
         "meaning": "Line coiled and clear to run.",
         "context": "Deck hand report"
       }
-    ],
-    "relatedTerms": [
-      "scotta",
-      "dare volta",
-      "drizza"
     ],
     "relatedConcepts": [
       {
@@ -1175,7 +997,6 @@
   },
   {
     "italian": "abbrivo",
-    "category": "sailing",
     "intuition": "The forward momentum and coasting glide that a boat retains through the water after propulsion has stopped.",
     "practicalTip": "Judge your remaining abbrivo carefully when approaching a dock or mooring buoy so you stop right at the destination.",
     "commonPhrases": [
@@ -1189,11 +1010,6 @@
         "meaning": "The boat is losing momentum.",
         "context": "Stalling during a tack or maneuver"
       }
-    ],
-    "relatedTerms": [
-      "dare fondo",
-      "virata",
-      "ormeggio"
     ],
     "relatedConcepts": [
       {
@@ -1215,7 +1031,6 @@
   },
   {
     "italian": "scuffia",
-    "category": "sailing",
     "intuition": "A capsize where a dinghy is knocked over on its side into the water by a heavy gust or crew balance error.",
     "practicalTip": "Never stay under the overturned sail; immediately swim around to the daggerboard and apply downward foot pressure.",
     "commonPhrases": [
@@ -1229,11 +1044,6 @@
         "meaning": "Climb onto the daggerboard to right the boat!",
         "context": "Righting instruction"
       }
-    ],
-    "relatedTerms": [
-      "raddrizzare",
-      "deriva",
-      "sbandamento"
     ],
     "relatedConcepts": [
       {
@@ -1255,7 +1065,6 @@
   },
   {
     "italian": "raddrizzare",
-    "category": "sailing",
     "intuition": "Righting an overturned dinghy back upright by standing on the daggerboard and using body leverage against the hull.",
     "practicalTip": "Check that the mainsheet is eased free so the boat doesn't instantly sail away or capsize again as it pops upright.",
     "commonPhrases": [
@@ -1269,11 +1078,6 @@
         "meaning": "Put your weight on the tip of the daggerboard!",
         "context": "Leverage instruction"
       }
-    ],
-    "relatedTerms": [
-      "scuffia",
-      "deriva",
-      "cinghie puntapiedi"
     ],
     "relatedConcepts": [
       {
@@ -1295,7 +1099,6 @@
   },
   {
     "italian": "deriva",
-    "category": "sailing",
     "intuition": "The retractable underwater foil (daggerboard/centerboard) that counters the sideways push of the wind and converts it into forward motion.",
     "practicalTip": "Fully down for close-hauled upwind sailing (bolina); pull up halfway or more when running downwind to reduce hydrodynamic drag.",
     "commonPhrases": [
@@ -1309,12 +1112,6 @@
         "meaning": "Raise the daggerboard halfway on a reach!",
         "context": "Speed optimization command"
       }
-    ],
-    "relatedTerms": [
-      "scarroccio",
-      "cassa di deriva",
-      "chiglia",
-      "bolina"
     ],
     "relatedConcepts": [
       {
@@ -1341,7 +1138,6 @@
   },
   {
     "italian": "prua",
-    "category": "sailing",
     "intuition": "The forward-most part of the hull (the bow), designed to slice through waves and establish the boat's heading.",
     "practicalTip": "Watch the bow during maneuvers: in a tack (virata) the prua crosses through the eye of the wind; in irons (angolo morto), the prua stops dead.",
     "commonPhrases": [
@@ -1355,11 +1151,6 @@
         "meaning": "Headwind straight on the bow!",
         "context": "Describing wind direction coming from dead ahead"
       }
-    ],
-    "relatedTerms": [
-      "poppa",
-      "virata",
-      "angolo morto"
     ],
     "relatedConcepts": [
       {
@@ -1381,7 +1172,6 @@
   },
   {
     "italian": "poppa",
-    "category": "sailing",
     "intuition": "The aft-most section of the hull (the stern), which houses the rudder (timone), transom (specchio di poppa), and cockpit.",
     "practicalTip": "When sailing downwind with the wind over the poppa (fil di ruota), watch the mainsail carefully to prevent an accidental, violent gybe (strambata).",
     "commonPhrases": [
@@ -1395,11 +1185,6 @@
         "meaning": "Pass the stern through the wind!",
         "context": "Instruction during a gybe / strambata"
       }
-    ],
-    "relatedTerms": [
-      "prua",
-      "strambata",
-      "fil di ruota"
     ],
     "relatedConcepts": [
       {
@@ -1421,7 +1206,6 @@
   },
   {
     "italian": "dritta",
-    "category": "sailing",
     "intuition": "The right-hand side of a boat when facing forward toward the bow (starboard). Crucial for maritime rules of the road.",
     "practicalTip": "When on a starboard tack (mura a dritta — wind blowing onto your starboard side), you have right-of-way over boats on port tack.",
     "commonPhrases": [
@@ -1435,11 +1219,6 @@
         "meaning": "Starboard boat has right of way!",
         "context": "Fundamental collision regulation (COLREG)"
       }
-    ],
-    "relatedTerms": [
-      "sinistra",
-      "prua",
-      "poppa"
     ],
     "relatedConcepts": [
       {
@@ -1456,7 +1235,6 @@
   },
   {
     "italian": "sinistra",
-    "category": "sailing",
     "intuition": "The left-hand side of a boat when facing forward toward the bow (port). Marked by red navigation lights at night.",
     "practicalTip": "A boat on port tack (mura a sinistra) must yield and give way to any boat sailing on starboard tack.",
     "commonPhrases": [
@@ -1470,11 +1248,6 @@
         "meaning": "Port tack, we must give way!",
         "context": "Tactical rule reminder when crossing other boats"
       }
-    ],
-    "relatedTerms": [
-      "dritta",
-      "prua",
-      "poppa"
     ],
     "relatedConcepts": [
       {

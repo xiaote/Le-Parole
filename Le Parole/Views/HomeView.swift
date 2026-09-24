@@ -26,7 +26,7 @@ struct HomeView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         PracticeCard(
                             title: vm.sessionAction,
-                            completedToday: vm.reviewAttemptsToday,
+                            completedToday: vm.stats.reviewAttemptsToday,
                             dailyTarget: vm.dailyPracticeGoal,
                             isEnabled: vm.canStudy
                         ) {
@@ -36,40 +36,40 @@ struct HomeView: View {
                         LazyVGrid(columns: dashboardColumns, spacing: 12) {
                             DashboardTile(
                                 title: "Mastered",
-                                value: vm.mastered.formatted(),
+                                value: vm.stats.mastered.formatted(),
                                 detail: "words",
                                 tint: Theme.mastered,
-                                isEnabled: vm.mastered > 0
+                                isEnabled: vm.stats.mastered > 0
                             ) {
                                 showingMastered = true
                             }
 
                             DashboardTile(
                                 title: "In progress",
-                                value: vm.inProgress.formatted(),
+                                value: vm.stats.inProgress.formatted(),
                                 detail: "words",
                                 tint: Theme.primary,
-                                isEnabled: vm.inProgress > 0
+                                isEnabled: vm.stats.inProgress > 0
                             ) {
                                 showingInProgress = true
                             }
 
-                            if !vm.mistakesToday.isEmpty {
+                            if !vm.stats.mistakesToday.isEmpty {
                                 DashboardTile(
                                     title: "Mistakes",
-                                    value: vm.mistakesToday.count.formatted(),
+                                    value: vm.stats.mistakesToday.count.formatted(),
                                     detail: "errors",
                                     tint: Theme.playfulAccent
                                 ) {
-                                    mistakesReviewWords = vm.mistakesToday.map { MistakeItem(userWord: $0, cardType: .production, context: nil) }
+                                    mistakesReviewWords = vm.stats.mistakesToday.map { MistakeItem(userWord: $0, cardType: .production, context: nil) }
                                     showingMistakes = true
                                 }
                             }
 
-                            if vm.testQueueCount > 0 {
+                            if vm.stats.testQueueCount > 0 {
                                 DashboardTile(
                                     title: "Test out",
-                                    value: vm.testQueueCount.formatted(),
+                                    value: vm.stats.testQueueCount.formatted(),
                                     detail: "words ready",
                                     tint: Theme.primary
                                 ) {
