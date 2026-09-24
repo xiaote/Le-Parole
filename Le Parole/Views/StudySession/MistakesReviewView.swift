@@ -41,7 +41,7 @@ struct MistakesReviewView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else if let word = current {
-                    let diagram = SailingDiagramService.diagram(for: word.userWord.word.italian)
+                    let diagram = SailingDiagramService.diagram(for: word.userWord.word)
                     let concept = ConceptService.shared.concept(for: word.userWord.word.italian)
                     let hasRichContent = diagram != nil || concept != nil
                     VStack(spacing: 0) {

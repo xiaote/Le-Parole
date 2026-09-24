@@ -10,14 +10,16 @@
       },
       {
         "text": "coperta",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["deck"]
       },
       {
         "text": "fiancata"
       },
       {
         "text": "pozzetto",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["cockpit"]
       },
       {
         "text": "gavone"
@@ -38,7 +40,8 @@
         "text": "chiglia"
       },
       {
-        "text": "carena"
+        "text": "carena",
+        "senses": ["hull", "keel", "bottom"]
       },
       {
         "text": "opera viva"
@@ -75,7 +78,8 @@
     "keys": [
       {
         "text": "albero",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["mast"]
       },
       {
         "text": "albero maestro"
@@ -115,7 +119,8 @@
     "keys": [
       {
         "text": "barra",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["tiller", "helm"]
       }
     ],
     "promptImageName": "cvc_crop_barra_quiz",
@@ -131,10 +136,12 @@
     "keys": [
       {
         "text": "prolunga",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["tiller"]
       },
       {
-        "text": "stick"
+        "text": "stick",
+        "senses": ["tiller"]
       }
     ],
     "promptImageName": "cvc_crop_prolunga_quiz",
@@ -150,7 +157,8 @@
     "keys": [
       {
         "text": "deriva",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["centreboard", "centerboard", "daggerboard", "keel", "leeway"]
       }
     ],
     "promptImageName": "cvc_crop_deriva_quiz",
@@ -229,7 +237,8 @@
     "keys": [
       {
         "text": "fiocco",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["jib", "headsail"]
       },
       {
         "text": "genoa"
@@ -290,7 +299,8 @@
       },
       {
         "text": "crocetta",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["spreader", "spreaders"]
       }
     ],
     "promptImageName": "cvc_crop_crocette_quiz",
@@ -305,7 +315,8 @@
     "id": "scotta",
     "keys": [
       {
-        "text": "scotta"
+        "text": "scotta",
+        "senses": ["sheet", "sheets"]
       }
     ],
     "promptImageName": "cvc_crop_scotta_quiz",
@@ -417,11 +428,13 @@
       },
       {
         "text": "sbandamento",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["heel", "heeling", "list"]
       },
       {
         "text": "sbandare",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["heel", "heeling", "list"]
       }
     ],
     "promptImageName": "cvc_crop_cinghie_puntapiedi_quiz",
@@ -485,7 +498,8 @@
     "keys": [
       {
         "text": "grillo",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["shackle"]
       },
       {
         "text": "smanigliatore"
@@ -521,7 +535,8 @@
     "id": "bugna",
     "keys": [
       {
-        "text": "bugna"
+        "text": "bugna",
+        "senses": ["clew"]
       }
     ],
     "promptImageName": "cvc_crop_bugna_quiz",
@@ -540,7 +555,8 @@
       },
       {
         "text": "mura",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["tack"]
       }
     ],
     "promptImageName": "cvc_crop_mura_quiz",
@@ -556,7 +572,8 @@
     "keys": [
       {
         "text": "penna",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["head", "peak"]
       }
     ],
     "promptImageName": "cvc_crop_penna_quiz",
@@ -602,7 +619,8 @@
     "keys": [
       {
         "text": "stecca",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["batten", "battens"]
       }
     ],
     "promptImageName": "cvc_crop_stecca_quiz",
@@ -692,7 +710,8 @@
       },
       {
         "text": "sfilarsi",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["unreeve", "unreeved", "come undone", "come untied"]
       }
     ],
     "promptImageName": "cvc_crop_nodo_otto_quiz",
@@ -774,19 +793,23 @@
       },
       {
         "text": "mollare",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["cast off", "ease", "slacken", "slack off"]
       },
       {
         "text": "filare",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["pay out", "ease", "veer"]
       },
       {
         "text": "alare",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["haul", "heave"]
       },
       {
         "text": "agguantare",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["snub", "belay", "hold fast"]
       }
     ],
     "promptImageName": "cvc_crop_dare_volta_quiz",
@@ -805,7 +828,8 @@
       },
       {
         "text": "mettere in chiaro",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["coil", "clear a line", "clear the line", "untangle"]
       }
     ],
     "promptImageName": "cvc_crop_addugliare_quiz",
@@ -836,7 +860,8 @@
     "keys": [
       {
         "text": "a sinistra",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["port", "portside", "port side"]
       }
     ],
     "promptImageName": "cvc_crop_a_sinistra_quiz",
@@ -866,7 +891,8 @@
     "id": "giardinetto",
     "keys": [
       {
-        "text": "giardinetto"
+        "text": "giardinetto",
+        "senses": ["quarter"]
       }
     ],
     "promptImageName": "cvc_crop_giardinetto_quiz",
@@ -882,7 +908,8 @@
     "keys": [
       {
         "text": "traverso",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["abeam", "beam"]
       }
     ],
     "promptImageName": "cvc_crop_traverso_quiz",
@@ -898,7 +925,8 @@
     "keys": [
       {
         "text": "sopravvento",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["windward", "upwind"]
       }
     ],
     "promptImageName": "cvc_crop_sopravvento_quiz",
@@ -947,7 +975,8 @@
     "keys": [
       {
         "text": "poggiare",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["bear away", "bear off", "fall off"]
       }
     ],
     "promptImageName": "cvc_crop_poggiare_quiz",
@@ -1152,7 +1181,8 @@
     "keys": [
       {
         "text": "andatura",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["point of sail", "points of sail"]
       },
       {
         "text": "andature"
@@ -1174,14 +1204,16 @@
     "keys": [
       {
         "text": "angolo morto",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["no-go", "irons", "dead zone"]
       },
       {
         "text": "letto del vento"
       },
       {
         "text": "pungere",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["pinch", "pinching"]
       }
     ],
     "promptImageName": "cvc_crop_angolo_morto_quiz",
@@ -1217,7 +1249,8 @@
     "id": "lasco",
     "keys": [
       {
-        "text": "lasco"
+        "text": "lasco",
+        "senses": ["reach", "broad reach"]
       },
       {
         "text": "gran lasco"
@@ -1227,7 +1260,8 @@
       },
       {
         "text": "a farfalla",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["wing on wing", "wing-on-wing", "goose-winged", "goosewing", "goosewinged"]
       },
       {
         "text": "vento a favore"
@@ -1246,18 +1280,21 @@
     "keys": [
       {
         "text": "mettere a segno",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["trim"]
       },
       {
         "text": "bordare",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["trim", "sheet in"]
       },
       {
         "text": "fileggiare"
       },
       {
         "text": "sventare",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["spill", "luff", "depower"]
       },
       {
         "text": "cazzare"
@@ -1279,7 +1316,8 @@
     "keys": [
       {
         "text": "scuffia",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["capsize", "capsizing"]
       },
       {
         "text": "scuffiare"
@@ -1298,10 +1336,12 @@
     "keys": [
       {
         "text": "raddrizzare",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["right", "righting"]
       },
       {
-        "text": "raddrizzamento"
+        "text": "raddrizzamento",
+        "senses": ["righting"]
       }
     ],
     "promptImageName": "cvc_crop_raddrizzare_quiz",
@@ -1365,7 +1405,8 @@
     "keys": [
       {
         "text": "bulbo",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["keel", "ballast"]
       }
     ],
     "promptImageName": "cvc_crop_bulbo_quiz",
@@ -1381,7 +1422,8 @@
     "keys": [
       {
         "text": "pulpito",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["bow pulpit", "bow rail"]
       }
     ],
     "promptImageName": "cvc_crop_pulpito_quiz",
@@ -1397,7 +1439,8 @@
     "keys": [
       {
         "text": "balcone",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["pushpit", "stern rail", "stern pulpit"]
       }
     ],
     "promptImageName": "cvc_crop_balcone_quiz",
@@ -1412,10 +1455,12 @@
     "id": "candeliere",
     "keys": [
       {
-        "text": "candeliere"
+        "text": "candeliere",
+        "senses": ["stanchion", "stanchions"]
       },
       {
-        "text": "candelieri"
+        "text": "candelieri",
+        "senses": ["stanchion", "stanchions"]
       }
     ],
     "promptImageName": "cvc_crop_candeliere_quiz",
@@ -1443,7 +1488,8 @@
       },
       {
         "text": "cintura di sicurezza",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["harness", "safety harness"]
       }
     ],
     "promptImageName": "cvc_crop_draglia_quiz",
@@ -1546,7 +1592,8 @@
       },
       {
         "text": "abbattuta",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["gybe", "jibe"]
       }
     ],
     "promptImageName": "cvc_crop_strambata_quiz",
@@ -1595,7 +1642,8 @@
       },
       {
         "text": "bordo",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["tack"]
       }
     ],
     "promptImageName": "cvc_crop_scarroccio_bordeggio_quiz",
@@ -1632,7 +1680,8 @@
     "keys": [
       {
         "text": "ancora",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["anchor"]
       },
       {
         "text": "ancorotto"
@@ -1646,14 +1695,16 @@
       },
       {
         "text": "dare fondo",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["anchor"]
       },
       {
         "text": "cablotto"
       },
       {
         "text": "a picco",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["anchor", "apeak", "up and down"]
       },
       {
         "text": "spedare"
@@ -1674,11 +1725,13 @@
         "text": "gavitello"
       },
       {
-        "text": "corpo morto"
+        "text": "corpo morto",
+        "senses": ["mooring", "sinker"]
       },
       {
         "text": "barbetta",
-        "exactMatchOnly": true
+        "exactMatchOnly": true,
+        "senses": ["painter", "mooring", "bow line"]
       },
       {
         "text": "abbrivo"

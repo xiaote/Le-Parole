@@ -18,7 +18,7 @@ struct WordDetailView: View {
     }
 
     private var diagram: WordDiagram? {
-        SailingDiagramService.diagram(for: userWord.word.italian)
+        SailingDiagramService.diagram(for: userWord.word)
     }
 
     private var concept: WordConcept? {

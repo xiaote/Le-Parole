@@ -14,11 +14,11 @@ struct QuizCardView: View {
     init(card: StudyCard, vm: StudySessionViewModel) {
         self.card = card
         self.vm = vm
-        let italian = card.userWord.word.italian
-        self.sailingDiagram = SailingDiagramService.diagram(for: italian)
-        self.wordConcept = ConceptService.shared.concept(for: italian)
+        let word = card.userWord.word
+        self.sailingDiagram = SailingDiagramService.diagram(for: word)
+        self.wordConcept = ConceptService.shared.concept(for: word.italian)
         self._visualQuizData = State(initialValue: card.cardType == .recognition
-            ? SailingDiagramService.visualQuizOptions(for: italian)
+            ? SailingDiagramService.visualQuizOptions(for: word)
             : nil)
     }
 

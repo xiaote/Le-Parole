@@ -22,6 +22,11 @@ struct WordDiagram: Identifiable, Sendable, Equatable, Decodable {
 }
 
 /// Maps Italian sailing terms to CVC diagram crops. Data lives in `Data/diagrams.json`.
+///
+/// Many keys are ordinary Italian words with other meanings ("ancora" = still,
+/// "grillo" = cricket). Such keys carry `senses`, English keywords of the
+/// nautical meaning; when the caller knows the word's English meanings, the key
+/// matches only if one of them mentions a sense keyword.
 enum SailingDiagramService {
     /// One diagram plus the lookup keys (normalized Italian terms) that resolve to it.
     private struct Entry: Decodable {
@@ -30,13 +35,16 @@ enum SailingDiagramService {
             /// Ordinary Italian words with non-sailing meanings ("coperta", "barra")
             /// match only the whole input, never as part of a longer phrase.
             let exactMatchOnly: Bool
+            /// Lowercase English keywords of the nautical meaning; empty = no gating.
+            let senses: [String]
 
-            private enum CodingKeys: String, CodingKey { case text, exactMatchOnly }
+            private enum CodingKeys: String, CodingKey { case text, exactMatchOnly, senses }
 
             init(from decoder: any Decoder) throws {
                 let container = try decoder.container(keyedBy: CodingKeys.self)
                 text = try container.decode(String.self, forKey: .text)
                 exactMatchOnly = try container.decodeIfPresent(Bool.self, forKey: .exactMatchOnly) ?? false
+                senses = try container.decodeIfPresent([String].self, forKey: .senses) ?? []
             }
         }
 
@@ -51,26 +59,34 @@ enum SailingDiagramService {
         }
     }
 
+    /// The key an Italian term resolved to, before any sense check.
+    private struct Match {
+        let key: String
+        let senses: [String]
+        let diagram: WordDiagram
+    }
+
     private struct Catalog {
-        let diagramsByKey: [String: WordDiagram]
+        let matchesByKey: [String: Match]
         /// Keys usable as the first/last word(s) of a longer phrase, longest first
         /// (ties alphabetical) so the most specific key wins deterministically.
-        let phraseKeys: [(key: String, diagram: WordDiagram)]
+        let phraseKeys: [Match]
         let allDiagrams: [WordDiagram]
         let diagramsByPlate: [String: [WordDiagram]]
 
         init(entries: [Entry]) {
-            var byKey: [String: WordDiagram] = [:]
-            var phrase: [(key: String, diagram: WordDiagram)] = []
+            var byKey: [String: Match] = [:]
+            var phrase: [Match] = []
             for entry in entries {
                 for key in entry.keys {
-                    byKey[key.text] = entry.diagram
+                    let match = Match(key: key.text, senses: key.senses, diagram: entry.diagram)
+                    byKey[key.text] = match
                     if !key.exactMatchOnly {
-                        phrase.append((key.text, entry.diagram))
+                        phrase.append(match)
                     }
                 }
             }
-            diagramsByKey = byKey
+            matchesByKey = byKey
             phraseKeys = phrase.sorted {
                 $0.key.count != $1.key.count ? $0.key.count > $1.key.count : $0.key < $1.key
             }
@@ -94,7 +110,8 @@ enum SailingDiagramService {
     }
 
     private static let catalog = Catalog.load()
-    private static var lookupCache: [String: WordDiagram?] = [:]
+    /// Italian-key resolution only; the sense check is cheap and applied per call.
+    private static var lookupCache: [String: Match?] = [:]
 
     private static let articles = ["il ", "lo ", "la ", "l'", "i ", "gli ", "le ", "un ", "uno ", "una "]
 
@@ -106,22 +123,52 @@ enum SailingDiagramService {
         return clean.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
-    static func diagram(for italianWord: String) -> WordDiagram? {
+    private static func match(for italianWord: String) -> Match? {
         let norm = normalize(italianWord)
         if let cached = lookupCache[norm] {
             return cached
         }
 
-        let found = catalog.diagramsByKey[norm] ?? catalog.phraseKeys.first { entry in
+        let found = catalog.matchesByKey[norm] ?? catalog.phraseKeys.first { entry in
             norm.hasPrefix(entry.key + " ") || norm.hasSuffix(" " + entry.key)
-        }?.diagram
+        }
 
         lookupCache[norm] = found
         return found
     }
 
-    static func visualQuizOptions(for italianWord: String, count: Int = 4) -> (target: WordDiagram, options: [WordDiagram])? {
-        guard let target = diagram(for: italianWord) else { return nil }
+    /// True when some meaning contains a sense keyword as a whole word, e.g.
+    /// "anchor" in "to anchor" or "cockpit (of a boat)", but not in "anchorage".
+    private static func meanings(_ meanings: [String], mention senses: [String]) -> Bool {
+        meanings.contains { meaning in
+            var text = meaning.trimmingCharacters(in: .whitespaces).lowercased()
+            if text.hasPrefix("to ") { text = String(text.dropFirst(3)) }
+            return senses.contains { sense in
+                text.ranges(of: sense).contains { range in
+                    !(range.lowerBound > text.startIndex && text[text.index(before: range.lowerBound)].isLetter)
+                        && !(range.upperBound < text.endIndex && text[range.upperBound].isLetter)
+                }
+            }
+        }
+    }
+
+    /// Lookup by term alone, for callers that don't know the English meaning
+    /// (e.g. related terms inside a sailing concept). Senses are not checked.
+    static func diagram(for italianWord: String) -> WordDiagram? {
+        match(for: italianWord)?.diagram
+    }
+
+    /// Lookup for a vocabulary word: sense-gated keys match only when one of
+    /// the word's English meanings is the nautical one.
+    static func diagram(for word: Word) -> WordDiagram? {
+        guard let match = match(for: word.italian) else { return nil }
+        let isNauticalSense = match.senses.isEmpty
+            || meanings([word.english] + word.alternatives, mention: match.senses)
+        return isNauticalSense ? match.diagram : nil
+    }
+
+    static func visualQuizOptions(for word: Word, count: Int = 4) -> (target: WordDiagram, options: [WordDiagram])? {
+        guard let target = diagram(for: word) else { return nil }
 
         var selectedDistractors: [WordDiagram] = []
         var usedPromptImages = Set<String>([target.promptImageName])
