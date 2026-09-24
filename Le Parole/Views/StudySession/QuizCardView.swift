@@ -7,7 +7,9 @@ struct QuizCardView: View {
     let vm: StudySessionViewModel
     private let sailingDiagram: WordDiagram?
     private let wordConcept: WordConcept?
-    private let visualQuizData: VisualQuizData?
+    // Held in @State so the shuffled options are computed once per card
+    // (the view is `.id(card.id)`) and don't reorder when the parent re-renders.
+    @State private var visualQuizData: VisualQuizData?
 
     init(card: StudyCard, vm: StudySessionViewModel) {
         self.card = card
@@ -15,11 +17,9 @@ struct QuizCardView: View {
         let italian = card.userWord.word.italian
         self.sailingDiagram = SailingDiagramService.diagram(for: italian)
         self.wordConcept = ConceptService.shared.concept(for: italian)
-        if card.cardType == .recognition {
-            self.visualQuizData = SailingDiagramService.visualQuizOptions(for: italian)
-        } else {
-            self.visualQuizData = nil
-        }
+        self._visualQuizData = State(initialValue: card.cardType == .recognition
+            ? SailingDiagramService.visualQuizOptions(for: italian)
+            : nil)
     }
 
     private static let maxWrongAttempts = 3
@@ -758,8 +758,10 @@ struct QuizCardView: View {
             }
 
             interactionLocked = true
+            isGrading = true
             gradingTask = Task { @MainActor in
                 let dbSynonymMatch = await vm.isValidItalianSynonym(input: trimmed)
+                isGrading = false
                 guard !Task.isCancelled else { return }
                 interactionLocked = false
                 

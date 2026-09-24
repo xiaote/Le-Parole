@@ -323,7 +323,7 @@ class StudySessionViewModel {
         learningWords.sort { isHigherPriority($0, than: $1, now: now) }
         maintenanceWords.sort { isHigherPriority($0, than: $1, now: now) }
 
-        let aiAvailable = AppleIntelligenceService.isAvailable
+        let aiAvailable = AppleIntelligenceService.isAvailable || !geminiApiKey.isEmpty
         let makeDueCard: (UserWord, StudyCard.SchedulingIntent) -> StudyCard = { userWord, schedulingIntent in
             let isVerb = userWord.word.english.lowercased().hasPrefix("to ")
             let type: StudyCard.CardType = aiAvailable && isVerb ? .conjugation : .production

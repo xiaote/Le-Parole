@@ -51,11 +51,17 @@ struct AppleIntelligenceService {
         do {
             let response = try await session.respond(to: "Word: \(italianWord)")
             let sentence = response.content.trimmingCharacters(in: .whitespacesAndNewlines)
-            return sentence.isEmpty ? nil : sentence
+            return sentence.isEmpty || isRefusal(sentence) ? nil : sentence
         } catch {
             return nil
         }
         #endif
+    }
+
+    /// The hint prompts ask the model to output "N/A" when it can't help; treat that as no hint.
+    private static func isRefusal(_ text: String) -> Bool {
+        let normalized = text.hasSuffix(".") ? String(text.dropLast()) : text
+        return normalized.caseInsensitiveCompare("N/A") == .orderedSame
     }
 
     /// Generates an Italian sentence with the target word blanked out (e.g. "_____").
@@ -75,7 +81,8 @@ struct AppleIntelligenceService {
         do {
             let response = try await session.respond(to: "Word: \(italianWord)")
             var sentence = response.content.trimmingCharacters(in: .whitespacesAndNewlines)
-            
+            if isRefusal(sentence) { return nil }
+
             // Programmatically enforce that the word is blanked out, in case the AI fails to follow the prompt
             if !sentence.contains("_____") {
                 if let regex = try? NSRegularExpression(pattern: "\\b\(NSRegularExpression.escapedPattern(for: italianWord))\\b", options: .caseInsensitive) {
@@ -309,7 +316,7 @@ struct AppleIntelligenceService {
                         let matches = regex.matches(in: sentence, options: [], range: range)
                         if let firstMatch = matches.first {
                             let swiftRange = Range(firstMatch.range, in: sentence)!
-                            sentence.replaceSubrange(swiftRange, with: "_____ (\(requestedPronoun) - \(verb))")
+                            sentence.replaceSubrange(swiftRange, with: "_____ (\(verb))")
                         }
                     }
                 }
@@ -321,7 +328,7 @@ struct AppleIntelligenceService {
                    let blankRegex = try? NSRegularExpression(pattern: "_{5}\\s*(?:\\([^)]*\\))?", options: []) {
                     let range = NSRange(location: 0, length: sentence.utf16.count)
                     sentence = blankRegex.stringByReplacingMatches(in: sentence, options: [], range: range,
-                                                                    withTemplate: "_____ (\(requestedPronoun) - \(verb))")
+                                                                    withTemplate: "_____ (\(verb))")
                 }
 
                 // FINAL SAFETY CHECK: If the sentence still doesn't have a blank, the replacement failed. Reject it.
@@ -330,8 +337,10 @@ struct AppleIntelligenceService {
                 }
                 
                 // The AI should not output the exact infinitive as the answer; if it does, it failed to conjugate.
+                // Compare whole tokens: a substring check would wrongly reject valid forms like "faremo" (fare).
                 let cleanVerb = verb.trimmingCharacters(in: .whitespaces).lowercased()
-                if answer.lowercased().contains(cleanVerb) {
+                let answerWords = answer.split(whereSeparator: { $0.isWhitespace || $0 == "'" || $0 == "’" })
+                if answer == cleanVerb || answerWords.contains(where: { $0 == cleanVerb }) {
                     continue
                 }
 
