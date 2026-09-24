@@ -502,7 +502,7 @@ struct QuizCardView: View {
         let isCardExpanded = isBackFace && (showDetails || isRevealed)
         let imageMaxHeight: CGFloat = isCardExpanded ? 330 : 210
         let cardMinHeight: CGFloat = (diagramImageName != nil)
-            ? (isCardExpanded ? 540 : 400)
+            ? (isCardExpanded ? 500 : 320)
             : (visualQuizData != nil ? (isCardExpanded ? 225 : 120) : (isCardExpanded ? 190 : 170))
         let cardPadding: CGFloat = (diagramImageName != nil)
             ? (isCardExpanded ? 16 : 18)
@@ -531,7 +531,6 @@ struct QuizCardView: View {
                                 Image(diagramImageName)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(maxHeight: imageMaxHeight)
                                     .background(Color.white)
                                     .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                                     .overlay(
@@ -539,6 +538,7 @@ struct QuizCardView: View {
                                             .stroke(Color.primary.opacity(0.12), lineWidth: 1)
                                     )
                                     .shadow(color: Color.black.opacity(0.1), radius: 8, y: 3)
+                                    .frame(maxHeight: imageMaxHeight)
 
                                 HStack(spacing: 5) {
                                     Image(systemName: "arrow.up.left.and.arrow.down.right")

@@ -72,14 +72,17 @@ def draw_question_badge(
     image: Image.Image,
     center: tuple[int, int],
     size: tuple[int, int] = (84, 42),
+    radius: int = 14,
+    font_size: int | None = None,
 ) -> Image.Image:
     result = image.copy()
     draw = ImageDraw.Draw(result)
     width, height = size
     x, y = center
     box = (x - width // 2, y - height // 2, x + width // 2, y + height // 2)
-    draw.rounded_rectangle(box, radius=14, fill="#F27333")
-    font = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Bold.ttf", 30)
+    draw.rounded_rectangle(box, radius=radius, fill="#F27333")
+    effective_font_size = font_size or min(30, max(14, height - 8))
+    font = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Bold.ttf", effective_font_size)
     text_box = draw.textbbox((0, 0), "?", font=font)
     draw.text(
         (x - (text_box[2] - text_box[0]) / 2, y - (text_box[3] - text_box[1]) / 2 - 3),
@@ -191,8 +194,8 @@ def repair_sottovento() -> None:
 
 def repair_mure_dritta() -> None:
     # Crop tack illustrations (mure a dritta / mure a sinistra) from cvc_plate_direzioni
-    full = fit(crop_from("cvc_plate_direzioni", (70, 1290, 1120, 1440)))
-    quiz = draw_question_badge(full, (585, 30), (120, 42))
+    full = fit(crop_from("cvc_plate_direzioni", (88, 1012, 1132, 1384)))
+    quiz = draw_question_badge(full, (643, 218), (114, 20), radius=6, font_size=15)
     save("cvc_crop_mure_dritta_full", full)
     save("cvc_crop_mure_dritta_quiz", quiz)
 
