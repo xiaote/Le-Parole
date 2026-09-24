@@ -1,0 +1,1788 @@
+[
+  {
+    "id": "scafo",
+    "keys": [
+      {
+        "text": "scafo"
+      },
+      {
+        "text": "barca"
+      },
+      {
+        "text": "coperta",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "fiancata"
+      },
+      {
+        "text": "pozzetto",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "gavone"
+      }
+    ],
+    "promptImageName": "cvc_crop_scafo_quiz",
+    "revealedImageName": "cvc_crop_scafo_full",
+    "title": "Lo Scafo",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Il corpo galleggiante dell'imbarcazione composto da fondo, fiancate, coperta, pozzetto e gavoni.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "chiglia",
+    "keys": [
+      {
+        "text": "chiglia"
+      },
+      {
+        "text": "carena"
+      },
+      {
+        "text": "opera viva"
+      }
+    ],
+    "promptImageName": "cvc_crop_chiglia_quiz",
+    "revealedImageName": "cvc_crop_chiglia_full",
+    "title": "La Chiglia",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 33: Il Cabinato",
+    "caption": "La trave longitudinale inferiore dello scafo; nei cabinati include la pinna fissa zavorrata con bulbo.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "boma",
+    "keys": [
+      {
+        "text": "boma"
+      },
+      {
+        "text": "tesabase"
+      }
+    ],
+    "promptImageName": "cvc_crop_boma_quiz",
+    "revealedImageName": "cvc_crop_boma_full",
+    "title": "Il Boma",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Asta orizzontale incernierata all'albero su cui è inferita la base della randa e scorre il tesabase.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "albero",
+    "keys": [
+      {
+        "text": "albero",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "albero maestro"
+      }
+    ],
+    "promptImageName": "cvc_crop_albero_quiz",
+    "revealedImageName": "cvc_crop_albero_full",
+    "title": "L'Albero",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Profilo verticale d'alluminio o legno che sostiene le vele e le manovre.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "timone",
+    "keys": [
+      {
+        "text": "timone"
+      },
+      {
+        "text": "timonare"
+      },
+      {
+        "text": "timoniere"
+      }
+    ],
+    "promptImageName": "cvc_crop_timone_quiz",
+    "revealedImageName": "cvc_crop_timone_full",
+    "title": "Il Timone",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Organo di governo poppiero composto da pala, testa, agugliotti e barra.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "barra",
+    "keys": [
+      {
+        "text": "barra",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_barra_quiz",
+    "revealedImageName": "cvc_crop_barra_full",
+    "title": "La Barra del Timone",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Leva rigida orizzontale montata sulla testa del timone usata per orientare la pala.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "prolunga",
+    "keys": [
+      {
+        "text": "prolunga",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "stick"
+      }
+    ],
+    "promptImageName": "cvc_crop_prolunga_quiz",
+    "revealedImageName": "cvc_crop_prolunga_full",
+    "title": "La Prolunga (Stick)",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Asta snodata collegata alla barra che consente al timoniere di timonare sporgendosi alle cinghie.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "deriva",
+    "keys": [
+      {
+        "text": "deriva",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_deriva_quiz",
+    "revealedImageName": "cvc_crop_deriva_full",
+    "title": "La Deriva",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Profilo alare mobile immerso sotto lo scafo che trasforma lo scarroccio laterale in avanzamento.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "cassa_deriva",
+    "keys": [
+      {
+        "text": "cassa di deriva"
+      },
+      {
+        "text": "scassa"
+      }
+    ],
+    "promptImageName": "cvc_crop_cassa_deriva_quiz",
+    "revealedImageName": "cvc_crop_cassa_deriva_full",
+    "title": "La Cassa di Deriva",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Involucro stagno centrale nello scafo entro cui scorre o bascula la deriva.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "vang",
+    "keys": [
+      {
+        "text": "vang"
+      }
+    ],
+    "promptImageName": "cvc_crop_vang_quiz",
+    "revealedImageName": "cvc_crop_vang_full",
+    "title": "Il Vang",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Paranco diagonale teso tra piede dell'albero e boma per controllarne l'inclinazione e la svergolatura.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "trozza",
+    "keys": [
+      {
+        "text": "trozza"
+      }
+    ],
+    "promptImageName": "cvc_crop_trozza_quiz",
+    "revealedImageName": "cvc_crop_trozza_full",
+    "title": "La Trozza",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Snodo cardanico che collega il boma all'albero, consentendo rotazione e oscillazione.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "randa",
+    "keys": [
+      {
+        "text": "randa"
+      }
+    ],
+    "promptImageName": "cvc_crop_randa_quiz",
+    "revealedImageName": "cvc_crop_randa_full",
+    "title": "La Randa",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Vela principale a forma triangolare issata lungo l'albero e stesa sopra il boma.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "fiocco",
+    "keys": [
+      {
+        "text": "fiocco",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "genoa"
+      },
+      {
+        "text": "tormentina"
+      },
+      {
+        "text": "avvolgifiocco"
+      }
+    ],
+    "promptImageName": "cvc_crop_fiocco_quiz",
+    "revealedImageName": "cvc_crop_fiocco_full",
+    "title": "Il Fiocco (Vele di Prua)",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Vela triangolare anteriore (fiocco, genoa o tormentina) inferita sullo strallo o su avvolgifiocco.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "strallo",
+    "keys": [
+      {
+        "text": "strallo"
+      }
+    ],
+    "promptImageName": "cvc_crop_strallo_quiz",
+    "revealedImageName": "cvc_crop_strallo_full",
+    "title": "Lo Strallo",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Cavo fisso d'acciaio che collega la testa o il 3/4 dell'albero alla prua dello scafo.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "sartia",
+    "keys": [
+      {
+        "text": "sartia"
+      },
+      {
+        "text": "sartie"
+      }
+    ],
+    "promptImageName": "cvc_crop_sartia_quiz",
+    "revealedImageName": "cvc_crop_sartia_full",
+    "title": "La Sartia",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Cavi laterali d'acciaio che sostengono l'albero su ciascun fianco (dritta e sinistra).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "crocette",
+    "keys": [
+      {
+        "text": "crocette"
+      },
+      {
+        "text": "crocetta",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_crocette_quiz",
+    "revealedImageName": "cvc_crop_crocette_full",
+    "title": "Le Crocette",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Distanziali montati sull'albero per allargare l'angolo delle sartie e irrigidire l'albero.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "scotta",
+    "keys": [
+      {
+        "text": "scotta"
+      }
+    ],
+    "promptImageName": "cvc_crop_scotta_quiz",
+    "revealedImageName": "cvc_crop_scotta_full",
+    "title": "La Scotta",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Cavo di manovra corrente usato per regolare l'orientamento delle vele rispetto al vento.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "paranco",
+    "keys": [
+      {
+        "text": "paranco"
+      }
+    ],
+    "promptImageName": "cvc_crop_paranco_quiz",
+    "revealedImageName": "cvc_crop_paranco_full",
+    "title": "Il Paranco",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Combinazione di bozzelli e cime per moltiplicare lo sforzo (es. paranco di scotta randa).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "drizza",
+    "keys": [
+      {
+        "text": "drizza"
+      },
+      {
+        "text": "drizze"
+      },
+      {
+        "text": "issare"
+      },
+      {
+        "text": "ammainare"
+      }
+    ],
+    "promptImageName": "cvc_crop_drizza_quiz",
+    "revealedImageName": "cvc_crop_drizza_full",
+    "title": "La Drizza",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Cavo corrente che passa sulla puleggia in testa d'albero per issare o ammainare le vele.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "strozzascotte",
+    "keys": [
+      {
+        "text": "strozzascotte"
+      }
+    ],
+    "promptImageName": "cvc_crop_strozzascotte_quiz",
+    "revealedImageName": "cvc_crop_strozzascotte_full",
+    "title": "Lo Strozzascotte",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Dispositivo a camme dentate con molla per bloccare istantaneamente una scotta sotto carico.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "svuotatoio",
+    "keys": [
+      {
+        "text": "svuotatoio"
+      },
+      {
+        "text": "sassola"
+      },
+      {
+        "text": "bugliolo"
+      }
+    ],
+    "promptImageName": "cvc_crop_svuotatoio_quiz",
+    "revealedImageName": "cvc_crop_svuotatoio_full",
+    "title": "Lo Svuotatoio (Sassola)",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Valvola sul fondo dello scafo o sassola/bugliolo per espellere o sgottare l'acqua imbarcata.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "falchetta",
+    "keys": [
+      {
+        "text": "falchetta"
+      }
+    ],
+    "promptImageName": "cvc_crop_falchetta_quiz",
+    "revealedImageName": "cvc_crop_falchetta_full",
+    "title": "La Falchetta",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Bordo rialzato longitudinale lungo il perimetro superiore della coperta.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "cinghie_puntapiedi",
+    "keys": [
+      {
+        "text": "cinghie puntapiedi"
+      },
+      {
+        "text": "cinghia puntapiedi"
+      },
+      {
+        "text": "sbandamento",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "sbandare",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_cinghie_puntapiedi_quiz",
+    "revealedImageName": "cvc_crop_cinghie_puntapiedi_full",
+    "title": "Le Cinghie Puntapiedi",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Cinghie sul fondo del pozzetto usate per sporgersi all'infuori e contrastare lo sbandamento dello scafo.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "specchio_poppa",
+    "keys": [
+      {
+        "text": "specchio di poppa"
+      }
+    ],
+    "promptImageName": "cvc_crop_specchio_poppa_quiz",
+    "revealedImageName": "cvc_crop_specchio_poppa_full",
+    "title": "Lo Specchio di Poppa",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Superficie piatta o convessa che chiude posteriormente lo scafo e sostiene il timone.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "prua",
+    "keys": [
+      {
+        "text": "prua"
+      },
+      {
+        "text": "prora"
+      }
+    ],
+    "promptImageName": "cvc_crop_prua_quiz",
+    "revealedImageName": "cvc_crop_prua_full",
+    "title": "La Prua (Prora)",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "La parte anteriore sagomata dello scafo orientata verso la direzione di marcia.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "poppa",
+    "keys": [
+      {
+        "text": "poppa"
+      }
+    ],
+    "promptImageName": "cvc_crop_poppa_quiz",
+    "revealedImageName": "cvc_crop_poppa_full",
+    "title": "La Poppa",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "La parte posteriore dello scafo dove alloggia il timone.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "grillo",
+    "keys": [
+      {
+        "text": "grillo",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "smanigliatore"
+      },
+      {
+        "text": "moschettone"
+      }
+    ],
+    "promptImageName": "cvc_crop_grillo_quiz",
+    "revealedImageName": "cvc_crop_grillo_full",
+    "title": "Il Grillo e Moschettone",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Maniglia metallica a ferro di cavallo chiusa da perno (apribile con smanigliatore) o moschettone rapido.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "galloccia",
+    "keys": [
+      {
+        "text": "galloccia"
+      }
+    ],
+    "promptImageName": "cvc_crop_galloccia_quiz",
+    "revealedImageName": "cvc_crop_galloccia_full",
+    "title": "La Galloccia",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Attacco fisso sagomato a due corni su cui si dà volta a un cavo d'ormeggio o drizza.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "bugna",
+    "keys": [
+      {
+        "text": "bugna"
+      }
+    ],
+    "promptImageName": "cvc_crop_bugna_quiz",
+    "revealedImageName": "cvc_crop_bugna_full",
+    "title": "La Bugna (Punto di Scotta)",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Angolo posteriore basso della vela in cui si applica la trazione della scotta o tesabase.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "mura",
+    "keys": [
+      {
+        "text": "punto di mura"
+      },
+      {
+        "text": "mura",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_mura_quiz",
+    "revealedImageName": "cvc_crop_mura_full",
+    "title": "Il Punto di Mura",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Angolo inferiore prodiero della vela, vincolato alla coperta (fiocco) o alla trozza (randa).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "penna",
+    "keys": [
+      {
+        "text": "penna",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_penna_quiz",
+    "revealedImageName": "cvc_crop_penna_full",
+    "title": "La Penna (Punto di Drizza)",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Vertice superiore della vela triangolare a cui si aggancia la drizza per issarla.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "balumina",
+    "keys": [
+      {
+        "text": "balumina"
+      }
+    ],
+    "promptImageName": "cvc_crop_balumina_quiz",
+    "revealedImageName": "cvc_crop_balumina_full",
+    "title": "La Balumina",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Bordo libero di uscita posteriore della vela compreso tra la penna e la bugna.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "inferitura",
+    "keys": [
+      {
+        "text": "inferitura"
+      }
+    ],
+    "promptImageName": "cvc_crop_inferitura_quiz",
+    "revealedImageName": "cvc_crop_inferitura_full",
+    "title": "L'Inferitura",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Bordo anteriore d'entrata della vela inferito nella canaletta dell'albero o sullo strallo.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "stecca",
+    "keys": [
+      {
+        "text": "stecca",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_stecca_quiz",
+    "revealedImageName": "cvc_crop_stecca_full",
+    "title": "La Stecca",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Listello rigido in vetroresina inserito nelle apposite tasche per sostenere l'allunaggio della balumina.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "cunningham",
+    "keys": [
+      {
+        "text": "cunningham"
+      }
+    ],
+    "promptImageName": "cvc_crop_cunningham_quiz",
+    "revealedImageName": "cvc_crop_cunningham_full",
+    "title": "Il Cunningham",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Occhiello sopra la mura e relativo paranco per regolare la tensione dell'inferitura della randa.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "terzaroli",
+    "keys": [
+      {
+        "text": "terzarolo"
+      },
+      {
+        "text": "terzaroli"
+      },
+      {
+        "text": "mano di terzaroli"
+      },
+      {
+        "text": "matafioni"
+      },
+      {
+        "text": "borosa"
+      }
+    ],
+    "promptImageName": "cvc_crop_terzaroli_quiz",
+    "revealedImageName": "cvc_crop_terzaroli_full",
+    "title": "I Terzaroli",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Sistema di riduzione della superficie velica della randa con vento forte.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "gassa_damante",
+    "keys": [
+      {
+        "text": "gassa d'amante"
+      }
+    ],
+    "promptImageName": "cvc_crop_gassa_damante_quiz",
+    "revealedImageName": "cvc_crop_gassa_damante_full",
+    "title": "La Gassa d'Amante",
+    "plateName": "cvc_plate_nodi",
+    "plateTitle": "Tavola 3: I Nodi (CVC)",
+    "caption": "Il nodo per eccellenza: crea un occhio fisso che non stringe e non scorre mai su se stesso.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "nodo_otto",
+    "keys": [
+      {
+        "text": "nodo a otto"
+      },
+      {
+        "text": "nodo savoia"
+      },
+      {
+        "text": "nodo",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "nodi",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "fune"
+      },
+      {
+        "text": "sfilarsi",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_nodo_otto_quiz",
+    "revealedImageName": "cvc_crop_nodo_otto_full",
+    "title": "Il Nodo a Otto (Savoia)",
+    "plateName": "cvc_plate_nodi",
+    "plateTitle": "Tavola 3: I Nodi (CVC)",
+    "caption": "Nodo d'arresto eseguito all'estremità di una fune o scotta per impedirne lo sfilamento dal passascotte.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "nodo_parlato",
+    "keys": [
+      {
+        "text": "nodo parlato"
+      }
+    ],
+    "promptImageName": "cvc_crop_nodo_parlato_quiz",
+    "revealedImageName": "cvc_crop_nodo_parlato_full",
+    "title": "Il Nodo Parlato",
+    "plateName": "cvc_plate_nodi",
+    "plateTitle": "Tavola 3: I Nodi (CVC)",
+    "caption": "Nodo d'avvolgimento per legare rapidamente un cavo a un'asta, tubo o bitta (usato per i parabordi).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "nodo_piano",
+    "keys": [
+      {
+        "text": "nodo piano"
+      }
+    ],
+    "promptImageName": "cvc_crop_nodo_piano_quiz",
+    "revealedImageName": "cvc_crop_nodo_piano_full",
+    "title": "Il Nodo Piano",
+    "plateName": "cvc_plate_nodi",
+    "plateTitle": "Tavola 3: I Nodi (CVC)",
+    "caption": "Nodo di giunzione simmetrico per unire due cavi di uguale diametro (es. matafioni di terzarolo).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "nodo_scotta",
+    "keys": [
+      {
+        "text": "nodo di scotta"
+      },
+      {
+        "text": "nodo a bandiera"
+      }
+    ],
+    "promptImageName": "cvc_crop_nodo_scotta_quiz",
+    "revealedImageName": "cvc_crop_nodo_scotta_full",
+    "title": "Il Nodo di Scotta (Bandiera)",
+    "plateName": "cvc_plate_nodi",
+    "plateTitle": "Tavola 3: I Nodi (CVC)",
+    "caption": "Nodo per collegare due cime di diametro differente; molto affidabile anche sotto forte carico.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "due_mezzi_colli",
+    "keys": [
+      {
+        "text": "due mezzi colli"
+      }
+    ],
+    "promptImageName": "cvc_crop_due_mezzi_colli_quiz",
+    "revealedImageName": "cvc_crop_due_mezzi_colli_full",
+    "title": "I Due Mezzi Colli",
+    "plateName": "cvc_plate_nodi",
+    "plateTitle": "Tavola 3: I Nodi (CVC)",
+    "caption": "Nodo d'avvolgimento sicuro per dare volta su anelli o cime in tensione.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "dare_volta",
+    "keys": [
+      {
+        "text": "dare volta"
+      },
+      {
+        "text": "mollare",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "filare",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "alare",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "agguantare",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_dare_volta_quiz",
+    "revealedImageName": "cvc_crop_dare_volta_full",
+    "title": "Dare Volta su Galloccia",
+    "plateName": "cvc_plate_manovre_cavi",
+    "plateTitle": "Manovre con i cavi",
+    "caption": "Fissare o manovrare un cavo su galloccia (alare, filare, mollare o dare volta).",
+    "hasMatchingFullPlate": false
+  },
+  {
+    "id": "addugliare",
+    "keys": [
+      {
+        "text": "addugliare"
+      },
+      {
+        "text": "mettere in chiaro",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_addugliare_quiz",
+    "revealedImageName": "cvc_crop_addugliare_full",
+    "title": "Addugliare una Cima (Mettere in Chiaro)",
+    "plateName": "cvc_plate_manovre_cavi",
+    "plateTitle": "Manovre con i cavi",
+    "caption": "Raccogliere o stendere in chiaro un cavo formando spire ordinate (duglie) pronte a scorrere.",
+    "hasMatchingFullPlate": false
+  },
+  {
+    "id": "a_dritta",
+    "keys": [
+      {
+        "text": "a dritta"
+      }
+    ],
+    "promptImageName": "cvc_crop_a_dritta_quiz",
+    "revealedImageName": "cvc_crop_a_dritta_full",
+    "title": "A Dritta",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 7: Le Direzioni",
+    "caption": "Il lato destro dell'imbarcazione rivolto verso prora (contrassegnato dal fanale verde).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "a_sinistra",
+    "keys": [
+      {
+        "text": "a sinistra",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_a_sinistra_quiz",
+    "revealedImageName": "cvc_crop_a_sinistra_full",
+    "title": "A Sinistra",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 7: Le Direzioni",
+    "caption": "Il lato sinistro dell'imbarcazione rivolto verso prora (contrassegnato dal fanale rosso).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "mascone",
+    "keys": [
+      {
+        "text": "mascone"
+      }
+    ],
+    "promptImageName": "cvc_crop_mascone_quiz",
+    "revealedImageName": "cvc_crop_mascone_full",
+    "title": "Il Mascone",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 7: Le Direzioni",
+    "caption": "Settore della fiancata compreso tra la prora e il traverso (a circa 45° dalla prora).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "giardinetto",
+    "keys": [
+      {
+        "text": "giardinetto"
+      }
+    ],
+    "promptImageName": "cvc_crop_giardinetto_quiz",
+    "revealedImageName": "cvc_crop_giardinetto_full",
+    "title": "Il Giardinetto",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 7: Le Direzioni",
+    "caption": "Settore della fiancata compreso tra il traverso e la poppa (a circa 45° dalla poppa).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "traverso",
+    "keys": [
+      {
+        "text": "traverso",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_traverso_quiz",
+    "revealedImageName": "cvc_crop_traverso_full",
+    "title": "Il Traverso",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 7: Le Direzioni",
+    "caption": "Direzione a 90° rispetto all'asse longitudinale della barca (ore 3 o ore 9).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "sopravvento",
+    "keys": [
+      {
+        "text": "sopravvento",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_sopravvento_quiz",
+    "revealedImageName": "cvc_crop_sopravvento_full",
+    "title": "Sopravvento",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 7: Il Vento",
+    "caption": "Il lato o settore dal quale spira e giunge il vento rispetto all'imbarcazione.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "sottovento",
+    "keys": [
+      {
+        "text": "sottovento"
+      }
+    ],
+    "promptImageName": "cvc_crop_sottovento_quiz",
+    "revealedImageName": "cvc_crop_sottovento_full",
+    "title": "Sottovento",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 7: Il Vento",
+    "caption": "Il lato o settore verso cui fugge e spira il vento rispetto all'imbarcazione.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "orzare",
+    "keys": [
+      {
+        "text": "orzare"
+      },
+      {
+        "text": "straorzata"
+      }
+    ],
+    "promptImageName": "cvc_crop_orzare_quiz",
+    "revealedImageName": "cvc_crop_orzare_full",
+    "title": "Orzare e Straorzata",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 7: Il Vento",
+    "caption": "Avvicinare la prora al vento; la straorzata è l'orzata violenta e incontrollata causata da raffica.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "poggiare",
+    "keys": [
+      {
+        "text": "poggiare",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_poggiare_quiz",
+    "revealedImageName": "cvc_crop_poggiare_full",
+    "title": "Poggiare",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 7: Il Vento",
+    "caption": "Allontanare la prora dalla provenienza del vento spingendo la barra all'infuori.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "mure_dritta",
+    "keys": [
+      {
+        "text": "mure a dritta"
+      },
+      {
+        "text": "mure a sinistra"
+      }
+    ],
+    "promptImageName": "cvc_crop_mure_dritta_quiz",
+    "revealedImageName": "cvc_crop_mure_dritta_full",
+    "title": "Le Mure (Dritta / Sinistra)",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 7: Il Vento",
+    "caption": "Mure a dritta: la barca riceve il vento dal lato destro (ha diritto di precedenza).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "rosa_dei_venti",
+    "keys": [
+      {
+        "text": "rosa dei venti"
+      },
+      {
+        "text": "bussola"
+      }
+    ],
+    "promptImageName": "cvc_crop_rosa_dei_venti_quiz",
+    "revealedImageName": "cvc_crop_rosa_dei_venti_full",
+    "title": "La Rosa dei Venti (Bussola)",
+    "plateName": "cvc_plate_rosa_venti",
+    "plateTitle": "Tavola 8: Rosa dei Venti",
+    "caption": "La mappa tradizionale dei venti del Mediterraneo e orientamento dei 360° della bussola.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "maestrale",
+    "keys": [
+      {
+        "text": "maestrale"
+      }
+    ],
+    "promptImageName": "cvc_crop_maestrale_quiz",
+    "revealedImageName": "cvc_crop_maestrale_full",
+    "title": "Il Maestrale (NW - 315°)",
+    "plateName": "cvc_plate_rosa_venti",
+    "plateTitle": "Tavola 8: Rosa dei Venti",
+    "caption": "Vento dominante da Nord-Ovest, fresco e secco, celebre nelle acque di Caprera.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "scirocco",
+    "keys": [
+      {
+        "text": "scirocco"
+      }
+    ],
+    "promptImageName": "cvc_crop_scirocco_quiz",
+    "revealedImageName": "cvc_crop_scirocco_full",
+    "title": "Lo Scirocco (SE - 135°)",
+    "plateName": "cvc_plate_rosa_venti",
+    "plateTitle": "Tavola 8: Rosa dei Venti",
+    "caption": "Vento caldo e umido proveniente dal deserto a Sud-Est.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "tramontana",
+    "keys": [
+      {
+        "text": "tramontana"
+      }
+    ],
+    "promptImageName": "cvc_crop_tramontana_quiz",
+    "revealedImageName": "cvc_crop_tramontana_full",
+    "title": "La Tramontana (N - 0°)",
+    "plateName": "cvc_plate_rosa_venti",
+    "plateTitle": "Tavola 8: Rosa dei Venti",
+    "caption": "Vento freddo e pungente proveniente direttamente da Nord.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "libeccio",
+    "keys": [
+      {
+        "text": "libeccio"
+      }
+    ],
+    "promptImageName": "cvc_crop_libeccio_quiz",
+    "revealedImageName": "cvc_crop_libeccio_full",
+    "title": "Il Libeccio (SW - 225°)",
+    "plateName": "cvc_plate_rosa_venti",
+    "plateTitle": "Tavola 8: Rosa dei Venti",
+    "caption": "Vento rafficato e mareggiato da Sud-Ovest, tipico delle coste occidentali italiane.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "ponente",
+    "keys": [
+      {
+        "text": "ponente"
+      }
+    ],
+    "promptImageName": "cvc_crop_ponente_quiz",
+    "revealedImageName": "cvc_crop_ponente_full",
+    "title": "Il Ponente (W - 270°)",
+    "plateName": "cvc_plate_rosa_venti",
+    "plateTitle": "Tavola 8: Rosa dei Venti",
+    "caption": "Vento spirante dal settore occidentale (tramonto).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "levante",
+    "keys": [
+      {
+        "text": "levante"
+      }
+    ],
+    "promptImageName": "cvc_crop_levante_quiz",
+    "revealedImageName": "cvc_crop_levante_full",
+    "title": "Il Levante (E - 90°)",
+    "plateName": "cvc_plate_rosa_venti",
+    "plateTitle": "Tavola 8: Rosa dei Venti",
+    "caption": "Vento proveniente dall'oriente (alba).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "grecale",
+    "keys": [
+      {
+        "text": "grecale"
+      },
+      {
+        "text": "bora"
+      }
+    ],
+    "promptImageName": "cvc_crop_grecale_quiz",
+    "revealedImageName": "cvc_crop_grecale_full",
+    "title": "Il Grecale e la Bora (NE - 45°)",
+    "plateName": "cvc_plate_rosa_venti",
+    "plateTitle": "Tavola 8: Rosa dei Venti",
+    "caption": "Vento freddo e impetuoso da Nord-Est (direzione della Grecia e dell'alto Adriatico).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "ostro",
+    "keys": [
+      {
+        "text": "ostro"
+      }
+    ],
+    "promptImageName": "cvc_crop_ostro_quiz",
+    "revealedImageName": "cvc_crop_ostro_full",
+    "title": "L'Ostro (S - 180°)",
+    "plateName": "cvc_plate_rosa_venti",
+    "plateTitle": "Tavola 8: Rosa dei Venti",
+    "caption": "Vento mite da Sud (Mezzogiorno).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "brezza_mare",
+    "keys": [
+      {
+        "text": "brezza di mare"
+      }
+    ],
+    "promptImageName": "cvc_crop_brezza_mare_quiz",
+    "revealedImageName": "cvc_crop_brezza_mare_full",
+    "title": "La Brezza di Mare",
+    "plateName": "cvc_plate_rosa_venti",
+    "plateTitle": "Tavola 8: Le Brezze",
+    "caption": "Vento termico che si alza a metà giornata dal mare verso terra per convezione solare.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "brezza_terra",
+    "keys": [
+      {
+        "text": "brezza di terra"
+      }
+    ],
+    "promptImageName": "cvc_crop_brezza_terra_quiz",
+    "revealedImageName": "cvc_crop_brezza_terra_full",
+    "title": "La Brezza di Terra",
+    "plateName": "cvc_plate_rosa_venti",
+    "plateTitle": "Tavola 8: Le Brezze",
+    "caption": "Vento termico notturno che spira dalla terra raffreddata verso il mare più caldo.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "andatura",
+    "keys": [
+      {
+        "text": "andatura",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "andature"
+      },
+      {
+        "text": "spinnaker"
+      }
+    ],
+    "promptImageName": "cvc_crop_andatura_quiz",
+    "revealedImageName": "cvc_crop_andatura_full",
+    "title": "Le Andature",
+    "plateName": "cvc_plate_andature",
+    "plateTitle": "Tavola 9: Andature e Vele",
+    "caption": "Rapporto angolare tra rotta della barca e direzione del vento (bolina, traverso, lasco, poppa con spinnaker).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "angolo_morto",
+    "keys": [
+      {
+        "text": "angolo morto",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "letto del vento"
+      },
+      {
+        "text": "pungere",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_angolo_morto_quiz",
+    "revealedImageName": "cvc_crop_angolo_morto_full",
+    "title": "L'Angolo Morto (Letto del Vento)",
+    "plateName": "cvc_plate_andature",
+    "plateTitle": "Tavola 9: Andature e Vele",
+    "caption": "Settore di circa 90° rivolto al letto del vento dove la barca non può avanzare; 'pungere' significa avvicinarsi troppo a questo limite.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "bolina",
+    "keys": [
+      {
+        "text": "bolina"
+      },
+      {
+        "text": "bolina stretta"
+      },
+      {
+        "text": "bolina larga"
+      }
+    ],
+    "promptImageName": "cvc_crop_bolina_quiz",
+    "revealedImageName": "cvc_crop_bolina_full",
+    "title": "La Bolina",
+    "plateName": "cvc_plate_andature",
+    "plateTitle": "Tavola 9: Andature e Vele",
+    "caption": "L'andatura che risale il vento al massimo angolo possibile (~45°) con le vele cazzate strette.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "lasco",
+    "keys": [
+      {
+        "text": "lasco"
+      },
+      {
+        "text": "gran lasco"
+      },
+      {
+        "text": "fil di ruota"
+      },
+      {
+        "text": "a farfalla",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "vento a favore"
+      }
+    ],
+    "promptImageName": "cvc_crop_lasco_quiz",
+    "revealedImageName": "cvc_crop_lasco_full",
+    "title": "Il Lasco e Fil di Ruota (A Farfalla)",
+    "plateName": "cvc_plate_andature",
+    "plateTitle": "Tavola 9: Andature e Vele",
+    "caption": "Andature portanti con vento a favore; in fil di ruota (poppa piena) le vele possono essere esposte a farfalla.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "mettere_a_segno",
+    "keys": [
+      {
+        "text": "mettere a segno",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "bordare",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "fileggiare"
+      },
+      {
+        "text": "sventare",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "cazzare"
+      },
+      {
+        "text": "lascare"
+      }
+    ],
+    "promptImageName": "cvc_crop_mettere_a_segno_quiz",
+    "revealedImageName": "cvc_crop_mettere_a_segno_full",
+    "title": "Mettere a Segno le Vele",
+    "plateName": "cvc_plate_andature",
+    "plateTitle": "Tavola 9: Regolazione",
+    "caption": "Lascare fino a far fileggiare l'inferitura, poi cazzare appena per ottenere il flusso laminare massimo.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "scuffia",
+    "keys": [
+      {
+        "text": "scuffia",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "scuffiare"
+      }
+    ],
+    "promptImageName": "cvc_crop_scuffia_quiz",
+    "revealedImageName": "cvc_crop_scuffia_full",
+    "title": "La Scuffia (Capsize)",
+    "plateName": "cvc_plate_scuffia",
+    "plateTitle": "Tavola 5: Scuffia e Sicurezza",
+    "caption": "Rovesciamento della deriva su un fianco: mantenere il contatto e non allontanarsi mai dallo scafo.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "raddrizzare",
+    "keys": [
+      {
+        "text": "raddrizzare",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "raddrizzamento"
+      }
+    ],
+    "promptImageName": "cvc_crop_raddrizzare_quiz",
+    "revealedImageName": "cvc_crop_raddrizzare_full",
+    "title": "Il Raddrizzamento",
+    "plateName": "cvc_plate_scuffia",
+    "plateTitle": "Tavola 5: Scuffia e Sicurezza",
+    "caption": "Manovra per drizzare la barca salendo sulla pala di deriva e facendo leva con il proprio peso.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "in_panna",
+    "keys": [
+      {
+        "text": "in panna"
+      },
+      {
+        "text": "alla cappa"
+      }
+    ],
+    "promptImageName": "cvc_crop_in_panna_quiz",
+    "revealedImageName": "cvc_crop_in_panna_full",
+    "title": "La Panna (Alla Cappa)",
+    "plateName": "cvc_plate_panna",
+    "plateTitle": "Tavola 21: La Panna",
+    "caption": "Assetto di stazionamento stabile (mettersi alla cappa) con fiocco a collo, randa libera e barra all'orza.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "tuga",
+    "keys": [
+      {
+        "text": "tuga"
+      }
+    ],
+    "promptImageName": "cvc_crop_tuga_quiz",
+    "revealedImageName": "cvc_crop_tuga_full",
+    "title": "La Tuga",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 33: Il Cabinato",
+    "caption": "La sovrastruttura sagomata sopra la coperta che garantisce altezza e luminosità all'interno.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "tambuccio",
+    "keys": [
+      {
+        "text": "tambuccio"
+      }
+    ],
+    "promptImageName": "cvc_crop_tambuccio_quiz",
+    "revealedImageName": "cvc_crop_tambuccio_full",
+    "title": "Il Tambuccio",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 33: Il Cabinato",
+    "caption": "Chiusura scorrevole orizzontale della discesa dal pozzetto nella cabina.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "bulbo",
+    "keys": [
+      {
+        "text": "bulbo",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_bulbo_quiz",
+    "revealedImageName": "cvc_crop_bulbo_full",
+    "title": "Il Bulbo di Zavorra",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 33: Il Cabinato",
+    "caption": "Zavorra pesante in piombo o ghisa sul fondo della chiglia che conferisce raddrizzamento al cabinato.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "pulpito",
+    "keys": [
+      {
+        "text": "pulpito",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_pulpito_quiz",
+    "revealedImageName": "cvc_crop_pulpito_full",
+    "title": "Il Pulpito di Prua",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 33: Il Cabinato",
+    "caption": "Ringhiera d'acciaio tubolare fissata sulla prora a protezione dell'equipaggio.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "balcone",
+    "keys": [
+      {
+        "text": "balcone",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_balcone_quiz",
+    "revealedImageName": "cvc_crop_balcone_full",
+    "title": "Il Balcone di Poppa",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 33: Il Cabinato",
+    "caption": "Pulpito poppiero d'acciaio inox situato a poppa sopra lo specchio.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "candeliere",
+    "keys": [
+      {
+        "text": "candeliere"
+      },
+      {
+        "text": "candelieri"
+      }
+    ],
+    "promptImageName": "cvc_crop_candeliere_quiz",
+    "revealedImageName": "cvc_crop_candeliere_full",
+    "title": "Il Candeliere",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 33: Il Cabinato",
+    "caption": "Asta d'acciaio verticale inserita sul bordo della coperta che guida le draglie di sicurezza.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "draglia",
+    "keys": [
+      {
+        "text": "draglia"
+      },
+      {
+        "text": "draglie"
+      },
+      {
+        "text": "battagliola"
+      },
+      {
+        "text": "life line"
+      },
+      {
+        "text": "cintura di sicurezza",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_draglia_quiz",
+    "revealedImageName": "cvc_crop_draglia_full",
+    "title": "Le Draglie e Battagliola",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 33: Il Cabinato",
+    "caption": "Cavi d'acciaio rivestiti tesi tra i candelieri per formare la battagliola e agganciare la life line.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "parabordo",
+    "keys": [
+      {
+        "text": "parabordo"
+      },
+      {
+        "text": "parabordi"
+      }
+    ],
+    "promptImageName": "cvc_crop_parabordo_quiz",
+    "revealedImageName": "cvc_crop_parabordo_full",
+    "title": "Il Parabordo",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 33: Il Cabinato",
+    "caption": "Cilindro gonfiabile sospeso lungo la fiancata con un nodo parlato per riparare lo scafo.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "paterazzo",
+    "keys": [
+      {
+        "text": "paterazzo"
+      }
+    ],
+    "promptImageName": "cvc_crop_paterazzo_quiz",
+    "revealedImageName": "cvc_crop_paterazzo_full",
+    "title": "Il Paterazzo",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 33: Il Cabinato",
+    "caption": "Cavo d'acciaio fisso che scende dalla testa d'albero allo specchio di poppa per contrastare lo strallo.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "winch",
+    "keys": [
+      {
+        "text": "winch"
+      }
+    ],
+    "promptImageName": "cvc_crop_winch_quiz",
+    "revealedImageName": "cvc_crop_winch_full",
+    "title": "Il Winch",
+    "plateName": "cvc_plate_winch_stopper",
+    "plateTitle": "Tavola 34: Winch e Stopper",
+    "caption": "Argano a tamburo demoliplicatore: avvolgere la cima sempre in senso orario (almeno 3 giri).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "stopper",
+    "keys": [
+      {
+        "text": "stopper"
+      }
+    ],
+    "promptImageName": "cvc_crop_stopper_quiz",
+    "revealedImageName": "cvc_crop_stopper_full",
+    "title": "Lo Stopper",
+    "plateName": "cvc_plate_winch_stopper",
+    "plateTitle": "Tavola 34: Winch e Stopper",
+    "caption": "Bloccacavo a leva per serrare cime sotto carico (drizze, borose) lasciando libero il winch.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "virata",
+    "keys": [
+      {
+        "text": "virata"
+      },
+      {
+        "text": "virare"
+      }
+    ],
+    "promptImageName": "cvc_crop_virata_quiz",
+    "revealedImageName": "cvc_crop_virata_full",
+    "title": "La Virata in Prua",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 16: La Virata",
+    "caption": "Manovra che consiste nel far passare la prua attraverso il letto del vento per cambiare mure.",
+    "hasMatchingFullPlate": false
+  },
+  {
+    "id": "strambata",
+    "keys": [
+      {
+        "text": "strambata"
+      },
+      {
+        "text": "strambare"
+      },
+      {
+        "text": "abbattuta",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_strambata_quiz",
+    "revealedImageName": "cvc_crop_strambata_full",
+    "title": "La Strambata (Abbattuta)",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 18: La Strambata",
+    "caption": "Manovra in andatura portante che consiste nel far passare la poppa attraverso il vento per cambiare mure.",
+    "hasMatchingFullPlate": false
+  },
+  {
+    "id": "vento_reale_apparente",
+    "keys": [
+      {
+        "text": "vento reale"
+      },
+      {
+        "text": "vento apparente"
+      },
+      {
+        "text": "vento di velocità"
+      }
+    ],
+    "promptImageName": "cvc_crop_vento_reale_apparente_quiz",
+    "revealedImageName": "cvc_crop_vento_reale_apparente_full",
+    "title": "Vento Reale e Apparente",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 21: Vento Reale e Vento Apparente",
+    "caption": "Il vento apparente percepito a bordo è la somma vettoriale del vento reale e del vento di avanzamento.",
+    "hasMatchingFullPlate": false
+  },
+  {
+    "id": "scarroccio_bordeggio",
+    "keys": [
+      {
+        "text": "scarroccio"
+      },
+      {
+        "text": "scarrocciare"
+      },
+      {
+        "text": "bordeggiare"
+      },
+      {
+        "text": "bordeggio"
+      },
+      {
+        "text": "bordo",
+        "exactMatchOnly": true
+      }
+    ],
+    "promptImageName": "cvc_crop_scarroccio_bordeggio_quiz",
+    "revealedImageName": "cvc_crop_scarroccio_bordeggio_full",
+    "title": "Bordeggio e Scarroccio",
+    "plateName": "cvc_plate_andature",
+    "plateTitle": "Tavola 13: Risalire il Vento",
+    "caption": "Bordeggiare a zig-zag controvento; lo scarroccio è lo scivolamento laterale sottovento compensato dalla deriva.",
+    "hasMatchingFullPlate": false
+  },
+  {
+    "id": "uomo_in_mare",
+    "keys": [
+      {
+        "text": "uomo in mare"
+      },
+      {
+        "text": "salvagente"
+      },
+      {
+        "text": "giubbotto salvagente"
+      }
+    ],
+    "promptImageName": "cvc_crop_uomo_in_mare_quiz",
+    "revealedImageName": "cvc_crop_uomo_in_mare_full",
+    "title": "Uomo in Mare",
+    "plateName": "cvc_plate_scuffia",
+    "plateTitle": "Tavola 24: Recupero Uomo in Mare",
+    "caption": "Manovra di sicurezza (virata o percorso a otto) per invertire la rotta e fermarsi sottovento al naufrago.",
+    "hasMatchingFullPlate": false
+  },
+  {
+    "id": "ancora",
+    "keys": [
+      {
+        "text": "ancora",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "ancorotto"
+      },
+      {
+        "text": "ancorare"
+      },
+      {
+        "text": "ancoraggio",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "dare fondo",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "cablotto"
+      },
+      {
+        "text": "a picco",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "spedare"
+      }
+    ],
+    "promptImageName": "cvc_crop_ancora_quiz",
+    "revealedImageName": "cvc_crop_ancora_full",
+    "title": "L'Ancora e Ancoraggio",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 41: L'Ormeggio all'Ancora",
+    "caption": "Attrezzo da fondo con calumo (catena e cablotto) pari ad almeno 3-5 volte la profondità.",
+    "hasMatchingFullPlate": false
+  },
+  {
+    "id": "gavitello",
+    "keys": [
+      {
+        "text": "gavitello"
+      },
+      {
+        "text": "corpo morto"
+      },
+      {
+        "text": "barbetta",
+        "exactMatchOnly": true
+      },
+      {
+        "text": "abbrivo"
+      },
+      {
+        "text": "abbrivare"
+      }
+    ],
+    "promptImageName": "cvc_crop_gavitello_quiz",
+    "revealedImageName": "cvc_crop_gavitello_full",
+    "title": "Il Gavitello e l'Abbrivo",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 27: Presa di Gavitello",
+    "caption": "Galleggiante ormeggiato al corpo morto; ci si avvicina prua al vento sfruttando l'abbrivo (inerzia di moto) per fermarsi al gavitello.",
+    "hasMatchingFullPlate": false
+  },
+  {
+    "id": "amantiglio",
+    "keys": [
+      {
+        "text": "amantiglio"
+      }
+    ],
+    "promptImageName": "cvc_crop_amantiglio_quiz",
+    "revealedImageName": "cvc_crop_amantiglio_full",
+    "title": "L'Amantiglio",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 33: Il Cabinato",
+    "caption": "Cavo dalla testa d'albero al terminale del boma per sostenerlo a riposo con randa ammainata.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "mostravento",
+    "keys": [
+      {
+        "text": "mostravento"
+      },
+      {
+        "text": "tell-tales"
+      },
+      {
+        "text": "segnavento"
+      }
+    ],
+    "promptImageName": "cvc_crop_mostravento_quiz",
+    "revealedImageName": "cvc_crop_mostravento_full",
+    "title": "Mostravento e Tell-tales",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 33: Il Cabinato",
+    "caption": "Filetti in lana o nastro su vele o stralli che indicano l'andamento laminare del flusso del vento.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "oblo",
+    "keys": [
+      {
+        "text": "oblò"
+      },
+      {
+        "text": "osteriggio"
+      }
+    ],
+    "promptImageName": "cvc_crop_oblo_quiz",
+    "revealedImageName": "cvc_crop_oblo_full",
+    "title": "L'Oblò e l'Osteriggio",
+    "plateName": "cvc_plate_cabinato",
+    "plateTitle": "Tavola 33: Il Cabinato",
+    "caption": "Portelli e aperture stagne trasparenti per illuminazione e ricambio d'aria degli interni.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "bitta",
+    "keys": [
+      {
+        "text": "bitta"
+      },
+      {
+        "text": "bitte"
+      }
+    ],
+    "promptImageName": "cvc_crop_bitta_quiz",
+    "revealedImageName": "cvc_crop_bitta_full",
+    "title": "La Bitta",
+    "plateName": "cvc_plate_manovre_cavi",
+    "plateTitle": "Tavola 6: Manovre dei Cavi",
+    "caption": "Colonnina di coperta o banchina per dare volta e serrare le cime d'ormeggio con un mezzo collo.",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "bozzello",
+    "keys": [
+      {
+        "text": "bozzello"
+      },
+      {
+        "text": "bozzelli"
+      }
+    ],
+    "promptImageName": "cvc_crop_bozzello_quiz",
+    "revealedImageName": "cvc_crop_bozzello_full",
+    "title": "Il Bozzello",
+    "plateName": "cvc_plate_la_barca",
+    "plateTitle": "Tavola 1: La Barca (Deriva)",
+    "caption": "Puleggia marinaresca per rinvio e scorrimento a basso attrito di scotte, drizze e paranchi.",
+    "hasMatchingFullPlate": true
+  }
+]
