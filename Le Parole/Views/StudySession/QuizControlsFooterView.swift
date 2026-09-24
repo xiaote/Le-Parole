@@ -21,7 +21,7 @@ struct QuizControlsFooterView: View {
             // height and the card above doesn't resize into its space while
             // it flips. The field also stays enabled and focused, so the
             // keyboard doesn't drop and rise again between cards; Return
-            // means Next.
+            // means Next. Being fully transparent, they take no taps.
             ZStack(alignment: .bottom) {
                 if hasTextInput {
                     inputControls
@@ -37,9 +37,11 @@ struct QuizControlsFooterView: View {
             .padding(.horizontal, 20)
             .padding(.top, 10)
             .padding(.bottom, 12)
+            // Only the typing controls need a backdrop. Once revealed, the
+            // Next button floats over the content, which scrolls behind it.
             .background(
                 Theme.canvas
-                    .opacity(0.96)
+                    .opacity(isRevealed ? 0 : 0.96)
                     .ignoresSafeArea(.container, edges: .bottom)
             )
         }

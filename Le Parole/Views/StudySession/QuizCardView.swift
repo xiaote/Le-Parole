@@ -90,61 +90,65 @@ struct QuizCardView: View {
 
     var body: some View {
         ZStack {
-            VStack(spacing: 0) {
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: 16) {
-                        flipCard
-                            .padding(.horizontal, 20)
-                            .compositingGroup()
-                            .scaleEffect(state.hasAppeared ? 1 : 0.96)
-                            .offset(x: state.phase == .leaving ? 500 : 0)
-                            .modifier(ShakeEffect(animatableData: state.shakeTrigger))
-                            .opacity(state.hasAppeared && state.phase != .leaving ? 1 : 0)
-                            // Above the diagram grid, which fades out where it
-                            // was while the revealed card grows over it.
-                            .zIndex(1)
-                            // A fresh card view (and onAppear) per card, so
-                            // its entrance animates.
-                            .onAppear(perform: enter)
-                            .id(card.id)
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 16) {
+                    flipCard
+                        .padding(.horizontal, 20)
+                        .compositingGroup()
+                        .scaleEffect(state.hasAppeared ? 1 : 0.96)
+                        .offset(x: state.phase == .leaving ? 500 : 0)
+                        .modifier(ShakeEffect(animatableData: state.shakeTrigger))
+                        .opacity(state.hasAppeared && state.phase != .leaving ? 1 : 0)
+                        // Above the diagram grid, which fades out where it
+                        // was while the revealed card grows over it.
+                        .zIndex(1)
+                        // A fresh card view (and onAppear) per card, so
+                        // its entrance animates.
+                        .onAppear(perform: enter)
+                        .id(card.id)
 
-                        if let quiz = presentation.visualQuiz, !isRevealed {
-                            VisualChoiceGridView(
-                                quiz: quiz,
-                                selectedOptionId: state.selectedVisualOptionId,
-                                isDisabled: state.phase != .answering,
-                                onSelect: selectVisualOption,
-                                onZoom: { option in
-                                    activeSheet = .diagramCrop(diagram: option, imageName: option.promptImageName)
-                                }
-                            )
-                        }
-
-                        if isRevealed, state.wasCorrect == false, state.examples.hasContent {
-                            examplesCard
-                        }
-
-                        if isRevealed, let concept = presentation.concept {
-                            ConceptSectionView(
-                                concept: concept,
-                                onSelectRelatedItem: { activeSheet = .relatedConcept($0) },
-                                onSelectRelatedTerm: { activeSheet = .relatedTerm($0) }
-                            )
-                            .padding(.horizontal, 20)
-                            .transition(.asymmetric(insertion: .move(edge: .bottom).combined(with: .opacity), removal: .opacity))
-                        }
+                    if let quiz = presentation.visualQuiz, !isRevealed {
+                        VisualChoiceGridView(
+                            quiz: quiz,
+                            selectedOptionId: state.selectedVisualOptionId,
+                            isDisabled: state.phase != .answering,
+                            onSelect: selectVisualOption,
+                            onZoom: { option in
+                                activeSheet = .diagramCrop(diagram: option, imageName: option.promptImageName)
+                            }
+                        )
                     }
-                    .padding(.vertical, 16)
-                    .frame(maxWidth: .infinity)
-                }
-                // Centred while it fits; scrolls from the top once it doesn't.
-                .defaultScrollAnchor(.center, for: .alignment)
-                .scrollDismissesKeyboard(.interactively)
-                .scrollBounceBehavior(.basedOnSize)
-                .onScrollGeometryChange(for: Bool.self) { $0.contentSize.height > $0.containerSize.height } action: { _, overflows in
-                    contentOverflows = overflows
-                }
 
+                    if isRevealed, state.wasCorrect == false, state.examples.hasContent {
+                        examplesCard
+                    }
+
+                    if isRevealed, let concept = presentation.concept {
+                        ConceptSectionView(
+                            concept: concept,
+                            onSelectRelatedItem: { activeSheet = .relatedConcept($0) },
+                            onSelectRelatedTerm: { activeSheet = .relatedTerm($0) }
+                        )
+                        .padding(.horizontal, 20)
+                        .transition(.asymmetric(insertion: .move(edge: .bottom).combined(with: .opacity), removal: .opacity))
+                    }
+                }
+                .padding(.vertical, 16)
+                .frame(maxWidth: .infinity)
+            }
+            // Centred while it fits; scrolls from the top once it doesn't.
+            .defaultScrollAnchor(.center, for: .alignment)
+            .scrollDismissesKeyboard(.interactively)
+            .scrollBounceBehavior(.basedOnSize)
+            .onScrollGeometryChange(for: Bool.self) { geometry in
+                geometry.contentSize.height + geometry.contentInsets.top + geometry.contentInsets.bottom
+                    > geometry.containerSize.height
+            } action: { _, overflows in
+                contentOverflows = overflows
+            }
+            // An inset rather than a stacked view, so long content scrolls
+            // on down behind the footer instead of stopping at its top.
+            .safeAreaInset(edge: .bottom, spacing: 0) {
                 QuizControlsFooterView(
                     isRevealed: isRevealed,
                     hasTextInput: presentation.visualQuiz == nil,
