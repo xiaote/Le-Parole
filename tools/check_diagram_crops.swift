@@ -25,33 +25,33 @@ func ocr(imageURL: URL) -> [String] {
     return results
 }
 
-let swiftFile = try String(contentsOfFile: "Le Parole/Services/SailingDiagramService.swift", encoding: .utf8)
-let pattern = #"add\(\s*keys:\s*(\[[^\]]+\]),\s*id:\s*"([^"]+)",\s*prompt:\s*"([^"]+)",\s*revealed:\s*"([^"]+)",\s*title:\s*"([^"]+)",\s*plate:\s*"([^"]+)",\s*plateTitle:\s*"([^"]+)",\s*caption:\s*"([^"]+)""#
-let regex = try NSRegularExpression(pattern: pattern, options: [])
-let nsString = swiftFile as NSString
-let matches = regex.matches(in: swiftFile, options: [], range: NSRange(location: 0, length: nsString.length))
+struct DiagramEntry: Decodable {
+    struct Key: Decodable { let text: String }
+    let id: String
+    let keys: [Key]
+    let revealedImageName: String
+    let title: String
+    let plateName: String
+}
 
-print("=== CHECKING ALL 96 DIAGRAM CROPS FOR KEYWORD MATCH ===")
+let jsonData = try Data(contentsOf: URL(fileURLWithPath: "Le Parole/Data/diagrams.json"))
+let entries = try JSONDecoder().decode([DiagramEntry].self, from: jsonData)
+
+print("=== CHECKING ALL \(entries.count) DIAGRAM CROPS FOR KEYWORD MATCH ===")
 
 var suspectList: [(index: Int, id: String, title: String, plate: String, keys: String, texts: [String])] = []
 
-for (index, match) in matches.enumerated() {
-    let keysStr = nsString.substring(with: match.range(at: 1))
-    let id = nsString.substring(with: match.range(at: 2))
-    let prompt = nsString.substring(with: match.range(at: 3))
-    let revealed = nsString.substring(with: match.range(at: 4))
-    let title = nsString.substring(with: match.range(at: 5))
-    let plate = nsString.substring(with: match.range(at: 6))
-    
+for (index, entry) in entries.enumerated() {
+    let id = entry.id
+    let revealed = entry.revealedImageName
+    let title = entry.title
+    let plate = entry.plateName
+    let rawKeys = entry.keys.map { $0.text.lowercased() }
+    let keysStr = "[" + entry.keys.map { "\"\($0.text)\"" }.joined(separator: ", ") + "]"
+
     let cropURL = assetDir.appendingPathComponent("\(revealed).imageset/\(revealed).png")
     let texts = ocr(imageURL: cropURL)
     let lowerTexts = texts.map { $0.lowercased() }
-    
-    // Parse keys array
-    let rawKeys = keysStr.replacingOccurrences(of: "[", with: "")
-        .replacingOccurrences(of: "]", with: "")
-        .split(separator: ",")
-        .map { $0.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\"", with: "").lowercased() }
     
     // Check if any key or the id is a substring of any OCR text
     var matched = false
