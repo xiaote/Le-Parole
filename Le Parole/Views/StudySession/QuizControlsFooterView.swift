@@ -19,12 +19,13 @@ struct QuizControlsFooterView: View {
             // Next takes the Check button's place. The input controls stay in
             // the layout (hidden) once revealed, so the footer keeps its
             // height and the card above doesn't resize into its space while
-            // it flips.
+            // it flips. The field also stays enabled and focused, so the
+            // keyboard doesn't drop and rise again between cards; Return
+            // means Next.
             ZStack(alignment: .bottom) {
                 if hasTextInput {
                     inputControls
                         .opacity(isRevealed ? 0 : 1)
-                        .disabled(isRevealed)
                         .accessibilityHidden(isRevealed)
                 }
                 if isRevealed {
@@ -61,7 +62,11 @@ struct QuizControlsFooterView: View {
                     .stroke(Theme.border, lineWidth: 1)
             )
             .focused($isFocused)
-            .onSubmit(onSubmit)
+            .onSubmit {
+                // Return would otherwise end editing and drop the keyboard.
+                isFocused = true
+                onSubmit()
+            }
             .autocorrectionDisabled()
             .textInputAutocapitalization(.never)
 
@@ -85,6 +90,7 @@ struct QuizControlsFooterView: View {
                 .buttonStyle(PrimaryButtonStyle(verticalPadding: 14))
                 .disabled(input.trimmingCharacters(in: .whitespaces).isEmpty)
             }
+            .disabled(isRevealed)
         }
     }
 }

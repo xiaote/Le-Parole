@@ -25,8 +25,9 @@ struct StudySessionView: View {
                             if vm.isComplete {
                                 SessionCompleteView(stats: vm.stats, isTestMode: vm.isTestMode) { dismiss() }
                             } else if let presentation = vm.presentation {
+                                // Not keyed by card: the view carries its
+                                // text field, and the keyboard, across cards.
                                 QuizCardView(presentation: presentation, vm: vm)
-                                    .id(presentation.card.id)
                             } else if vm.isLoadingMoreCards {
                                 ProgressView("Loading more cards…")
                                     .font(.theme(.subheadline))

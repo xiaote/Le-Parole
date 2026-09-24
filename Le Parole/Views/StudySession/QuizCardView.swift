@@ -53,22 +53,29 @@ struct QuizCardView: View {
         }
     }
 
-    @State private var phase = Phase.answering
-    /// nil until the answer is revealed.
-    @State private var wasCorrect: Bool?
-    /// Drives the flip. Only ever changed with an ease curve: a spring would
-    /// overshoot 180° and briefly show the wrong side.
-    @State private var showsAnswerSide = false
-    @State private var hasAppeared = false
-    @State private var input = ""
+    /// Everything that belongs to the card on screen. The view outlives its
+    /// cards so the text field, and with it the keyboard, stays up from one
+    /// card to the next; moving on replaces this wholesale.
+    private struct CardState {
+        var phase = Phase.answering
+        /// nil until the answer is revealed.
+        var wasCorrect: Bool?
+        /// Drives the flip. Only ever changed with an ease curve: a spring
+        /// would overshoot 180° and briefly show the wrong side.
+        var showsAnswerSide = false
+        var hasAppeared = false
+        var input = ""
+        var wrongCount = 0
+        var shakeTrigger: CGFloat = 0
+        var promptHighlight = Theme.surface
+        var hint = QuizHint.none
+        var examples = Examples.none
+        var selectedVisualOptionId: String?
+        var sessionNotice: SessionNotice?
+    }
+
+    @State private var state = CardState()
     @FocusState private var inputFocused: Bool
-    @State private var wrongCount = 0
-    @State private var shakeTrigger: CGFloat = 0
-    @State private var promptHighlight = Theme.surface
-    @State private var hint = QuizHint.none
-    @State private var examples = Examples.none
-    @State private var selectedVisualOptionId: String?
-    @State private var sessionNotice: SessionNotice?
     @State private var activeSheet: ActiveSheet?
     /// The running grading / feedback / reveal / auto-advance sequence.
     @State private var sequenceTask: Task<Void, Never>?
@@ -76,7 +83,7 @@ struct QuizCardView: View {
     @State private var examplesTask: Task<Void, Never>?
 
     private var card: StudyCard { presentation.card }
-    private var isRevealed: Bool { wasCorrect != nil }
+    private var isRevealed: Bool { state.wasCorrect != nil }
 
     var body: some View {
         ZStack {
@@ -86,19 +93,23 @@ struct QuizCardView: View {
                         flipCard
                             .padding(.horizontal, 20)
                             .compositingGroup()
-                            .scaleEffect(hasAppeared ? 1 : 0.96)
-                            .offset(x: phase == .leaving ? 500 : 0)
-                            .modifier(ShakeEffect(animatableData: shakeTrigger))
-                            .opacity(hasAppeared && phase != .leaving ? 1 : 0)
+                            .scaleEffect(state.hasAppeared ? 1 : 0.96)
+                            .offset(x: state.phase == .leaving ? 500 : 0)
+                            .modifier(ShakeEffect(animatableData: state.shakeTrigger))
+                            .opacity(state.hasAppeared && state.phase != .leaving ? 1 : 0)
                             // Above the diagram grid, which fades out where it
                             // was while the revealed card grows over it.
                             .zIndex(1)
+                            // A fresh card view (and onAppear) per card, so
+                            // its entrance animates.
+                            .onAppear(perform: enter)
+                            .id(card.id)
 
                         if let quiz = presentation.visualQuiz, !isRevealed {
                             VisualChoiceGridView(
                                 quiz: quiz,
-                                selectedOptionId: selectedVisualOptionId,
-                                isDisabled: phase != .answering,
+                                selectedOptionId: state.selectedVisualOptionId,
+                                isDisabled: state.phase != .answering,
                                 onSelect: selectVisualOption,
                                 onZoom: { option in
                                     activeSheet = .diagramCrop(diagram: option, imageName: option.promptImageName)
@@ -106,7 +117,7 @@ struct QuizCardView: View {
                             )
                         }
 
-                        if isRevealed, wasCorrect == false, examples.hasContent {
+                        if isRevealed, state.wasCorrect == false, state.examples.hasContent {
                             examplesCard
                         }
 
@@ -131,41 +142,24 @@ struct QuizCardView: View {
                     isRevealed: isRevealed,
                     hasTextInput: presentation.visualQuiz == nil,
                     cardType: card.cardType,
-                    input: $input,
+                    input: $state.input,
                     isFocused: $inputFocused,
                     isTestMode: vm.isTestMode,
                     canRequestHint: canRequestHint,
-                    isGrading: phase == .grading,
+                    isGrading: state.phase == .grading,
                     onRequestHint: requestHint,
                     onSubmit: submitAnswer,
                     onNext: {
-                        if phase == .revealed { leave(duration: 0.25) }
+                        if state.phase == .revealed { leave(duration: 0.25) }
                     }
                 )
             }
 
-            if let sessionNotice {
+            if let sessionNotice = state.sessionNotice {
                 SessionNoticeView(notice: sessionNotice)
             }
         }
-        .onAppear {
-            // Raise the keyboard together with the entrance, while the card is
-            // still transparent, so the layout shift it causes is part of one
-            // motion instead of a second jump once the card is visible.
-            let showsPromptDiagram = card.cardType == .production && presentation.diagram != nil
-            inputFocused = !showsPromptDiagram && presentation.visualQuiz == nil
-            withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
-                hasAppeared = true
-            }
-            if vm.autoPlayPronunciation && card.cardType == .recognition {
-                SpeechService.shared.speak(presentation.promptText, languageCode: presentation.promptLanguage.speechCode)
-            }
-        }
-        .onDisappear {
-            sequenceTask?.cancel()
-            hintTask?.cancel()
-            examplesTask?.cancel()
-        }
+        .onDisappear(perform: cancelTasks)
         .sheet(item: $activeSheet) { sheet in
             switch sheet {
             case .diagram(let diagram):
@@ -183,7 +177,7 @@ struct QuizCardView: View {
     // MARK: - Card
 
     private var flipCard: some View {
-        let angle: Double = showsAnswerSide ? 180 : 0
+        let angle: Double = state.showsAnswerSide ? 180 : 0
         return FlipCardLayout(showsBack: isRevealed) {
             face(.prompt)
                 .modifier(FlipEffect(angle: angle, isBack: false))
@@ -191,12 +185,11 @@ struct QuizCardView: View {
                 .modifier(FlipEffect(angle: angle, isBack: true))
         }
         .onTapGesture {
-            switch phase {
+            switch state.phase {
             case .answering:
-                inputFocused = false
                 reveal(correct: false)
             case .revealed:
-                withAnimation(.easeInOut(duration: 0.32)) { showsAnswerSide.toggle() }
+                withAnimation(.easeInOut(duration: 0.32)) { state.showsAnswerSide.toggle() }
             case .grading, .feedback, .revealing, .leaving:
                 break
             }
@@ -208,10 +201,10 @@ struct QuizCardView: View {
             side: side,
             presentation: presentation,
             isRevealed: isRevealed,
-            wasCorrect: wasCorrect,
-            promptHighlight: promptHighlight,
-            hint: hint,
-            attemptsLeft: wrongCount > 0 && !vm.isTestMode ? Self.maxWrongAttempts - wrongCount : nil,
+            wasCorrect: state.wasCorrect,
+            promptHighlight: state.promptHighlight,
+            hint: state.hint,
+            attemptsLeft: state.wrongCount > 0 && !vm.isTestMode ? Self.maxWrongAttempts - state.wrongCount : nil,
             onOpenDiagram: {
                 inputFocused = false
                 if let diagram = presentation.diagram { activeSheet = .diagram(diagram) }
@@ -221,7 +214,7 @@ struct QuizCardView: View {
 
     private var examplesCard: some View {
         VStack(alignment: .leading, spacing: 8) {
-            switch examples {
+            switch state.examples {
             case .loading:
                 HStack {
                     ProgressView()
@@ -248,9 +241,12 @@ struct QuizCardView: View {
 
     // MARK: - Answering
 
+    /// Return checks the answer, or moves on once it is revealed, so a run of
+    /// typed cards never needs the keyboard lowered.
     private func submitAnswer() {
-        guard phase == .answering else { return }
-        let trimmed = input.trimmingCharacters(in: .whitespacesAndNewlines)
+        if state.phase == .revealed { return leave(duration: 0.25) }
+        guard state.phase == .answering else { return }
+        let trimmed = state.input.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return }
 
         if presentation.accepts(trimmed) {
@@ -265,23 +261,23 @@ struct QuizCardView: View {
         }
         if card.userWord.word.isInflectionVariant(trimmed) && trimmed.lowercased() != card.correctAnswer.lowercased() {
             withAnimation {
-                hint = .shown("That's a valid form! But please use the root form (e.g. masculine singular for adjectives, or standard singular for nouns).", allowsAnother: false)
-                input = ""
+                state.hint = .shown("That's a valid form! But please use the root form (e.g. masculine singular for adjectives, or standard singular for nouns).", allowsAnother: false)
+                state.input = ""
             }
             inputFocused = true
             return
         }
 
-        phase = .grading
+        state.phase = .grading
         sequenceTask = Task {
             let isSynonym = await vm.isValidItalianSynonym(input: trimmed)
             guard !Task.isCancelled else { return }
-            phase = .answering
+            state.phase = .answering
             if isSynonym {
                 let firstLetter = card.correctAnswer.first.map(String.init) ?? "?"
                 withAnimation {
-                    hint = .shown("Correct, but looking for another word (starts with \(firstLetter)...)", allowsAnother: true)
-                    input = ""
+                    state.hint = .shown("Correct, but looking for another word (starts with \(firstLetter)...)", allowsAnother: true)
+                    state.input = ""
                 }
                 inputFocused = true
             } else {
@@ -292,28 +288,28 @@ struct QuizCardView: View {
 
     private func handleWrong() {
         withAnimation(.easeInOut(duration: 0.25)) {
-            wrongCount += 1
+            state.wrongCount += 1
         }
-        if wrongCount == 1 {
+        if state.wrongCount == 1 {
             generateExamples()
         }
-        phase = .feedback
+        state.phase = .feedback
         sequenceTask = Task {
             await shakeAndFlashRed()
             guard !Task.isCancelled else { return }
-            if vm.isTestMode || wrongCount >= Self.maxWrongAttempts {
+            if vm.isTestMode || state.wrongCount >= Self.maxWrongAttempts {
                 reveal(correct: false)
             } else {
-                phase = .answering
+                state.phase = .answering
                 inputFocused = true
             }
         }
     }
 
     private func selectVisualOption(_ option: WordDiagram) {
-        guard phase == .answering, let target = presentation.visualQuiz?.target else { return }
-        selectedVisualOptionId = option.id
-        phase = .feedback
+        guard state.phase == .answering, let target = presentation.visualQuiz?.target else { return }
+        state.selectedVisualOptionId = option.id
+        state.phase = .feedback
 
         if option.id == target.id {
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
@@ -324,7 +320,7 @@ struct QuizCardView: View {
             }
         } else {
             UINotificationFeedbackGenerator().notificationOccurred(.error)
-            wrongCount += 1
+            state.wrongCount += 1
             sequenceTask = Task {
                 await shakeAndFlashRed()
                 guard !Task.isCancelled else { return }
@@ -337,17 +333,16 @@ struct QuizCardView: View {
 
     // MARK: - Reveal and advance
 
-    /// Flips to the answer and records the result. The flip, the footer swap,
-    /// the keyboard dismissal and the answer styling share one transaction,
-    /// so the card turns and moves as a single animation in a single update.
+    /// Flips to the answer and records the result. The flip, the footer swap
+    /// and the answer styling share one transaction, so the card turns as a
+    /// single animation in a single update. The keyboard stays where it is.
     /// A correct typed answer then moves on by itself after a pause.
     private func reveal(correct: Bool, autoAdvance: Bool = false) {
         guard !isRevealed else { return }
         withAnimation(.easeInOut(duration: 0.32)) {
-            showsAnswerSide = true
-            wasCorrect = correct
-            phase = .revealing
-            inputFocused = false
+            state.showsAnswerSide = true
+            state.wasCorrect = correct
+            state.phase = .revealing
         }
 
         let outcome = vm.recordResult(correct: correct, context: presentation.mistakeContext)
@@ -362,10 +357,10 @@ struct QuizCardView: View {
             guard !Task.isCancelled else { return }
             guard autoAdvance else {
                 _ = await noticeFinished
-                phase = .revealed
+                state.phase = .revealed
                 return
             }
-            phase = .revealed
+            state.phase = .revealed
             try? await Task.sleep(for: presentation.autoAdvanceDelay)
             guard !Task.isCancelled, await noticeFinished else { return }
             leave(duration: 0.3)
@@ -373,16 +368,40 @@ struct QuizCardView: View {
     }
 
     private func leave(duration: Double) {
-        guard phase != .leaving else { return }
+        guard state.phase != .leaving else { return }
         sequenceTask?.cancel()
-        sessionNotice = nil
+        state.sessionNotice = nil
         let cardID = card.id
         withAnimation(.easeIn(duration: duration)) {
-            phase = .leaving
+            state.phase = .leaving
         } completion: {
             // The session may have ended meanwhile.
-            if vm.presentation?.card.id == cardID { vm.advance() }
+            guard vm.presentation?.card.id == cardID else { return }
+            cancelTasks()
+            state = CardState()
+            vm.advance()
         }
+    }
+
+    /// Brings the card in and, for typed cards, focuses the answer field.
+    /// On the first card the keyboard rises with the entrance, while the card
+    /// is still transparent; after that it is already up and stays put.
+    /// Cards that need the room (a prompt diagram, a visual quiz) lower it.
+    private func enter() {
+        let showsPromptDiagram = card.cardType == .production && presentation.diagram != nil
+        inputFocused = !showsPromptDiagram && presentation.visualQuiz == nil
+        withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
+            state.hasAppeared = true
+        }
+        if vm.autoPlayPronunciation && card.cardType == .recognition {
+            SpeechService.shared.speak(presentation.promptText, languageCode: presentation.promptLanguage.speechCode)
+        }
+    }
+
+    private func cancelTasks() {
+        sequenceTask?.cancel()
+        hintTask?.cancel()
+        examplesTask?.cancel()
     }
 
     /// Shows the notice, if any, and returns whether it ran to completion.
@@ -393,12 +412,12 @@ struct QuizCardView: View {
             UINotificationFeedbackGenerator().notificationOccurred(haptic)
         }
         withAnimation(.spring(response: 0.28, dampingFraction: 0.8)) {
-            sessionNotice = notice
+            state.sessionNotice = notice
         }
         do {
             try await Task.sleep(for: .seconds(1.5))
             withAnimation(.easeOut(duration: 0.25)) {
-                sessionNotice = nil
+                state.sessionNotice = nil
             }
             try await Task.sleep(for: .seconds(0.25))
             return true
@@ -409,15 +428,15 @@ struct QuizCardView: View {
 
     private func shakeAndFlashRed() async {
         withAnimation(.easeIn(duration: 0.12)) {
-            promptHighlight = Color.red.opacity(0.2)
+            state.promptHighlight = Color.red.opacity(0.2)
         }
         withAnimation(.easeInOut(duration: 0.42)) {
-            shakeTrigger += 1.0
+            state.shakeTrigger += 1.0
         }
         try? await Task.sleep(for: .seconds(0.35))
         guard !Task.isCancelled else { return }
         withAnimation(.easeOut(duration: 0.22)) {
-            promptHighlight = Theme.surface
+            state.promptHighlight = Theme.surface
         }
         try? await Task.sleep(for: .seconds(0.12))
     }
@@ -426,7 +445,7 @@ struct QuizCardView: View {
 
     private var canRequestHint: Bool {
         guard !isRevealed else { return false }
-        switch hint {
+        switch state.hint {
         case .none: return true
         case .loading: return false
         case .shown(_, let allowsAnother): return allowsAnother
@@ -434,13 +453,13 @@ struct QuizCardView: View {
     }
 
     private func requestHint() {
-        guard phase == .answering, canRequestHint else { return }
+        guard state.phase == .answering, canRequestHint else { return }
 
         switch card.cardType {
         case .conjugation:
             let tense = presentation.conjugation?.tense ?? "unknown tense"
             let pronoun = presentation.conjugation?.pronoun ?? "unknown"
-            withAnimation { hint = .shown("Tense: \(tense) • Pronoun: \(pronoun)", allowsAnother: false) }
+            withAnimation { state.hint = .shown("Tense: \(tense) • Pronoun: \(pronoun)", allowsAnother: false) }
         case .production:
             // EN → IT: other ways to translate the Italian word.
             let meanings = [card.userWord.word.english] + presentation.alternatives
@@ -448,7 +467,7 @@ struct QuizCardView: View {
             if others.isEmpty {
                 loadHint { await AppleIntelligenceService.generateFillInTheBlankHint(for: card.correctAnswer) }
             } else {
-                withAnimation { hint = .shown("Also means: \(others.joined(separator: ", "))", allowsAnother: false) }
+                withAnimation { state.hint = .shown("Also means: \(others.joined(separator: ", "))", allowsAnother: false) }
             }
         case .recognition:
             // IT → EN: a contextual sentence.
@@ -458,18 +477,18 @@ struct QuizCardView: View {
 
     /// Falls back to the answer's first letter when no sentence is generated.
     private func loadHint(_ generate: @escaping () async -> String?) {
-        hint = .loading
+        state.hint = .loading
         hintTask = Task {
             let sentence = await generate()
             let fallback = "\(card.correctAnswer.first.map(String.init) ?? "?")..."
-            withAnimation { hint = .shown(sentence ?? fallback, allowsAnother: false) }
+            withAnimation { state.hint = .shown(sentence ?? fallback, allowsAnother: false) }
         }
     }
 
     private func generateExamples() {
-        guard card.cardType != .conjugation, examples == .none else { return }
+        guard card.cardType != .conjugation, state.examples == .none else { return }
         let word = card.userWord.word
-        examples = .loading
+        state.examples = .loading
         examplesTask = Task {
             let sentences = await AppleIntelligenceService.generateExamples(
                 for: word.italian,
@@ -477,7 +496,7 @@ struct QuizCardView: View {
                 topic: word.level
             )
             guard !Task.isCancelled else { return }
-            withAnimation { examples = .loaded(sentences) }
+            withAnimation { state.examples = .loaded(sentences) }
         }
     }
 }
