@@ -79,34 +79,82 @@ final class DatabaseService: @unchecked Sendable {
         }
         let backupDB = try DatabaseQueue(path: exportURL.path)
         try db.backup(to: backupDB)
+        // The Gemini key lives in the Keychain; make sure no legacy value (even
+        // in free pages) is ever exported.
+        try backupDB.write { db in
+            try db.execute(sql: "UPDATE userSettings SET geminiApiKey = ''")
+        }
+        try backupDB.vacuum()
         return exportURL
     }
 
-    func importDatabase(from url: URL) throws {
-        let appSupport = FileManager.default.urls(
-            for: .applicationSupportDirectory,
-            in: .userDomainMask
-        )[0]
-        let databaseURL = appSupport.appendingPathComponent("le_parole.sqlite")
+    /// Restores a backup into the live connection. The picked file is copied
+    /// and validated first, so an unusable file leaves current progress intact.
+    nonisolated func importDatabase(from url: URL) throws {
         let fileManager = FileManager.default
+        let tempURL = fileManager.temporaryDirectory
+            .appendingPathComponent("LeParoleRestore_\(UUID().uuidString).sqlite")
+        defer { try? fileManager.removeItem(at: tempURL) }
 
-        _ = url.startAccessingSecurityScopedResource()
-        defer { url.stopAccessingSecurityScopedResource() }
-
-        for url in [
-            databaseURL,
-            appSupport.appendingPathComponent("le_parole.sqlite-wal"),
-            appSupport.appendingPathComponent("le_parole.sqlite-shm"),
-        ] where fileManager.fileExists(atPath: url.path) {
-            try fileManager.removeItem(at: url)
+        do {
+            let isAccessing = url.startAccessingSecurityScopedResource()
+            defer { if isAccessing { url.stopAccessingSecurityScopedResource() } }
+            try fileManager.copyItem(at: url, to: tempURL)
         }
-        try fileManager.copyItem(at: url, to: databaseURL)
+
+        let backupSource = try Self.openValidatedBackup(atPath: tempURL.path)
+        try backupSource.backup(to: db)
+        try backupSource.close()
+
+        // The backup may predate the current schema.
+        try migrate()
+
+        // The backup API bypasses transaction observers, so tell active
+        // ValueObservations that everything may have changed.
+        try db.write { db in
+            try db.notifyChanges(in: .fullDatabase)
+        }
+    }
+
+    /// Opens a backup read-only and checks it looks like a Le Parole database.
+    nonisolated static func openValidatedBackup(atPath path: String) throws -> DatabaseQueue {
+        let requiredTables = ["words", "userWords", "grdb_migrations"]
+        let backup: DatabaseQueue
+        let missingTables: [String]
+        do {
+            var config = Configuration()
+            config.readonly = true
+            backup = try DatabaseQueue(path: path, configuration: config)
+            missingTables = try backup.read { db in
+                try requiredTables.filter { try !db.tableExists($0) }
+            }
+        } catch {
+            throw RestoreError.notADatabase
+        }
+        guard missingTables.isEmpty else {
+            throw RestoreError.missingTables(missingTables)
+        }
+        return backup
+    }
+
+    nonisolated enum RestoreError: LocalizedError {
+        case notADatabase
+        case missingTables([String])
+
+        var errorDescription: String? {
+            switch self {
+            case .notADatabase:
+                "The selected file is not a Le Parole backup. Your current progress was not changed."
+            case .missingTables(let tables):
+                "The selected file is not a Le Parole backup (missing \(tables.joined(separator: ", "))). Your current progress was not changed."
+            }
+        }
     }
 
     // GRDB validates the complete ordered migration history stored on-device.
     // Keep the retired identifiers so an existing progress database upgrades
     // instead of being rejected as having an incompatible history.
-    private func migrate() throws {
+    nonisolated private func migrate() throws {
         let hasSquashedHistory = try db.read { database in
             guard try database.tableExists("grdb_migrations") else { return false }
             return try String.fetchOne(

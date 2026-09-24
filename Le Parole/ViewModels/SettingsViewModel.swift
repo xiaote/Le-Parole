@@ -13,7 +13,13 @@ final class SettingsViewModel {
             in: db.db,
             scheduling: .async(onQueue: .main),
             onError: { _ in },
-            onChange: { [weak self] s in self?.settings = s }
+            onChange: { [weak self] s in
+                guard let self else { return }
+                settings = s
+                // A restore can move a legacy key from the database into the Keychain.
+                let storedKey = KeychainStore.get(KeychainStore.geminiApiKey) ?? ""
+                if storedKey != geminiApiKey { geminiApiKey = storedKey }
+            }
         )
     }
 
@@ -61,15 +67,9 @@ final class SettingsViewModel {
         }
     }
 
-    var geminiApiKey: String {
-        get { settings?.geminiApiKey ?? "" }
-        set {
-            guard var s = settings else { return }
-            s.geminiApiKey = newValue
-            Task.detached {
-                try? DatabaseService.shared.db.write { db in try s.save(db) }
-            }
-        }
+    /// Kept in the Keychain rather than SQLite so it never ends up in a backup.
+    var geminiApiKey = KeychainStore.get(KeychainStore.geminiApiKey) ?? "" {
+        didSet { KeychainStore.set(geminiApiKey, for: KeychainStore.geminiApiKey) }
     }
 
     var targetLevel: String {

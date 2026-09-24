@@ -737,13 +737,14 @@ final class GeminiService: Sendable {
             """
             
         let cleanApiKey = apiKey.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=\(cleanApiKey.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? cleanApiKey)") else {
+        guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent") else {
             return (sentence: "Invalid URL string", answer: "error", explanation: "The API key might contain invalid characters.", tense: requestedTense, pronoun: requestedPronoun, englishTranslation: "")
         }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.timeoutInterval = 12
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(cleanApiKey, forHTTPHeaderField: "x-goog-api-key")
         
         let payload = GeminiRequest(
             contents: [.init(role: "user", parts: [.init(text: instructions)])],
@@ -1013,13 +1014,14 @@ final class GeminiService: Sendable {
         """
         
         let cleanApiKey = apiKey.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=\(cleanApiKey.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? cleanApiKey)") else {
+        guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent") else {
             return nil
         }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.timeoutInterval = 12
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(cleanApiKey, forHTTPHeaderField: "x-goog-api-key")
         
         let payload = GeminiRequest(
             contents: [.init(role: "user", parts: [.init(text: instructions)])],

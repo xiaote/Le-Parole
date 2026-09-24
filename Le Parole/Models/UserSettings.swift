@@ -9,15 +9,13 @@ struct UserSettings: Identifiable, Sendable {
     var dailyNewWordGoal: Int
     var autoPlayPronunciation: Bool
     var conjugationLevel: Int
-    var geminiApiKey: String
     var targetLevel: String
 
-    init(dailyPracticeGoal: Int = 20, dailyNewWordGoal: Int = 20, autoPlayPronunciation: Bool = true, conjugationLevel: Int = 1, geminiApiKey: String = "", targetLevel: String = "None") {
+    init(dailyPracticeGoal: Int = 20, dailyNewWordGoal: Int = 20, autoPlayPronunciation: Bool = true, conjugationLevel: Int = 1, targetLevel: String = "None") {
         self.dailyPracticeGoal = dailyPracticeGoal
         self.dailyNewWordGoal = dailyNewWordGoal
         self.autoPlayPronunciation = autoPlayPronunciation
         self.conjugationLevel = conjugationLevel
-        self.geminiApiKey = geminiApiKey
         self.targetLevel = targetLevel
     }
 }
@@ -29,7 +27,6 @@ extension UserSettings: FetchableRecord {
         dailyNewWordGoal      = row["dailyNewWordGoal"]
         autoPlayPronunciation = row["autoPlayPronunciation"]
         conjugationLevel      = row["conjugationLevel"]
-        geminiApiKey          = row["geminiApiKey"] ?? ""
         targetLevel           = row["targetLevel"] ?? "None"
     }
 }
@@ -45,7 +42,6 @@ extension UserSettings: MutablePersistableRecord {
         container["dailyNewWordGoal"] = dailyNewWordGoal
         container["autoPlayPronunciation"] = autoPlayPronunciation
         container["conjugationLevel"] = conjugationLevel
-        container["geminiApiKey"] = geminiApiKey
         container["targetLevel"] = targetLevel
     }
 }

@@ -6,6 +6,13 @@ struct SettingsView: View {
     @State private var isApiKeyVisible = false
     @State private var isImporting = false
     @State private var backupUrlToExport: URL?
+    @State private var isRestoring = false
+    @State private var restoreResult: RestoreResult?
+
+    private struct RestoreResult {
+        let title: String
+        let message: String
+    }
 
     var body: some View {
         NavigationStack {
@@ -142,12 +149,17 @@ struct SettingsView: View {
                         HStack {
                             Image(systemName: "arrow.down.doc")
                             Text("Restore from backup")
+                            if isRestoring {
+                                Spacer()
+                                ProgressView()
+                            }
                         }
                     }
+                    .disabled(isRestoring)
                 } header: {
                     Text("Data backup")
                 } footer: {
-                    Text("Manually export your progress to a file, or restore from a previously saved backup file. Restoring will overwrite all current progress and instantly close the app to apply changes.")
+                    Text("Manually export your progress to a file, or restore from a previously saved backup file. Restoring will overwrite all current progress.")
                 }
             }
             .scrollContentBackground(.hidden)
@@ -158,20 +170,39 @@ struct SettingsView: View {
                 switch result {
                 case .success(let urls):
                     guard let fileUrl = urls.first else { return }
-                    do {
-                        try DatabaseService.shared.importDatabase(from: fileUrl)
-                        // Give the system daemon time to process the stopAccessingSecurityScopedResource IPC message
-                        // before force killing the app, otherwise the file stays locked as a ghost process.
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            exit(0)
-                        }
-                    } catch {
-                        print("Failed to restore: \(error)")
-                    }
+                    restore(from: fileUrl)
                 case .failure(let error):
-                    print("Import error: \(error)")
+                    restoreResult = RestoreResult(title: "Restore failed", message: error.localizedDescription)
                 }
             }
+            .alert(
+                restoreResult?.title ?? "",
+                isPresented: Binding(
+                    get: { restoreResult != nil },
+                    set: { if !$0 { restoreResult = nil } }
+                ),
+                presenting: restoreResult
+            ) { _ in
+                Button("OK") {}
+            } message: { result in
+                Text(result.message)
+            }
+        }
+    }
+
+    private func restore(from url: URL) {
+        isRestoring = true
+        Task {
+            do {
+                try await Task.detached {
+                    try DatabaseService.shared.importDatabase(from: url)
+                }.value
+                await WordLoader.resyncAfterRestore()
+                restoreResult = RestoreResult(title: "Backup restored", message: "Your progress has been restored from the backup file.")
+            } catch {
+                restoreResult = RestoreResult(title: "Restore failed", message: error.localizedDescription)
+            }
+            isRestoring = false
         }
     }
 }

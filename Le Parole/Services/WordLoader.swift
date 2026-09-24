@@ -155,5 +155,35 @@ enum WordLoader {
         } catch {
             print("ensureSettings error: \(error)")
         }
+        await migrateGeminiKeyToKeychain()
+    }
+
+    /// Older versions stored the Gemini key in `userSettings`, which put it in
+    /// every exported backup. Move it to the Keychain (unless one is already
+    /// stored there) and blank the column.
+    private static func migrateGeminiKeyToKeychain() async {
+        let db = DatabaseService.shared.db
+        do {
+            let legacyKey = try await db.read { db in
+                try String.fetchOne(db, sql: "SELECT geminiApiKey FROM userSettings WHERE geminiApiKey != '' LIMIT 1")
+            }
+            guard let legacyKey else { return }
+
+            let storedKey = KeychainStore.get(KeychainStore.geminiApiKey) ?? ""
+            guard !storedKey.isEmpty || KeychainStore.set(legacyKey, for: KeychainStore.geminiApiKey) else { return }
+            try await db.write { db in
+                try db.execute(sql: "UPDATE userSettings SET geminiApiKey = ''")
+            }
+        } catch {
+            print("Gemini key migration error: \(error)")
+        }
+    }
+
+    /// A restored backup may carry an older catalogue while the version
+    /// preference claims the current one, so force a full re-sync.
+    static func resyncAfterRestore() async {
+        UserDefaults.standard.removeObject(forKey: "wordDataVersion")
+        await loadIfNeeded()
+        await ensureSettings()
     }
 }

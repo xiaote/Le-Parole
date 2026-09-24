@@ -252,7 +252,7 @@ class StudySessionViewModel {
         }
         autoPlayPronunciation = snapshot?.settings?.autoPlayPronunciation ?? true
         conjugationLevel = snapshot?.settings?.conjugationLevel ?? 1
-        geminiApiKey = snapshot?.settings?.geminiApiKey ?? ""
+        geminiApiKey = KeychainStore.get(KeychainStore.geminiApiKey) ?? ""
 
         if isTestMode {
             configureTestQueue(
