@@ -83,7 +83,7 @@ enum ReviewOutcome: Sendable {
 
 enum ConjugationFetchStatus: Sendable {
     case loading
-    case success(sentence: String, answer: String, explanation: String, tense: String, pronoun: String, englishTranslation: String)
+    case success(ConjugationChallenge)
     case failed
 }
 
@@ -99,7 +99,6 @@ private struct SessionInitialization: Sendable {
 class StudySessionViewModel {
     private nonisolated static let testPageSize = 200
     private nonisolated static let testPagePrefetchThreshold = 40
-    private nonisolated static let conjugationGenerationTimeout: Duration = .seconds(12)
 
     var cards: [StudyCard] = []
     var conjugationCache: [UUID: ConjugationFetchStatus] = [:]
@@ -539,28 +538,6 @@ class StudySessionViewModel {
     @ObservationIgnored private var persistenceTask: Task<Void, Never>?
     @ObservationIgnored private var persistenceGeneration = 0
 
-    private nonisolated static func generatedBeforeDeadline<Value: Sendable>(
-        operation: @escaping @Sendable () async -> Value?
-    ) async -> Value? {
-        await withTaskGroup(of: Value?.self) { group in
-            group.addTask {
-                await operation()
-            }
-            group.addTask {
-                do {
-                    try await Task.sleep(for: conjugationGenerationTimeout)
-                } catch {
-                    return nil
-                }
-                return nil
-            }
-
-            let result = await group.next() ?? nil
-            group.cancelAll()
-            return result
-        }
-    }
-
     private func downgradeConjugationCard(id: UUID) {
         conjugationCache[id] = .failed
         if let index = cards.firstIndex(where: { $0.id == id }) {
@@ -577,224 +554,81 @@ class StudySessionViewModel {
         if case .success = conjugationCache[cards[currentIndex].id] { return }
         downgradeConjugationCard(id: cards[currentIndex].id)
     }
-    
+
+    /// The first conjugation card among the current and next card that still
+    /// needs a challenge, unless one there is already ready. At most one
+    /// conjugation card is generated at a time.
+    private func nextConjugationCardToGenerate() -> StudyCard? {
+        guard currentIndex < cards.count else { return nil }
+        for card in cards[currentIndex..<min(currentIndex + 2, cards.count)] where card.cardType == .conjugation {
+            switch conjugationCache[card.id] {
+            case nil:
+                return card
+            case .success:
+                return nil
+            case .loading:
+                // A loading state without the owning prefetch task is stale.
+                // Fail safely rather than treating it as ready.
+                downgradeConjugationCard(id: card.id)
+            case .failed:
+                break
+            }
+        }
+        return nil
+    }
+
     private func prefetchUpcomingCards() {
-        guard prefetchTask == nil else { return }
-        
-        prefetchTask = Task { @MainActor in
-            var requestedCardIDs: [UUID] = []
-            var generatedAnyCard = false
-            defer {
-                if Task.isCancelled {
-                    for cardID in requestedCardIDs {
-                        if case .loading = self.conjugationCache[cardID] {
-                            self.downgradeConjugationCard(id: cardID)
-                        }
-                    }
-                }
-                self.prefetchTask = nil
+        guard prefetchTask == nil, let card = nextConjugationCardToGenerate() else { return }
 
-                let currentNeedsGeneration: Bool
-                if !Task.isCancelled,
-                   self.currentIndex < self.cards.count,
-                   self.cards[self.currentIndex].cardType == .conjugation {
-                    currentNeedsGeneration = self.conjugationCache[self.cards[self.currentIndex].id] == nil
+        let cardID = card.id
+        let word = card.userWord.word
+        let level = conjugationLevel
+        let apiKey = geminiApiKey
+        conjugationCache[cardID] = .loading
+
+        prefetchTask = Task { @MainActor [weak self] in
+            let stats = (try? await DatabaseService.shared.db.read { db in
+                try ConjugationStat.fetchAll(
+                    db,
+                    sql: "SELECT * FROM conjugationStats WHERE verb = ?",
+                    arguments: [word.italian]
+                )
+            }) ?? []
+            let challenge = Task.isCancelled ? nil : await ConjugationChallengeGenerator.generate(
+                verb: word.italian,
+                englishMeaning: word.english,
+                level: level,
+                stats: stats,
+                apiKey: apiKey
+            )
+            guard let self else { return }
+            guard !Task.isCancelled else {
+                // cancelSessionWork already cleared prefetchTask.
+                if case .loading = self.conjugationCache[cardID] {
+                    self.downgradeConjugationCard(id: cardID)
+                }
+                return
+            }
+            self.prefetchTask = nil
+
+            if case .loading = self.conjugationCache[cardID] {
+                if let challenge {
+                    self.conjugationCache[cardID] = .success(challenge)
                 } else {
-                    currentNeedsGeneration = false
+                    self.downgradeConjugationCard(id: cardID)
                 }
+            }
 
-                // Immediately prioritize the current visible card if it was reached while
-                // another request was in flight. Do not self-retrigger to refill the buffer.
-                if !Task.isCancelled && currentNeedsGeneration {
-                    self.prefetchUpcomingCards()
-                }
-            }
-            var readyAhead = 0
-            var missingCards: [StudyCard] = []
-            
-            // Restrict lookahead to at most the current and the immediately following card
-            let maxLookahead = min(self.currentIndex + 2, self.cards.count)
-            for i in self.currentIndex..<maxLookahead {
-                if self.cards[i].cardType == .conjugation {
-                    let cacheState = self.conjugationCache[self.cards[i].id]
-                    if let state = cacheState {
-                        switch state {
-                        case .success:
-                            readyAhead += 1
-                        case .loading:
-                            // A loading state without the owning prefetch task is
-                            // stale. Fail safely rather than treating it as ready.
-                            self.downgradeConjugationCard(id: self.cards[i].id)
-                        case .failed:
-                            break
-                        }
-                    } else {
-                        missingCards.append(self.cards[i])
-                    }
-                    if readyAhead + missingCards.count >= 1 {
-                        break
-                    }
-                }
-            }
-            
-            let neededCards = max(0, 1 - readyAhead)
-            let currentCardNeedsPriority = self.currentIndex < self.cards.count &&
-                self.cards[self.currentIndex].cardType == .conjugation &&
-                self.conjugationCache[self.cards[self.currentIndex].id] == nil
-            missingCards = Array(missingCards.prefix(currentCardNeedsPriority ? 1 : neededCards))
-            guard !missingCards.isEmpty else { return }
-
-            let apiKey = self.geminiApiKey
-            var batchedRequests: [GeminiService.BatchChallengeRequest] = []
-            let level = self.conjugationLevel
-            
-            var baseTenses = ["presente"]
-            if level >= 2 { baseTenses += ["passato prossimo", "imperfetto", "presente progressivo"] }
-            if level >= 3 { baseTenses += ["futuro semplice", "imperativo"] }
-            if level >= 4 { baseTenses += ["condizionale presente", "condizionale passato"] }
-            if level >= 5 { baseTenses += ["congiuntivo presente", "congiuntivo imperfetto"] }
-            
-            let pronouns = ["io", "tu", "lui/lei", "noi", "voi", "loro"]
-            let stativeVerbs: Set<String> = ["piacere", "sembrare", "sapere", "conoscere", "volere", "potere", "dovere", "credere", "pensare", "amare", "odiare", "preferire", "capire", "ricordare", "dimenticare", "avere", "essere", "bastare", "mancare", "servire", "parere", "importare", "interessare", "costare", "significare", "sperare"]
-            let impersonalVerbs: Set<String> = ["piovere", "nevicare", "grandinare", "tuonare", "lampeggiare", "albeggiare", "imbrunire", "piovigginare"]
-
-            let verbs = Array(Set(missingCards.map { $0.userWord.word.italian }))
-            let statsByVerb: [String: [ConjugationStat]]
-            if verbs.isEmpty {
-                statsByVerb = [:]
-            } else {
-                let placeholders = Array(repeating: "?", count: verbs.count).joined(separator: ",")
-                let stats = (try? await DatabaseService.shared.db.read { db in
-                    try ConjugationStat.fetchAll(
-                        db,
-                        sql: "SELECT * FROM conjugationStats WHERE verb IN (\(placeholders))",
-                        arguments: StatementArguments(verbs)
-                    )
-                }) ?? []
-                guard !Task.isCancelled else { return }
-                statsByVerb = Dictionary(grouping: stats, by: \.verb)
-            }
-            
-            for card in missingCards {
-                self.conjugationCache[card.id] = .loading
-                requestedCardIDs.append(card.id)
-                let verb = card.userWord.word.italian
-                let isStative = stativeVerbs.contains(verb.lowercased())
-                let isImpersonal = impersonalVerbs.contains(verb.lowercased())
-                // Piacere is practised through its normal dative construction
-                // (mi/ti/gli piace), which has no useful direct imperative.
-                let isDativeConstruction = verb.caseInsensitiveCompare("piacere") == .orderedSame
-                
-                var cardTenses = baseTenses
-                if isStative {
-                    cardTenses.removeAll { $0 == "presente progressivo" }
-                }
-                if isImpersonal {
-                    cardTenses.removeAll { $0 == "imperativo" }
-                }
-                if isDativeConstruction {
-                    cardTenses.removeAll { $0 == "imperativo" }
-                }
-                
-                let stats = statsByVerb[verb] ?? []
-                var bestCombo: (tense: String, pronoun: String)?
-                var lowestScore: Double = 2.0
-                
-                var allCombos = cardTenses.flatMap { t -> [(String, String)] in
-                    var ps = t == "imperativo" ? pronouns.filter { $0 != "io" } : pronouns
-                    if isImpersonal {
-                        ps = ["lui/lei"]
-                    }
-                    return ps.map { p in (t, p) }
-                }
-                allCombos.shuffle()
-                
-                for (t, p) in allCombos {
-                    let stat = stats.first(where: { $0.tense == t && $0.pronoun == p })
-                    if stat == nil || stat!.attempts == 0 {
-                        bestCombo = (t, p)
-                        break
-                    } else if stat!.score < lowestScore {
-                        lowestScore = stat!.score
-                        bestCombo = (t, p)
-                    }
-                }
-                
-                let targetCombo = bestCombo ?? allCombos.randomElement()!
-                
-                batchedRequests.append(GeminiService.BatchChallengeRequest(
-                    id: card.id.uuidString,
-                    verb: verb,
-                    englishMeaning: card.userWord.word.english,
-                    tense: targetCombo.tense,
-                    pronoun: targetCombo.pronoun
-                ))
-            }
-            
-            if !apiKey.isEmpty {
-                let requests = batchedRequests
-                if let results = await Self.generatedBeforeDeadline(operation: {
-                    await GeminiService.generateBatchedConjugationChallenges(requests: requests, apiKey: apiKey)
-                }) {
-                    guard !Task.isCancelled else { return }
-                    for result in results {
-                        guard let cardId = UUID(uuidString: result.id) else { continue }
-                        if let cardIndex = self.cards.firstIndex(where: { $0.id == cardId }),
-                           self.cards[cardIndex].cardType == .conjugation,
-                           case .loading = self.conjugationCache[cardId] {
-                            self.conjugationCache[cardId] = .success(sentence: result.sentence, answer: result.answer, explanation: result.explanation ?? "", tense: result.tense ?? "", pronoun: result.pronoun ?? "", englishTranslation: result.englishTranslation ?? "")
-                            generatedAnyCard = true
-                        }
-                        batchedRequests.removeAll { $0.id == result.id }
-                    }
-                }
-                if GeminiService.lastErrorMessage != nil {
-                    GeminiService.lastErrorMessage = nil
-                }
-            }
-            
-            for req in batchedRequests {
-                guard let cardId = UUID(uuidString: req.id) else { continue }
-                let result: (sentence: String, answer: String, explanation: String, tense: String, pronoun: String, englishTranslation: String)?
-                
-                if !apiKey.isEmpty {
-                    result = nil
-                } else {
-                    result = await Self.generatedBeforeDeadline(operation: {
-                        await AppleIntelligenceService.generateConjugationChallenge(
-                            for: req.verb,
-                            englishMeaning: req.englishMeaning,
-                            tense: req.tense,
-                            pronoun: req.pronoun
-                        )
-                    })
-                }
-                guard !Task.isCancelled else { return }
-                
-                if let res = result {
-                    if let cardIndex = self.cards.firstIndex(where: { $0.id == cardId }),
-                       self.cards[cardIndex].cardType == .conjugation,
-                       case .loading = self.conjugationCache[cardId] {
-                        self.conjugationCache[cardId] = .success(sentence: res.sentence, answer: res.answer, explanation: res.explanation, tense: res.tense, pronoun: res.pronoun, englishTranslation: res.englishTranslation)
-                        generatedAnyCard = true
-                    }
-                } else {
-                    self.downgradeConjugationCard(id: cardId)
-                }
-            }
-            
             if GeminiService.isRateLimited {
-                for i in (0..<self.cards.count).reversed() {
-                    let card = self.cards[i]
-                    if card.cardType == .conjugation {
-                        if self.conjugationCache[card.id] == nil {
-                            self.conjugationCache[card.id] = .failed
-                            self.cards[i].cardType = .production
-                        }
-                    }
+                for index in self.cards.indices
+                where self.cards[index].cardType == .conjugation && self.conjugationCache[self.cards[index].id] == nil {
+                    self.conjugationCache[self.cards[index].id] = .failed
+                    self.cards[index].cardType = .production
                 }
             }
-            
+
+            // The learner may have advanced while this was generating.
+            self.prefetchUpcomingCards()
         }
     }
 
@@ -907,11 +741,11 @@ class StudySessionViewModel {
         }
         
         let conjugationReview: ConjugationReviewRecord?
-        if cardType == .conjugation, case .success(_, _, _, let tense, let pronoun, _) = conjugationCache[cards[currentIndex].id] {
+        if cardType == .conjugation, case .success(let challenge) = conjugationCache[cards[currentIndex].id] {
             conjugationReview = ConjugationReviewRecord(
                 verb: cards[currentIndex].userWord.word.italian,
-                tense: tense,
-                pronoun: pronoun
+                tense: challenge.tense,
+                pronoun: challenge.pronoun
             )
         } else {
             conjugationReview = nil

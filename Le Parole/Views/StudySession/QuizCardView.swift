@@ -82,18 +82,18 @@ struct QuizCardView: View {
     }
     
     private var conjugationSentence: String? {
-        if case .success(let sentence, _, _, _, _, _) = vm.conjugationCache[card.id] { return sentence }
+        if case .success(let challenge) = vm.conjugationCache[card.id] { return challenge.sentence }
         return nil
     }
 
     private var conjugationAnswer: String? {
-        if case .success(_, let answer, _, _, _, _) = vm.conjugationCache[card.id] { return answer }
+        if case .success(let challenge) = vm.conjugationCache[card.id] { return challenge.answer }
         return nil
     }
 
     private var conjugationExplanation: String? {
-        if case .success(_, _, let explanation, _, _, _) = vm.conjugationCache[card.id] {
-            return conciseExplanation(explanation)
+        if case .success(let challenge) = vm.conjugationCache[card.id] {
+            return conciseExplanation(challenge.explanation)
         }
         return nil
     }
@@ -119,17 +119,17 @@ struct QuizCardView: View {
     }
 
     private var conjugationTense: String? {
-        if case .success(_, _, _, let tense, _, _) = vm.conjugationCache[card.id] { return tense }
+        if case .success(let challenge) = vm.conjugationCache[card.id] { return challenge.tense }
         return nil
     }
 
     private var conjugationPronoun: String? {
-        if case .success(_, _, _, _, let pronoun, _) = vm.conjugationCache[card.id] { return pronoun }
+        if case .success(let challenge) = vm.conjugationCache[card.id] { return challenge.pronoun }
         return nil
     }
 
     private var geminiEnglishTranslation: String? {
-        if case .success(_, _, _, _, _, let translation) = vm.conjugationCache[card.id] { return translation }
+        if case .success(let challenge) = vm.conjugationCache[card.id] { return challenge.englishTranslation }
         return nil
     }
 
