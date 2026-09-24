@@ -198,7 +198,7 @@ struct SettingsView: View {
                 try await Task.detached {
                     try DatabaseService.shared.importDatabase(from: url)
                 }.value
-                await WordLoader.resyncAfterRestore()
+                await WordLoader.prepare()
                 vm.reloadGeminiApiKey()
                 restoreResult = RestoreResult(title: "Backup restored", message: "Your progress has been restored from the backup file.")
             } catch {

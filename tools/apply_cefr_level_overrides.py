@@ -29,7 +29,7 @@ def load_json(path: Path) -> object:
 def catalogue() -> tuple[dict[str, dict], dict[str, Path]]:
     entries: dict[str, dict] = {}
     paths: dict[str, Path] = {}
-    for path in sorted(DATA.glob("words_*.json")):
+    for path in [DATA / "words.json"]:
         for entry in load_json(path):
             word_id = entry["id"]
             if word_id in entries:

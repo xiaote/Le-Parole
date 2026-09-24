@@ -8,7 +8,9 @@ import GRDB
 final class SettingsStore {
     static let shared = SettingsStore()
 
-    private(set) var settings: UserSettings?
+    /// Migration v30 guarantees the settings row exists; the defaults only
+    /// stand in until the observation's first (synchronous) value.
+    private(set) var settings = UserSettings()
     @ObservationIgnored private var cancellable: AnyDatabaseCancellable?
     /// Observed values are ignored while local writes are in flight, so an
     /// earlier write's echo cannot briefly revert a newer local change.
@@ -21,24 +23,22 @@ final class SettingsStore {
                 scheduling: .immediate,
                 onError: { error in print("Settings observation failed: \(error)") },
                 onChange: { [weak self] settings in
-                    guard let self, pendingWrites == 0 else { return }
+                    guard let self, let settings, pendingWrites == 0 else { return }
                     self.settings = settings
                 }
             )
     }
 
-    var dailyPracticeGoal: Int { settings?.dailyPracticeGoal ?? 20 }
-    var dailyNewWordGoal: Int { settings?.dailyNewWordGoal ?? 20 }
-    var autoPlayPronunciation: Bool { settings?.autoPlayPronunciation ?? true }
-    var conjugationLevel: Int { settings?.conjugationLevel ?? 1 }
-    var targetLevel: String { settings?.targetLevel ?? "None" }
+    var dailyPracticeGoal: Int { settings.dailyPracticeGoal }
+    var dailyNewWordGoal: Int { settings.dailyNewWordGoal }
+    var autoPlayPronunciation: Bool { settings.autoPlayPronunciation }
+    var conjugationLevel: Int { settings.conjugationLevel }
+    var targetLevel: String { settings.targetLevel }
 
     func update(_ change: (inout UserSettings) -> Void) {
-        guard var updated = settings else { return }
-        change(&updated)
-        settings = updated
+        change(&settings)
         pendingWrites += 1
-        let record = updated
+        let record = settings
         DatabaseService.shared.db.asyncWrite({ db in
             var record = record
             try record.save(db)

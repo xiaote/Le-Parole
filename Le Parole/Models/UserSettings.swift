@@ -27,7 +27,7 @@ extension UserSettings: FetchableRecord {
         dailyNewWordGoal      = row["dailyNewWordGoal"]
         autoPlayPronunciation = row["autoPlayPronunciation"]
         conjugationLevel      = row["conjugationLevel"]
-        targetLevel           = row["targetLevel"] ?? "None"
+        targetLevel           = row["targetLevel"]
     }
 }
 

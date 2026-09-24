@@ -25,25 +25,12 @@ struct ContentView: View {
         }
         .tint(Theme.primary)
         .task {
-            let catalogueAlreadyAvailable = await WordLoader.hasCatalogue()
-            async let loadData: Void = {
-                await WordLoader.loadIfNeeded()
-                await WordLoader.ensureSettings()
-            }()
-
-            // Existing installs already have a usable local catalogue. Do not
-            // hold their entire UI behind a background refresh or decorative
-            // splash delay. A genuinely new install still waits for its first
-            // atomic import so it cannot start an empty study session.
-            if !catalogueAlreadyAvailable {
-                await loadData
-            }
+            // Returns at once when a catalogue exists (any refresh continues in
+            // the background); a new install waits for its first import so it
+            // cannot start an empty study session.
+            await WordLoader.prepare()
             withAnimation(.easeInOut(duration: 0.5)) {
                 isReady = true
-            }
-
-            if catalogueAlreadyAvailable {
-                await loadData
             }
         }
     }

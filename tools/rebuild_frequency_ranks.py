@@ -54,7 +54,7 @@ except ImportError as error:  # pragma: no cover - exercised by users without th
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIRECTORY = REPOSITORY_ROOT / "Le Parole" / "Data"
 REPORT_PATH = REPOSITORY_ROOT / "tools" / "audits" / "frequency_audit.json"
-WORD_FILES = sorted(DATA_DIRECTORY.glob("words_*.json"))
+WORD_FILES = [DATA_DIRECTORY / "words.json"]
 CEFR_LEVELS = {"A1", "A2", "B1", "B2", "C1", "C2"}
 PAISA_SOURCE_URL = (
     "https://clarin.eurac.edu/repository/xmlui/bitstream/handle/20.500.12124/3/"

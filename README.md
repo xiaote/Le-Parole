@@ -5,9 +5,16 @@ Le Parole is an iPhone and iPad app for learning Italian vocabulary and verb con
 ## Highlights
 
 - Learn from bundled Italian vocabulary across CEFR levels A1–C2, or add your own words.
+- Review recognition and production cards using SM-2 scheduling.
+- Practice verb conjugations in contextual fill-in-the-blank sentences.
+- Track progress, mastery, and conjugation performance.
+- Back up and restore local learning data from Settings.
+
+Study data is stored locally in a SQLite database via [GRDB](https://github.com/groue/GRDB.swift).
 
 ## Vocabulary curation
 
+The bundled catalogue is a single file, `Le Parole/Data/words.json`.
 Frequency ranks determine learning priority; they do not assign CEFR levels. The
 catalogue's original labels are frozen in `tools/cefr_level_baseline.json`, and
 every editorial correction must be documented in
@@ -15,17 +22,18 @@ every editorial correction must be documented in
 reference. Run `python3 tools/validate_vocabulary_data.py` to verify both the
 catalogue and this audit trail.
 
-## Catalogue migrations
+## Database and catalogue updates
 
-The database keeps historic migration identifiers so local learning data can
-upgrade in place. Fresh installs are created directly with the current schema,
-while `v27_current_schema` also applies the reviewed catalogue redirects.
-- Review recognition and production cards using SM-2 scheduling.
-- Practice verb conjugations in contextual fill-in-the-blank sentences.
-- Track progress, mastery, and conjugation performance.
-- Back up and restore local learning data from Settings.
+Schema migrations start at `v27_current_schema`, which creates the full schema
+on a fresh install; later migrations are idempotent. Backups made before v27
+(August 2026) cannot be restored.
 
-Study data is stored locally in a SQLite database via [GRDB](https://github.com/groue/GRDB.swift). The app seeds that database from the vocabulary JSON files in `Le Parole/Data/`.
+On launch the app imports `words.json` in one transaction whenever the
+database's `PRAGMA user_version` is older than `WordLoader.catalogueVersion`
+(bump it whenever the catalogue changes). Existing bundled words are updated in
+place, user-created words are never modified, and learning history is kept.
+Because the version lives in the database, a restored backup is refreshed
+automatically.
 
 ## Requirements
 

@@ -42,11 +42,11 @@ struct StatsView: View {
                 }
 
                 Section("Overall") {
-                    ProgressRow(label: "Mastered",              count: vm.mastered,    total: vm.total, color: Theme.mastered)
-                    ProgressRow(label: "Production (EN → IT)",  count: vm.production,  total: vm.total, color: Theme.production)
-                    ProgressRow(label: "Recognition (IT → EN)", count: vm.recognition, total: vm.total, color: Theme.recognition)
-                    ProgressRow(label: "Not started",           count: vm.notStarted,  total: vm.total, color: .gray)
-                    ProgressRow(label: "Skipped",               count: vm.skipped,     total: nil,      color: .secondary)
+                    ProgressRow(label: "Mastered",              count: vm.snapshot.mastered,    total: vm.snapshot.total, color: Theme.mastered)
+                    ProgressRow(label: "Production (EN → IT)",  count: vm.snapshot.production,  total: vm.snapshot.total, color: Theme.production)
+                    ProgressRow(label: "Recognition (IT → EN)", count: vm.snapshot.recognition, total: vm.snapshot.total, color: Theme.recognition)
+                    ProgressRow(label: "Not started",           count: vm.snapshot.notStarted,  total: vm.snapshot.total, color: .gray)
+                    ProgressRow(label: "Skipped",               count: vm.snapshot.skipped,     total: nil,               color: .secondary)
                 }
                 
                 if !vm.tenseStats.isEmpty {
@@ -63,9 +63,9 @@ struct StatsView: View {
                     }
                 }
 
-                if !vm.customCategories.isEmpty {
+                if !vm.snapshot.customCategories.isEmpty {
                     Section("By category") {
-                        ForEach(vm.customCategories, id: \.self) { category in
+                        ForEach(vm.snapshot.customCategories, id: \.self) { category in
                             LevelProgressRow(stats: vm.statsFor(level: category))
                         }
                     }
@@ -233,15 +233,13 @@ private struct DailyActivityChart: View {
                 HStack(alignment: .firstTextBaseline, spacing: 8) {
                     Text("\(data.reviewAttempts) answers")
                         .font(.theme(.title2, weight: .bold))
-                    if data.hasDetailedMetrics {
-                        HStack(spacing: 10) {
-                            Text("\(data.correctAnswers) correct")
-                            Text("\(data.wordsIntroduced) new")
-                            Text("\(data.movedToMastered) mastered")
-                        }
-                        .font(.theme(.caption))
-                        .foregroundStyle(.secondary)
+                    HStack(spacing: 10) {
+                        Text("\(data.correctAnswers) correct")
+                        Text("\(data.wordsIntroduced) new")
+                        Text("\(data.movedToMastered) mastered")
                     }
+                    .font(.theme(.caption))
+                    .foregroundStyle(.secondary)
                 }
             }
             Spacer()

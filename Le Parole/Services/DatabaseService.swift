@@ -35,7 +35,7 @@ final class DatabaseService: @unchecked Sendable {
                 try db.execute(sql: "PRAGMA cache_size = -1000;")
             }
             db = try DatabaseQueue(path: dbPath, configuration: config)
-            try migrate()
+            try Self.makeMigrator().migrate(db)
             setupMemoryTrimming()
         } catch {
             fatalError("DatabaseService init failed: \(error.localizedDescription)")
@@ -68,6 +68,8 @@ final class DatabaseService: @unchecked Sendable {
         }
     }
 
+    // MARK: - Backup and restore
+
     func exportDatabase() throws -> URL {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd_HH-mm"
@@ -77,14 +79,10 @@ final class DatabaseService: @unchecked Sendable {
         if FileManager.default.fileExists(atPath: exportURL.path) {
             try FileManager.default.removeItem(at: exportURL)
         }
-        let backupDB = try DatabaseQueue(path: exportURL.path)
-        try db.backup(to: backupDB)
-        // The Gemini key lives in the Keychain; make sure no legacy value (even
-        // in free pages) is ever exported.
-        try backupDB.write { db in
-            try db.execute(sql: "UPDATE userSettings SET geminiApiKey = ''")
-        }
-        try backupDB.vacuum()
+        // VACUUM INTO writes a compact copy without free pages, so deleted
+        // content (such as the Gemini key older versions kept in userSettings)
+        // cannot travel with a backup.
+        try db.vacuum(into: exportURL.path)
         return exportURL
     }
 
@@ -107,7 +105,7 @@ final class DatabaseService: @unchecked Sendable {
         try backupSource.close()
 
         // The backup may predate the current schema.
-        try migrate()
+        try Self.makeMigrator().migrate(db)
 
         // The backup API bypasses transaction observers, so tell active
         // ValueObservations that everything may have changed.
@@ -116,17 +114,26 @@ final class DatabaseService: @unchecked Sendable {
         }
     }
 
-    /// Opens a backup read-only and checks it looks like a Le Parole database.
+    /// Opens a backup read-only and checks it is a Le Parole database that
+    /// has reached `oldestSupportedMigration`.
     nonisolated static func openValidatedBackup(atPath path: String) throws -> DatabaseQueue {
         let requiredTables = ["words", "userWords", "grdb_migrations"]
         let backup: DatabaseQueue
         let missingTables: [String]
+        let isSupported: Bool
         do {
             var config = Configuration()
             config.readonly = true
             backup = try DatabaseQueue(path: path, configuration: config)
-            missingTables = try backup.read { db in
-                try requiredTables.filter { try !db.tableExists($0) }
+            (missingTables, isSupported) = try backup.read { db in
+                let missing = try requiredTables.filter { try !db.tableExists($0) }
+                guard missing.isEmpty else { return (missing, false) }
+                let supported = try Bool.fetchOne(
+                    db,
+                    sql: "SELECT EXISTS (SELECT 1 FROM grdb_migrations WHERE identifier = ?)",
+                    arguments: [oldestSupportedMigration]
+                ) ?? false
+                return (missing, supported)
             }
         } catch {
             throw RestoreError.notADatabase
@@ -134,12 +141,16 @@ final class DatabaseService: @unchecked Sendable {
         guard missingTables.isEmpty else {
             throw RestoreError.missingTables(missingTables)
         }
+        guard isSupported else {
+            throw RestoreError.unsupportedVersion
+        }
         return backup
     }
 
     nonisolated enum RestoreError: LocalizedError {
         case notADatabase
         case missingTables([String])
+        case unsupportedVersion
 
         var errorDescription: String? {
             switch self {
@@ -147,51 +158,29 @@ final class DatabaseService: @unchecked Sendable {
                 "The selected file is not a Le Parole backup. Your current progress was not changed."
             case .missingTables(let tables):
                 "The selected file is not a Le Parole backup (missing \(tables.joined(separator: ", "))). Your current progress was not changed."
+            case .unsupportedVersion:
+                "This backup was made by a version of Le Parole from before August 2026, which can no longer be restored. Your current progress was not changed."
             }
         }
     }
 
-    // GRDB validates the complete ordered migration history stored on-device.
-    // Keep the retired identifiers so an existing progress database upgrades
-    // instead of being rejected as having an incompatible history.
-    nonisolated private func migrate() throws {
-        let hasSquashedHistory = try db.read { database in
-            guard try database.tableExists("grdb_migrations") else { return false }
-            return try String.fetchOne(
-                database,
-                sql: "SELECT identifier FROM grdb_migrations WHERE identifier = ?",
-                arguments: ["v27_current_schema"]
-            ) != nil
-        }
+    // MARK: - Migrations
 
+    /// Every database, fresh or restored, must have applied this migration.
+    /// Identifiers of removed, older migrations may remain in
+    /// `grdb_migrations`; GRDB ignores unknown applied identifiers.
+    nonisolated static let oldestSupportedMigration = "v27_current_schema"
+
+    /// - Parameter storeLegacyGeminiKey: Receives a Gemini key found in the
+    ///   retired `userSettings.geminiApiKey` column. Tests inject a stub.
+    nonisolated static func makeMigrator(
+        storeLegacyGeminiKey: @escaping @Sendable (String) -> Void = moveGeminiKeyToKeychain
+    ) -> DatabaseMigrator {
         var migrator = DatabaseMigrator()
-        if !hasSquashedHistory {
-            let historicMigrationIdentifiers = [
-                "v1_schema", "v2_cleanup_conjugated_verbs", "v2_schema_settings",
-                "v2_dedup_words", "v3_daily_activity", "v4_dedup_words",
-                "v5_dedup_all", "v6_conjugation_setting", "v8_autoplay_setting",
-                "v9_conjugation_level", "v7_cleanup_conjugated_verbs",
-                "v10_remove_same_words", "v11_conjugation_stats",
-                "v12_deduplicate_words_2026", "v13_remove_same_words_again",
-                "v14_remove_abbreviations", "v15_inflections", "v16_gemini_key",
-                "v17_target_level", "v18_part_of_speech", "v19_cleanup_orphans",
-                "v20_ensure_userwords", "v21_redirect_catalogue_duplicates",
-                "v22_redirect_orthographic_variants", "v23_retire_composite_number_cards",
-                "v24_progress_metrics", "v25_daily_practice_goal",
-            ]
-            for identifier in historicMigrationIdentifiers {
-                migrator.registerMigration(identifier) { _ in
-                    // Fresh databases are created at v27. These identifiers
-                    // allow GRDB to recognize older on-device histories.
-                }
-            }
-        }
 
-        migrator.registerMigration("v27_current_schema") { db in
-            if try db.tableExists("words") {
-                try Self.reconcileKnownCatalogueRetirements(db)
-            } else {
-                try Self.createCurrentSchema(db)
+        migrator.registerMigration(oldestSupportedMigration) { db in
+            if try !db.tableExists("words") {
+                try createCurrentSchema(db)
             }
         }
 
@@ -219,7 +208,44 @@ final class DatabaseService: @unchecked Sendable {
             try db.execute(sql: "DROP INDEX IF EXISTS idx_uw_word")
             try db.create(index: "idx_uw_word_unique", on: "userWords", columns: ["wordId"], unique: true, ifNotExists: true)
         }
-        try migrator.migrate(db)
+
+        migrator.registerMigration("v30_drop_legacy_columns") { db in
+            let settingsColumns = try Set(db.columns(in: "userSettings").map(\.name))
+            if settingsColumns.contains("geminiApiKey"),
+               let legacyKey = try String.fetchOne(
+                   db,
+                   sql: "SELECT geminiApiKey FROM userSettings WHERE geminiApiKey != '' LIMIT 1"
+               ) {
+                storeLegacyGeminiKey(legacyKey)
+            }
+            try dropColumns(["geminiApiKey", "extraConjugationCards"], ifIn: settingsColumns, from: "userSettings", db)
+
+            // Per-day stage snapshots, superseded by the per-answer counters.
+            let activityColumns = try Set(db.columns(in: "dailyActivity").map(\.name))
+            try dropColumns(["recognition", "production", "mastered", "hasDetailedMetrics"], ifIn: activityColumns, from: "dailyActivity", db)
+
+            if try UserSettings.fetchCount(db) == 0 {
+                var settings = UserSettings()
+                try settings.insert(db)
+            }
+        }
+        return migrator
+    }
+
+    nonisolated private static func dropColumns(_ columns: [String], ifIn existing: Set<String>, from table: String, _ db: Database) throws {
+        let present = columns.filter(existing.contains)
+        guard !present.isEmpty else { return }
+        try db.alter(table: table) { t in
+            for column in present { t.drop(column: column) }
+        }
+    }
+
+    /// Keeps a key already in the Keychain; otherwise stores the legacy one.
+    nonisolated static func moveGeminiKeyToKeychain(_ legacyKey: String) {
+        guard (KeychainStore.get(KeychainStore.geminiApiKey) ?? "").isEmpty else { return }
+        if !KeychainStore.set(legacyKey, for: KeychainStore.geminiApiKey) {
+            print("Could not move the legacy Gemini key to the Keychain")
+        }
     }
 
     nonisolated private static func createCurrentSchema(_ db: Database) throws {
@@ -250,27 +276,23 @@ final class DatabaseService: @unchecked Sendable {
             t.column("totalAttempts", .integer).notNull().defaults(to: 0)
         }
 
+        // Defaults live in `UserSettings.init`; v30 inserts the single row.
         try db.create(table: "userSettings") { t in
             t.autoIncrementedPrimaryKey("id")
-            t.column("dailyPracticeGoal", .integer).notNull().defaults(to: 20)
-            t.column("dailyNewWordGoal", .integer).notNull().defaults(to: 20)
-            t.column("autoPlayPronunciation", .boolean).notNull().defaults(to: true)
-            t.column("conjugationLevel", .integer).notNull().defaults(to: 1)
-            t.column("geminiApiKey", .text).notNull().defaults(to: "")
-            t.column("targetLevel", .text).notNull().defaults(to: "None")
+            t.column("dailyPracticeGoal", .integer).notNull()
+            t.column("dailyNewWordGoal", .integer).notNull()
+            t.column("autoPlayPronunciation", .boolean).notNull()
+            t.column("conjugationLevel", .integer).notNull()
+            t.column("targetLevel", .text).notNull()
         }
 
         try db.create(table: "dailyActivity") { t in
             t.primaryKey("date", .text)
-            t.column("recognition", .integer).notNull().defaults(to: 0)
-            t.column("production", .integer).notNull().defaults(to: 0)
-            t.column("mastered", .integer).notNull().defaults(to: 0)
             t.column("reviewAttempts", .integer).notNull().defaults(to: 0)
             t.column("correctAnswers", .integer).notNull().defaults(to: 0)
             t.column("wordsIntroduced", .integer).notNull().defaults(to: 0)
             t.column("movedToProduction", .integer).notNull().defaults(to: 0)
             t.column("movedToMastered", .integer).notNull().defaults(to: 0)
-            t.column("hasDetailedMetrics", .boolean).notNull().defaults(to: false)
         }
 
         try db.create(table: "tenseStats") { t in
@@ -299,108 +321,6 @@ final class DatabaseService: @unchecked Sendable {
         try db.create(index: "idx_w_level_freq", on: "words", columns: ["level", "frequencyRank"])
     }
 
-    nonisolated private static func reconcileKnownCatalogueRetirements(_ db: Database) throws {
-        try mergeCatalogueDuplicates(db, redirects: [
-            "comm_15943": "comm_444", // claro (obsolete) → chiaro
-            "comm_11974": "2050",     // sù → su
-        ])
-    }
-
-    nonisolated private static func mergeCatalogueDuplicates(_ db: Database, redirects: [String: String]) throws {
-        for (retiredID, canonicalID) in redirects {
-            guard try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM words WHERE wordId = ?", arguments: [canonicalID]) ?? 0 > 0 else {
-                continue
-            }
-
-            let retired = try Row.fetchOne(db, sql: "SELECT * FROM userWords WHERE wordId = ?", arguments: [retiredID])
-            let canonical = try Row.fetchOne(db, sql: "SELECT * FROM userWords WHERE wordId = ?", arguments: [canonicalID])
-
-            switch (retired, canonical) {
-            case let (retired?, canonical?):
-                try merge(retired: retired, into: canonical, canonicalID: canonicalID, db: db)
-                try db.execute(sql: "DELETE FROM userWords WHERE wordId = ?", arguments: [retiredID])
-            case (let retired?, nil):
-                let userWordID: Int64 = retired["id"]
-                try db.execute(
-                    sql: "UPDATE userWords SET wordId = ? WHERE id = ?",
-                    arguments: [canonicalID, userWordID]
-                )
-            case (nil, _):
-                break
-            }
-            try db.execute(sql: "DELETE FROM words WHERE wordId = ?", arguments: [retiredID])
-        }
-    }
-
-    nonisolated private static func merge(retired: Row, into canonical: Row, canonicalID: String, db: Database) throws {
-        let retiredStage: String = retired["stage"]
-        let canonicalStage: String = canonical["stage"]
-        let mergedStage: String
-        if retiredStage == "skipped" { mergedStage = canonicalStage }
-        else if canonicalStage == "skipped" { mergedStage = retiredStage }
-        else if retiredStage == "recognition" || canonicalStage == "recognition" { mergedStage = "recognition" }
-        else if retiredStage == "production" || canonicalStage == "production" { mergedStage = "production" }
-        else if retiredStage == "mastered" && canonicalStage == "mastered" { mergedStage = "mastered" }
-        else { mergedStage = "new" }
-
-        func later(_ first: Double?, _ second: Double?) -> Double? {
-            switch (first, second) {
-            case let (left?, right?): max(left, right)
-            case let (left?, nil): left
-            case let (nil, right?): right
-            case (nil, nil): nil
-            }
-        }
-
-        func earlier(_ first: Double?, _ second: Double?) -> Double? {
-            switch (first, second) {
-            case let (left?, right?): min(left, right)
-            case let (left?, nil): left
-            case let (nil, right?): right
-            case (nil, nil): nil
-            }
-        }
-
-        let retiredEase: Double = retired["easeFactor"]
-        let canonicalEase: Double = canonical["easeFactor"]
-        let retiredInterval: Int = retired["interval"]
-        let canonicalInterval: Int = canonical["interval"]
-        let retiredRepetitions: Int = retired["repetitions"]
-        let canonicalRepetitions: Int = canonical["repetitions"]
-        let retiredNextReview: Double = retired["nextReviewDate"]
-        let canonicalNextReview: Double = canonical["nextReviewDate"]
-        let retiredCorrect: Int = retired["totalCorrect"]
-        let canonicalCorrect: Int = canonical["totalCorrect"]
-        let retiredAttempts: Int = retired["totalAttempts"]
-        let canonicalAttempts: Int = canonical["totalAttempts"]
-        let retiredLastReview: Double? = retired["lastReviewDate"]
-        let canonicalLastReview: Double? = canonical["lastReviewDate"]
-        let retiredLearned: Double? = retired["learnedDate"]
-        let canonicalLearned: Double? = canonical["learnedDate"]
-        let retiredLastWrong: Double? = retired["lastWrongDate"]
-        let canonicalLastWrong: Double? = canonical["lastWrongDate"]
-
-        try db.execute(sql: """
-            UPDATE userWords
-            SET stage = ?, easeFactor = ?, interval = ?, repetitions = ?, nextReviewDate = ?,
-                lastReviewDate = ?, learnedDate = ?, lastWrongDate = ?,
-                totalCorrect = ?, totalAttempts = ?
-            WHERE wordId = ?
-            """, arguments: [
-                mergedStage,
-                min(retiredEase, canonicalEase),
-                min(retiredInterval, canonicalInterval),
-                min(retiredRepetitions, canonicalRepetitions),
-                min(retiredNextReview, canonicalNextReview),
-                later(retiredLastReview, canonicalLastReview),
-                earlier(retiredLearned, canonicalLearned),
-                later(retiredLastWrong, canonicalLastWrong),
-                retiredCorrect + canonicalCorrect,
-                retiredAttempts + canonicalAttempts,
-                canonicalID,
-            ])
-    }
-
     // MARK: - Fetch helpers
 
     nonisolated static let userWordSelectSQL = """
@@ -427,6 +347,14 @@ final class DatabaseService: @unchecked Sendable {
 
     // MARK: - Review persistence
 
+    /// Upsert clause shared by tense and conjugation scores: an exponentially
+    /// weighted moving average of correctness, seeded by the first answer.
+    nonisolated private static let scoreUpsertSQL = """
+        score = CASE WHEN attempts = 0 THEN excluded.score
+                     ELSE score * 0.85 + excluded.score * 0.15 END,
+        attempts = attempts + 1
+        """
+
     /// Persists all state produced by one answer in a single transaction. This
     /// keeps the user word, daily totals, and optional conjugation scores atomic.
     /// Called from the main actor, `asyncWrite` enqueues reviews in answer order.
@@ -444,17 +372,16 @@ final class DatabaseService: @unchecked Sendable {
             try userWord.update(db)
             try db.execute(sql: """
                 INSERT INTO dailyActivity (
-                    date, recognition, production, mastered,
-                    reviewAttempts, correctAnswers, wordsIntroduced,
-                    movedToProduction, movedToMastered, hasDetailedMetrics
+                    date, reviewAttempts, correctAnswers, wordsIntroduced,
+                    movedToProduction, movedToMastered
                 )
-                VALUES (?, 0, 0, 0, 1, ?, ?, ?, ?, 1)
+                VALUES (?, 1, ?, ?, ?, ?)
                 ON CONFLICT(date) DO UPDATE SET
                     reviewAttempts = reviewAttempts + 1,
-                    correctAnswers = correctAnswers + CASE WHEN hasDetailedMetrics THEN excluded.correctAnswers ELSE 0 END,
-                    wordsIntroduced = wordsIntroduced + CASE WHEN hasDetailedMetrics THEN excluded.wordsIntroduced ELSE 0 END,
-                    movedToProduction = movedToProduction + CASE WHEN hasDetailedMetrics THEN excluded.movedToProduction ELSE 0 END,
-                    movedToMastered = movedToMastered + CASE WHEN hasDetailedMetrics THEN excluded.movedToMastered ELSE 0 END
+                    correctAnswers = correctAnswers + excluded.correctAnswers,
+                    wordsIntroduced = wordsIntroduced + excluded.wordsIntroduced,
+                    movedToProduction = movedToProduction + excluded.movedToProduction,
+                    movedToMastered = movedToMastered + excluded.movedToMastered
                 """, arguments: [
                     today,
                     correct ? 1 : 0,
@@ -464,37 +391,15 @@ final class DatabaseService: @unchecked Sendable {
                 ])
 
             guard let conjugation else { return }
-            let currentTense = try TenseStat.fetchOne(db, key: conjugation.tense)
-                ?? TenseStat(tense: conjugation.tense)
-            let tenseScore = currentTense.attempts == 0
-                ? (correct ? 1.0 : 0.0)
-                : (currentTense.score * 0.85) + (correct ? 0.15 : 0.0)
-            try TenseStat(
-                tense: conjugation.tense,
-                score: tenseScore,
-                attempts: currentTense.attempts + 1
-            ).save(db)
-
-            let currentConjugation = try ConjugationStat.fetchOne(
-                db,
-                sql: "SELECT * FROM conjugationStats WHERE verb = ? AND tense = ? AND pronoun = ?",
-                arguments: [conjugation.verb, conjugation.tense, conjugation.pronoun]
-            ) ?? ConjugationStat(
-                verb: conjugation.verb,
-                tense: conjugation.tense,
-                pronoun: conjugation.pronoun
-            )
-            let conjugationScore = currentConjugation.attempts == 0
-                ? (correct ? 1.0 : 0.0)
-                : (currentConjugation.score * 0.85) + (correct ? 0.15 : 0.0)
-            try ConjugationStat(
-                id: currentConjugation.id,
-                verb: conjugation.verb,
-                tense: conjugation.tense,
-                pronoun: conjugation.pronoun,
-                score: conjugationScore,
-                attempts: currentConjugation.attempts + 1
-            ).save(db)
+            let score = correct ? 1.0 : 0.0
+            try db.execute(sql: """
+                INSERT INTO tenseStats (tense, score, attempts) VALUES (?, ?, 1)
+                ON CONFLICT(tense) DO UPDATE SET \(Self.scoreUpsertSQL)
+                """, arguments: [conjugation.tense, score])
+            try db.execute(sql: """
+                INSERT INTO conjugationStats (verb, tense, pronoun, score, attempts) VALUES (?, ?, ?, ?, 1)
+                ON CONFLICT(verb, tense, pronoun) DO UPDATE SET \(Self.scoreUpsertSQL)
+                """, arguments: [conjugation.verb, conjugation.tense, conjugation.pronoun, score])
         }, completion: { _, result in
             if case .failure(let error) = result {
                 print("Failed to persist review: \(error)")

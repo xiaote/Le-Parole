@@ -8,9 +8,7 @@ struct DailyCount: Identifiable, FetchableRecord, TableRecord {
     var reviewAttempts: Int
     var correctAnswers: Int
     var wordsIntroduced: Int
-    var movedToProduction: Int
     var movedToMastered: Int
-    var hasDetailedMetrics: Bool
     
     var total: Int { reviewAttempts }
     var id: String { dateString }
@@ -21,17 +19,13 @@ struct DailyCount: Identifiable, FetchableRecord, TableRecord {
         reviewAttempts: Int = 0,
         correctAnswers: Int = 0,
         wordsIntroduced: Int = 0,
-        movedToProduction: Int = 0,
-        movedToMastered: Int = 0,
-        hasDetailedMetrics: Bool = false
+        movedToMastered: Int = 0
     ) {
         self.dateString = dateString
         self.reviewAttempts = reviewAttempts
         self.correctAnswers = correctAnswers
         self.wordsIntroduced = wordsIntroduced
-        self.movedToProduction = movedToProduction
         self.movedToMastered = movedToMastered
-        self.hasDetailedMetrics = hasDetailedMetrics
         self.date = AppDateFormatter.date(from: dateString) ?? .now
     }
     
@@ -40,9 +34,7 @@ struct DailyCount: Identifiable, FetchableRecord, TableRecord {
         reviewAttempts = row["reviewAttempts"]
         correctAnswers = row["correctAnswers"]
         wordsIntroduced = row["wordsIntroduced"]
-        movedToProduction = row["movedToProduction"]
         movedToMastered = row["movedToMastered"]
-        hasDetailedMetrics = row["hasDetailedMetrics"]
         date = AppDateFormatter.date(from: dateString) ?? .now
     }
 }
@@ -242,15 +234,6 @@ final class StatsViewModel {
         get { SettingsStore.shared.targetLevel }
         set { SettingsStore.shared.update { $0.targetLevel = newValue } }
     }
-
-    var mastered:    Int { snapshot.mastered }
-    var production:  Int { snapshot.production }
-    var recognition: Int { snapshot.recognition }
-    var notStarted:  Int { snapshot.notStarted }
-    var skipped:     Int { snapshot.skipped }
-    var total:       Int { snapshot.total }
-
-    var customCategories: [String] { snapshot.customCategories }
 
     func statsFor(level: String) -> LevelStats {
         snapshot.levelStats[level] ?? LevelStats(level: level, mastered: 0, production: 0, recognition: 0, total: 0)

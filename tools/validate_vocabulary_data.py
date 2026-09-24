@@ -16,11 +16,10 @@ from apply_cefr_level_overrides import load_baseline, load_ledger, validate as v
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "Le Parole" / "Data"
 LEVELS = {"A1", "A2", "B1", "B2", "C1", "C2"}
-RETIRED_WORD_REDIRECTS = {
-    "comm_15943": "comm_444",  # claro (obsolete) → chiaro
-    "comm_11974": "2050",      # sù → su
-}
+# Bundled IDs removed from the catalogue that may still exist in on-device
+# databases. The app keeps them (and their history) as-is.
 RETIRED_WORD_IDS = {
+    "comm_15943", "comm_11974",
     "comm_9227", "comm_7994", "comm_6213", "comm_5973", "comm_10902",
     "comm_10519", "comm_10132", "comm_14046", "comm_13890", "comm_11981",
     "comm_15264", "comm_10259", "comm_12681", "comm_16383", "comm_16537",
@@ -42,7 +41,7 @@ def main() -> None:
     seen_ids: set[str] = set()
     seen_italian: set[str] = set()
 
-    for path in sorted(DATA.glob("words_*.json")):
+    for path in [DATA / "words.json"]:
         try:
             words = json.loads(path.read_text(encoding="utf-8"))
         except json.JSONDecodeError as error:
@@ -130,9 +129,8 @@ def main() -> None:
             }
             history_count = connection.execute("SELECT COUNT(*) FROM userWords").fetchone()[0]
 
-        retired_ids = set(RETIRED_WORD_REDIRECTS) | RETIRED_WORD_IDS
-        missing_catalogue_ids = (bundled_ids - source_ids) - retired_ids
-        missing_history_ids = (history_ids - source_ids) - retired_ids
+        missing_catalogue_ids = (bundled_ids - source_ids) - RETIRED_WORD_IDS
+        missing_history_ids = (history_ids - source_ids) - RETIRED_WORD_IDS
         if missing_catalogue_ids or missing_history_ids:
             problems = []
             if missing_catalogue_ids:
@@ -145,15 +143,9 @@ def main() -> None:
             f"Database compatibility: {len(bundled_ids)} bundled IDs and "
             f"{history_count} learning records are preserved by this catalogue."
         )
-        redirects_present = history_ids & set(RETIRED_WORD_REDIRECTS)
-        if redirects_present:
-            print(
-                "Pending catalogue redirects: "
-                + ", ".join(f"{word_id} → {RETIRED_WORD_REDIRECTS[word_id]}" for word_id in sorted(redirects_present))
-            )
-        retired_number_ids_present = history_ids & RETIRED_WORD_IDS
-        if retired_number_ids_present:
-            print(f"Pending number-card retirement: {len(retired_number_ids_present)} history records will be kept as skipped")
+        retired_ids_present = history_ids & RETIRED_WORD_IDS
+        if retired_ids_present:
+            print(f"Retired catalogue IDs with learning history: {len(retired_ids_present)}")
 
 
 if __name__ == "__main__":

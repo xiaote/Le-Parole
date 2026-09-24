@@ -1,7 +1,8 @@
 import Foundation
 import GRDB
 
-private struct WordEntry: Decodable, Sendable {
+/// One entry of the bundled `Data/words.json` catalogue.
+nonisolated struct CatalogueEntry: Decodable, Sendable {
     let id: String
     let italian: String
     let english: String
@@ -12,178 +13,107 @@ private struct WordEntry: Decodable, Sendable {
     let partOfSpeech: String?
 }
 
+/// Imports the bundled catalogue into the database. The imported version is
+/// stored in `PRAGMA user_version`, so it travels with backups.
 enum WordLoader {
-    // v22 adds reviewed CEFR overrides and merges two retired spelling cards
-    // without losing their existing learning history (migration v26).
-    static let dataVersion = 22
-    /// Debug-only Xcode launch argument for deliberately exercising the full
-    /// catalogue import. Normal Debug launches use the same version gate as
-    /// Release builds, avoiding a needless rewrite of every bundled word.
-    private static let forceRefreshLaunchArgument = "-refresh-word-catalogue"
+    /// Bump whenever `words.json` changes.
+    nonisolated static let catalogueVersion = 23
 
-    private static let fileNames = [
-        "words_a1", "words_a2", "words_b1", "words_b2", "words_c1",
-        "words_more_a2b1", "words_more_b2", "words_more_c1",
-        "words_a1_complete", "words_a2_complete",
-        "words_community",
-    ]
-
-    static func loadIfNeeded() async {
-        let storedVersion = UserDefaults.standard.integer(forKey: "wordDataVersion")
-        #if DEBUG
-        let forceRefresh = ProcessInfo.processInfo.arguments.contains(forceRefreshLaunchArgument)
-        #else
-        let forceRefresh = false
-        #endif
-        let hasCatalogue = await hasCatalogue()
-        guard forceRefresh || storedVersion < dataVersion || !hasCatalogue else { return }
-
-        var seenIds     = Set<String>()
-        var seenItalian = Set<String>()
-
+    /// Makes sure the bundled catalogue is imported. If a catalogue is already
+    /// present, a pending refresh runs in the background and this returns at
+    /// once; a database without words waits for the import.
+    /// - Returns: Whether a usable catalogue is available.
+    @discardableResult
+    static func prepare() async -> Bool {
         let db = DatabaseService.shared.db
-
-        do {
-            let existingWords = try await db.read { db in try Word.fetchAll(db) }
-            var existingById = Dictionary(uniqueKeysWithValues: existingWords.map { ($0.wordId, $0) })
-            var existingItalian = Set(existingWords.filter { !$0.isUserCreated }.map { $0.italian.lowercased() })
-
-            let existingUserWordIds = try await db.read { db in
-                try String.fetchAll(db, sql: "SELECT wordId FROM userWords")
-            }
-            var existingUserWordIdSet = Set(existingUserWordIds)
-
-            for name in fileNames {
-                guard
-                    let url = Bundle.main.url(forResource: name, withExtension: "json"),
-                    let data = try? Data(contentsOf: url),
-                    let entries = try? JSONDecoder().decode([WordEntry].self, from: data)
-                else { continue }
-
-                let fileEntries = entries.filter { entry in
-                    let italian = entry.italian.lowercased()
-                    guard !seenIds.contains(entry.id) && !seenItalian.contains(italian) else { return false }
-                    seenIds.insert(entry.id)
-                    seenItalian.insert(italian)
-                    return true
-                }
-                guard !fileEntries.isEmpty else { continue }
-
-                try await db.write { db in
-                    for entry in fileEntries {
-                        if let existing = existingById[entry.id] {
-                            guard !existing.isUserCreated else { continue }
-                            var updated = existing
-                            updated.italian = entry.italian
-                            updated.english = entry.english
-                            updated.alternatives = entry.alternatives ?? []
-                            updated.level = entry.level
-                            updated.frequencyRank = entry.frequencyRank
-                            updated.inflections = entry.inflections
-                            updated.partOfSpeech = entry.partOfSpeech
-                            try updated.update(db)
-
-                            if !existingUserWordIdSet.contains(entry.id) {
-                                var uw = UserWord(word: updated)
-                                try uw.insert(db)
-                                existingUserWordIdSet.insert(entry.id)
-                            }
-                            existingById[entry.id] = updated
-                        } else {
-                            guard !existingItalian.contains(entry.italian.lowercased()) else { continue }
-
-                            let word = Word(
-                                wordId: entry.id,
-                                italian: entry.italian,
-                                english: entry.english,
-                                alternatives: entry.alternatives ?? [],
-                                level: entry.level,
-                                frequencyRank: entry.frequencyRank,
-                                inflections: entry.inflections,
-                                partOfSpeech: entry.partOfSpeech
-                            )
-                            try word.insert(db)
-
-                            if !existingUserWordIdSet.contains(entry.id) {
-                                var uw = UserWord(word: word)
-                                try uw.insert(db)
-                                existingUserWordIdSet.insert(entry.id)
-                            }
-                            existingById[entry.id] = word
-                            existingItalian.insert(entry.italian.lowercased())
-                        }
-                    }
-                }
-            }
-
-            // Cleanup any dummy words that were not found in the JSON dictionaries
-            try await db.write { db in
-                try db.execute(sql: "DELETE FROM words WHERE italian = 'dummy_migrated' AND english = 'dummy'")
-            }
-
-            UserDefaults.standard.set(dataVersion, forKey: "wordDataVersion")
-        } catch {
-            print("WordLoader error: \(error)")
+        let state = try? await db.read { db in
+            (version: try Int.fetchOne(db, sql: "PRAGMA user_version") ?? 0,
+             hasWords: try Word.fetchCount(db) > 0)
         }
+        let hasWords = state?.hasWords ?? false
+        guard !hasWords || (state?.version ?? 0) < catalogueVersion else { return true }
+
+        let refresh = Task.detached(priority: hasWords ? .utility : .userInitiated) {
+            do {
+                let entries = try bundledEntries()
+                try await db.write { db in try importCatalogue(entries, into: db) }
+                return true
+            } catch {
+                print("WordLoader error: \(error)")
+                return false
+            }
+        }
+        return hasWords ? true : await refresh.value
     }
 
-    /// A version preference can outlive a restored or recreated SQLite file.
-    /// Treat an empty catalogue as needing import even when the preference says
-    /// the bundled data has already been loaded.
-    static func hasCatalogue() async -> Bool {
-        do {
-            return try await DatabaseService.shared.db.read { db in
-                (try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM words") ?? 0) > 0
-            }
-        } catch {
-            return false
+    nonisolated static func bundledEntries() throws -> [CatalogueEntry] {
+        guard let url = Bundle.main.url(forResource: "words", withExtension: "json") else {
+            throw CocoaError(.fileNoSuchFile)
         }
+        return try JSONDecoder().decode([CatalogueEntry].self, from: Data(contentsOf: url))
     }
 
-    static func ensureSettings() async {
-        let db = DatabaseService.shared.db
-        do {
-            let count = try await db.read { db in
-                try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM userSettings") ?? 0
-            }
-            if count == 0 {
-                try await db.write { db in
-                    var settings = UserSettings()
-                    try settings.insert(db)
-                }
-            }
-        } catch {
-            print("ensureSettings error: \(error)")
+    /// Upserts `entries` and creates missing progress rows in the current
+    /// transaction. User-created words are never touched, and a new entry is
+    /// skipped when its headword belongs to a retired bundled word still kept
+    /// in the database for its learning history.
+    nonisolated static func importCatalogue(
+        _ entries: [CatalogueEntry],
+        into db: Database,
+        version: Int = catalogueVersion,
+        now: Date = .now
+    ) throws {
+        try db.execute(sql: """
+            CREATE TEMP TABLE catalogueImport (
+                wordId TEXT PRIMARY KEY NOT NULL,
+                italian TEXT NOT NULL,
+                english TEXT NOT NULL,
+                alternatives TEXT NOT NULL,
+                level TEXT NOT NULL,
+                frequencyRank INTEGER NOT NULL,
+                inflections TEXT,
+                partOfSpeech TEXT
+            )
+            """)
+        let insert = try db.makeStatement(sql: "INSERT INTO catalogueImport VALUES (?, ?, ?, ?, ?, ?, ?, ?)")
+        for entry in entries {
+            try insert.execute(arguments: [
+                entry.id, entry.italian, entry.english,
+                Word.encodeAlternatives(entry.alternatives ?? []),
+                entry.level, entry.frequencyRank, entry.inflections, entry.partOfSpeech,
+            ])
         }
-        await migrateGeminiKeyToKeychain()
-    }
 
-    /// Older versions stored the Gemini key in `userSettings`, which put it in
-    /// every exported backup. Move it to the Keychain (unless one is already
-    /// stored there) and blank the column.
-    private static func migrateGeminiKeyToKeychain() async {
-        let db = DatabaseService.shared.db
-        do {
-            let legacyKey = try await db.read { db in
-                try String.fetchOne(db, sql: "SELECT geminiApiKey FROM userSettings WHERE geminiApiKey != '' LIMIT 1")
-            }
-            guard let legacyKey else { return }
+        try db.execute(sql: """
+            DELETE FROM catalogueImport
+            WHERE wordId NOT IN (SELECT wordId FROM words)
+              AND swiftLowercaseString(italian) IN (
+                  SELECT swiftLowercaseString(italian) FROM words
+                  WHERE NOT isUserCreated
+                    AND wordId NOT IN (SELECT wordId FROM catalogueImport)
+              );
 
-            let storedKey = KeychainStore.get(KeychainStore.geminiApiKey) ?? ""
-            guard !storedKey.isEmpty || KeychainStore.set(legacyKey, for: KeychainStore.geminiApiKey) else { return }
-            try await db.write { db in
-                try db.execute(sql: "UPDATE userSettings SET geminiApiKey = ''")
-            }
-        } catch {
-            print("Gemini key migration error: \(error)")
-        }
-    }
-
-    /// A restored backup may carry an older catalogue while the version
-    /// preference claims the current one, so force a full re-sync.
-    static func resyncAfterRestore() async {
-        UserDefaults.standard.removeObject(forKey: "wordDataVersion")
-        await loadIfNeeded()
-        await ensureSettings()
+            INSERT INTO words (wordId, italian, english, alternatives, level, frequencyRank, isUserCreated, inflections, partOfSpeech)
+            SELECT wordId, italian, english, alternatives, level, frequencyRank, 0, inflections, partOfSpeech
+            FROM catalogueImport WHERE true
+            ON CONFLICT(wordId) DO UPDATE SET
+                italian = excluded.italian,
+                english = excluded.english,
+                alternatives = excluded.alternatives,
+                level = excluded.level,
+                frequencyRank = excluded.frequencyRank,
+                inflections = excluded.inflections,
+                partOfSpeech = excluded.partOfSpeech
+            WHERE NOT words.isUserCreated;
+            """)
+        try db.execute(sql: """
+            INSERT INTO userWords (wordId, stage, easeFactor, interval, repetitions, nextReviewDate, totalCorrect, totalAttempts)
+            SELECT i.wordId, 'new', 2.5, 1, 0, ?, 0, 0
+            FROM catalogueImport i
+            JOIN words w ON w.wordId = i.wordId AND NOT w.isUserCreated
+            WHERE NOT EXISTS (SELECT 1 FROM userWords uw WHERE uw.wordId = i.wordId)
+            """, arguments: [now.timeIntervalSince1970])
+        try db.execute(sql: "DROP TABLE temp.catalogueImport")
+        try db.execute(sql: "PRAGMA user_version = \(version)")
     }
 }
