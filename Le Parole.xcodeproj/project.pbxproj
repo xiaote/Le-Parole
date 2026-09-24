@@ -10,14 +10,30 @@
 		28644B952FCE3CD200FC0F5F /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 28644B942FCE3CD200FC0F5F /* GRDB */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5C932902B0EA759353357B27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 289ADF262FCD318200C5AF32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 289ADF2D2FCD318200C5AF32;
+			remoteInfo = "Le Parole";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		289ADF2E2FCD318200C5AF32 /* Le Parole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le Parole.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		10CD25F6C29103695A3328BC /* Le ParoleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le ParoleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		289ADF302FCD318200C5AF32 /* Le Parole */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Le Parole";
+			sourceTree = "<group>";
+		};
+		6D4F8632D5901D67D212141C /* Le ParoleTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Le ParoleTests";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -31,6 +47,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2900C159FA90BC7850EF2938 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -38,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				289ADF302FCD318200C5AF32 /* Le Parole */,
+				6D4F8632D5901D67D212141C /* Le ParoleTests */,
 				289ADF2F2FCD318200C5AF32 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				289ADF2E2FCD318200C5AF32 /* Le Parole.app */,
+				10CD25F6C29103695A3328BC /* Le ParoleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +101,29 @@
 			productReference = 289ADF2E2FCD318200C5AF32 /* Le Parole.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D17231E18F0AF4047952C226 /* Le ParoleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 369A354464EE92834C1277C4 /* Build configuration list for PBXNativeTarget "Le ParoleTests" */;
+			buildPhases = (
+				C12D3691D0CC71C8D644750E /* Sources */,
+				2900C159FA90BC7850EF2938 /* Frameworks */,
+				D279D632FA56574785BD14BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CAF8B416970E0A0EF14B2819 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6D4F8632D5901D67D212141C /* Le ParoleTests */,
+			);
+			name = "Le ParoleTests";
+			packageProductDependencies = (
+			);
+			productName = "Le ParoleTests";
+			productReference = 10CD25F6C29103695A3328BC /* Le ParoleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -88,6 +136,10 @@
 				TargetAttributes = {
 					289ADF2D2FCD318200C5AF32 = {
 						CreatedOnToolsVersion = 26.5;
+					};
+					D17231E18F0AF4047952C226 = {
+						CreatedOnToolsVersion = 26.5;
+						TestTargetID = 289ADF2D2FCD318200C5AF32;
 					};
 				};
 			};
@@ -109,12 +161,20 @@
 			projectRoot = "";
 			targets = (
 				289ADF2D2FCD318200C5AF32 /* Le Parole */,
+				D17231E18F0AF4047952C226 /* Le ParoleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		289ADF2C2FCD318200C5AF32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D279D632FA56574785BD14BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -131,7 +191,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C12D3691D0CC71C8D644750E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CAF8B416970E0A0EF14B2819 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 289ADF2D2FCD318200C5AF32 /* Le Parole */;
+			targetProxy = 5C932902B0EA759353357B27 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		289ADF372FCD318200C5AF32 /* Debug */ = {
@@ -321,6 +396,52 @@
 			};
 			name = Release;
 		};
+		219BD8D6FD655A8DF1E74594 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 427B7B9G3V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xt.Le-ParoleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Le Parole.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Le Parole";
+			};
+			name = Debug;
+		};
+		DAEB3F489F40C9BD4E2FFA6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 427B7B9G3V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xt.Le-ParoleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Le Parole.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Le Parole";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -338,6 +459,15 @@
 			buildConfigurations = (
 				289ADF3A2FCD318200C5AF32 /* Debug */,
 				289ADF3B2FCD318200C5AF32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		369A354464EE92834C1277C4 /* Build configuration list for PBXNativeTarget "Le ParoleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				219BD8D6FD655A8DF1E74594 /* Debug */,
+				DAEB3F489F40C9BD4E2FFA6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

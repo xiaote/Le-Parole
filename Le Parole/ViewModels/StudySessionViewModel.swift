@@ -2,7 +2,7 @@ import Foundation
 import Observation
 import GRDB
 
-struct StudyCard: Identifiable, Sendable {
+nonisolated struct StudyCard: Identifiable, Sendable {
     let id = UUID()
     var userWord: UserWord
     var cardType: CardType
@@ -67,18 +67,6 @@ struct SessionStats: Sendable {
     var accuracy: Double {
         total == 0 ? 0 : Double(correct) / Double(total)
     }
-}
-
-struct ReviewScheduleFeedback: Sendable {
-    let title: String
-    let detail: String
-}
-
-enum ReviewOutcome: Sendable {
-    case stageChanged(from: WordStage, to: WordStage)
-    case lapseRecovered(ReviewScheduleFeedback)
-    case reviewScheduled(ReviewScheduleFeedback)
-    case none
 }
 
 enum ConjugationFetchStatus: Sendable {
@@ -254,146 +242,11 @@ class StudySessionViewModel {
     }
 
     private func buildQueue(dueWords: [UserWord], newWords: [UserWord]) {
-        let now = Date.now
-        let newCards = newWords.map { StudyCard(userWord: $0, cardType: .recognition) }
-
-        var attentionWords: [UserWord] = []
-        var learningWords: [UserWord] = []
-        var maintenanceWords: [UserWord] = []
-
-        for userWord in dueWords {
-            switch userWord.stage {
-            case .recognition:
-                attentionWords.append(userWord)
-            case .production:
-                if hasUnresolvedMistake(userWord) {
-                    attentionWords.append(userWord)
-                } else {
-                    learningWords.append(userWord)
-                }
-            case .mastered:
-                if hasUnresolvedMistake(userWord) {
-                    attentionWords.append(userWord)
-                } else {
-                    maintenanceWords.append(userWord)
-                }
-            case .new, .skipped:
-                break
-            }
-        }
-
-        attentionWords.sort { isHigherPriority($0, than: $1, now: now) }
-        learningWords.sort { isHigherPriority($0, than: $1, now: now) }
-        maintenanceWords.sort { isHigherPriority($0, than: $1, now: now) }
-
-        let aiAvailable = AppleIntelligenceService.isAvailable || !geminiApiKey.isEmpty
-        let makeDueCard: (UserWord, StudyCard.SchedulingIntent) -> StudyCard = { userWord, schedulingIntent in
-            let isVerb = userWord.word.english.lowercased().hasPrefix("to ")
-            let type: StudyCard.CardType = aiAvailable && isVerb ? .conjugation : .production
-            return StudyCard(userWord: userWord, cardType: type, schedulingIntent: schedulingIntent)
-        }
-
-        let attentionCards = attentionWords.map { userWord in
-            if userWord.stage == .recognition {
-                return StudyCard(userWord: userWord, cardType: .recognition)
-            }
-            let schedulingIntent: StudyCard.SchedulingIntent =
-                hasUnresolvedMistake(userWord) && SM2.isLapseRecoveryCandidate(userWord)
-                ? .lapseRecovery
-                : .standard
-            return makeDueCard(userWord, schedulingIntent)
-        }
-        let dueLearningCards = learningWords.map { makeDueCard($0, .standard) }
-        let learningCards = alternating(newCards, dueLearningCards)
-        let maintenanceCards = maintenanceWords.map { makeDueCard($0, .standard) }
-
-        let queue = rotateQueue(
-            attention: attentionCards,
-            learning: learningCards,
-            maintenance: maintenanceCards
+        cards = StudyQueueBuilder.buildQueue(
+            dueWords: dueWords,
+            newWords: newWords,
+            conjugationAvailable: AppleIntelligenceService.isAvailable || !geminiApiKey.isEmpty
         )
-        cards = delayingInitialConjugations(in: queue)
-    }
-
-    /// A mistake remains unresolved until the word is subsequently answered
-    /// correctly. This uses the existing timestamps, so queue prioritization
-    /// does not need another persistence field.
-    private func hasUnresolvedMistake(_ userWord: UserWord) -> Bool {
-        guard let lastWrong = userWord.lastWrongDate else { return false }
-        guard let lastReview = userWord.lastReviewDate else { return true }
-        return lastWrong >= lastReview
-    }
-
-    private func isHigherPriority(_ lhs: UserWord, than rhs: UserWord, now: Date) -> Bool {
-        let lhsMistake = hasUnresolvedMistake(lhs)
-        let rhsMistake = hasUnresolvedMistake(rhs)
-        if lhsMistake != rhsMistake { return lhsMistake }
-
-        let lhsOverdue = now.timeIntervalSince(lhs.nextReviewDate)
-        let rhsOverdue = now.timeIntervalSince(rhs.nextReviewDate)
-        if lhsOverdue != rhsOverdue { return lhsOverdue > rhsOverdue }
-
-        let lhsAccuracy = lhs.totalAttempts == 0 ? 0 : Double(lhs.totalCorrect) / Double(lhs.totalAttempts)
-        let rhsAccuracy = rhs.totalAttempts == 0 ? 0 : Double(rhs.totalCorrect) / Double(rhs.totalAttempts)
-        if lhsAccuracy != rhsAccuracy { return lhsAccuracy < rhsAccuracy }
-
-        return lhs.word.frequencyRank < rhs.word.frequencyRank
-    }
-
-    private func alternating(_ first: [StudyCard], _ second: [StudyCard]) -> [StudyCard] {
-        var result: [StudyCard] = []
-        result.reserveCapacity(first.count + second.count)
-        for index in 0..<max(first.count, second.count) {
-            if index < first.count { result.append(first[index]) }
-            if index < second.count { result.append(second[index]) }
-        }
-        return result
-    }
-
-    /// Keeps one streamlined session while ensuring that any stopping point
-    /// contains a useful mix of attention, learning, and maintenance work.
-    private func rotateQueue(
-        attention: [StudyCard],
-        learning: [StudyCard],
-        maintenance: [StudyCard]
-    ) -> [StudyCard] {
-        var result: [StudyCard] = []
-        result.reserveCapacity(attention.count + learning.count + maintenance.count)
-        var attentionIndex = 0
-        var learningIndex = 0
-        var maintenanceIndex = 0
-
-        while attentionIndex < attention.count || learningIndex < learning.count || maintenanceIndex < maintenance.count {
-            if attentionIndex < attention.count {
-                result.append(attention[attentionIndex])
-                attentionIndex += 1
-            }
-            if learningIndex < learning.count {
-                result.append(learning[learningIndex])
-                learningIndex += 1
-            }
-            if maintenanceIndex < maintenance.count {
-                result.append(maintenance[maintenanceIndex])
-                maintenanceIndex += 1
-            }
-            if learningIndex < learning.count {
-                result.append(learning[learningIndex])
-                learningIndex += 1
-            }
-        }
-        return result
-    }
-
-    /// Conjugation generation is asynchronous. Pulling up to three ordinary
-    /// learning cards forward gives it time to finish without allowing mastered
-    /// maintenance to displace higher-value work at the start of a session.
-    private func delayingInitialConjugations(in queue: [StudyCard]) -> [StudyCard] {
-        let initialCards = Array(queue.lazy.filter {
-            $0.cardType != .conjugation && $0.userWord.stage != .mastered
-        }.prefix(3))
-        guard !initialCards.isEmpty else { return queue }
-        let initialIDs = Set(initialCards.map(\.id))
-        return initialCards + queue.filter { !initialIDs.contains($0.id) }
     }
 
     func isValidItalianSynonym(input: String) async -> Bool {
@@ -596,132 +449,44 @@ class StudySessionViewModel {
 
     private func processResult(correct: Bool, context: MistakeContext? = nil) -> ReviewOutcome {
         guard currentIndex < cards.count else { return .none }
-        let cardType = cards[currentIndex].cardType
-        let schedulingIntent = cards[currentIndex].schedulingIntent
-        let stageBeforeAnswer = cards[currentIndex].userWord.stage
-        let wasIntroducedBeforeAnswer = cards[currentIndex].userWord.learnedDate != nil
+        let card = cards[currentIndex]
+        let result = ReviewScheduler.schedule(
+            card.userWord,
+            cardType: card.cardType,
+            intent: card.schedulingIntent,
+            correct: correct,
+            isTestMode: isTestMode
+        )
+        cards[currentIndex].userWord = result.userWord
 
         stats.total += 1
         if correct { stats.correct += 1 }
-
-        cards[currentIndex].userWord.totalAttempts += 1
-        if correct {
-            cards[currentIndex].userWord.totalCorrect += 1
+        if result.graduated { stats.graduated += 1 }
+        if !correct, !stats.wrongWords.contains(where: { $0.userWord.id == result.userWord.id }) {
+            stats.wrongWords.append(MistakeItem(userWord: result.userWord, cardType: card.cardType, context: context))
         }
-        cards[currentIndex].userWord.lastReviewDate = .now
-
-        if !correct {
-            cards[currentIndex].userWord.lastWrongDate = .now
-            let uwCopy = cards[currentIndex].userWord
-            if !stats.wrongWords.contains(where: { $0.userWord.id == uwCopy.id }) {
-                stats.wrongWords.append(MistakeItem(userWord: uwCopy, cardType: cardType, context: context))
-            }
+        if result.needsFamiliarityConfirmation {
+            scheduleFamiliarityConfirmation(for: result.userWord)
         }
 
-        if isTestMode {
-            if correct {
-                cards[currentIndex].userWord.stage = .mastered
-                cards[currentIndex].userWord.learnedDate = cards[currentIndex].userWord.learnedDate ?? .now
-                cards[currentIndex].userWord.interval = SM2.masteryThreshold
-                cards[currentIndex].userWord.repetitions = 1
-                cards[currentIndex].userWord.easeFactor = 2.5
-                cards[currentIndex].userWord.nextReviewDate = SM2.nextReviewDate(interval: SM2.masteryThreshold)
-            } else {
-                if cards[currentIndex].userWord.stage != .new {
-                    cards[currentIndex].userWord.nextReviewDate = SM2.nextReviewDate(interval: 1)
-                }
-            }
-        } else {
-            switch cardType {
-            case .recognition:
-                if correct {
-                    if cards[currentIndex].userWord.learnedDate == nil {
-                        cards[currentIndex].userWord.learnedDate = .now
-                    }
-                    cards[currentIndex].userWord.stage = .production
-                    let result = SM2.evaluate(userWord: cards[currentIndex].userWord, correct: true)
-                    applyResult(result, to: &cards[currentIndex].userWord)
-                    stats.graduated += 1
-                    if stageBeforeAnswer == .new {
-                        scheduleFamiliarityConfirmation(for: cards[currentIndex].userWord)
-                    }
-                } else {
-                    if cards[currentIndex].userWord.stage == .new {
-                        cards[currentIndex].userWord.learnedDate = .now
-                        cards[currentIndex].userWord.stage = .recognition
-                    }
-                    cards[currentIndex].userWord.nextReviewDate = SM2.nextReviewDate(interval: 1)
-                }
-
-            case .production, .conjugation:
-                let isMasteredLapse = !correct && stageBeforeAnswer == .mastered
-                let result: SM2Result
-                if schedulingIntent == .familiarityConfirmation && correct {
-                    result = SM2.acceleratedMastery(for: cards[currentIndex].userWord)
-                } else if schedulingIntent == .lapseRecovery && correct {
-                    result = SM2.completeLapseRecovery(for: cards[currentIndex].userWord)
-                } else if isMasteredLapse {
-                    result = SM2.beginLapseRecovery(for: cards[currentIndex].userWord)
-                } else {
-                    result = SM2.evaluate(userWord: cards[currentIndex].userWord, correct: correct)
-                }
-                applyResult(result, to: &cards[currentIndex].userWord)
-                if isMasteredLapse {
-                    cards[currentIndex].userWord.nextReviewDate = SM2.nextReviewDate(interval: SM2.lapseReviewDelay)
-                }
-                if correct && result.interval >= SM2.masteryThreshold {
-                    cards[currentIndex].userWord.stage = .mastered
-                } else if isMasteredLapse {
-                    cards[currentIndex].userWord.stage = .production
-                }
-            }
-        }
-
-        let uwToSave = cards[currentIndex].userWord
-        let introduced = !wasIntroducedBeforeAnswer && uwToSave.learnedDate != nil
-        let movedToProduction =
-            stageBeforeAnswer != .production &&
-            stageBeforeAnswer != .mastered &&
-            uwToSave.stage == .production
-        let didTransitionToMastered = stageBeforeAnswer != .mastered && uwToSave.stage == .mastered
-        let countsAsNewMastery: Bool
-        if case .lapseRecovery = schedulingIntent {
-            countsAsNewMastery = false
-        } else {
-            countsAsNewMastery = didTransitionToMastered
-        }
-
-        let outcome: ReviewOutcome
-        if schedulingIntent == .lapseRecovery, correct, didTransitionToMastered {
-            outcome = .lapseRecovered(reviewScheduleFeedback(for: uwToSave.interval))
-        } else if stageBeforeAnswer != uwToSave.stage {
-            outcome = .stageChanged(from: stageBeforeAnswer, to: uwToSave.stage)
-        } else if correct, stageBeforeAnswer == .mastered, uwToSave.stage == .mastered {
-            outcome = .reviewScheduled(reviewScheduleFeedback(for: uwToSave.interval))
-        } else {
-            outcome = .none
-        }
-        
-        let conjugationReview: ConjugationReviewRecord?
-        if cardType == .conjugation, case .success(let challenge) = conjugationCache[cards[currentIndex].id] {
+        var conjugationReview: ConjugationReviewRecord?
+        if card.cardType == .conjugation, case .success(let challenge) = conjugationCache[card.id] {
             conjugationReview = ConjugationReviewRecord(
-                verb: cards[currentIndex].userWord.word.italian,
+                verb: result.userWord.word.italian,
                 tense: challenge.tense,
                 pronoun: challenge.pronoun
             )
-        } else {
-            conjugationReview = nil
         }
 
         DatabaseService.shared.persistReview(
-            userWord: uwToSave,
+            userWord: result.userWord,
             correct: correct,
-            introduced: introduced,
-            movedToProduction: movedToProduction,
-            movedToMastered: countsAsNewMastery,
+            introduced: result.introduced,
+            movedToProduction: result.movedToProduction,
+            movedToMastered: result.movedToMastered,
             conjugation: conjugationReview
         )
-        return outcome
+        return result.outcome
     }
 
     /// A first-sight recognition success may be a word the learner already
@@ -736,46 +501,4 @@ class StudySessionViewModel {
         let insertionIndex = min(currentIndex + 6, cards.count)
         cards.insert(confirmation, at: insertionIndex)
     }
-
-    private func applyResult(_ result: SM2Result, to userWord: inout UserWord) {
-        userWord.interval      = result.interval
-        userWord.easeFactor    = result.easeFactor
-        userWord.repetitions   = result.repetitions
-        userWord.nextReviewDate = SM2.nextReviewDate(interval: result.interval)
-    }
-
-    private func reviewScheduleFeedback(for interval: Int) -> ReviewScheduleFeedback {
-        let title: String
-        switch interval {
-        case ...1:
-            title = "Nice start"
-        case 2...6:
-            title = "Getting familiar"
-        case 7...20:
-            title = "Coming along"
-        case 21...59:
-            title = "You know this"
-        case 60...179:
-            title = "Sticking with you"
-        default:
-            title = "Second nature"
-        }
-
-        let duration: String
-        switch interval {
-        case ..<14:
-            duration = "\(interval) days"
-        case ..<60:
-            let weeks = max(2, Int(round(Double(interval) / 7)))
-            duration = "\(weeks) weeks"
-        case ..<365:
-            let months = max(2, Int(round(Double(interval) / 30)))
-            duration = "\(months) months"
-        default:
-            let years = max(1, Int(round(Double(interval) / 365)))
-            duration = years == 1 ? "1 year" : "\(years) years"
-        }
-        return ReviewScheduleFeedback(title: title, detail: "See it again in \(duration)")
-    }
-
 }

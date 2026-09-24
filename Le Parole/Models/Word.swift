@@ -134,6 +134,8 @@ struct Word: Identifiable, Sendable, Equatable {
     private nonisolated static let digitsRegex = try! NSRegularExpression(pattern: "\\d+")
     private nonisolated static let spellOutFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
+        // Answers are English regardless of the device language.
+        formatter.locale = Locale(identifier: "en_US")
         formatter.numberStyle = .spellOut
         return formatter
     }()

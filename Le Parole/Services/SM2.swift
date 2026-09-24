@@ -1,12 +1,12 @@
 import Foundation
 
-struct SM2Result {
+nonisolated struct SM2Result: Sendable {
     let interval: Int
     let easeFactor: Double
     let repetitions: Int
 }
 
-enum SM2 {
+nonisolated enum SM2 {
     // Words with SM-2 interval >= this threshold are considered mastered.
     static let masteryThreshold = 21
     static let acceleratedMasteryInterval = 30
@@ -91,8 +91,9 @@ enum SM2 {
             (minimumRetainedLapseInterval...maximumRetainedLapseInterval).contains(userWord.interval)
     }
 
-    static func nextReviewDate(interval: Int) -> Date {
-        let future = Calendar.current.date(byAdding: .day, value: interval, to: .now) ?? .now
+    /// The start of the day `interval` days after `now`.
+    static func nextReviewDate(interval: Int, from now: Date = .now) -> Date {
+        let future = Calendar.current.date(byAdding: .day, value: interval, to: now) ?? now
         return Calendar.current.startOfDay(for: future)
     }
 }

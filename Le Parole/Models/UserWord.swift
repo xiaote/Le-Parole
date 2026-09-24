@@ -1,7 +1,7 @@
 import Foundation
 import GRDB
 
-enum WordStage: String, Codable, CaseIterable, Sendable {
+nonisolated enum WordStage: String, Codable, CaseIterable, Sendable {
     case new
     case skipped
     case recognition

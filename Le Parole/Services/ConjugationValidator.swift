@@ -131,7 +131,15 @@ nonisolated struct ConjugationValidator {
         case "imperativo": suffixes = person?.imperativo ?? []
         default: suffixes = []
         }
-        return suffixes.isEmpty || suffixes.contains { answer.hasSuffix($0) }
+        guard !suffixes.isEmpty else { return true }
+        var forms = [answer]
+        // Reflexive imperatives attach the pronoun ("svegliatevi"); check the
+        // ending before it too.
+        if verbLower.hasSuffix("rsi"),
+           let attached = Self.reflexivePronouns.first(where: { answer.hasSuffix($0) }) {
+            forms.append(String(answer.dropLast(attached.count)))
+        }
+        return forms.contains { form in suffixes.contains { form.hasSuffix($0) } }
     }
 
     private func hasReflexivePronoun(_ answer: String, tokens: [String]) -> Bool {
