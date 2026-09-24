@@ -992,17 +992,29 @@
     "keys": [
       {
         "text": "mure a dritta"
-      },
-      {
-        "text": "mure a sinistra"
       }
     ],
     "promptImageName": "cvc_crop_mure_dritta_quiz",
     "revealedImageName": "cvc_crop_mure_dritta_full",
-    "title": "Le Mure (Dritta / Sinistra)",
+    "title": "Mure a Dritta",
     "plateName": "cvc_plate_direzioni",
     "plateTitle": "Tavola 7: Il Vento",
     "caption": "Mure a dritta: la barca riceve il vento dal lato destro (ha diritto di precedenza).",
+    "hasMatchingFullPlate": true
+  },
+  {
+    "id": "mure_sinistra",
+    "keys": [
+      {
+        "text": "mure a sinistra"
+      }
+    ],
+    "promptImageName": "cvc_crop_mure_sinistra_quiz",
+    "revealedImageName": "cvc_crop_mure_sinistra_full",
+    "title": "Mure a Sinistra",
+    "plateName": "cvc_plate_direzioni",
+    "plateTitle": "Tavola 7: Il Vento",
+    "caption": "Mure a sinistra: la barca riceve il vento dal lato sinistro (deve dare la precedenza a chi ha mure a dritta).",
     "hasMatchingFullPlate": true
   },
   {

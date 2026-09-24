@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import sys
 from pathlib import Path
 
@@ -11,6 +12,7 @@ from PIL import Image
 
 
 ASSET_ROOT = Path(__file__).resolve().parents[1] / "Le Parole" / "Assets.xcassets"
+CATALOGUE = Path(__file__).resolve().parents[1] / "Le Parole" / "Data" / "diagrams.json"
 ORANGE = (242, 115, 51)
 MAX_EDGE = 700
 
@@ -37,8 +39,11 @@ def main() -> int:
     quiz_sets = {path.name.removesuffix("_quiz.imageset"): path for path in ASSET_ROOT.glob("cvc_crop_*_quiz.imageset")}
     full_sets = {path.name.removesuffix("_full.imageset"): path for path in ASSET_ROOT.glob("cvc_crop_*_full.imageset")}
 
-    if len(quiz_sets) != 96 or len(full_sets) != 96:
-        failures.append(f"expected 96 quiz and 96 revealed sets; found {len(quiz_sets)} and {len(full_sets)}")
+    expected = len(json.loads(CATALOGUE.read_text()))
+    if len(quiz_sets) != expected or len(full_sets) != expected:
+        failures.append(
+            f"expected {expected} quiz and {expected} revealed sets; found {len(quiz_sets)} and {len(full_sets)}"
+        )
 
     if quiz_sets.keys() != full_sets.keys():
         failures.append("quiz and revealed asset-set names do not match")
@@ -63,7 +68,7 @@ def main() -> int:
     if failures:
         print("Sailing diagram audit failed:", *failures, sep="\n- ")
         return 1
-    print("Sailing diagram audit passed: 96 distinct quiz/revealed pairs, all quiz badges present, max edge <= 700px.")
+    print(f"Sailing diagram audit passed: {expected} distinct quiz/revealed pairs, all quiz badges present, max edge <= 700px.")
     return 0
 
 
